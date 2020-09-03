@@ -1,0 +1,28 @@
+Software
+--------
+
+- `The Arduino IDE <https://www.arduino.cc/en/main/software>`_ provides a convenient way to write and upload your Arduino code. It also features basic monitoring of serial output from the Arduino board.
+- `The Anaconda Python distribution <https://www.anaconda.com/products/individual>`_ contains the Python-based tools you need to build dashboards and analyze the data you acquire from your devices.
+- `Fritzing <https://fritzing.org>`_ allows you to make circuit diagrams and pictorial representations of your Arduino and breadboard.
+
+
+Books
+-----
+
+- `The Art of Electronics <https://artofelectronics.net>`_ by Horowitz and Hill is considered by many to be *the* book on building electronic circuits.
+- `Getting Started with Arduino <https://www.makershed.com/products/make-getting-started-with-arduino-3rd-edition>`_ by Banzi and Shiloh is a good introduction to using Arduino for building electronic prototypes.
+- `Programming Arduino <http://simonmonk.org/progardui2ed/>`_ and `Programming Arduino Next Steps <http://simonmonk.org/nextsteps2/>`_ by Simon Monk focus on the software side of making Arduino-based prototypes.
+- `Arduino Cookbook <https://www.oreilly.com/library/view/arduino-cookbook-3rd/9781491903513/>`_ by Margolis, Jepson, and Weldin provides more advanced recipes for using Arduino.
+
+
+Online resources
+------------------
+
+Free instructional materials for electronic prototyping abound. You can often do well by simply Googling what you are trying to find out.
+
+- Arduino provides useful `tutorials <https://www.arduino.cc/en/Tutorial/>`_ on their website. 
+- The `Arduino language reference <https://www.arduino.cc/reference/>`_ is an invaluable resource to quickly look up the APIs for various functions.
+- The `Arduino forums <https://forum.arduino.cc>`_ abound with tutorials, tips, and traps.
+- `Adafruit <https://learn.adafruit.com>`_ has fun learning modules that can help get you started with electronics projects. They do not go into much technical detail, but provide a nice functional level of understanding.
+- Like Adafruit, `SparkFun <https://learn.sparkfun.com/>`_ also has good learning resources.
+

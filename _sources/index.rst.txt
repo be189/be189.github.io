@@ -1,0 +1,55 @@
+BE/EE/MedE 189 a: Design and Construction of Biodevices
+===============================================================
+
+Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
+
+
+People
+------
+
+- Instructor
+
+   + `Justin Bois <http://bois.caltech.edu/>`_ (`bois at caltech dot edu`)
+
+- TAs
+
+   + Changsoon Choi (`cchoi at caltech dot edu`)
+   + Michelle Cua (`ecua at caltech dot edu`)
+   + Anne Kil (`annekil0530 at caltech dotedu`)
+
+- Discourse
+
+   We will use `the course Ed page <https://us.edstem.org/courses/2616/>`_ to communicate with each other about the course material.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Policies
+
+   policies.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Lessons
+
+   lessons/l00_configuring_your_computer.ipynb
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Exercises
+
+   exercises/exercise_1.ipynb
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Schedule
+
+   schedule.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Resources
+
+   resources.rst

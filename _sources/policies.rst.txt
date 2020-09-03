@@ -1,0 +1,108 @@
+Meetings
+--------
+
+The class meets regularly on Tuesdays and Thursdays 10:30-noon PDT via `this Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/>`_. Unless you have extenuating circumstances, the meetings are mandatory. Some course meetings will involve live instruction which will be recorded and posted on the :ref:`Schedule` page. Many of the course meetings will be check-ins and discussion about your projects. For these meetings, you are required to attend, but may leave after the instructor dismisses you.
+
+
+Course structure
+----------------
+
+In this course, we provide you with two design challenges. First, you will design and build a spectrophotometer. You will use this devise to measure growth curves of yeast or bacteria. After completing that project, you will tackle the more challenging project of designing and building a pulse oximeter. We provide basic specifications and most construction materials for these devices, and it is your job to implement the specification and demonstrate a working prototype.
+
+At the beginning of the term, you will complete a series of exercises to bring you up to speed using the Arduino platform and interfacing with Arduino using Python-based tools. After that, you work on design projects.
+
+You can work at your own pace, but it is your responsibility to have your exercises, projects, and writeups completed according to the due dates on the :ref:`Schedule` page. You are working independently, and the course staff is here to help you, but it is your responsibility to keep your projects moving with a good time line.
+
+
+Course communications
+---------------------
+
+Please use `the course Ed page <https://us.edstem.org/courses/2616/>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
+
+For private matters, such as extension requests, contact the course staff directly using email.
+
+
+Equipment
+---------
+
+You will receive a box in the mail with components necessary to do the work for the course. After the course is over, we expect you to return these components, as we will use them in future editions of the course. Therefore, please keep the box they came in in good condition so you can use it to ship the materials back.
+
+
+Submission of exercises and project write-ups
+----------------------------------------------
+
+Each project write-up and exercise must be submitted as a ZIP file via email to `caltechbe189@gmail.com`. The files names are `lastname_firstname_exercise_##.zip` for exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_spectro.zip` and `lastname_firstname_pulseox.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes. The subject line of the email is the same as the file name of the ZIP file, minus the `.zip`.
+
+
+Exercises
+---------
+
+Each exercise falls into one of two classes.
+
+1. Follow-along exercise
+2. Do-it-yourself exercise
+
+In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. In a do-it-yourself exercise, you apply techniques covered in the course materials and in the follow-along exercises to make your own circuit. These exercises are meant to help you build the expertise you need to complete the projects.
+
+
+Follow-along exercises
+^^^^^^^^^^^^^^^^^^^^^^
+
+When you submit a follow-along exercise, the following must be included in the ZIP file.
+
+1. A photo or photos of your board/breadboard.
+2. A brief movie of your circuit functioning.
+
+
+Do-it-yourself exercises
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you submit a do-it-yourself exercise, the following must be included in the ZIP file.
+
+1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include circuit diagrams and breadboard illustrations. You can use `Fritzing <https://fritzing.org>`_ to make these. If you interact with your device through JupyterLab, that can also be included in the notebook.
+2. An HTML rendering of the Jupyter notebook.
+3. If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.
+4. A photo or photos of your board/breadboard.
+5. A brief movie of your circuit functioning.
+
+
+Project write-ups
+-----------------
+
+You will complete two major design projects in the course. You will construct a spectrophotometer and a pulse oximeter. Your goal is to develop a prototype to achieve the provided design specification. Each project has a description on the course website with some background information, overall design specification, a set of details about the specification, as well as some prelab and postlab questions. You should read the entire project description before submitting your prelab questions. Additionally included are spec sheets (or links to them) for components used in the projects.
+
+In designing your project, you also need to design and implement a user interface for controlling the device and acquiring data from it. You can use `Bokeh <https://bokeh.pydata.org/>`_ to do this.
+
+Prelabs consist of a set of questions to help you get the requisite background knowledge for the respective projects. While completing the prelabs, be sure to have the specification for the design in mind.
+
+The project writeup must include the following in delineated sections, written in a Jupyter notebook.
+
+- **Section 1: Overview.** A one- or two-paragraph summary of the design objectives.
+- **Section 2: Design and design considerations.** Include circuit diagrams and a pictorial representation of the breadboard (which you can make with `Fritzing <https://fritzing.org>`_. You should also include a description and rationale behind design choices you made in executing the prototype per specification. These choices also include how you designed the user interface. Discuss potential limitations or trade offs for major design decisions.
+- **Section 3: Instructions for use.** Instructions on how to use your device.
+- **Section 4: Demonstration and assessment.** A demonstration of the device's functionality and assessment of its performance. Metrics for performance should be clearly delineated and assessed.
+- **Section 5: Analysis of data.** Analysis of any relevant data you acquired from your device. This involves making plots and determining parameters of the biological system you are probing with your device.
+- **Section 6: Suggestions for the next design phase.** Since you are building a prototype, give a discussion for changes or enhancements to consider in the next phase of design.
+- **Section 7: Postlab questions.** Complete answers to the postlab questions.
+
+In the submitted ZIP file, you must have the following
+
+1. The Jupyter notebook described above.
+2. An HTML rendering of the notebook.
+3. Any code you wrote outside of the notebook, especially code for the user interface.
+4. A photo or photos of your devices.
+5. A movie of your device functioning. This should also include a video of the user interface in action.
+
+
+Collaboration policy
+--------------------
+
+- You may discuss all of the course material and objectives, including the exercises and projects, with other students in the course. If you get useful help from another student, please be sure to cite them appropriately in your write-up.
+- You may use whatever internet resources you need. If you took substantial ideas from sources outside of the course materials, clearly cite them.
+
+
+Grading
+-------
+
+- 30% of your grade is determined from exercises and 70% of your grade is determined from your projects, with 30% of your grade coming from the spectrophotometer and 40% from the pulse oximeter project.
+- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/2:sup:`(ceil(number of days late))`. The exception is the pulse oximeter write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
