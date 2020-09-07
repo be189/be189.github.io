@@ -3,42 +3,52 @@ BE/EE/MedE 189 a: Design and Construction of Biodevices
 
 Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
 
+Students are repsonsible for reading the :ref:`course policies<Policies>` below.
+
+
+Useful links
+-------------
+
+- `Ed <https://us.edstem.org/courses/2616/>`_ (used for course communications)
+- `Course Zoom link <http://bois.caltech.edu/zoom_links/2020_fall/be189_main>`_ (password protected)
+
+During lab sessions, we will break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.
+
+
 
 People
 ------
 
 - Instructor
 
-   + `Justin Bois <http://bois.caltech.edu/>`_ (`bois at caltech dot edu`)
+   + `Justin Bois <http://bois.caltech.edu/>`_ (`bois at caltech dot edu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/jb>`_)
 
 - TAs
 
-   + Changsoon Choi (`cchoi at caltech dot edu`)
-   + Michelle Cua (`ecua at caltech dot edu`)
-   + Anne Kil (`annekil0530 at caltech dotedu`)
+   + Changsoon Choi (`cchoi at caltech dot edu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/changsoon>`_)
+   + Michelle Cua (`ecua at caltech dot edu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/michelle>`_)
+   + Anne Kil (`annekil0530 at caltech dotedu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/anne>`_)
 
-- Discourse
-
-   We will use `the course Ed page <https://us.edstem.org/courses/2616/>`_ to communicate with each other about the course material.
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Policies
-
-   policies.rst
 
 .. toctree::
    :maxdepth: 1
    :caption: Lessons
 
-   lessons/l00_configuring_your_computer.ipynb
+   lessons/00/configuring_your_computer.ipynb
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Exercises
+   :caption: Follow-along exercises
 
-   exercises/exercise_1.ipynb
+   follow_along_exercises.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Do-it-yourself exercises
+
+   .. exercises/exercise_1.ipynb
 
 
 .. toctree::
@@ -53,3 +63,11 @@ People
    :caption: Resources
 
    resources.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Policies
+
+   policies.rst
+

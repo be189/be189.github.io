@@ -1,0 +1,7 @@
+Follow-along exercises
+----------------------
+
+Follow-along exercises are embedded in lessons. For convenience here are links to the respective exercises.
+
+
+- :ref:`Exercise 0<Follow-along exercise 0: Testing Arduino>` (submission not required)
