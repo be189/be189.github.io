@@ -35,6 +35,8 @@ People
    :caption: Lessons
 
    lessons/00/configuring_your_computer.ipynb
+   lessons/01/prototyping_electronic_devices.ipynb
+   lessons/02/tour_of_arduino.ipynb
 
 
 .. toctree::

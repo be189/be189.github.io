@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lesson 0: Getting set up &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>Lesson 1: Prototyping electronic devices &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lesson 1: Prototyping electronic devices" href="../01/prototyping_electronic_devices.html" />
-    <link rel="prev" title="BE/EE/MedE 189 a: Design and Construction of Biodevices" href="../../index.html" /> 
+    <link rel="next" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" href="../02/tour_of_arduino.html" />
+    <link rel="prev" title="Lesson 0: Getting set up" href="../00/configuring_your_computer.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,25 +89,11 @@
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 0: Getting set up</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#The-Arduino-IDE">The Arduino IDE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-0:-Testing-Arduino">Follow-along exercise 0: Testing Arduino</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Installation-of-Anaconda">Installation of Anaconda</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Note-to-BE/Bi-103-a-students">Note to BE/Bi 103 a students</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#macOS-users:-Install-XCode">macOS users: Install XCode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Windows-users:-Install-Chrome-or-Firefox">Windows users: Install Chrome or Firefox</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Uninstalling-Anaconda">Uninstalling Anaconda</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Downloading-and-installing-Anaconda">Downloading and installing Anaconda</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#The-conda-package-manager">The conda package manager</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Installations">Installations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Optional-installations">Optional installations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Checking-your-Python-distribution">Checking your Python distribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">Lesson 0: Getting set up</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 1: Prototyping electronic devices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#A-prototyping-platform-for-electronics">A prototyping platform for electronics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">Lesson 1: Prototyping electronic devices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Follow-along exercises</span></p>
@@ -188,7 +174,7 @@
     
         
         
-            <a href="https://be189.github.io/blob/master/lessons/00/configuring_your_computer.ipynb" download> Download notebook</a>
+            <a href="https://be189.github.io/blob/master/lessons/01/prototyping_electronic_devices.ipynb" download> Download notebook</a>
         
       
     
@@ -204,237 +190,6 @@
             
   
 <style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
-    border: none;
-    padding: 0 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    background: #f5f5f5;
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -457,556 +212,34 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Lesson-0:-Getting-set-up">
-<h1>Lesson 0: Getting set up<a class="headerlink" href="#Lesson-0:-Getting-set-up" title="Permalink to this headline">¶</a></h1>
-<hr/><p>In this lesson, you will set up your computer for programming your Arduino board and controlling it with Python-based tools. You will also use Jupyter notebooks for preparing your write-ups.</p>
-<p>In this class, we will use Anaconda, with its associated package manager, <code class="docutils literal notranslate"><span class="pre">conda</span></code>. It has become the de facto package manager/distribution for scientific use. To you it, and also the serve up Bokeh apps to control your devices, you should have access to a Terminal program on your computer and have basic skills for using the command line. If you want to learn more about the command line, you can check out <a class="reference external" href="http://justinbois.github.io/bootcamp/2020/lessons/l02_basic_command_line_skills.html">this
-lesson</a> in my programming bootcamp. (Is uses JupyterLab’s built-in terminal, which you can use, but it is probably better to use the Terminal program on your OS.)</p>
-<div class="section" id="The-Arduino-IDE">
-<h2>The Arduino IDE<a class="headerlink" href="#The-Arduino-IDE" title="Permalink to this headline">¶</a></h2>
-<p>You will use the Arduino interactive development environment (Arduino IDE) to write and compile code for Arduino and upload it to your board. To install it, follow the instructions on the <a class="reference external" href="https://www.arduino.cc/en/Guide">Getting Started with Arduino page</a>. You will be given a choice of using online IDE or the desktop IDE. I recommend the desktop IDE. You can download and install the most recent stable version of the desktop IDE <a class="reference external" href="https://www.arduino.cc/en/Main/Software#download">here</a>.</p>
-<p>Once you have downloaded the IDE, follow the <a class="reference external" href="https://www.arduino.cc/en/Guide">IDE installation instructions</a> for your operating system.</p>
-<p>You should then have a functioning Arduino IDE on your machine.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-0:-Testing-Arduino">
-<h2>Follow-along exercise 0: Testing Arduino<a class="headerlink" href="#Follow-along-exercise-0:-Testing-Arduino" title="Permalink to this headline">¶</a></h2>
-<p>This is the one follow-along exercise for which you are not required to submit anything. This is a test to make sure your Arduino works properly.</p>
+<div class="section" id="Lesson-1:-Prototyping-electronic-devices">
+<h1>Lesson 1: Prototyping electronic devices<a class="headerlink" href="#Lesson-1:-Prototyping-electronic-devices" title="Permalink to this headline">¶</a></h1>
+<hr><p>The title of this course is <em>Design and Construction of Biodevices</em>. We will be constructing a spectrophotometer and a pulse oximeter, two biodevices that you could easily buy, and not even for very much money. So why are we constructing them? There are two main goals.</p>
 <ol class="arabic simple">
-<li><p>Connect your Arduino to your computer using the USB male A-male B cable. Wait a few seconds and then press and release the <code class="docutils literal notranslate"><span class="pre">RESET</span></code> button on the Arduino.</p></li>
-<li><p>Launch your Arduino IDE on your computer.</p></li>
-<li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu and select <code class="docutils literal notranslate"><span class="pre">Board:</span> <span class="pre">Arduino</span> <span class="pre">Uno</span></code>. (It may be listed as “Arduino Uno (Rev 3)”.)</p></li>
-<li><p>Again in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu, make sure the Port for Arduino Uno is selected. On macOS, this may be something like <code class="docutils literal notranslate"><span class="pre">dev/cu.usbmodem/146301</span></code>. On Windows, this may be something like <code class="docutils literal notranslate"><span class="pre">COM4</span></code>.</p></li>
+<li><p>You may have a novel idea for an experiment in which you need to make a measurement that has never been made before. Or maybe you want to to measure something in a new way. In either case, there may not be an available instrument to do the measurement, and you’ll have to build your own. This course develops the skills you need to build your own instruments by building instruments with well-established function.</p></li>
+<li><p>As you develop new instrumentation, you build prototypes. The process of building prototypes, testing them improving upon them, and repeating is key toward developing quality instrumentation. James Dyson <a class="reference external" href="https://nymag.com/vindicated/2016/11/james-dyson-on-5-126-vacuums-that-didnt-work-and-1-that-did.html">famously built over 5000 prototypes of his bagless vacuum cleaner</a> before it was ready for market. In building instruments, you will learn about the prototyping process and best
+practices.</p></li>
 </ol>
-<p>When you launch the IDE, you will get a window that looks like this:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// put your setup code here, to run once:</span>
-
-<span class="p">}</span>
-
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// put your main code here, to run repeatedly:</span>
-
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>It contains a <strong>sketch</strong>, which is the term for code that is compiled and uploaded to Arduino. Delete the default contents of the sketch and instead paste the following into the sketch window.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nf">pinMode</span><span class="p">(</span><span class="kr">LED_BUILTIN</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="kr">LED_BUILTIN</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="kr">LED_BUILTIN</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>You will come to understand what this does in coming lessons, but for now, we just need to test your connection to Arduino is working and the board is functioning.</p>
-<p>You will need to save this sketch. You can choose whatever file name you want, but it should be descriptive. I also recommend setting up a folder on your machine where you save your materials for this class. The suffix for Arduino sketches is <code class="docutils literal notranslate"><span class="pre">.ino</span></code>.</p>
-<p>You will watch your Arduino board to make sure everything is functioning properly. In particular, pay attention to the build-in LEDs, highlighted on the board drawing below. (There is another built-in LED, labeled <code class="docutils literal notranslate"><span class="pre">ON</span></code>, which is illuminated when the board had power.)</p>
-<div style="width: 500px; margin: auto"><p><img alt="Arduino board with LEDs highlighted" src="../../_images/arduino_board_leds_highlighted.svg" /></p>
-</div><p>After you have saved the file, you need to compile and upload the code (referred to as a “sketch”) to Arduino. You can do this by clicking on the rightward-pointing arrow at the top of the Arduino IDE window. You will get some messages on the bottom of the Arduino IDE window telling you about the success of the compilation and upload and the storage footprint of your sketch. You will also see the <code class="docutils literal notranslate"><span class="pre">TX</span></code> and <code class="docutils literal notranslate"><span class="pre">RX</span></code> lights flash as the sketch is being uploaded.</p>
-<p>Once the sketch is uploaded, you will see the LED labeled <code class="docutils literal notranslate"><span class="pre">L</span></code> flash twice per second. If you see this, it means you successfully uploaded your sketch and your Arduino board is successfully executing it!</p>
-<hr></div>
-<div class="section" id="Installation-of-Anaconda">
-<h2>Installation of Anaconda<a class="headerlink" href="#Installation-of-Anaconda" title="Permalink to this headline">¶</a></h2>
-<p>We now proceed to installation of Anaconda, which provides a Python environment for your computer.</p>
-<div class="section" id="Note-to-BE/Bi-103-a-students">
-<h3>Note to BE/Bi 103 a students<a class="headerlink" href="#Note-to-BE/Bi-103-a-students" title="Permalink to this headline">¶</a></h3>
-<p>If you are concurrently enrolled in <a class="reference external" href="http://bebi103.caltech.edu/">BE/Bi 103 a</a> this term, complete <a class="reference external" href="https://bebi103a.github.io/lessons/00/index.html">lesson 0 of that course</a> including installation on your own machine, and you do not need to work through the rest of this lesson. You simply need to do one more installation at the command line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyserial</span>
-</pre></div>
-</div>
-<p>The <a class="reference external" href="https://pyserial.readthedocs.io/">pySerial package</a> enables communication between your computer and Arduino.</p>
-</div>
-<div class="section" id="macOS-users:-Install-XCode">
-<h3>macOS users: Install XCode<a class="headerlink" href="#macOS-users:-Install-XCode" title="Permalink to this headline">¶</a></h3>
-<p>If you are using macOS, you should install <a class="reference external" href="https://developer.apple.com/xcode/">XCode</a>, if you haven’t already. It’s a large piece of software, taking up about 5GB on your hard drive, so make sure you have enough space. Please install this ahead of the bootcamp, since if students install this during the bootcamp, it will overwhelm the wireless. You can install it through the App Store.</p>
-<p>After installing it, you need to open the program. Be sure to do that, for example by clicking on the XCode icon in your Applications folder. Upon opening XCode, it may perform more installations.</p>
-</div>
-<div class="section" id="Windows-users:-Install-Chrome-or-Firefox">
-<h3>Windows users: Install Chrome or Firefox<a class="headerlink" href="#Windows-users:-Install-Chrome-or-Firefox" title="Permalink to this headline">¶</a></h3>
-<p>We will be using <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> in class, and will be build. It is browser-based, and Chrome, Firefox, and Safari are supported. Microsoft Edge is <strong>not</strong>. Therefore, if you are a Windows user, you need to be sure you have either Chrome of Firefox installed.</p>
-</div>
-<div class="section" id="Uninstalling-Anaconda">
-<h3>Uninstalling Anaconda<a class="headerlink" href="#Uninstalling-Anaconda" title="Permalink to this headline">¶</a></h3>
-<p>If you have previously installed Anaconda with a version of Python other than 3.8, you may want to uninstall it, removing it completely from your computer. You can find instructions on how to do that from the <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">official uninstallation documentation</a>.</p>
-<p>Having a fresh installation on your machine will help us work together, troubleshoot, etc.</p>
-</div>
-<div class="section" id="Downloading-and-installing-Anaconda">
-<h3>Downloading and installing Anaconda<a class="headerlink" href="#Downloading-and-installing-Anaconda" title="Permalink to this headline">¶</a></h3>
-<p>Downloading and installing Anaconda is simple.</p>
+<p>Before building your devices, you will learn about the tools we will use for prototyping our devices. You will do a set of exercises to solidify your understanding.</p>
+<div class="section" id="A-prototyping-platform-for-electronics">
+<h2>A prototyping platform for electronics<a class="headerlink" href="#A-prototyping-platform-for-electronics" title="Permalink to this headline">¶</a></h2>
+<p>For our prototyping, we will use</p>
 <ol class="arabic simple">
-<li><p>Go to the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution homepage</a>, click “Download” and download the graphical installer. Be sure to download Anaconda for Python 3.8 for the appropriate operating system.</p></li>
-<li><p>Follow the on-screen instructions for installation. When prompted, be sure to “Install for me only.”</p></li>
-<li><p>You may be prompted for optional installations, like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a>. You will not need these.</p></li>
+<li><p>Commonly available electronic components such as resistors, capacitors, LEDs, op amps, etc,</p></li>
+<li><p>Solderless breadboards,</p></li>
+<li><p>An Arduino Uno board,</p></li>
+<li><p>A computer with a scientific Python distribution.</p></li>
 </ol>
-<p>That’s it! After you do that, you will have a functioning Python distribution.</p>
-</div>
-<div class="section" id="The-conda-package-manager">
-<h3>The conda package manager<a class="headerlink" href="#The-conda-package-manager" title="Permalink to this headline">¶</a></h3>
-<p>conda is a package manager for keeping all of your packages up-to-date. It has plenty of functionality beyond our basic usage in class, which you can learn more about by reading the <a class="reference external" href="https://docs.conda.io/en/latest/">docs</a>. We will primarily be using conda to install and update packages.</p>
-<p>conda works from the command line. The first thing we’ll do is update the packages that came with the Anaconda distribution. To do this, enter the following on the command line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="o">--</span><span class="nb">all</span>
-</pre></div>
-</div>
-<p>If anything is out of date, you will be prompted to perform the updates, and press <code class="docutils literal notranslate"><span class="pre">y</span></code> to continue. (If everything is up to date, you will just see a list of all the installed packages.) There may even be some downgrades. This happens when there are package conflicts where one package requires an earlier version of another. conda is very smart and figures all of this out for you, so you can almost always say “yes” (or “<code class="docutils literal notranslate"><span class="pre">y</span></code>”) to conda when it prompts you.</p>
-</div>
-<div class="section" id="Installations">
-<h3>Installations<a class="headerlink" href="#Installations" title="Permalink to this headline">¶</a></h3>
-<p>There are a few additional installations you need to do. Most importantly, you need to install <a class="reference external" href="https://pyserial.readthedocs.io/">pyserial</a>, which enables serial communication with your device.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyserial</span>
-</pre></div>
-</div>
-<p>There are several additional installations you need to do. We will first install some plotting packages we need.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">holoviews</span> <span class="n">param</span> <span class="n">panel</span> <span class="n">colorcet</span> <span class="n">hvplot</span>
-</pre></div>
-</div>
-<p>Next, we need to install <a class="reference external" href="https://nodejs.org/en/">nodejs</a>, which will help us configure JupyterLab.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">nodejs</span>
-</pre></div>
-</div>
-<p>Finally, we need to configure JupyterLab to work with the plotting packages we will use.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@pyviz</span><span class="o">/</span><span class="n">jupyterlab_pyviz</span>
-</pre></div>
-</div>
-<p>You should close your JupyterLab session and terminate Anaconda Navigator after you have completed the build. Relaunch Anaconda Navigator and launch a fresh JupyterLab instance. As before, after JupyterLab launches, launch a new terminal window so that you can proceed with setting up Git.</p>
-</div>
-<div class="section" id="Optional-installations">
-<h3>Optional installations<a class="headerlink" href="#Optional-installations" title="Permalink to this headline">¶</a></h3>
-<p>I also encourage you to install <a class="reference external" href="https://black.readthedocs.io/">Black</a> and <a class="reference external" href="https://github.com/csurfer/blackcellmagic">blackcellmagic</a>. This enables convenient code formatting to help keep your code clean.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">black</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">blackcellmagic</span>
-</pre></div>
-</div>
-<p>I also encourage you to install <a class="reference external" href="https://github.com/rasbt/watermark">watermark</a>, which enables you to quickly determine and display which versions of various packages you have installed.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">watermark</span>
-</pre></div>
-</div>
-<p>You may also wish to install a spell-checker.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">labextension</span> <span class="n">install</span> <span class="nd">@ijmbarr</span><span class="o">/</span><span class="n">jupyterlab_spellchecker</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="Checking-your-Python-distribution">
-<h3>Checking your Python distribution<a class="headerlink" href="#Checking-your-Python-distribution" title="Permalink to this headline">¶</a></h3>
-<p>We’ll now run a quick test to make sure things are working properly. We will make a quick plot that requires some of the scientific packages you just installed.</p>
-<p>Launch JupyterLab, preferably from the command line using</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span>
-</pre></div>
-</div>
-<p>You could also launch it from the the Anaconda Navigator, which was installed when you installed Anaconda.</p>
-<p>Once you have a JupyterLab window open in your browser, wse the JupyterLab launcher (you can get a new launcher by clicking on the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon on the left pane of your JupyterLab window) to launch a notebook. In the first cell (the box next to the <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]:</span></code> prompt), paste the code below. To run the code, press <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code> while the cursor is active inside the cell. You should see a plot that looks like the one below. If you do, you have a functioning Python environment for scientific
-computing!</p>
-<p>We will check your serial connections soon as we start connecting Arduino to your machine.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span>
-
-<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
-
-<span class="c1"># Generate plotting values</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">**</span> <span class="mi">3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">275</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;biodevices&quot;</span><span class="p">,</span> <span class="n">text_align</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">add_layout</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-
-<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div class="bk-root">
-    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
-    <span id="1001">Loading BokehJS ...</span>
-</div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="output_javascript"></div>
-<script type="text/javascript">
-var element = document.currentScript.previousSibling.previousSibling;
-
-(function(root) {
-  function now() {
-    return new Date();
-  }
-
-  var force = true;
-
-  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
-    root._bokeh_onload_callbacks = [];
-    root._bokeh_is_loading = undefined;
-  }
-
-  var JS_MIME_TYPE = 'application/javascript';
-  var HTML_MIME_TYPE = 'text/html';
-  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
-  var CLASS_NAME = 'output_bokeh rendered_html';
-
-  /**
-   * Render data to the DOM node
-   */
-  function render(props, node) {
-    var script = document.createElement("script");
-    node.appendChild(script);
-  }
-
-  /**
-   * Handle when an output is cleared or removed
-   */
-  function handleClearOutput(event, handle) {
-    var cell = handle.cell;
-
-    var id = cell.output_area._bokeh_element_id;
-    var server_id = cell.output_area._bokeh_server_id;
-    // Clean up Bokeh references
-    if (id != null && id in Bokeh.index) {
-      Bokeh.index[id].model.document.clear();
-      delete Bokeh.index[id];
-    }
-
-    if (server_id !== undefined) {
-      // Clean up Bokeh references
-      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
-      cell.notebook.kernel.execute(cmd, {
-        iopub: {
-          output: function(msg) {
-            var id = msg.content.text.trim();
-            if (id in Bokeh.index) {
-              Bokeh.index[id].model.document.clear();
-              delete Bokeh.index[id];
-            }
-          }
-        }
-      });
-      // Destroy server and session
-      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
-      cell.notebook.kernel.execute(cmd);
-    }
-  }
-
-  /**
-   * Handle when a new output is added
-   */
-  function handleAddOutput(event, handle) {
-    var output_area = handle.output_area;
-    var output = handle.output;
-
-    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
-    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
-      return
-    }
-
-    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
-
-    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
-      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
-      // store reference to embed id on output_area
-      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
-    }
-    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
-      var bk_div = document.createElement("div");
-      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
-      var script_attrs = bk_div.children[0].attributes;
-      for (var i = 0; i < script_attrs.length; i++) {
-        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
-        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
-      }
-      // store reference to server id on output_area
-      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
-    }
-  }
-
-  function register_renderer(events, OutputArea) {
-
-    function append_mime(data, metadata, element) {
-      // create a DOM node to render to
-      var toinsert = this.create_output_subarea(
-        metadata,
-        CLASS_NAME,
-        EXEC_MIME_TYPE
-      );
-      this.keyboard_manager.register_events(toinsert);
-      // Render to node
-      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
-      render(props, toinsert[toinsert.length - 1]);
-      element.append(toinsert);
-      return toinsert
-    }
-
-    /* Handle when an output is cleared or removed */
-    events.on('clear_output.CodeCell', handleClearOutput);
-    events.on('delete.Cell', handleClearOutput);
-
-    /* Handle when a new output is added */
-    events.on('output_added.OutputArea', handleAddOutput);
-
-    /**
-     * Register the mime type and append_mime function with output_area
-     */
-    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
-      /* Is output safe? */
-      safe: true,
-      /* Index of renderer in `output_area.display_order` */
-      index: 0
-    });
-  }
-
-  // register the mime type if in Jupyter Notebook environment and previously unregistered
-  if (root.Jupyter !== undefined) {
-    var events = require('base/js/events');
-    var OutputArea = require('notebook/js/outputarea').OutputArea;
-
-    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
-      register_renderer(events, OutputArea);
-    }
-  }
-
-
-  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
-    root._bokeh_timeout = Date.now() + 5000;
-    root._bokeh_failed_load = false;
-  }
-
-  var NB_LOAD_WARNING = {'data': {'text/html':
-     "<div style='background-color: #fdd'>\n"+
-     "<p>\n"+
-     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
-     "may be due to a slow or bad network connection. Possible fixes:\n"+
-     "</p>\n"+
-     "<ul>\n"+
-     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
-     "<li>use INLINE resources instead, as so:</li>\n"+
-     "</ul>\n"+
-     "<code>\n"+
-     "from bokeh.resources import INLINE\n"+
-     "output_notebook(resources=INLINE)\n"+
-     "</code>\n"+
-     "</div>"}};
-
-  function display_loaded() {
-    var el = document.getElementById("1001");
-    if (el != null) {
-      el.textContent = "BokehJS is loading...";
-    }
-    if (root.Bokeh !== undefined) {
-      if (el != null) {
-        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
-      }
-    } else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(display_loaded, 100)
-    }
-  }
-
-
-  function run_callbacks() {
-    try {
-      root._bokeh_onload_callbacks.forEach(function(callback) {
-        if (callback != null)
-          callback();
-      });
-    } finally {
-      delete root._bokeh_onload_callbacks
-    }
-    console.debug("Bokeh: all callbacks have finished");
-  }
-
-  function load_libs(css_urls, js_urls, callback) {
-    if (css_urls == null) css_urls = [];
-    if (js_urls == null) js_urls = [];
-
-    root._bokeh_onload_callbacks.push(callback);
-    if (root._bokeh_is_loading > 0) {
-      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
-      return null;
-    }
-    if (js_urls == null || js_urls.length === 0) {
-      run_callbacks();
-      return null;
-    }
-    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
-    root._bokeh_is_loading = css_urls.length + js_urls.length;
-
-    function on_load() {
-      root._bokeh_is_loading--;
-      if (root._bokeh_is_loading === 0) {
-        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
-        run_callbacks()
-      }
-    }
-
-    function on_error() {
-      console.error("failed to load " + url);
-    }
-
-    for (var i = 0; i < css_urls.length; i++) {
-      var url = css_urls[i];
-      const element = document.createElement("link");
-      element.onload = on_load;
-      element.onerror = on_error;
-      element.rel = "stylesheet";
-      element.type = "text/css";
-      element.href = url;
-      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
-      document.body.appendChild(element);
-    }
-
-    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js": "kLr4fYcqcSpbuI95brIH3vnnYCquzzSxHPU6XGQCIkQRGJwhg0StNbj1eegrHs12", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js": "xIGPmVtaOm+z0BqfSOMn4lOR6ciex448GIKG4eE61LsAvmGj48XcMQZtKcE/UXZe", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js": "Dc9u1wF/0zApGIWoBbH77iWEHtdmkuYWG839Uzmv8y8yBLXebjO9ZnERsde5Ln/P", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js": "cT9JaBz7GiRXdENrJLZNSC6eMNF3nh3fa5fTF51Svp+ukxPdwcU5kGXGPBgDCa2j"};
-
-    for (var i = 0; i < js_urls.length; i++) {
-      var url = js_urls[i];
-      var element = document.createElement('script');
-      element.onload = on_load;
-      element.onerror = on_error;
-      element.async = false;
-      element.src = url;
-      if (url in hashes) {
-        element.crossOrigin = "anonymous";
-        element.integrity = "sha384-" + hashes[url];
-      }
-      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
-      document.head.appendChild(element);
-    }
-  };
-
-  function inject_raw_css(css) {
-    const element = document.createElement("style");
-    element.appendChild(document.createTextNode(css));
-    document.body.appendChild(element);
-  }
-
-
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.1.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.1.1.min.js"];
-  var css_urls = [];
-
-
-  var inline_js = [
-    function(Bokeh) {
-      Bokeh.set_log_level("info");
-    },
-    function(Bokeh) {
-
-
-    }
-  ];
-
-  function run_inline_js() {
-
-    if (root.Bokeh !== undefined || force === true) {
-
-    for (var i = 0; i < inline_js.length; i++) {
-      inline_js[i].call(root, root.Bokeh);
-    }
-    if (force === true) {
-        display_loaded();
-      }} else if (Date.now() < root._bokeh_timeout) {
-      setTimeout(run_inline_js, 100);
-    } else if (!root._bokeh_failed_load) {
-      console.log("Bokeh: BokehJS failed to load within specified timeout.");
-      root._bokeh_failed_load = true;
-    } else if (force !== true) {
-      var cell = $(document.getElementById("1001")).parents('.cell').data().cell;
-      cell.output_area.append_execute_result(NB_LOAD_WARNING)
-    }
-
-  }
-
-  if (root._bokeh_is_loading === 0) {
-    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
-    run_inline_js();
-  } else {
-    load_libs(css_urls, js_urls, function() {
-      console.debug("Bokeh: BokehJS plotting callback run at", now());
-      run_inline_js();
-    });
-  }
-}(window));
-</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div class="bk-root" id="ea15223a-12c3-4219-ad96-14ea5145144e" data-root-id="1002"></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="output_javascript"></div>
-<script type="text/javascript">
-var element = document.currentScript.previousSibling.previousSibling;
-(function(root) {
-  function embed_document(root) {
-
-  var docs_json = {"655319c5-045c-4459-b233-823ac2944cac":{"roots":{"references":[{"attributes":{"below":[{"id":"1011"}],"center":[{"id":"1014"},{"id":"1018"},{"id":"1038"}],"left":[{"id":"1015"}],"plot_height":250,"plot_width":275,"renderers":[{"id":"1036"}],"title":{"id":"1040"},"toolbar":{"id":"1026"},"x_range":{"id":"1003"},"x_scale":{"id":"1007"},"y_range":{"id":"1005"},"y_scale":{"id":"1009"}},"id":"1002","subtype":"Figure","type":"Plot"},{"attributes":{"axis":{"id":"1011"},"ticker":null},"id":"1014","type":"Grid"},{"attributes":{"formatter":{"id":"1041"},"ticker":{"id":"1016"}},"id":"1015","type":"LinearAxis"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{"axis":{"id":"1015"},"dimension":1,"ticker":null},"id":"1018","type":"Grid"},{"attributes":{"overlay":{"id":"1025"}},"id":"1021","type":"BoxZoomTool"},{"attributes":{},"id":"1024","type":"HelpTool"},{"attributes":{"data":{"x":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[200]},"y":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[200]}},"selected":{"id":"1047"},"selection_policy":{"id":"1046"}},"id":"1033","type":"ColumnDataSource"},{"attributes":{},"id":"1019","type":"PanTool"},{"attributes":{},"id":"1020","type":"WheelZoomTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1019"},{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"}]},"id":"1026","type":"Toolbar"},{"attributes":{"text":""},"id":"1040","type":"Title"},{"attributes":{},"id":"1022","type":"SaveTool"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{"line_color":"red","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"1034","type":"Line"},{"attributes":{},"id":"1023","type":"ResetTool"},{"attributes":{"source":{"id":"1033"}},"id":"1037","type":"CDSView"},{"attributes":{"line_alpha":0.1,"line_color":"red","line_width":3,"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"},{"attributes":{"formatter":{"id":"1043"},"ticker":{"id":"1012"}},"id":"1011","type":"LinearAxis"},{"attributes":{},"id":"1003","type":"DataRange1d"},{"attributes":{"data_source":{"id":"1033"},"glyph":{"id":"1034"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1035"},"selection_glyph":null,"view":{"id":"1037"}},"id":"1036","type":"GlyphRenderer"},{"attributes":{"text":"biodevices","text_align":"center","x":0,"y":0},"id":"1038","type":"Label"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1025","type":"BoxAnnotation"},{"attributes":{},"id":"1009","type":"LinearScale"},{"attributes":{},"id":"1046","type":"UnionRenderers"},{"attributes":{},"id":"1047","type":"Selection"},{"attributes":{},"id":"1012","type":"BasicTicker"},{"attributes":{},"id":"1005","type":"DataRange1d"},{"attributes":{},"id":"1007","type":"LinearScale"},{"attributes":{},"id":"1041","type":"BasicTickFormatter"}],"root_ids":["1002"]},"title":"Bokeh Application","version":"2.1.1"}};
-  var render_items = [{"docid":"655319c5-045c-4459-b233-823ac2944cac","root_ids":["1002"],"roots":{"1002":"ea15223a-12c3-4219-ad96-14ea5145144e"}}];
-  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
-
-  }
-  if (root.Bokeh !== undefined) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (root.Bokeh !== undefined) {
-        clearInterval(timer);
-        embed_document(root);
-      } else {
-        attempts++;
-        if (attempts > 100) {
-          clearInterval(timer);
-          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
-        }
-      }
-    }, 10, root)
-  }
-})(window);
-</script></div>
-</div>
-</div>
-</div>
-<div class="section" id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
-<span class="o">%</span><span class="k">watermark</span> -v -p numpy,bokeh,jupyterlab
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-CPython 3.8.3
-IPython 7.16.1
-
-numpy 1.18.5
-bokeh 2.1.1
-jupyterlab 2.1.5
-</pre></div></div>
-</div>
+<p>When a device is fully constructed, the electronics are efficiently and permanently packaged into a small space, often using <a class="reference external" href="https://en.wikipedia.org/wiki/Printed_circuit_board">printed circuit board assemblies</a>. When <em>designing</em> a device, the engineer needs space to tinker and make adjustments. In days of yore, engineers would hammer nails into flat wooden boards and would then connect the nails with wire to connect components. These pieces of wood were often breadboards, flat pieces of
+wood for kneading or serving bread. Prototyping in this way, while easier than trying to build a finished electronic product in each iteration, is slow, as you can imagine.</p>
+<p>Fifty or so years ago, engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).</p>
+<div style="width: 600px; margin: auto"><p><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" /></p>
+</div><p>Engineers can stick the leads of electronic components into the little holes to rapidly connect circuitry. (We will discuss the structure of the solderless breadboards in the next lesson.) This greatly accelerated the prototyping process.</p>
+<p>While the solderless breadboards offered a much more rapid means of making electronic hardware, the past few decades have seen more innovation that leads to much more rapid prototyping: the ability to shift many design considerations to software.</p>
+<p>As a simple example of how this can speed prototyping, consider the “blink” example you will soon construct in a follow-along exercise. The goal is to design a circuit that has a <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">light emitting diode</a> (LED) that blinks twice per second. You could build an <a class="reference external" href="https://en.wikipedia.org/wiki/Multivibrator">astable multivibrator</a>, which requires several resistors, capacitors, and transistors. The frequency of the blinking LED would be set by
+your choices for the resistor and capacitor values. Conversely, you could simply hook an LED up to a power source that you can control <em>with software</em>. You can write a computer program that turns the power on and off with a set frequency. Then, to change blinking frequency, you need only to change a line or two in code, rather than change out physical components.</p>
+<p>The <a class="reference external" href="http://arduino.cc/">Arduino</a> platform provides a means for software-based control of electronic circuits. Combined with solderless breadboards, this allows for very rapid prototyping.</p>
+<p>Finally, if we want to have a convenient interface for control of a device, such as a computer, we need means for communicating with the device, as controlled by a microcontroller on an Arduino board. We will use Python-based tools to do that. These are also readily programmed and the “control panel” is comprised of a series of configurable buttons presented in a web browser. This is much faster to design and redesign than a physical control panel.</p>
 </div>
 </div>
 
@@ -1018,10 +251,10 @@ jupyterlab 2.1.5
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../01/prototyping_electronic_devices.html" class="btn btn-neutral float-right" title="Lesson 1: Prototyping electronic devices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../02/tour_of_arduino.html" class="btn btn-neutral float-right" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../index.html" class="btn btn-neutral float-left" title="BE/EE/MedE 189 a: Design and Construction of Biodevices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../00/configuring_your_computer.html" class="btn btn-neutral float-left" title="Lesson 0: Getting set up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1035,7 +268,7 @@ jupyterlab 2.1.5
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcaa024c730> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fca9b8f1ac0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
