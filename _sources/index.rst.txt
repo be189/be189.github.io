@@ -3,7 +3,7 @@ BE/EE/MedE 189 a: Design and Construction of Biodevices
 
 Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
 
-Students are repsonsible for reading the :ref:`course policies<Policies>` below.
+Students are repsonsible for reading the :ref:`course policies<Policies>`.
 
 
 Useful links
@@ -37,20 +37,26 @@ People
    lessons/00/configuring_your_computer.ipynb
    lessons/01/prototyping_electronic_devices.ipynb
    lessons/02/tour_of_arduino.ipynb
+   lessons/03/blink.ipynb
+   lessons/04/schematics.ipynb
+   lessons/05/programming_arduino.ipynb
+   lessons/06/practice_programming_arduino.ipynb
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Follow-along exercises
+   :caption: Exercises
 
    follow_along_exercises.rst
+   do_it_yourself_exercises.rst
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Do-it-yourself exercises
+   :caption: Projects
 
-   .. exercises/exercise_1.ipynb
+   spectrophotometer.rst
+   pulseox.rst
 
 
 .. toctree::

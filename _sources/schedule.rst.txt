@@ -1,3 +1,5 @@
+.. _Schedule:
+
 Schedule overview
 -----------------
 

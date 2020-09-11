@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lesson 1: Prototyping electronic devices &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>Lesson 3: Hello, world. (a.k.a. Blink) &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" href="../02/tour_of_arduino.html" />
-    <link rel="prev" title="Lesson 0: Getting set up" href="../00/configuring_your_computer.html" /> 
+    <link rel="next" title="Lesson 4: Schematics" href="../04/schematics.html" />
+    <link rel="prev" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" href="../02/tour_of_arduino.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,12 +90,28 @@
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">Lesson 0: Getting set up</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 1: Prototyping electronic devices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#A-prototyping-platform-for-electronics">A prototyping platform for electronics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">Lesson 1: Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 3: Hello, world. (a.k.a. Blink)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Hardware-for-your-first-exercise">Hardware for your first exercise</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#LEDs">LEDs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Resistors">Resistors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Jumper-wires">Jumper wires</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">Lesson 3: Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Arduino-sketches">Arduino sketches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-1:-Blink">Follow-along exercise 1: Blink</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Wiring-it-up">Wiring it up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Connecting-the-Arduino-Uno-to-your-computer">Connecting the Arduino Uno to your computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Coding-your-sketch">Coding your sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Aside:-The-Arduino-core-libraries">Aside: The Arduino core libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Saving-the-sketch">Saving the sketch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Uploading-the-sketch-and-blinking!">Uploading the sketch and blinking!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Answers-to-resistance-exercise">Answers to resistance exercise</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">Lesson 4: Schematics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">Lesson 5: Programming Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">Lesson 6: Practice programming Arduino</a></li>
@@ -184,7 +200,7 @@
     
         
         
-            <a href="https://be189.github.io/blob/master/lessons/01/prototyping_electronic_devices.ipynb" download> Download notebook</a>
+            <a href="https://be189.github.io/blob/master/lessons/03/blink.ipynb" download> Download notebook</a>
         
       
     
@@ -200,6 +216,237 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -222,34 +469,189 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Lesson-1:-Prototyping-electronic-devices">
-<h1>Lesson 1: Prototyping electronic devices<a class="headerlink" href="#Lesson-1:-Prototyping-electronic-devices" title="Permalink to this headline">¶</a></h1>
-<hr><p>The title of this course is <em>Design and Construction of Biodevices</em>. We will be constructing a spectrophotometer and a pulse oximeter, two biodevices that you could easily buy, and not even for very much money. So why are we constructing them? There are two main goals.</p>
-<ol class="arabic simple">
-<li><p>You may have a novel idea for an experiment in which you need to make a measurement that has never been made before. Or maybe you want to to measure something in a new way. In either case, there may not be an available instrument to do the measurement, and you’ll have to build your own. This course develops the skills you need to build your own instruments by building instruments with well-established function.</p></li>
-<li><p>As you develop new instrumentation, you build prototypes. The process of building prototypes, testing them improving upon them, and repeating is key toward developing quality instrumentation. James Dyson <a class="reference external" href="https://nymag.com/vindicated/2016/11/james-dyson-on-5-126-vacuums-that-didnt-work-and-1-that-did.html">famously built over 5000 prototypes of his bagless vacuum cleaner</a> before it was ready for market. In building instruments, you will learn about the prototyping process and best
-practices.</p></li>
+<div class="section" id="Lesson-3:-Hello,-world.-(a.k.a.-Blink)">
+<h1>Lesson 3: Hello, world. (a.k.a. Blink)<a class="headerlink" href="#Lesson-3:-Hello,-world.-(a.k.a.-Blink)" title="Permalink to this headline">¶</a></h1>
+<hr><p>When you learn a new programming language, your first program is “Hello, world,” in which you make your computer print that global greeting to the screen.</p>
+<p>In this class, we assume that you have a background in Python programming, so you know how to write the Hello, world program in Python.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Hello, world.
+</pre></div></div>
+</div>
+<p>We will now start exploring the Arduino IDE by writing the “Hello, world” of programmable electronics, <strong>blink</strong>.</p>
+<div class="section" id="Hardware-for-your-first-exercise">
+<h2>Hardware for your first exercise<a class="headerlink" href="#Hardware-for-your-first-exercise" title="Permalink to this headline">¶</a></h2>
+<p>We will first discuss the three additional hardware components you need.</p>
+<div class="section" id="LEDs">
+<h3>LEDs<a class="headerlink" href="#LEDs" title="Permalink to this headline">¶</a></h3>
+<p>In your kit, you will find many red <strong>light-emitting diodes (LEDs)</strong>. An <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">LED</a> is a component that permits current to flow through it in one direction and emits light when it does. Here is a picture of one with a clear cover, though the ones in your kits will mostly have colored covers.</p>
+<div style="margin: auto; width: 500px;"><p><img alt="led" src="../../_images/led.png" /></p>
+</div><p>Because of the directionality of the diode, it is important that the LED is properly oriented. LEDs typically have one long lead and one shorter lead. The long lead is the <strong>anode</strong>, which you connect to the higher voltage, and the shorter lead is the <strong>cathode</strong>, which you connect to the lower voltage (ground). In drawings of LEDs, the long lead is typically shown as a bent wire.</p>
+<p>You should also control how much current goes through an LED so you do not destroy it. The LEDs in your kit will work with Arduino if you provide 220 Ω resistance.</p>
+</div>
+<div class="section" id="Resistors">
+<h3>Resistors<a class="headerlink" href="#Resistors" title="Permalink to this headline">¶</a></h3>
+<p>You also have lots of resistors in your kits. Resistors contain insulating material that restricts the flow of electrons through them. Different resistors can have different composition, which will lead to different degrees of effectiveness in restricting current, or <strong>resistance</strong>, which is measured in ohms (Ω).</p>
+<p>Resistors are color-coded for their resistance. The color-coding works in either four-, five-, or six-band codes. The resistors in your kit are either four- or five-band. Here is a picture of several four-band resistors (Evan Amos, public domain).</p>
+<div style="margin: auto; width: 350px;"><p><img alt="resistors" src="../../_images/resistors.jpg" /></p>
+</div><p>It can be hard to determine the direction in which to read the bands. In many resistors, the outer band that is closest to its respective lead is the first. In some four-band resistors, there is a larger gap between the third and fourth band. Finally, if there is a gold or silver band, it must be the last band.</p>
+<p>Each color corresponds to a number, as follows.</p>
+<ol class="arabic simple" start="0">
+<li><p>Black</p></li>
+<li><p>Brown</p></li>
+<li><p>Red</p></li>
+<li><p>Orange</p></li>
+<li><p>Yellow</p></li>
+<li><p>Green</p></li>
+<li><p>Blue</p></li>
+<li><p>Purple</p></li>
+<li><p>Gray</p></li>
+<li><p>White</p></li>
 </ol>
-<p>Before building your devices, you will learn about the tools we will use for prototyping our devices. You will do a set of exercises to solidify your understanding.</p>
-<div class="section" id="A-prototyping-platform-for-electronics">
-<h2>A prototyping platform for electronics<a class="headerlink" href="#A-prototyping-platform-for-electronics" title="Permalink to this headline">¶</a></h2>
-<p>For our prototyping, we will use</p>
+<p>Additionally, pink, silver, and gold are respectively –3, –2, and –1.</p>
+<p>To read the value of resistance from the color bands for a four-band resistor, do the following.</p>
 <ol class="arabic simple">
-<li><p>Commonly available electronic components such as resistors, capacitors, LEDs, op amps, etc,</p></li>
-<li><p>Solderless breadboards,</p></li>
-<li><p>An Arduino Uno board,</p></li>
-<li><p>A computer with a scientific Python distribution.</p></li>
+<li><p>The color of first band is the first digit.</p></li>
+<li><p>The color of the second band is the second digit.</p></li>
+<li><p>The color of the third band gives a multiplier as a power of 10. For example, if the color were orange, the multiplier is 10³.</p></li>
+<li><p>The color of the fourth band gives the tolerance of the resistor. Here the number-to-digit system is not used. Gold and silver, meaning ±5% and ±10%, respectively, are the most often encountered colors of the fourth band.</p></li>
 </ol>
-<p>When a device is fully constructed, the electronics are efficiently and permanently packaged into a small space, often using <a class="reference external" href="https://en.wikipedia.org/wiki/Printed_circuit_board">printed circuit board assemblies</a>. When <em>designing</em> a device, the engineer needs space to tinker and make adjustments. In days of yore, engineers would hammer nails into flat wooden boards and would then connect the nails with wire to connect components. These pieces of wood were often breadboards, flat pieces of
-wood for kneading or serving bread. Prototyping in this way, while easier than trying to build a finished electronic product in each iteration, is slow, as you can imagine.</p>
-<p>Fifty or so years ago, engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).</p>
-<div style="width: 600px; margin: auto;"><p><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" /></p>
-</div><p>Engineers can stick the leads of electronic components into the little holes to rapidly connect circuitry. (We will discuss the structure of the solderless breadboards in the next lesson.) This greatly accelerated the prototyping process.</p>
-<p>While the solderless breadboards offered a much more rapid means of making electronic hardware, the past few decades have seen more innovation that leads to much more rapid prototyping: the ability to shift many design considerations to software.</p>
-<p>As a simple example of how this can speed prototyping, consider the “blink” example you will soon construct in a follow-along exercise. The goal is to design a circuit that has a <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">light emitting diode</a> (LED) that blinks twice per second. You could build an <a class="reference external" href="https://en.wikipedia.org/wiki/Multivibrator">astable multivibrator</a>, which requires several resistors, capacitors, and transistors. The frequency of the blinking LED would be set by
-your choices for the resistor and capacitor values. Conversely, you could simply hook an LED up to a power source that you can control <em>with software</em>. You can write a computer program that turns the power on and off with a set frequency. Then, to change blinking frequency, you need only to change a line or two in code, rather than change out physical components.</p>
-<p>The <a class="reference external" href="http://arduino.cc/">Arduino</a> platform provides a means for software-based control of electronic circuits. Combined with solderless breadboards, this allows for very rapid prototyping.</p>
-<p>Finally, if we want to have a convenient interface for control of a device, such as a computer, we need means for communicating with the device, as controlled by a microcontroller on an Arduino board. We will use Python-based tools to do that. These are also readily programmed and the “control panel” is comprised of a series of configurable buttons presented in a web browser. This is much faster to design and redesign than a physical control panel.</p>
+<p>So, to get the resistance, form a number with the first two bands, then multiply by the multiplier given by the third band. For example, a red-red-brown-gold banded resistor is 200 Ω with a ±5% tolerance.</p>
+<p>To read the value of resistance from the color bands for a five-band resistor, do the following, very similar procedure.</p>
+<ol class="arabic simple">
+<li><p>The color of first band is the first digit.</p></li>
+<li><p>The color of the second band is the second digit.</p></li>
+<li><p>The color of the third band is the third digit.</p></li>
+<li><p>The color of the fourth band gives a multiplier as a power of 10.</p></li>
+<li><p>The color of the fifth band gives the tolerance of the resistor.</p></li>
+</ol>
+<p>The 220 Ω resistor in the four-band example would have rings of red-red-black-brown-gold.</p>
+<p>To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
+<p>Here’s an exercise (that is not officially an exercise so you do not have to submit anything), just to help you get the hand of it.</p>
+<ol class="arabic simple">
+<li><p>What four-band color pattern would I have for a 1±0.05 MΩ resistor? How about five-band?</p></li>
+<li><p>I have a resistor with band colors yellow-purple-red-gold. What is its resistance?</p></li>
+<li><p>I have a resistor of with band colors brown-black-black-brown-brown. What is its resistance?</p></li>
+</ol>
+<p>The answers are at the end of this lesson.</p>
+</div>
+<div class="section" id="Jumper-wires">
+<h3>Jumper wires<a class="headerlink" href="#Jumper-wires" title="Permalink to this headline">¶</a></h3>
+<p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect component beyond the connections already present in the solderless breadboard. Jumper wires have different ends. In many cases, they simply have a bare wire at the end. They may also have plastic ends that force the wire to rise orthogonally from where is it plugged in. Some of these ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
+</div>
+</div>
+<div class="section" id="Arduino-sketches">
+<h2>Arduino sketches<a class="headerlink" href="#Arduino-sketches" title="Permalink to this headline">¶</a></h2>
+<p>Finally, before launching into the blink exercise, we need to discuss Arduino sketches generally. Arduino sketches are written in C++. If you know C or C++, the syntax will be familiar to you. If not, we will discuss syntax and concepts along the way as we work through the lessons.</p>
+<p>Every Arduino sketch minimally has two functions, <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. Upon upload of your sketch (or upon pressing the reset button on the board), the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function is run once. Then, the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is run. When it finishes running, it runs again. And again and again and again. It keeps running over and over again until you upload a new sketch, press the reset button, or disconnect the Arduino. So, a minimal Arduino program is as follows.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It literally does nothing.</p>
+<p>The content of the function, or any function in C++, should be contained in braces. When the brace that opens the code in a function is closed by a brace, that is the end of the function.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">void</span></code> appears before both function definitions. This tells the compiler that these functions do not return anything. Note further that neither function takes any arguments. This <strong>must</strong> be the signature for <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">loop()</span></code> in any Arduino sketch.</p>
+<p>Outside of <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">loop()</span></code>, you can define other functions and global variables and constants.</p>
+<hr></div>
+<div class="section" id="Follow-along-exercise-1:-Blink">
+<h2>Follow-along exercise 1: Blink<a class="headerlink" href="#Follow-along-exercise-1:-Blink" title="Permalink to this headline">¶</a></h2>
+<p>With Arduino, we are now programming a physical device. So, instead of printing something to the screen of your computer, you are going to make a physical device <em>do</em> something. For our first program, we will make an LED blink.</p>
+<div class="section" id="Wiring-it-up">
+<h3>Wiring it up<a class="headerlink" href="#Wiring-it-up" title="Permalink to this headline">¶</a></h3>
+<p>The drawing below shows how to construct the physical device for the blink exercise.</p>
+<div style="margin: auto; width: 600px;"><p><img alt="blink_bb" src="../../_images/blink_bb.svg" /></p>
+</div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
+<p>In this circuit, digital pin 6 provides voltage driving current through the resistor, then through the LED, and finally to ground. In our Arduino sketch, we will change the output of digital pin 6 from high to low and back to high again to blink the LED.</p>
+</div>
+<div class="section" id="Connecting-the-Arduino-Uno-to-your-computer">
+<h3>Connecting the Arduino Uno to your computer<a class="headerlink" href="#Connecting-the-Arduino-Uno-to-your-computer" title="Permalink to this headline">¶</a></h3>
+<p>To connect the Arduino Uno to your computer, use the USB A/B cable. Once connected, you will see the ON built-in LED on the Arduino Uno light up. This indicates that the board has power.</p>
+<p>You should now launch the Arduino IDE. You need to make sure the IDE and compiler know for which board you are compiling, so select the board by navigating the menus: <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Boards</span></code> → <code class="docutils literal notranslate"><span class="pre">Arduino</span> <span class="pre">Uno</span></code>. (There may be sub-menus after <code class="docutils literal notranslate"><span class="pre">Boards</span></code>.) Next, you need to make sure your computer knows which port to use. Select <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Ports</span></code>, and then the port to which Arduino is connected. On macOS, this may be something like <code class="docutils literal notranslate"><span class="pre">dev/cu.usbmodem/146301</span></code>. On Windows, this may be something
+like <code class="docutils literal notranslate"><span class="pre">COM4</span></code>.</p>
+</div>
+<div class="section" id="Coding-your-sketch">
+<h3>Coding your sketch<a class="headerlink" href="#Coding-your-sketch" title="Permalink to this headline">¶</a></h3>
+<p>Fire up the Arduino IDE, and enter this code as your sketch.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Identify which pin controls the LED</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+
+
+<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Set the pin controlling the LED to output</span>
+  <span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Turn the LED on, and then wait a quarter second</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+
+  <span class="c1">// Turn the LED off, and then wait a quarter second</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>I will now describe what this code does, step by step.</p>
+<p>The first line of the program starts with <code class="docutils literal notranslate"><span class="pre">//</span></code>. This signifies a <strong>comment</strong>. The compiler will ignore any line that starts with <code class="docutils literal notranslate"><span class="pre">//</span></code>. You can also do comments that start with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and end with <code class="docutils literal notranslate"><span class="pre">*/</span></code>. For example,</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">  all the stuff in here,</span>
+<span class="cm">  even with multiple lines,</span>
+<span class="cm">  is ignored.</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<p>We start by declaring a global variable <code class="docutils literal notranslate"><span class="pre">ledPin</span></code> to be 6. We have connected the LED up to pin 6, so we need to make sure Arduino knows this. In front of the declaration, we have the keyword <code class="docutils literal notranslate"><span class="pre">int</span></code>. This designates <code class="docutils literal notranslate"><span class="pre">ledPin</span></code> to be of integer <strong>type</strong>. <em>Any variable in an Arduino sketch needs to have its type declared.</em> We also have the keyword <code class="docutils literal notranslate"><span class="pre">const</span></code>, specifying that this variable is a constant. This is not necessary, but is good practice for a variable whose value will never change in
+your sketch (not least because it saves RAM; <code class="docutils literal notranslate"><span class="pre">const</span></code> variables are stored safely in flash memory). Finally, note that the line ends with a semicolon. <em>All statements in a sketch much end with a semicolon.</em></p>
+<p>Proceeding to the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function, we set up the pin controlling the LED so that it can output voltages. By default, all pins on an Arduino Uno are inputs. That is, they expect to receive a voltage signal that they then send to the ATmega328 microcontroller. If you want to pin to serve as an output, as we do here, we need to set the <strong>mode</strong> of the pin. We do this using the <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code> function. You can read about it
+<a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/">here</a> in the extremely useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>. (Seriously, bookmark <a class="reference external" href="https://www.arduino.cc/reference/">the reference</a>.) <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code> has return type <code class="docutils literal notranslate"><span class="pre">void</span></code>, which means it does not return anything, so you simply call the function with an assignment operation. I.e., <strong>do not</strong> do something like this: <code class="docutils literal notranslate"><span class="pre">ledPin</span> <span class="pre">=</span> <span class="pre">pinMode(ledPin,</span> <span class="pre">OUTPUT)</span></code>. The first argument is
+the pin whose mode you want to set. The second argument is either <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> or <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>. In our case, we want <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>, since we are outputting a signal to the LED.</p>
+<p>Now, we turn our attention to the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function. We start by using the <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code> function to set the pin connected to the LED to <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>. Remember, pin 6 is a digital pin, so it can only take on two values, zero (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>) or five volts (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>). <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code> takes two arguments, the first bring the pin to which you want to write. The second argument must by <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> or <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. So, the <code class="docutils literal notranslate"><span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH)</span></code> statement results in a 5V potential across the LED,
+thereby turning it on.</p>
+<p>Next, we use the <code class="docutils literal notranslate"><span class="pre">delay()</span></code> function to tell the microcontroller to just hang out for a while and do nothing. The argument of <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is the amount of time <strong>in milliseconds</strong> that you want to wait. We chose 250 milliseconds to wait a quarter second, which will ultimately give a flash at a frequency of 2 Hz.</p>
+<p>After the delay, we need to turn the LED off, so we use <code class="docutils literal notranslate"><span class="pre">digitalWrite(ledPin,</span> <span class="pre">LOW)</span></code>. We again wait 250 milliseconds.</p>
+<p>When the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function ends, it starts again. So, after waiting 250 ms, the loop function gets called again and the LED is turned on again.</p>
+</div>
+<div class="section" id="Aside:-The-Arduino-core-libraries">
+<h3>Aside: The Arduino core libraries<a class="headerlink" href="#Aside:-The-Arduino-core-libraries" title="Permalink to this headline">¶</a></h3>
+<p>We used <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code>, <code class="docutils literal notranslate"><span class="pre">delay()</span></code>, <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code>, <code class="docutils literal notranslate"><span class="pre">INPUT</span></code>, <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>, <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, and <code class="docutils literal notranslate"><span class="pre">LOW</span></code> in the above program. These were not defined anywhere in the sketch. This is because they are included in the <a class="reference external" href="https://github.com/arduino/ArduinoCore-avr/tree/master/cores/arduino">Arduino core libraries</a>, which are included by default in any Arduino sketch. The functions included in the core libraries are included in the <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>. (Do
+you see a trend here? This is an exceptionally useful website!)</p>
+</div>
+<div class="section" id="Saving-the-sketch">
+<h3>Saving the sketch<a class="headerlink" href="#Saving-the-sketch" title="Permalink to this headline">¶</a></h3>
+<p>After your code is complete, you need to save the sketch. We will name our sketch <code class="docutils literal notranslate"><span class="pre">blink</span></code>. When you save an Arduino sketch it must be in a folder having the same name as your sketch. The Arduino IDE will automatically create this folder when you select <code class="docutils literal notranslate"><span class="pre">Save</span></code> from the <code class="docutils literal notranslate"><span class="pre">File</span></code> menu. Within the folder is a text file with the suffix <code class="docutils literal notranslate"><span class="pre">.ino</span></code> that contains the code of your sketch. In this case, the file is called <code class="docutils literal notranslate"><span class="pre">blink.ino</span></code>. You can have other files in the folder, including other <code class="docutils literal notranslate"><span class="pre">.ino</span></code>
+files, files with C++ code, and header (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) files. This is a bit more advanced than what we will encounter in this class, so you do not need to worry too much about that extra files in the sketch folder.</p>
+</div>
+<div class="section" id="Uploading-the-sketch-and-blinking!">
+<h3>Uploading the sketch and blinking!<a class="headerlink" href="#Uploading-the-sketch-and-blinking!" title="Permalink to this headline">¶</a></h3>
+<p>Now that you have saved your sketch on your computer, you can upload it. To compile the sketch to make sure everything is ok, you can click the check mark icon on the top left of the Arduino IDE window. To (re)compile and upload your sketch, click on the right arrow icon next to the check mark icon. The black window at the bottom of the Arduino IDE window will show you messages from the compiler. If you see red text, you know something when wrong. Be sure to carefully read any messages; they
+will help with debugging.</p>
+<p>After clicking the arrow, if everything went according to plan, the sketch will be compiled and uploaded to the Arduino Uno, and the light will start blinking!</p>
+<hr></div>
+</div>
+<div class="section" id="Answers-to-resistance-exercise">
+<h2>Answers to resistance exercise<a class="headerlink" href="#Answers-to-resistance-exercise" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>A 1±0.05 MΩ resistor would have brown-black-green-gold for a four-band color pattern and brown-black-black-yellow-gold for a five-band color pattern.</p></li>
+<li><p>This is a 4.7 kΩ (with a 5% tolerance) resistor.</p></li>
+<li><p>This is a 1 kΩ (with a 1% tolerance) resistor.</p></li>
+</ol>
 </div>
 </div>
 
@@ -261,10 +663,10 @@ your choices for the resistor and capacitor values. Conversely, you could simply
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../02/tour_of_arduino.html" class="btn btn-neutral float-right" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../04/schematics.html" class="btn btn-neutral float-right" title="Lesson 4: Schematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../00/configuring_your_computer.html" class="btn btn-neutral float-left" title="Lesson 0: Getting set up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../02/tour_of_arduino.html" class="btn btn-neutral float-left" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -278,7 +680,7 @@ your choices for the resistor and capacitor values. Conversely, you could simply
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fb77b5d9970> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fb77b5fc7c0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

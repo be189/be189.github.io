@@ -38,7 +38,7 @@
     "\n",
     "Fifty or so years ago, engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).\n",
     "\n",
-    "<div style=\"width: 600px; margin: auto\">\n",
+    "<div style=\"width: 600px; margin: auto;\">\n",
     "   \n",
     "![solderless breadboard](solderless_breadboard.jpg)\n",
     "    \n",

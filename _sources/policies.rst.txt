@@ -1,3 +1,5 @@
+.. _Policies:
+
 Meetings
 --------
 
@@ -57,13 +59,22 @@ When you submit a follow-along exercise, the following must be included in the Z
 Do-it-yourself exercises
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you submit a do-it-yourself exercise, the following must be included in the ZIP file.
+When you submit a do-it-yourself exercise, the following must be included in the ZIP file unless otherwise indicated in the exercise statement.
 
-1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include circuit diagrams and breadboard illustrations. You can use `Fritzing <https://fritzing.org>`_ to make these. If you interact with your device through JupyterLab, that can also be included in the notebook.
+1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include circuit diagrams and breadboard illustrations. You can use `Fritzing <https://fritzing.org>`_ to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.
 2. An HTML rendering of the Jupyter notebook.
-3. If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.
-4. A photo or photos of your board/breadboard.
+3. Any Arduino sketches you wrote.
+4. If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.
 5. A brief movie of your circuit functioning.
+6. A photo or photos of your board/breadboard if anything is unclear from the movie.
+
+To include Arduino sketchs in Jupyter notebooks, use the following syntax in a Markdown cell.
+
+.. code::
+
+	```arduino
+	// Enter your sketch code here.
+	```
 
 
 Project write-ups

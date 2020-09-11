@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lesson 1: Prototyping electronic devices &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>Lesson 4: Schematics &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" href="../02/tour_of_arduino.html" />
-    <link rel="prev" title="Lesson 0: Getting set up" href="../00/configuring_your_computer.html" /> 
+    <link rel="next" title="Lesson 5: Programming Arduino" href="../05/programming_arduino.html" />
+    <link rel="prev" title="Lesson 3: Hello, world. (a.k.a. Blink)" href="../03/blink.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,13 +90,14 @@
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">Lesson 0: Getting set up</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 1: Prototyping electronic devices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#A-prototyping-platform-for-electronics">A prototyping platform for electronics</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">Lesson 1: Prototyping electronic devices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03/blink.html">Lesson 3: Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">Lesson 4: Schematics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 4: Schematics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Learning-how-to-read-schematics">Learning how to read schematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Drawing-schematics">Drawing schematics</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">Lesson 5: Programming Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">Lesson 6: Practice programming Arduino</a></li>
 </ul>
@@ -184,7 +185,7 @@
     
         
         
-            <a href="https://be189.github.io/blob/master/lessons/01/prototyping_electronic_devices.ipynb" download> Download notebook</a>
+            <a href="https://be189.github.io/blob/master/lessons/04/schematics.ipynb" download> Download notebook</a>
         
       
     
@@ -222,34 +223,20 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Lesson-1:-Prototyping-electronic-devices">
-<h1>Lesson 1: Prototyping electronic devices<a class="headerlink" href="#Lesson-1:-Prototyping-electronic-devices" title="Permalink to this headline">¶</a></h1>
-<hr><p>The title of this course is <em>Design and Construction of Biodevices</em>. We will be constructing a spectrophotometer and a pulse oximeter, two biodevices that you could easily buy, and not even for very much money. So why are we constructing them? There are two main goals.</p>
-<ol class="arabic simple">
-<li><p>You may have a novel idea for an experiment in which you need to make a measurement that has never been made before. Or maybe you want to to measure something in a new way. In either case, there may not be an available instrument to do the measurement, and you’ll have to build your own. This course develops the skills you need to build your own instruments by building instruments with well-established function.</p></li>
-<li><p>As you develop new instrumentation, you build prototypes. The process of building prototypes, testing them improving upon them, and repeating is key toward developing quality instrumentation. James Dyson <a class="reference external" href="https://nymag.com/vindicated/2016/11/james-dyson-on-5-126-vacuums-that-didnt-work-and-1-that-did.html">famously built over 5000 prototypes of his bagless vacuum cleaner</a> before it was ready for market. In building instruments, you will learn about the prototyping process and best
-practices.</p></li>
-</ol>
-<p>Before building your devices, you will learn about the tools we will use for prototyping our devices. You will do a set of exercises to solidify your understanding.</p>
-<div class="section" id="A-prototyping-platform-for-electronics">
-<h2>A prototyping platform for electronics<a class="headerlink" href="#A-prototyping-platform-for-electronics" title="Permalink to this headline">¶</a></h2>
-<p>For our prototyping, we will use</p>
-<ol class="arabic simple">
-<li><p>Commonly available electronic components such as resistors, capacitors, LEDs, op amps, etc,</p></li>
-<li><p>Solderless breadboards,</p></li>
-<li><p>An Arduino Uno board,</p></li>
-<li><p>A computer with a scientific Python distribution.</p></li>
-</ol>
-<p>When a device is fully constructed, the electronics are efficiently and permanently packaged into a small space, often using <a class="reference external" href="https://en.wikipedia.org/wiki/Printed_circuit_board">printed circuit board assemblies</a>. When <em>designing</em> a device, the engineer needs space to tinker and make adjustments. In days of yore, engineers would hammer nails into flat wooden boards and would then connect the nails with wire to connect components. These pieces of wood were often breadboards, flat pieces of
-wood for kneading or serving bread. Prototyping in this way, while easier than trying to build a finished electronic product in each iteration, is slow, as you can imagine.</p>
-<p>Fifty or so years ago, engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).</p>
-<div style="width: 600px; margin: auto;"><p><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" /></p>
-</div><p>Engineers can stick the leads of electronic components into the little holes to rapidly connect circuitry. (We will discuss the structure of the solderless breadboards in the next lesson.) This greatly accelerated the prototyping process.</p>
-<p>While the solderless breadboards offered a much more rapid means of making electronic hardware, the past few decades have seen more innovation that leads to much more rapid prototyping: the ability to shift many design considerations to software.</p>
-<p>As a simple example of how this can speed prototyping, consider the “blink” example you will soon construct in a follow-along exercise. The goal is to design a circuit that has a <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">light emitting diode</a> (LED) that blinks twice per second. You could build an <a class="reference external" href="https://en.wikipedia.org/wiki/Multivibrator">astable multivibrator</a>, which requires several resistors, capacitors, and transistors. The frequency of the blinking LED would be set by
-your choices for the resistor and capacitor values. Conversely, you could simply hook an LED up to a power source that you can control <em>with software</em>. You can write a computer program that turns the power on and off with a set frequency. Then, to change blinking frequency, you need only to change a line or two in code, rather than change out physical components.</p>
-<p>The <a class="reference external" href="http://arduino.cc/">Arduino</a> platform provides a means for software-based control of electronic circuits. Combined with solderless breadboards, this allows for very rapid prototyping.</p>
-<p>Finally, if we want to have a convenient interface for control of a device, such as a computer, we need means for communicating with the device, as controlled by a microcontroller on an Arduino board. We will use Python-based tools to do that. These are also readily programmed and the “control panel” is comprised of a series of configurable buttons presented in a web browser. This is much faster to design and redesign than a physical control panel.</p>
+<div class="section" id="Lesson-4:-Schematics">
+<h1>Lesson 4: Schematics<a class="headerlink" href="#Lesson-4:-Schematics" title="Permalink to this headline">¶</a></h1>
+<hr><p>In the previous lesson, showed a drawing of the circuit as it would appear physically in front of us. It looked like this:</p>
+<div style="margin: auto; width: 600px;"><p><img alt="blink_bb_2" src="../../_images/blink_bb1.svg" /></p>
+</div><p>While this is a useful representation, it can quickly get cluttered when there are many components. It is also quite difficult to draw by hand. Instead, most electrical circuits are drawn as <strong>schematics</strong>. They are more abstract than the <strong>pictorial representation</strong> above and are easier to create.</p>
+<div style="margin: auto; width: 300px;"><p><img alt="blink_schem" src="../../_images/blink_schem.svg" /></p>
+</div><p>The resistor is now represented by a zig-zag line (I call them “<a class="reference external" href="https://www.1843magazine.com/sites/default/files/styles/il_manual_crop_16_9/public/Charlie-Brown-Good-Grief-HEADER_0.png">Charlie Brown shirts</a>”) with a label giving its resistance. The LED also has a symbol, and the the Arduino is also represented abstractly, with the pin locations not matching where they physically appear on the board.</p>
+<div class="section" id="Learning-how-to-read-schematics">
+<h2>Learning how to read schematics<a class="headerlink" href="#Learning-how-to-read-schematics" title="Permalink to this headline">¶</a></h2>
+<p>I could write a long lesson about reading schematics, but I don’t think it would be any better than <a class="reference external" href="https://learn.sparkfun.com/tutorials/how-to-read-a-schematic/all">this very nice tutorial from SparkFun</a>. Please read it carefully.</p>
+</div>
+<div class="section" id="Drawing-schematics">
+<h2>Drawing schematics<a class="headerlink" href="#Drawing-schematics" title="Permalink to this headline">¶</a></h2>
+<p>There are many computer programs available for drawing schematics. You will need to do so in your some of your exercises and definitely in your projects. I think it is also useful to show pictorial representations as well. To draw both of these, <a class="reference external" href="https://fritzing.org/">Fritzing</a> is a valuable and widely used tool. It is possible to get it for free, but if you have the means, I could encourage you to make the suggested donation (€8). Fritzing is fairly self-explanatory to use.</p>
 </div>
 </div>
 
@@ -261,10 +248,10 @@ your choices for the resistor and capacitor values. Conversely, you could simply
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../02/tour_of_arduino.html" class="btn btn-neutral float-right" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../05/programming_arduino.html" class="btn btn-neutral float-right" title="Lesson 5: Programming Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../00/configuring_your_computer.html" class="btn btn-neutral float-left" title="Lesson 0: Getting set up" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../03/blink.html" class="btn btn-neutral float-left" title="Lesson 3: Hello, world. (a.k.a. Blink)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -278,7 +265,7 @@ your choices for the resistor and capacitor values. Conversely, you could simply
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fb77b5d9970> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fb77bcafca0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
