@@ -41,12 +41,14 @@ People
    lessons/04/schematics.ipynb
    lessons/05/programming_arduino.ipynb
    lessons/06/practice_programming_arduino.ipynb
+   lessons/07/adc_and_usart.ipynb
 
 
 .. toctree::
    :maxdepth: 1
    :caption: Exercises
 
+   thinking_exercises.rst
    follow_along_exercises.rst
    do_it_yourself_exercises.rst
 

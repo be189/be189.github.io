@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# Lesson 6: Practice programming Arduino\n",
+    "# 6. Practice programming Arduino\n",
     "\n",
     "<hr>"
    ]

@@ -1,0 +1,340 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 7. ADC and USART\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You have already seen that you can use Arduino to control physical devices. In your projects, and indeed for most of the biodevices I can dream of, you will have a **sensor** that measures something in the physical world. In this lesson, you will learn how to convert an analog signal from a sensor into a digital value that your computer can understand. You will also learn how to transfer measurements from sensors to your computer over USB using a serial protocol."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## ADC on Arduino\n",
+    "\n",
+    "A sensor converts a signal to an analog voltage. This voltage needs to be converted to a digital value by [analog to digital conversion](https://en.wikipedia.org/wiki/Analog-to-digital_converter) (ADC). The ATmega328 microcontroller has a build-in 10-bit ADC. That means that an analog voltage value gets converted to a 10-bit unsigned integer. Voltages in Arduino range from 0 to 5V, so there is a mapping between the input voltage and the value given by the ADC. If *v* is the analog input voltage, then the ADC will give an integer between 0 and 1023 according to\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\text{ADC value} = \\frac{5\\,v}{1023}.\n",
+    "\\end{align}\n",
+    "\n",
+    "While it only has one ADC, the microcontroller allows six channels of for ADC, coming from pins A0, A1, A2, A3, A4, and A5. You can use the `analogRead()` function on these pins. For example, if you want to read in a pseudo-instantaneous (\"pseudo\" because the process of ADC is not instantaneous itself, taking about 100 µs) voltage value from pin A0 and store the value as a voltage, you can do the following.\n",
+    "\n",
+    "```arduino\n",
+    "int voltageADC = analogRead(A0);\n",
+    "float voltage = voltageADC / 1023.0 * 5.0;\n",
+    "```\n",
+    "\n",
+    "If you use a 12-bit ADC, the divisor is 4095, and it is 65535 for a 16-bit ADC."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Serial communication\n",
+    "\n",
+    "When you upload a sketch from your computer onto Arduino, you do so over USB. You can see the TX and RX LEDs flashing when you do this. Data is being sent back and forth over the USB cable. This is a form of [serial communication](https://en.wikipedia.org/wiki/Serial_communication). In serial communication, data is sent single-file, bit-by-bit. All of Arduino's serial communication protocols (I2C, SPI, 1-wire, and USART) are serial. We will discuss and use I2C in a forthcoming lesson; here we focus on USART.\n",
+    "\n",
+    "Arduino uses USART (universal synchronous/asynchronous receiver/transmitter) to package data in bits that may be communicated serially. The USB interface chip on board the Arduino Uno does the calculations necessary to send and receive bits via USB."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Sending data over USB\n",
+    "\n",
+    "The Serial library is included in the core Arduino libraries and is included in [the language reference](https://www.arduino.cc/reference/en/language/functions/communication/serial/). Many functions are available in the library, and we will focus here on sending data to your computer.\n",
+    "\n",
+    "Whenever you use serial communication with your computer, you need to open the connection. This is typically done in the `setup()` function. The syntax is\n",
+    "\n",
+    "```arduino\n",
+    "Serial.begin(115200);\n",
+    "```\n",
+    "\n",
+    "The argument of the `Serial.begin()` function is the **baud rate**, which is the number of bits per second you want to send over serial. According to the [ATmega328 data sheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf) (see the tables at the end of section 19), you can achieve baud rates up to 2 million bits per second. Serial communication relies on clock timing to work, so commonly used baud rates are in sync with clock operating frequencies. The most commonly used baud rates are 9600 and 115,200. We will usually use a baud rate of 115,200. **The baud rate setting for whatever software you are using on your computer to receive a serial transmission must be the same as the baud rate you set in your sketch.** If the baud rates are different, you will receive jibberish.\n",
+    "\n",
+    "As [described in the docs](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/), in addition to setting the baud rate, you can also set the configuration for the transmission of bytes. By default, the Serial library used [8N1](https://en.wikipedia.org/wiki/8-N-1). This means that a \"byte\" that is transmitted consists of eight bits, no parity bits, and one stop bit. This is a standard configuration and is the default for the Arduino IDE Serial Monitor and for PySerial, the package we will use in Python to receive serial data. It is a standard configuration and there is no need to change if for this class. It does mean that for every byte you wish to transfer, 10 bits are transfered: one start bit, eight bits of data, and one stop bit.\n",
+    "\n",
+    "Serial communications are done in bytes as defined by the configuration. In our case, it will be 8N1.\n",
+    "The `Serial.write()` function is a low-level function to send bytes as binary data. This can result in greater speed, but it requires careful coordination with your computer so that it knows which bits correspond to which values. For example, if each data packet has two 16 bit integers, 40 total bits are transmitted, and your computer needs to be programmed to know what the bits mean.\n",
+    "\n",
+    "The higher-level functions `Serial.print()` and `Serial.println()` provide serial communication that is much easier to parse on the receiving end. These functions send all data over USB *as text*. That is, if I want to send the number 27, it is sent not as its binary representation `00011011`, but rather as [ASCII text](https://en.wikipedia.org/wiki/ASCII). In this case, \"27\" is sent as two bytes, `00110010` and `00110111`, which give the numbers 50 and 55, which are the ASCII codes for the *characters* \"2\" and \"7\". So, to transmit the number 27, you are using twice as many bits.\n",
+    "\n",
+    "To demonstrate the ease of parsing strings, say you wanted to send two 10-bit unsigned integers taken from calls to `analogRead()`, say 51 and 981. You could \"waste\" the extra data that you have to send over USB to make it a nicely formatted comma-separated string, `\"51,981\\n\"`, where `\\n` is the newline character marking the end of the transmission. Having the newline character is useful because you can tell Python, for example, to read until you hit the newline character, thereby ensuring you get a full record. If you are using Python to read in the data from USB (you will learn how to do that in coming lessons), the string is easily parsed, e.g., into a list of two integers using Python's powerful string methods."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[51, 981]"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[int(num_str) for num_str in \"51,981\\n\".rstrip().split(\",\")]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "If, on the other hand, you sent raw bytes, you would need to know exactly how many were coming and in what format. Provided you did know that, Python would read the byte array coming from Arduino as a `bytes` object `b'3\\x00\\xd5\\x03'`. You then need to know that Arduino's integers are [little endian](https://en.wikipedia.org/wiki/Endianness), and you would need to convert them to integers accordingly."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[51, 981]"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "from_arduino = b'3\\x00\\xd5\\x03'\n",
+    "\n",
+    "first_number = int.from_bytes(from_arduino[:2], 'little')\n",
+    "second_number = int.from_bytes(from_arduino[2:], 'little')\n",
+    "\n",
+    "[first_number, second_number]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "I have not demonstrated it here, but reading in the serial bytes data is trickier than reading in strings with newlines. Writing integers as bytes on the Arduino side is also more challenging.\n",
+    "\n",
+    "Sending the two numbers 51 and 981 with binary encoding meant sending four bytes, or 40 total bits, over USB. Sending the string `\"51,981\\n\"` required a byte for each character, which is 70 total bits in this case. In the worse case scenario in which you wish to send two large 16-bit integers, such as 17752 and 63954, this is eleven characters, or 110 total bits, compared to the 40 bits using binary.\n",
+    "\n",
+    "Note, though, that for our purposes, we have at best a 12-bit ADC (you have a 12-bit external ADC in your kit; the built-in ADC, as we mentioned, is 10-bit), meaning we maximally transmit four digit numbers. One four digit number is 40 total bits if transmitted as strings, and 20 bits if transmitted in binary.\n",
+    "\n",
+    "Getting binary transmission right is tricky, and using binary encodings is harder to debug. The speed improvement is roughly a factor of two for our purposes. Unless we *need* the speed of a binary transmission, using strings is preferred, and this is mostly what we encourage in this course."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "### Thinking exercise 2: USB speed limits\n",
+    "\n",
+    "In some experiments in neurophysiology, measurements are made every 40 µs to capture the shape of the action potentials. \n",
+    "\n",
+    "**a)** Assuming voltages can be measured and converted rapidly enough, what baud rate would be necessary to transmit the data over USB to your computer to store them? Can Arduino accomplish this?\n",
+    "\n",
+    "**b)** Look up the read/write speed of hard drives. Are the hard drives fast enough to store the data?\n",
+    "\n",
+    "**c)** Arduino uses USB 2.0. Look up the data transfer speeds of USB 2.0. Can the cable/protocol handle the desired speeds?\n",
+    "\n",
+    "Note that I have left much of this question unspecified. Things you might need to think about are how the voltages are represented, how many voltages you plan on measuring, and whether or not you want to include a time stamp in your transmission, etc. The answer to this thinking exercise is at the bottom of this lesson.\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Follow-along exercise 3: Serial data and the serial monitor\n",
+    "\n",
+    "To practice sending and receiving serial data, we will make a simple circuit in which we vary voltage using a [potentiometer](https://en.wikipedia.org/wiki/Potentiometer). The potentiometer in your kit is a blue square with three leads and a knob on it. By connecting the two outside leads to a voltage source and ground, the voltage read from the center lead can range from zero to the input voltage as you turn the knob.\n",
+    "\n",
+    "Write up the circuit shown below.\n",
+    "\n",
+    "<div style=\"margin: auto; width: 300px;\">\n",
+    "    \n",
+    "![Serial data and monitor exercise schematic](03-serial_schem.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "We will soon stop showing pictorial schematics, but for now, we will still show it.\n",
+    "\n",
+    "<div style=\"margin: auto; width: 500px;\">\n",
+    "    \n",
+    "![Serial data and monitor exercise schematic](03-serial_bb.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now, we can code up Arduino to communicate with your computer.\n",
+    "\n",
+    "```arduino\n",
+    "// Which pin we will read from\n",
+    "const int sensorPin = A0;\n",
+    "\n",
+    "// How often to write the result to serial in milliseconds\n",
+    "const int reportInterval = 100;\n",
+    "\n",
+    "// Baud rate (must be long)\n",
+    "long baudRate = 115200;\n",
+    "\n",
+    "\n",
+    "void setup() {\n",
+    "  Serial.begin(baudRate);\n",
+    "}\n",
+    "\n",
+    "\n",
+    "void loop() {\n",
+    "  // Use ADC to get 10-bit integer sensor value\n",
+    "  int sensorVal = analogRead(sensorPin);\n",
+    "\n",
+    "  // Convert to voltage\n",
+    "  float voltage = sensorVal / 1023.0 * 5.0;\n",
+    "\n",
+    "  // Write the voltage out to two decimal places\n",
+    "  Serial.println(String(voltage, 2));\n",
+    "\n",
+    "  // Wait until it's time for the next report.\n",
+    "  delay(reportInterval);\n",
+    "}\n",
+    "```\n",
+    "\n",
+    "Make sure you understand the code above. A few things to point out:\n",
+    "\n",
+    "1. `A0` stands for an integer pin number. Since the Arduino core libraries are included when you compile from the Arduino IDE, `A0` is already defined as a variable, so your code will just work if you define the sensor pin to be `A0`.\n",
+    "2. If you want to input the baud rate as a variable, it must be a `long`. You cannot use an `int` for this.\n",
+    "3. The `Serial.println()` function sends a string over the USB connection using [ASCII encoding](https://en.wikipedia.org/wiki/ASCII). It automatically appends a carriage return (`\\r`) and a newline character (`\\n`) to the end of the string. The `Serial.print()` function works exactly the same way, except without adding the carriage return and newline character. We could have used `Serial.print(String(voltage, 2) + '\\n')`.\n",
+    "4. When converting a floating point number to a `String` instance, you can specify the number of decimal places you want to keep with the second argument to `String()`. In this case, we kept two.\n",
+    "\n",
+    "Once you upload your code, you will see the TX LED flashing at 10 Hz. It flashes every time data is being transmitted over USB from Arduino. (The RX LED flashes when data is transmitted *to* Arduino.) This means data is being transmitted!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### The Serial Monitor of the Arduino IDE\n",
+    "\n",
+    "Soon, we will monitor data coming from Ardiuno using Python-based tools. They allow for rich interfacing with the board. For a simpler interface, you can use the built-in serial monitor of the Arduino IDE. To activate it, use your mouse to click `Tools` → `Serial Monitor`. The Serial Monitor window will open and you will see the voltages you are writing out. The numbers will change as you turn the potentiometer. At the bottom of the Serial Monitor window is a dropdown menu to select supported baud rates. Make sure it is set to 115200 baud, the same as in the Arduino sketch."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### The Serial Plotter of the Arduino IDE\n",
+    "\n",
+    "While the Serial Monitor is open, none of Arduino's other menu options are available. This is because the Serial Monitor is tying up the USB connection to the board. Close the Serial Monitor.\n",
+    "\n",
+    "Now, use your mouse to click `Tools` → `Serial Plotter`. In the new window, you will see a live-update of the data coming out of the Arduino. If you wait long enough, you will see that it will start to scroll.\n",
+    "\n",
+    "If you want to show multiple variables on the plotter at a time, you need to print out the numbers with spaces separating them. For example, if you also want to print a sine wave, you can use the following Arduino code.\n",
+    "\n",
+    "```arduino\n",
+    "// Which pin we will read from\n",
+    "const int sensorPin = A0;\n",
+    "\n",
+    "// How often to write the result to serial in milliseconds\n",
+    "const int reportInterval = 100;\n",
+    "\n",
+    "// Baud rate (must be long)\n",
+    "long baudRate = 115200;\n",
+    "\n",
+    "\n",
+    "void setup() {\n",
+    "  Serial.begin(baudRate);\n",
+    "}\n",
+    "\n",
+    "\n",
+    "void loop() {\n",
+    "  // Use ADC to get 10-bit integer sensor value\n",
+    "  int sensorVal = analogRead(sensorPin);\n",
+    "\n",
+    "  // Convert to voltage\n",
+    "  float voltage = sensorVal / 1023.0 * 5.0;\n",
+    "\n",
+    "  // Sine wave from 0 to 5\n",
+    "  float wave = 2.5 * (1.0 + sin(millis() / 1000.0));\n",
+    "\n",
+    "  // Write the sine wave and voltage separated by a space\n",
+    "  Serial.print(String(wave, 3));\n",
+    "  Serial.print(' ');\n",
+    "  Serial.println(String(voltage, 2));\n",
+    "\n",
+    "  // Wait until it's time for the next report.\n",
+    "  delay(reportInterval);\n",
+    "}\n",
+    "```\n",
+    "\n",
+    "Note that in this code, we use the `sin()` function. This is included in the Arduino core libraries, along with other simple mathematical functions like `sqrt()`, `abs()`, `cos()`, and `pow()`. The `pow()` function is use to raise a number to a power."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "**Answer to the USB speed limit exercise**\n",
+    "\n",
+    "**a)** We will assume an 8N1 protocol. Let's assume that we want to include the time stamp in microseconds and also a single voltage value from ADC. We'll assume we have at best a 16-bit ADC and at worst a 10-bit ADC, so we'll need to transmit two bytes either way for the voltage value. (We are not actually transmitting the voltage value, but an integer that can be converted to a voltage value.) The time stamp, being in microseconds is an `unsigned long`, which means it is a 32-bit integer. If we do a reading for an hour, we will get to 10-digit numbers for the time stamps. Assuming we transmit each pair of data as a comma separated string, like `\"3600000000,55231\\n\"`, we are sending 17 characters for a total of 170 bits per reading. We have to send those every 40 µs, or 25,000 transmissions per second. At 170 bits each, this is 4.25 million bits per second. This is faster than the ATmega328's maximum baud rate of 2 million bits per second.\n",
+    "\n",
+    "If, however, we assume we get the timing right, and we only receive the voltage values, like `\"55231\\n\"`, we receive six characters per transmission, or 60 bits, which is 1.5 million bits per second, within the baud rate.\n",
+    "\n",
+    "If we chose instead to transmit the time and voltage in binary, the time is an unsigned long, so 40 total bits would be transmitted for it. The voltage is a 16-bit integer, so 20 bits are transmitted. We're again at 60 bits per transmission, which is within the limits of baud rate of the Arduino.\n",
+    "\n",
+    "Finally, if we only transmitted the voltage and not the time in binary, we transmit 20 bits per transmission, which is 500,000 bits per second, well within the capabilities of the ATmega328.\n",
+    "\n",
+    "**b)** Low-end solid state drives have a write speeds above 300 MB per second. This is far faster than the baud rate, so writing to disk is no problem.\n",
+    "\n",
+    "**c)** USB 2.0 has a maximum transfer rate of about 60 MB per second. Still far above the baud rate."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

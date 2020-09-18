@@ -88,16 +88,18 @@
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">Lesson 0: Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">Lesson 1: Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/02/tour_of_arduino.html">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/03/blink.html">Lesson 3: Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/04/schematics.html">Lesson 4: Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">Lesson 5: Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">Lesson 6: Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/07/adc_and_usart.html">7. ADC and USART</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
@@ -126,6 +128,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#equipment">Equipment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#exercises">Exercises</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#thinking-exercises">Thinking exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#follow-along-exercises">Follow-along exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#do-it-yourself-exercises">Do-it-yourself exercises</a></li>
 </ul>
@@ -247,15 +250,19 @@
 </div>
 <div class="section" id="exercises">
 <h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
-<p>Each exercise falls into one of two classes.</p>
+<p>Each exercise falls into one of three classes.</p>
 <ol class="arabic simple">
+<li><p>Thinking exercise</p></li>
 <li><p>Follow-along exercise</p></li>
 <li><p>Do-it-yourself exercise</p></li>
 </ol>
-<p>In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. In a do-it-yourself exercise, you apply techniques covered in the course materials and in the follow-along exercises to make your own circuit. These exercises are meant to help you build the expertise you need to complete the projects.</p>
+<div class="section" id="thinking-exercises">
+<h2>Thinking exercises<a class="headerlink" href="#thinking-exercises" title="Permalink to this headline">¶</a></h2>
+<p>In a thinking exercise, you do not need to build anything. They typically are thinking questions or back-of-the-envelope calculations. You do not need to submit anything for thinking exercises; they are for you to ponder on your own and maybe discuss with your classmates and TAs.</p>
+</div>
 <div class="section" id="follow-along-exercises">
 <h2>Follow-along exercises<a class="headerlink" href="#follow-along-exercises" title="Permalink to this headline">¶</a></h2>
-<p>When you submit a follow-along exercise, the following must be included in the ZIP file.</p>
+<p>In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. Unless otherwise noted, when you submit a follow-along exercise, the following must be included in the ZIP file.</p>
 <ol class="arabic simple">
 <li><p>A photo or photos of your board/breadboard.</p></li>
 <li><p>A brief movie of your circuit functioning.</p></li>
@@ -263,9 +270,9 @@
 </div>
 <div class="section" id="do-it-yourself-exercises">
 <h2>Do-it-yourself exercises<a class="headerlink" href="#do-it-yourself-exercises" title="Permalink to this headline">¶</a></h2>
-<p>When you submit a do-it-yourself exercise, the following must be included in the ZIP file unless otherwise indicated in the exercise statement.</p>
+<p>In a do-it-yourself exercise, you apply techniques covered in the course materials and in the follow-along exercises to make your own circuit. These exercises are meant to help you build the expertise you need to complete the projects. When you submit a do-it-yourself exercise, the following must be included in the ZIP file unless otherwise indicated in the exercise statement.</p>
 <ol class="arabic simple">
-<li><p>A Jupyter notebook with a write-up of how you went about completing the exercise. This should include circuit diagrams and breadboard illustrations. You can use <a class="reference external" href="https://fritzing.org">Fritzing</a> to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.</p></li>
+<li><p>A Jupyter notebook with a write-up of how you went about completing the exercise. This should include a schematic of your ciruit, and also a pictorial schematic if you think it is necessary and/or helpful. You can use <a class="reference external" href="https://fritzing.org">Fritzing</a> to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.</p></li>
 <li><p>An HTML rendering of the Jupyter notebook.</p></li>
 <li><p>Any Arduino sketches you wrote.</p></li>
 <li><p>If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.</p></li>
@@ -338,11 +345,11 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 11, 2020.
+        Last updated on Sep 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fb77bd8c7f0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fd0e808c460> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

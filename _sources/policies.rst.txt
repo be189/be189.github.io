@@ -39,18 +39,23 @@ Each project write-up and exercise must be submitted as a ZIP file via email to 
 Exercises
 ---------
 
-Each exercise falls into one of two classes.
+Each exercise falls into one of three classes.
 
-1. Follow-along exercise
-2. Do-it-yourself exercise
+1. Thinking exercise
+2. Follow-along exercise
+3. Do-it-yourself exercise
 
-In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. In a do-it-yourself exercise, you apply techniques covered in the course materials and in the follow-along exercises to make your own circuit. These exercises are meant to help you build the expertise you need to complete the projects.
+
+Thinking exercises
+^^^^^^^^^^^^^^^^^^
+
+In a thinking exercise, you do not need to build anything. They typically are thinking questions or back-of-the-envelope calculations. You do not need to submit anything for thinking exercises; they are for you to ponder on your own and maybe discuss with your classmates and TAs.
 
 
 Follow-along exercises
 ^^^^^^^^^^^^^^^^^^^^^^
 
-When you submit a follow-along exercise, the following must be included in the ZIP file.
+In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. Unless otherwise noted, when you submit a follow-along exercise, the following must be included in the ZIP file.
 
 1. A photo or photos of your board/breadboard.
 2. A brief movie of your circuit functioning.
@@ -59,9 +64,9 @@ When you submit a follow-along exercise, the following must be included in the Z
 Do-it-yourself exercises
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-When you submit a do-it-yourself exercise, the following must be included in the ZIP file unless otherwise indicated in the exercise statement.
+In a do-it-yourself exercise, you apply techniques covered in the course materials and in the follow-along exercises to make your own circuit. These exercises are meant to help you build the expertise you need to complete the projects. When you submit a do-it-yourself exercise, the following must be included in the ZIP file unless otherwise indicated in the exercise statement.
 
-1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include circuit diagrams and breadboard illustrations. You can use `Fritzing <https://fritzing.org>`_ to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.
+1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include a schematic of your ciruit, and also a pictorial schematic if you think it is necessary and/or helpful. You can use `Fritzing <https://fritzing.org>`_ to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.
 2. An HTML rendering of the Jupyter notebook.
 3. Any Arduino sketches you wrote.
 4. If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.

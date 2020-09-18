@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lesson 3: Hello, world. (a.k.a. Blink) &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>3. Hello, world. (a.k.a. Blink) &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lesson 4: Schematics" href="../04/schematics.html" />
-    <link rel="prev" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" href="../02/tour_of_arduino.html" /> 
+    <link rel="next" title="4. Schematics" href="../04/schematics.html" />
+    <link rel="prev" title="2. A tour of Ardiuno Uno and the solderless breadboard" href="../02/tour_of_arduino.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,13 +89,14 @@
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">Lesson 0: Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">Lesson 1: Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 3: Hello, world. (a.k.a. Blink)</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Hello, world. (a.k.a. Blink)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Hardware-for-your-first-exercise">Hardware for your first exercise</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#LEDs">LEDs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Resistors">Resistors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Thinking-exercise-1:-Resistor-values">Thinking exercise 1: Resistor values</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Jumper-wires">Jumper wires</a></li>
 </ul>
 </li>
@@ -109,15 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#Uploading-the-sketch-and-blinking!">Uploading the sketch and blinking!</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Answers-to-resistance-exercise">Answers to resistance exercise</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">Lesson 4: Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">Lesson 5: Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">Lesson 6: Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
@@ -469,8 +471,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="Lesson-3:-Hello,-world.-(a.k.a.-Blink)">
-<h1>Lesson 3: Hello, world. (a.k.a. Blink)<a class="headerlink" href="#Lesson-3:-Hello,-world.-(a.k.a.-Blink)" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="3.-Hello,-world.-(a.k.a.-Blink)">
+<h1>3. Hello, world. (a.k.a. Blink)<a class="headerlink" href="#3.-Hello,-world.-(a.k.a.-Blink)" title="Permalink to this headline">¶</a></h1>
 <hr><p>When you learn a new programming language, your first program is “Hello, world,” in which you make your computer print that global greeting to the screen.</p>
 <p>In this class, we assume that you have a background in Python programming, so you know how to write the Hello, world program in Python.</p>
 <div class="nbinput docutils container">
@@ -539,14 +541,16 @@ Hello, world.
 </ol>
 <p>The 220 Ω resistor in the four-band example would have rings of red-red-black-brown-gold.</p>
 <p>To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
-<p>Here’s an exercise (that is not officially an exercise so you do not have to submit anything), just to help you get the hand of it.</p>
+<hr></div>
+<div class="section" id="Thinking-exercise-1:-Resistor-values">
+<h3>Thinking exercise 1: Resistor values<a class="headerlink" href="#Thinking-exercise-1:-Resistor-values" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li><p>What four-band color pattern would I have for a 1±0.05 MΩ resistor? How about five-band?</p></li>
 <li><p>I have a resistor with band colors yellow-purple-red-gold. What is its resistance?</p></li>
 <li><p>I have a resistor of with band colors brown-black-black-brown-brown. What is its resistance?</p></li>
 </ol>
 <p>The answers are at the end of this lesson.</p>
-</div>
+<hr></div>
 <div class="section" id="Jumper-wires">
 <h3>Jumper wires<a class="headerlink" href="#Jumper-wires" title="Permalink to this headline">¶</a></h3>
 <p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect component beyond the connections already present in the solderless breadboard. Jumper wires have different ends. In many cases, they simply have a bare wire at the end. They may also have plastic ends that force the wire to rise orthogonally from where is it plugged in. Some of these ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
@@ -643,15 +647,13 @@ files, files with C++ code, and header (<code class="docutils literal notranslat
 <p>Now that you have saved your sketch on your computer, you can upload it. To compile the sketch to make sure everything is ok, you can click the check mark icon on the top left of the Arduino IDE window. To (re)compile and upload your sketch, click on the right arrow icon next to the check mark icon. The black window at the bottom of the Arduino IDE window will show you messages from the compiler. If you see red text, you know something when wrong. Be sure to carefully read any messages; they
 will help with debugging.</p>
 <p>After clicking the arrow, if everything went according to plan, the sketch will be compiled and uploaded to the Arduino Uno, and the light will start blinking!</p>
-<hr></div>
-</div>
-<div class="section" id="Answers-to-resistance-exercise">
-<h2>Answers to resistance exercise<a class="headerlink" href="#Answers-to-resistance-exercise" title="Permalink to this headline">¶</a></h2>
+<hr><p><strong>Answers to thinking exercise</strong></p>
 <ol class="arabic simple">
 <li><p>A 1±0.05 MΩ resistor would have brown-black-green-gold for a four-band color pattern and brown-black-black-yellow-gold for a five-band color pattern.</p></li>
 <li><p>This is a 4.7 kΩ (with a 5% tolerance) resistor.</p></li>
 <li><p>This is a 1 kΩ (with a 1% tolerance) resistor.</p></li>
 </ol>
+</div>
 </div>
 </div>
 
@@ -663,10 +665,10 @@ will help with debugging.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../04/schematics.html" class="btn btn-neutral float-right" title="Lesson 4: Schematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../04/schematics.html" class="btn btn-neutral float-right" title="4. Schematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../02/tour_of_arduino.html" class="btn btn-neutral float-left" title="Lesson 2: A tour of Ardiuno Uno and the solderless breadboard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../02/tour_of_arduino.html" class="btn btn-neutral float-left" title="2. A tour of Ardiuno Uno and the solderless breadboard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -676,11 +678,11 @@ will help with debugging.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 11, 2020.
+        Last updated on Sep 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fb77b5fc7c0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fd0e79d01c0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

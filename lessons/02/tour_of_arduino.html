@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lesson 2: A tour of Ardiuno Uno and the solderless breadboard &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>2. A tour of Ardiuno Uno and the solderless breadboard &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lesson 3: Hello, world. (a.k.a. Blink)" href="../03/blink.html" />
-    <link rel="prev" title="Lesson 1: Prototyping electronic devices" href="../01/prototyping_electronic_devices.html" /> 
+    <link rel="next" title="3. Hello, world. (a.k.a. Blink)" href="../03/blink.html" />
+    <link rel="prev" title="1. Prototyping electronic devices" href="../01/prototyping_electronic_devices.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,9 +89,9 @@
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">Lesson 0: Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">Lesson 1: Prototyping electronic devices</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lesson 2: A tour of Ardiuno Uno and the solderless breadboard</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. A tour of Ardiuno Uno and the solderless breadboard</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Setting-up-your-Arduino-and-breadboard">Setting up your Arduino and breadboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#A-tour-of-a-solderless-breadboard">A tour of a solderless breadboard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#A-tour-of-the-Arduino-Uno">A tour of the Arduino Uno</a><ul>
@@ -114,13 +114,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">Lesson 3: Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">Lesson 4: Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">Lesson 5: Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">Lesson 6: Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
@@ -241,8 +243,8 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="Lesson-2:-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard">
-<h1>Lesson 2: A tour of Ardiuno Uno and the solderless breadboard<a class="headerlink" href="#Lesson-2:-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="2.-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard">
+<h1>2. A tour of Ardiuno Uno and the solderless breadboard<a class="headerlink" href="#2.-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard" title="Permalink to this headline">¶</a></h1>
 <hr><p>Let us now get familiar with your Arduino board. It will help to have your physical board in front of you. In fact, you should get your Arduino board and breadboard set up in their holder.</p>
 <div class="section" id="Setting-up-your-Arduino-and-breadboard">
 <h2>Setting up your Arduino and breadboard<a class="headerlink" href="#Setting-up-your-Arduino-and-breadboard" title="Permalink to this headline">¶</a></h2>
@@ -387,19 +389,19 @@ function in your sketches. Digital pins marked with a tilde (<code class="docuti
 </div>
 <div class="section" id="I2C-communication">
 <h3>I2C communication<a class="headerlink" href="#I2C-communication" title="Permalink to this headline">¶</a></h3>
-<p>Inter-integrated circuit (I2C), sometimes referred to as “two-wire interface,” communication is accessible via the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL)</strong> pins. To communicate data over I2C, the voltage on the SCL switches between high and low values in regular intervals timed by the clock. The SDC also switches at the same frequency. A voltage comparison is on each cycle, and if the SDC voltage is low relative to that of the SCL, the bit is a zero, and is one otherwise, as
-shown in the sketch below.</p>
+<p>Inter-integrated circuit (I2C), sometimes referred to as “two-wire interface,” communication is accessible via the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL)</strong> pins. To communicate data over I2C, the voltage on the SCL switches between high and low values in regular intervals timed by the clock. The SDC also switches at the same frequency. A voltage comparison is made on each cycle, and if the SDC voltage is low relative to that of the SCL, the bit is a zero, and is one otherwise,
+as shown in the sketch below.</p>
 <div style="width: 700px; margin: auto;"><p><img alt="I2C communication schematic" src="../../_images/I2C_communication_schematic.svg" /></p>
 </div><p>Many external devises use I2C for their communication, including the <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC</a> we will use on a breakout board.</p>
-<p>On the Arduino Uno, the <strong>SDA</strong> and <strong>SCL</strong> pins are used for I2C communication. These pins are equivalent to the A The maximum speed of I2C communication is about 400 kbaud, though by default the speed is 100 kbaud. The SDA and SLC pins are functionally equivalent to the A4 and A5 pins, respectively.</p>
+<p>On the Arduino Uno, the <strong>SDA</strong> and <strong>SCL</strong> pins are used for I2C communication. The maximum speed of I2C communication is about 400 kbaud, though by default the speed is 100 kbaud. The SDA and SLC pins are functionally equivalent to the A4 and A5 pins, respectively.</p>
 </div>
 <div class="section" id="SPI-communication">
 <h3>SPI communication<a class="headerlink" href="#SPI-communication" title="Permalink to this headline">¶</a></h3>
-<p>Serial peripheral interface (SPI) communication with Arduino is possible. In SPI communication, one device (almost always the Arduino Uno) is the <strong>main</strong> device, and any other connected devices are <strong>helper</strong> devices. The main device can ask for and receive data from a helper device and can also send data to a helper device. A helper device can send data to or receive data from the main device.</p>
-<p>Note that in almost all of the documentation you see, the main device will be referred to as a “master” device and helper devices are referred to as “slave” devices. The pins are described by acronyms. MOSI, which means “master-out-slave-in,” means that the main devices sends data out to a helper device. MISO, which means “master-in-slave-out,” means that the main device receives data sent from a helper device. We will use the terms main and helper because of the <a class="reference external" href="https://www.wired.com/story/tech-confronts-use-labels-master-slave/">obviously awful connotations of
-the master/slave terminology</a>. Nonetheless, we will use the MOSI, MISO, and SS acronyms because they appear on pinout diagrams for SPI devices.</p>
+<p>Serial peripheral interface (SPI) communication with Arduino is possible. In SPI communication, one device (almost always the Arduino Uno) is the <strong>primary</strong> device, and any other connected devices are <strong>secondary</strong> devices. The primary device can ask for and receive data from a secondary device and can also send data to a secondary device. A secondary device can send data to or receive data from the primary device.</p>
+<p>Note that in almost all of the documentation you see, the primary device will be referred to as a “master” device and secondary devices are referred to as “slave” devices. The pins are described by acronyms. MOSI, which means “master-out-slave-in,” means that the primary device sends data out to a secondary device. MISO, which means “master-in-slave-out,” means that the primary device receives data sent from a secondary device. We will use the terms primary and secondary because of the
+<a class="reference external" href="https://www.wired.com/story/tech-confronts-use-labels-master-slave/">obviously awful connotations of the master/slave terminology</a>. Nonetheless, we will use the MOSI, MISO, and SS acronyms because they appear on pinout diagrams for SPI devices.</p>
 <p>SPI communication requires a MOSI, MISO, and <strong>system clock</strong> (SCK) connection. On the Arduino Uno, you would use digital pins 11, 12, and 13, respectively. Alternatively, you can respectively use ICSP1 pin 4, ICSP1 pin 1, and ICSP1 pin 3. The wires coming out of these pins can connect to multiple external devices, and each device using SPI communication needs to be connect to these three pins.</p>
-<p>The fourth pin necessary for SPI communication is the <strong>helper select (SS)</strong> pin. Each helper device has its own SS pin, and any digital pin on the Arduino Uno can serve as an SS pin. When using SPI communication, the microcontroller shuts down the SS pins of all helper devices it is not communicating with, enabling it to communicate with one helper device at a time.</p>
+<p>The fourth pin necessary for SPI communication is the <strong>secondary select (SS)</strong> pin. Each secondary device has its own SS pin, and any digital pin on the Arduino Uno can serve as an SS pin. When using SPI communication, the microcontroller shuts down the SS pins of all secondary devices it is not communicating with, enabling it to communicate with one secondary device at a time.</p>
 <p>SPI is much faster than I2C, and can operate at about 15 Mbaud on Arduino Uno.</p>
 </div>
 <div class="section" id="Arduino-pinout">
@@ -418,10 +420,10 @@ the master/slave terminology</a>. Nonetheless, we will use the MOSI, MISO, and S
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../03/blink.html" class="btn btn-neutral float-right" title="Lesson 3: Hello, world. (a.k.a. Blink)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../03/blink.html" class="btn btn-neutral float-right" title="3. Hello, world. (a.k.a. Blink)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../01/prototyping_electronic_devices.html" class="btn btn-neutral float-left" title="Lesson 1: Prototyping electronic devices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../01/prototyping_electronic_devices.html" class="btn btn-neutral float-left" title="1. Prototyping electronic devices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -431,11 +433,11 @@ the master/slave terminology</a>. Nonetheless, we will use the MOSI, MISO, and S
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 11, 2020.
+        Last updated on Sep 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fb77bcabbe0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fd0e885aca0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
