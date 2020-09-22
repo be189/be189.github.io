@@ -35,13 +35,15 @@
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Thinking exercises" href="../../thinking_exercises.html" />
+    <link rel="next" title="8. Pulse width modulation" href="../08/pulse_width_modulation.html" />
     <link rel="prev" title="6. Practice programming Arduino" href="../06/practice_programming_arduino.html" /> 
 </head>
 
@@ -110,6 +112,10 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -574,7 +580,7 @@ ensuring you get a full record. If you are using Python to read in the data from
 <span class="kr">const</span> <span class="kr">int</span> <span class="n">reportInterval</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
 <span class="c1">// Baud rate (must be long)</span>
-<span class="kr">long</span> <span class="n">baudRate</span> <span class="o">=</span> <span class="mi">115200</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">long</span> <span class="n">baudRate</span> <span class="o">=</span> <span class="mi">115200</span><span class="p">;</span>
 
 
 <span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -622,7 +628,7 @@ supported baud rates. Make sure it is set to 115200 baud, the same as in the Ard
 <span class="kr">const</span> <span class="kr">int</span> <span class="n">reportInterval</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
 <span class="c1">// Baud rate (must be long)</span>
-<span class="kr">long</span> <span class="n">baudRate</span> <span class="o">=</span> <span class="mi">115200</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">long</span> <span class="n">baudRate</span> <span class="o">=</span> <span class="mi">115200</span><span class="p">;</span>
 
 
 <span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -650,7 +656,7 @@ supported baud rates. Make sure it is set to 115200 baud, the same as in the Ard
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Note that in this code, we use the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> function. This is included in the Arduino core libraries, along with other simple mathematical functions like <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, and <code class="docutils literal notranslate"><span class="pre">pow()</span></code>. The <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function is use to raise a number to a power.</p>
+<p>Note that in this code, we use the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> function. This is included in the Arduino core libraries, along with other simple mathematical functions like <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, and <code class="docutils literal notranslate"><span class="pre">pow()</span></code>. The <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function is use to raise a number to a power. It is not necessary to submit this follow-along exercise because we will use this setup again in the next follow-along exercise, which you will submit.</p>
 <hr><p><strong>Answer to the USB speed limit exercise</strong></p>
 <p><strong>a)</strong> We will assume an 8N1 protocol. Let’s assume that we want to include the time stamp in microseconds and also a single voltage value from ADC. We’ll assume we have at best a 16-bit ADC and at worst a 10-bit ADC, so we’ll need to transmit two bytes either way for the voltage value. (We are not actually transmitting the voltage value, but an integer that can be converted to a voltage value.) The time stamp, being in microseconds is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, which means it is a 32-bit integer. If
 we do a reading for an hour, we will get to 10-digit numbers for the time stamps. Assuming we transmit each pair of data as a comma separated string, like <code class="docutils literal notranslate"><span class="pre">&quot;3600000000,55231\n&quot;</span></code>, we are sending 17 characters for a total of 170 bits per reading. We have to send those every 40 µs, or 25,000 transmissions per second. At 170 bits each, this is 4.25 million bits per second. This is faster than the ATmega328’s maximum baud rate of 2 million bits per second.</p>
@@ -671,7 +677,7 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../thinking_exercises.html" class="btn btn-neutral float-right" title="Thinking exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../08/pulse_width_modulation.html" class="btn btn-neutral float-right" title="8. Pulse width modulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../06/practice_programming_arduino.html" class="btn btn-neutral float-left" title="6. Practice programming Arduino" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -684,11 +690,11 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 18, 2020.
+        Last updated on Sep 21, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fd0e894d5b0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fcf50568af0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

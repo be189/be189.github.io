@@ -3,7 +3,17 @@
 Schedule overview
 -----------------
 
-Due dates and tasks to be completed each week will be listed here.
+*The schedule information on this page is subject to changes.*
+
+- Lab: Tuesdays and Thursdays (except Thanksgiving), 10:30 am–noon PDT
+- TA office hours: TBD
+- Instructor office hours: by appointment
+
+Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. All lab meetings are accessible from `this Zoom link <http://bois.caltech.edu/2020_fall/zoom_links/be189_main>`_. However, during the lab sessions and TA homework help, the TAs will be in their own Zoom rooms. Here are the links.
+
+- `Changsoon Choi <http://bois.caltech.edu/2020_fall/zoom_links/changsoon>`_
+- `Michelle Cua <http://bois.caltech.edu/2020_fall/zoom_links/michelle>`_
+- `Anne Kil <http://bois.caltech.edu/2020_fall/zoom_links/anne>`_
 
 
 ----
@@ -12,9 +22,27 @@ Due dates and tasks to be completed each week will be listed here.
 Due dates
 --------------
 
+- Follow-along exercises #–#: due 11:59 pm PDT, October 6
+- Do-it-yourself exercises #–#: due 11:59 pm PDT, October 6
+- Follow-along exercises #–#: due 11:59 pm PDT, October 13
+- Do-it-yourself exercises #–#: due 11:59 pm PDT, October 13
+- Spectrophotometer prelab: due 10:30 am PDT, October 15
+- Follow-along exercises #–#: due 11:59 pm PDT, October 20
+- Do-it-yourself exercises #–#: due 11:59 pm PDT, October 20
+- Pulse oximeter prelab: due 10:30 am PDT, November 5
+- Spectrophotometer write-up: due 10:30 am PDT, November 10
+- Pulse oximeter write-up: due 5:00 pm, December 3
+
 
 ----
 
 
 Weekly activities
 -----------------
+
+In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be working on your exercises or projects. Date with special activities are shown below.
+
+- **Tu 09/29**: Welcome, safety, introduction to Arduino
+- **Th 10/01**: A tour through your kit
+- **Tu 10/06**: Lecture on design approaches
+- **Th 11/26**: Thanksgiving Day: no class

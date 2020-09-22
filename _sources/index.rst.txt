@@ -21,13 +21,13 @@ People
 
 - Instructor
 
-   + `Justin Bois <http://bois.caltech.edu/>`_ (`bois at caltech dot edu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/jb>`_)
+   + `Justin Bois <http://bois.caltech.edu/>`_ (``bois at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/jb>`_)
 
 - TAs
 
-   + Changsoon Choi (`cchoi at caltech dot edu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/changsoon>`_)
-   + Michelle Cua (`ecua at caltech dot edu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/michelle>`_)
-   + Anne Kil (`annekil0530 at caltech dotedu`, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/anne>`_)
+   + Changsoon Choi (``cchoi at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/changsoon>`_)
+   + Michelle Cua (``ecua at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/michelle>`_)
+   + Anne Kil (``annekil0530 at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/anne>`_)
 
 
 .. toctree::
@@ -42,6 +42,10 @@ People
    lessons/05/programming_arduino.ipynb
    lessons/06/practice_programming_arduino.ipynb
    lessons/07/adc_and_usart.ipynb
+   lessons/08/pulse_width_modulation.ipynb
+   lessons/09/asynchrony_and_blocking.ipynb
+   lessons/10/control_of_arduino_with_python.ipynb
+   lessons/11/control_with_buttons.ipynb
 
 
 .. toctree::

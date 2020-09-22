@@ -6,3 +6,5 @@ Thinking exercises are embedded in lessons. For convenience here are links to th
 
 - :ref:`Thinking exercise 1: Resistor values`
 - :ref:`Thinking exercise 2: USB speed limits`
+- :ref:`Thinking exercise 3: Other asynchronous functions`
+- :ref:`Thinking exercise 4: if vs. while`

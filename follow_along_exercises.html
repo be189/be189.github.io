@@ -35,6 +35,8 @@
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -97,6 +99,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">5. Programming Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul class="current">
@@ -228,6 +234,13 @@
 <li><p><a class="reference internal" href="lessons/00/configuring_your_computer.html#Follow-along-exercise-0:-Testing-Arduino"><span class="std std-ref">Follow-along exercise 0: Testing Arduino</span></a> (submission not required)</p></li>
 <li><p><a class="reference internal" href="lessons/03/blink.html#Follow-along-exercise-1:-Blink"><span class="std std-ref">Follow-along exercise 1: Blink</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/06/practice_programming_arduino.html#Follow-along-exercise-2:-Alien-contact"><span class="std std-ref">Follow-along exercise 2: Alien contact</span></a> (submission not required)</p></li>
+<li><p><a class="reference internal" href="lessons/07/adc_and_usart.html#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor"><span class="std std-ref">Follow-along exercise 3: Serial data and the serial monitor</span></a> (submission not required)</p></li>
+<li><p><a class="reference internal" href="lessons/08/pulse_width_modulation.html#Follow-along-exercise-4:-PWM-demo"><span class="std std-ref">Follow-along exercise 4: PWM demo</span></a></p></li>
+<li><p><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html#Follow-along-exercise-5:-Serial-output-without-delay"><span class="std std-ref">Follow-along exercise 5: Serial output without delay</span></a></p></li>
+<li><p><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html#Follow-along-exercise-6:-Tactile-control-of-an-LED"><span class="std std-ref">Follow-along exercise 6: Tactile control of an LED</span></a> (submission not required)</p></li>
+<li><p><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html#Follow-along-exercise-7:-Electronic-control-of-an-LED"><span class="std std-ref">Follow-along exercise 7: Electronic control of an LED</span></a></p></li>
+<li><p><a class="reference internal" href="lessons/11/control_with_buttons.html#Follow-along-exercise-8:-Controlling-Arduino-with-Panel-widgets"><span class="std std-ref">Follow-along exercise 8: Controlling Arduino with Panel widgets</span></a> (submission not required)</p></li>
+<li><p><a class="reference internal" href="lessons/11/control_with_buttons.html#Follow-along-exercise-9:-Controlling-Arduino-with-base-Bokeh"><span class="std std-ref">Follow-along exercise 9: Controlling Arduino with base Bokeh</span></a></p></li>
 </ul>
 </div>
 
@@ -252,11 +265,11 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 18, 2020.
+        Last updated on Sep 21, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fd0e70093d0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fcf50276910> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

@@ -7,14 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Thinking exercises &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>8. Pulse width modulation &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
   
@@ -23,28 +23,28 @@
 
   
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Follow-along exercises" href="follow_along_exercises.html" />
-    <link rel="prev" title="11. Controlling Arduino with widgets" href="lessons/11/control_with_buttons.html" /> 
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9. Asynchrony and blocking" href="../09/asynchrony_and_blocking.html" />
+    <link rel="prev" title="7. ADC and USART" href="../07/adc_and_usart.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,12 +58,12 @@
           
 
           
-            <a href="index.html">
+            <a href="../../index.html">
           
 
           
             
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -71,7 +71,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -90,54 +90,61 @@
             
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/04/schematics.html">4. Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">5. Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/07/adc_and_usart.html">7. ADC and USART</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Pulse width modulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#The-idea-behind-PWM">The idea behind PWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#PWM-on-the-Arduino-Uno-with-analogWrite()">PWM on the Arduino Uno with analogWrite()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-4:-PWM-demo">Follow-along exercise 4: PWM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM">Do-it-yourself exercise 3: Brightness control by PWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Thinking exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-communications">Course communications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#equipment">Equipment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#exercises">Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#project-write-ups">Project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-communications">Course communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#equipment">Equipment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#exercises">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
 
             
@@ -153,7 +160,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">BE/EE/MedE 189 a</a>
+          <a href="../../index.html">BE/EE/MedE 189 a</a>
         
       </nav>
 
@@ -189,7 +196,7 @@
     
         
         
-            <a href="_sources/thinking_exercises.rst.txt" rel="nofollow"> View page source</a>
+            <a href="https://be189.github.io/blob/master/lessons/08/pulse_width_modulation.ipynb" download> Download notebook</a>
         
       
     
@@ -205,6 +212,237 @@
             
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -227,15 +465,558 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="thinking-exercises">
-<h1>Thinking exercises<a class="headerlink" href="#thinking-exercises" title="Permalink to this headline">¶</a></h1>
-<p>Thinking exercises are embedded in lessons. For convenience here are links to the respective exercises.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="lessons/03/blink.html#Thinking-exercise-1:-Resistor-values"><span class="std std-ref">Thinking exercise 1: Resistor values</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/07/adc_and_usart.html#Thinking-exercise-2:-USB-speed-limits"><span class="std std-ref">Thinking exercise 2: USB speed limits</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html#Thinking-exercise-3:-Other-asynchronous-functions"><span class="std std-ref">Thinking exercise 3: Other asynchronous functions</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html#Thinking-exercise-4:-if-vs. while"><span class="std std-ref">Thinking exercise 4: if vs. while</span></a></p></li>
-</ul>
+<div class="section" id="8.-Pulse-width-modulation">
+<h1>8. Pulse width modulation<a class="headerlink" href="#8.-Pulse-width-modulation" title="Permalink to this headline">¶</a></h1>
+<hr><p>Let’s saw we wanted to provide a component with a constant voltage of, say, 2.5 volts. It would be convenient if we could just tell the Arduino Uno to deliver analog 2.5 volts out of a specified pin. This process, in which you send a digital number that results in an analog voltage coming out is called <a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">digital-to-analog conversion</a>, abbreviated DAC. <a class="reference external" href="https://store.arduino.cc/usa/due">Arduino Due</a> and <a class="reference external" href="https://store.arduino.cc/usa/arduino-zero">Ardunio
+Zero</a> offer 12-bit and 10-bit DAC, respectively, but there are not built-in DAC capabilities in Arduino Uno. The Uno board can only write digital values. That is, it can only send values that are <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> (5 V) and <code class="docutils literal notranslate"><span class="pre">LOW</span></code> (0 V). To deliver voltages out of pins between zero and five volts, it uses <strong>pulse width modulation (PWM)</strong> as a replacement for DAC.</p>
+<div class="section" id="The-idea-behind-PWM">
+<h2>The idea behind PWM<a class="headerlink" href="#The-idea-behind-PWM" title="Permalink to this headline">¶</a></h2>
+<p>While we cannot deliver 2.5 volts at any given time using Arduino Uno, we can deliver an <em>average</em> of 2.5 volts over time. Think of a light switch. If you flip is on for a second, then off for a second, them back on for a second, etc., over the course of a minute, you would have, on average, a half-dimmed light.</p>
+<p>Now, say we turn digital pin 3 on (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, 5 V) For one millisecond. Then we turn it off (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>, 0 V) for one millisecond. We keep doing this, and, on average, we deliver 2.5 V.</p>
+<p>A signal given by PWM is determined by three parameters.</p>
+<ol class="arabic simple">
+<li><p>The amplitude. For Arduino Uno, this is 5 Volts.</p></li>
+<li><p>The frequency. This is how rapidly the voltage oscillates.</p></li>
+<li><p>The duty ratio. This is the fraction of time in one period of the oscillation that the voltage is high.</p></li>
+</ol>
+<p>To see how these parameters affect the voltage levels over time, you can manipulate the interactive plot below. I fixed the amplitude to 5 V, and you can vary the frequency and duty ratio. I intentionally left the Python/JavaScript code to generate the plot in case you are interested in how to build these things using <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a>. Soon, we will be building interactive dashboards for controlling devices using Bokeh. (But don’t worry, you won’t have to hack and JavaScript;
+I used JavaScript so you count interact with the plot in the static HTML document.)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+
+<span class="n">tmax</span> <span class="o">=</span> <span class="mf">0.025</span>
+
+
+<span class="k">def</span> <span class="nf">pwm_signal</span><span class="p">(</span><span class="n">duty_ratio</span><span class="p">,</span> <span class="n">freq</span><span class="p">):</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">freq</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">duty_ratio</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="n">n_periods</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmax</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">T</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_periods</span><span class="p">)])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])]</span> <span class="o">*</span> <span class="n">n_periods</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pwm_signal</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">490</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ColumnDataSource</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">))</span>
+
+<span class="n">duty_ratio_slider</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;duty ratio&quot;</span>
+<span class="p">)</span>
+<span class="n">freq_slider</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">490</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;frequency (Hz)&quot;</span>
+<span class="p">)</span>
+
+<span class="n">js_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">// Exract data from sliders</span>
+<span class="s2">let dutyRatio = duty_ratio_slider.value;</span>
+<span class="s2">let freq = freq_slider.value;</span>
+<span class="s2">let tmax = 0.025;</span>
+
+<span class="s2">// Compute period, duty ratio in units of seconds and number of periods</span>
+<span class="s2">let T = 1.0 / freq;</span>
+<span class="s2">let d = dutyRatio * T;</span>
+<span class="s2">let nPeriods = Math.ceil(tmax / T)</span>
+
+<span class="s2">// Update the data in the plot</span>
+<span class="s2">let x = [];</span>
+<span class="s2">let y = []</span>
+<span class="s2">for (let i = 0; i &lt; nPeriods; i++) {</span>
+<span class="s2">    let iT = i * T;</span>
+<span class="s2">    x = x.concat([0 + iT, d + iT, d + iT, T + iT]);</span>
+<span class="s2">    y = y.concat([5, 5, 0, 0]);</span>
+<span class="s2">}</span>
+
+<span class="s2">source.data[&#39;x&#39;] = x;</span>
+<span class="s2">source.data[&#39;y&#39;] = y;</span>
+
+<span class="s2">source.change.emit();</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">callback</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">CustomJS</span><span class="p">(</span>
+    <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">duty_ratio_slider</span><span class="o">=</span><span class="n">duty_ratio_slider</span><span class="p">,</span> <span class="n">freq_slider</span><span class="o">=</span><span class="n">freq_slider</span>
+    <span class="p">),</span>
+    <span class="n">code</span><span class="o">=</span><span class="n">js_code</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">duty_ratio_slider</span><span class="o">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span class="n">freq_slider</span><span class="o">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;voltage(V)&quot;</span><span class="p">,</span>
+    <span class="n">frame_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span>
+    <span class="n">y_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">],</span>
+    <span class="n">tools</span><span class="o">=</span><span class="s2">&quot;save&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">duty_ratio_slider</span><span class="p">,</span> <span class="n">freq_slider</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1001">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1001");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js": "qkRvDQVAIfzsJo40iRBbxt6sttt0hv4lh74DG7OK4MCHv4C5oohXYoHUM5W11uqS", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js": "Sb7Mr06a9TNlet/GEBeKaf5xH3eb6AlCzwjtU82wNPyDrnfoiVl26qnvlKjmcAd+", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js": "HaJ15vgfmcfRtB4c4YBOI4f1MUujukqInOWVqZJZZGK7Q+ivud0OKGSTn/Vm2iso"};
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1001")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root" id="f411a5c8-424a-4a2c-8e15-0b937eaf8b88" data-root-id="1031"></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+(function(root) {
+  function embed_document(root) {
+
+  var docs_json = {"6365a5a4-a659-4624-b14b-0c17092140f0":{"roots":{"references":[{"attributes":{"children":[{"id":"1003"},{"id":"1004"},{"id":"1006"}]},"id":"1031","type":"Column"},{"attributes":{},"id":"1011","type":"LinearScale"},{"attributes":{},"id":"1013","type":"LinearScale"},{"attributes":{"end":5.25,"start":-0.25},"id":"1009","type":"Range1d"},{"attributes":{},"id":"1016","type":"BasicTicker"},{"attributes":{"axis":{"id":"1015"},"ticker":null},"id":"1018","type":"Grid"},{"attributes":{"text":""},"id":"1033","type":"Title"},{"attributes":{"axis_label":"voltage(V)","formatter":{"id":"1036"},"ticker":{"id":"1020"}},"id":"1019","type":"LinearAxis"},{"attributes":{"data":{"x":{"__ndarray__":"AAAAAAAAAADInSXs5rdQP8idJezmt1A/yJ0l7Oa3YD/InSXs5rdgP6xsOGLaE2k/rGw4YtoTaT/InSXs5rdwP8idJezmt3A/OgUvp+DldD86BS+n4OV0P6xsOGLaE3k/rGw4YtoTeT8e1EEd1EF9Px7UQR3UQX0/yJ0l7Oa3gD/InSXs5reAP4FRqsnjzoI/gVGqyePOgj86BS+n4OWEPzoFL6fg5YQ/87izhN38hj/zuLOE3fyGP6xsOGLaE4k/rGw4YtoTiT9lIL0/1yqLP2UgvT/XKos/HtRBHdRBjT8e1EEd1EGNP9eHxvrQWI8/14fG+tBYjz/InSXs5reQP8idJezmt5A/pPfnWmXDkT+k9+daZcORP4FRqsnjzpI/gVGqyePOkj9eq2w4YtqTP16rbDhi2pM/OgUvp+DllD86BS+n4OWUPxZf8RVf8ZU/Fl/xFV/xlT/zuLOE3fyWP/O4s4Td/JY/0BJ281sImD/QEnbzWwiYP6xsOGLaE5k/rGw4YtoTmT+IxvrQWB+aP4jG+tBYH5o/ZSC9P9cqmz8=","dtype":"float64","order":"little","shape":[52]},"y":[5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0]},"selected":{"id":"1039"},"selection_policy":{"id":"1038"}},"id":"1002","type":"ColumnDataSource"},{"attributes":{"end":0.99,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1005"}]},"start":0.01,"step":0.01,"title":"duty ratio","value":0.5},"id":"1003","type":"Slider"},{"attributes":{"axis":{"id":"1019"},"dimension":1,"ticker":null},"id":"1022","type":"Grid"},{"attributes":{},"id":"1020","type":"BasicTicker"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1023"}]},"id":"1024","type":"Toolbar"},{"attributes":{"below":[{"id":"1015"}],"center":[{"id":"1018"},{"id":"1022"}],"frame_height":150,"frame_width":500,"left":[{"id":"1019"}],"renderers":[{"id":"1029"}],"title":{"id":"1033"},"toolbar":{"id":"1024"},"x_range":{"id":"1007"},"x_scale":{"id":"1011"},"y_range":{"id":"1009"},"y_scale":{"id":"1013"}},"id":"1006","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{},"id":"1034","type":"BasicTickFormatter"},{"attributes":{},"id":"1036","type":"BasicTickFormatter"},{"attributes":{},"id":"1038","type":"UnionRenderers"},{"attributes":{},"id":"1039","type":"Selection"},{"attributes":{"args":{"duty_ratio_slider":{"id":"1003"},"freq_slider":{"id":"1004"},"source":{"id":"1002"}},"code":"\n// Exract data from sliders\nlet dutyRatio = duty_ratio_slider.value;\nlet freq = freq_slider.value;\nlet tmax = 0.025;\n\n// Compute period, duty ratio in units of seconds and number of periods\nlet T = 1.0 / freq;\nlet d = dutyRatio * T;\nlet nPeriods = Math.ceil(tmax / T)\n\n// Update the data in the plot\nlet x = [];\nlet y = []\nfor (let i = 0; i < nPeriods; i++) {\n    let iT = i * T;\n    x = x.concat([0 + iT, d + iT, d + iT, T + iT]);\n    y = y.concat([5, 5, 0, 0]);\n}\n\nsource.data['x'] = x;\nsource.data['y'] = y;\n\nsource.change.emit();\n"},"id":"1005","type":"CustomJS"},{"attributes":{"end":1000,"format":"0[.]00","js_property_callbacks":{"change:value":[{"id":"1005"}]},"start":100,"title":"frequency (Hz)","value":490},"id":"1004","type":"Slider"},{"attributes":{"source":{"id":"1002"}},"id":"1030","type":"CDSView"},{"attributes":{"end":0.025},"id":"1007","type":"Range1d"},{"attributes":{"axis_label":"time (s)","formatter":{"id":"1034"},"ticker":{"id":"1016"}},"id":"1015","type":"LinearAxis"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1028","type":"Line"},{"attributes":{"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1027","type":"Line"},{"attributes":{"data_source":{"id":"1002"},"glyph":{"id":"1027"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1028"},"selection_glyph":null,"view":{"id":"1030"}},"id":"1029","type":"GlyphRenderer"}],"root_ids":["1031"]},"title":"Bokeh Application","version":"2.2.1"}};
+  var render_items = [{"docid":"6365a5a4-a659-4624-b14b-0c17092140f0","root_ids":["1031"],"roots":{"1031":"f411a5c8-424a-4a2c-8e15-0b937eaf8b88"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script></div>
+</div>
+</div>
+<div class="section" id="PWM-on-the-Arduino-Uno-with-analogWrite()">
+<h2>PWM on the Arduino Uno with analogWrite()<a class="headerlink" href="#PWM-on-the-Arduino-Uno-with-analogWrite()" title="Permalink to this headline">¶</a></h2>
+<p>Given that the Arduino Uno does not have DAC, why does it have a function <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>? The perhaps ill-named function actually invokes PWM from a digital pin. The <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather a <code class="docutils literal notranslate"><span class="pre">int</span></code>. Although this argument must be given as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a
+duty ratio of one. So, if you wanted a duty ratio of <span class="math notranslate nohighlight">\(d\)</span>, you can compute the number you want to pass to <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> as <span class="math notranslate nohighlight">\(255 d\)</span>. Here is an example of telling pin 3 to perform PWM with a duty ratio of approximately 0.5.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">analogWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">127</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that not all digital pins can do PWM. This is because PWM requires use of the various timers available on Arduino, and a maximum of six pins can be performing PWM at a time. Those that can do PWM are marked with a tilde next to them on the Arduino Uno. Because they use different timers, they have different frequencies.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Frequency (Hz)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>490</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>980</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>980</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>490</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>490</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>490</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that PWM is invoked on a pin, its use of the time could affect other functions. Specifically, pins 3 and 11 use Timer2, which is also used for <code class="docutils literal notranslate"><span class="pre">tone()</span></code>. When <code class="docutils literal notranslate"><span class="pre">tone()</span></code> is being used, it may interfere with PWM on pins 3 and 11.</p>
+<hr></div>
+<div class="section" id="Follow-along-exercise-4:-PWM-demo">
+<h2>Follow-along exercise 4: PWM demo<a class="headerlink" href="#Follow-along-exercise-4:-PWM-demo" title="Permalink to this headline">¶</a></h2>
+<p>To demonstrate how the Arduino Uno does PWM in lieu of an <a class="reference external" href="https://en.wikipedia.org/wiki/Oscilloscope">oscilloscope</a>, you can watch the voltage sent out of a digital pin by reading its output via ADC. The set-up couldn’t be simpler. Connect digital pin 3 to analog input A0.</p>
+<div style="margin: auto; width: 300px;"><p><img alt="PWM demo setup" src="../../_images/pwm_demo_schem.svg" /></p>
+</div><p>We will do PWM on pin 3 and then immediately read in the signal on pin A0. We will send the reading along the serial connection as fast as we can for plotting with the Serial Plotter (which is 2,000,000 baud).</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">sensorPin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">outPin</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">2000000</span><span class="p">);</span>
+  <span class="nf">analogWrite</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span> <span class="mi">127</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Make sure you set the baud rate on the Serial Plotted to be 2000000. Go ahead and upload this sketch and watch the serial plotter to see the actual voltage signals coming out of pin 3.</p>
+<hr><p>Many devices, especially mechanical devices like motors, cannot switch on and off as quickly as the voltage switches on and off during PWM. This means that PWM can be an effective means to throttle power to a device.</p>
+<p>Even when some devices can turn on and off as fast as the PWM, when <em>perception</em> of the device if more important, it appears as though the device has throttled voltage. This is the case for LEDs. By flipping them on and off via PWM, the can appear brighter or dimmer, depending on the duty ratio. Let’s put that idea to work.</p>
+<hr></div>
+<div class="section" id="Do-it-yourself-exercise-3:-Brightness-control-by-PWM">
+<h2>Do-it-yourself exercise 3: Brightness control by PWM<a class="headerlink" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM" title="Permalink to this headline">¶</a></h2>
+<p>Connect a red LED to a pin capable of PWM. Don’t forget to use a 220 Ω resistor so you do not fry your LED. Write a sketch that gradually brings the brightness of the LED up and down, up and down, up and down, ad infinitum.</p>
+<hr></div>
+<div class="section" id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,bokeh,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPython 3.8.5
+IPython 7.18.1
+
+numpy 1.19.1
+bokeh 2.2.1
+jupyterlab 2.2.6
+</pre></div></div>
+</div>
+</div>
 </div>
 
 
@@ -246,10 +1027,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="follow_along_exercises.html" class="btn btn-neutral float-right" title="Follow-along exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../09/asynchrony_and_blocking.html" class="btn btn-neutral float-right" title="9. Asynchrony and blocking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="lessons/11/control_with_buttons.html" class="btn btn-neutral float-left" title="11. Controlling Arduino with widgets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../07/adc_and_usart.html" class="btn btn-neutral float-left" title="7. ADC and USART" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -263,7 +1044,7 @@
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf4ff558b0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fcf5056b7f0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

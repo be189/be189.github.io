@@ -1,0 +1,194 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 9. Asynchrony and blocking\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Thus far, we have used the `delay()` function to handle the timing of events, such as turning an LED on or off or writing data via a serial connection. The problem with using `delay()` is that it is **blocking**. This means that while `delay()` is running the microprocessor cannot do any other tasks. In the previous exercise, we waited 100 milliseconds before sending data. During that time, the ATmega328 could perform about 2 million instructions. That is a lot of wasted computational resources for blocking! (The chip in your computer is more than 1000 times faster, so blocking on your computer wastes even more resources. We will address asynchrony on the Python side in later lessons.)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Asynchrony\n",
+    "\n",
+    "[Asynchrony](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)) is an important concept in the design of biodevices. It is best explained by example.\n",
+    "\n",
+    "Say you make a device that acquires data from a sensor and sends those data to your computer via USB. Meanwhile, your device should listen for a signal coming from the computer that will ask it to stop sending data. Say you wrote a function that listens to the USB channel for a signal from the computer. Upon receipt of the signal, it stops sending data over USB. The problem is that if you run the listener function and it is blocking, your device cannot do any other operations, including processing and sending the sensor data.\n",
+    "\n",
+    "Similarly, if you are using `delay()` to time the sending of data over USB, you  are blocking and you could miss the signal from the computer requesting that data stop being sent.\n",
+    "\n",
+    "So, it is important that the listening and sending happen **asynchronously**. While waiting for the signal from the computer, the microprocessor is free to do other tasks. Similarly, while the microprocessor is waiting to send data over USB, it should be able to do other tasks.\n",
+    "\n",
+    "A function that can run asynchronous returns so that the program can proceed and then completes its tasks when possible."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Serial.print(), Serial.println(), and Serial.write() are asynchronous\n",
+    "\n",
+    "Writing data over USB is asynchronous. In most cases, `Serial.print()`, `Serial.println()`, and `Serial.write()` will almost immediately return and the microcontroller will continue to the next lines of your sketch. Meanwhile, the data is sent over USB while the microcontroller is busy with other tasks. These functions do this by putting the bytes that need to be transfered into an **output buffer**, which is then processed by the USB interface chip and sent to your computer.\n",
+    "\n",
+    "The exception to this behavior is when the output buffer is full. In this case, the microcontroller has no place to dump the bytes that need to be written, so it has to wait (and block) until the buffer is free."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Thinking exercise 3: Other asynchronous functions\n",
+    "\n",
+    "Think back to some previous exercises.\n",
+    "\n",
+    "**a)** Does `tone()` operate asynchronously?\n",
+    "\n",
+    "**b)** Does `analogWrite()` operate asynchronously?\n",
+    "\n",
+    "The answer to this exercise is at the bottom of this lesson.\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Avoiding `delay()`\n",
+    "\n",
+    "As a rule of thumb, you should avoid using `delay()` because it is blocking. The function is really convenient when you are just learning or debugging with occasional serial output, but should really be used beyond that.\n",
+    "\n",
+    "How do we go about avoiding delay? Again, this is best learned by example."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Follow-along exercise 5: Serial output without delay\n",
+    "\n",
+    "Consider the same setup you had for the [the follow-along exercise on serial communication](../07/adc_and_usart.ipynb), the schematic of which is shown below.\n",
+    "\n",
+    "<div style=\"margin: auto; width: 300px;\">\n",
+    "    \n",
+    "![potentiometer schematic](05-serial_without_delay_schem.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "We wish to write voltage values via USB, but without using the blocking function `delay()`. To do this, we manually keep track of the amount of time that has passed sine the last reset. The `millis()` function returns this time in milliseconds. The number returned by `millis()` is an `unsigned long`, so it is important to declare any variable storing its output as such. Similarly, the function `micros()` returns the amount of time since the last reset in units of microseconds. Note, though, that because the Arduino Uno board operates at about 16 MHz, the resolution of `micros()` is four µs.\n",
+    "\n",
+    "So, we use the `millis()` function to capture when we last sent data. We then use the `millis()` function again to get the current time. When the different between the current time and the last time we sent data is at least as large as the time we want between sending data, we then go ahead and send the data. We also set the last time that data was sent to the current time, and then continue. This is implemented in the code below.\n",
+    "\n",
+    "```arduino\n",
+    "// Which pin we will read from\n",
+    "const int sensorPin = A0;\n",
+    "\n",
+    "// How often to write the result to serial in milliseconds\n",
+    "const long reportInterval = 100;\n",
+    "\n",
+    "// Baud rate (must be long)\n",
+    "const long baudRate = 115200;\n",
+    "\n",
+    "// Global variable to keep track of the last writeout\n",
+    "unsigned long timeLastWrite;\n",
+    "\n",
+    "\n",
+    "void setup() {\n",
+    "  Serial.begin(baudRate);\n",
+    "\n",
+    "  // Initialize timing\n",
+    "  timeLastWrite = millis();\n",
+    "}\n",
+    "\n",
+    "\n",
+    "void loop() {\n",
+    "  // Grab the current time\n",
+    "  unsigned long currTime = millis();\n",
+    "\n",
+    "  if (currTime - timeLastWrite >= reportInterval) {\n",
+    "    // Record time of last write\n",
+    "    timeLastWrite = currTime;\n",
+    "\n",
+    "    // Use ADC to get 10-bit integer sensor value\n",
+    "    int sensorVal = analogRead(sensorPin);\n",
+    "\n",
+    "    // Convert to voltage\n",
+    "    float voltage = sensorVal / 1023.0 * 5.0;\n",
+    "  \n",
+    "    // Write the voltage out to two decimal places\n",
+    "    Serial.println(String(voltage, 2));\n",
+    "  }\n",
+    "}\n",
+    "```\n",
+    "\n",
+    "Note that I am careful with types, making sure to use `long`s and `unsigned long`s where appropriate. Note also that it is important that `timeLastWrite` is a global variable. Remember that `loop()` must not take any arguments. We therefore cannot pass `timeLastWrite` as a `static long`, for example. Since it needs to retain its value each time `loop()` is called, which happens over and over again, we have to have `timeLastWrite` as a global variable.\n",
+    "\n",
+    "Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Do-it-yourself exercise 4: K.I.T.T.'s scanner bar\n",
+    "\n",
+    "Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved. \n",
+    "\n",
+    "In the hit 1982 television show [Knight Rider](https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)), the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced \"kit.\" If you watch [the show's opening credits](https://www.youtube.com/watch?v=oNyXYPhnUIs), you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up of the scanner bar [here](https://www.youtube.com/watch?v=WxE2xWZNfOc). Note that this scanner bar is from later in the series and features eight lights, while the one in the original pilot and opening credits features six.\n",
+    "\n",
+    "For this exercise, you will make an LED array that lights up like K.I.T.T.'s scanner bar in the opening credits of the series. To this end, you will line up six LEDs (do not forget to connect them to 220 Ω resistors.) You can vary their light intensity using pulse width modulation. Do not use delays, and try to get the pattern of lighting as similar as possible to K.I.T.T.'s from the videos."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "**Answer to the asychronous functions exercise**\n",
+    "\n",
+    "**a)** Yes, `tone()` operates asynchronously. It sends a square wave with a 50% duty ratio at a given frequency on a given pin, and continues to do so even while the microcontroller performs other tasks. It therefore does not block.\n",
+    "\n",
+    "**b)** Yes, `analogWrite()` operates asynchronously. It sends square waves with a given duty ratio at a frequency of 490 Hz (980 Hz for pins 5 and 6), and continues to do so even while the microcontroller performs other tasks. It therefore does not block."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
