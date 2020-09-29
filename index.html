@@ -102,6 +102,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -137,6 +141,10 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -229,14 +237,14 @@
 <div class="section" id="be-ee-mede-189-a-design-and-construction-of-biodevices">
 <h1>BE/EE/MedE 189 a: Design and Construction of Biodevices<a class="headerlink" href="#be-ee-mede-189-a-design-and-construction-of-biodevices" title="Permalink to this headline">¶</a></h1>
 <p>Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an <a class="reference external" href="https://www.arduino.cc">Arduino platform</a>. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not “new” instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.</p>
-<p>Students are repsonsible for reading the <a class="reference internal" href="policies.html#policies"><span class="std std-ref">course policies</span></a>.</p>
+<p>Students are responsible for reading the <a class="reference internal" href="policies.html#policies"><span class="std std-ref">course policies</span></a>.</p>
 <div class="section" id="useful-links">
 <h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://us.edstem.org/courses/2616/">Ed</a> (used for course communications)</p></li>
-<li><p><a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/be189_main">Course Zoom link</a> (password protected)</p></li>
+<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class">Course Zoom link</a> (password protected)</p></li>
 </ul>
-<p>During lab sessions, we will break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.</p>
+<p>During lab sessions, we will sometimes break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.</p>
 </div>
 <div class="section" id="people">
 <h2>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
@@ -244,16 +252,16 @@
 <li><p>Instructor</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference external" href="http://bois.caltech.edu/">Justin Bois</a> (<code class="docutils literal notranslate"><span class="pre">bois</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/jb">Zoom</a>)</p></li>
+<li><p><a class="reference external" href="http://bois.caltech.edu/">Justin Bois</a> (<code class="docutils literal notranslate"><span class="pre">bois</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class">Zoom</a>)</p></li>
 </ul>
 </div></blockquote>
 </li>
 <li><p>TAs</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Changsoon Choi (<code class="docutils literal notranslate"><span class="pre">cchoi</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/changsoon">Zoom</a>)</p></li>
-<li><p>Michelle Cua (<code class="docutils literal notranslate"><span class="pre">ecua</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/michelle">Zoom</a>)</p></li>
-<li><p>Anne Kil (<code class="docutils literal notranslate"><span class="pre">annekil0530</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/anne">Zoom</a>)</p></li>
+<li><p>Changsoon Choi (<code class="docutils literal notranslate"><span class="pre">cchoi</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/">Zoom</a>)</p></li>
+<li><p>Michelle Cua (<code class="docutils literal notranslate"><span class="pre">ecua</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/">Zoom</a>)</p></li>
+<li><p>Anne Kil (<code class="docutils literal notranslate"><span class="pre">annekil0530</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/">Zoom</a>)</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -273,6 +281,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -320,6 +332,12 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
 </ul>
 </div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -342,11 +360,11 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf50276e50> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb70cd9d0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

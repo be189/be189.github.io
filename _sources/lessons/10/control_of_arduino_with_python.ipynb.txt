@@ -107,8 +107,8 @@
     {
      "data": {
       "text/plain": [
-       "[<serial.tools.list_ports_common.ListPortInfo at 0x7fb73647e280>,\n",
-       " <serial.tools.list_ports_common.ListPortInfo at 0x7fb73647e2e0>]"
+       "[<serial.tools.list_ports_common.ListPortInfo at 0x7f8007ca2430>,\n",
+       " <serial.tools.list_ports_common.ListPortInfo at 0x7f8007ca2460>]"
       ]
      },
      "execution_count": 2,
@@ -259,12 +259,18 @@
     "    int inByte = Serial.read();\n",
     "\n",
     "    // Take appropriate action\n",
-    "    if (inByte == LED_ON) digitalWrite(ledPin, HIGH);\n",
-    "    else if (inByte == LED_OFF) digitalWrite(ledPin, LOW);\n",
-    "    else if (inByte == HANDSHAKE) {\n",
-    "      if (Serial.availableForWrite()) {\n",
-    "        Serial.println(\"Message received.\");\n",
-    "      }\n",
+    "    switch(inByte) {\n",
+    "      case LED_ON:\n",
+    "        digitalWrite(ledPin, HIGH);\n",
+    "        break;\n",
+    "      case LED_OFF:\n",
+    "        digitalWrite(ledPin, LOW);\n",
+    "        break;\n",
+    "      case HANDSHAKE:\n",
+    "        if (Serial.availableForWrite()) {\n",
+    "          Serial.println(\"Message received.\");\n",
+    "        }\n",
+    "        break;\n",
     "    }\n",
     "  }\n",
     "}\n",
@@ -276,7 +282,7 @@
     "- I set the `pinMode` of the pin controlling the LED to be `OUTPUT`. This is important because an internal pull-up resistor is enabled on the pin if the `pinMode` is note set to `OUTPUT`.\n",
     "- Within the `loop()` function, we first check to see how many bytes are in the read buffer using `Serial.available()`. If any bytes are available, we proceed to read them.\n",
     "- The `Serial.read()` function reads in a single byte from the read buffer. When it is read, the byte vanishes from the read buffer.\n",
-    "- We next have a set of conditionals that determine what Arduino will do, depending on what byte was sent. If the sent byte does not match any of those specified by the global variables, it is ignored.\n",
+    "- We next have a set of cases that determine what Arduino will do, depending on what byte was sent. If the sent byte does not match any of those specified by the global variables, it is ignored.\n",
     "- When we check for handshaking, we check to make sure the write buffer is not full. The `Serial.availableForWrite()` function returns the number of bytes in the write buffer (out of the total of 64) that are available for writing. We then proceed to write the handshake message.\n",
     "\n",
     "I always like to keep the same global codes for messages in my Python code as well. It helps avoid bugs."

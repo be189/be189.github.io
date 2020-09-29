@@ -106,11 +106,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-3:-Other-asynchronous-functions">Thinking exercise 3: Other asynchronous functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Avoiding-delay()">Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-5:-Serial-output-without-delay">Follow-along exercise 5: Serial output without delay</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-4:-K.I.T.T.’s-scanner-bar">Do-it-yourself exercise 4: K.I.T.T.’s scanner bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">Do-it-yourself exercise 4: K.I.T.T. scanner bar</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -146,6 +150,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -316,8 +324,8 @@ though, that because the Arduino Uno board operates at about 16 MHz, the resolut
 <p>Note that I am careful with types, making sure to use <code class="docutils literal notranslate"><span class="pre">long</span></code>s and <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s where appropriate. Note also that it is important that <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> is a global variable. Remember that <code class="docutils literal notranslate"><span class="pre">loop()</span></code> must not take any arguments. We therefore cannot pass <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">long</span></code>, for example. Since it needs to retain its value each time <code class="docutils literal notranslate"><span class="pre">loop()</span></code> is called, which happens over and over again, we have to have <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a global variable.</p>
 <p>Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok.</p>
 <hr></div>
-<div class="section" id="Do-it-yourself-exercise-4:-K.I.T.T.’s-scanner-bar">
-<h2>Do-it-yourself exercise 4: K.I.T.T.’s scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.’s-scanner-bar" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
+<h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved.</p>
 <p>In the hit 1982 television show <a class="reference external" href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Knight Rider</a>, the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced “kit.” If you watch <a class="reference external" href="https://www.youtube.com/watch?v=oNyXYPhnUIs">the show’s opening credits</a>, you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up
 of the scanner bar <a class="reference external" href="https://www.youtube.com/watch?v=WxE2xWZNfOc">here</a>. Note that this scanner bar is from later in the series and features eight lights, while the one in the original pilot and opening credits features six.</p>
@@ -349,11 +357,11 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf50583d00> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb8269070> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

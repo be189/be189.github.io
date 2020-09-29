@@ -3,16 +3,16 @@ BE/EE/MedE 189 a: Design and Construction of Biodevices
 
 Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
 
-Students are repsonsible for reading the :ref:`course policies<Policies>`.
+Students are responsible for reading the :ref:`course policies<Policies>`.
 
 
 Useful links
 -------------
 
 - `Ed <https://us.edstem.org/courses/2616/>`_ (used for course communications)
-- `Course Zoom link <http://bois.caltech.edu/2020_fall/zoom_links/be189_main>`_ (password protected)
+- `Course Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class>`_ (password protected)
 
-During lab sessions, we will break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.
+During lab sessions, we will sometimes break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.
 
 
 
@@ -21,13 +21,13 @@ People
 
 - Instructor
 
-   + `Justin Bois <http://bois.caltech.edu/>`_ (``bois at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/jb>`_)
+   + `Justin Bois <http://bois.caltech.edu/>`_ (``bois at caltech dot edu``, `Zoom <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class>`_)
 
 - TAs
 
-   + Changsoon Choi (``cchoi at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/changsoon>`_)
-   + Michelle Cua (``ecua at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/michelle>`_)
-   + Anne Kil (``annekil0530 at caltech dot edu``, `Zoom <http://bois.caltech.edu/2020_fall/zoom_links/anne>`_)
+   + Changsoon Choi (``cchoi at caltech dot edu``, `Zoom <http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/>`_)
+   + Michelle Cua (``ecua at caltech dot edu``, `Zoom <http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/>`_)
+   + Anne Kil (``annekil0530 at caltech dot edu``, `Zoom <http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/>`_)
 
 
 .. toctree::
@@ -46,6 +46,10 @@ People
    lessons/09/asynchrony_and_blocking.ipynb
    lessons/10/control_of_arduino_with_python.ipynb
    lessons/11/control_with_buttons.ipynb
+   lessons/12/requesting_and_receiving_data_from_arduino.ipynb
+   lessons/13/streaming_data_from_arduino.ipynb
+   lessons/14/asynchronous_streaming.ipynb
+   lessons/15/streaming_plots_with_bokeh.ipynb
 
 
 .. toctree::
@@ -84,4 +88,10 @@ People
    :caption: Policies
 
    policies.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Kit contents
+
+   kit_contents.rst
 

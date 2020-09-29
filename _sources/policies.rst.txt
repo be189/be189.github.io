@@ -33,7 +33,7 @@ You will receive a box in the mail with components necessary to do the work for 
 Submission of exercises and project write-ups
 ----------------------------------------------
 
-Each project write-up and exercise must be submitted as a ZIP file via email to `caltechbe189@gmail.com`. The files names are `lastname_firstname_exercise_##.zip` for exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_spectro.zip` and `lastname_firstname_pulseox.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes. The subject line of the email is the same as the file name of the ZIP file, minus the `.zip`.
+Each project write-up and exercise must be submitted as a ZIP file via email to `caltechbe189@gmail.com`. The files names are `lastname_firstname_faexercise_##.zip` for follow-along exercises and `lastname_firstname_diyexercise_##.zip` for do-it-yourself exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_spectro.zip` and `lastname_firstname_pulseox.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes. The subject line of the email is the same as the file name of the ZIP file, minus the `.zip`.
 
 
 Exercises

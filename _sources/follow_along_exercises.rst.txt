@@ -14,3 +14,5 @@ Follow-along exercises are embedded in lessons. For convenience here are links t
 - :ref:`Follow-along exercise 7: Electronic control of an LED`
 - :ref:`Follow-along exercise 8: Controlling Arduino with Panel widgets` (submission not required)
 - :ref:`Follow-along exercise 9: Controlling Arduino with base Bokeh`
+- :ref:`Follow-along exercise 10: Streaming data` (submission not required)
+- :ref:`Follow-along exercise 11: Plotting streaming data`

@@ -122,6 +122,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -157,6 +161,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -507,7 +515,8 @@ Hello, world.
 <p>In your kit, you will find many red <strong>light-emitting diodes (LEDs)</strong>. An <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">LED</a> is a component that permits current to flow through it in one direction and emits light when it does. Here is a picture of one with a clear cover, though the ones in your kits will mostly have colored covers.</p>
 <div style="margin: auto; width: 500px;"><p><img alt="led" src="../../_images/led.png" /></p>
 </div><p>Because of the directionality of the diode, it is important that the LED is properly oriented. LEDs typically have one long lead and one shorter lead. The long lead is the <strong>anode</strong>, which you connect to the higher voltage, and the shorter lead is the <strong>cathode</strong>, which you connect to the lower voltage (ground). In drawings of LEDs, the long lead is typically shown as a bent wire.</p>
-<p>You should also control how much current goes through an LED so you do not destroy it. The LEDs in your kit will work with Arduino if you provide 220 Ω resistance.</p>
+<p>You should also control how much current goes through an LED so you do not destroy it. LEDs are rated with a maximum <strong>forward current</strong>, which is the maximum continuous current an LED can allow. For many LEDs, including those in your kit, the forward current is 25 mA. The maximum voltage that Arduino can provide is 5 V, so if you are powering your LED with Arduino, you will hit the forward current with a resistance of 200 Ω by Ohm’s law. So, you should use 220 Ω resistors with the LEDs in your
+kit.</p>
 </div>
 <div class="section" id="Resistors">
 <h3>Resistors<a class="headerlink" href="#Resistors" title="Permalink to this headline">¶</a></h3>
@@ -545,7 +554,7 @@ Hello, world.
 <li><p>The color of the fourth band gives a multiplier as a power of 10.</p></li>
 <li><p>The color of the fifth band gives the tolerance of the resistor.</p></li>
 </ol>
-<p>The 220 Ω resistor in the four-band example would have rings of red-red-black-brown-gold.</p>
+<p>The 220 Ω resistor in the four-band example would have rings of red-red-black-black-gold.</p>
 <p>To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
 <hr></div>
 <div class="section" id="Thinking-exercise-1:-Resistor-values">
@@ -559,7 +568,7 @@ Hello, world.
 <hr></div>
 <div class="section" id="Jumper-wires">
 <h3>Jumper wires<a class="headerlink" href="#Jumper-wires" title="Permalink to this headline">¶</a></h3>
-<p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect component beyond the connections already present in the solderless breadboard. Jumper wires have different ends. In many cases, they simply have a bare wire at the end. They may also have plastic ends that force the wire to rise orthogonally from where is it plugged in. Some of these ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
+<p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect components beyond the connections already present in the solderless breadboard. Jumper wires have different ends. In many cases, they simply have a bare wire at the end. They may also have plastic ends that force the wire to rise orthogonally from where is it plugged in. Some of these ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
 </div>
 </div>
 <div class="section" id="Arduino-sketches">
@@ -684,11 +693,11 @@ will help with debugging.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf4f77f400> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb8237760> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

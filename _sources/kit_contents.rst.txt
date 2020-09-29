@@ -1,0 +1,113 @@
+.. _Kit_contents:
+
+Kit contents
+-----------------
+
+1. Arduino Uno
+2. male USB male A to USB male B cable
+3. Box of breadboards
+4. RAB holder
+5. Jumper wire kit
+6. Multimeter
+7. Alligator clip cables (×10)
+8. Electrical tape
+9. Resistor kit (see resistance values and counts below)
+10. Capacitor kit (see capacitance values and counts below)
+11. USB power plug
+12. male USB male-A to USB mini cable (×2) 
+13. 5V power brick
+14. 12V power brick
+15. Liquid crystal display
+16. Two-pin pushbuttons (×5)
+17. Three-pin toggle switch
+18. 10 kΩ potentiometer (×2)
+19. Piezo buzzer
+20. Red LED (×10)
+21. Amber/Orange 600-610 nm LED (×6, 3 each from different manufacturers)
+22. Photoresistor (×3)
+23. LF 412 operational amplifier (×3)
+24. LF 389 operational amplifier (×3)
+25. NPN bipolar junction transistor 2N3904 (×3)
+26. PNP bipolar junction transistor 2N3906 (×3)
+27. Thermistor TMP 37F
+28. Zener diode, 5.1 Vz (×5)
+29. KY 039 sensor
+30. MCP4725 12-bit digital-to-analog converter breakout board
+31. ADS1015 12-bit analog-to-digital converter breakout board
+32. Blue cellophane
+33. Decorative beads (×3)
+34. Self-standing 50 mL Falcon tube (×5)
+35. YPD broth powder
+36. Red Star yeast packet (×2)
+37. Cuvette (×10)
+38. Transfer pipettes (×7)
+
+
+Capacitor values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- 0.01 µF (×4, labeled 10,000 pF)
+- 0.012 µF (×4)
+- 0.022 µF (×4)
+- 0.027 µF (×4)
+- 0.047 µF (×4)
+- 0.068 µF (×4)
+- 0.1 µF (×4)
+- 0.22 µF (×4)
+- 0.47 µF (×4)
+- 0.68 µF (×4)
+- 1 µF (×4)
+- 2.2 µF (×4)
+
+
+Resistance values
+^^^^^^^^^^^^^^^^^
+- 0 Ω (×25)
+- 1 Ω (×25)
+- 2.2 Ω (×25)
+- 4.7 Ω (×25)
+- 7.5 Ω (×25)
+- 10 Ω (×25)
+- 15 Ω (×25)
+- 22 Ω (×25)
+- 33 Ω (×25)
+- 39 Ω (×25)
+- 47 Ω (×25)
+- 56 Ω (×25)
+- 68 Ω (×25)
+- 100 Ω (×50)
+- 120 Ω (×25)
+- 150 Ω (×25)
+- 220 Ω (×50)
+- 330 Ω (×25)
+- 390 Ω (×25)
+- 470 Ω (×25)
+- 510 Ω (×25)
+- 680 Ω (×25)
+- 1 kΩ (×50)
+- 1.5 kΩ (×25)
+- 2 kΩ (×25)
+- 2.2 kΩ (×25)
+- 3 kΩ (×25)
+- 4.7 kΩ (×25)
+- 5.1 kΩ (×25)
+- 5.6 kΩ (×25)
+- 7.5 kΩ (×25)
+- 8.2 kΩ (×25)
+- 10 kΩ (×50)
+- 15 kΩ (×25)
+- 22 kΩ (×25)
+- 33 kΩ (×25)
+- 47 kΩ (×25)
+- 56 kΩ (×25)
+- 68 kΩ (×25)
+- 75 kΩ (×25)
+- 100 kΩ (×25)
+- 150 kΩ (×25)
+- 220 kΩ (×25)
+- 330 kΩ (×25)
+- 470 kΩ (×25)
+- 680 kΩ (×25)
+- 1 MΩ (×25)
+- 2 MΩ (×25)
+- 4.7 MΩ (×25)
+- 5.6 MΩ (×25)

@@ -103,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -138,6 +142,10 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -232,36 +240,42 @@
 <p><em>The schedule information on this page is subject to changes.</em></p>
 <ul class="simple">
 <li><p>Lab: Tuesdays and Thursdays (except Thanksgiving), 10:30 am–noon PDT</p></li>
-<li><p>TA office hours: TBD</p></li>
-<li><p>Instructor office hours: by appointment</p></li>
+<li><p>TA office hours</p>
+<ul>
+<li><p>Mondays 5–6 pm PDT (<a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/">Michelle</a>)</p></li>
+<li><p>Wednesdays 7–10 pm PDT (<a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/">Changsoon</a>)</p></li>
+<li><p>Fridays 1–2 pm PDT (<a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/">Anne</a>)</p></li>
 </ul>
-<p>Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. All lab meetings are accessible from <a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/be189_main">this Zoom link</a>. However, during the lab sessions and TA homework help, the TAs will be in their own Zoom rooms. Here are the links.</p>
+</li>
+<li><p>Instructor office hours: by appointment at this <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/">Zoom link</a></p></li>
+</ul>
+<p>Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. All lab meetings are accessible from <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/">this Zoom link</a>. However, during some lab sessions and during office hours, the TAs will be in their own Zoom rooms. Here are the links.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/changsoon">Changsoon Choi</a></p></li>
-<li><p><a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/michelle">Michelle Cua</a></p></li>
-<li><p><a class="reference external" href="http://bois.caltech.edu/2020_fall/zoom_links/anne">Anne Kil</a></p></li>
+<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/">Changsoon Choi</a></p></li>
+<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/">Michelle Cua</a></p></li>
+<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/">Anne Kil</a></p></li>
 </ul>
 </div>
 <hr class="docutils" />
 <div class="section" id="due-dates">
 <h1>Due dates<a class="headerlink" href="#due-dates" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><p>Follow-along exercises #–#: due 11:59 pm PDT, October 6</p></li>
-<li><p>Do-it-yourself exercises #–#: due 11:59 pm PDT, October 6</p></li>
-<li><p>Follow-along exercises #–#: due 11:59 pm PDT, October 13</p></li>
-<li><p>Do-it-yourself exercises #–#: due 11:59 pm PDT, October 13</p></li>
-<li><p>Spectrophotometer prelab: due 10:30 am PDT, October 15</p></li>
-<li><p>Follow-along exercises #–#: due 11:59 pm PDT, October 20</p></li>
-<li><p>Do-it-yourself exercises #–#: due 11:59 pm PDT, October 20</p></li>
-<li><p>Pulse oximeter prelab: due 10:30 am PDT, November 5</p></li>
-<li><p>Spectrophotometer write-up: due 10:30 am PDT, November 10</p></li>
-<li><p>Pulse oximeter write-up: due 5:00 pm, December 3</p></li>
+<li><p><a class="reference internal" href="policies.html#follow-along-exercises"><span class="std std-ref">Follow-along exercises</span></a> 1–4: due 11:59 pm PDT, October 6</p></li>
+<li><p><a class="reference internal" href="policies.html#do-it-yourself-exercises"><span class="std std-ref">Do-it-yourself exercises</span></a> 1–3: due 11:59 pm PDT, October 6</p></li>
+<li><p><a class="reference internal" href="policies.html#follow-along-exercises"><span class="std std-ref">Follow-along exercises</span></a> 5–11: due 11:59 pm PDT, October 13</p></li>
+<li><p><a class="reference internal" href="policies.html#do-it-yourself-exercises"><span class="std std-ref">Do-it-yourself exercises</span></a> 4–6: due 11:59 pm PDT, October 13</p></li>
+<li><p><a class="reference internal" href="spectrophotometer.html#spectrophotometer"><span class="std std-ref">Spectrophotometer</span></a> prelab: due 10:30 am PDT, October 15</p></li>
+<li><p><a class="reference internal" href="policies.html#follow-along-exercises"><span class="std std-ref">Follow-along exercises</span></a> 12–: due 11:59 pm PDT, October 20</p></li>
+<li><p><a class="reference internal" href="policies.html#do-it-yourself-exercises"><span class="std std-ref">Do-it-yourself exercises</span></a> 7–: due 11:59 pm PDT, October 20</p></li>
+<li><p><a class="reference internal" href="pulseox.html#pulse-oximetry"><span class="std std-ref">Pulse oximetry</span></a> prelab: due 10:30 am PDT, November 5</p></li>
+<li><p><a class="reference internal" href="spectrophotometer.html#spectrophotometer"><span class="std std-ref">Spectrophotometer</span></a> write-up: due 10:30 am PDT, November 10</p></li>
+<li><p><a class="reference internal" href="pulseox.html#pulse-oximetry"><span class="std std-ref">Pulse oximetry</span></a> write-up: due 5:00 pm, December 3</p></li>
 </ul>
 </div>
 <hr class="docutils" />
 <div class="section" id="weekly-activities">
 <h1>Weekly activities<a class="headerlink" href="#weekly-activities" title="Permalink to this headline">¶</a></h1>
-<p>In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be working on your exercises or projects. Date with special activities are shown below.</p>
+<p>In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be working on your exercises or projects. Dates with special activities are shown below with more to be announced as the term progresses.</p>
 <ul class="simple">
 <li><p><strong>Tu 09/29</strong>: Welcome, safety, introduction to Arduino</p></li>
 <li><p><strong>Th 10/01</strong>: A tour through your kit</p></li>
@@ -291,11 +305,11 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf4ffe5910> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb8399c70> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

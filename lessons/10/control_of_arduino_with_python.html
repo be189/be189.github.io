@@ -117,6 +117,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -152,6 +156,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -526,8 +534,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7fb73647e280&gt;,
- &lt;serial.tools.list_ports_common.ListPortInfo at 0x7fb73647e2e0&gt;]
+[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7f8007ca2430&gt;,
+ &lt;serial.tools.list_ports_common.ListPortInfo at 0x7f8007ca2460&gt;]
 </pre></div></div>
 </div>
 <p>On my machine, there are two ports open. We can look at the manufacturer of the devices attached to the ports to find Arduino.</p>
@@ -633,12 +641,18 @@ sure everything is working ok; this is called handshaking. In my sketches, I alw
     <span class="kr">int</span> <span class="n">inByte</span> <span class="o">=</span> <span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span>
 
     <span class="c1">// Take appropriate action</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED_ON</span><span class="p">)</span> <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED_OFF</span><span class="p">)</span> <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">HANDSHAKE</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
-      <span class="p">}</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="nl">LED_ON</span><span class="p">:</span>
+        <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="nl">LED_OFF</span><span class="p">:</span>
+        <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="nl">HANDSHAKE</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
+          <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -650,7 +664,7 @@ sure everything is working ok; this is called handshaking. In my sketches, I alw
 <li><p>I set the <code class="docutils literal notranslate"><span class="pre">pinMode</span></code> of the pin controlling the LED to be <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>. This is important because an internal pull-up resistor is enabled on the pin if the <code class="docutils literal notranslate"><span class="pre">pinMode</span></code> is note set to <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>.</p></li>
 <li><p>Within the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function, we first check to see how many bytes are in the read buffer using <code class="docutils literal notranslate"><span class="pre">Serial.available()</span></code>. If any bytes are available, we proceed to read them.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">Serial.read()</span></code> function reads in a single byte from the read buffer. When it is read, the byte vanishes from the read buffer.</p></li>
-<li><p>We next have a set of conditionals that determine what Arduino will do, depending on what byte was sent. If the sent byte does not match any of those specified by the global variables, it is ignored.</p></li>
+<li><p>We next have a set of cases that determine what Arduino will do, depending on what byte was sent. If the sent byte does not match any of those specified by the global variables, it is ignored.</p></li>
 <li><p>When we check for handshaking, we check to make sure the write buffer is not full. The <code class="docutils literal notranslate"><span class="pre">Serial.availableForWrite()</span></code> function returns the number of bytes in the write buffer (out of the total of 64) that are available for writing. We then proceed to write the handshake message.</p></li>
 </ul>
 <p>I always like to keep the same global codes for messages in my Python code as well. It helps avoid bugs.</p>
@@ -855,11 +869,11 @@ jupyterlab 2.1.5
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf4ffd9430> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb856f2e0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

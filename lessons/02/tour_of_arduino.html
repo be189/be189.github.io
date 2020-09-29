@@ -125,6 +125,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -160,6 +164,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -278,7 +286,7 @@ connections. So, if we view letters as indexing columns and numbers as indexing 
 <p>We continue our tour of the essential pieces of our prototypes with a the Arduino Uno. Throughout the course, we will probably refer to the board simply as “Arduino” for short, not to be confused with the <a class="reference external" href="https://www.arduino.cc/en/main/software">Arduino IDE</a>. The board you will use is an <a class="reference external" href="https://store.arduino.cc/usa/arduino-uno-rev3">Arduino Uno (Revision 3)</a>. A labeled schematic of the board is shown below, and you should refer to it as well as your physical Arduino Uno in the following
 discussion.</p>
 <div style="width: 600px; margin: auto;"><p><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" /></p>
-</div><p>In looking at the schematic, you will notice that not all of the components on the Arduino appear. Nonetheless, all of the important ones that you need to know about to do your projects are shown. Build-in LEDs and pins are labeled on the Arduino Uno itself and on the schematic, and I will discuss those in a moment.</p>
+</div><p>In looking at the schematic, you will notice that not all of the components on the Arduino appear. Nonetheless, all of the important ones that you need to know about to do your projects are shown. Built-in LEDs and pins are labeled on the Arduino Uno itself and on the schematic, and I will discuss those in a moment.</p>
 <div class="section" id="Components-of-the-Arduino-Uno">
 <h3>Components of the Arduino Uno<a class="headerlink" href="#Components-of-the-Arduino-Uno" title="Permalink to this headline">¶</a></h3>
 <p>For now, I will focus on the components that are labeled with text outside of the area of the board, going counterclockwise, starting with the microcontroller.</p>
@@ -290,7 +298,7 @@ discussion.</p>
 <li><p><strong>quartz timing crystal</strong>: Having a reliable clock is essential for the functioning of the microcontroller. The quartz timing crystal delivers reliable timing.</p></li>
 <li><p><strong>USB interface chip</strong>: This chip does the calculations and data conversions necessary for communication via USB with external devices (almost always your computer). The maximum supported baud rate for sending and receiving data over USB is 115,200 baud (1 baud = 1 bit/second).</p></li>
 <li><p><strong>USB port</strong>: This is where you insert the “B” end of the USB cable you will you to connect your computer to the Arduino Uno. This allows data to be sent and received from the Arduino and your computer. It also doubles as a power supply. When connected via USB, the Arduino does not need another power source.</p></li>
-<li><p><strong>SCL and SDA pins</strong>: These pins are unlabeled in the schematic, but are labeled on the pin headers on the board. I will discuss these when I discuss the labeled pins in a subsequent section.</p></li>
+<li><p><strong>SCL and SDA pins</strong>: I will discuss these when I discuss the labeled pins in a subsequent section.</p></li>
 </ul>
 </div>
 <div class="section" id="The-ATmega328-microcontroller">
@@ -306,7 +314,7 @@ discussion.</p>
 <li><p><strong>A universal synchronous/asynchronous receiver/transmitter (USART).</strong> This takes bits of data and communicates them (either reading or writing) serially. The USART connects with the USB interface chip to communicate serially over USB with your computer.</p></li>
 <li><p><strong>An inter-integrated circuit (I2C or I²C) interface.</strong> This two-wire interface also communication with peripheral devices. The default for data communication is 100 kbaud (100,000 bits per second), but this can be increased to 400 kbaud. The acronym is either pronounced “I-squared-C” or “I-two-C.” I2C communication will be discussed later in this lesson.</p></li>
 <li><p><strong>A serial peripheral interface (SPI) port.</strong> This is used to communicate with peripheral devices and requires four wires. It is significantly faster than I2C, achieving about 15 Mbaud (15 million bits per second) on Arduino. SPI communication will be discussed later in this lesson.</p></li>
-<li><p><strong>A six-channel 10-bit analog-to-digital converter (ADC).</strong> When an analog signal comes it, e.g., a voltage, it needs to be converted into digital data to be stored. The 10-bit converter converts a voltage between zero and five volts to a 10-bit integer (that is, an integer between 0 and 1023). The ADC on the ATmega328 can accept signal from six channels. Each conversion of an analog voltage to a digital number takes about 110 µs, but this can be reduced about ten-fold with some trickery
+<li><p><strong>A six-channel 10-bit analog-to-digital converter (ADC).</strong> When an analog signal comes in, e.g., a voltage, it needs to be converted into digital data to be stored. The 10-bit converter converts a voltage between zero and five volts to a 10-bit integer (that is, an integer between 0 and 1023). The ADC on the ATmega328 can accept signal from six channels. Each conversion of an analog voltage to a digital number takes about 110 µs, but this can be reduced about ten-fold with some trickery
 involving the clock.</p></li>
 <li><p><strong>Two 8-bit and one 16-bit timers.</strong> The timers are referred to as Timer0, Timer1, and Timer2, with Timer1 being the 16-bit timer.</p></li>
 </ul>
@@ -319,7 +327,7 @@ involving the clock.</p></li>
 <h3>Built-in LEDs<a class="headerlink" href="#Built-in-LEDs" title="Permalink to this headline">¶</a></h3>
 <p>The four built-in LEDs in the above schematic have the following functions.</p>
 <ul class="simple">
-<li><p><strong>ON</strong>: This LED is one when the Arduino has power.</p></li>
+<li><p><strong>ON</strong>: This LED is on when the Arduino has power.</p></li>
 <li><p><strong>L</strong>: This built-in LED is on whenever digital pin 13 is set to <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> and off when it is set to <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. This LED is referred to as the <code class="docutils literal notranslate"><span class="pre">LED_BUILTIN</span></code> in the <code class="docutils literal notranslate"><span class="pre">Arduino.h</span></code> library. (We will discuss the library when we start talking about sketches in a future lesson.)</p></li>
 <li><p><strong>TX</strong>: This LED is on when data are being transmitted via USB.</p></li>
 <li><p><strong>RX</strong>: This LED is on when data are being received via USB.</p></li>
@@ -351,8 +359,8 @@ equivalent to digital pin 11.</p>
 </div>
 <div class="section" id="Digital-pins">
 <h4>Digital pins<a class="headerlink" href="#Digital-pins" title="Permalink to this headline">¶</a></h4>
-<p>The pins labeled O through 13 are digital pins, meaning that they can only read and write binary data. When they are being used to read input voltages, if the voltage is above a 3V threshold, it reads <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, and if it below that threshold, it reads <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. Similarly, they can only write low (0V) or high (5V) voltages.</p>
-<p>No pins on the Arduino Uno can write analog voltages. To write analog voltage, you need an external <strong>digitial to analog converter (DAC)</strong>. We will discuss those in a future lesson. To approximate writing analog voltages with a digital pin, you can use <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulation (PWM)</a>. PWM, which requires use of one of the three timers in the ATmega328 microcontroller, is accomplished using the perhaps confusingly named <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>
+<p>The pins labeled 0 through 13 are digital pins, meaning that they can only read and write binary data. When they are being used to read input voltages, if the voltage is above a 3V threshold, it reads <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, and if it below that threshold, it reads <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. Similarly, they can only write low (0V) or high (5V) voltages.</p>
+<p>No pins on the Arduino Uno can write analog voltages. To write analog voltage, you need an external <strong>digital to analog converter (DAC)</strong>. We will discuss those in a future lesson. To approximate writing analog voltages with a digital pin, you can use <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulation (PWM)</a>. PWM, which requires use of one of the three timers in the ATmega328 microcontroller, is accomplished using the perhaps confusingly named <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>
 function in your sketches. Digital pins marked with a tilde (<code class="docutils literal notranslate"><span class="pre">~</span></code>) can use PWM.</p>
 <p>In the list of digital pins below, each one has read and write digital signals, but has additional features in the description.</p>
 <ul class="simple">
@@ -364,7 +372,7 @@ function in your sketches. Digital pins marked with a tilde (<code class="docuti
 <li><p><strong>Digital pin 5</strong>: This pin does PWM using Timer1.</p></li>
 <li><p><strong>Digitial pin 6</strong>: This pin does PWM using Timer0. It is also used in the microcontroller’s <a class="reference external" href="https://en.wikipedia.org/wiki/Comparator">analog comparator</a>. If the input of digital pin 6 is higher than that of digital pin 7, the comparator is set to high. If the input of digital pin 6 is lower than that of digital pin 7, the comparator is set to low.</p></li>
 <li><p><strong>Digital pin 7</strong>: This pin is used in the microcontroller’s <a class="reference external" href="https://en.wikipedia.org/wiki/Comparator">analog comparator</a>. If the input of digital pin 6 is higher than that of digital pin 7, the comparator is set to high. If the input of digital pin 6 is lower than that of digital pin 7, the comparator is set to low. You will no need to use the comparator function in this class.</p></li>
-<li><p><strong>Digital pin 8</strong>: This pin is used in <a class="reference external" href="https://en.wikipedia.org/wiki/Input_capture">input capture</a>, in which records a time stamp when an input comes in. It an also be used to output the system clock of the ATmega328. Both of these functions require programming a fuse in the ATmega328, which is beyond the scope of this course.</p></li>
+<li><p><strong>Digital pin 8</strong>: This pin is used in <a class="reference external" href="https://en.wikipedia.org/wiki/Input_capture">input capture</a>, where a time stamp is recorded when an input comes in. It an also be used to output the system clock of the ATmega328. Both of these functions require programming a fuse in the ATmega328, which is beyond the scope of this course.</p></li>
 <li><p><strong>Digital pin 9</strong>: This pin does PWM using Timer1.</p></li>
 <li><p><strong>Digital pin 10</strong>: This pin does PWM using Timer1.</p></li>
 <li><p><strong>Digital pin 11</strong>: This pin does PWM using Timer2. It is also the MOSI pin of the SPI. It is equivalent to pin 4 on the ICSP1 header. (SPI is explained below.)</p></li>
@@ -395,10 +403,10 @@ function in your sketches. Digital pins marked with a tilde (<code class="docuti
 </div>
 <div class="section" id="I2C-communication">
 <h3>I2C communication<a class="headerlink" href="#I2C-communication" title="Permalink to this headline">¶</a></h3>
-<p>Inter-integrated circuit (I2C), sometimes referred to as “two-wire interface,” communication is accessible via the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL)</strong> pins. To communicate data over I2C, the voltage on the SCL switches between high and low values in regular intervals timed by the clock. The SDC also switches at the same frequency. A voltage comparison is made on each cycle, and if the SDC voltage is low relative to that of the SCL, the bit is a zero, and is one otherwise,
+<p>Inter-integrated circuit (I2C), sometimes referred to as “two-wire interface,” communication is accessible via the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL)</strong> pins. To communicate data over I2C, the voltage on the SCL switches between high and low values in regular intervals timed by the clock. The SDA also switches at the same frequency. A voltage comparison is made on each cycle, and if the SDA voltage is low relative to that of the SCL, the bit is a zero, and is one otherwise,
 as shown in the sketch below.</p>
 <div style="width: 700px; margin: auto;"><p><img alt="I2C communication schematic" src="../../_images/I2C_communication_schematic.svg" /></p>
-</div><p>Many external devises use I2C for their communication, including the <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC</a> we will use on a breakout board.</p>
+</div><p>Many external devices use I2C for their communication, including the <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC</a> we will use on a breakout board.</p>
 <p>On the Arduino Uno, the <strong>SDA</strong> and <strong>SCL</strong> pins are used for I2C communication. The maximum speed of I2C communication is about 400 kbaud, though by default the speed is 100 kbaud. The SDA and SLC pins are functionally equivalent to the A4 and A5 pins, respectively.</p>
 </div>
 <div class="section" id="SPI-communication">
@@ -412,7 +420,7 @@ as shown in the sketch below.</p>
 </div>
 <div class="section" id="Arduino-pinout">
 <h3>Arduino pinout<a class="headerlink" href="#Arduino-pinout" title="Permalink to this headline">¶</a></h3>
-<p>The Arduino pinout is shown below. It is copyright Arduino, licensed under a CC-BY-4.0 license.</p>
+<p>The Arduino pinout is shown below. If your broswer does not support embedded PDFs, you will not see it below, but you can see the document <a class="reference external" href="https://content.arduino.cc/assets/Pinout-UNOrev3_latest.pdf">here</a>. It is copyright Arduino, licensed under a CC-BY-4.0 license.</p>
 <div style="width: 800px; margin: auto;"><p><img alt="Arduino Uno pinout" src="../../_images/arduino_pinout.pdf" /></p>
 </div></div>
 </div>
@@ -439,11 +447,11 @@ as shown in the sketch below.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf4f6c2970> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb7a80f70> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

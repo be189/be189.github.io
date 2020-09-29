@@ -43,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Thinking exercises" href="../../thinking_exercises.html" />
+    <link rel="next" title="12. Requesting and receiving data from Arduino" href="../12/requesting_and_receiving_data_from_arduino.html" />
     <link rel="prev" title="10. Serial communication with Python" href="../10/control_of_arduino_with_python.html" /> 
 </head>
 
@@ -114,6 +114,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -149,6 +153,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -2209,12 +2217,18 @@ if (window.Jupyter !== undefined) {
     <span class="kr">int</span> <span class="n">inByte</span> <span class="o">=</span> <span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span>
 
     <span class="c1">// Take appropriate action</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED_ON</span><span class="p">)</span> <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED_OFF</span><span class="p">)</span> <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">HANDSHAKE</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
-      <span class="p">}</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="nl">LED_ON</span><span class="p">:</span>
+        <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="nl">LED_OFF</span><span class="p">:</span>
+        <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="nl">HANDSHAKE</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
+          <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2647,7 +2661,7 @@ jupyterlab 2.2.6
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../thinking_exercises.html" class="btn btn-neutral float-right" title="Thinking exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../12/requesting_and_receiving_data_from_arduino.html" class="btn btn-neutral float-right" title="12. Requesting and receiving data from Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../10/control_of_arduino_with_python.html" class="btn btn-neutral float-left" title="10. Serial communication with Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -2660,11 +2674,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Sep 21, 2020.
+        Last updated on Sep 29, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fcf50015910> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fbfb8342730> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
