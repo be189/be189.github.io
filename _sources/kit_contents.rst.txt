@@ -3,7 +3,7 @@
 Kit contents
 -----------------
 
-1. Arduino Uno
+1. `Arduino Uno <https://store.arduino.cc/usa/arduino-uno-rev3>`_
 2. male USB male A to USB male B cable
 3. Box of breadboards
 4. RAB holder
@@ -15,9 +15,9 @@ Kit contents
 10. Capacitor kit (see capacitance values and counts below)
 11. USB power plug
 12. male USB male-A to USB mini cable (×2) 
-13. 5V power brick
-14. 12V power brick
-15. Liquid crystal display
+13. `5V power brick <https://store.digilentinc.com/powerbricks-breadboardable-dual-output-usb-power-supplies/>`_
+14. `12V power brick <https://store.digilentinc.com/powerbricks-breadboardable-dual-output-usb-power-supplies/>`_
+15. `Liquid crystal display <https://wiki.52pi.com/index.php?title=1602_Serial_LCD_Module_Display_SKU:Z-0234>`_
 16. Two-pin pushbuttons (×5)
 17. Three-pin toggle switch
 18. 10 kΩ potentiometer (×2)
@@ -25,15 +25,15 @@ Kit contents
 20. Red LED (×10)
 21. Amber/Orange 600-610 nm LED (×6, 3 each from different manufacturers)
 22. Photoresistor (×3)
-23. LF 412 operational amplifier (×3)
-24. LF 389 operational amplifier (×3)
-25. NPN bipolar junction transistor 2N3904 (×3)
-26. PNP bipolar junction transistor 2N3906 (×3)
-27. Thermistor TMP 37F
-28. Zener diode, 5.1 Vz (×5)
+23. `LF 412CP <https://www.digikey.com/product-detail/en/texas-instruments/LF412CP/296-7141-5-ND/378419>`_ operational amplifier (×3)
+24. `LF 398 N <https://www.ti.com/product/LF398-N>`_ sample-and-hold amplifier (×3)
+25. NPN bipolar junction transistor `2N3904 <https://www.digikey.com/product-detail/en/2N3904-AP/2N3904-APCT-ND/950591>`_ (×3)
+26. PNP bipolar junction transistor `2N3906 <https://www.digikey.com/product-detail/en/2N3906-G/641-1946-ND/9477908/>`_ (×3)
+27. Thermistor `TMP 37F <https://www.digikey.com/product-detail/en/TMP37FT9Z/TMP37FT9Z-ND/1217626/>`_
+28. `Zener diode <https://www.digikey.com/product-detail/en/BZX79-C5V1%2c133/1727-6149-1-ND/2762644/>`_, 5.1 Vz (×5)
 29. KY 039 sensor
-30. MCP4725 12-bit digital-to-analog converter breakout board
-31. ADS1015 12-bit analog-to-digital converter breakout board
+30. `MCP4725 <https://www.adafruit.com/product/935>`_ 12-bit digital-to-analog converter breakout board
+31. `ADS1015 <https://www.adafruit.com/product/1083>`_ 12-bit analog-to-digital converter breakout board
 32. Blue cellophane
 33. Decorative beads (×3)
 34. Self-standing 50 mL Falcon tube (×5)
