@@ -50,4 +50,7 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be 
 - **Tu 09/29**: Welcome, safety, introduction to Arduino
 - **Th 10/01**: A tour through your kit
 - **Tu 10/06**: Lecture on design approaches
+- **Th 10/15**: Guest lecture from `Daniel Wagenaar <http://www.danielwagenaar.net>`_
+- **Th 10/22**: Guest lecture from Heather Lukas and Jihong Min from the `Gao lab <http://www.gao.caltech.edu>`_.
+- **Th 11/19**: Guest lecture from Mu Qiao
 - **Th 11/26**: Thanksgiving Day: no class

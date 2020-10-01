@@ -50,6 +50,7 @@ People
    lessons/13/streaming_data_from_arduino.ipynb
    lessons/14/asynchronous_streaming.ipynb
    lessons/15/streaming_plots_with_bokeh.ipynb
+   lessons/16/control_panels.ipynb
 
 
 .. toctree::

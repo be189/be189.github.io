@@ -10,3 +10,4 @@ Do-it-yourself exercises are embedded in lessons. For convenience here are links
 - :ref:`Do-it-yourself exercise 4: K.I.T.T. scanner bar`
 - :ref:`Do-it-yourself exercise 5: Asking for data with buttons`
 - :ref:`Do-it-yourself exercise 6: Etch-A-Sketch`
+- :ref:`Do-it-yourself exercise 7: Potentiometer app`

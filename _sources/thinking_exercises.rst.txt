@@ -8,3 +8,4 @@ Thinking exercises are embedded in lessons. For convenience here are links to th
 - :ref:`Thinking exercise 2: USB speed limits`
 - :ref:`Thinking exercise 3: Other asynchronous functions`
 - :ref:`Thinking exercise 4: if vs. while`
+- :ref:`Thinking exercise 5: Safeguards`
