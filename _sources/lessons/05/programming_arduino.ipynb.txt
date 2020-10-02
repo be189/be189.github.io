@@ -30,7 +30,7 @@
     "2. All functions have to have a type declaration for their return value. We have seen `void`, but we could have `int` or other data types we will introduce here.\n",
     "3. All commands end in a semicolon.\n",
     "4. Every Arduino sketch has a `setup()` and a `loop()` function. The `setup()` function is run upon upload of the compiled sketch and upon reset, and the `loop()` function is then run over and over again.\n",
-    "5. The core Arduino libraries have built-in functions and variables. For variables, we have seen `INPUT`, `OUTPUT`, `HIGH`, and `LOW`. We actually also as `LED_BUILTIN` in the [setup lesson](../00/configuring_your_computer.ipynb).\n",
+    "5. The core Arduino libraries have built-in functions and variables. For variables, we have seen `INPUT`, `OUTPUT`, `HIGH`, and `LOW`. We actually also saw `LED_BUILTIN` in the [setup lesson](../00/configuring_your_computer.ipynb).\n",
     "6. Comments start with `//` or appear between `/*` and `*/`.\n",
     "\n",
     "We will now proceed to learn about programming the Arduino microcontroller."
@@ -160,7 +160,7 @@
    "source": [
     "#### Determining the number of elements in an array\n",
     "\n",
-    "Later on in a program, I might like to know how many entries are in an array. There is no built-in function to do that. But you can use the `sizeof()` function, which returns the number of bytes that an object occupies in memory. Since every entry in an array is of the same time, you can use the `sizeof()` function to get the number of entries by dividing the size of the array by the size of an entry.\n",
+    "Later on in a program, I might like to know how many entries are in an array. There is no built-in function to do that. But you can use the `sizeof()` function, which returns the number of bytes that an object occupies in memory. Since every entry in an array is of the same type, you can use the `sizeof()` function to get the number of entries by dividing the size of the array by the size of an entry.\n",
     "\n",
     "```arduino\n",
     "int lenArray = sizeof(myArray) / sizeof(myArray[0]);\n",
@@ -399,7 +399,7 @@
     "\n",
     "Bitwise operations work on numbers at the level of their binary representations. While I have not used these operators very often in my various hacking pursuits, they do come up fairly often in programming devices, especially in the context of communications where data are sent and received as bits and bytes.\n",
     "\n",
-    "I think the operators are best explored by example. To keep the binary representations shot, we will use `byte`s instead of `int`s. Say we have a `byte` variable `01001101`. This corresponds to the decimal number 77. The number `10001110` is 142. Let us now consider some bitwise operators on these two numbers to see how they work. It helps to look at these two binary numbers on top of each other to make easy comparisons\n",
+    "I think the operators are best explored by example. To keep the binary representations short, we will use `byte`s instead of `int`s. Say we have a `byte` variable `01001101`. This corresponds to the decimal number 77. The number `10001110` is 142. Let us now consider some bitwise operators on these two numbers to see how they work. It helps to look at these two binary numbers on top of each other to make easy comparisons\n",
     "\n",
     "    x = 77:  01001101\n",
     "    y = 142: 10001110\n",
@@ -415,7 +415,7 @@
     "- `|`: Bitwise OR. Two numbers with the same number of bits are compared. The result has a `1` in a given bit position if either of the numbers has a `1` in that position. So, `x | y` gives `207`, which has a binary representation of `11001111`.\n",
     "- `^`: Bitwise XOR. Two numbers with the same number of bits are compared. The result has a `1` in a given bit position if the two numbers have different numbers in that position. So, `x ^ y` gives `195`, which has a binary representation of `11000011`.\n",
     "\n",
-    "We will not consider operations that work on a the binary representation of a single number.\n",
+    "We will not consider operations that work on the binary representation of a single number.\n",
     "\n",
     "- `~`: Bitwise NOT. I call this operator a bit-flipper, since it flips the bits of a number, changing a 1 to a 0 and a 0 to a 1. `~x` gives `-78`. Wait.... WHAT!? It turns out that the `~` operator does not work on `byte`s, but on `int`s. The compiler will case the `byte` variable as an `int` in order to perform the `~` operation. Remember that an `int` is a *signed* integer, meaning that one of the bits is used to indicate the sign of the number. By convention, that is the first bit, the so-called **highest bit**. The variable `x` as an `int` has representation `0000000001001101`. The highest bit is the sign, which is zero in this case, indicating a positive number. Applying bitwise NOT gives `-78`, which has a binary representation of `1111111110110010`. For any `int` `x`, `~x` is equivalent go `-x - 1`.\n",
     "- `<<`: Left bitshift. This operation slides the `1`s and `0`s leftward a set number of steps, padding the right bits with zeros and discarding bits that get shifted off to the left. `x << 3` will shift the bits three places to the left and gives `616`. Wait..... WHAT AGAIN!? The result of a bitshift operation is an `int`. So, this bitshift  results in `0000001001101000`, which has a decimal value of 616. Conversely, `x << 13` gives `-24576`, which has a binary representation of `1010000000000000`. Note that the second operand (in our case, we used `3` and `13`) must be less than or equal to 32.\n",
@@ -709,7 +709,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.3"
+   "version": "3.8.5"
   }
  },
  "nbformat": 4,

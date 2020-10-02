@@ -150,7 +150,7 @@
     "\n",
     "ISP allows programming the microcontroller without using the bootloader or Arduino IDE. It is usually used when the bootloader somehow gets damaged or erased, for example if you are attempting to write to flash memory against the advice I gave above. Similarly, if there is damage to the USB interface chip, you can use the ICSP2 interface to reprogram it.\n",
     "\n",
-    "Because the pins of the ICSP1 are used for SPI communication with the ATmega328 microcontroller, some of the pins are identical to digital pins elsewhere on the Arduino. In the schematic diagram of the Arduino, we number the pins on starting from the top left (right next to number `1` in the schematic) and continue going clockwise to label the pins 1 through 6. Pin 1 on the ICSP1 is equivalent to digital pin 12 on the Arduino, ICSP1 pin 3 is equivalent to digital pin 13, and ICSP1 pin 4 is equivalent to digital pin 11.\n",
+    "Because the pins of the ICSP1 are used for SPI communication with the ATmega328 microcontroller, some of the pins are identical to digital pins elsewhere on the Arduino. In the schematic diagram of the Arduino, we number the pins on starting from the top left (right next to number `1` in the schematic) and continue going clockwise to label the pins 1 through 6. Pin 1 on the ICSP1 is equivalent to digital pin 12 on the Arduino, ICSP1 pin 3 is equivalent to digital pin 11, and ICSP1 pin 6 is equivalent to digital pin 13.\n",
     "\n",
     "We will not be needing to use the ICSP headers in this class, but they are important to know about."
    ]

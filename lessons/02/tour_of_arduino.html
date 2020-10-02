@@ -339,8 +339,8 @@ involving the clock.</p></li>
 <h3>ICSP headers<a class="headerlink" href="#ICSP-headers" title="Permalink to this headline">¶</a></h3>
 <p>The Arduino Uno features two in-circuit serial programming (ICSP) headers, each with size pins. These headers are used for <a class="reference external" href="https://en.wikipedia.org/wiki/In-system_programming">in-system programming (ISP)</a> using a protocol that uses SPI communication. This is how chips are programmed in the factory. <strong>ICSP1</strong> provides the ability to do ISP for the ATmega328 microcontroller and <strong>ICSP2</strong> provides the ability to do ISP for the USB interface chip.</p>
 <p>ISP allows programming the microcontroller without using the bootloader or Arduino IDE. It is usually used when the bootloader somehow gets damaged or erased, for example if you are attempting to write to flash memory against the advice I gave above. Similarly, if there is damage to the USB interface chip, you can use the ICSP2 interface to reprogram it.</p>
-<p>Because the pins of the ICSP1 are used for SPI communication with the ATmega328 microcontroller, some of the pins are identical to digital pins elsewhere on the Arduino. In the schematic diagram of the Arduino, we number the pins on starting from the top left (right next to number <code class="docutils literal notranslate"><span class="pre">1</span></code> in the schematic) and continue going clockwise to label the pins 1 through 6. Pin 1 on the ICSP1 is equivalent to digital pin 12 on the Arduino, ICSP1 pin 3 is equivalent to digital pin 13, and ICSP1 pin 4 is
-equivalent to digital pin 11.</p>
+<p>Because the pins of the ICSP1 are used for SPI communication with the ATmega328 microcontroller, some of the pins are identical to digital pins elsewhere on the Arduino. In the schematic diagram of the Arduino, we number the pins on starting from the top left (right next to number <code class="docutils literal notranslate"><span class="pre">1</span></code> in the schematic) and continue going clockwise to label the pins 1 through 6. Pin 1 on the ICSP1 is equivalent to digital pin 12 on the Arduino, ICSP1 pin 3 is equivalent to digital pin 11, and ICSP1 pin 6 is
+equivalent to digital pin 13.</p>
 <p>We will not be needing to use the ICSP headers in this class, but they are important to know about.</p>
 </div>
 <div class="section" id="Pins-on-the-Arduino-Uno-(Rev3)">
@@ -452,7 +452,7 @@ as shown in the sketch below.</p>
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fad50aee1c0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f9e2fafbf40> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

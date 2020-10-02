@@ -2,161 +2,161 @@
 <!-- Created with Fritzing (http://www.fritzing.org/) -->
 <svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' version='1.2' baseProfile='tiny' x='0in' y='0in' width='3.75804in' height='2.42936in' viewBox='0 0 270.579 174.914' >
 <g partID='854175730'><g transform='translate(0,8.26392)' ><g id="schematic">
-<rect y="14.85" height="135.9" stroke="#000000" stroke-width="0.9" fill="#FFFFFF" stroke-linecap="round" width="78.3" class="interior rect" x="14.85"/>
-<line y1="28.8" y2="28.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector61pin"/>
-<text y="29.4999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D0/RX</text>
-<g y="28.4499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector61terminal"/>
-<line y1="36" y2="36" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector62pin"/>
-<text y="36.6999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D1/TX</text>
-<g y="35.6499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector62terminal"/>
-<line y1="43.2" y2="43.2" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector63pin"/>
-<text y="43.8999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D2</text>
-<g y="42.8499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector63terminal"/>
-<line y1="50.4" y2="50.4" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector64pin"/>
-<text y="51.0999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D3 PWM</text>
-<g y="50.0499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector64terminal"/>
-<line y1="57.6" y2="57.6" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector65pin"/>
-<text y="58.2999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D4</text>
-<g y="57.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector65terminal"/>
-<line y1="64.8" y2="64.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector66pin"/>
-<text y="65.4999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D5 PWM</text>
-<g y="64.4499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector66terminal"/>
-<line y1="72" y2="72" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector67pin"/>
-<text y="72.6999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D6 PWM</text>
-<g y="71.6499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector67terminal"/>
-<line y1="79.2" y2="79.2" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector68pin"/>
-<text y="79.8999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D7</text>
-<g y="78.8499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector68terminal"/>
-<line y1="86.4" y2="86.4" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector51pin"/>
-<text y="87.0999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D8</text>
-<g y="86.0499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector51terminal"/>
-<line y1="93.6" y2="93.6" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector52pin"/>
-<text y="94.2999" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D9 PWM</text>
-<g y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector52terminal"/>
-<line y1="100.8" y2="100.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector53pin"/>
-<text y="101.5" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D10 PWM/SS</text>
-<g y="100.45" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector53terminal"/>
-<line y1="108" y2="108" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector54pin"/>
-<text y="108.7" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D11 PWM/MOSI</text>
-<g y="107.65" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector54terminal"/>
-<line y1="115.2" y2="115.2" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector55pin"/>
-<text y="115.9" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D12/MISO</text>
-<g y="114.85" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector55terminal"/>
-<line y1="122.4" y2="122.4" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector41pin"/>
-<rect y="122.05" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector41terminal"/>
-<line y1="122.4" y2="122.4" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="93.2499" x2="107.65" class="pin" id="connector56pin"/>
-<text y="123.1" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="91.8499">D13/SCK</text>
-<g y="122.05" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="107.65" id="connector56terminal"/>
-<line y1="28.8" y2="28.8" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector43pin"/>
-<rect y="28.4499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector43terminal"/>
-<line y1="28.8" y2="28.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector85pin"/>
-<text y="29.4999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">RESET</text>
-<g y="28.4499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector85terminal"/>
-<line y1="36" y2="36" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector49pin"/>
-<text y="36.6999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">RESET2</text>
-<rect y="35.6499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector49terminal"/>
-<line y1="43.2" y2="43.2" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector58pin"/>
-<text y="43.8999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">AREF</text>
-<g y="42.8499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector58terminal"/>
-<line y1="50.4" y2="50.4" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector84pin"/>
-<text y="51.0999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">ioref</text>
-<g y="50.0499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector84terminal"/>
-<line y1="64.8" y2="64.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector0pin"/>
-<text y="65.4999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">A0</text>
-<g y="64.4499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector0terminal"/>
-<line y1="72" y2="72" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector1pin"/>
-<text y="72.6999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">A1</text>
-<g y="71.6499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector1terminal"/>
-<line y1="79.2" y2="79.2" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector2pin"/>
-<text y="79.8999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">A2</text>
-<g y="78.8499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector2terminal"/>
-<line y1="86.4" y2="86.4" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector3pin"/>
-<text y="87.0999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">A3</text>
-<g y="86.0499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector3terminal"/>
-<line y1="93.6" y2="93.6" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector48pin"/>
-<rect y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector48terminal"/>
-<line y1="93.6" y2="93.6" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector45pin"/>
-<rect y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector45terminal"/>
-<line y1="93.6" y2="93.6" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector4pin"/>
-<g y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector4terminal"/>
-<line y1="93.6" y2="93.6" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector39pin"/>
-<rect y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector39terminal"/>
-<line y1="93.6" y2="93.6" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector47pin"/>
-<rect y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector47terminal"/>
-<line y1="93.6" y2="93.6" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector42pin"/>
-<rect y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector42terminal"/>
-<line y1="93.6" y2="93.6" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector59pin"/>
-<text y="94.2999" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">A4/SDA</text>
-<g y="93.2499" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector59terminal"/>
-<line y1="100.8" y2="100.8" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector5pin"/>
-<g y="100.45" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector5terminal"/>
-<line y1="100.8" y2="100.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector60pin"/>
-<text y="101.5" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">A5/SCL</text>
-<g y="100.45" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector60terminal"/>
-<line y1="136.8" y2="136.8" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="0.349999" x2="14.75" class="pin" id="connector91pin"/>
-<text y="137.5" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="16.15">N/C</text>
-<g y="136.45" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="-0.349999" id="connector91terminal"/>
-<line y1="150.85" y2="165.25" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="57.6" x2="57.6" class="pin" id="connector88pin"/>
-<g y="165.25" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="57.2499" id="connector88terminal"/>
-<line y1="150.85" y2="165.25" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="57.6" x2="57.6" class="pin" id="connector57pin"/>
-<g y="165.25" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="57.2499" id="connector57terminal"/>
-<line y1="150.85" y2="165.25" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="57.6" x2="57.6" class="pin" id="connector44pin"/>
-<rect y="165.25" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="57.2499" id="connector44terminal"/>
-<line y1="150.85" y2="165.25" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="57.6" x2="57.6" class="pin" id="connector50pin"/>
-<rect y="165.25" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="57.2499" id="connector50terminal"/>
-<line y1="150.85" y2="165.25" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="57.6" x2="57.6" class="pin" id="connector89pin"/>
+<rect class="interior rect" x="14.85" width="78.3" stroke="#000000" height="135.9" stroke-width="0.9" y="14.85" stroke-linecap="round" fill="#FFFFFF"/>
+<line class="pin" id="connector61pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="28.8" y2="28.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="29.4999" fill="#8c8c8c">D0/RX</text>
+<g class="terminal" id="connector61terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="28.4499" fill="none"/>
+<line class="pin" id="connector62pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="36" y2="36" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="36.6999" fill="#8c8c8c">D1/TX</text>
+<g class="terminal" id="connector62terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="35.6499" fill="none"/>
+<line class="pin" id="connector63pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="43.2" y2="43.2" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="43.8999" fill="#8c8c8c">D2</text>
+<g class="terminal" id="connector63terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="42.8499" fill="none"/>
+<line class="pin" id="connector64pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="50.4" y2="50.4" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="51.0999" fill="#8c8c8c">D3 PWM</text>
+<g class="terminal" id="connector64terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="50.0499" fill="none"/>
+<line class="pin" id="connector65pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="57.6" y2="57.6" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="58.2999" fill="#8c8c8c">D4</text>
+<g class="terminal" id="connector65terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="57.2499" fill="none"/>
+<line class="pin" id="connector66pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="64.8" y2="64.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="65.4999" fill="#8c8c8c">D5 PWM</text>
+<g class="terminal" id="connector66terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="64.4499" fill="none"/>
+<line class="pin" id="connector67pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="72" y2="72" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="72.6999" fill="#8c8c8c">D6 PWM</text>
+<g class="terminal" id="connector67terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="71.6499" fill="none"/>
+<line class="pin" id="connector68pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="79.2" y2="79.2" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="79.8999" fill="#8c8c8c">D7</text>
+<g class="terminal" id="connector68terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="78.8499" fill="none"/>
+<line class="pin" id="connector51pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="86.4" y2="86.4" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="87.0999" fill="#8c8c8c">D8</text>
+<g class="terminal" id="connector51terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="86.0499" fill="none"/>
+<line class="pin" id="connector52pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="94.2999" fill="#8c8c8c">D9 PWM</text>
+<g class="terminal" id="connector52terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector53pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="100.8" y2="100.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="101.5" fill="#8c8c8c">D10 PWM/SS</text>
+<g class="terminal" id="connector53terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="100.45" fill="none"/>
+<line class="pin" id="connector54pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="108" y2="108" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="108.7" fill="#8c8c8c">D11 PWM/MOSI</text>
+<g class="terminal" id="connector54terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="107.65" fill="none"/>
+<line class="pin" id="connector55pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="115.2" y2="115.2" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="115.9" fill="#8c8c8c">D12/MISO</text>
+<g class="terminal" id="connector55terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="114.85" fill="none"/>
+<line class="pin" id="connector41pin" x2="107.65" stroke="none" x1="93.2499" stroke-width="0" stroke-linecap="round" y1="122.4" y2="122.4" fill="none"/>
+<rect class="terminal" id="connector41terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="122.05" fill="none"/>
+<line class="pin" id="connector56pin" x2="107.65" stroke="#787878" x1="93.2499" stroke-width="0.699999" stroke-linecap="round" y1="122.4" y2="122.4" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="91.8499" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="123.1" fill="#8c8c8c">D13/SCK</text>
+<g class="terminal" id="connector56terminal" x="107.65" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="122.05" fill="none"/>
+<line class="pin" id="connector43pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="28.8" y2="28.8" fill="none"/>
+<rect class="terminal" id="connector43terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="28.4499" fill="none"/>
+<line class="pin" id="connector85pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="28.8" y2="28.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="29.4999" fill="#8c8c8c">RESET</text>
+<g class="terminal" id="connector85terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="28.4499" fill="none"/>
+<line class="pin" id="connector49pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="36" y2="36" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="36.6999" fill="#8c8c8c">RESET2</text>
+<rect class="terminal" id="connector49terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="35.6499" fill="none"/>
+<line class="pin" id="connector58pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="43.2" y2="43.2" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="43.8999" fill="#8c8c8c">AREF</text>
+<g class="terminal" id="connector58terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="42.8499" fill="none"/>
+<line class="pin" id="connector84pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="50.4" y2="50.4" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="51.0999" fill="#8c8c8c">ioref</text>
+<g class="terminal" id="connector84terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="50.0499" fill="none"/>
+<line class="pin" id="connector0pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="64.8" y2="64.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="65.4999" fill="#8c8c8c">A0</text>
+<g class="terminal" id="connector0terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="64.4499" fill="none"/>
+<line class="pin" id="connector1pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="72" y2="72" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="72.6999" fill="#8c8c8c">A1</text>
+<g class="terminal" id="connector1terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="71.6499" fill="none"/>
+<line class="pin" id="connector2pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="79.2" y2="79.2" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="79.8999" fill="#8c8c8c">A2</text>
+<g class="terminal" id="connector2terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="78.8499" fill="none"/>
+<line class="pin" id="connector3pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="86.4" y2="86.4" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="87.0999" fill="#8c8c8c">A3</text>
+<g class="terminal" id="connector3terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="86.0499" fill="none"/>
+<line class="pin" id="connector48pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<rect class="terminal" id="connector48terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector45pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<rect class="terminal" id="connector45terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector4pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<g class="terminal" id="connector4terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector39pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<rect class="terminal" id="connector39terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector47pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<rect class="terminal" id="connector47terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector42pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<rect class="terminal" id="connector42terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector59pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="93.6" y2="93.6" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="94.2999" fill="#8c8c8c">A4/SDA</text>
+<g class="terminal" id="connector59terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="93.2499" fill="none"/>
+<line class="pin" id="connector5pin" x2="14.75" stroke="none" x1="0.349999" stroke-width="0" stroke-linecap="round" y1="100.8" y2="100.8" fill="none"/>
+<g class="terminal" id="connector5terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="100.45" fill="none"/>
+<line class="pin" id="connector60pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="100.8" y2="100.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="101.5" fill="#8c8c8c">A5/SCL</text>
+<g class="terminal" id="connector60terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="100.45" fill="none"/>
+<line class="pin" id="connector91pin" x2="14.75" stroke="#787878" x1="0.349999" stroke-width="0.699999" stroke-linecap="round" y1="136.8" y2="136.8" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="16.15" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="137.5" fill="#8c8c8c">N/C</text>
+<g class="terminal" id="connector91terminal" x="-0.349999" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="136.45" fill="none"/>
+<line class="pin" id="connector88pin" x2="57.6" stroke="none" x1="57.6" stroke-width="0" stroke-linecap="round" y1="150.85" y2="165.25" fill="none"/>
+<g class="terminal" id="connector88terminal" x="57.2499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="165.25" fill="none"/>
+<line class="pin" id="connector57pin" x2="57.6" stroke="none" x1="57.6" stroke-width="0" stroke-linecap="round" y1="150.85" y2="165.25" fill="none"/>
+<g class="terminal" id="connector57terminal" x="57.2499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="165.25" fill="none"/>
+<line class="pin" id="connector44pin" x2="57.6" stroke="none" x1="57.6" stroke-width="0" stroke-linecap="round" y1="150.85" y2="165.25" fill="none"/>
+<rect class="terminal" id="connector44terminal" x="57.2499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="165.25" fill="none"/>
+<line class="pin" id="connector50pin" x2="57.6" stroke="none" x1="57.6" stroke-width="0" stroke-linecap="round" y1="150.85" y2="165.25" fill="none"/>
+<rect class="terminal" id="connector50terminal" x="57.2499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="165.25" fill="none"/>
+<line class="pin" id="connector89pin" x2="57.6" stroke="#787878" x1="57.6" stroke-width="0.699999" stroke-linecap="round" y1="150.85" y2="165.25" fill="none"/>
 <g transform="matrix(1, 0, 0, 1, 58.2999, 149.45)">
 <g>
 <g transform="rotate(270)">
 <g>
-<text y="0" font-family="'Droid Sans'" text-anchor="start" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="0">GND</text>
+<text class="text" font-family="'Droid Sans'" x="0" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="start" y="0" fill="#8c8c8c">GND</text>
 </g>
 </g>
 </g>
 </g>
-<g y="165.25" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="57.2499" id="connector89terminal"/>
-<line y1="0.349999" y2="14.75" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="36" x2="36" class="pin" id="connector86pin"/>
+<g class="terminal" id="connector89terminal" x="57.2499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="165.25" fill="none"/>
+<line class="pin" id="connector86pin" x2="36" stroke="#787878" x1="36" stroke-width="0.699999" stroke-linecap="round" y1="0.349999" y2="14.75" fill="none"/>
 <g transform="matrix(1, 0, 0, 1, 36.6999, 16.15)">
 <g>
 <g transform="rotate(270)">
 <g>
-<text y="0" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="0">3V3</text>
+<text class="text" font-family="'Droid Sans'" x="0" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="0" fill="#8c8c8c">3V3</text>
 </g>
 </g>
 </g>
 </g>
-<g y="-0.349999" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="35.6499" id="connector86terminal"/>
-<line y1="0.349999" y2="14.75" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="50.4" x2="50.4" class="pin" id="connector40pin"/>
-<rect y="-0.349999" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="50.0499" id="connector40terminal"/>
-<line y1="0.349999" y2="14.75" stroke="none" stroke-width="0" fill="none" stroke-linecap="round" x1="50.4" x2="50.4" class="pin" id="connector46pin"/>
-<rect y="-0.349999" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="50.0499" id="connector46terminal"/>
-<line y1="0.349999" y2="14.75" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="50.4" x2="50.4" class="pin" id="connector87pin"/>
+<g class="terminal" id="connector86terminal" x="35.6499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="-0.349999" fill="none"/>
+<line class="pin" id="connector40pin" x2="50.4" stroke="none" x1="50.4" stroke-width="0" stroke-linecap="round" y1="0.349999" y2="14.75" fill="none"/>
+<rect class="terminal" id="connector40terminal" x="50.0499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="-0.349999" fill="none"/>
+<line class="pin" id="connector46pin" x2="50.4" stroke="none" x1="50.4" stroke-width="0" stroke-linecap="round" y1="0.349999" y2="14.75" fill="none"/>
+<rect class="terminal" id="connector46terminal" x="50.0499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="-0.349999" fill="none"/>
+<line class="pin" id="connector87pin" x2="50.4" stroke="#787878" x1="50.4" stroke-width="0.699999" stroke-linecap="round" y1="0.349999" y2="14.75" fill="none"/>
 <g transform="matrix(1, 0, 0, 1, 51.0999, 16.15)">
 <g>
 <g transform="rotate(270)">
 <g>
-<text y="0" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="0">5V</text>
+<text class="text" font-family="'Droid Sans'" x="0" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="0" fill="#8c8c8c">5V</text>
 </g>
 </g>
 </g>
 </g>
-<g y="-0.349999" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="50.0499" id="connector87terminal"/>
-<line y1="0.349999" y2="14.75" stroke="#787878" stroke-width="0.699999" fill="none" stroke-linecap="round" x1="64.8" x2="64.8" class="pin" id="connector90pin"/>
+<g class="terminal" id="connector87terminal" x="50.0499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="-0.349999" fill="none"/>
+<line class="pin" id="connector90pin" x2="64.8" stroke="#787878" x1="64.8" stroke-width="0.699999" stroke-linecap="round" y1="0.349999" y2="14.75" fill="none"/>
 <g transform="matrix(1, 0, 0, 1, 65.4999, 16.15)">
 <g>
 <g transform="rotate(270)">
 <g>
-<text y="0" font-family="'Droid Sans'" text-anchor="end" stroke="none" stroke-width="0" fill="#8c8c8c" class="text" font-size="3.49999" x="0">VIN</text>
+<text class="text" font-family="'Droid Sans'" x="0" font-size="3.49999" stroke="none" stroke-width="0" text-anchor="end" y="0" fill="#8c8c8c">VIN</text>
 </g>
 </g>
 </g>
 </g>
-<g y="-0.349999" height="0.699999" stroke="none" stroke-width="0" fill="none" width="0.699999" class="terminal" x="64.4499" id="connector90terminal"/>
-<text y="76.4498" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#000000" class="text" id="label" font-size="4.25001" x="54.4501">Arduino</text>
-<text y="80.9833" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#000000" class="text" id="label" font-size="4.25001" x="54.4501">Uno</text>
-<text y="85.5167" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#000000" class="text" id="label" font-size="4.25001" x="54.4501">(Rev3)</text>
+<g class="terminal" id="connector90terminal" x="64.4499" width="0.699999" stroke="none" height="0.699999" stroke-width="0" y="-0.349999" fill="none"/>
+<text class="text" id="label" font-family="'Droid Sans'" x="54.4501" font-size="4.25001" stroke="none" stroke-width="0" text-anchor="middle" y="76.4498" fill="#000000">Arduino</text>
+<text class="text" id="label" font-family="'Droid Sans'" x="54.4501" font-size="4.25001" stroke="none" stroke-width="0" text-anchor="middle" y="80.9833" fill="#000000">Uno</text>
+<text class="text" id="label" font-family="'Droid Sans'" x="54.4501" font-size="4.25001" stroke="none" stroke-width="0" text-anchor="middle" y="85.5167" fill="#000000">(Rev3)</text>
 </g>
-</g></g><g partID='854185820'><g transform='translate(112.499,137.648)' ><g id="schematic">
+</g></g><g partID='854185820'><g transform='translate(112.5,144.847)' ><g id="schematic">
 <g>
 <path d="M13.5,14.966L9.9,14.966c-0.193,0,-0.35,-0.156,-0.35,-0.35s0.156,-0.35,0.35,-0.35L13.5,14.266c0.193,0,0.35,0.156,0.35,0.35S13.694,14.966,13.5,14.966z"/>
 </g>
@@ -164,7 +164,7 @@
 <path d="M9.9,14.966L6.3,14.966c-0.193,0,-0.35,-0.156,-0.35,-0.35s0.157,-0.35,0.35,-0.35l3.6,0c0.193,0,0.35,0.156,0.35,0.35S10.093,14.966,9.9,14.966z"/>
 </g>
 <g>
-<polygon fill="#FFFFFF" points="9.9,14.616,6.3,7.416,9.9,7.416,13.5,7.416"/>
+<polygon points="9.9,14.616,6.3,7.416,9.9,7.416,13.5,7.416" fill="#FFFFFF"/>
 <path d="M9.9,15.398L5.734,7.066l8.333,0L9.9,15.398zM6.866,7.766L9.9,13.834l3.034,-6.068L6.866,7.766z"/>
 </g>
 <g>
@@ -180,7 +180,7 @@
 <path d="M9.9,22.166c-0.193,0,-0.35,-0.156,-0.35,-0.35l0,-7.2c0,-0.193,0.156,-0.35,0.35,-0.35s0.35,0.156,0.35,0.35l0,7.2C10.249,22.01,10.093,22.166,9.9,22.166z" fill="#787878"/>
 </g>
 <g id="connector0terminal">
-<rect y="21.816" height="0.001" fill="none" width="0.001" x="9.9"/>
+<rect x="9.9" width="0.001" height="0.001" y="21.816" fill="none"/>
 </g>
 <g transform="matrix(1, 0, 0, 1, 3.429, 6.4262)">
 <g>
@@ -197,7 +197,7 @@
 <path d="M9.9,7.766c-0.193,0,-0.35,-0.157,-0.35,-0.35l0,-7.2c0,-0.193,0.156,-0.35,0.35,-0.35s0.35,0.157,0.35,0.35l0,7.2C10.249,7.609,10.093,7.766,9.9,7.766z" fill="#787878"/>
 </g>
 <g id="connector1terminal">
-<polygon fill="none" points="9.9,0.216,9.901,0.216,9.901,0.216"/>
+<polygon points="9.9,0.216,9.901,0.216,9.901,0.216" fill="none"/>
 </g>
 <g transform="matrix(1, 0, 0, 1, 3.429, 1.3462)">
 <g>
@@ -225,7 +225,7 @@
 <path d="M9.9,14.966L6.3,14.966c-0.193,0,-0.35,-0.156,-0.35,-0.35s0.157,-0.35,0.35,-0.35l3.6,0c0.193,0,0.35,0.156,0.35,0.35S10.093,14.966,9.9,14.966z"/>
 </g>
 <g>
-<polygon fill="#FFFFFF" points="9.9,14.616,6.3,7.416,9.9,7.416,13.5,7.416"/>
+<polygon points="9.9,14.616,6.3,7.416,9.9,7.416,13.5,7.416" fill="#FFFFFF"/>
 <path d="M9.9,15.398L5.734,7.066l8.333,0L9.9,15.398zM6.866,7.766L9.9,13.834l3.034,-6.068L6.866,7.766z"/>
 </g>
 <g>
@@ -241,7 +241,7 @@
 <path d="M9.9,22.166c-0.193,0,-0.35,-0.156,-0.35,-0.35l0,-7.2c0,-0.193,0.156,-0.35,0.35,-0.35s0.35,0.156,0.35,0.35l0,7.2C10.249,22.01,10.093,22.166,9.9,22.166z" fill="#787878"/>
 </g>
 <g id="connector0terminal">
-<rect y="21.816" height="0.001" fill="none" width="0.001" x="9.9"/>
+<rect x="9.9" width="0.001" height="0.001" y="21.816" fill="none"/>
 </g>
 <g transform="matrix(1, 0, 0, 1, 3.429, 6.4262)">
 <g>
@@ -258,7 +258,7 @@
 <path d="M9.9,7.766c-0.193,0,-0.35,-0.157,-0.35,-0.35l0,-7.2c0,-0.193,0.156,-0.35,0.35,-0.35s0.35,0.157,0.35,0.35l0,7.2C10.249,7.609,10.093,7.766,9.9,7.766z" fill="#787878"/>
 </g>
 <g id="connector1terminal">
-<polygon fill="none" points="9.9,0.216,9.901,0.216,9.901,0.216"/>
+<polygon points="9.9,0.216,9.901,0.216,9.901,0.216" fill="none"/>
 </g>
 <g transform="matrix(1, 0, 0, 1, 3.429, 1.3462)">
 <g>
@@ -278,48 +278,65 @@
 <path d="M0.54,16.776l1.08,-2.521l1.438,1.438L0.54,16.776z"/>
 </g>
 </g>
-</g></g><g partID='854175860'><g transform='translate(139.896,58.3135)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g xmlns="http://www.w3.org/2000/svg" id="schematic">
-<line y1="3.096" y2="0.216" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="7.55002" x2="8.63003" class="other"/>
-<line y1="0.216" y2="5.976" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="8.63003" x2="10.43" class="other"/>
-<line y1="5.976" y2="0.216" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="10.43" x2="12.23" class="other"/>
-<line y1="0.216" y2="5.976" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="12.23" x2="14.03" class="other"/>
-<line y1="5.976" y2="0.216" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="14.03" x2="15.8301" class="other"/>
-<line y1="0.216" y2="5.976" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="15.8301" x2="17.6301" class="other"/>
-<line y1="5.976" y2="0.216" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="17.6301" x2="19.4301" class="other"/>
-<line y1="0.216" y2="5.976" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="19.4301" x2="21.2301" class="other"/>
-<line y1="5.976" y2="3.096" stroke="#000000" stroke-width="0.432002" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="21.2301" x2="21.9501" class="other"/>
-<line y1="3.096" y2="3.096" stroke="#787878" stroke-width="0.700001" connectorname="2" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="29.1502" x2="21.9501" class="pin" id="connector1pin"/>
-<g y="3.096" height="0.000283465" stroke="none" stroke-width="0" fill="none" xmlns="http://www.w3.org/2000/svg" width="0.000283466" class="terminal" id="connector1terminal" x="29.1502"/>
-<text y="2.046" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#8c8c8c" xmlns="http://www.w3.org/2000/svg" class="text" font-size="2.50001" x="25.5501">2</text>
-<line y1="3.096" y2="3.096" stroke="#787878" stroke-width="0.700001" connectorname="1" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="0.350001" x2="7.55002" class="pin" id="connector0pin"/>
-<g y="3.096" height="0.000283465" stroke="none" stroke-width="0" fill="none" xmlns="http://www.w3.org/2000/svg" width="0.000283466" class="terminal" id="connector0terminal" x="0.350001"/>
-<text y="2.046" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#8c8c8c" xmlns="http://www.w3.org/2000/svg" class="text" font-size="2.50001" x="3.95001">1</text>
+</g></g><g partID='854175860'><g transform='translate(139.896,58.3135)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g id="schematic" xmlns="http://www.w3.org/2000/svg">
+<line class="other" x2="8.63003" stroke="#000000" x1="7.55002" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="3.096" y2="0.216"/>
+<line class="other" x2="10.43" stroke="#000000" x1="8.63003" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="12.23" stroke="#000000" x1="10.43" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="0.216"/>
+<line class="other" x2="14.03" stroke="#000000" x1="12.23" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="15.8301" stroke="#000000" x1="14.03" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="0.216"/>
+<line class="other" x2="17.6301" stroke="#000000" x1="15.8301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="19.4301" stroke="#000000" x1="17.6301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="0.216"/>
+<line class="other" x2="21.2301" stroke="#000000" x1="19.4301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="21.9501" stroke="#000000" x1="21.2301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="3.096"/>
+<line class="pin" id="connector1pin" connectorname="2" x2="21.9501" stroke="#787878" x1="29.1502" stroke-width="0.700001" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="3.096" y2="3.096"/>
+<g class="terminal" id="connector1terminal" x="29.1502" width="0.000283466" stroke="none" height="0.000283465" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="3.096" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="25.5501" font-size="2.50001" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="2.046" fill="#8c8c8c">2</text>
+<line class="pin" id="connector0pin" connectorname="1" x2="7.55002" stroke="#787878" x1="0.350001" stroke-width="0.700001" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="3.096" y2="3.096"/>
+<g class="terminal" id="connector0terminal" x="0.350001" width="0.000283466" stroke="none" height="0.000283465" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="3.096" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="3.95001" font-size="2.50001" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="2.046" fill="#8c8c8c">1</text>
 </g>
-</g></g></g><g partID='854182790'><g transform='translate(187.533,125.923)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g xmlns="http://www.w3.org/2000/svg" id="schematic">
-<line y1="9.333" y2="7.534" stroke="#000000" stroke-width="0.7" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="4.741" x2="4.741"/>
-<line y1="21.934" y2="9.333" stroke="#000000" stroke-width="0.7" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="4.741" x2="1.142"/>
-<circle r="0.36" cx="4.741" stroke="#000000" stroke-width="0.7" cy="21.934" fill="none" xmlns="http://www.w3.org/2000/svg"/>
-<circle r="0.36" cx="4.741" stroke="#000000" stroke-width="0.7" cy="7.534" fill="none" xmlns="http://www.w3.org/2000/svg"/>
-<line y1="29.135" y2="21.934" stroke="#555555" stroke-width="0.7" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="4.741" x2="4.741" id="connector0pin"/>
-<g y="29.134" height="0.001" fill="none" xmlns="http://www.w3.org/2000/svg" width="0.002" id="connector0terminal" x="4.74"/>
-<line y1="0.333" y2="7.534" stroke="#555555" stroke-width="0.7" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="4.741" x2="4.741" id="connector1pin"/>
-<g y="0.333" height="0.001" fill="none" xmlns="http://www.w3.org/2000/svg" width="0" id="connector1terminal" x="4.741"/>
+</g></g></g><g partID='854194660'><g transform='translate(125.496,108.714)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g id="schematic" xmlns="http://www.w3.org/2000/svg">
+<line class="other" x2="8.63003" stroke="#000000" x1="7.55002" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="3.096" y2="0.216"/>
+<line class="other" x2="10.43" stroke="#000000" x1="8.63003" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="12.23" stroke="#000000" x1="10.43" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="0.216"/>
+<line class="other" x2="14.03" stroke="#000000" x1="12.23" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="15.8301" stroke="#000000" x1="14.03" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="0.216"/>
+<line class="other" x2="17.6301" stroke="#000000" x1="15.8301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="19.4301" stroke="#000000" x1="17.6301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="0.216"/>
+<line class="other" x2="21.2301" stroke="#000000" x1="19.4301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.216" y2="5.976"/>
+<line class="other" x2="21.9501" stroke="#000000" x1="21.2301" stroke-width="0.432002" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="5.976" y2="3.096"/>
+<line class="pin" id="connector1pin" connectorname="2" x2="21.9501" stroke="#787878" x1="29.1502" stroke-width="0.700001" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="3.096" y2="3.096"/>
+<g class="terminal" id="connector1terminal" x="29.1502" width="0.000283466" stroke="none" height="0.000283465" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="3.096" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="25.5501" font-size="2.50001" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="2.046" fill="#8c8c8c">2</text>
+<line class="pin" id="connector0pin" connectorname="1" x2="7.55002" stroke="#787878" x1="0.350001" stroke-width="0.700001" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="3.096" y2="3.096"/>
+<g class="terminal" id="connector0terminal" x="0.350001" width="0.000283466" stroke="none" height="0.000283465" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="3.096" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="3.95001" font-size="2.50001" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="2.046" fill="#8c8c8c">1</text>
 </g>
-</g></g></g><g partID='854188160'><g transform='translate(158.05,78.9575)' ><g xmlns="http://www.w3.org/2000/svg" id="schematic">
-<line y1="8.50619" y2="4.9062" stroke="#000000" stroke-width="0.72" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="7.54999" x2="14.75" class="other"/>
-<line y1="15.7062" y2="15.7062" stroke="#000000" stroke-width="0.36" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="14.75" x2="16.55" class="other"/>
-<line y1="1.3062" y2="1.3062" stroke="#000000" stroke-width="0.432" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="14.75" x2="16.55" class="other"/>
-<circle r="1.0182" cx="14.75" cy="1.3062" stroke="#000000" stroke-width="0.576" fill="none" xmlns="http://www.w3.org/2000/svg" class="other"/>
-<circle r="1.0182" cx="14.75" cy="15.7062" stroke="#000000" stroke-width="0.576" fill="none" xmlns="http://www.w3.org/2000/svg" class="other"/>
-<circle r="1.0182" cx="7.54999" cy="8.50619" stroke="#000000" stroke-width="0.576" fill="none" xmlns="http://www.w3.org/2000/svg" class="other"/>
-<line y1="8.50619" y2="8.50619" stroke="#787878" stroke-width="0.699999" connectorname="P" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="0.349999" x2="7.54999" class="pin" id="connector1pin"/>
-<g y="8.50619" height="0.000283464" stroke="none" stroke-width="0" fill="none" xmlns="http://www.w3.org/2000/svg" width="0.000283465" class="terminal" id="connector1terminal" x="0.349999"/>
-<text y="7.45618" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#8c8c8c" xmlns="http://www.w3.org/2000/svg" class="text" font-size="2.5" x="3.94999">2</text>
-<line y1="15.7062" y2="15.7062" stroke="#787878" stroke-width="0.699999" connectorname="S" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="21.95" x2="14.75" class="pin" id="connector2pin"/>
-<g y="15.7062" height="0.000283464" stroke="none" stroke-width="0" fill="none" xmlns="http://www.w3.org/2000/svg" width="0.000283465" class="terminal" id="connector2terminal" x="21.95"/>
-<text y="14.6562" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#8c8c8c" xmlns="http://www.w3.org/2000/svg" class="text" font-size="2.5" x="18.35">3</text>
-<line y1="1.3062" y2="1.3062" stroke="#787878" stroke-width="0.699999" connectorname="O" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" x1="21.95" x2="14.75" class="pin" id="connector0pin"/>
-<g y="1.3062" height="0.000283464" stroke="none" stroke-width="0" fill="none" xmlns="http://www.w3.org/2000/svg" width="0.000283465" class="terminal" id="connector0terminal" x="21.95"/>
-<text y="0.256206" font-family="'Droid Sans'" text-anchor="middle" stroke="none" stroke-width="0" fill="#8c8c8c" xmlns="http://www.w3.org/2000/svg" class="text" font-size="2.5" x="18.35">1</text>
+</g></g></g><g partID='854182790'><g transform='translate(187.533,125.923)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g id="schematic" xmlns="http://www.w3.org/2000/svg">
+<line x2="4.741" stroke="#000000" x1="4.741" stroke-width="0.7" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="9.333" fill="none" y2="7.534"/>
+<line x2="1.142" stroke="#000000" x1="4.741" stroke-width="0.7" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="21.934" fill="none" y2="9.333"/>
+<circle cx="4.741" stroke="#000000" r="0.36" stroke-width="0.7" xmlns="http://www.w3.org/2000/svg" fill="none" cy="21.934"/>
+<circle cx="4.741" stroke="#000000" r="0.36" stroke-width="0.7" xmlns="http://www.w3.org/2000/svg" fill="none" cy="7.534"/>
+<line id="connector0pin" x2="4.741" stroke="#555555" x1="4.741" stroke-width="0.7" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="29.135" fill="none" y2="21.934"/>
+<g id="connector0terminal" x="4.74" width="0.002" height="0.001" xmlns="http://www.w3.org/2000/svg" y="29.134" fill="none"/>
+<line id="connector1pin" x2="4.741" stroke="#555555" x1="4.741" stroke-width="0.7" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="0.333" fill="none" y2="7.534"/>
+<g id="connector1terminal" x="4.741" width="0" height="0.001" xmlns="http://www.w3.org/2000/svg" y="0.333" fill="none"/>
 </g>
-</g></g><g partID='854184990'><line stroke-linecap='round' stroke='#404040' x1='136.8' y1='130.664' x2='158.399' y2='130.664' stroke-width='0.699998' /></g><g partID='854184080'><line stroke-linecap='round' stroke='#404040' x1='136.8' y1='87.4638' x2='136.8' y2='130.664' stroke-width='0.699998' /></g><circle  fill="black" cx="136.8" cy="87.4638" r="1.44" stroke-width="0" stroke="none" /><g partID='854185750'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='173.864' x2='223.2' y2='152.264' stroke-width='0.699998' /></g><g partID='854185680'><line stroke-linecap='round' stroke='#404040' x1='57.6' y1='173.864' x2='223.2' y2='173.864' stroke-width='0.699998' /></g><g partID='854185910'><line stroke-linecap='round' stroke='#404040' x1='122.4' y1='101.864' x2='108' y2='101.864' stroke-width='0.699998' /></g><g partID='854185840'><line stroke-linecap='round' stroke='#404040' x1='122.4' y1='137.864' x2='122.4' y2='101.864' stroke-width='0.699998' /></g><g partID='854186230'><line stroke-linecap='round' stroke='#404040' x1='122.4' y1='173.864' x2='122.4' y2='159.464' stroke-width='0.699998' /></g><g partID='854186000'><line stroke-linecap='round' stroke='#404040' x1='57.6' y1='173.864' x2='122.4' y2='173.864' stroke-width='0.699998' /></g><g partID='854189450'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='94.6638' x2='180' y2='94.6638' stroke-width='0.699998' /></g><g partID='854188400'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='130.664' x2='223.2' y2='94.6638' stroke-width='0.699998' /></g><circle  fill="black" cx="223.2" cy="130.664" r="1.44" stroke-width="0" stroke="none" /><g partID='854189220'><line stroke-linecap='round' stroke='#404040' x1='158.4' y1='87.4638' x2='136.8' y2='87.4638' stroke-width='0.699998' /></g><circle  fill="black" cx="136.8" cy="87.4638" r="1.44" stroke-width="0" stroke="none" /><g partID='854189520'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='130.664' x2='187.2' y2='130.664' stroke-width='0.699998' /></g><circle  fill="black" cx="223.2" cy="130.664" r="1.44" stroke-width="0" stroke="none" /><g partID='854191950'><line stroke-linecap='round' stroke='#404040' x1='136.8' y1='58.6637' x2='136.736' y2='1.05688' stroke-width='0.699998' /></g><g partID='854191990'><line stroke-linecap='round' stroke='#404040' x1='136.736' y1='1.05688' x2='50.4864' y2='1.05688' stroke-width='0.699998' /></g><g partID='854192040'><line stroke-linecap='round' stroke='#404040' x1='50.4864' y1='1.05688' x2='50.3999' y2='8.26392' stroke-width='0.699998' /></g><g partID='854185820' id='partLabel'><g transform='translate(128.979,140.848)' ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>LED2</text><text x='0' y='8.75'>Red (633nm)</text></g></g></g><g partID='854183050' id='partLabel'><g transform='translate(229.779,133.648)' ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>LED1</text><text x='0' y='8.75'>Red (633nm)</text></g></g></g><g partID='854175860' id='partLabel'><g transform='translate(149.096,67.8135)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>R1</text><text x='0' y='8.75'>220&#x3a9;</text></g></g></g></g></svg>
+</g></g></g><g partID='854188160'><g transform='translate(158.05,78.9575)' ><g id="schematic" xmlns="http://www.w3.org/2000/svg">
+<line class="other" x2="14.75" stroke="#000000" x1="7.54999" stroke-width="0.72" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="8.50619" y2="4.9062"/>
+<line class="other" x2="16.55" stroke="#000000" x1="14.75" stroke-width="0.36" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="15.7062" y2="15.7062"/>
+<line class="other" x2="16.55" stroke="#000000" x1="14.75" stroke-width="0.432" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="1.3062" y2="1.3062"/>
+<circle class="other" cx="14.75" r="1.0182" stroke="#000000" stroke-width="0.576" xmlns="http://www.w3.org/2000/svg" cy="1.3062" fill="none"/>
+<circle class="other" cx="14.75" r="1.0182" stroke="#000000" stroke-width="0.576" xmlns="http://www.w3.org/2000/svg" cy="15.7062" fill="none"/>
+<circle class="other" cx="7.54999" r="1.0182" stroke="#000000" stroke-width="0.576" xmlns="http://www.w3.org/2000/svg" cy="8.50619" fill="none"/>
+<line class="pin" id="connector1pin" connectorname="P" x2="7.54999" stroke="#787878" x1="0.349999" stroke-width="0.699999" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="8.50619" y2="8.50619"/>
+<g class="terminal" id="connector1terminal" x="0.349999" width="0.000283465" stroke="none" height="0.000283464" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="8.50619" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="3.94999" font-size="2.5" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="7.45618" fill="#8c8c8c">2</text>
+<line class="pin" id="connector2pin" connectorname="S" x2="14.75" stroke="#787878" x1="21.95" stroke-width="0.699999" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="15.7062" y2="15.7062"/>
+<g class="terminal" id="connector2terminal" x="21.95" width="0.000283465" stroke="none" height="0.000283464" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="15.7062" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="18.35" font-size="2.5" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="14.6562" fill="#8c8c8c">3</text>
+<line class="pin" id="connector0pin" connectorname="O" x2="14.75" stroke="#787878" x1="21.95" stroke-width="0.699999" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" y1="1.3062" y2="1.3062"/>
+<g class="terminal" id="connector0terminal" x="21.95" width="0.000283465" stroke="none" height="0.000283464" stroke-width="0" xmlns="http://www.w3.org/2000/svg" y="1.3062" fill="none"/>
+<text class="text" font-family="'Droid Sans'" x="18.35" font-size="2.5" stroke="none" stroke-width="0" text-anchor="middle" xmlns="http://www.w3.org/2000/svg" y="0.256206" fill="#8c8c8c">1</text>
+</g>
+</g></g><g partID='854192540'><line stroke-linecap='round' stroke='#157de6' x1='180' y1='94.6638' x2='158.4' y2='87.4638' stroke-width='0.4' /></g><g partID='854192040'><line stroke-linecap='round' stroke='#404040' x1='50.4864' y1='1.05688' x2='50.3999' y2='8.26392' stroke-width='0.699998' /></g><g partID='854191990'><line stroke-linecap='round' stroke='#404040' x1='136.736' y1='1.05688' x2='50.4864' y2='1.05688' stroke-width='0.699998' /></g><g partID='854191950'><line stroke-linecap='round' stroke='#404040' x1='136.8' y1='58.6637' x2='136.735' y2='1.05688' stroke-width='0.699998' /></g><g partID='854184990'><line stroke-linecap='round' stroke='#404040' x1='136.8' y1='130.664' x2='158.399' y2='130.664' stroke-width='0.699998' /></g><g partID='854184080'><line stroke-linecap='round' stroke='#404040' x1='136.8' y1='87.4638' x2='136.8' y2='130.664' stroke-width='0.699998' /></g><circle  fill="black" cx="136.8" cy="87.4638" r="1.44" stroke-width="0" stroke="none" /><g partID='854185750'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='173.864' x2='223.2' y2='152.264' stroke-width='0.699998' /></g><g partID='854185680'><line stroke-linecap='round' stroke='#404040' x1='57.6' y1='173.864' x2='223.2' y2='173.864' stroke-width='0.699998' /></g><g partID='854186230'><line stroke-linecap='round' stroke='#404040' x1='122.4' y1='173.864' x2='122.4' y2='166.664' stroke-width='0.699998' /></g><g partID='854186000'><line stroke-linecap='round' stroke='#404040' x1='57.6' y1='173.864' x2='122.4' y2='173.864' stroke-width='0.699998' /></g><g partID='854189450'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='94.6638' x2='180' y2='94.6638' stroke-width='0.699998' /></g><g partID='854188400'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='130.664' x2='223.2' y2='94.6638' stroke-width='0.699998' /></g><circle  fill="black" cx="223.2" cy="130.664" r="1.44" stroke-width="0" stroke="none" /><g partID='854189220'><line stroke-linecap='round' stroke='#404040' x1='158.4' y1='87.4638' x2='136.8' y2='87.4638' stroke-width='0.699998' /></g><circle  fill="black" cx="136.8" cy="87.4638" r="1.44" stroke-width="0" stroke="none" /><g partID='854189520'><line stroke-linecap='round' stroke='#404040' x1='223.2' y1='130.664' x2='187.2' y2='130.664' stroke-width='0.699998' /></g><circle  fill="black" cx="223.2" cy="130.664" r="1.44" stroke-width="0" stroke="none" /><g partID='854194680'><line stroke-linecap='round' stroke='#404040' x1='122.4' y1='145.063' x2='122.4' y2='137.864' stroke-width='0.699998' /></g><g partID='854194750'><line stroke-linecap='round' stroke='#404040' x1='122.4' y1='109.064' x2='122.429' y2='101.761' stroke-width='0.699998' /></g><g partID='854194820'><line stroke-linecap='round' stroke='#404040' x1='122.429' y1='101.761' x2='108' y2='101.864' stroke-width='0.699998' /></g><g partID='854183050' id='partLabel'><g transform='translate(229.779,133.648)' ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>LED1</text><text x='0' y='8.75'>Red (633nm)</text></g></g></g><g partID='854185820' id='partLabel'><g transform='translate(128.98,148.047)' ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>LED2</text><text x='0' y='8.75'>Red (633nm)</text></g></g></g><g partID='854175860' id='partLabel'><g transform='translate(149.096,67.8135)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>R1</text><text x='0' y='8.75'>220&#x3a9;</text></g></g></g></g><g partID='854194660' id='partLabel'><g transform='translate(134.696,118.214)' ><g transform='matrix(0,1,-1,0,0,0)'  ><g font-size='5' font-style='normal' font-weight='normal' fill='#000000' font-family="'DroidSans'" id='schematicLabel' fill-opacity='1' stroke='none' ><text x='0' y='3.75'>R2</text><text x='0' y='8.75'>220&#x3a9;</text></g></g></g></g></svg>

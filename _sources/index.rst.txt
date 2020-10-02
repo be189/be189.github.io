@@ -11,6 +11,7 @@ Useful links
 
 - `Ed <https://us.edstem.org/courses/2616/>`_ (used for course communications)
 - `Course Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class>`_ (password protected)
+- `Recording of lectures <http://bois.caltech.edu/be189/2020_fall/video_link/>`_ (password protected)
 
 During lab sessions, we will sometimes break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.
 

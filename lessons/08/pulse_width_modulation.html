@@ -481,7 +481,7 @@ Zero</a> offer 12-bit and 10-bit DAC, respectively, but there are not built-in D
 <div class="section" id="The-idea-behind-PWM">
 <h2>The idea behind PWM<a class="headerlink" href="#The-idea-behind-PWM" title="Permalink to this headline">¶</a></h2>
 <p>While we cannot deliver 2.5 volts at any given time using Arduino Uno, we can deliver an <em>average</em> of 2.5 volts over time. Think of a light switch. If you flip is on for a second, then off for a second, them back on for a second, etc., over the course of a minute, you would have, on average, a half-dimmed light.</p>
-<p>Now, say we turn digital pin 3 on (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, 5 V) For one millisecond. Then we turn it off (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>, 0 V) for one millisecond. We keep doing this, and, on average, we deliver 2.5 V.</p>
+<p>Now, say we turn digital pin 3 on (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, 5 V) for one millisecond. Then we turn it off (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>, 0 V) for one millisecond. We keep doing this, and, on average, we deliver 2.5 V.</p>
 <p>A signal given by PWM is determined by three parameters.</p>
 <ol class="arabic simple">
 <li><p>The amplitude. For Arduino Uno, this is 5 Volts.</p></li>
@@ -489,7 +489,7 @@ Zero</a> offer 12-bit and 10-bit DAC, respectively, but there are not built-in D
 <li><p>The duty ratio. This is the fraction of time in one period of the oscillation that the voltage is high.</p></li>
 </ol>
 <p>To see how these parameters affect the voltage levels over time, you can manipulate the interactive plot below. I fixed the amplitude to 5 V, and you can vary the frequency and duty ratio. I intentionally left the Python/JavaScript code to generate the plot in case you are interested in how to build these things using <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a>. Soon, we will be building interactive dashboards for controlling devices using Bokeh. (But don’t worry, you won’t have to hack and JavaScript;
-I used JavaScript so you count interact with the plot in the static HTML document.)</p>
+I used JavaScript so you could interact with the plot in the static HTML document.)</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -935,7 +935,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <div class="section" id="PWM-on-the-Arduino-Uno-with-analogWrite()">
 <h2>PWM on the Arduino Uno with analogWrite()<a class="headerlink" href="#PWM-on-the-Arduino-Uno-with-analogWrite()" title="Permalink to this headline">¶</a></h2>
-<p>Given that the Arduino Uno does not have DAC, why does it have a function <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>? The perhaps ill-named function actually invokes PWM from a digital pin. The <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather a <code class="docutils literal notranslate"><span class="pre">int</span></code>. Although this argument must be given as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a
+<p>Given that the Arduino Uno does not have DAC, why does it have a function <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>? The perhaps ill-named function actually invokes PWM from a digital pin. The <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather an <code class="docutils literal notranslate"><span class="pre">int</span></code>. Although this argument must be given as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a
 duty ratio of one. So, if you wanted a duty ratio of <span class="math notranslate nohighlight">\(d\)</span>, you can compute the number you want to pass to <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> as <span class="math notranslate nohighlight">\(255 d\)</span>. Here is an example of telling pin 3 to perform PWM with a duty ratio of approximately 0.5.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">analogWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">127</span><span class="p">);</span>
 </pre></div>
@@ -1053,7 +1053,7 @@ jupyterlab 2.2.6
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fad509afeb0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f9e2fc350a0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
