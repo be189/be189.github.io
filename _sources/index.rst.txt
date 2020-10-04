@@ -52,7 +52,7 @@ People
    lessons/14/asynchronous_streaming.ipynb
    lessons/15/streaming_plots_with_bokeh.ipynb
    lessons/16/control_panels.ipynb
-
+   lessons/17/dac_i2c_libraries.ipynb
 
 .. toctree::
    :maxdepth: 1

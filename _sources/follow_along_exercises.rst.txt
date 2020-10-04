@@ -16,3 +16,4 @@ Follow-along exercises are embedded in lessons. For convenience here are links t
 - :ref:`Follow-along exercise 9: Controlling Arduino with base Bokeh`
 - :ref:`Follow-along exercise 10: Streaming data` (submission not required)
 - :ref:`Follow-along exercise 11: Plotting streaming data`
+- :ref:`Follow-along exercise 12: DAC with MCP4725`
