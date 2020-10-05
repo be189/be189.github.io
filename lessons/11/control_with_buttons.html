@@ -2619,7 +2619,7 @@ xhr.send();
 <li><p>The serial connection is opened, but not closed. The reason for this is because the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file will be executed to completion defining the app, and then Bokeh will handle serving it in the browser. The connection must remain open after the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file executes, otherwise your widgets will have no affect on Arduino because the serial connection will be broken.</p></li>
 </ol>
 <p>To serve up the app, save the above Python code in a file <code class="docutils literal notranslate"><span class="pre">led_toggle_app.py</span></code> and do the following on the command line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bokeh</span> <span class="n">bokeh</span> <span class="n">serve</span> <span class="o">--</span><span class="n">show</span> <span class="n">led_toggle_app</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bokeh</span> <span class="n">serve</span> <span class="o">--</span><span class="n">show</span> <span class="n">led_toggle_app</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
 </div>
 <p>A browser page should open with address <code class="docutils literal notranslate"><span class="pre">http://localhost:5006/led_toggle_app</span></code>, which is where the app is running.</p>
@@ -2680,7 +2680,7 @@ jupyterlab 2.2.6
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc4eb859f70> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe9d1f90b50> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
