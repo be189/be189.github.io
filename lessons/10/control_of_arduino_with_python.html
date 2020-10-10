@@ -537,8 +537,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7f8007ca2430&gt;,
- &lt;serial.tools.list_ports_common.ListPortInfo at 0x7f8007ca2460&gt;]
+[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7fe9a236c580&gt;,
+ &lt;serial.tools.list_ports_common.ListPortInfo at 0x7fe9a236cb20&gt;]
 </pre></div></div>
 </div>
 <p>On my machine, there are two ports open. We can look at the manufacturer of the devices attached to the ports to find Arduino.</p>
@@ -579,9 +579,29 @@ div.rendered_html tbody tr:hover {
 &#39;/dev/cu.usbmodem146301&#39;
 </pre></div></div>
 </div>
-<p>For convenience, we can write a function to find Arduino.</p>
-<div class="nbinput nblast docutils container">
+<p>On Windows, the manufacturer might not appear as Arduino. In this case, you should take a look at the devices for each port.</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="p">[</span><span class="n">port</span><span class="o">.</span><span class="n">device</span> <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;/dev/cu.Bluetooth-Incoming-Port&#39;, &#39;/dev/cu.usbmodem146301&#39;]
+</pre></div></div>
+</div>
+<p>The appropriate port for Windows will be something like <code class="docutils literal notranslate"><span class="pre">'COM3'</span></code>.</p>
+<p>For convenience, we can write a function to find Arduino. Called without arguments, it will give the port for Arduino if the manufacturer comes up as Arduino in the query. Otherwise, you can provide a string (like <code class="docutils literal notranslate"><span class="pre">'COM7'</span></code>) for the port, and it will connect to that port.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -598,7 +618,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>We’ll use it to get the port for Arduino.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -672,7 +692,7 @@ sure everything is working ok; this is called handshaking. In my sketches, I alw
 </ul>
 <p>I always like to keep the same global codes for messages in my Python code as well. It helps avoid bugs.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -694,7 +714,7 @@ sure everything is working ok; this is called handshaking. In my sketches, I alw
 <p>To open a connection to the device, we instantiate a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and
 receive a handshake message again to make sure everything is working properly.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -763,7 +783,7 @@ Handshake message: Message received.
 </ul>
 <p>The port is currently open, and I’m not going to anything with it now, so I am going to close it. This is very important: <em>Make sure you close your serial connection when you are done with it.</em></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -773,7 +793,7 @@ Handshake message: Message received.
 </div>
 <p>When possible, it is good practice to instead use context management when opening a serial connection. That way, it is always guaranteed to close, even when things may go awry.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -789,7 +809,7 @@ Handshake message: Message received.
 <h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Permalink to this headline">¶</a></h3>
 <p>To turn on the red LED, we need to send code <code class="docutils literal notranslate"><span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">bytes</span></code> to the Arduino. Let’s open up a port to Arduino and send a signal to turn on the red LED.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -803,7 +823,7 @@ Handshake message: Message received.
 </div>
 <p>Now that we know how to turn an LED on (and off), we can make a little disco party!</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -826,7 +846,7 @@ Handshake message: Message received.
 <div class="section" id="Computing-environment">
 <h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -840,12 +860,12 @@ Handshake message: Message received.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-CPython 3.7.7
-IPython 7.16.1
+CPython 3.8.5
+IPython 7.18.1
 
 serial 3.4
 panel 0.9.7
-jupyterlab 2.1.5
+jupyterlab 2.2.6
 </pre></div></div>
 </div>
 </div>
@@ -872,11 +892,11 @@ jupyterlab 2.1.5
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Oct 09, 2020.
+        Last updated on Oct 10, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc210a3fb80> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe9c5ac02b0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
