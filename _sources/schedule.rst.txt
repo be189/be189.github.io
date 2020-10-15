@@ -28,14 +28,20 @@ Sometimes the lab activities are recorded. You an access the recordings `here <h
 Due dates
 --------------
 
+.. role:: strike
+    :class: strike
+
 - :ref:`Follow-along exercises` 1–4: due 11:59 pm PDT, October 6
-- :ref:`Do-it-yourself exercises` 1–3: due 11:59 pm PDT, October 6
-- :ref:`Follow-along exercises` 5–11: due 11:59 pm PDT, October 13
-- :ref:`Do-it-yourself exercises` 4–6: due 11:59 pm PDT, October 13
-- :ref:`Spectrophotometer` prelab: due 10:30 am PDT, October 15
-- :ref:`Follow-along exercises` 12–: due 11:59 pm PDT, October 20
-- :ref:`Do-it-yourself exercises` 7–: due 11:59 pm PDT, October 20
-- :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
+- :ref:`Do-it-yourself exercises` 1–3: due 11:59 pm PDT, October 6 
+.. Random comment for spacing
+- :ref:`Follow-along exercises` 5–11: due 11:59 pm PDT, October 13 (moved to October 15)
+- :ref:`Do-it-yourself exercises` 4–6: due 11:59 pm PDT, October 13 (moved to October 15)
+.. - :ref:`Spectrophotometer` prelab: due 10:30 am PDT, October 15
+.. - :ref:`Follow-along exercises` 12–: due 11:59 pm PDT, October 20
+.. - :ref:`Do-it-yourself exercises` 7–: due 11:59 pm PDT, October 20
+- :ref:`Follow-along exercises` 12–: due 11:59 pm PDT, October 27
+- :ref:`Do-it-yourself exercises` 7–: due 11:59 pm PDT, October 27
+.. - :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
 - :ref:`Spectrophotometer` write-up: due 10:30 am PDT, November 10
 - :ref:`Pulse oximetry` write-up: due 5:00 pm, December 3
 

@@ -113,7 +113,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#Connecting-to-Arduino-and-opening-DAQ">Connecting to Arduino and opening DAQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Building-the-app">Building the app</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-5:-Safeguards">Thinking exercise 5: Safeguards</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Making-a-stand-alone-app">Making a stand-alone app</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-7:-Potentiometer-app">Do-it-yourself exercise 7: Potentiometer app</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
 </ul>
@@ -488,6 +487,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -876,7 +876,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
 
 
-<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
@@ -884,38 +884,101 @@ var element = document.currentScript.previousSibling.previousSibling;
 <span class="sd">    ----------</span>
 <span class="sd">    ser : serial.Serial() instance</span>
 <span class="sd">        The device we are reading from.</span>
-<span class="sd">    chunk_size : int, default 100</span>
-<span class="sd">        Size in bytes of chunks of streaming data to read in.</span>
 <span class="sd">    read_buffer : bytes, default b&#39;&#39;</span>
 <span class="sd">        Previous read buffer that is appended to.</span>
-<span class="sd">    timeout : float, default 0.001</span>
-<span class="sd">        Timeout for reading in data stream in seconds. It should be</span>
-<span class="sd">        smaller than the rate of data streaming in because if data</span>
-<span class="sd">        continues to stream in, the read will continue, possibly</span>
-<span class="sd">        forever.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    output : bytes</span>
-<span class="sd">        Bytes object that contains read.</span>
+<span class="sd">        Bytes object that contains read_buffer + read.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. `**args` appears, but is never used. This is for</span>
+<span class="sd">       compatibility with `read_all_newlines()` as a</span>
+<span class="sd">       drop-in replacement for this function.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Set timeout</span>
+    <span class="c1"># Set timeout to None to make sure we read all bytes</span>
     <span class="n">previous_timeout</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span>
-    <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+    <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="c1"># Read chunk or until timeout</span>
-    <span class="n">chunk</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">chunk_size</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">chunk</span>
-
-    <span class="c1"># Keep reading chunks until they&#39;re exhausted</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="n">chunk_size</span><span class="p">:</span>
-        <span class="n">chunk</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">chunk_size</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">+=</span> <span class="n">chunk</span>
+    <span class="n">in_waiting</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">in_waiting</span>
+    <span class="n">read</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">in_waiting</span><span class="p">)</span>
 
     <span class="c1"># Reset to previous timeout</span>
     <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">previous_timeout</span>
 
-    <span class="k">return</span> <span class="n">out</span>
+    <span class="k">return</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">read</span>
+
+
+<span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ser : serial.Serial() instance</span>
+<span class="sd">        The device we are reading from.</span>
+<span class="sd">    n_reads : int</span>
+<span class="sd">        The number of reads up to newlines</span>
+<span class="sd">    read_buffer : bytes, default b&#39;&#39;</span>
+<span class="sd">        Previous read buffer that is appended to.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : bytes</span>
+<span class="sd">        Bytes object that contains read_buffer + read.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. This is a drop-in replacement for read_all().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">read_buffer</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_reads</span><span class="p">):</span>
+        <span class="n">raw</span> <span class="o">+=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">raw</span>
+
+
+<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    read : byte string</span>
+<span class="sd">        Byte string with comma delimited time/voltage</span>
+<span class="sd">        measurements.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    time_ms : list of ints</span>
+<span class="sd">        Time points in milliseconds.</span>
+<span class="sd">    voltage : list of floats</span>
+<span class="sd">        Voltages in volts.</span>
+<span class="sd">    remaining_bytes : byte string</span>
+<span class="sd">        Remaining, unparsed bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Separate independent time/voltage measurements</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;\d+|,&quot;</span><span class="p">)</span>
+    <span class="n">raw_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">read</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
@@ -941,41 +1004,6 @@ var element = document.currentScript.previousSibling.previousSibling;
 
     <span class="c1"># Parse and return</span>
     <span class="k">return</span> <span class="n">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    read : byte string</span>
-<span class="sd">        Byte string with comma delimited time/voltage</span>
-<span class="sd">        measurements.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    time_ms : list of ints</span>
-<span class="sd">        Time points in milliseconds.</span>
-<span class="sd">    voltage : list of floats</span>
-<span class="sd">        Voltages in volts.</span>
-<span class="sd">    remaining_bytes : byte string</span>
-<span class="sd">        Remaining, unparsed bytes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># Separated independent time/voltage measurements</span>
-    <span class="n">raw_list</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-            <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-            <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-    <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1141,7 +1169,9 @@ of the data currently on the streaming plot. We need to keep that reference so w
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
     <span class="c1"># Specify delay</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">READ_DAQ_DELAY</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
@@ -1150,25 +1180,42 @@ of the data currently on the streaming plot. We need to keep that reference so w
     <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="c1"># Receive data</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">read_buffer</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;stream&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
             <span class="c1"># Turn on the stream if need be</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">stream_on</span><span class="p">:</span>
                 <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">STREAM</span><span class="p">]))</span>
 
-                <span class="c1"># Wait for the stream to start</span>
-                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+                <span class="c1"># Read and throw out first few reads</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_trash_reads</span><span class="p">:</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
-            <span class="n">read</span> <span class="o">=</span> <span class="n">read_all</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">True</span>
 
-            <span class="c1"># Update data dictionary</span>
-            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">t</span>
-            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">V</span>
+            <span class="c1"># Read in chunk of data</span>
+            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span>
+                <span class="n">arduino</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_reads</span><span class="o">=</span><span class="n">n_reads_per_chunk</span>
+            <span class="p">)</span>
 
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">3.1</span> <span class="o">*</span> <span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="c1"># Parse it, passing if it is gibberish</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_read</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+
+                <span class="c1"># Update data dictionary</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">t</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">V</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Make sure stream is off</span>
+            <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Sleep 80% of the time before we need to start reading chunks</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="n">n_reads_per_chunk</span> <span class="o">*</span> <span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+
 
 <span class="n">daq_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">daq_stream_async</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">))</span>
 </pre></div>
@@ -1304,7 +1351,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
-<div class="bk-root" id="9ed63459-f49a-4b9a-82dd-2b87bd2b78bb" data-root-id="1058"></div></div>
+<div class="bk-root" id="df73ab1b-a701-4b02-b94f-eb25abb8daec" data-root-id="1058"></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -1316,8 +1363,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 (function(root) {
   function embed_document(root) {
 
-  var docs_json = {"60dcfc3a-ae2f-40cb-acd6-9386bd9d06ad":{"roots":{"references":[{"attributes":{"background":"whitesmoke","children":[{"id":"1055"},{"id":"1057"}],"margin":[30,30,30,30],"spacing":30},"id":"1058","type":"Row"},{"attributes":{"axis_label":"voltage (V)","formatter":{"id":"1062"},"ticker":{"id":"1018"}},"id":"1017","type":"LinearAxis"},{"attributes":{"width":30},"id":"1052","type":"Spacer"},{"attributes":{"end":5.2,"start":-0.2},"id":"1007","type":"Range1d"},{"attributes":{},"id":"1018","type":"BasicTicker"},{"attributes":{"source":{"id":"1035"}},"id":"1040","type":"CDSView"},{"attributes":{"fill_color":{"value":"#1f77b4"},"line_color":{"value":"#1f77b4"},"x":{"field":"t"},"y":{"field":"V"}},"id":"1043","type":"Circle"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x":{"field":"t"},"y":{"field":"V"}},"id":"1044","type":"Circle"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1027","type":"BoxAnnotation"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"t"},"y":{"field":"V"}},"id":"1038","type":"Line"},{"attributes":{"width":295},"id":"1053","type":"Spacer"},{"attributes":{"data_source":{"id":"1041"},"glyph":{"id":"1043"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1044"},"selection_glyph":null,"view":{"id":"1046"},"visible":false},"id":"1045","type":"GlyphRenderer"},{"attributes":{},"id":"1066","type":"UnionRenderers"},{"attributes":{"source":{"id":"1041"}},"id":"1046","type":"CDSView"},{"attributes":{"children":[{"id":"1002"},{"id":"1054"}],"spacing":15},"id":"1055","type":"Column"},{"attributes":{"range_padding":0},"id":"1005","type":"DataRange1d"},{"attributes":{"axis":{"id":"1017"},"dimension":1,"ticker":null},"id":"1020","type":"Grid"},{"attributes":{},"id":"1065","type":"Selection"},{"attributes":{"data_source":{"id":"1035"},"glyph":{"id":"1037"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1038"},"selection_glyph":null,"view":{"id":"1040"}},"id":"1039","type":"GlyphRenderer"},{"attributes":{},"id":"1062","type":"BasicTickFormatter"},{"attributes":{"text":"streaming data"},"id":"1003","type":"Title"},{"attributes":{"data":{"V":[0],"t":[0]},"selected":{"id":"1067"},"selection_policy":{"id":"1068"}},"id":"1041","type":"ColumnDataSource"},{"attributes":{"button_type":"primary","icon":null,"label":"save","width":100},"id":"1049","type":"Button"},{"attributes":{"axis":{"id":"1013"},"ticker":null},"id":"1016","type":"Grid"},{"attributes":{"button_type":"warning","icon":null,"label":"reset","width":100},"id":"1050","type":"Button"},{"attributes":{"button_type":"success","icon":null,"label":"stream","width":100},"id":"1047","type":"Toggle"},{"attributes":{"title":"file name","value":"stream.csv","width":165},"id":"1051","type":"TextInput"},{"attributes":{"children":[{"id":"1052"},{"id":"1047"},{"id":"1053"},{"id":"1050"}]},"id":"1054","type":"Row"},{"attributes":{"line_color":"#1f77b4","x":{"field":"t"},"y":{"field":"V"}},"id":"1037","type":"Line"},{"attributes":{},"id":"1014","type":"BasicTicker"},{"attributes":{},"id":"1067","type":"Selection"},{"attributes":{},"id":"1024","type":"SaveTool"},{"attributes":{},"id":"1068","type":"UnionRenderers"},{"attributes":{"children":[{"id":"1056"},{"id":"1051"},{"id":"1049"},{"id":"1048"}]},"id":"1057","type":"Column"},{"attributes":{},"id":"1060","type":"BasicTickFormatter"},{"attributes":{"overlay":{"id":"1027"}},"id":"1023","type":"BoxZoomTool"},{"attributes":{},"id":"1026","type":"HelpTool"},{"attributes":{"height":50},"id":"1056","type":"Spacer"},{"attributes":{},"id":"1021","type":"PanTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"},{"id":"1026"}]},"id":"1028","type":"Toolbar"},{"attributes":{"below":[{"id":"1013"}],"border_fill_color":"whitesmoke","center":[{"id":"1016"},{"id":"1020"}],"frame_height":175,"frame_width":500,"left":[{"id":"1017"}],"renderers":[{"id":"1039"},{"id":"1045"}],"title":{"id":"1003"},"toolbar":{"id":"1028"},"toolbar_location":"above","x_range":{"id":"1005"},"x_scale":{"id":"1009"},"y_range":{"id":"1007"},"y_scale":{"id":"1011"}},"id":"1002","subtype":"Figure","type":"Plot"},{"attributes":{"text":"<p>No streaming data saved.</p>","width":165},"id":"1048","type":"Div"},{"attributes":{},"id":"1011","type":"LinearScale"},{"attributes":{},"id":"1009","type":"LinearScale"},{"attributes":{"data":{"V":[],"t":[]},"selected":{"id":"1065"},"selection_policy":{"id":"1066"}},"id":"1035","type":"ColumnDataSource"},{"attributes":{"axis_label":"time (s)","formatter":{"id":"1060"},"ticker":{"id":"1014"}},"id":"1013","type":"LinearAxis"},{"attributes":{},"id":"1022","type":"WheelZoomTool"},{"attributes":{},"id":"1025","type":"ResetTool"}],"root_ids":["1058"]},"title":"Bokeh Application","version":"2.2.1"}};
-  var render_items = [{"docid":"60dcfc3a-ae2f-40cb-acd6-9386bd9d06ad","root_ids":["1058"],"roots":{"1058":"9ed63459-f49a-4b9a-82dd-2b87bd2b78bb"}}];
+  var docs_json = {"f6f9b8ad-2537-44b3-8fb0-3b1a6539211f":{"roots":{"references":[{"attributes":{"background":"whitesmoke","children":[{"id":"1055"},{"id":"1057"}],"margin":[30,30,30,30],"spacing":30},"id":"1058","type":"Row"},{"attributes":{},"id":"1011","type":"LinearScale"},{"attributes":{"data_source":{"id":"1041"},"glyph":{"id":"1043"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1044"},"selection_glyph":null,"view":{"id":"1046"},"visible":false},"id":"1045","type":"GlyphRenderer"},{"attributes":{"data":{"V":[],"t":[]},"selected":{"id":"1065"},"selection_policy":{"id":"1066"}},"id":"1035","type":"ColumnDataSource"},{"attributes":{"source":{"id":"1041"}},"id":"1046","type":"CDSView"},{"attributes":{},"id":"1024","type":"SaveTool"},{"attributes":{"height":50},"id":"1056","type":"Spacer"},{"attributes":{},"id":"1062","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"1035"}},"id":"1040","type":"CDSView"},{"attributes":{"text":"<p>No streaming data saved.</p>","width":165},"id":"1048","type":"Div"},{"attributes":{"text":"streaming data"},"id":"1003","type":"Title"},{"attributes":{"button_type":"primary","icon":null,"label":"save","width":100},"id":"1049","type":"Button"},{"attributes":{"button_type":"success","icon":null,"label":"stream","width":100},"id":"1047","type":"Toggle"},{"attributes":{"children":[{"id":"1056"},{"id":"1051"},{"id":"1049"},{"id":"1048"}]},"id":"1057","type":"Column"},{"attributes":{},"id":"1022","type":"WheelZoomTool"},{"attributes":{"line_color":"#1f77b4","x":{"field":"t"},"y":{"field":"V"}},"id":"1037","type":"Line"},{"attributes":{},"id":"1009","type":"LinearScale"},{"attributes":{},"id":"1018","type":"BasicTicker"},{"attributes":{"overlay":{"id":"1027"}},"id":"1023","type":"BoxZoomTool"},{"attributes":{},"id":"1067","type":"Selection"},{"attributes":{"axis_label":"voltage (V)","formatter":{"id":"1060"},"ticker":{"id":"1018"}},"id":"1017","type":"LinearAxis"},{"attributes":{"width":295},"id":"1053","type":"Spacer"},{"attributes":{},"id":"1014","type":"BasicTicker"},{"attributes":{"data_source":{"id":"1035"},"glyph":{"id":"1037"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1038"},"selection_glyph":null,"view":{"id":"1040"}},"id":"1039","type":"GlyphRenderer"},{"attributes":{},"id":"1068","type":"UnionRenderers"},{"attributes":{"button_type":"warning","icon":null,"label":"reset","width":100},"id":"1050","type":"Button"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"},{"id":"1026"}]},"id":"1028","type":"Toolbar"},{"attributes":{"children":[{"id":"1002"},{"id":"1054"}],"spacing":15},"id":"1055","type":"Column"},{"attributes":{"data":{"V":[0],"t":[0]},"selected":{"id":"1067"},"selection_policy":{"id":"1068"}},"id":"1041","type":"ColumnDataSource"},{"attributes":{"axis":{"id":"1017"},"dimension":1,"ticker":null},"id":"1020","type":"Grid"},{"attributes":{"width":30},"id":"1052","type":"Spacer"},{"attributes":{"below":[{"id":"1013"}],"border_fill_color":"whitesmoke","center":[{"id":"1016"},{"id":"1020"}],"frame_height":175,"frame_width":500,"left":[{"id":"1017"}],"renderers":[{"id":"1039"},{"id":"1045"}],"title":{"id":"1003"},"toolbar":{"id":"1028"},"toolbar_location":"above","x_range":{"id":"1005"},"x_scale":{"id":"1009"},"y_range":{"id":"1007"},"y_scale":{"id":"1011"}},"id":"1002","subtype":"Figure","type":"Plot"},{"attributes":{"end":5.2,"start":-0.2},"id":"1007","type":"Range1d"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"t"},"y":{"field":"V"}},"id":"1038","type":"Line"},{"attributes":{"axis":{"id":"1013"},"ticker":null},"id":"1016","type":"Grid"},{"attributes":{},"id":"1026","type":"HelpTool"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1027","type":"BoxAnnotation"},{"attributes":{},"id":"1021","type":"PanTool"},{"attributes":{"title":"file name","value":"stream.csv","width":165},"id":"1051","type":"TextInput"},{"attributes":{},"id":"1065","type":"Selection"},{"attributes":{},"id":"1066","type":"UnionRenderers"},{"attributes":{"range_padding":0},"id":"1005","type":"DataRange1d"},{"attributes":{"fill_color":{"value":"#1f77b4"},"line_color":{"value":"#1f77b4"},"x":{"field":"t"},"y":{"field":"V"}},"id":"1043","type":"Circle"},{"attributes":{},"id":"1060","type":"BasicTickFormatter"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"x":{"field":"t"},"y":{"field":"V"}},"id":"1044","type":"Circle"},{"attributes":{},"id":"1025","type":"ResetTool"},{"attributes":{"children":[{"id":"1052"},{"id":"1047"},{"id":"1053"},{"id":"1050"}]},"id":"1054","type":"Row"},{"attributes":{"axis_label":"time (s)","formatter":{"id":"1062"},"ticker":{"id":"1014"}},"id":"1013","type":"LinearAxis"}],"root_ids":["1058"]},"title":"Bokeh Application","version":"2.2.1"}};
+  var render_items = [{"docid":"f6f9b8ad-2537-44b3-8fb0-3b1a6539211f","root_ids":["1058"],"roots":{"1058":"df73ab1b-a701-4b02-b94f-eb25abb8daec"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -1597,7 +1644,10 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">potentiometer_app</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">))</span>
+<span></span><span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="n">potentiometer_app</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">),</span>
+    <span class="n">notebook_url</span><span class="o">=</span><span class="n">notebook_url</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1608,7 +1658,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <script id="1119">
   var xhr = new XMLHttpRequest()
   xhr.responseType = 'blob';
-  xhr.open('GET', "http://localhost:59929/autoload.js?bokeh-autoload-element=1119&bokeh-absolute-url=http://localhost:59929&resources=none", true);
+  xhr.open('GET', "http://localhost:65533/autoload.js?bokeh-autoload-element=1119&bokeh-absolute-url=http://localhost:65533&resources=none", true);
 
   xhr.onload = function (event) {
     var script = document.createElement('script'),
@@ -1623,26 +1673,7 @@ xhr.send();
 <div class="section" id="Thinking-exercise-5:-Safeguards">
 <h2>Thinking exercise 5: Safeguards<a class="headerlink" href="#Thinking-exercise-5:-Safeguards" title="Permalink to this headline">¶</a></h2>
 <p>This app does not have much error checking. What kinds of features and checks would you add to this app to ensure that a careless user does not end up messing things up?</p>
-<hr></div>
-<div class="section" id="Making-a-stand-alone-app">
-<h2>Making a stand-alone app<a class="headerlink" href="#Making-a-stand-alone-app" title="Permalink to this headline">¶</a></h2>
-<p>In many applications, we want our app to function outside of JupyterLab. To make a stand-along app, we make a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file with the functions we have defined in this notebook. We need to call the app function with the <code class="docutils literal notranslate"><span class="pre">curdoc</span></code> as its argument at the end of the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build app</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">potentiometer_app</span><span class="p">(</span>
-    <span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stream_plot_delay</span><span class="o">=</span><span class="mi">90</span>
-<span class="p">)</span>
-
-<span class="c1"># Build it with curdoc</span>
-<span class="n">app</span><span class="p">(</span><span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">curdoc</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>To serve up the app, you run</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bokeh</span> <span class="n">serve</span> <span class="o">--</span><span class="n">show</span> <span class="n">potentiometer_app</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-<p>on the command line.</p>
-<p>For convenience, in case you want to build your own stand-alone app, or use the stand-alone app as a starting point for the do-it-yourself exercise below, here is the code for a stand-alone app.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<hr><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">App to read in varying voltages from Arduino.</span>
 
 <span class="sd">To serve the app, run</span>
@@ -1653,6 +1684,7 @@ xhr.send();
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -1715,7 +1747,7 @@ xhr.send();
     <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
 
 
-<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.001</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
@@ -1723,38 +1755,101 @@ xhr.send();
 <span class="sd">    ----------</span>
 <span class="sd">    ser : serial.Serial() instance</span>
 <span class="sd">        The device we are reading from.</span>
-<span class="sd">    chunk_size : int, default 100</span>
-<span class="sd">        Size in bytes of chunks of streaming data to read in.</span>
 <span class="sd">    read_buffer : bytes, default b&#39;&#39;</span>
 <span class="sd">        Previous read buffer that is appended to.</span>
-<span class="sd">    timeout : float, default 0.001</span>
-<span class="sd">        Timeout for reading in data stream in seconds. It should be</span>
-<span class="sd">        smaller than the rate of data streaming in because if data</span>
-<span class="sd">        continues to stream in, the read will continue, possibly</span>
-<span class="sd">        forever.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    output : bytes</span>
-<span class="sd">        Bytes object that contains read.</span>
+<span class="sd">        Bytes object that contains read_buffer + read.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. `**args` appears, but is never used. This is for</span>
+<span class="sd">       compatibility with `read_all_newlines()` as a</span>
+<span class="sd">       drop-in replacement for this function.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Set timeout</span>
+    <span class="c1"># Set timeout to None to make sure we read all bytes</span>
     <span class="n">previous_timeout</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span>
-    <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+    <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="kc">None</span>
 
-    <span class="c1"># Read chunk or until timeout</span>
-    <span class="n">chunk</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">chunk_size</span><span class="p">)</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">chunk</span>
-
-    <span class="c1"># Keep reading chunks until they&#39;re exhausted</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span> <span class="o">==</span> <span class="n">chunk_size</span><span class="p">:</span>
-        <span class="n">chunk</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">chunk_size</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">+=</span> <span class="n">chunk</span>
+    <span class="n">in_waiting</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">in_waiting</span>
+    <span class="n">read</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">in_waiting</span><span class="p">)</span>
 
     <span class="c1"># Reset to previous timeout</span>
     <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">previous_timeout</span>
 
-    <span class="k">return</span> <span class="n">out</span>
+    <span class="k">return</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">read</span>
+
+
+<span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ser : serial.Serial() instance</span>
+<span class="sd">        The device we are reading from.</span>
+<span class="sd">    n_reads : int</span>
+<span class="sd">        The number of reads up to newlines</span>
+<span class="sd">    read_buffer : bytes, default b&#39;&#39;</span>
+<span class="sd">        Previous read buffer that is appended to.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : bytes</span>
+<span class="sd">        Bytes object that contains read_buffer + read.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. This is a drop-in replacement for read_all().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">read_buffer</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_reads</span><span class="p">):</span>
+        <span class="n">raw</span> <span class="o">+=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">raw</span>
+
+
+<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    read : byte string</span>
+<span class="sd">        Byte string with comma delimited time/voltage</span>
+<span class="sd">        measurements.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    time_ms : list of ints</span>
+<span class="sd">        Time points in milliseconds.</span>
+<span class="sd">    voltage : list of floats</span>
+<span class="sd">        Voltages in volts.</span>
+<span class="sd">    remaining_bytes : byte string</span>
+<span class="sd">        Remaining, unparsed bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Separate independent time/voltage measurements</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;\d+|,&quot;</span><span class="p">)</span>
+    <span class="n">raw_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">read</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
@@ -1780,41 +1875,6 @@ xhr.send();
 
     <span class="c1"># Parse and return</span>
     <span class="k">return</span> <span class="n">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    read : byte string</span>
-<span class="sd">        Byte string with comma delimited time/voltage</span>
-<span class="sd">        measurements.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    time_ms : list of ints</span>
-<span class="sd">        Time points in milliseconds.</span>
-<span class="sd">    voltage : list of floats</span>
-<span class="sd">        Voltages in volts.</span>
-<span class="sd">    remaining_bytes : byte string</span>
-<span class="sd">        Remaining, unparsed bytes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="c1"># Separated independent time/voltage measurements</span>
-    <span class="n">raw_list</span> <span class="o">=</span> <span class="n">read</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-            <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-            <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">pass</span>
-
-    <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
@@ -2067,8 +2127,8 @@ xhr.send();
             <span class="n">stream_update</span><span class="p">(</span><span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
 
             <span class="c1"># Shut down server if Arduino disconnects (commented out in Jupyter notebook)</span>
-            <span class="c1"># if not arduino.is_open:</span>
-            <span class="c1">#     sys.exit()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">arduino</span><span class="o">.</span><span class="n">is_open</span><span class="p">:</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
         <span class="c1"># Link callbacks</span>
         <span class="n">stream_controls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_change</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">_stream_callback</span><span class="p">)</span>
@@ -2104,7 +2164,9 @@ xhr.send();
 <span class="n">on_demand_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[],</span> <span class="n">V</span><span class="o">=</span><span class="p">[])</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
     <span class="c1"># Specify delay</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">READ_DAQ_DELAY</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
@@ -2113,7 +2175,6 @@ xhr.send();
     <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="c1"># Receive data</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">read_buffer</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
@@ -2121,17 +2182,34 @@ xhr.send();
             <span class="k">if</span> <span class="ow">not</span> <span class="n">stream_on</span><span class="p">:</span>
                 <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">STREAM</span><span class="p">]))</span>
 
-                <span class="c1"># Wait for the stream to start</span>
-                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+                <span class="c1"># Read and throw out first few reads</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_trash_reads</span><span class="p">:</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
-            <span class="n">read</span> <span class="o">=</span> <span class="n">read_all</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">True</span>
 
-            <span class="c1"># Update data dictionary</span>
-            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">t</span>
-            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">V</span>
+            <span class="c1"># Read in chunk of data</span>
+            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span>
+                <span class="n">arduino</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_reads</span><span class="o">=</span><span class="n">n_reads_per_chunk</span>
+            <span class="p">)</span>
 
-        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">3.1</span> <span class="o">*</span> <span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="c1"># Parse it, passing if it is gibberish</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_read</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+
+                <span class="c1"># Update data dictionary</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">t</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">V</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Make sure stream is off</span>
+            <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Sleep 80% of the time before we need to start reading chunks</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="n">n_reads_per_chunk</span> <span class="o">*</span> <span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
 
 
 <span class="c1"># Set up asynchronous DAQ task</span>
@@ -2180,7 +2258,7 @@ CPython 3.8.5
 IPython 7.18.1
 
 numpy 1.19.1
-pandas 1.1.1
+pandas 1.1.3
 serial 3.4
 bokeh 2.2.1
 jupyterlab 2.2.6
@@ -2210,11 +2288,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Oct 14, 2020.
+        Last updated on Oct 15, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7ffe46d6d0d0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f97d3aca280> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
