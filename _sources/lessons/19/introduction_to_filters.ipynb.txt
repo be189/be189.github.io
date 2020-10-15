@@ -1,0 +1,222 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 19. Introduction to filters\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In this lesson, will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Voltage dividers\n",
+    "\n",
+    "A **voltage divider** is one of the most commonly encountered simple circuits. Consider the circuit shown below.\n",
+    "\n",
+    "<div style=\"width: 300px; margin: auto;\">\n",
+    "    \n",
+    "![generic voltage divider](generic_voltage_divider.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "The symbol at the bottom with three lines indicates ground. For now, you can consider the two generic impedances, Z₁ and Z₂, to be resistances; that is, you can think of the two boxes as resistors with resistance R₁ and R₂. The question is how does $V_\\mathrm{out}$ compare to $V_\\mathrm{in}$. We can derive this from three key properties of circuits. First, Ohm's law, which says that $V = I R$, where $V$ is a voltage, $I$ is a current, and $R$ is a resistance. Second, resistors in series add. Third, the current in to any point in a circuit is equal to the current out of it. This third rule means that in the circuit above, the current is the same everywhere. There is a voltage of $V_\\mathrm{out}$ across R₂ and a voltage of $V_\\mathrm{in}$ across R₁ and R₂. Thus,\n",
+    "\n",
+    "\\begin{align}\n",
+    "I = \\frac{V_\\mathrm{in}}{R_1 + R_2} = \\frac{V_\\mathrm{out}}{R_2},\n",
+    "\\end{align}\n",
+    "\n",
+    "which yields\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\frac{V_\\mathrm{out}}{V_\\mathrm{in}} = \\frac{R_2}{R_1 + R_2}.\n",
+    "\\end{align}\n",
+    "\n",
+    "So, the above circuit works as a voltage divider, giving $V_\\mathrm{out}$ as a fraction $R_2/(R_1+R_2)$ of $V_\\mathrm{in}$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Follow-along exercise 14: Empirical voltage division\n",
+    "\n",
+    "Write up the circuit below. It has many more components that you need for this portion of the exercise, but you will make use of the other components later.\n",
+    "\n",
+    "<div style=\"width: 700px; margin: auto;\">\n",
+    "    \n",
+    "![schematic for analog converter from PWM](analog_from_pwm_schem.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "You don't need to upload any sketch yet; simply plug in your Arduino. Use your multimeter to verify that the resistors R₃ and R₄ function as a voltage divider. To do so, make sure you plug the red lead of your multimeter into the 500 mA port (the center one on the WeePro), and the black one on the COM port. Turn the dial to 20V DC (roughly at 10 o'clock on the dial). To measure the input voltage, touch the multimeter leads to the positive lead of R₃ and the negative lead of R₄. To measure the output voltage, touch the multimeter leads of R₃. Make sure you understand why touching those leads gives you the measurements they do.\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Impedance\n",
+    "\n",
+    "Resistors, capacitors, and inductors are **linear devices**, meaning that there is a linear relationship between current and voltage. For resistors, the current and voltage are in phase. That is, for a sinusoidal input voltage, the current is also sinusoidal with zero phase shift. This make sense via Ohm's law; $V = I R$. Capacitors, on the other hand, have a different voltage-current relationship,\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{I(t)}{C},\n",
+    "\\end{align}\n",
+    "\n",
+    "where $t$ is time and $C$ is the capacitance. So, for a sinusoidal input voltage, the current through a capacitor is out of phase by $\\pi/2$. Finally, an inductor (which we directly will not use in this class) is $\\pi/2$ out of phase in the other direction, with the relationship\n",
+    "\n",
+    "\\begin{align}\n",
+    "V(t) = L\\,\\frac{\\mathrm{d}I}{\\mathrm{d}t},\n",
+    "\\end{align}\n",
+    "\n",
+    "where $L$ is the inductance.\n",
+    "\n",
+    "Because of the linearity of these elements, it is convenient to instead define a complex impedance, $Z = R + j X$, where $R$ is a resistance and $X$ is a **reactance**. Here, $j = \\sqrt{-1}$; electrical engineers use $j$ instead of $i$ so as not to confuse symbols with current. Writing the impedance in polar form, $Z = Z_0\\,\\mathrm{e}^{j\\phi}$, where $Z_0$ is the magnitude of the impedance and $\\phi$ is the phase angle. So, if we put a sinusoidal voltage with amplitude $V_0$ and frequency $\\omega$ across a resistor, we have\n",
+    "\n",
+    "\\begin{align}\n",
+    "V(t) = \\mathrm{Re}[V_0\\,\\mathrm{e}^{j\\omega t}] = R I(t),\n",
+    "\\end{align}\n",
+    "\n",
+    "which gives\n",
+    "\n",
+    "\\begin{align}\n",
+    "I(t) = \\mathrm{Re}\\left[\\frac{1}{R}\\,V_0\\,\\mathrm{e}^{j\\omega t}\\right].\n",
+    "\\end{align}\n",
+    "\n",
+    "The current is completely in phase with the voltage (which we already knew from Ohm's law), meaning that resisters are completely (you guessed it) resistive. That is, for resistors, the impedance is $Z = R$.\n",
+    "\n",
+    "Now, let's put a sinusoidal voltage across a capacitor.\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\frac{\\mathrm{d}V}{\\mathrm{d}t} = \\frac{\\mathrm{d}}{\\mathrm{d}t}\\,\\mathrm{Re}[V_0\\,\\mathrm{e}^{j\\omega t}]  = \\omega\\,V_0\\,\\mathrm{Re}[j \\mathrm{e}^{j\\omega t}] = \\frac{I(t)}{C}.\n",
+    "\\end{align}\n",
+    "\n",
+    "Thus,\n",
+    "\n",
+    "\\begin{align}\n",
+    "I(t) = \\mathrm{Re}[j\\omega\\,V_0\\,\\mathrm{e}^{j\\omega t}] = \\mathrm{Re}\\left[-\\frac{1}{j/\\omega C}\\,V_0\\,\\mathrm{e}^{j\\omega t}\\right].\n",
+    "\\end{align}\n",
+    "\n",
+    "Here, the impedance is $Z = -j/\\omega C$, which is purely imaginary, and therefore purely reactive. It is important to note that the impedance is *frequency dependent*. This is a key feature in filter design. \n",
+    "\n",
+    "These relations are useful to remember; the impedance for a resistor is $R$, that for a capacitor is $-j/\\omega C$, and that for an inductor (which we will not use) is $j\\omega L$. We further note that Ohm's law generalizes to impedances, where $V = I Z$. The expression for the voltage divider also generalizes,\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\frac{V_\\mathrm{out}}{V_\\mathrm{in}} = \\frac{Z_2}{Z_1 + Z_2}.\n",
+    "\\end{align}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## RC filters\n",
+    "\n",
+    "Now that we have worked out that how voltage dividers work for general impedances, let us consider the case where $Z_1$ is purely reactive and $Z_2$ is purely resistive. This means that the component Z₁ in the above circuit diagram is a capacitor, say with capacitance $C$, and Z₂ is a resistor, say with resistance $R$. The complex representation of the output voltage is then\n",
+    "\n",
+    "\\begin{align}\n",
+    "V_\\mathrm{out} = \\frac{R}{-j/\\omega C + R}\\, V_\\mathrm{in}.\n",
+    "\\end{align}\n",
+    "\n",
+    "The amplitude is found by taking the magnitude of the above expression, giving\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\left|V_\\mathrm{out}\\right| = \\frac{R}{\\sqrt{1/\\omega^2 C^2 + R^2}}\\, \\left|V_\\mathrm{in}\\right| = \\frac{1}{\\sqrt{1 + 1/\\omega^2 R^2 C^2}}\\, \\left|V_\\mathrm{in}\\right|.\n",
+    "\\end{align}\n",
+    "\n",
+    "Note that in taking the amplitude, we are ignoring the phase shift. The result is interesting because the magnitude of the output voltage is frequency dependent. For frequencies much smaller than $1/RC$, the second term in the denominator gets large, and the output voltage approaches zero. For high frequencies, the second term in the denominator is small, and $\\left|V_\\mathrm{out}\\right| \\approx \\left|V\\mathrm{in}\\right|$. Thus the circuit where Z₁ is a capacitor and Z₂ is a resistor is a **high-pass filter**. High frequency changes in voltages get through, which low frequency changes in voltages are blocked."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Thinking exercise 6: Passive low-pass RC filter\n",
+    "\n",
+    "Show that when the situation is switched around, when Z₁ is a resistor with resistance $R$ and Z₂ is a capacitor with capacitance $C$, that the circuit works as a low-pass filter."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Do-it-yourself exercise 8: DAC with PWM\n",
+    "\n",
+    "In previous lessons, we have used the MCP4725 breakout board to do digital-to-analog conversion. This enables us to have an analog voltage available. Now, you will try to get an analog voltage by filtering a pulse-width-modulated signal. You will compare these signals to a signal you get from the MCP4725.\n",
+    "\n",
+    "Using the setup you wired above, write an Arduino sketch that does the following.\n",
+    "\n",
+    "- Uses I2C to send a sinusoidal voltage with amplitude 5 V and frequency of 1 Hz to the MCP4725 DAC. The converted voltage is read in on pin A0.\n",
+    "- Uses digital pin 3 to send a sinusoidally varying voltage with amplitude 5 V and frequency 1 Hz. Remember, PWM works by switching the voltage on and off, such that the *average* voltage matches what you want. In this case, the average voltage you are sending with `analogWrite()` is varying sinusoidally.\n",
+    "- Uses digital pin 6 to do the same.\n",
+    "- The PWM signals from pins 3 and 6 each go through a passive RC filter. The output voltages of these filters is read in on pins A1 and A2, respectively.\n",
+    "- You should send the readings from A0, A1, and A2 over serial to be plotted.\n",
+    "\n",
+    "For the passive filters in the circuit, what frequencies should be filtered out? Note that the frequency of the pulse-width-modulated signal from digital pin 3 is 490 Hz and that from digital pin 6 is 980 Hz. Make plots of the signals from the MCP4725 DAC, pin 3 + RC filter, and pin 6 + RC filter. Do your plots agree with your assessment about filtered frequencies? Finally, what are some drawbacks of using PWM + an RC filter for doing DAC?\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Answer to low-pass filter exercise**\n",
+    "\n",
+    "When we swap the resistor and capacitor from the high-pass filter, we get\n",
+    "\n",
+    "\\begin{align}\n",
+    "V_\\mathrm{out} = \\frac{-j/\\omega C}{R - j/\\omega C}\\, V_\\mathrm{in} = -\\frac{1}{1 + \\omega R C}\\, V_\\mathrm{in},\n",
+    "\\end{align}\n",
+    "\n",
+    "which gives\n",
+    "\n",
+    "\\begin{align}\n",
+    "\\left|V_\\mathrm{out}\\right| = \\frac{1}{\\sqrt{1 + \\omega^2 R^2 C^2}}\\, \\left|V_\\mathrm{in}\\right|.\n",
+    "\\end{align}\n",
+    "\n",
+    "So, when the frequency $\\omega$ is large compared to $1/RC$, the denominator is large, so that $V_\\mathrm{out} \\approx 0$. When $\\omega$ is small compared to $1/RC$, $\\left|V_\\mathrm{out}\\right| \\approx \\left|V_\\mathrm{in}\\right|$. Thus, low frequencies go through, but high frequencies are blocked."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -54,6 +54,7 @@ People
    lessons/16/control_panels.ipynb
    lessons/17/dac_i2c_libraries.ipynb
    lessons/18/lcd.ipynb
+   lessons/19/introduction_to_filters.ipynb
 
 .. toctree::
    :maxdepth: 1
