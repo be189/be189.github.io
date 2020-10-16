@@ -1811,7 +1811,7 @@ xhr.send();
 
 
 <span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
+    <span class="sd">&quot;&quot;&quot;Parse a read with time, voltage data</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1833,10 +1833,7 @@ xhr.send();
 
     <span class="c1"># Separate independent time/voltage measurements</span>
     <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;\d+|,&quot;</span><span class="p">)</span>
-    <span class="n">raw_list</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">read</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="p">]</span>
+    <span class="n">raw_list</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">read</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)]</span>
 
     <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -1885,7 +1882,7 @@ xhr.send();
         <span class="n">frame_height</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
         <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
         <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;voltage (V)&quot;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;streaming data&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;streaming data&quot;</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span> <span class="k">else</span> <span class="s2">&quot;on-demand data&quot;</span><span class="p">,</span>
         <span class="n">y_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">],</span>
         <span class="n">toolbar_location</span><span class="o">=</span><span class="s2">&quot;above&quot;</span><span class="p">,</span>
     <span class="p">)</span>
@@ -2165,7 +2162,12 @@ xhr.send();
 
 
 <span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
-    <span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span>
+    <span class="n">arduino</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
     <span class="c1"># Specify delay</span>
@@ -2191,9 +2193,7 @@ xhr.send();
                 <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">True</span>
 
             <span class="c1"># Read in chunk of data</span>
-            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span>
-                <span class="n">arduino</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_reads</span><span class="o">=</span><span class="n">n_reads_per_chunk</span>
-            <span class="p">)</span>
+            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_reads</span><span class="o">=</span><span class="n">n_reads_per_chunk</span><span class="p">)</span>
 
             <span class="c1"># Parse it, passing if it is gibberish</span>
             <span class="k">try</span><span class="p">:</span>
@@ -2292,7 +2292,7 @@ jupyterlab 2.2.6
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f97d3aca280> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fb2f0696880> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

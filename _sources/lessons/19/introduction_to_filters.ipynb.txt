@@ -61,7 +61,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "You don't need to upload any sketch yet; simply plug in your Arduino. Use your multimeter to verify that the resistors R₃ and R₄ function as a voltage divider. To do so, make sure you plug the red lead of your multimeter into the 500 mA port (the center one on the WeePro), and the black one on the COM port. Turn the dial to 20V DC (roughly at 10 o'clock on the dial). To measure the input voltage, touch the multimeter leads to the positive lead of R₃ and the negative lead of R₄. To measure the output voltage, touch the multimeter leads of R₃. Make sure you understand why touching those leads gives you the measurements they do.\n",
+    "You don't need to upload any sketch yet; simply plug in your Arduino. Use your multimeter to verify that the resistors R₃ and R₄ function as a voltage divider. To do so, make sure you plug the red lead of your multimeter into the 500 mA port (the center one on the WeePro), and the black one on the COM port. Turn the dial to 20V DC (roughly at 10 o'clock on the dial). To measure the input voltage, touch the multimeter leads to the positive lead of R₃ and the negative lead of R₄. To measure the output voltage, touch the multimeter to the leads of R₄. Make sure you understand why touching those leads gives you the measurements they do.\n",
     "\n",
     "<hr>"
    ]
