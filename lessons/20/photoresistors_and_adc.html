@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>17. Libraries, DAC, and I2C &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>20. Photoresistors, trimming, and ADC &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -43,8 +43,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. Using a liquid crystal display" href="../18/lcd.html" />
-    <link rel="prev" title="16. Control panels" href="../16/control_panels.html" /> 
+    <link rel="next" title="Thinking exercises" href="../../thinking_exercises.html" />
+    <link rel="prev" title="19. Introduction to filters" href="../19/introduction_to_filters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -108,18 +108,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">17. Libraries, DAC, and I2C</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-12:-DAC-with-MCP4725">Follow-along exercise 12: DAC with MCP4725</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Wiring-up-the-DAC">Wiring up the DAC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Using-the-Wire-library">Using the Wire library</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Using-an-external-library">Using an external library</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">20. Photoresistors, trimming, and ADC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Photoresistors">Photoresistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Trimming-resistances">Trimming resistances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC">Do-it-yourself exercise 9: Photoresistors with ADC</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -210,7 +207,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/17/dac_i2c_libraries.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/20/photoresistors_and_adc.ipynb" download> Download notebook</a>
         
       
     
@@ -248,121 +245,42 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="17.-Libraries,-DAC,-and-I2C">
-<h1>17. Libraries, DAC, and I2C<a class="headerlink" href="#17.-Libraries,-DAC,-and-I2C" title="Permalink to this headline">¶</a></h1>
-<hr><hr><p>We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC comes up in many applications for biodevices. As an example consider measurement of a <a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_voltammetry">cyclic voltammogram</a>. In these assays, you need to supply a varying voltage and then measure a current. The
-voltage supply cannot be deliverer with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.</p>
-<p>To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. In your kit, you have and <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC breakout board from Adafruit</a>. The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. <strong>Libraries</strong> contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.</p>
-<p>This lesson covers three topics that are not necessarily related: DAC, I2C, and libraries. But learning about the latter two is necessary to do the former. You will learn about these three topics by working through a follow-along exercise.</p>
-<hr><div class="section" id="Follow-along-exercise-12:-DAC-with-MCP4725">
-<h2>Follow-along exercise 12: DAC with MCP4725<a class="headerlink" href="#Follow-along-exercise-12:-DAC-with-MCP4725" title="Permalink to this headline">¶</a></h2>
-<p>To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Rather, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC in your kit. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is single-channel,
-meaning that it can output only one analog voltage.</p>
-<div class="section" id="Wiring-up-the-DAC">
-<h3>Wiring up the DAC<a class="headerlink" href="#Wiring-up-the-DAC" title="Permalink to this headline">¶</a></h3>
-<p>Wire up the DAC/LED according to the schematic below.</p>
-<div style="margin: auto; width: 400px;"><p><img alt="dac_led_schem" src="../../_images/dac_led_schem.svg" /></p>
-</div><p>A few things to take note of in the schematic:</p>
+<div class="section" id="20.-Photoresistors,-trimming,-and-ADC">
+<h1>20. Photoresistors, trimming, and ADC<a class="headerlink" href="#20.-Photoresistors,-trimming,-and-ADC" title="Permalink to this headline">¶</a></h1>
+<hr><p>You have learned some of the basics of building prototypes of electronic circuits. In this lesson, you will get considerably less guidance on the do-it-yourself exercise, and will have to rely on what you have learned so far and online tutorials and data sheets.</p>
+<div class="section" id="Photoresistors">
+<h2>Photoresistors<a class="headerlink" href="#Photoresistors" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Optoelectronics">Optoelectronic devices</a> are devices that can detect and control light. Our primary interest is detection, since we will be building a spectrophotometer. There are many optoelectronic detectors, including photodiodes, phototransistors, and <a class="reference external" href="https://en.wikipedia.org/wiki/Photoresistor">photoresistors</a>. A photoresistor (pictured below) is a resistor whose resistance is dependent on the intensity of light incident on its surface. The more light,
+the lower the resistance.</p>
+<div style="width: 300px; margin: auto;"><p><img alt="photoresistor" src="../../_images/photoresistor.jpg" /></p>
+<p><em>Image by Nevit Dilman,</em><a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC-BY-SA 3.0 licened</a><em>.</em></p>
+</div><p>By measuring the voltage across a photoresistor, we can get a measure of the amount of incident light. In the exercise below, you will measure exactly that (which you will also do when you build your spectrophotometer).</p>
+</div>
+<div class="section" id="Trimming-resistances">
+<h2>Trimming resistances<a class="headerlink" href="#Trimming-resistances" title="Permalink to this headline">¶</a></h2>
+<p>In the exercise below, you will likely set up voltage dividers. It helps to have good control over the resistances in the dividers. You have many different resistors in your kits, but what if you want to obtain a resistance you do not have? You can use a couple simple principles to do that.</p>
 <ol class="arabic simple">
-<li><p>When lines in the schematic cross, they are <em>not</em> connected unless a dot (a node) is present at the crossing.</p></li>
-<li><p>You can use with pins A4 and A5 or pins SDA and SCL, respectively. The respective pins go to the same place on the microcontroller. I always use the SDA and SCL pins just to remind myself that I am using them for I2C.</p></li>
-<li><p>The labels on the MCP4725 on the schematic are different than printed on the board. Without going in to too much discussion behind the nomenclature, you can consider Vcc and Vdd to be the same thing: this is input voltage. Similarly, you can functionally consider Vee and Vss to be the same thing: these go to ground. On the MCP4725 breakout board in your kit, VSS is labeled GND and VOUT is labeled VOU.</p></li>
+<li><p>Resistances in series result in resistance <span class="math notranslate nohighlight">\(R = R_1 + R_2 + R_3 + \cdots\)</span>.</p></li>
+<li><p>Resistance in parallel result in resistance <span class="math notranslate nohighlight">\(R = \left(R_1^{-1} + R_2^{-1} + R_3^{-1} + \cdots\right)^{-1}\)</span>.</p></li>
 </ol>
-<p>The DAC is powered through the Vdd/ground pins. Communication via I2C is accomplished via the SDA and SCL pins, which are connected to the appropriate pins on the Arduino board. Recall from our <a class="reference internal" href="../02/tour_of_arduino.html"><span class="doc">tour of Arduino</span></a> that I2C works by switching the voltage on SCL (the clock) on and off at a given frequency. A comparison is made between the clock voltage and the data voltage (from the SDA pin); if both are high, the transmitted bit is one, and if the SDA voltage is low,
-the transmitted bit is zero.</p>
-</div>
-<div class="section" id="Using-the-Wire-library">
-<h3>Using the Wire library<a class="headerlink" href="#Using-the-Wire-library" title="Permalink to this headline">¶</a></h3>
-<p>In order to conveniently communicate using I2C, we will use the <a class="reference external" href="https://www.arduino.cc/en/Reference/Wire">Wire library</a>. In order to use it, or any other library, it needs to be <strong>include</strong>d at in your sketch. The syntax for including an installed library is <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">include</span> <span class="pre">&lt;Wire.h&gt;</span></code>, where you can substitute whatever library you are using for <code class="docutils literal notranslate"><span class="pre">Wire.h</span></code>. It is easiest to see how the library is used by example. Load the following sketch onto Arduino.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Wire is library to talk with I2C</span>
-<span class="cp">#include</span> <span class="cpf">&lt;Wire.h&gt;</span><span class="cp"></span>
-
-<span class="c1">//This is the I2C Address of the MCP4725, by default (A0 pulled to GND).</span>
-<span class="c1">//For devices with A0 pulled HIGH, use 0x63</span>
-<span class="cp">#define MCP4725_ADDR 0x62</span>
-
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">sampleDelay</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-<span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">lastSampleTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-
-<span class="kr">void</span> <span class="nf">write12BitI2C</span><span class="p">(</span><span class="kr">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/*</span>
-<span class="cm">   * Write a 12-bit integer out to I2C.</span>
-<span class="cm">   */</span>
-  <span class="nf">Wire</span><span class="p">.</span><span class="nf">beginTransmission</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span>
-  <span class="nf">Wire</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">64</span><span class="p">);</span>            <span class="c1">// cmd to update the DAC</span>
-  <span class="nf">Wire</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">);</span>        <span class="c1">// the 8 most significant bits...</span>
-  <span class="nf">Wire</span><span class="p">.</span><span class="nf">write</span><span class="p">((</span><span class="n">x</span> <span class="o">%</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// the 4 least significant bits...</span>
-  <span class="nf">Wire</span><span class="p">.</span><span class="nf">endTransmission</span><span class="p">();</span>
-<span class="p">}</span>
-
-
-<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nf">Wire</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span>
-<span class="p">}</span>
-
-
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">currTime</span> <span class="o">=</span> <span class="nf">millis</span><span class="p">();</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">currTime</span> <span class="o">-</span> <span class="n">lastSampleTime</span> <span class="o">&gt;</span> <span class="n">sampleDelay</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kr">int</span><span class="p">)(</span><span class="mi">4095</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nf">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="nf">millis</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">);</span>
-
-    <span class="n">write12BitI2C</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-
-    <span class="n">lastSampleTime</span> <span class="o">=</span> <span class="n">currTime</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>We <code class="docutils literal notranslate"><span class="pre">#include</span></code> the library at the top. In the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function, we call <code class="docutils literal notranslate"><span class="pre">Wire.begin()</span></code> to open communication via I2C. When we transmit data to the MCP4725, we need to know its <strong>address</strong>. If the A0 pin of the MCP4725 (completely different from the A0 pin on the Arduino Uno) is connected to ground (or not connected), the address is <code class="docutils literal notranslate"><span class="pre">0x62</span></code>, which is hexidecimal for 98. In the A0 pin is connected to a high voltage, then the address is <code class="docutils literal notranslate"><span class="pre">0x63</span></code>. This enables you to have two DACs controlled
-by the same Arduino Uno. We only have one here, so we will leave the A0 pin unconnected and use address <code class="docutils literal notranslate"><span class="pre">0x62</span></code>. We define the address <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">MCP4725_ADDR</span> <span class="pre">0x62</span></code>. A <code class="docutils literal notranslate"><span class="pre">#define</span></code> directive basically tells the compiler to substitute <code class="docutils literal notranslate"><span class="pre">0x62</span></code> wherever <code class="docutils literal notranslate"><span class="pre">MCP4725_ADDR</span></code> appears in the code.</p>
-<p>Now that we have the address, we can write data to the DAC. The function <code class="docutils literal notranslate"><span class="pre">write12BitI2C()</span></code> is used to send a 12-bit integer (since our DAC is 12-bit). First, we need to begin a transmission using the (you guessed it) <code class="docutils literal notranslate"><span class="pre">Wire.beginTransmission()</span></code> function, with the address of the device we are communicating with as the argument. To tell the MCP4725 to expect to receive data to convert to analog voltage, we send <code class="docutils literal notranslate"><span class="pre">0x40</span></code>, which corresponds to the decimal number 64. This is done using
-<code class="docutils literal notranslate"><span class="pre">Wire.write(64)</span></code>. Since we can only write a byte (8 bits) at a time, we have two write the 12-bit number in two steps. First, we write the 8 most significant bits by shifting the 12-bit integer rightward 4 bits. We get the remaining four bits as our input modulo 2⁴ = 16. We then shift it four bits leftward so that the next four bits received by the MCP4725 at the last four bits of the input. Finally, we end the transmission with <code class="docutils literal notranslate"><span class="pre">Wire.endTransmission()</span></code>. (If this all seems confusing, don’t
-worry; soon you won’t need to think about it.)</p>
-<p>In the loop, we generate a sine wave that oscillated between zero and 4095 with a frequency of 1 Hz. We send that to the DAC over I2C, sending data every 20 ms. The LED will then smoothly turn on and off.</p>
+<p>Point (2) means that resistors in parallel always have a lower resistance than the largest individual resistor.</p>
+<p>Say you have an available resistor just below the value you want. You can trim the resistance <strong>up</strong> by adding small resistor or resistors <strong>in series</strong> to make up the difference.</p>
+<p>Now say you have an available resistor just above the value you want. You can trim the resistance <strong>down</strong> by adding a small resistor or resistors <strong>in parallel</strong> to bring the total resistance down.</p>
 <hr></div>
-</div>
-<div class="section" id="Using-an-external-library">
-<h2>Using an external library<a class="headerlink" href="#Using-an-external-library" title="Permalink to this headline">¶</a></h2>
-<p>Libraries are there to make things easier for you. In the above example, we had to do some bit-twiddling to get our number sent across to the DAC. It would be nice we if had a library that took care of that for us. It turns out there is one! The library is made by Adafruit to go along with the breakout board. It is called <code class="docutils literal notranslate"><span class="pre">Adafruit_MCP4725</span></code>. The Arduino IDE is aware of many third-party libraries, and you can install them into the IDE. To install this library, within the Arduino IDE, click on
-<code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">Libraries...</span></code>. The Libary Manager window will pop up. You can type <code class="docutils literal notranslate"><span class="pre">MCP4725</span></code> in the search window, and you will have the option to install the Adafruit MCP4725 library. Go ahead and do this. While you are at it, find the Adafruit ADS1X15 library, which we will use in a future lesson.</p>
-<p>Now that the library is installed, you can include it as we did with the built-in Wire library. The sketch below accomplishes the same result as the sketch above, but uses the convenient features of the Adafruit MCP4725 library.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Adafruit provides a convenient library!</span>
-<span class="cp">#include</span> <span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span><span class="cp"></span>
-
-<span class="c1">//This is the I2C Address of the MCP4725, by default (A0 pulled to GND).</span>
-<span class="c1">//For devices with A0 pulled HIGH, use 0x61</span>
-<span class="cp">#define MCP4725_ADDR 0x62</span>
-
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">sampleDelay</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
-<span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">lastSampleTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="c1">// Instantiate the convenient class</span>
-<span class="n">Adafruit_MCP4725</span> <span class="n">dac</span><span class="p">;</span>
-
-<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">dac</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">currTime</span> <span class="o">=</span> <span class="nf">millis</span><span class="p">();</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">currTime</span> <span class="o">-</span> <span class="n">lastSampleTime</span> <span class="o">&gt;</span> <span class="n">sampleDelay</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">uint16_t</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kr">uint16_t</span><span class="p">)(</span><span class="mi">4095</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nf">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="nf">millis</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">);</span>
-
-    <span class="n">dac</span><span class="p">.</span><span class="n">setVoltage</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kr">false</span><span class="p">);</span>
-
-    <span class="n">lastSampleTime</span> <span class="o">=</span> <span class="n">currTime</span><span class="p">;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>The sketch warrants some comments. The library defines a useful <code class="docutils literal notranslate"><span class="pre">Adafruit_MCP4725</span></code> class. This class has convenient <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> functions. The <code class="docutils literal notranslate"><span class="pre">begin()</span></code> function is called in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function to open communication. The address is given here, and is stored in the instance of the class, so you do not need to use the address in the <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. The <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> function sends an integer to the MCP4725 for conversion to an analog voltage. The function expects the
-integer to be of type <code class="docutils literal notranslate"><span class="pre">uint16_t</span></code>, which is a 16-bit unsigned integer. It also takes a second argument, which, if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the integer is stored in the EEPROM on-board the MCP4725 breakout board. If the second argument is <code class="docutils literal notranslate"><span class="pre">false</span></code>, the input is simply converted to an analog voltage and not stored.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> function is also clever in that it speeds up the rate of data transfer by I2C. As we mentioned when introducing I2C in <a class="reference internal" href="../02/tour_of_arduino.html"><span class="doc">lesson 2</span></a>, the Arduino Uno can communicte over I2C at about 400 kbaud, but defaults to 100 kbaud. When you use <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code>, it automatically works at 400 kbaud.</p>
-</div>
+<div class="section" id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
+<h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline">¶</a></h2>
+<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you want hight bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to do ADC. You can ask Google, but as a
+hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.</p>
+<p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.</p>
+<p>The voltage across each photoresistor should be read both by using the built-in pins on the Arduino Uno and by using the ADS1015. Reading the voltage in two ways will give you a way to check to make sure everything is working properly. You should make an app wherein the voltages can be monitored in real time.</p>
+<p>You want to get the best resolution you can over a big dynamic range. Here are some hints.</p>
+<ol class="arabic simple">
+<li><p>Carefully read the information on the ADS1015. Here is a big hint that you will find: Unlike the ADC in the Arduino Uno, the ADS1015 can convert negative voltages. Its output is 12-bits, so the range of values is from –2048 to 2047. You should think carefully about how to take full advantage of the full range of numbers. Otherwise, if you are just using positive numbers, you only get one extra bit beyond the 10-bits in the built-in ADC. (Though in practice, you would probably use a 16-bit
+ADC, possibly the ADS1115.)</p></li>
+<li><p>Given that you can get negative numbers coming into Python from Arduino will have negative numbers, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: <code class="docutils literal notranslate"><span class="pre">re.compile(b&quot;\d+|,|-&quot;)</span></code>.</p></li>
+<li><p>Think about how you can use voltage dividers to get the best dynamic range. The photoresistors in your kit have a resistance of about 50 to 100 kΩ depending on the light intensity.</p></li>
+</ol>
+<hr></div>
 </div>
 
 
@@ -373,10 +291,10 @@ integer to be of type <code class="docutils literal notranslate"><span class="pr
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../18/lcd.html" class="btn btn-neutral float-right" title="18. Using a liquid crystal display" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../thinking_exercises.html" class="btn btn-neutral float-right" title="Thinking exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../16/control_panels.html" class="btn btn-neutral float-left" title="16. Control panels" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../19/introduction_to_filters.html" class="btn btn-neutral float-left" title="19. Introduction to filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -390,7 +308,7 @@ integer to be of type <code class="docutils literal notranslate"><span class="pr
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc349af8ee0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fc3499f4e80> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

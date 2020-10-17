@@ -55,6 +55,7 @@ People
    lessons/17/dac_i2c_libraries.ipynb
    lessons/18/lcd.ipynb
    lessons/19/introduction_to_filters.ipynb
+   lessons/20/photoresistors_and_adc.ipynb
 
 .. toctree::
    :maxdepth: 1
