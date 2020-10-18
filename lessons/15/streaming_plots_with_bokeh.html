@@ -118,6 +118,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -1121,7 +1122,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <h2>Bokeh apps<a class="headerlink" href="#Bokeh-apps" title="Permalink to this headline">¶</a></h2>
 <p><em>Though this section is not a follow-along exercise, you should run it on your machine so you can see the dynamics.</em></p>
 <p>Thus far, we have used Bokeh to make zoom-able, pan-able, save-able JavaScript-based plots of data. We also used it to make widgets that we could use to control Arduino. But <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a> allows much more interactivity. We can update plots based on results of calculation by the Python interpreter. In our case, we want to update a plot of voltages coming off of the Arduino board in real time.</p>
-<p>As an example of how a Bokeh app can be used to update, as plot I build one below to dynamically plot a random walk. The walk will proceed with a dot doing the walk and the trail behind it represented as a line. To build a Bokeh app, we need to write a function the controls the app. The function for the random walker is shown below with an explanation following immediately.</p>
+<p>As an example of how a Bokeh app can be used to update a plot I build one below to dynamically plot a random walk. The walk will proceed with a dot doing the walk and the trail behind it represented as a line. To build a Bokeh app, we need to write a function that controls the app. The function for the random walker is shown below with an explanation following immediately.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -1258,7 +1259,7 @@ For time series data, like we’re plotting here, this results in a “scroll”
 <span class="sd">    data points are shown at a time.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
-        <span class="c1"># Instatiate figurs</span>
+        <span class="c1"># Instatiate figures</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
             <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
             <span class="n">frame_height</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
@@ -1467,11 +1468,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Oct 16, 2020.
+        Last updated on Oct 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc348103b50> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f9aa1777190> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

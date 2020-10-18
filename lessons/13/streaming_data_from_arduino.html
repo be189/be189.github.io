@@ -121,6 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -973,7 +974,7 @@ can update accordingly.</p>
 <li><p>Much of the setup is the same as the last lesson, including the <code class="docutils literal notranslate"><span class="pre">printVoltage()</span></code> function. We also have global variables <code class="docutils literal notranslate"><span class="pre">daqMode</span></code>, which specifies whether we are in streaming more or on-demand, and <code class="docutils literal notranslate"><span class="pre">daqDelay</span></code>, which specifies the time between data acquisitions.</p></li>
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function, we send data along USB if we are in streaming mode and have waited <code class="docutils literal notranslate"><span class="pre">daqDelay</span></code> or longer.</p></li>
 <li><p>The then also check to see if any data has been sent to Arduino from the computer. If so, we again enter into a switch-case, as before.</p></li>
-<li><p>If we sent a signal from the computer that we want Arduino to read in a DAQ delay, we use <code class="docutils literal notranslate"><span class="pre">Serial.readStringUntil()</span></code> to read in the string specifying the DAW delay. We specify that the string ends with <code class="docutils literal notranslate"><span class="pre">'x'</span></code>. This is useful to ensure that Ardunio knows exactly when the data coming over USB ends specification of the delay string. Therefore, on the Python side, we need to make sure to append an <code class="docutils literal notranslate"><span class="pre">'x'</span></code> onto the string giving the DAQ delay that we will convert into a bytes array to send to
+<li><p>If we sent a signal from the computer that we want Arduino to read in a DAQ delay, we use <code class="docutils literal notranslate"><span class="pre">Serial.readStringUntil()</span></code> to read in the string specifying the DAW delay. We specify that the string ends with <code class="docutils literal notranslate"><span class="pre">'x'</span></code>. This is useful to ensure that Arduino knows exactly when the data coming over USB ends specification of the delay string. Therefore, on the Python side, we need to make sure to append an <code class="docutils literal notranslate"><span class="pre">'x'</span></code> onto the string giving the DAQ delay that we will convert into a bytes array to send to
 Arduino.</p></li>
 <li><p>We use the <code class="docutils literal notranslate"><span class="pre">toInt()</span></code> method to convert the read in string for DAQ delay into an integer.</p></li>
 </ul>
@@ -1036,7 +1037,7 @@ Handshake message: Message received.
 </div>
 <p>Now, we will write a function to turn on a data stream, collect data from it, and then return the result as a Pandas data frame. The steps toward doing so are as follows:</p>
 <ol class="arabic simple">
-<li><p>Send a signal to Arduino that gives the delay in data acquisition. The first byte of this signal must be <code class="docutils literal notranslate"><span class="pre">READ_DAQ_DELAY</span></code>, signifying that the following bytes, up to the character <code class="docutils literal notranslate"><span class="pre">'x'</span></code> gine the delay. Then, subsequeny bytes give the digits of the DAQ delay, followed by <code class="docutils literal notranslate"><span class="pre">'x'</span></code>.</p></li>
+<li><p>Send a signal to Arduino that gives the delay in data acquisition. The first byte of this signal must be <code class="docutils literal notranslate"><span class="pre">READ_DAQ_DELAY</span></code>, signifying that the following bytes, up to the character <code class="docutils literal notranslate"><span class="pre">'x'</span></code> give the delay. Then, subsequent bytes give the digits of the DAQ delay, followed by <code class="docutils literal notranslate"><span class="pre">'x'</span></code>.</p></li>
 <li><p>Initialize empty Numpy arrays to receive the data.</p></li>
 <li><p>Tell Arduino to switch to streaming mode.</p></li>
 <li><p>Keep reading in data until we acquire the desired number of data points.</p></li>
@@ -1159,7 +1160,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <div class="section" id="Comparison-of-timing">
 <h2>Comparison of timing<a class="headerlink" href="#Comparison-of-timing" title="Permalink to this headline">¶</a></h2>
-<p>We saw that if we acquired data on request using a call to <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> to wait for the request, we got ill-timed data. Let’s generate those data again, and compare to the timing we got be streaming data.</p>
+<p>We saw that if we acquired data on request using a call to <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> to wait for the request, we got ill-timed data. Let’s generate those data again, and compare to the timing we got by streaming data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -1320,11 +1321,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Oct 16, 2020.
+        Last updated on Oct 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc3499487f0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f9aa1ac0fd0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

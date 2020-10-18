@@ -1,0 +1,129 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# 21. Protecting Arduino with Zener diodes\n",
+    "\n",
+    "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "The input pins on Arduino Uno can handle a maximum voltage of about 5 V. If this is exceeded too far, it can damage the microcontroller. So far, we have used the Uno board itself to supply 5 V for all of our applications. It was therefore not possible to expose any of the pins to more than 5 V.\n",
+    "\n",
+    "In the next lesson, we will use op amps, which require external power supplies. One of the power supplies is 12 V. It is therefore possible to expose the Arduino board to more than 5 V. You would never intentionally design a circuit that could do that, since you can't do anything with more than 5 V on the input pins. You may, however, unintentionally build a circuit that could result in more than 5 V across a pin on the Arduino board. \n",
+    "\n",
+    "There are many ways to protect against this. A simple approach is to use a [Zener diode](https://en.wikipedia.org/wiki/Zener_diode)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Zener diode\n",
+    "\n",
+    "A Zener diode has a strongly nonlinear relationship between current and voltage (contrasted with the linear relationship of a resistor),shown in the plot below. \n",
+    "\n",
+    "<div style=\"margin:auto; width: 400px;\">\n",
+    "\n",
+    "![Zener IV curve](zener_iv.png)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "For a range of voltages, the current through the Zener diode is close to zero; it has very large impedance in that range. When the voltage across the diode is positive, the current can grow rapidly. In practice, we place the Zener diode in a circuit such that the voltage across it is negative. In this regime, there is minimal current across the diode. When the voltage hits the so-called breakdown voltage, $V_z$, the current reverses and the voltage across the diode will not go much beyond $V_z$.\n",
+    "\n",
+    "We can use this feature of the Zener diode to limit voltages of across parts of a circuit, importantly those across I/O pins on the Arduino or an external ADC."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Simple regulation of voltage supply with a Zener diode\n",
+    "\n",
+    "Consider the circuit below, where $V_\\mathrm{in}$ is a voltage we want to be able to measure without destroying the microcontroller.\n",
+    "\n",
+    "<div style=\"margin:auto; width: 200px;\">\n",
+    "\n",
+    "![Zener regulator circuit](zener_regulator.png)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "The simple circuit has the architecture of a voltage divider. Let $R_z$ be the resistance of the Zener diode. Then, using our results from voltage dividers before,\n",
+    "\n",
+    "\\begin{align}\n",
+    "V_\\mathrm{out} = \\frac{R_z}{R_z + R}\\,V_\\mathrm{in}.\n",
+    "\\end{align}\n",
+    "\n",
+    "If the input voltage is smaller than the breakdown voltage $V_z$, then the resistance of the Zener diode is very large, letting through essentially no current. Then, since $R_z \\gg R$, $V_\\mathrm{out} \\approx V_\\mathrm{in}$. If $V_\\mathrm{in}$ is above $V_z$, then $V_\\mathrm{out} = V_z$, since the Zener diode will have a (possibly large) negative current and voltages beyond $V_z$ are not accessible. So, if you read $V_\\mathrm{out}$, either on board Arduino or on an external ADC, you will get $V_\\mathrm{in}$ below the breakdown voltage, above the breakdown voltage, your ADC device will only experience $V_z$, thereby protecting it.\n",
+    "\n",
+    "This is a very simple strategy and is not without its drawbacks.\n",
+    "\n",
+    "1. Zener diodes do not respond quickly to rapid changes in voltages, so a surge might still momentarily result in high $V_\\mathrm{out}$. \n",
+    "2. For $V_\\mathrm{in}$ near but not beyond $V_z$ the finite, variable impedance of the Zener diode can lead to $V_\\mathrm{out}$ being a bit less then $V_\\mathrm{in}$, thereby affecting the accuracy of measured voltages.\n",
+    "\n",
+    "But for our purposes, this design will suffice.\n",
+    "\n",
+    "Given a possible range of $V_\\mathrm{in}$ (in our case the maximum is 12 V), and the ratings of the Zener diode, we are left to choose $R$ in our design. To mitigate the negative effect of (2) above, we want to choose $R$ to be as small as the Zener diode can handle. The Zener diode in your kit is a [BZX79-C5V1,133](https://www.digikey.com/short/znhjd5). This particular Zener diode has a maximum power dissipation of $P = 400$ mW and $V_z$ between 4.8 and 5.4 V. Thus, the maximum current that can be allowed to flow through the Zener diode is $I_\\mathrm{max} = P / V_z \\approx 75$ mA. To keep the current below this level, the resistance $R$ must be at least $R \\ge (V_\\mathrm{in}^\\mathrm{max} - V_z) / I_\\mathrm{max} \\approx 100$ Ω. Even with this resistance, the Zener diode can get a bit warm, do I usually choose a resistance a bit higher. Nonetheless, this is a protective measure, and hopefully your circuit will not ever have $V_\\mathrm{in}$ above five volts, so this will not be a problem."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<hr>\n",
+    "\n",
+    "## Follow along exercise 15: Demonstrating protection by a Zener diode\n",
+    "\n",
+    "To demonstrate to yourself that this works, construct the circuit below.\n",
+    "\n",
+    "<div style=\"margin:auto; width:300px;\">\n",
+    "    \n",
+    "![Zener circuit schematic](15-zener_schem.png)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "For convenience, here is the pictorial schematic.\n",
+    "\n",
+    "<div style=\"margin:auto; width:500px;\">\n",
+    "    \n",
+    "![Zener circuit schematic](15-zener_bb.png)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "Note the direction of the Zener diode. In the Zener diode in your kit, the body is pink and the stripe is black. In the image above, the body is black and the stripe is gray.\n",
+    "\n",
+    "You will need to plug in the PowerBRICK using the USB cable and power adapter in your kit.\n",
+    "\n",
+    "Use the potentiometer to vary the voltage coming into the circuit. Use your multimeter to measure $V_\\mathrm{in}$ and $V_\\mathrm{out}$ for a set of various $V_\\mathrm{in}$. (Think: Which leads do you need to touch with your multimeter probes to measure these quantities?) Does the circuit work as advertised? Note that I have chosen a resistor with about twice as much resistance as theoretically needed.\n",
+    "\n",
+    "<hr>"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

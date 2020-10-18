@@ -119,6 +119,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -998,7 +999,7 @@ duty ratio of one. So, if you wanted a duty ratio of <span class="math notransla
 </div>
 <p>Make sure you set the baud rate on the Serial Plotted to be 2000000. Go ahead and upload this sketch and watch the serial plotter to see the actual voltage signals coming out of pin 3.</p>
 <hr><p>Many devices, especially mechanical devices like motors, cannot switch on and off as quickly as the voltage switches on and off during PWM. This means that PWM can be an effective means to throttle power to a device.</p>
-<p>Even when some devices can turn on and off as fast as the PWM, when <em>perception</em> of the device if more important, it appears as though the device has throttled voltage. This is the case for LEDs. By flipping them on and off via PWM, the can appear brighter or dimmer, depending on the duty ratio. Let’s put that idea to work.</p>
+<p>Even when some devices can turn on and off as fast as the PWM, when <em>perception</em> of the device is more important, it appears as though the device has throttled voltage. This is the case for LEDs. By flipping them on and off via PWM, the can appear brighter or dimmer, depending on the duty ratio. Let’s put that idea to work.</p>
 <hr></div>
 <div class="section" id="Do-it-yourself-exercise-3:-Brightness-control-by-PWM">
 <h2>Do-it-yourself exercise 3: Brightness control by PWM<a class="headerlink" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM" title="Permalink to this headline">¶</a></h2>
@@ -1053,11 +1054,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Oct 16, 2020.
+        Last updated on Oct 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc3498e5fa0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f9aa1aa7190> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

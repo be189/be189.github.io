@@ -564,7 +564,7 @@
    "source": [
     "Many devices, especially mechanical devices like motors, cannot switch on and off as quickly as the voltage switches on and off during PWM. This means that PWM can be an effective means to throttle power to a device.\n",
     "\n",
-    "Even when some devices can turn on and off as fast as the PWM, when *perception* of the device if more important, it appears as though the device has throttled voltage. This is the case for LEDs. By flipping them on and off via PWM, the can appear brighter or dimmer, depending on the duty ratio. Let's put that idea to work."
+    "Even when some devices can turn on and off as fast as the PWM, when *perception* of the device is more important, it appears as though the device has throttled voltage. This is the case for LEDs. By flipping them on and off via PWM, the can appear brighter or dimmer, depending on the duty ratio. Let's put that idea to work."
    ]
   },
   {

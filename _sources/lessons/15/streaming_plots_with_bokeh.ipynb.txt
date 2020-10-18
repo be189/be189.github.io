@@ -683,7 +683,7 @@
     "\n",
     "Thus far, we have used Bokeh to make zoom-able, pan-able, save-able JavaScript-based plots of data. We also used it to make widgets that we could use to control Arduino. But [Bokeh](http://bokeh.pydata.org/) allows much more interactivity. We can update plots based on results of calculation by the Python interpreter. In our case, we want to update a plot of voltages coming off of the Arduino board in real time.\n",
     "\n",
-    "As an example of how a Bokeh app can be used to update, as plot I build one below to dynamically plot a random walk. The walk will proceed with a dot doing the walk and the trail behind it represented as a line. To build a Bokeh app, we need to write a function the controls the app. The function for the random walker is shown below with an explanation following immediately."
+    "As an example of how a Bokeh app can be used to update a plot I build one below to dynamically plot a random walk. The walk will proceed with a dot doing the walk and the trail behind it represented as a line. To build a Bokeh app, we need to write a function that controls the app. The function for the random walker is shown below with an explanation following immediately."
    ]
   },
   {
@@ -855,7 +855,7 @@
     "    data points are shown at a time.\n",
     "    \"\"\"\n",
     "    def _app(doc):\n",
-    "        # Instatiate figurs\n",
+    "        # Instatiate figures\n",
     "        p = bokeh.plotting.figure(\n",
     "            frame_width=500,\n",
     "            frame_height=175,\n",

@@ -621,7 +621,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "We now have to string, the time and the voltage. We can convert these to integers and then to whatever units we like. I'll leave time in milliseconds and convert the voltage to volts."
+    "We now have two strings, the time and the voltage. We can convert these to integers and then to whatever units we like. I'll leave time in milliseconds and convert the voltage to volts."
    ]
   },
   {

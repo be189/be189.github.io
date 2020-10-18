@@ -123,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -2482,7 +2483,7 @@ if (root.Bokeh !== undefined) {
 <ul class="simple">
 <li><p>Instead of setting up a watcher like we do with Panel, we use an the <code class="docutils literal notranslate"><span class="pre">on_change()</span></code> method of a toggle widget. The callback function for on-change behavior must have call signature <code class="docutils literal notranslate"><span class="pre">callback(attr,</span> <span class="pre">old,</span> <span class="pre">new)</span></code>, where <code class="docutils literal notranslate"><span class="pre">attr</span></code> is an attribute of the widget, <code class="docutils literal notranslate"><span class="pre">old</span></code> is the pre-change value of that attribute, and <code class="docutils literal notranslate"><span class="pre">new</span></code> is the post-change value of the attribute.</p></li>
 <li><p>We instantiate a toggle with <code class="docutils literal notranslate"><span class="pre">bokeh.models.Toggle</span></code>. Instead of <code class="docutils literal notranslate"><span class="pre">name</span></code>, we use the kwarg <code class="docutils literal notranslate"><span class="pre">label</span></code>.</p></li>
-<li><p>Instead of setting up a watcher for the toggle widget, the callback is linked using the <code class="docutils literal notranslate"><span class="pre">on_change()</span></code> method of the toggle itself. A toggle as an <code class="docutils literal notranslate"><span class="pre">active</span></code> attribute, which is <code class="docutils literal notranslate"><span class="pre">True</span></code> when the toggle is one and <code class="docutils literal notranslate"><span class="pre">False</span></code> when off. Whenever that value changes, the callback is triggered.</p></li>
+<li><p>Instead of setting up a watcher for the toggle widget, the callback is linked using the <code class="docutils literal notranslate"><span class="pre">on_change()</span></code> method of the toggle itself. A toggle has an <code class="docutils literal notranslate"><span class="pre">active</span></code> attribute, which is <code class="docutils literal notranslate"><span class="pre">True</span></code> when the toggle is on and <code class="docutils literal notranslate"><span class="pre">False</span></code> when off. Whenever that value changes, the callback is triggered.</p></li>
 </ul>
 <p>To view the widget in the notebook, use <code class="docutils literal notranslate"><span class="pre">bokeh.io.show()</span></code>. Note that we called <code class="docutils literal notranslate"><span class="pre">bokeh.io.output_notebook()</span></code> earlier in this notebook, which means that the app will display in the notebook. We also defined the <code class="docutils literal notranslate"><span class="pre">notebook_url</span></code>, which can be found by looking in your browser’s address bar. In my case, the <code class="docutils literal notranslate"><span class="pre">notebook_url</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;localhost:8888&quot;</span></code>. Note also that Bokeh apps will not be displayed in the static HTML rendering of this notebook, so if you are reading this from the course website, you
 will see no output from the cell below.</p>
@@ -2618,7 +2619,7 @@ xhr.send();
 </div>
 <p>As you can see, most of the code is exactly as we have written so far. There are only two differences.</p>
 <ol class="arabic simple">
-<li><p>In the last line, the function that define the app is called with argument <code class="docutils literal notranslate"><span class="pre">bokeh.plotting.curdoc()</span></code>, which returns the current document.</p></li>
+<li><p>In the last line, the function that defines the app is called with argument <code class="docutils literal notranslate"><span class="pre">bokeh.plotting.curdoc()</span></code>, which returns the current document.</p></li>
 <li><p>The serial connection is opened, but not closed. The reason for this is because the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file will be executed to completion defining the app, and then Bokeh will handle serving it in the browser. The connection must remain open after the <code class="docutils literal notranslate"><span class="pre">.py</span></code> file executes, otherwise your widgets will have no affect on Arduino because the serial connection will be broken.</p></li>
 </ol>
 <p>To serve up the app, save the above Python code in a file <code class="docutils literal notranslate"><span class="pre">led_toggle_app.py</span></code> and do the following on the command line:</p>
@@ -2679,11 +2680,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Oct 16, 2020.
+        Last updated on Oct 18, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fc349bcb880> 
+  </div> <jinja2.runtime.BlockReference object at 0x7f9aa00f04c0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
