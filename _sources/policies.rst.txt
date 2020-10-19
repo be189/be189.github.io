@@ -89,7 +89,7 @@ You will complete two major design projects in the course. You will construct a 
 
 In designing your project, you also need to design and implement a user interface for controlling the device and acquiring data from it. You can use `Bokeh <https://bokeh.pydata.org/>`_ to do this.
 
-Prelabs consist of a set of questions to help you get the requisite background knowledge for the respective projects. While completing the prelabs, be sure to have the specification for the design in mind.
+.. Prelabs consist of a set of questions to help you get the requisite background knowledge for the respective projects. While completing the prelabs, be sure to have the specification for the design in mind.
 
 The project writeup must include the following in delineated sections, written in a Jupyter notebook.
 
@@ -99,7 +99,7 @@ The project writeup must include the following in delineated sections, written i
 - **Section 4: Demonstration and assessment.** A demonstration of the device's functionality and assessment of its performance. Metrics for performance should be clearly delineated and assessed.
 - **Section 5: Analysis of data.** Analysis of any relevant data you acquired from your device. This involves making plots and determining parameters of the biological system you are probing with your device.
 - **Section 6: Suggestions for the next design phase.** Since you are building a prototype, give a discussion for changes or enhancements to consider in the next phase of design.
-- **Section 7: Postlab questions.** Complete answers to the postlab questions.
+.. - **Section 7: Postlab questions.** Complete answers to the postlab questions.
 
 In the submitted ZIP file, you must have the following
 
