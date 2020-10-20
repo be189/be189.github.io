@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="445.36848pt" height="374.74113pt" viewBox="0 0 445.36848 374.74113">
+<g enable-background="new">
+<clipPath id="cp0">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 0 0 L 1920 0 L 1920 1080 L 0 1080 Z "/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 0 0 L 1920 0 L 1920 1080 L 0 1080 Z " fill="#ffffff"/>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(0,1,-1,-0,258.6894,7.6584475)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 53.8993 0 L 107.7986 89.77771 L 0 89.77771 Z M 53.8993 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 171.9118 46.30011)" font-size="24" font-family="HelveticaNeue"><tspan y="0" x="0">+</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 173.11182 88.77374)" font-size="24" font-family="HelveticaNeue"><tspan y="0" x="0">&#x2013;</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(0,-1,1,0,87.54004,349.33613)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 62.50431 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<clipPath id="cp1">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 822.6135 331.6839 L 855.0277 331.6839 L 855.0277 335.6839 L 822.6135 335.6839 Z "/>
+</clipPath>
+<g clip-path="url(#cp1)">
+<path transform="matrix(1,0,0,1,72.33295,349.33613)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 30.41416 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<clipPath id="cp2">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 826.6711 323.7664 L 849.08529 323.7664 L 849.08529 327.7664 L 826.6711 327.7664 Z "/>
+</clipPath>
+<g clip-path="url(#cp2)">
+<path transform="matrix(1,0,0,1,76.3905,357.25364)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 20.41418 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<clipPath id="cp3">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 832.6711 315.8489 L 845.08529 315.8489 L 845.08529 319.8489 L 832.6711 319.8489 Z "/>
+</clipPath>
+<g clip-path="url(#cp3)">
+<path transform="matrix(1,0,0,1,82.3905,365.1711)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 10.41419 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<clipPath id="cp4">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 0 0 L 1920 0 L 1920 1080 L 0 1080 Z "/>
+</clipPath>
+<g clip-path="url(#cp4)">
+<path transform="matrix(1,0,0,1,85.53992,81.587039)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 150.9754 L 2.010617 0 L 83.13163 1.133091 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 834.2851 529.9811 C 832.3324 528.0284 832.3324 524.8626 834.2851 522.91 C 836.2377 520.9574 839.4035 520.9574 841.3561 522.91 C 843.3087 524.8626 843.3087 528.0284 841.3561 529.9811 C 839.4035 531.9337 836.2377 531.9337 834.2851 529.9811 Z M 834.2851 529.9811 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,185.82593,143.80585)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 13.8818 L 5.890625 .2307594 L 13.1291 24.88738 L 22.8791 0 L 32.39993 25.22396 L 41.64212 .6890927 L 48.28014 26.4375 L 54.89733 11.61719 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(0,-1,1,0,73.20349,287.38624)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 13.8818 L 5.890625 .2307594 L 13.1291 24.88738 L 22.8791 0 L 32.39993 25.22396 L 41.64212 .6890927 L 48.28014 26.4375 L 54.89733 11.61719 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,88.54004,157.14234)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 97.36778 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,258.63246,61.55774)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 145.8871 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,-1,-751.2806,683.02)" d="M 1081.321 624.9979 C 1079.368 623.0453 1079.368 619.8794 1081.321 617.9268 C 1083.274 615.9742 1086.439 615.9742 1088.392 617.9268 C 1090.345 619.8794 1090.345 623.0453 1088.392 624.9979 C 1086.439 626.9505 1083.274 626.9505 1081.321 624.9979 Z M 1081.321 624.9979 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,240.35694,66.5625)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 93.21902 0 L 92.78088 89.38113 L 0 89.44068 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,22.596436,40.248048)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 145.8872 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 204.77112 194.9266)" font-size="18" font-family="HelveticaNeue"><tspan y="0" x="0">R</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 -0 1 204.77112 194.9266)" font-size="12" font-family="HelveticaNeue"><tspan y="1.277985" x="12.33">2</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 107.24713 266.85414)" font-size="18" font-family="HelveticaNeue"><tspan y="0" x="0">R</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 -0 1 107.24713 266.85414)" font-size="12" font-family="HelveticaNeue"><tspan y="1.277985" x="12.33">1</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 4.092407 46.16211)" font-size="18" font-family="HelveticaNeue"><tspan y="0" x="0 3.9960004">in</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 415.88948 67.47174)" font-size="18" font-family="HelveticaNeue"><tspan y="0" x="0 10.332 20.34">out</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text fill="#5e5e5e" xml:space="preserve" transform="matrix(1 0 -0 1 72.37402 103.94653)" font-size="18" font-family="HelveticaNeue"><tspan y="0" x="0">a</tspan></text>
+</g>
+</g>
+</g>
+</svg>
