@@ -65,6 +65,7 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be 
 - **Th 10/15**: Guest lecture from `Daniel Wagenaar <http://www.danielwagenaar.net>`_
 - **Th 10/22**: Guest lecture from Heather Lukas and Jihong Min from the `Gao lab <http://www.gao.caltech.edu>`_
 - **Tu 10/27**: Guest lecture from `Sina Booeshaghi <https://sinabooeshaghi.com>`_ and Anne Kil from the `Pachter lab <https://pachterlab.github.io>`_
+- **Tu 11/03**: Determination of growth rate from growth curves
 - **Tu 11/10**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
 - **Th 11/19**: Guest lecture from Mu Qiao
 - **Th 11/26**: Thanksgiving Day: no class

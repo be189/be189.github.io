@@ -58,6 +58,7 @@ People
    lessons/20/photoresistors_and_adc.ipynb
    lessons/21/protection_with_zener.ipynb
    lessons/22/op_amps.ipynb
+   lessons/23/transistors.ipynb
 
 .. toctree::
    :maxdepth: 1

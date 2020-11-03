@@ -7,14 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>BE/EE/MedE 189 a: Design and Construction of Biodevices &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>23. Transistors &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
   
@@ -23,27 +23,28 @@
 
   
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="0. Getting set up" href="lessons/00/configuring_your_computer.html" /> 
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Thinking exercises" href="../../thinking_exercises.html" />
+    <link rel="prev" title="22. Operational amplifiers" href="../22/op_amps.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -57,12 +58,12 @@
           
 
           
-            <a href="#">
+            <a href="../../index.html">
           
 
           
             
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -70,7 +71,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -89,70 +90,75 @@
             
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/04/schematics.html">4. Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">5. Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/07/adc_and_usart.html">7. ADC and USART</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">23. Transistors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Basic-concepts-behind-transistors">Basic concepts behind transistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Bipolar-junction-transistors-as-switches">Bipolar junction transistors as switches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-16:-BJTs-as-switches">Follow-along exercise 16: BJTs as switches</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-communications">Course communications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#equipment">Equipment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#exercises">Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#project-write-ups">Project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-communications">Course communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#equipment">Equipment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#exercises">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -168,7 +174,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">BE/EE/MedE 189 a</a>
+          <a href="../../index.html">BE/EE/MedE 189 a</a>
         
       </nav>
 
@@ -204,7 +210,7 @@
     
         
         
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/23/transistors.ipynb" download> Download notebook</a>
         
       
     
@@ -242,120 +248,132 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="be-ee-mede-189-a-design-and-construction-of-biodevices">
-<h1>BE/EE/MedE 189 a: Design and Construction of Biodevices<a class="headerlink" href="#be-ee-mede-189-a-design-and-construction-of-biodevices" title="Permalink to this headline">¶</a></h1>
-<p>Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an <a class="reference external" href="https://www.arduino.cc">Arduino platform</a>. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not “new” instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.</p>
-<p>Students are responsible for reading the <a class="reference internal" href="policies.html#policies"><span class="std std-ref">course policies</span></a>.</p>
-<div class="section" id="useful-links">
-<h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://us.edstem.org/courses/2616/">Ed</a> (used for course communications)</p></li>
-<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class">Course Zoom link</a> (password protected)</p></li>
-<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/video_link/">Recording of lectures</a> (password protected)</p></li>
-</ul>
-<p>During lab sessions, we will sometimes break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.</p>
+<div class="section" id="23.-Transistors">
+<h1>23. Transistors<a class="headerlink" href="#23.-Transistors" title="Permalink to this headline">¶</a></h1>
+<hr><p><strong>Transistors</strong>, are key components of almost any modern circuit. They have myriad applications, and are included in pretty much of the integrated circuits you have already been introduced to, including analog-to-digital converters, digital-to-analog converters, and op-amps. Horowitz and Hill go so far as to say that “The transistor is the essential component of every electronic circuit.” In this lesson, we will explore using transistors as switches.</p>
+<div class="section" id="Basic-concepts-behind-transistors">
+<h2>Basic concepts behind transistors<a class="headerlink" href="#Basic-concepts-behind-transistors" title="Permalink to this headline">¶</a></h2>
+<p>We will not go into the details of the (Nobel Prize-winning) physics behind how transistors work, but will treat them from practical perspective. Transistors are three-terminal components. They come predominantly in two varieties, <strong>bipolar junction transistors</strong> (BJTs) and <strong>field effect transistors</strong> (FETs). These two varieties of transistor vary in their mode of construction and in other meaningful way in their operation that we will not spend much time on. FETs are dominant in electronics
+these days, including in the integrated circuits mentioned above, but BJTs are still widely used. Importantly, both varieties have the same two salient features.</p>
+<ol class="arabic simple">
+<li><p>Transistors have a polarity, with one end more positive than the other.</p></li>
+<li><p>Charge is carried from one terminal electrode to another under control of a third electrode.</p></li>
+<li><p>Transistors are active in the sense that the output signal they can produce is greater than an input (control) signal.</p></li>
+</ol>
+<p>The details of how transistors work is very interesting and worth delving into if you have the time. You can start with the Wikipedia pages for <a class="reference external" href="https://en.wikipedia.org/wiki/Bipolar_junction_transistor">BJTs</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Field-effect_transistor">FETs</a>.</p>
 </div>
-<div class="section" id="people">
-<h2>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p>Instructor</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="http://bois.caltech.edu/">Justin Bois</a> (<code class="docutils literal notranslate"><span class="pre">bois</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class">Zoom</a>)</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>TAs</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Changsoon Choi (<code class="docutils literal notranslate"><span class="pre">cchoi</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/">Zoom</a>)</p></li>
-<li><p>Michelle Cua (<code class="docutils literal notranslate"><span class="pre">ecua</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/">Zoom</a>)</p></li>
-<li><p>Anne Kil (<code class="docutils literal notranslate"><span class="pre">annekil0530</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>, <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/">Zoom</a>)</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Lessons</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/04/schematics.html">4. Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">5. Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/07/adc_and_usart.html">7. ADC and USART</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
-</ul>
+<div class="section" id="Bipolar-junction-transistors-as-switches">
+<h2>Bipolar junction transistors as switches<a class="headerlink" href="#Bipolar-junction-transistors-as-switches" title="Permalink to this headline">¶</a></h2>
+<p>Your kit does not include any FETs, but has both of the two varieties of BJTs, <em>npn</em> and <em>pnp</em>. Here, “<em>n</em>” means that the semiconductor is doped to allow electron transport and “<em>p</em>” means that the semiconductor is doped with holes to accept electrons. The difference in ordering of the layers results in reversed polarities.</p>
+<p>Below is the schematic symbol for BJTs (though they are sometimes drawn with a circle around them).</p>
+<div style="margin:auto; width: 250px;"><p><img alt="BJT symbols" src="../../_images/bjt_symbols.jpg" /></p>
+</div><p>The labels C, B, and E refer to collector, base, and emitter, respectively. In this exercise, we will use the <em>npn</em> BJTs in your kit. They are labeled 2N3904. Do not confuse them with the <em>pnp</em> BJTs.</p>
+<p>For an <em>npn</em>, the current flows from collector through emitter; the collector must be more positive than the emitter. (The opposite is true for a <em>pnp</em>.) The current flowing through the collector is approximately <span class="math notranslate nohighlight">\(I_C = \beta I_B\)</span>, where <span class="math notranslate nohighlight">\(\beta\)</span> is the gain, typically around 100. (This is an approximation of a result from the Ebers-Moll model.) Note, though, that because the collector must be more positive than the emitter, the transistor reaches <strong>saturation</strong> above a given input
+current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
+<p>So, if the input current is sufficiently high, the transistor operates at saturation and the current through it is set by the resistance of the load (that is the current that would be there if the load was connected to ground and not through the transistor). When the base current is zero, then no current flows through the transistor. In such a way, the transistor can function like a switch.</p>
+<p>There are countless other applications of transistors, especially when used with feedback, but we will just use them as switches. This is not too restrictive; as Horowitz and Hill put it, “If you took a census, asking all of the transistors of the world what they are doing, at least 95% would tell you they are switches.”</p>
+<p>You may ask what are the advantages of using transistors versus mechanical switches?</p>
+<ol class="arabic simple">
+<li><p>Mechanical switches wear out. You can vary the base current of a transistor-based switch over and over again and it does not wear out.</p></li>
+<li><p>Mechanical switches are slow. You can switch a transistor with sub-microsecond speed. This is not possible for mechanical switches.</p></li>
+<li><p>Transistor-based switches can be controlled/triggered by output from other circuits. This also means they can be controlled from a computer.</p></li>
+</ol>
+<p>To explore transistors as switches, complete the following follow-along exercise.</p>
+<hr></div>
+<div class="section" id="Follow-along-exercise-16:-BJTs-as-switches">
+<h2>Follow-along exercise 16: BJTs as switches<a class="headerlink" href="#Follow-along-exercise-16:-BJTs-as-switches" title="Permalink to this headline">¶</a></h2>
+<p>The leads of the BJTs in your kit are as in the sketch below.</p>
+<div style="margin:auto; width: 100px;"><p><img alt="BJT drawing" src="../../_images/bjt_drawing.png" /></p>
+</div><p>So, with the flat surface of the package facing you, the left lead is the emitter, the center is the base, and the right is the collector.</p>
+<p>With this in mind, build the circuit below.</p>
+<div style="margin:auto; width: 500px;"><p><img alt="BJT as switch circuit" src="../../_images/transistor_as_switch_schem.svg" /></p>
+</div><p>In this circuit, the DAC sends an input voltage across an LED and then across the transistor, the input coming into the collector. The emitter is grounded, which serves to ground the circuit, including the LED. The base of the transistor is controlled by digital output from the Arduino Uno. We are using a 10 kΩ resistor on this input, giving a current of about 500 nA, which is plenty for the transistor to be operating at saturation.</p>
+<p>You will oscillate the voltage across the transistors using the sketch below.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define MCP4725_ADDR 0x62</span>
+
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">led1Pin</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">led2Pin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">led3Pin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED3</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED1_ASCII</span> <span class="o">=</span> <span class="mi">49</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED2_ASCII</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED3_ASCII</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span>
+
+<span class="kr">bool</span> <span class="n">led1PinState</span> <span class="o">=</span> <span class="kr">LOW</span><span class="p">;</span>
+<span class="kr">bool</span> <span class="n">led2PinState</span> <span class="o">=</span> <span class="kr">LOW</span><span class="p">;</span>
+<span class="kr">bool</span> <span class="n">led3PinState</span> <span class="o">=</span> <span class="kr">LOW</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="kr">int</span> <span class="n">freq</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">sampleDelay</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">lastSampleTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="n">Adafruit_MCP4725</span> <span class="n">dac</span><span class="p">;</span>
+
+<span class="kr">void</span> <span class="nf">writePinState</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">led1Pin</span><span class="p">,</span> <span class="n">led1PinState</span><span class="p">);</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">led2Pin</span><span class="p">,</span> <span class="n">led2PinState</span><span class="p">);</span>
+  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">led3Pin</span><span class="p">,</span> <span class="n">led3PinState</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">pinMode</span><span class="p">(</span><span class="n">led1Pin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+  <span class="nf">pinMode</span><span class="p">(</span><span class="n">led2Pin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+  <span class="nf">pinMode</span><span class="p">(</span><span class="n">led3Pin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
+
+  <span class="n">writePinState</span><span class="p">();</span>
+
+  <span class="n">dac</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span>
+
+  <span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">currTime</span> <span class="o">=</span> <span class="nf">millis</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">currTime</span> <span class="o">-</span> <span class="n">lastSampleTime</span> <span class="o">&gt;</span> <span class="n">sampleDelay</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">uint16_t</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kr">uint16_t</span><span class="p">)(</span><span class="mi">4095</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nf">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="nf">millis</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1000.0</span><span class="p">))</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">);</span>
+
+    <span class="n">dac</span><span class="p">.</span><span class="n">setVoltage</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kr">false</span><span class="p">);</span>
+
+    <span class="n">lastSampleTime</span> <span class="o">=</span> <span class="n">currTime</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Read in request</span>
+    <span class="kr">int</span> <span class="n">inByte</span> <span class="o">=</span> <span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED1</span> <span class="o">||</span> <span class="n">inByte</span> <span class="o">==</span> <span class="n">LED1_ASCII</span><span class="p">)</span> <span class="n">led1PinState</span> <span class="o">=</span> <span class="o">!</span><span class="n">led1PinState</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED2</span> <span class="o">||</span> <span class="n">inByte</span> <span class="o">==</span> <span class="n">LED2_ASCII</span><span class="p">)</span> <span class="n">led2PinState</span> <span class="o">=</span> <span class="o">!</span><span class="n">led2PinState</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">LED3</span> <span class="o">||</span> <span class="n">inByte</span> <span class="o">==</span> <span class="n">LED3_ASCII</span><span class="p">)</span> <span class="n">led3PinState</span> <span class="o">=</span> <span class="o">!</span><span class="n">led3PinState</span><span class="p">;</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">inByte</span> <span class="o">==</span> <span class="n">HANDSHAKE</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">writePinState</span><span class="p">();</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Exercises</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Projects</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Schedule</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Policies</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-communications">Course communications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#equipment">Equipment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#exercises">Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#project-write-ups">Project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Kit contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
-</ul>
-</div>
-</div>
+<p>A couple things to note in this sketch.</p>
+<ol class="arabic simple">
+<li><p>I allow for input signals to be both single bytes representing an integer, like <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, or <code class="docutils literal notranslate"><span class="pre">3</span></code>, but for the same signal to be sent as ASCII text. In ASCII, <code class="docutils literal notranslate"><span class="pre">1</span></code> is character number 49, so if I type <code class="docutils literal notranslate"><span class="pre">1</span></code> as input in the Serial Monitor of the Arduino IDE, Arduino will read it in at bytes representing the number 49. Writing the code in this way facilitates me controlling the Arduino from the Serial Monitor or from Python.</p></li>
+<li><p>I use <code class="docutils literal notranslate"><span class="pre">led1PinState</span> <span class="pre">=</span> <span class="pre">!ledPin1State</span></code> to toggle the state of the LED. Thus, each time I enter <code class="docutils literal notranslate"><span class="pre">2</span></code>, for example, LED 2 gets turned on or off.</p></li>
+<li><p>To switch the LED on, we send a signal using Arduino’s digital pins.</p></li>
+</ol>
+<p>After building the circuit and uploading the sketch, either control which LEDs are on (and showing the oscillating illumination) via widgets on a dashboard or by hand-entering the numbers in the Serial Monitor. You will see that the transistors act as a switch, sending the input voltage across the LED when on and blocking it while off.</p>
+<p>A simpler way to make the LEDs flash on and off sinusoidally would be to use PWM directly from the digital pins of the Arduino. There is no need for transistors in that case. However, if we want to have an analog input to the LEDs, and we only have one DAC, the transistors make it possible to switch them on and off.</p>
+<hr></div>
 </div>
 
 
@@ -366,8 +384,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lessons/00/configuring_your_computer.html" class="btn btn-neutral float-right" title="0. Getting set up" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../thinking_exercises.html" class="btn btn-neutral float-right" title="Thinking exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="../22/op_amps.html" class="btn btn-neutral float-left" title="22. Operational amplifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -381,7 +401,7 @@
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7ff6d5106d90> 
+  </div> <jinja2.runtime.BlockReference object at 0x7ff6d98f4d60> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
