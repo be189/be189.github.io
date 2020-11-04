@@ -42,12 +42,12 @@ Due dates
 - :ref:`Follow-along exercises` 12–15: due 11:59 pm PDT, October 27
 - :ref:`Do-it-yourself exercises` 7–10: due 11:59 pm PDT, October 27
 .. - :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
-- :ref:`Spectrophotometer` write-up: due 10:30 am PDT, November 10
+- :ref:`Spectrophotometer` write-up: due 10:30 am PDT, November 17
 .. dummy comment
-- :ref:`Follow-along exercises` 16–: due 11:59 pm PDT, November 17
-- :ref:`Do-it-yourself exercises` 11–: due 11:59 pm PDT, November 17
+- :ref:`Follow-along exercises` 16–: due 11:59 pm PDT, November 19
+- :ref:`Do-it-yourself exercises` 11–: due 11:59 pm PDT, November 19
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 5:00 pm, December 3
+- :ref:`Pulse oximetry` write-up: due 5:00 pm, December 8
 
 
 ----

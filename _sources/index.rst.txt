@@ -59,6 +59,7 @@ People
    lessons/21/protection_with_zener.ipynb
    lessons/22/op_amps.ipynb
    lessons/23/transistors.ipynb
+   lessons/24/sample_and_hold.ipynb
 
 .. toctree::
    :maxdepth: 1

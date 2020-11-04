@@ -21,3 +21,4 @@ Follow-along exercises are embedded in lessons. For convenience here are links t
 - :ref:`Follow-along exercise 14: Empirical voltage division`
 - :ref:`Follow along exercise 15: Demonstrating protection by a Zener diode`
 - :ref:`Follow-along exercise 16: BJTs as switches`
+- :ref:`Follow-along exercise 17: Building a sample-and-hold circuit`
