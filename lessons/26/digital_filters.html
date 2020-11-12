@@ -7,14 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Do-it-yourself exercises &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>26. Digital filters &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
   
@@ -23,28 +23,28 @@
 
   
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Spectrophotometer" href="spectrophotometer.html" />
-    <link rel="prev" title="Follow-along exercises" href="follow_along_exercises.html" /> 
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Thinking exercises" href="../../thinking_exercises.html" />
+    <link rel="prev" title="25. Active filters" href="../25/active_filters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -58,12 +58,12 @@
           
 
           
-            <a href="index.html">
+            <a href="../../index.html">
           
 
           
             
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -71,7 +71,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -90,73 +90,76 @@
             
             
               <p class="caption"><span class="caption-text">Lessons</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/04/schematics.html">4. Schematics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/05/programming_arduino.html">5. Programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/07/adc_and_usart.html">7. ADC and USART</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/26/digital_filters.html">26. Digital filters</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">26. Digital filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-9:-Death-of-the-sampling-theorem?">Thinking exercise 9: Death of the sampling theorem?</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Do-it-yourself exercises</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#course-communications">Course communications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#equipment">Equipment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#exercises">Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#project-write-ups">Project write-ups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-communications">Course communications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#equipment">Equipment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#submission-of-exercises-and-project-write-ups">Submission of exercises and project write-ups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#exercises">Exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#project-write-ups">Project write-ups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
 
             
@@ -172,7 +175,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">BE/EE/MedE 189 a</a>
+          <a href="../../index.html">BE/EE/MedE 189 a</a>
         
       </nav>
 
@@ -208,7 +211,7 @@
     
         
         
-            <a href="_sources/do_it_yourself_exercises.rst.txt" rel="nofollow"> View page source</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/26/digital_filters.ipynb" download> Download notebook</a>
         
       
     
@@ -246,23 +249,15 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="do-it-yourself-exercises">
-<h1>Do-it-yourself exercises<a class="headerlink" href="#do-it-yourself-exercises" title="Permalink to this headline">¶</a></h1>
-<p>Do-it-yourself exercises are embedded in lessons. For convenience here are links to the respective exercises.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="lessons/06/practice_programming_arduino.html#Do-it-yourself-exercise-1:-Alien-contact-with-audio"><span class="std std-ref">Do-it-yourself exercise 1: Alien contact with audio</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/06/practice_programming_arduino.html#Do-it-yourself-exercise-2:-A-proper-Hello,-world."><span class="std std-ref">Do-it-yourself exercise 2: A proper Hello, world.</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/08/pulse_width_modulation.html#Do-it-yourself-exercise-3:-Brightness-control-by-PWM"><span class="std std-ref">Do-it-yourself exercise 3: Brightness control by PWM</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar"><span class="std std-ref">Do-it-yourself exercise 4: K.I.T.T. scanner bar</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html#Do-it-yourself-exercise-5:-Asking-for-data-with-buttons"><span class="std std-ref">Do-it-yourself exercise 5: Asking for data with buttons</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html#Do-it-yourself-exercise-6:-Etch-A-Sketch"><span class="std std-ref">Do-it-yourself exercise 6: Etch-A-Sketch</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/16/control_panels.html#Do-it-yourself-exercise-7:-Potentiometer-app"><span class="std std-ref">Do-it-yourself exercise 7: Potentiometer app</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/19/introduction_to_filters.html#Do-it-yourself-exercise-8:-DAC-with-PWM"><span class="std std-ref">Do-it-yourself exercise 8: DAC with PWM</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/20/photoresistors_and_adc.html#Do-it-yourself-exercise-9:-Photoresistors-with-ADC"><span class="std std-ref">Do-it-yourself exercise 9: Photoresistors with ADC</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/22/op_amps.html#Do-it-yourself-exercise-10:-Demonstration-of-noninverting-amplification"><span class="std std-ref">Do-it-yourself exercise 10: Demonstration of noninverting amplification</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/24/sample_and_hold.html#Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold"><span class="std std-ref">Do-it-yourself exercise 11: Using the LF398N for sample-and-hold</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/25/active_filters.html#Do-it-yourself-exercise-12:-A-bandpass-filter"><span class="std std-ref">Do-it-yourself exercise 12: A bandpass filter</span></a></p></li>
-</ul>
+<div class="section" id="26.-Digital-filters">
+<h1>26. Digital filters<a class="headerlink" href="#26.-Digital-filters" title="Permalink to this headline">¶</a></h1>
+<hr><p>Sometimes it is necessary to also apply <strong>digital signal processing</strong> techniques to your data. These are calculations typically done with your computer. These are often applied after some number of data points from your time series data are acquired and you wish to compute some properties of the signal. You will use one such technique, peak-finding, in your pulse oximetry project.</p>
+<p><strong>Digital filtering</strong> is a type of digital signal processing that is used to achieve similar filtering results that we have thus far built using analog filtering using resistors, capacitors, and op-amps to filter out high or low frequencies that are not of interest to us.</p>
+<hr><div class="section" id="Thinking-exercise-9:-Death-of-the-sampling-theorem?">
+<h2>Thinking exercise 9: Death of the sampling theorem?<a class="headerlink" href="#Thinking-exercise-9:-Death-of-the-sampling-theorem?" title="Permalink to this headline">¶</a></h2>
+<p>Read <a class="reference external" href="https://markusmeister.com/2018/03/20/death-of-the-sampling-theorem/">this blog post by Markus Meister</a>. Trust me. It’s worth it.</p>
+<hr><p>If you are having trouble getting clean signals of time series data, you can do digital filtering after the fact. You should try to optimize your analog filtering before sampling, though, as discussed in the above blog post.</p>
+</div>
 </div>
 
 
@@ -273,10 +268,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="spectrophotometer.html" class="btn btn-neutral float-right" title="Spectrophotometer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../thinking_exercises.html" class="btn btn-neutral float-right" title="Thinking exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="follow_along_exercises.html" class="btn btn-neutral float-left" title="Follow-along exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../25/active_filters.html" class="btn btn-neutral float-left" title="25. Active filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -290,7 +285,7 @@
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7ff0b98c4250> 
+  </div> <jinja2.runtime.BlockReference object at 0x7ff0bba8bdc0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

@@ -11,3 +11,5 @@ Thinking exercises are embedded in lessons. For convenience here are links to th
 - :ref:`Thinking exercise 5: Safeguards`
 - :ref:`Thinking exercise 6: Passive low-pass RC filter`
 - :ref:`Thinking exercise 7: Another amplifier`
+- :ref:`Thinking exercise 8: Sallen-Key response`
+- :ref:`Thinking exercise 9: Death of the sampling theorem?`

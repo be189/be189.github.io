@@ -60,6 +60,8 @@ People
    lessons/22/op_amps.ipynb
    lessons/23/transistors.ipynb
    lessons/24/sample_and_hold.ipynb
+   lessons/25/active_filters.ipynb
+   lessons/26/digital_filters.ipynb
 
 .. toctree::
    :maxdepth: 1
