@@ -44,8 +44,8 @@ Due dates
 .. - :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
 - :ref:`Spectrophotometer` write-up: due 10:30 am PDT, November 17
 .. dummy comment
-- :ref:`Follow-along exercises` 16–18: due 11:59 pm PDT, November 19
-- :ref:`Do-it-yourself exercises` 11–12: due 11:59 pm PDT, November 19
+- :ref:`Follow-along exercises` 16–18: due 11:59 pm PDT, November 24
+- :ref:`Do-it-yourself exercises` 11–12: due 11:59 pm PDT, November 24
 .. dummy comment
 - :ref:`Pulse oximetry` write-up: due 5:00 pm, December 8
 
@@ -68,4 +68,5 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be 
 - **Tu 11/03**: Determination of growth rate from growth curves
 - **Tu 11/10**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
 - **Th 11/19**: Guest lecture from Mu Qiao
+- **Th 11/24**: Time series analysis
 - **Th 11/26**: Thanksgiving Day: no class
