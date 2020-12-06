@@ -759,19 +759,19 @@
 \[\begin{aligned}
 F(t) = 1 - \mathrm{e}^{-\beta t}.
 \end{aligned}\]</div>
-<p>The probability that at no Poisson process arrives within time <span class="math notranslate nohighlight">\(t\)</span>, meaning that the photon manages to pass through the sample without being scattered, is <span class="math notranslate nohighlight">\(1 - F(t) = \mathrm{e}^{-\beta t}\)</span>. Thus, if the light entering the sample had intensity <span class="math notranslate nohighlight">\(I_0\)</span>, that leaving has intensity <span class="math notranslate nohighlight">\(I_0\,\mathrm{e}^{-\beta t}\)</span>.</p>
-<p>The time it takes to traverse the sample is proportional to the length of the cuvette, <span class="math notranslate nohighlight">\(l\)</span>. The parameter <span class="math notranslate nohighlight">\(\beta\)</span>, which parametrizes the distribution and describes how likely it is to hit a cell is a function of the concentration <span class="math notranslate nohighlight">\(c\)</span> of the cells in the media. If the media is dilute, we can write <span class="math notranslate nohighlight">\(\beta\)</span> as a Taylor series in <span class="math notranslate nohighlight">\(c\)</span> to first order such that <span class="math notranslate nohighlight">\(\beta \propto c\)</span>. We then arrive at</p>
+<p>The probability that no Poisson process arrives within time <span class="math notranslate nohighlight">\(t\)</span>, meaning that the photon manages to pass through the sample without being scattered, is <span class="math notranslate nohighlight">\(1 - F(t) = \mathrm{e}^{-\beta t}\)</span>. Thus, if the light entering the sample had intensity <span class="math notranslate nohighlight">\(I_0\)</span>, that leaving has intensity <span class="math notranslate nohighlight">\(I_0\,\mathrm{e}^{-\beta t}\)</span>.</p>
+<p>The time it takes to traverse the sample is proportional to the length of the cuvette, <span class="math notranslate nohighlight">\(l\)</span>. The parameter <span class="math notranslate nohighlight">\(\beta\)</span>, which parametrizes the distribution and describes how likely it is to hit a cell, is a function of the concentration <span class="math notranslate nohighlight">\(c\)</span> of the cells in the media. If the media is dilute, we can write <span class="math notranslate nohighlight">\(\beta\)</span> as a Taylor series in <span class="math notranslate nohighlight">\(c\)</span> to first order such that <span class="math notranslate nohighlight">\(\beta \propto c\)</span>. We then arrive at</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
 I = I_0 \mathrm{e}^{-\epsilon l c},
 \end{aligned}\]</div>
 <p>where the wavelength-dependent parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> that contains the constants of proportionality is referred to as the molar attenuation coefficient. This equation is known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Beer–Lambert_law">Beer-Lambert Law</a>.</p>
 <p>The transmission efficiency of the sample is the ratio of the final and initial light intensity, <span class="math notranslate nohighlight">\(T = I/I_0\)</span>, and the reported quantity is called the <strong>optical density</strong>, <span class="math notranslate nohighlight">\(\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}\)</span>. The general rule of thumb is that the accurate OD readings lie in the range of <span class="math notranslate nohighlight">\(0.01 &lt; \mathrm{OD} &lt; 1\)</span>. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.</p>
-<p>As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is <span class="math notranslate nohighlight">\(\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{black}\)</span>.</p>
+<p>As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is <span class="math notranslate nohighlight">\(\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{blank}\)</span>.</p>
 </div>
 <div class="section" id="basics-of-microbial-growth">
 <h3>Basics of microbial growth<a class="headerlink" href="#basics-of-microbial-growth" title="Permalink to this headline">¶</a></h3>
-<p>Say we have a collection of cells in media cell that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the “stuff of life” at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time <span class="math notranslate nohighlight">\(t_\mathrm{div}\)</span>. Those two cells will grow and divide, and after time <span class="math notranslate nohighlight">\(2 t_\mathrm{div}\)</span>, we will have four cells. After a time <span class="math notranslate nohighlight">\(3t_\mathrm{div}\)</span> we will have eight cells, and so on. So, the <em>rate</em> at which new cells are produced is proportional to the number of cells in solution, or</p>
+<p>Say we have a collection of cells in media that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the “stuff of life” at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time <span class="math notranslate nohighlight">\(t_\mathrm{div}\)</span>. Those two cells will grow and divide, and after time <span class="math notranslate nohighlight">\(2 t_\mathrm{div}\)</span>, we will have four cells. After a time <span class="math notranslate nohighlight">\(3t_\mathrm{div}\)</span> we will have eight cells, and so on. So, the <em>rate</em> at which new cells are produced is proportional to the number of cells in solution, or</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
 \frac{\mathrm{d}N}{\mathrm{d}t} = k N,
@@ -798,7 +798,7 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <ol class="arabic simple">
 <li><p>It must be built from the components in your kit, plus any household items you may wish to use. (These household items should be common and/or low cost.)</p></li>
 <li><p>It must operate in stand-alone mode. In this mode, the device does not need to be connected to a computer (only a power source). The user pushes a button and the resulting OD is displayed on the LCD display.</p></li>
-<li><p>It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user have an on-screen control panel and can click buttons to obtain and display OD measurements.</p></li>
+<li><p>It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user has an on-screen control panel and can click buttons to obtain and display OD measurements.</p></li>
 </ol>
 <p>You must demonstrate the instrument by acquiring a growth curve and determining the growth rate <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <div class="section" id="documentation">
@@ -816,7 +816,7 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <ol class="arabic simple">
 <li><p>There are two types of ≈600 nm emitting LEDs, <a class="reference external" href="https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y">one with 10 candela luminosity</a>, and <a class="reference external" href="https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y">one with 1 candela luminosity</a>. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.</p></li>
 <li><p>It is important to block stray light. Think about how to accomplish that with household items.</p></li>
-<li><p>You may want to attempt to collimate the light with the glass beads (actually from children’s jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole of slit for the light to pass through the cuvette.</p></li>
+<li><p>You may want to attempt to collimate the light with the glass beads (actually from children’s jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole or slit for the light to pass through the cuvette.</p></li>
 <li><p>Think about ways of dealing with noise and amplification, if necessary.</p></li>
 <li><p>Think carefully about how to calibrate relationship between measured voltage across the photoresistor to OD.</p></li>
 <li><p>In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about <a class="reference external" href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce">debouncing</a>.</p></li>
@@ -854,11 +854,11 @@ N(t) = N_0\,\mathrm{e}^{kt}.
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813ef5e2b0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdad35e0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

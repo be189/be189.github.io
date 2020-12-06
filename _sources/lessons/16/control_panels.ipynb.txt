@@ -360,7 +360,7 @@
    "source": [
     "<hr>\n",
     "\n",
-    "We have seen how to make buttons to control data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a *control panel* for a device. When building a device, it is important to have intuitive controls and display to get the most out of your device. Not only does this speed your work work, but also enables other researchers to use your device.\n",
+    "We have seen how to make buttons to control data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a *control panel* for a device. When building a device, it is important to have intuitive controls and display to get the most out of your device. Not only does this speed up your work, but also enables other researchers to use your device.\n",
     "\n",
     "You are of course thoughtful about the physical design of any device you make. There's no option; it won't work if you don't build it well. At the same time, you should also be thoughtful about how you *interface* with the device. This is often overlooked. I view it as similarly to software that has a bad, poorly documented API. No one, not even future you, will know how to operate your device unless you are careful about its interface and documentation.\n",
     "\n",
@@ -705,7 +705,7 @@
     "After considering this design, I decided I wanted to add two more features.\n",
     "\n",
     "1. An indicator as if data had been saved to a file under the \"save\" button.\n",
-    "2. To option to shut down the app. In the shutdown procedure, the asynchronous data acquisition is halted and Arduino is disconnected. In the stand-alone app (that is, outside of a Jupyter notebook), the server is also shut down.\n",
+    "2. An option to shut down the app. In the shutdown procedure, the asynchronous data acquisition is halted and Arduino is disconnected. In the stand-alone app (that is, outside of a Jupyter notebook), the server is also shut down.\n",
     "\n",
     "The final design I sketched is show below.\n",
     "\n",
@@ -749,7 +749,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Next, we need to have variables to store data coming in from streaming and on-demand. These need to be mutable objects that we can pass into data collection functions and into the function defining the Bokeh app. We will therefore use dictionaries of lists, ons for streaming data and one for on-demand data. For the streaming dictionary, we should also keep two other variables, the most of data acquisition (either `'stream'` or `'on demand'`), and a variable to keep track of the array length of the data currently on the streaming plot. We need to keep that reference so we know which data points to add to the plot after each acquisition, since we acquire more than one data point at a time."
+    "Next, we need to have variables to store data coming in from streaming and on-demand. These need to be mutable objects that we can pass into data collection functions and into the function defining the Bokeh app. We will therefore use dictionaries of lists, one for streaming data and one for on-demand data. For the streaming dictionary, we should also keep two other variables, the mode of data acquisition (either `'stream'` or `'on demand'`), and a variable to keep track of the array length of the data currently on the streaming plot. We need to keep that reference so we know which data points to add to the plot after each acquisition, since we acquire more than one data point at a time."
    ]
   },
   {
@@ -833,7 +833,7 @@
    "source": [
     "## Building the app\n",
     "\n",
-    "The completed app needs to be contained in a single function the Bokeh can use to create the app. To practice modular programming, we will write functions to build the parts of the app one by one. These function can then be used within the function defining the app. \n",
+    "The completed app needs to be contained in a single function that Bokeh can use to create the app. To practice modular programming, we will write functions to build the parts of the app one by one. These functions can then be used within the function defining the app. \n",
     "\n",
     "We'll start by defining the plots. When we build the plot, as before, we have to be sure to specify a `ColumnDataSource`.\n",
     "\n",
@@ -1042,7 +1042,7 @@
     "\n",
     "Clicking any of the buttons above will not do anything. This is because they are not connected to any callbacks, or functions that are executed when the button or toggle is clicked. We need to write the callback functions for each.\n",
     "\n",
-    "We'll start with the callback for pressing the \"acquire\" button to get a single on-demand data point. When we ask for data while steaming is happening, we can just pick off the last streamed data point. Otherwise, we ask for a single voltage. In either case, we append the new data point to our on-demand data dictionary. We also updated the data source to include the new data point. To do this, we use the `stream()` method of a Bokeh `ColumnDataSource`. Using this function allows for rapid update of the plot. Only a the new data are added; the plot is not re-rendered.\n",
+    "We'll start with the callback for pressing the \"acquire\" button to get a single on-demand data point. When we ask for data while steaming is happening, we can just pick off the last streamed data point. Otherwise, we ask for a single voltage. In either case, we append the new data point to our on-demand data dictionary. We also updated the data source to include the new data point. To do this, we use the `stream()` method of a Bokeh `ColumnDataSource`. Using this function allows for rapid update of the plot. Only the new data are added; the plot is not re-rendered.\n",
     "\n",
     "Finally, we need to update the phantom data point to be the new data point to keep the ranges of the x-axis reasonable."
    ]

@@ -256,7 +256,7 @@
 </style>
 <div class="section" id="19.-Introduction-to-filters">
 <h1>19. Introduction to filters<a class="headerlink" href="#19.-Introduction-to-filters" title="Permalink to this headline">¶</a></h1>
-<hr><p>In this lesson, will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal.</p>
+<hr><p>In this lesson, we will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal.</p>
 <div class="section" id="Voltage-dividers">
 <h2>Voltage dividers<a class="headerlink" href="#Voltage-dividers" title="Permalink to this headline">¶</a></h2>
 <p>A <strong>voltage divider</strong> is one of the most commonly encountered simple circuits. Consider the circuit shown below.</p>
@@ -299,7 +299,7 @@ V(t) = \mathrm{Re}[V_0\,\mathrm{e}^{j\omega t}] = R I(t),
 <p><span class="math">\begin{align}
 I(t) = \mathrm{Re}\left[\frac{1}{R}\,V_0\,\mathrm{e}^{j\omega t}\right].
 \end{align}</span></p>
-<p>The current is completely in phase with the voltage (which we already knew from Ohm’s law), meaning that resisters are completely (you guessed it) resistive. That is, for resistors, the impedance is <span class="math notranslate nohighlight">\(Z = R\)</span>.</p>
+<p>The current is completely in phase with the voltage (which we already knew from Ohm’s law), meaning that resistors are completely (you guessed it) resistive. That is, for resistors, the impedance is <span class="math notranslate nohighlight">\(Z = R\)</span>.</p>
 <p>Now, let’s put a sinusoidal voltage across a capacitor.</p>
 <p><span class="math">\begin{align}
 \frac{\mathrm{d}V}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\,\mathrm{Re}[V_0\,\mathrm{e}^{j\omega t}]  = \omega\,V_0\,\mathrm{Re}[j \mathrm{e}^{j\omega t}] = \frac{I(t)}{C}.
@@ -325,7 +325,7 @@ V_\mathrm{out} = \frac{R}{-j/\omega C + R}\, V_\mathrm{in}.
 \left|V_\mathrm{out}\right| = \frac{R}{\sqrt{1/\omega^2 C^2 + R^2}}\, \left|V_\mathrm{in}\right| = \frac{1}{\sqrt{1 + 1/\omega^2 R^2 C^2}}\, \left|V_\mathrm{in}\right|.
 \end{align}</span></p>
 <p>Note that in taking the amplitude, we are ignoring the phase shift. The result is interesting because the magnitude of the output voltage is frequency dependent. For frequencies much smaller than <span class="math notranslate nohighlight">\(1/RC\)</span>, the second term in the denominator gets large, and the output voltage approaches zero. For high frequencies, the second term in the denominator is small, and <span class="math notranslate nohighlight">\(\left|V_\mathrm{out}\right| \approx \left|V\mathrm{in}\right|\)</span>. Thus the circuit where Z₁ is a capacitor and Z₂ is a resistor
-is a <strong>high-pass filter</strong>. High frequency changes in voltages get through, which low frequency changes in voltages are blocked.</p>
+is a <strong>high-pass filter</strong>. High frequency changes in voltages get through, while low frequency changes in voltages are blocked.</p>
 <hr></div>
 <div class="section" id="Thinking-exercise-6:-Passive-low-pass-RC-filter">
 <h2>Thinking exercise 6: Passive low-pass RC filter<a class="headerlink" href="#Thinking-exercise-6:-Passive-low-pass-RC-filter" title="Permalink to this headline">¶</a></h2>
@@ -377,11 +377,11 @@ V_\mathrm{out} = \frac{-j/\omega C}{R - j/\omega C}\, V_\mathrm{in} = -\frac{1}{
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813ffc3f70> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fea17f10> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

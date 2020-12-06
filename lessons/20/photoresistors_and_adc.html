@@ -275,7 +275,7 @@ the lower the resistance.</p>
 <hr></div>
 <div class="section" id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
 <h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline">¶</a></h2>
-<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you want hight bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to do ADC. You can ask Google, but as a
+<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you want higher bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to do ADC. You can ask Google, but as a
 hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.</p>
 <p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.</p>
 <p>The voltage across each photoresistor should be read both by using the built-in pins on the Arduino Uno and by using the ADS1015. Reading the voltage in two ways will give you a way to check to make sure everything is working properly. You should make an app wherein the voltages can be monitored in real time.</p>
@@ -283,7 +283,7 @@ hint, the manufacturer of the breakout board, Adafruit, has useful material on t
 <ol class="arabic simple">
 <li><p>Carefully read the information on the ADS1015. Here is a big hint that you will find: Unlike the ADC in the Arduino Uno, the ADS1015 can convert negative voltages. Its output is 12-bits, so the range of values is from –2048 to 2047. You should think carefully about how to take full advantage of the full range of numbers. Otherwise, if you are just using positive numbers, you only get one extra bit beyond the 10-bits in the built-in ADC. (Though in practice, you would probably use a 16-bit
 ADC, possibly the ADS1115.)</p></li>
-<li><p>Given that you can get negative numbers coming into Python from Arduino will have negative numbers, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: <code class="docutils literal notranslate"><span class="pre">re.compile(b&quot;\d+|,|-&quot;)</span></code>.</p></li>
+<li><p>Given that you can get negative numbers coming into Python from Arduino, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: <code class="docutils literal notranslate"><span class="pre">re.compile(b&quot;\d+|,|-&quot;)</span></code>.</p></li>
 <li><p>Think about how you can use voltage dividers to get the best dynamic range. The photoresistors in your kit have a resistance of about 50 to 100 kΩ depending on the light intensity.</p></li>
 </ol>
 <hr></div>
@@ -310,11 +310,11 @@ ADC, possibly the ADS1115.)</p></li>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813fe41220> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fec56310> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

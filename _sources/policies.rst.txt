@@ -73,7 +73,7 @@ In a do-it-yourself exercise, you apply techniques covered in the course materia
 5. A brief movie of your circuit functioning.
 6. A photo or photos of your board/breadboard if anything is unclear from the movie.
 
-To include Arduino sketchs in Jupyter notebooks, use the following syntax in a Markdown cell.
+To include Arduino sketches in Jupyter notebooks, use the following syntax in a Markdown cell.
 
 .. code::
 

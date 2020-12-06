@@ -13,7 +13,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "In this lesson, will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal."
+    "In this lesson, we will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal."
    ]
   },
   {
@@ -98,7 +98,7 @@
     "I(t) = \\mathrm{Re}\\left[\\frac{1}{R}\\,V_0\\,\\mathrm{e}^{j\\omega t}\\right].\n",
     "\\end{align}\n",
     "\n",
-    "The current is completely in phase with the voltage (which we already knew from Ohm's law), meaning that resisters are completely (you guessed it) resistive. That is, for resistors, the impedance is $Z = R$.\n",
+    "The current is completely in phase with the voltage (which we already knew from Ohm's law), meaning that resistors are completely (you guessed it) resistive. That is, for resistors, the impedance is $Z = R$.\n",
     "\n",
     "Now, let's put a sinusoidal voltage across a capacitor.\n",
     "\n",
@@ -139,7 +139,7 @@
     "\\left|V_\\mathrm{out}\\right| = \\frac{R}{\\sqrt{1/\\omega^2 C^2 + R^2}}\\, \\left|V_\\mathrm{in}\\right| = \\frac{1}{\\sqrt{1 + 1/\\omega^2 R^2 C^2}}\\, \\left|V_\\mathrm{in}\\right|.\n",
     "\\end{align}\n",
     "\n",
-    "Note that in taking the amplitude, we are ignoring the phase shift. The result is interesting because the magnitude of the output voltage is frequency dependent. For frequencies much smaller than $1/RC$, the second term in the denominator gets large, and the output voltage approaches zero. For high frequencies, the second term in the denominator is small, and $\\left|V_\\mathrm{out}\\right| \\approx \\left|V\\mathrm{in}\\right|$. Thus the circuit where Z₁ is a capacitor and Z₂ is a resistor is a **high-pass filter**. High frequency changes in voltages get through, which low frequency changes in voltages are blocked."
+    "Note that in taking the amplitude, we are ignoring the phase shift. The result is interesting because the magnitude of the output voltage is frequency dependent. For frequencies much smaller than $1/RC$, the second term in the denominator gets large, and the output voltage approaches zero. For high frequencies, the second term in the denominator is small, and $\\left|V_\\mathrm{out}\\right| \\approx \\left|V\\mathrm{in}\\right|$. Thus the circuit where Z₁ is a capacitor and Z₂ is a resistor is a **high-pass filter**. High frequency changes in voltages get through, while low frequency changes in voltages are blocked."
    ]
   },
   {

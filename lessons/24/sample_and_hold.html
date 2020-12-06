@@ -261,8 +261,8 @@ discussion.)</p>
 <h2>Basic sample-and-hold architecture<a class="headerlink" href="#Basic-sample-and-hold-architecture" title="Permalink to this headline">¶</a></h2>
 <p>The essential components of a sample-and-hold circuit are two unit-gain op-amps, a switch, and a capacitor, shown in the schematic below.</p>
 <div style="margin: auto; width: 400px"><p><img alt="Sample-and-hold architecture" src="../../_images/sample_and_hold.svg" /></p>
-</div><p>The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across is grows. When the switch opens (OFF), whatever charge was build up in the capacitor is held because the right op-amp does not allow current to flow through. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage
-across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage int he capacitor.</p>
+</div><p>The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across it grows. When the switch opens (OFF), whatever charge was build up in the capacitor is held because the right op-amp does not allow current to flow through. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage
+across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage in the capacitor.</p>
 <p>So, the “sample” step involves turning the switch on and building up the charge of the capacitor so that the voltage across the capacitor matches the input voltage. The “hold” step involves turning the switch off and outputting the held capacitor voltage.</p>
 <p>The choice of capacitance <span class="math notranslate nohighlight">\(C\)</span> depends on the goals of the sample-and-hold circuit. If you need to hold the voltage for a long time, you want a large <span class="math notranslate nohighlight">\(C\)</span>, since you will lose voltage across the capacitor according to <span class="math notranslate nohighlight">\(\mathrm{d}V/\mathrm{d}t = I_\mathrm{leak}/C\)</span>, where <span class="math notranslate nohighlight">\(I_\mathrm{leak}\)</span> is the current leaked through the right op-amp. (Such drop in voltage while holding is called <strong>droop</strong>.) On the other hand, if you want to have high frequency sampling, you need to be able
 to charge up the capacitor quickly, so you want <span class="math notranslate nohighlight">\(C\)</span> to be small. Furthermore, there is some finite resistance in the switch, so the capacitor is part of a low-pass filter. So, you want <span class="math notranslate nohighlight">\(C\)</span> to be small so that high frequency signals are not filtered out.</p>
@@ -344,7 +344,7 @@ hand, if you are going to be switching between positive and negative voltages fo
 <hr></div>
 <div class="section" id="Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold">
 <h2>Do-it-yourself exercise 11: Using the LF398N for sample-and-hold<a class="headerlink" href="#Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold" title="Permalink to this headline">¶</a></h2>
-<p>Now perform sample-and-hold using the LF398N integrated circuit using a similar circuit as above. That is, either swap out the hand-built sample-and-hold circuit above with one using LF398N. You can even just add LF398N-based sample-and-hold to that circuit if you wish. Generate similar plots either using the Serial Plotter in the Arduino IDE or with a Bokeh app.</p>
+<p>Now perform sample-and-hold using the LF398N integrated circuit using a similar circuit as above. That is, swap out the hand-built sample-and-hold circuit above with one using LF398N. You can even just add LF398N-based sample-and-hold to that circuit if you wish. Generate similar plots either using the Serial Plotter in the Arduino IDE or with a Bokeh app.</p>
 <hr></div>
 </div>
 
@@ -369,11 +369,11 @@ hand, if you are going to be switching between positive and negative voltages fo
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813fe374c0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe83e880> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

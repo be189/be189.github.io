@@ -15,7 +15,7 @@
    "source": [
     "<hr>\n",
     "\n",
-    "We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC comes up in many applications for biodevices. As an example consider measurement of a [cyclic voltammogram](https://en.wikipedia.org/wiki/Cyclic_voltammetry). In these assays, you need to supply a varying voltage and then measure a current. The voltage supply cannot be deliverer with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.\n",
+    "We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC comes up in many applications for biodevices. As an example consider measurement of a [cyclic voltammogram](https://en.wikipedia.org/wiki/Cyclic_voltammetry). In these assays, you need to supply a varying voltage and then measure a current. The voltage supply cannot be delivered with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.\n",
     "\n",
     "To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. In your kit, you have and [MCP4725 DAC breakout board from Adafruit](https://www.adafruit.com/product/935). The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. **Libraries** contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.\n",
     "\n",
@@ -67,7 +67,7 @@
    "source": [
     "### Using the Wire library\n",
     "\n",
-    "In order to conveniently communicate using I2C, we will use the [Wire library](https://www.arduino.cc/en/Reference/Wire). In order to use it, or any other library, it needs to be **include**d at in your sketch. The syntax for including an installed library is `# include <Wire.h>`, where you can substitute whatever library you are using for `Wire.h`. It is easiest to see how the library is used by example. Load the following sketch onto Arduino.\n",
+    "In order to conveniently communicate using I2C, we will use the [Wire library](https://www.arduino.cc/en/Reference/Wire). In order to use it, or any other library, it needs to be **include**d in your sketch. The syntax for including an installed library is `# include <Wire.h>`, where you can substitute whatever library you are using for `Wire.h`. It is easiest to see how the library is used by example. Load the following sketch onto Arduino.\n",
     "\n",
     "```arduino\n",
     "// Wire is library to talk with I2C\n",
@@ -113,9 +113,9 @@
     "\n",
     "We `#include` the library at the top. In the `setup()` function, we call `Wire.begin()` to open communication via I2C. When we transmit data to the MCP4725, we need to know its **address**. If the A0 pin of the MCP4725 (completely different from the A0 pin on the Arduino Uno) is connected to ground (or not connected), the address is `0x62`, which is hexidecimal for 98. In the A0 pin is connected to a high voltage, then the address is `0x63`. This enables you to have two DACs controlled by the same Arduino Uno. We only have one here, so we will leave the A0 pin unconnected and use address `0x62`. We define the address `#define MCP4725_ADDR 0x62`. A `#define` directive basically tells the compiler to substitute `0x62` wherever `MCP4725_ADDR` appears in the code.\n",
     "\n",
-    "Now that we have the address, we can write data to the DAC. The function `write12BitI2C()` is used to send a 12-bit integer (since our DAC is 12-bit). First, we need to begin a transmission using the (you guessed it) `Wire.beginTransmission()` function, with the address of the device we are communicating with as the argument. To tell the MCP4725 to expect to receive data to convert to analog voltage, we send `0x40`, which corresponds to the decimal number 64. This is done using `Wire.write(64)`. Since we can only write a byte (8 bits) at a time, we have two write the 12-bit number in two steps. First, we write the 8 most significant bits by shifting the 12-bit integer rightward 4 bits. We get the remaining four bits as our input modulo 2⁴ = 16. We then shift it four bits leftward so that the next four bits received by the MCP4725 at the last four bits of the input. Finally, we end the transmission with `Wire.endTransmission()`. (If this all seems confusing, don't worry; soon you won't need to think about it.)\n",
+    "Now that we have the address, we can write data to the DAC. The function `write12BitI2C()` is used to send a 12-bit integer (since our DAC is 12-bit). First, we need to begin a transmission using the (you guessed it) `Wire.beginTransmission()` function, with the address of the device we are communicating with as the argument. To tell the MCP4725 to expect to receive data to convert to analog voltage, we send `0x40`, which corresponds to the decimal number 64. This is done using `Wire.write(64)`. Since we can only write a byte (8 bits) at a time, we have to write the 12-bit number in two steps. First, we write the 8 most significant bits by shifting the 12-bit integer rightward 4 bits. We get the remaining four bits as our input modulo 2⁴ = 16. We then shift it four bits leftward so that the next four bits received by the MCP4725 at the last four bits of the input. Finally, we end the transmission with `Wire.endTransmission()`. (If this all seems confusing, don't worry; soon you won't need to think about it.)\n",
     "\n",
-    "In the loop, we generate a sine wave that oscillated between zero and 4095 with a frequency of 1 Hz. We send that to the DAC over I2C, sending data every 20 ms. The LED will then smoothly turn on and off.\n",
+    "In the loop, we generate a sine wave that oscillates between zero and 4095 with a frequency of 1 Hz. We send that to the DAC over I2C, sending data every 20 ms. The LED will then smoothly turn on and off.\n",
     "\n",
     "<hr>"
    ]
@@ -135,7 +135,7 @@
     "#include <Adafruit_MCP4725.h>\n",
     "\n",
     "//This is the I2C Address of the MCP4725, by default (A0 pulled to GND).\n",
-    "//For devices with A0 pulled HIGH, use 0x61\n",
+    "//For devices with A0 pulled HIGH, use 0x63\n",
     "#define MCP4725_ADDR 0x62\n",
     "\n",
     "const int freq = 1;\n",
@@ -164,7 +164,7 @@
     "\n",
     "The sketch warrants some comments. The library defines a useful `Adafruit_MCP4725` class. This class has convenient `begin()` and `setVoltage()` functions. The `begin()` function is called in the `setup()` function to open communication. The address is given here, and is stored in the instance of the class, so you do not need to use the address in the `loop()`. The `setVoltage()` function sends an integer to the MCP4725 for conversion to an analog voltage. The function expects the integer to be of type `uint16_t`, which is a 16-bit unsigned integer. It also takes a second argument, which, if `true`, the integer is stored in the EEPROM on-board the MCP4725 breakout board. If the second argument is `false`, the input is simply converted to an analog voltage and not stored.\n",
     "\n",
-    "The `setVoltage()` function is also clever in that it speeds up the rate of data transfer by I2C. As we mentioned when introducing I2C in [lesson 2](../02/tour_of_arduino.ipynb), the Arduino Uno can communicte over I2C at about 400 kbaud, but defaults to 100 kbaud. When you use `setVoltage()`, it automatically works at 400 kbaud."
+    "The `setVoltage()` function is also clever in that it speeds up the rate of data transfer by I2C. As we mentioned when introducing I2C in [lesson 2](../02/tour_of_arduino.ipynb), the Arduino Uno can communicate over I2C at about 400 kbaud, but defaults to 100 kbaud. When you use `setVoltage()`, it automatically works at 400 kbaud."
    ]
   }
  ],

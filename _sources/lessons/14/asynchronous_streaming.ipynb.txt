@@ -834,7 +834,7 @@
    "source": [
     "We get back a coroutine. To run it, we need a running [event loop](https://en.wikipedia.org/wiki/Event_loop). An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as a one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab [later in this lesson](#Running-without-an-existing-event-loop). For now, we will assume you have a running event loop, as you do in a Jupyter notebook.\n",
     "\n",
-    "To run the coroutine, you can create a task using `asyncio.create_task()`. Note that \"calling\" a coroutine like a function returns a coroutine, so the argument you pass into `asyncio.create_task()` is how you would call the coroutine, including all arguments and keyowrd arguments. Upon creation, the coroutine is run."
+    "To run the coroutine, you can create a task using `asyncio.create_task()`. Note that \"calling\" a coroutine like a function returns a coroutine, so the argument you pass into `asyncio.create_task()` is how you would call the coroutine, including all arguments and keyword arguments. Upon creation, the coroutine is run."
    ]
   },
   {

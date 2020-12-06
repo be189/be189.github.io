@@ -828,7 +828,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 }(window));
 </script></div>
 </div>
-<hr><p>We have seen how to make buttons to control data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a <em>control panel</em> for a device. When building a device, it is important to have intuitive controls and display to get the most out of your device. Not only does this speed your work work, but also enables other researchers to use your device.</p>
+<hr><p>We have seen how to make buttons to control data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a <em>control panel</em> for a device. When building a device, it is important to have intuitive controls and display to get the most out of your device. Not only does this speed up your work, but also enables other researchers to use your device.</p>
 <p>You are of course thoughtful about the physical design of any device you make. There’s no option; it won’t work if you don’t build it well. At the same time, you should also be thoughtful about how you <em>interface</em> with the device. This is often overlooked. I view it as similarly to software that has a bad, poorly documented API. No one, not even future you, will know how to operate your device unless you are careful about its interface and documentation.</p>
 <p>We will again use the setup of the last few lessons with the same utility functions. You can again skip ahead to the <a class="reference external" href="#Python-based-dashboarding">next section</a> after running the code cells below.</p>
 <div class="nbinput nblast docutils container">
@@ -1130,7 +1130,7 @@ we will proceed building dashboards with base Bokeh, which is what Panel uses un
 <p>After considering this design, I decided I wanted to add two more features.</p>
 <ol class="arabic simple">
 <li><p>An indicator as if data had been saved to a file under the “save” button.</p></li>
-<li><p>To option to shut down the app. In the shutdown procedure, the asynchronous data acquisition is halted and Arduino is disconnected. In the stand-alone app (that is, outside of a Jupyter notebook), the server is also shut down.</p></li>
+<li><p>An option to shut down the app. In the shutdown procedure, the asynchronous data acquisition is halted and Arduino is disconnected. In the stand-alone app (that is, outside of a Jupyter notebook), the server is also shut down.</p></li>
 </ol>
 <p>The final design I sketched is show below.</p>
 <div style="margin: auto; width: 500px;"><p><img alt="Dashboard sketch v. 3" src="../../_images/dashboard_sketch_3.png" /></p>
@@ -1157,7 +1157,7 @@ we will proceed building dashboards with base Bokeh, which is what Panel uses un
 </pre></div>
 </div>
 </div>
-<p>Next, we need to have variables to store data coming in from streaming and on-demand. These need to be mutable objects that we can pass into data collection functions and into the function defining the Bokeh app. We will therefore use dictionaries of lists, ons for streaming data and one for on-demand data. For the streaming dictionary, we should also keep two other variables, the most of data acquisition (either <code class="docutils literal notranslate"><span class="pre">'stream'</span></code> or <code class="docutils literal notranslate"><span class="pre">'on</span> <span class="pre">demand'</span></code>), and a variable to keep track of the array length
+<p>Next, we need to have variables to store data coming in from streaming and on-demand. These need to be mutable objects that we can pass into data collection functions and into the function defining the Bokeh app. We will therefore use dictionaries of lists, one for streaming data and one for on-demand data. For the streaming dictionary, we should also keep two other variables, the mode of data acquisition (either <code class="docutils literal notranslate"><span class="pre">'stream'</span></code> or <code class="docutils literal notranslate"><span class="pre">'on</span> <span class="pre">demand'</span></code>), and a variable to keep track of the array length
 of the data currently on the streaming plot. We need to keep that reference so we know which data points to add to the plot after each acquisition, since we acquire more than one data point at a time.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1231,7 +1231,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 </div>
 <div class="section" id="Building-the-app">
 <h2>Building the app<a class="headerlink" href="#Building-the-app" title="Permalink to this headline">¶</a></h2>
-<p>The completed app needs to be contained in a single function the Bokeh can use to create the app. To practice modular programming, we will write functions to build the parts of the app one by one. These function can then be used within the function defining the app.</p>
+<p>The completed app needs to be contained in a single function that Bokeh can use to create the app. To practice modular programming, we will write functions to build the parts of the app one by one. These functions can then be used within the function defining the app.</p>
 <p>We’ll start by defining the plots. When we build the plot, as before, we have to be sure to specify a <code class="docutils literal notranslate"><span class="pre">ColumnDataSource</span></code>.</p>
 <p>We also need to play a little trick. With no glyphs on a plot, Bokeh does not know how to set the axes. So, we need to provide “phantom” data to the plot. We specify a phantom data source that give coordinates for a single glyph, an invisible circle.</p>
 <div class="nbinput nblast docutils container">
@@ -1398,7 +1398,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>Looks good!</p>
 <p>Clicking any of the buttons above will not do anything. This is because they are not connected to any callbacks, or functions that are executed when the button or toggle is clicked. We need to write the callback functions for each.</p>
 <p>We’ll start with the callback for pressing the “acquire” button to get a single on-demand data point. When we ask for data while steaming is happening, we can just pick off the last streamed data point. Otherwise, we ask for a single voltage. In either case, we append the new data point to our on-demand data dictionary. We also updated the data source to include the new data point. To do this, we use the <code class="docutils literal notranslate"><span class="pre">stream()</span></code> method of a Bokeh <code class="docutils literal notranslate"><span class="pre">ColumnDataSource</span></code>. Using this function allows for rapid
-update of the plot. Only a the new data are added; the plot is not re-rendered.</p>
+update of the plot. Only the new data are added; the plot is not re-rendered.</p>
 <p>Finally, we need to update the phantom data point to be the new data point to keep the ranges of the x-axis reasonable.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -2295,11 +2295,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813f83e070> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7feccedc0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

@@ -979,7 +979,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="section" id="Follow-along-exercise-18:-Sallen-Key-filters">
 <h2>Follow-along exercise 18: Sallen-Key filters<a class="headerlink" href="#Follow-along-exercise-18:-Sallen-Key-filters" title="Permalink to this headline">¶</a></h2>
 <p>In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise but also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.</p>
-<p>Build the circuit below. The resistances are marked, and the capacitors should have capacitance <span class="math notranslate nohighlight">\(C_1 = C_2 = 2.2\)</span> µF and $C_3 = C_4 = $0.22 µF. Note that the part of the circuit featuring resistors R₁ and R₂ and capacitors C₁ and C₂ constitutes a high-pass filter, and the part of the circuit featuring R₃, R₄, C₃, and C₄ constitutes a low-pass filter.</p>
+<p>Build the circuit below. The resistances are marked, and the capacitors should have capacitance <span class="math notranslate nohighlight">\(C_1 = C_2 = 2.2\)</span> µF and <span class="math notranslate nohighlight">\(C_3 = C_4 = 0.22\)</span> µF. Note that the part of the circuit featuring resistors R₁ and R₂ and capacitors C₁ and C₂ constitutes a high-pass filter, and the part of the circuit featuring R₃, R₄, C₃, and C₄ constitutes a low-pass filter.</p>
 <div style="margin: auto; width=600px;"><p><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" /></p>
 </div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
 <p><span class="math">\begin{align}
@@ -1135,8 +1135,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <hr></div>
 <div class="section" id="Do-it-yourself-exercise-12:-A-bandpass-filter">
 <h2>Do-it-yourself exercise 12: A bandpass filter<a class="headerlink" href="#Do-it-yourself-exercise-12:-A-bandpass-filter" title="Permalink to this headline">¶</a></h2>
-<p>A <strong>bandpass filter</strong> allows intermediate frequencies through while filtering out high and low frequencies. They can be constructed by using a high-pass filter followed by a low-pass filter. In the case of the filters we have just considered, you can take the output of the high-pass filter and make that the input of the low-pass filter. Your task in this exercise is to implement that and see if you get the expected signal. There will be some attenuation, you should should amplify the output of
-the bandpass filter.</p>
+<p>A <strong>bandpass filter</strong> allows intermediate frequencies through while filtering out high and low frequencies. They can be constructed by using a high-pass filter followed by a low-pass filter. In the case of the filters we have just considered, you can take the output of the high-pass filter and make that the input of the low-pass filter. Your task in this exercise is to implement that and see if you get the expected signal. There will be some attenuation, you should amplify the output of the
+bandpass filter.</p>
 <hr><p>Note that we are just scratching the surface of filter design here. It is a rich and interesting field and you can create all kinds of filters with useful properties. What we have shown here for making low-, high-, and bandpass filters is only one (and a rather simple one) of myriad ways of filtering signals.</p>
 </div>
 </div>
@@ -1162,11 +1162,11 @@ the bandpass filter.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813f17ef10> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdb2f160> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

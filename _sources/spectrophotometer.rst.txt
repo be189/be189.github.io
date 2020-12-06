@@ -38,9 +38,9 @@ Cells, having a different index of refraction as the surrounding medium, randoml
   F(t) = 1 - \mathrm{e}^{-\beta t}.
   \end{aligned}
 
-The probability that at no Poisson process arrives within time :math:`t`, meaning that the photon manages to pass through the sample without being scattered, is :math:`1 - F(t) = \mathrm{e}^{-\beta t}`. Thus, if the light entering the sample had intensity :math:`I_0`, that leaving has intensity :math:`I_0\,\mathrm{e}^{-\beta t}`.
+The probability that no Poisson process arrives within time :math:`t`, meaning that the photon manages to pass through the sample without being scattered, is :math:`1 - F(t) = \mathrm{e}^{-\beta t}`. Thus, if the light entering the sample had intensity :math:`I_0`, that leaving has intensity :math:`I_0\,\mathrm{e}^{-\beta t}`.
 
-The time it takes to traverse the sample is proportional to the length of the cuvette, :math:`l`. The parameter :math:`\beta`, which parametrizes the distribution and describes how likely it is to hit a cell is a function of the concentration :math:`c` of the cells in the media. If the media is dilute, we can write :math:`\beta` as a Taylor series in :math:`c` to first order such that :math:`\beta \propto c`. We then arrive at
+The time it takes to traverse the sample is proportional to the length of the cuvette, :math:`l`. The parameter :math:`\beta`, which parametrizes the distribution and describes how likely it is to hit a cell, is a function of the concentration :math:`c` of the cells in the media. If the media is dilute, we can write :math:`\beta` as a Taylor series in :math:`c` to first order such that :math:`\beta \propto c`. We then arrive at
 
 .. math::
 
@@ -52,13 +52,13 @@ where the wavelength-dependent parameter :math:`\epsilon` that contains the cons
 
 The transmission efficiency of the sample is the ratio of the final and initial light intensity, :math:`T = I/I_0`, and the reported quantity is called the **optical density**, :math:`\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}`. The general rule of thumb is that the accurate OD readings lie in the range of :math:`0.01 < \mathrm{OD} < 1`. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
 
-As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is :math:`\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{black}`.
+As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is :math:`\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{blank}`.
 
 
 Basics of microbial growth
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Say we have a collection of cells in media cell that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the "stuff of life" at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time :math:`t_\mathrm{div}`. Those two cells will grow and divide, and after time :math:`2 t_\mathrm{div}`, we will have four cells. After a time :math:`3t_\mathrm{div}` we will have eight cells, and so on. So, the *rate* at which new cells are produced is proportional to the number of cells in solution, or
+Say we have a collection of cells in media that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the "stuff of life" at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time :math:`t_\mathrm{div}`. Those two cells will grow and divide, and after time :math:`2 t_\mathrm{div}`, we will have four cells. After a time :math:`3t_\mathrm{div}` we will have eight cells, and so on. So, the *rate* at which new cells are produced is proportional to the number of cells in solution, or
 
 .. math::
 
@@ -92,7 +92,7 @@ For this project, you are to build a spectrophotometer and obtain an example gro
 
 1. It must be built from the components in your kit, plus any household items you may wish to use. (These household items should be common and/or low cost.)
 2. It must operate in stand-alone mode. In this mode, the device does not need to be connected to a computer (only a power source). The user pushes a button and the resulting OD is displayed on the LCD display.
-3. It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user have an on-screen control panel and can click buttons to obtain and display OD measurements.
+3. It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user has an on-screen control panel and can click buttons to obtain and display OD measurements.
 
 You must demonstrate the instrument by acquiring a growth curve and determining the growth rate :math:`k`.
 
@@ -114,7 +114,7 @@ Here are some things to consider in your design and the operation of your instru
 
 1. There are two types of ≈600 nm emitting LEDs, `one with 10 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_, and `one with 1 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.
 2. It is important to block stray light. Think about how to accomplish that with household items.
-3. You may want to attempt to collimate the light with the glass beads (actually from children's jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole of slit for the light to pass through the cuvette.
+3. You may want to attempt to collimate the light with the glass beads (actually from children's jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole or slit for the light to pass through the cuvette.
 4. Think about ways of dealing with noise and amplification, if necessary.
 5. Think carefully about how to calibrate relationship between measured voltage across the photoresistor to OD. 
 6. In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about `debouncing <https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce>`_.

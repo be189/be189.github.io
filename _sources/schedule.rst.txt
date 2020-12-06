@@ -47,7 +47,7 @@ Due dates
 - :ref:`Follow-along exercises` 16–18: due 11:59 pm PDT, November 24
 - :ref:`Do-it-yourself exercises` 11–12: due 11:59 pm PDT, November 24
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 5:00 pm, December 8
+- :ref:`Pulse oximetry` write-up: due 11:59 pm, December 10
 
 
 ----

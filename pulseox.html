@@ -267,7 +267,7 @@
 <p>A pulse oximeter is usually clipped to an appendage, most commonly a finger, but sometimes an ear lobe or nose septum are used. A light source, usually an LED, on one side of the tissue penetrates through the tissue to be detected by a photodetector on the other side. As the light passes through the tissue, it is absorbed by various species. Much absorption happens in the tissue, some more in venous and capillary blood, and still more in non-pulsatile arterial blood. One top of all of that absorption is varying absorption due to pulsatile arterial blood. It is this varying absorption that is measured in pulse oximetry.</p>
 <div class="section" id="pulse-detection">
 <h3>Pulse detection<a class="headerlink" href="#pulse-detection" title="Permalink to this headline">¶</a></h3>
-<p>The transmitted light intensity fluctuates from peaks to valleys according to the systolic and diastolic phases of the cardiac cycle. This fluctuation is typically measured in the IR region of the light spectra, around 940 nm. This variation is used to acquire a pulse rate, the number of beats per minute.</p>
+<p>The transmitted light intensity fluctuates from peaks to valleys according to the systolic and diastolic phases of the cardiac cycle. This fluctuation is typically measured in the IR region of the light spectrum, around 940 nm. This variation is used to acquire a pulse rate, the number of beats per minute.</p>
 </div>
 <div class="section" id="measurement-of-oxygen-saturation">
 <h3>Measurement of oxygen saturation<a class="headerlink" href="#measurement-of-oxygen-saturation" title="Permalink to this headline">¶</a></h3>
@@ -276,9 +276,9 @@
 \[\begin{align}
 \text{SpO}_2 = \frac{C_\mathrm{O_2Hb}}{C_\mathrm{O_2Hb} + C_\mathrm{Hb}}.
 \end{align}\]</div>
-<p>To measure SpO₂, we consider absorption at a second wavelength in addition to the IR used to measure the pulse. Below, I show the absoprtion spectra for O₂Hb and Hb. In the IR region beyond 900 nm, Hb has a higher extinction coefficient than O₂Hb. If we monitor transmission of light at this second wavelength, in addition to the 940 nM we are already using to detect the pulse, we can determine SpO₂. In particular, there is a big gap between the extinction coefficient of O₂Hb and Hb in the red region, around 660 nm, and the gap is the opposite as in the IR, here with O₂Hb having a higher extinction coefficient.</p>
+<p>To measure SpO₂, we consider absorption at a second wavelength in addition to the IR used to measure the pulse. Below, I show the absoprtion spectra for O₂Hb and Hb. Between about 600 and 800 nm, Hb has a higher extinction coefficient than O₂Hb. If we monitor transmission of light at this second wavelength, in addition to the 940 nM we are already using to detect the pulse, we can determine SpO₂. In particular, there is a big gap between the extinction coefficient of O₂Hb and Hb in the red region, around 660 nm, and the gap is the opposite as in the IR, where O₂Hb has a lower extinction coefficient.</p>
 
-<script src="bokeh-plot-21a952f27df64976ace94ba987b6ee54-external-pulseox.js" id="6ad4b8e6-ee5c-4819-a9f2-39209253680c"></script><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
+<script src="bokeh-plot-7052cde1edd5438297912aff6c21ff89-external-pulseox.js" id="d18fd0e8-564b-4a40-951a-852806278112"></script><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \frac{I}{I_0} = \mathrm{e}^{-\epsilon c d},
@@ -306,7 +306,7 @@
 \[\begin{align}
 \ln\left(\frac{I_p}{I_v}\right) &amp;= \left(\epsilon_\mathrm{Hb}C_\mathrm{Hb} + \epsilon_\mathrm{O_2Hb}C_\mathrm{O_2Hb}\right)\Delta d.
 \end{align}\]</div>
-<p>In the above expression, assuming we know the extinction coefficients, we have three unknowns, the concentrations <span class="math notranslate nohighlight">\(C_\mathrm{Hb}\)</span> and <span class="math notranslate nohighlight">\(C_\mathrm{O_2Hb}\)</span> that are necessary to compute SpO₂ and <span class="math notranslate nohighlight">\(\Delta d\)</span>. However, if we make the measurements at two difference wavelenths, saw <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>, we can eliminate <span class="math notranslate nohighlight">\(\Delta d\)</span>.</p>
+<p>In the above expression, assuming we know the extinction coefficients, we have three unknowns, the concentrations <span class="math notranslate nohighlight">\(C_\mathrm{Hb}\)</span> and <span class="math notranslate nohighlight">\(C_\mathrm{O_2Hb}\)</span> that are necessary to compute SpO₂ and <span class="math notranslate nohighlight">\(\Delta d\)</span>. However, if we make the measurements at two difference wavelenths, say <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>, we can eliminate <span class="math notranslate nohighlight">\(\Delta d\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \frac{\ln\left(\left.I_p(\lambda_1)\middle/ I_v(\lambda_1)\right.\right)}{\ln\left(\left.I_p(\lambda_2)\middle/ I_v(\lambda_2)\right.\right)} &amp;= \frac{\epsilon^1_\mathrm{Hb}C_\mathrm{Hb} + \epsilon^1_\mathrm{O_2Hb}C_\mathrm{O_2Hb}}
@@ -341,7 +341,7 @@
 \[\begin{align}
 R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \mathrm{AC}_2 \middle/ \mathrm{DC}_2\right.}.
 \end{align}\]</div>
-<p>As an example of a calibration curve, <a class="reference external" href="https://doi.org/10.1097/00000542-198901000-00019">Tremper and Barker</a> gave a curve valid for <span class="math notranslate nohighlight">\(0.4 \le R \le 3.3\)</span> as <span class="math notranslate nohighlight">\(\mathrm{SpO_2} = aR^2 + bR + c\)</span>, with <span class="math notranslate nohighlight">\(a = -3.3\)</span>, <span class="math notranslate nohighlight">\(b = -21.1\)</span>, and <span class="math notranslate nohighlight">\(c = 109.6\)</span>. Unfortunately, there is no guarantee this calibration will work with your devise.</p>
+<p>As an example of a calibration curve, <a class="reference external" href="https://doi.org/10.1097/00000542-198901000-00019">Tremper and Barker</a> gave a curve valid for <span class="math notranslate nohighlight">\(0.4 \le R \le 3.3\)</span> as <span class="math notranslate nohighlight">\(\mathrm{SpO_2} = aR^2 + bR + c\)</span>, with <span class="math notranslate nohighlight">\(a = -3.3\)</span>, <span class="math notranslate nohighlight">\(b = -21.1\)</span>, and <span class="math notranslate nohighlight">\(c = 109.6\)</span>. Unfortunately, there is no guarantee this calibration will work with your device.</p>
 <p>(The <a class="reference external" href="https://doi.org/10.1097/00000542-198901000-00019">Tremper and Barker paper</a> is really worth reading for a more detailed background about pulse oximetry.)</p>
 </div>
 <div class="section" id="diagnostics-from-pulse-oximetry">
@@ -364,7 +364,7 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 </div>
 <div class="section" id="suggestions">
 <h3>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h3>
-<p>A modified KY-039 module is used to illuminate tissue and detect transmitted light. As purchased, the KY-039 module has an IR LED (940 nm). Current flowed through a 330 Ω resistor, through the LED, and then to ground. We have modified the KY-039 to also include a red LED (660 nm). The red LED and the IR LED both share the same ground on the board, but their anodes are both exposed and may be connected to Arduino or any other circuitry for control. Importantly, because they no longer are connected to the resistor in the KY-039, <strong>you need to include a resistor before the anode of the LEDs</strong>. This is very important; you have one KY-039 in your kit, and you do not want to destroy the LEDs.</p>
+<p>A modified KY-039 module is used to illuminate tissue and detect transmitted light. As purchased, the KY-039 module has an IR LED (940 nm). Current flows through a 330 Ω resistor, through the LED, and then to ground. We have modified the KY-039 to also include a red LED (660 nm). The red LED and the IR LED both share the same ground on the board, but their anodes are both exposed and may be connected to Arduino or any other circuitry for control. Importantly, because they no longer are connected to the resistor in the KY-039, <strong>you need to include a resistor before the anode of the LEDs</strong>. This is very important; you have one KY-039 in your kit, and you do not want to destroy the LEDs.</p>
 <p>The KY-039 also has a photodetector that we have not modified. In addition to connecting the LEDs to a controlled voltage source, you need to connect the photodetector according to the pinout below. Vcc should not exceed 5 V.</p>
 <p>The pinout for the KY-039 module is shown below.</p>
 <a class="reference internal image-reference" href="_images/KY-039_pinout.png"><img alt="Pinout of KY-039 module" src="_images/KY-039_pinout.png" style="width: 200px;" /></a>
@@ -411,11 +411,11 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813fdd1a00> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fea7d2e0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

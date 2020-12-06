@@ -32,7 +32,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across is grows. When the switch opens (OFF), whatever charge was build up in the capacitor is held because the right op-amp does not allow current to flow through. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage int he capacitor.\n",
+    "The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across it grows. When the switch opens (OFF), whatever charge was build up in the capacitor is held because the right op-amp does not allow current to flow through. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage in the capacitor.\n",
     "\n",
     "So, the \"sample\" step involves turning the switch on and building up the charge of the capacitor so that the voltage across the capacitor matches the input voltage. The \"hold\" step involves turning the switch off and outputting the held capacitor voltage.\n",
     "\n",
@@ -151,7 +151,7 @@
     "\n",
     "## Do-it-yourself exercise 11: Using the LF398N for sample-and-hold\n",
     "\n",
-    "Now perform sample-and-hold using the LF398N integrated circuit using a similar circuit as above. That is, either swap out the hand-built sample-and-hold circuit above with one using LF398N. You can even just add LF398N-based sample-and-hold to that circuit if you wish. Generate similar plots either using the Serial Plotter in the Arduino IDE or with a Bokeh app.\n",
+    "Now perform sample-and-hold using the LF398N integrated circuit using a similar circuit as above. That is, swap out the hand-built sample-and-hold circuit above with one using LF398N. You can even just add LF398N-based sample-and-hold to that circuit if you wish. Generate similar plots either using the Serial Plotter in the Arduino IDE or with a Bokeh app.\n",
     "\n",
     "<hr>"
    ]

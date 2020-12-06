@@ -253,10 +253,10 @@
 </style>
 <div class="section" id="23.-Transistors">
 <h1>23. Transistors<a class="headerlink" href="#23.-Transistors" title="Permalink to this headline">¶</a></h1>
-<hr><p><strong>Transistors</strong>, are key components of almost any modern circuit. They have myriad applications, and are included in pretty much of the integrated circuits you have already been introduced to, including analog-to-digital converters, digital-to-analog converters, and op-amps. Horowitz and Hill go so far as to say that “The transistor is the essential component of every electronic circuit.” In this lesson, we will explore using transistors as switches.</p>
+<hr><p><strong>Transistors</strong> are key components of almost any modern circuit. They have myriad applications, and are included in pretty much all of the integrated circuits you have already been introduced to, including analog-to-digital converters, digital-to-analog converters, and op-amps. Horowitz and Hill go so far as to say that “The transistor is the essential component of every electronic circuit.” In this lesson, we will explore using transistors as switches.</p>
 <div class="section" id="Basic-concepts-behind-transistors">
 <h2>Basic concepts behind transistors<a class="headerlink" href="#Basic-concepts-behind-transistors" title="Permalink to this headline">¶</a></h2>
-<p>We will not go into the details of the (Nobel Prize-winning) physics behind how transistors work, but will treat them from practical perspective. Transistors are three-terminal components. They come predominantly in two varieties, <strong>bipolar junction transistors</strong> (BJTs) and <strong>field effect transistors</strong> (FETs). These two varieties of transistor vary in their mode of construction and in other meaningful way in their operation that we will not spend much time on. FETs are dominant in electronics
+<p>We will not go into the details of the (Nobel Prize-winning) physics behind how transistors work, but will treat them from a practical perspective. Transistors are three-terminal components. They come predominantly in two varieties, <strong>bipolar junction transistors</strong> (BJTs) and <strong>field effect transistors</strong> (FETs). These two varieties of transistor vary in their mode of construction and in other meaningful way in their operation that we will not spend much time on. FETs are dominant in electronics
 these days, including in the integrated circuits mentioned above, but BJTs are still widely used. Importantly, both varieties have the same two salient features.</p>
 <ol class="arabic simple">
 <li><p>Transistors have a polarity, with one end more positive than the other.</p></li>
@@ -371,7 +371,7 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 <p>A couple things to note in this sketch.</p>
 <ol class="arabic simple">
 <li><p>I allow for input signals to be both single bytes representing an integer, like <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, or <code class="docutils literal notranslate"><span class="pre">3</span></code>, but for the same signal to be sent as ASCII text. In ASCII, <code class="docutils literal notranslate"><span class="pre">1</span></code> is character number 49, so if I type <code class="docutils literal notranslate"><span class="pre">1</span></code> as input in the Serial Monitor of the Arduino IDE, Arduino will read it in at bytes representing the number 49. Writing the code in this way facilitates me controlling the Arduino from the Serial Monitor or from Python.</p></li>
-<li><p>I use <code class="docutils literal notranslate"><span class="pre">led1PinState</span> <span class="pre">=</span> <span class="pre">!ledPin1State</span></code> to toggle the state of the LED. Thus, each time I enter <code class="docutils literal notranslate"><span class="pre">2</span></code>, for example, LED 2 gets turned on or off.</p></li>
+<li><p>I use <code class="docutils literal notranslate"><span class="pre">led1PinState</span> <span class="pre">=</span> <span class="pre">!led1PinState</span></code> to toggle the state of the LED. Thus, each time I enter <code class="docutils literal notranslate"><span class="pre">2</span></code>, for example, LED 2 gets turned on or off.</p></li>
 <li><p>To switch the LED on, we send a signal using Arduino’s digital pins.</p></li>
 </ol>
 <p>After building the circuit and uploading the sketch, either control which LEDs are on (and showing the oscillating illumination) via widgets on a dashboard or by hand-entering the numbers in the Serial Monitor. You will see that the transistors act as a switch, sending the input voltage across the LED when on and blocking it while off.</p>
@@ -400,11 +400,11 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Nov 17, 2020.
+        Last updated on Dec 06, 2020.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7f813f1b3460> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdafd4c0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
