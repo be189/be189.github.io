@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -126,9 +123,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -889,8 +886,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></p>
-</div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">voltagePin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="kr">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -995,7 +991,7 @@ var element = document.currentScript.previousSibling.previousSibling;
         <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Most of the time, an iteration of the while loop resulted in a <code class="docutils literal notranslate"><span class="pre">pass</span></code>. We were essentially telling the Python interpreter to constantly be trying to read and parse. Just like <code class="docutils literal notranslate"><span class="pre">delay()</span></code> in Arduino is blocking, so too is this for the Python interpreter. While the while loop is running, the interpreter cannot to any other tasks.</p>
+<p>Most of the time, an iteration of the while loop resulted in a <code class="docutils literal notranslate"><span class="pre">pass</span></code>. We were essentially telling the Python interpreter to constantly be trying to read and parse. Just like <code class="docutils literal notranslate"><span class="pre">delay()</span></code> in Arduino is blocking, so too is this for the Python interpreter. While the while loop is running, the interpreter cannot attend to any other tasks.</p>
 <p>When you are building devices, there are plenty of other tasks you want the Python interpreter to be doing while it is acquiring data. At the very least, you may want it to be listening for more user input to <em>stop</em> acquiring data. But you may also want to perform calculations on the incoming data (such as digital filtering), control and/or receive data from other connected devices, or even just mess around in your Jupyter notebook.</p>
 <p>In order to do these things, you want the data acquisition to happen asynchronously. You want the interpreter to occasionally read and parse data, but be free to do whatever else you want it to do when it is not reading and parsing data.</p>
 </div>
@@ -1051,7 +1047,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sa">b</span><span class="s1">&#39;1032,541</span><span class="se">\r\n</span><span class="s1">1052,542</span><span class="se">\r\n</span><span class="s1">1073,554</span><span class="se">\r\n</span><span class="s1">1093,5&#39;</span>
 </pre></div>
 </div>
-<p>Note that it does note end in a carriage return and newline. Those characters might not be in the read buffer yet, and since we are not using <code class="docutils literal notranslate"><span class="pre">read_until()</span></code>, we will not keep reading until we get those terminating characters. So, if we are parsing the output of this function, we should keep the last incomplete part of the data (in this case, <code class="docutils literal notranslate"><span class="pre">b'1093,5'</span></code> around for the next read.</p>
+<p>Note that it does not end in a carriage return and newline. Those characters might not be in the read buffer yet, and since we are not using <code class="docutils literal notranslate"><span class="pre">read_until()</span></code>, we will not keep reading until we get those terminating characters. So, if we are parsing the output of this function, we should keep the last incomplete part of the data (in this case, <code class="docutils literal notranslate"><span class="pre">b'1093,5'</span></code> around for the next read.</p>
 <p>Here is a parser that returns both the times and voltages as lists, as well as the remaining bytes that we will pass as the <code class="docutils literal notranslate"><span class="pre">read_buffer</span></code> kwarg in the <code class="docutils literal notranslate"><span class="pre">read_all()</span></code> function. There is some error checking. The only allowed characters are carriage returns, new lines, commas, and digits. Any message having other characters is discarded.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -1144,7 +1140,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <div class="section" id="asyncio">
 <h2>asyncio<a class="headerlink" href="#asyncio" title="Permalink to this headline">¶</a></h2>
-<p><em>While this section is not formally a follow-along exercise, I highly recommend running the code in this notebook because there are delays that will help you understand how ``asyncio`` is working.</em></p>
+<p><em>While this section is not formally a follow-along exercise, I highly recommend running the code in this notebook because you will note delays as the code runs that will help you understand how ``asyncio`` is working.</em></p>
 <p>Python has handy built-in asynchronous capabilities using the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8.</p>
 <p>I will give a brief overview of how it works here, but you would be well-served to <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">read the documentation</a>, most importantly the <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html">coroutines and tasks section</a>.</p>
 <p>At the center of asyncio’s high-level functionality are <strong>awaitables</strong>. An awaitable is a process that the interpreter can suspend such that it is not blocking. A very important awaitable is <code class="docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code>, which is one we will put to use.</p>
@@ -1220,7 +1216,7 @@ will happen after one second.</p>
 &lt;coroutine object english_async at 0x7fae93a45140&gt;
 </pre></div></div>
 </div>
-<p>We get back a coroutine. To run it, we need a running <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>. An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as a one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you
+<p>We get back a coroutine. To run it, we need a running <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>. An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you
 to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference external" href="#Running-without-an-existing-event-loop">later in this lesson</a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
 <p>To run the coroutine, you can create a task using <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code>. Note that “calling” a coroutine like a function returns a coroutine, so the argument you pass into <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code> is how you would call the coroutine, including all arguments and keyword arguments. Upon creation, the coroutine is run.</p>
 <div class="nbinput docutils container">
@@ -1500,8 +1496,8 @@ Handshake message: Message received.
 <p>Now we can write a coroutine to acquire data. This is very much like the <code class="docutils literal notranslate"><span class="pre">daq_stream()</span></code> function we encountered in the last lesson, except for a couple key differences.</p>
 <ol class="arabic simple">
 <li><p>We will read the data in chunks using the functions we wrote at the beginning of this lesson.</p></li>
-<li><p>I read in the first few messages sent from Arduino after turning on the stream and discard them, just to ensure the input buffer of my computer is cleared and we’re getting good, clean reads.</p></li>
-<li><p>We sleep between acquisitions. I choose to sleep about 80% of the time of the acquisitions. This ensures that I will never have too maybe bytes in the input buffer, but I am still not checking as often as I could be. (Note that the <code class="docutils literal notranslate"><span class="pre">read_all_newlines()</span></code> function will take longer to run than the <code class="docutils literal notranslate"><span class="pre">read_all()</span></code> function because it has to wait until Arduino sends its final newline. It is blocking while it is waiting. This should not be a major slowdown, though.)</p></li>
+<li><p>I read in the first few messages sent from Arduino after turning on the stream and discard them, just to ensure the input buffer of my computer is cleared and we’re getting good clean reads.</p></li>
+<li><p>We sleep between acquisitions. I choose to sleep about 80% of the time of the acquisitions. This ensures that I will never have too many bytes in the input buffer, but I am still not checking as often as I could be. (Note that the <code class="docutils literal notranslate"><span class="pre">read_all_newlines()</span></code> function will take longer to run than the <code class="docutils literal notranslate"><span class="pre">read_all()</span></code> function because it has to wait until Arduino sends its final newline. It is blocking while it is waiting. This should not be a major slowdown, though.)</p></li>
 <li><p>The function takes an input <code class="docutils literal notranslate"><span class="pre">reader</span></code>, which specifies which function we want to use to read in the serial data. By default, we use <code class="docutils literal notranslate"><span class="pre">read_all_newlines()</span></code> because it does not have the aforementioned issues on Windows.</p></li>
 <li><p>I set up a dictionary that gets updated with data as it is read.</p></li>
 </ol>
@@ -1703,13 +1699,13 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe8fa940> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61ccfb520> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

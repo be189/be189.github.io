@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -119,9 +116,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -821,7 +818,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 }(window));
 </script></div>
 </div>
-<hr><p>As we will do going forward when we need to connect to Arduino using Python, we will begin our lesson with our utility functions. (Maybe I should have put these in a package, but, again, I leave them like this since you may want to modify them to match whatever sketch is loaded on to your Arduino Uno, or maybe I will.)</p>
+<hr><p>As we will need to do when we need to connect to Arduino using Python, we will begin this notebook with utility functions. (Maybe I should have put these in a package, but, again, I leave them like this since you may want to modify them to match whatever sketch is loaded on to your Arduino Uno, or maybe I will.)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -880,12 +877,10 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>In many applications, we want to push a button and then have Arduino respond by sending us some data. This is the case when you build your spectrophotometer. You will put in the cuvette, press a button, and then get the measurement. The timing of the measurement, certainly down to the millisecond, is not important. In that case, ask-and-receive, like we did in the last lesson, works fine.</p>
 <p>In other applications, though, we want a steady stream of data, and we want it at well-defined time intervals. In this case, the variation in time between samples that we saw in the ask-and-receive style of the last lesson can be problematic. If our time interval between samples is long, say hundreds of millseconds or more, then it is not really a problem, but even with 20 ms between samples, we already saw that we can be pretty far off.</p>
 <p>A better option is to have Arduino do all the timing and then automatically send data to your computer over serial communication. That is, data <strong>streams</strong> from the board and is constantly collected by the Python interpreter. In this lesson, we will learn how to collect streaming data from Arduino. We will use the same setup as the previous lesson, shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></p>
-</div><hr></div>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></div><hr></div>
 <div class="section" id="Follow-along-exercise-10:-Streaming-data">
 <h2>Follow-along exercise 10: Streaming data<a class="headerlink" href="#Follow-along-exercise-10:-Streaming-data" title="Permalink to this headline">¶</a></h2>
-<p>Our sketch is more involved this time, since we are going to have richer communications with Arduino. We want to turn streaming on and off. A convenient way to do that, and still have access to the on-demand way of receiving data we set up in the previous lessons, is to have two data acquisition (DAQ) modes, on-request and stream. Streaming mode has another parameter, which is the delay between acquisitions. So, we need to allow for inputting the delay (in milliseconds) as well so that Arduino
-can update accordingly.</p>
+<p>Our sketch is more involved this time, since we are going to have richer communications with Arduino. We want to turn streaming on and off. A convenient way to do this while still preserving access to the on-demand way of receiving data we set up in the previous lessons, is to have two data acquisition (DAQ) modes, on-request and stream. Streaming mode has another parameter, which is the delay between acquisitions. So, we need to allow for the user to input the delay (in milliseconds).</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">voltagePin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="kr">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -978,9 +973,9 @@ can update accordingly.</p>
 <ul class="simple">
 <li><p>Much of the setup is the same as the last lesson, including the <code class="docutils literal notranslate"><span class="pre">printVoltage()</span></code> function. We also have global variables <code class="docutils literal notranslate"><span class="pre">daqMode</span></code>, which specifies whether we are in streaming more or on-demand, and <code class="docutils literal notranslate"><span class="pre">daqDelay</span></code>, which specifies the time between data acquisitions.</p></li>
 <li><p>In the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function, we send data along USB if we are in streaming mode and have waited <code class="docutils literal notranslate"><span class="pre">daqDelay</span></code> or longer.</p></li>
-<li><p>The then also check to see if any data has been sent to Arduino from the computer. If so, we again enter into a switch-case, as before.</p></li>
-<li><p>If we sent a signal from the computer that we want Arduino to read in a DAQ delay, we use <code class="docutils literal notranslate"><span class="pre">Serial.readStringUntil()</span></code> to read in the string specifying the DAW delay. We specify that the string ends with <code class="docutils literal notranslate"><span class="pre">'x'</span></code>. This is useful to ensure that Arduino knows exactly when the data coming over USB ends specification of the delay string. Therefore, on the Python side, we need to make sure to append an <code class="docutils literal notranslate"><span class="pre">'x'</span></code> onto the string giving the DAQ delay that we will convert into a bytes array to send to
-Arduino.</p></li>
+<li><p>We then also check to see if any data has been sent to Arduino from the computer. If so, we again enter into a switch-case, as before.</p></li>
+<li><p>If we sent a signal from the computer that we want Arduino to read in a DAQ delay, we use <code class="docutils literal notranslate"><span class="pre">Serial.readStringUntil()</span></code> to read in the string specifying the DAQ delay. We specify that the string ends with <code class="docutils literal notranslate"><span class="pre">'x'</span></code>. This is useful as it ensures that Arduino knows exactly when the data coming over USB ends specification of the delay string. Therefore, on the Python side, we need to make sure to append an <code class="docutils literal notranslate"><span class="pre">'x'</span></code> onto the string giving the DAQ delay that we will convert into a bytes array to send
+to Arduino.</p></li>
 <li><p>We use the <code class="docutils literal notranslate"><span class="pre">toInt()</span></code> method to convert the read in string for DAQ delay into an integer.</p></li>
 </ul>
 <p>Now that we have our sketch, we can set up our global variables so we have them on the Python side as well.</p>
@@ -1088,7 +1083,7 @@ Handshake message: Message received.
 </pre></div>
 </div>
 </div>
-<p>Let’s put this function to use and collect some data! We will collect 1000 data points and 20 millisecond intervals. (This will then take 20 seconds to run.)</p>
+<p>Let’s put this function to use and collect some data! We will collect 1000 data points with 20 millisecond intervals. (This will then take 20 seconds to run.)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -1165,7 +1160,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <div class="section" id="Comparison-of-timing">
 <h2>Comparison of timing<a class="headerlink" href="#Comparison-of-timing" title="Permalink to this headline">¶</a></h2>
-<p>We saw that if we acquired data on request using a call to <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> to wait for the request, we got ill-timed data. Let’s generate those data again, and compare to the timing we got by streaming data.</p>
+<p>We saw that when we acquired data on request using a call to <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> to wait for the request, we got ill-timed data. Let’s generate those data again, and compare to the timing we got by streaming data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -1326,13 +1321,13 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7feaa9c70> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61cc63220> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

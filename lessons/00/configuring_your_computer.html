@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -95,7 +92,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#The-Arduino-IDE">The Arduino IDE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-0:-Testing-Arduino">Follow-along exercise 0: Testing Arduino</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Installation-of-Anaconda">Installation of Anaconda</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Note-to-BE/Bi-103-a-students">Note to BE/Bi 103 a students</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#macOS-users:-Install-XCode">macOS users: Install XCode</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Windows-users:-Install-Chrome-or-Firefox">Windows users: Install Chrome or Firefox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Uninstalling-Anaconda">Uninstalling Anaconda</a></li>
@@ -127,9 +123,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -497,11 +493,11 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="0.-Getting-set-up">
 <h1>0. Getting set up<a class="headerlink" href="#0.-Getting-set-up" title="Permalink to this headline">¶</a></h1>
 <hr/><p>In this lesson, you will set up your computer for programming your Arduino board and controlling it with Python-based tools. You will also use Jupyter notebooks for preparing your write-ups.</p>
-<p>In this class, we will use Anaconda, with its associated package manager, <code class="docutils literal notranslate"><span class="pre">conda</span></code>. It has become the de facto package manager/distribution for scientific use. To you it, and also the serve up Bokeh apps to control your devices, you should have access to a Terminal program on your computer and have basic skills for using the command line. If you want to learn more about the command line, you can check out <a class="reference external" href="http://justinbois.github.io/bootcamp/2020/lessons/l02_basic_command_line_skills.html">this
-lesson</a> in my programming bootcamp. (Is uses JupyterLab’s built-in terminal, which you can use, but it is probably better to use the Terminal program on your OS.)</p>
+<p>In this class, we will use Anaconda, with its associated package manager, <code class="docutils literal notranslate"><span class="pre">conda</span></code>. It has become the de facto package manager/distribution for scientific use. To use it, and also to serve up Bokeh apps to control your devices, you should have access to a Terminal program on your computer and have basic skills for using the command line. If you want to learn more about the command line, you can check out <a class="reference external" href="http://justinbois.github.io/bootcamp/2020/lessons/l02_basic_command_line_skills.html">this
+lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which you can used. You can use the same, but it is probably better to use a suitable terminal program on your OS.)</p>
 <div class="section" id="The-Arduino-IDE">
 <h2>The Arduino IDE<a class="headerlink" href="#The-Arduino-IDE" title="Permalink to this headline">¶</a></h2>
-<p>You will use the Arduino interactive development environment (Arduino IDE) to write and compile code for Arduino and upload it to your board. To install it, follow the instructions on the <a class="reference external" href="https://www.arduino.cc/en/Guide">Getting Started with Arduino page</a>. You will be given a choice of using online IDE or the desktop IDE. I recommend the desktop IDE. You can download and install the most recent stable version of the desktop IDE <a class="reference external" href="https://www.arduino.cc/en/Main/Software#download">here</a>.</p>
+<p>You will use the Arduino interactive development environment (Arduino IDE) to write and compile code for Arduino and upload it to your board. To install it, follow the instructions on the <a class="reference external" href="https://www.arduino.cc/en/Guide">Getting Started with Arduino page</a>. You will be given a choice of using an online IDE or the desktop IDE. I recommend the desktop IDE. You can download and install the most recent stable version of the desktop IDE <a class="reference external" href="https://www.arduino.cc/en/Main/Software#download">here</a>.</p>
 <p>Once you have downloaded the IDE, follow the <a class="reference external" href="https://www.arduino.cc/en/Guide">IDE installation instructions</a> for your operating system.</p>
 <p>You should then have a functioning Arduino IDE on your machine.</p>
 <hr></div>
@@ -512,7 +508,7 @@ lesson</a> in my programming bootcamp. (Is uses JupyterLab’s built-in terminal
 <li><p>Connect your Arduino to your computer using the USB male A-male B cable. Wait a few seconds and then press and release the <code class="docutils literal notranslate"><span class="pre">RESET</span></code> button on the Arduino.</p></li>
 <li><p>Launch your Arduino IDE on your computer.</p></li>
 <li><p>Click on the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu and select <code class="docutils literal notranslate"><span class="pre">Board:</span> <span class="pre">Arduino</span> <span class="pre">Uno</span></code>. (It may be listed as “Arduino Uno (Rev 3)”.)</p></li>
-<li><p>Again in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu, make sure the Port for Arduino Uno is selected. On macOS, this may be something like <code class="docutils literal notranslate"><span class="pre">dev/cu.usbmodem/146301</span></code>. On Windows, this may be something like <code class="docutils literal notranslate"><span class="pre">COM4</span></code>.</p></li>
+<li><p>Again in the <code class="docutils literal notranslate"><span class="pre">Tools</span></code> menu, make sure the Port for Arduino Uno is selected. On macOS, this will likely be something like <code class="docutils literal notranslate"><span class="pre">dev/cu.usbmodem/146301</span></code>. On Windows, this will likely be something like <code class="docutils literal notranslate"><span class="pre">COM4</span></code>.</p></li>
 </ol>
 <p>When you launch the IDE, you will get a window that looks like this:</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
@@ -539,32 +535,23 @@ lesson</a> in my programming bootcamp. (Is uses JupyterLab’s built-in terminal
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>You will come to understand what this does in coming lessons, but for now, we just need to test your connection to Arduino is working and the board is functioning.</p>
+<p>You will come to understand what this does in coming lessons, but for now, we just need to check whether your connection to Arduino is working and whether the board is functioning.</p>
 <p>You will need to save this sketch. You can choose whatever file name you want, but it should be descriptive. I also recommend setting up a folder on your machine where you save your materials for this class. The suffix for Arduino sketches is <code class="docutils literal notranslate"><span class="pre">.ino</span></code>.</p>
-<p>You will watch your Arduino board to make sure everything is functioning properly. In particular, pay attention to the build-in LEDs, highlighted on the board drawing below. (There is another built-in LED, labeled <code class="docutils literal notranslate"><span class="pre">ON</span></code>, which is illuminated when the board had power.)</p>
-<div style="width: 500px; margin: auto;"><p><img alt="Arduino board with LEDs highlighted" src="../../_images/arduino_board_leds_highlighted.svg" /></p>
-</div><p>After you have saved the file, you need to compile and upload the code (referred to as a “sketch”) to Arduino. You can do this by clicking on the rightward-pointing arrow at the top of the Arduino IDE window. You will get some messages on the bottom of the Arduino IDE window telling you about the success of the compilation and upload and the storage footprint of your sketch. You will also see the <code class="docutils literal notranslate"><span class="pre">TX</span></code> and <code class="docutils literal notranslate"><span class="pre">RX</span></code> lights flash as the sketch is being uploaded.</p>
-<p>Once the sketch is uploaded, you will see the LED labeled <code class="docutils literal notranslate"><span class="pre">L</span></code> flash twice per second. If you see this, it means you successfully uploaded your sketch and your Arduino board is successfully executing it!</p>
+<p>You will watch your Arduino board to make sure everything is functioning properly. In particular, pay attention to the built-in LEDs, highlighted on the board drawing below. (There is another built-in LED, labeled <code class="docutils literal notranslate"><span class="pre">ON</span></code>, which is illuminated when the board has power.)</p>
+<div style="width: 500px; margin: auto;"><img alt="Arduino board with LEDs highlighted" src="../../_images/arduino_board_leds_highlighted.svg" /></div><p>After you have saved the file, you need to compile and upload the code (referred to as a “sketch”) to Arduino. You can do this by clicking on the rightward-pointing arrow at the top of the Arduino IDE window. You will get some messages at the bottom of the Arduino IDE window telling you about the success of the compilation-and-upload process and the storage footprint of your sketch. You will also see the <code class="docutils literal notranslate"><span class="pre">TX</span></code> and <code class="docutils literal notranslate"><span class="pre">RX</span></code> lights flash as the sketch is being uploaded.</p>
+<p>Once the sketch has been uploaded, you will see the LED labeled <code class="docutils literal notranslate"><span class="pre">L</span></code> flash at a rate of twice per second. If you see this, it means you have successfully uploaded your sketch and your Arduino board is successfully executing it!</p>
 <hr></div>
 <div class="section" id="Installation-of-Anaconda">
 <h2>Installation of Anaconda<a class="headerlink" href="#Installation-of-Anaconda" title="Permalink to this headline">¶</a></h2>
-<p>We now proceed to installation of Anaconda, which provides a Python environment for your computer.</p>
-<div class="section" id="Note-to-BE/Bi-103-a-students">
-<h3>Note to BE/Bi 103 a students<a class="headerlink" href="#Note-to-BE/Bi-103-a-students" title="Permalink to this headline">¶</a></h3>
-<p>If you are concurrently enrolled in <a class="reference external" href="http://bebi103.caltech.edu/">BE/Bi 103 a</a> this term, complete <a class="reference external" href="https://bebi103a.github.io/lessons/00/index.html">lesson 0 of that course</a> including installation on your own machine, and you do not need to work through the rest of this lesson. You simply need to do one more installation at the command line:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pyserial</span>
-</pre></div>
-</div>
-<p>The <a class="reference external" href="https://pyserial.readthedocs.io/">pySerial package</a> enables communication between your computer and Arduino.</p>
-</div>
+<p>We now proceed to install Anaconda, which provides a Python environment for your computer.</p>
 <div class="section" id="macOS-users:-Install-XCode">
 <h3>macOS users: Install XCode<a class="headerlink" href="#macOS-users:-Install-XCode" title="Permalink to this headline">¶</a></h3>
-<p>If you are using macOS, you should install <a class="reference external" href="https://developer.apple.com/xcode/">XCode</a>, if you haven’t already. It’s a large piece of software, taking up about 5GB on your hard drive, so make sure you have enough space. Please install this ahead of the bootcamp, since if students install this during the bootcamp, it will overwhelm the wireless. You can install it through the App Store.</p>
-<p>After installing it, you need to open the program. Be sure to do that, for example by clicking on the XCode icon in your Applications folder. Upon opening XCode, it may perform more installations.</p>
+<p>If you are using macOS, you should install <a class="reference external" href="https://developer.apple.com/xcode/">XCode</a>, if you haven’t already. It’s a large piece of software, taking up about 5GB on your hard drive, so make sure you have enough space. You can install it through the App Store.</p>
+<p>After installing it, you need to open the program so that it will be accessible to your Anaconda-installed packages. Be sure to do that, for example by clicking on the XCode icon in your Applications folder. Upon opening XCode, it may perform more installations. After opening XCode and installing whatever additional installations it prompts you to do, you can close XCode.</p>
 </div>
 <div class="section" id="Windows-users:-Install-Chrome-or-Firefox">
 <h3>Windows users: Install Chrome or Firefox<a class="headerlink" href="#Windows-users:-Install-Chrome-or-Firefox" title="Permalink to this headline">¶</a></h3>
-<p>We will be using <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> in class, and will be build. It is browser-based, and Chrome, Firefox, and Safari are supported. Microsoft Edge is <strong>not</strong>. Therefore, if you are a Windows user, you need to be sure you have either Chrome of Firefox installed.</p>
+<p>We will be using <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> in class. It is browser-based, and Chrome, Firefox, and Safari are supported. Microsoft Edge is <strong>not</strong>. Therefore, if you are a Windows user, you need to be sure you have either Chrome or Firefox installed.</p>
 </div>
 <div class="section" id="Uninstalling-Anaconda">
 <h3>Uninstalling Anaconda<a class="headerlink" href="#Uninstalling-Anaconda" title="Permalink to this headline">¶</a></h3>
@@ -576,10 +563,10 @@ lesson</a> in my programming bootcamp. (Is uses JupyterLab’s built-in terminal
 <p>Downloading and installing Anaconda is simple.</p>
 <ol class="arabic simple">
 <li><p>Go to the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda distribution homepage</a>, click “Download” and download the graphical installer. Be sure to download Anaconda for Python 3.8 for the appropriate operating system.</p></li>
-<li><p>Follow the on-screen instructions for installation. When prompted, be sure to “Install for me only.”</p></li>
-<li><p>You may be prompted for optional installations, like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a>. You will not need these.</p></li>
+<li><p>Follow the on-screen instructions for installation. When prompted, be sure to select “Install for me only.”</p></li>
+<li><p>You may be prompted for optional installations, like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a>. You will not need those.</p></li>
 </ol>
-<p>That’s it! After you do that, you will have a functioning Python distribution.</p>
+<p>That’s it! After you do that, you should have a functioning Python distribution.</p>
 </div>
 <div class="section" id="The-conda-package-manager">
 <h3>The conda package manager<a class="headerlink" href="#The-conda-package-manager" title="Permalink to this headline">¶</a></h3>
@@ -1068,13 +1055,13 @@ jupyterlab 2.1.5
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe972eb0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61d59b490> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

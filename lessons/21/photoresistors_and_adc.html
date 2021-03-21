@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>21. Protecting Arduino with Zener diodes &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>21. Photoresistors, trimming, and ADC &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +43,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="22. Operational amplifiers" href="../22/op_amps.html" />
-    <link rel="prev" title="20. Photoresistors, trimming, and ADC" href="../20/photoresistors_and_adc.html" /> 
+    <link rel="prev" title="20. Introduction to filters" href="../20/introduction_to_filters.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,12 +109,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">21. Protecting Arduino with Zener diodes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Zener-diode">Zener diode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Simple-regulation-of-voltage-supply-with-a-Zener-diode">Simple regulation of voltage supply with a Zener diode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-15:-Demonstrating-protection-by-a-Zener-diode">Follow along exercise 15: Demonstrating protection by a Zener diode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">21. Photoresistors, trimming, and ADC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Photoresistors">Photoresistors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Trimming-resistances">Trimming resistances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC">Do-it-yourself exercise 9: Photoresistors with ADC</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
@@ -213,7 +212,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/21/protection_with_zener.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/21/photoresistors_and_adc.ipynb" download> Download notebook</a>
         
       
     
@@ -251,48 +250,41 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="21.-Protecting-Arduino-with-Zener-diodes">
-<h1>21. Protecting Arduino with Zener diodes<a class="headerlink" href="#21.-Protecting-Arduino-with-Zener-diodes" title="Permalink to this headline">¶</a></h1>
-<hr><p>The input pins on Arduino Uno can handle a maximum voltage of about 5 V. If this is exceeded too far, it can damage the microcontroller. So far, we have used the Uno board itself to supply 5 V for all of our applications. It was therefore not possible to expose any of the pins to more than 5 V.</p>
-<p>In the next lesson, we will use op amps, which require external power supplies. One of the power supplies is 12 V. It is therefore possible to expose the Arduino board to more than 5 V. You would never intentionally design a circuit that could do that, since you can’t do anything with more than 5 V on the input pins. You may, however, unintentionally build a circuit that could result in more than 5 V across a pin on the Arduino board.</p>
-<p>There are many ways to protect against this. A simple approach is to use a <a class="reference external" href="https://en.wikipedia.org/wiki/Zener_diode">Zener diode</a>.</p>
-<div class="section" id="Zener-diode">
-<h2>Zener diode<a class="headerlink" href="#Zener-diode" title="Permalink to this headline">¶</a></h2>
-<p>A Zener diode has a strongly nonlinear relationship between current and voltage (contrasted with the linear relationship of a resistor),shown in the plot below.</p>
-<div style="margin:auto; width: 400px;"><p><img alt="Zener IV curve" src="../../_images/zener_iv.png" /></p>
-</div><p>For a range of voltages, the current through the Zener diode is close to zero; it has very large impedance in that range. When the voltage across the diode is positive, the current can grow rapidly. In practice, we place the Zener diode in a circuit such that the voltage across it is negative. In this regime, there is minimal current across the diode. When the voltage hits the so-called breakdown voltage, <span class="math notranslate nohighlight">\(V_z\)</span>, the current reverses and the voltage across the diode will not go much beyond
-<span class="math notranslate nohighlight">\(V_z\)</span>.</p>
-<p>We can use this feature of the Zener diode to limit voltages of across parts of a circuit, importantly those across I/O pins on the Arduino or an external ADC.</p>
+<div class="section" id="21.-Photoresistors,-trimming,-and-ADC">
+<h1>21. Photoresistors, trimming, and ADC<a class="headerlink" href="#21.-Photoresistors,-trimming,-and-ADC" title="Permalink to this headline">¶</a></h1>
+<hr><p>You have learned some of the basics of building prototypes of electronic circuits. In this lesson, you will get considerably less guidance on the do-it-yourself exercise, and will have to rely on what you have learned so far and online tutorials and data sheets.</p>
+<div class="section" id="Photoresistors">
+<h2>Photoresistors<a class="headerlink" href="#Photoresistors" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Optoelectronics">Optoelectronic devices</a> are devices that can detect and control light. Our primary interest is detection, since we will be building a spectrophotometer. There are many optoelectronic detectors, including photodiodes, phototransistors, and <a class="reference external" href="https://en.wikipedia.org/wiki/Photoresistor">photoresistors</a>. A photoresistor (pictured below) is a resistor whose resistance is dependent on the intensity of light incident on its surface. The more light,
+the lower the resistance.</p>
+<div style="width: 300px; margin: auto;"><img alt="photoresistor" src="../../_images/photoresistor.jpg" />
+<p><em>Image by Nevit Dilman,</em><a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC-BY-SA 3.0 licened</a><em>.</em></p>
+</div><p>By measuring the voltage across a photoresistor, we can get a measure of the amount of incident light. In the exercise below, you will measure exactly that (which you will also do when you build your spectrophotometer).</p>
 </div>
-<div class="section" id="Simple-regulation-of-voltage-supply-with-a-Zener-diode">
-<h2>Simple regulation of voltage supply with a Zener diode<a class="headerlink" href="#Simple-regulation-of-voltage-supply-with-a-Zener-diode" title="Permalink to this headline">¶</a></h2>
-<p>Consider the circuit below, where <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> is a voltage we want to be able to measure without destroying the microcontroller.</p>
-<div style="margin:auto; width: 200px;"><p><img alt="Zener regulator circuit" src="../../_images/zener_regulator.png" /></p>
-</div><p>The simple circuit has the architecture of a voltage divider. Let <span class="math notranslate nohighlight">\(R_z\)</span> be the resistance of the Zener diode. Then, using our results from voltage dividers before,</p>
-<p><span class="math">\begin{align}
-V_\mathrm{out} = \frac{R_z}{R_z + R}\,V_\mathrm{in}.
-\end{align}</span></p>
-<p>If the input voltage is smaller than the breakdown voltage <span class="math notranslate nohighlight">\(V_z\)</span>, then the resistance of the Zener diode is very large, letting through essentially no current. Then, since <span class="math notranslate nohighlight">\(R_z \gg R\)</span>, <span class="math notranslate nohighlight">\(V_\mathrm{out} \approx V_\mathrm{in}\)</span>. If <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> is above <span class="math notranslate nohighlight">\(V_z\)</span>, then <span class="math notranslate nohighlight">\(V_\mathrm{out} = V_z\)</span>, since the Zener diode will have a (possibly large) negative current and voltages beyond <span class="math notranslate nohighlight">\(V_z\)</span> are not accessible. So, if you read <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span>, either on board
-Arduino or on an external ADC, you will get <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> below the breakdown voltage, above the breakdown voltage, your ADC device will only experience <span class="math notranslate nohighlight">\(V_z\)</span>, thereby protecting it.</p>
-<p>This is a very simple strategy and is not without its drawbacks.</p>
+<div class="section" id="Trimming-resistances">
+<h2>Trimming resistances<a class="headerlink" href="#Trimming-resistances" title="Permalink to this headline">¶</a></h2>
+<p>In the exercise below, you will likely set up voltage dividers. It helps to have good control over the resistances in the dividers. You have many different resistors in your kits, but what if you want to obtain a resistance you do not have? You can use a couple simple principles to do that.</p>
 <ol class="arabic simple">
-<li><p>Zener diodes do not respond quickly to rapid changes in voltages, so a surge might still momentarily result in high <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span>.</p></li>
-<li><p>For <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> near but not beyond <span class="math notranslate nohighlight">\(V_z\)</span> the finite, variable impedance of the Zener diode can lead to <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> being a bit less then <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>, thereby affecting the accuracy of measured voltages.</p></li>
+<li><p>Resistances in series result in resistance <span class="math notranslate nohighlight">\(R = R_1 + R_2 + R_3 + \cdots\)</span>.</p></li>
+<li><p>Resistance in parallel result in resistance <span class="math notranslate nohighlight">\(R = \left(R_1^{-1} + R_2^{-1} + R_3^{-1} + \cdots\right)^{-1}\)</span>.</p></li>
 </ol>
-<p>But for our purposes, this design will suffice.</p>
-<p>Given a possible range of <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> (in our case the maximum is 12 V), and the ratings of the Zener diode, we are left to choose <span class="math notranslate nohighlight">\(R\)</span> in our design. To mitigate the negative effect of (2) above, we want to choose <span class="math notranslate nohighlight">\(R\)</span> to be as small as the Zener diode can handle. The Zener diode in your kit is a <a class="reference external" href="https://www.digikey.com/short/znhjd5">BZX79-C5V1,133</a>. This particular Zener diode has a maximum power dissipation of <span class="math notranslate nohighlight">\(P = 400\)</span> mW and <span class="math notranslate nohighlight">\(V_z\)</span> between 4.8 and 5.4 V.
-Thus, the maximum current that can be allowed to flow through the Zener diode is <span class="math notranslate nohighlight">\(I_\mathrm{max} = P / V_z \approx 75\)</span> mA. To keep the current below this level, the resistance <span class="math notranslate nohighlight">\(R\)</span> must be at least <span class="math notranslate nohighlight">\(R \ge (V_\mathrm{in}^\mathrm{max} - V_z) / I_\mathrm{max} \approx 100\)</span> Ω. Even with this resistance, the Zener diode can get a bit warm, do I usually choose a resistance a bit higher. Nonetheless, this is a protective measure, and hopefully your circuit will not ever have
-<span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> above five volts, so this will not be a problem.</p>
+<p>Point (2) means that resistors in parallel always have a lower resistance than the largest individual resistor.</p>
+<p>Say you have an available resistor just below the value you want. You can trim the resistance <strong>up</strong> by adding small resistor or resistors <strong>in series</strong> to make up the difference.</p>
+<p>Now say you have an available resistor just above the value you want. You can trim the resistance <strong>down</strong> by adding a small resistor or resistors <strong>in parallel</strong> to bring the total resistance down.</p>
 <hr></div>
-<div class="section" id="Follow-along-exercise-15:-Demonstrating-protection-by-a-Zener-diode">
-<h2>Follow along exercise 15: Demonstrating protection by a Zener diode<a class="headerlink" href="#Follow-along-exercise-15:-Demonstrating-protection-by-a-Zener-diode" title="Permalink to this headline">¶</a></h2>
-<p>To demonstrate to yourself that this works, construct the circuit below.</p>
-<div style="margin:auto; width:300px;"><p><img alt="Zener circuit schematic" src="../../_images/15-zener_schem.png" /></p>
-</div><p>For convenience, here is the pictorial schematic.</p>
-<div style="margin:auto; width:500px;"><p><img alt="image1" src="../../_images/15-zener_bb.png" /></p>
-</div><p>Note the direction of the Zener diode. In the Zener diode in your kit, the body is pink and the stripe is black. In the image above, the body is black and the stripe is gray.</p>
-<p>You will need to plug in the PowerBRICK using the USB cable and power adapter in your kit.</p>
-<p>Use the potentiometer to vary the voltage coming into the circuit. Use your multimeter to measure <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> and <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> for a set of various <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>. (Think: Which leads do you need to touch with your multimeter probes to measure these quantities?) Does the circuit work as advertised? Note that I have chosen a resistor with about twice as much resistance as theoretically needed.</p>
+<div class="section" id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
+<h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline">¶</a></h2>
+<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion capability, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you need a greater bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to perform ADC. You can ask
+Google, but as a hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.</p>
+<p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.</p>
+<p>The voltage across each photoresistor should be read both by using the built-in pins on the Arduino Uno and by using the ADS1015. Reading the voltage in two ways will give you a way to check to make sure everything is working properly. You should make an app wherein the voltages can be monitored in real time.</p>
+<p>You want to get the best resolution you can over a large dynamic range. Here are some hints.</p>
+<ol class="arabic simple">
+<li><p>Carefully read the information on the ADS1015. Here is a big hint that you will find: Unlike the ADC in the Arduino Uno, the ADS1015 can convert negative voltages. Its output is 12-bits, so the range of values is from –2048 to 2047. You should think carefully about how to take full advantage of the full range of numbers. Otherwise, if you are just using positive numbers, you only get one extra bit beyond the 10-bits in the built-in ADC. (Though in practice, you would probably use a 16-bit
+ADC, possibly the ADS1115.)</p></li>
+<li><p>Given that you can get negative numbers coming into Python from Arduino, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: <code class="docutils literal notranslate"><span class="pre">re.compile(b&quot;\d+|,|-&quot;)</span></code>.</p></li>
+<li><p>Think about how you can use voltage dividers to get the best dynamic range. The photoresistors in your kit have a resistance of about 50 to 100 kΩ depending on the light intensity.</p></li>
+</ol>
 <hr></div>
 </div>
 
@@ -307,7 +299,7 @@ Thus, the maximum current that can be allowed to flow through the Zener diode is
         <a href="../22/op_amps.html" class="btn btn-neutral float-right" title="22. Operational amplifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../20/photoresistors_and_adc.html" class="btn btn-neutral float-left" title="20. Photoresistors, trimming, and ADC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../20/introduction_to_filters.html" class="btn btn-neutral float-left" title="20. Introduction to filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -317,13 +309,13 @@ Thus, the maximum current that can be allowed to flow through the Zener diode is
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe789d30> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61d3d45b0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

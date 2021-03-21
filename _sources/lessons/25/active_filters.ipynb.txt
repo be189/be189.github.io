@@ -348,7 +348,7 @@
    "source": [
     "<hr>\n",
     "\n",
-    "In [a previous lesson](../19/introduction_to_filters.ipynb), we build RC filters. Those filters were **passive** because they are not powered. Here, we will consider **active** filters, which feature powered op-amps."
+    "In [a previous lesson](../20/introduction_to_filters.ipynb), we built RC filters. Those filters were **passive** because they are not powered. Here, we will consider **active** filters, which feature powered op-amps."
    ]
   },
   {
@@ -467,11 +467,11 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "I have also included in this plot the response of an ideal low-pass filter in gray. Any frequencies above $1/RC$ are blocked and those below $1/RC$ are passed through without attenuation.  Conversely, the simple RC filter has a dull (as opposed to sharp) **knee**, the name given to the bend in the curve. To the right of the knee, the response features a **roll off** of ten dB per factor of ten in frequency.\n",
+    "I have also included in this plot the response of an ideal low-pass filter in gray. Any frequencies above $1/RC$ are blocked and those below $1/RC$ can be passed through without significant attenuation.  Conversely, the simple RC filter has a dull (as opposed to sharp) **knee**, the name given to the bend in the curve. To the right of the knee, the response features a **roll off** of ten dB per factor of ten in frequency.\n",
     "\n",
-    "We would like the response to be as close to ideal as possible. That means we want steeper roll off. We also want the knee at $\\omega = 1/RC$ to be sharper. This can be accomplished with more complex filter designs, particularly through the use of **inducers** (giving so-called **RLC filters**).\n",
+    "We would like the response to be as close to ideal as possible. That means we want a steeper roll off. We also want the knee at $\\omega = 1/RC$ to be sharper. This can be accomplished with more complex filter designs, particularly through the use of **inductors** (giving so-called **RLC filters**).\n",
     "\n",
-    "There are, however, many disadvantages to using inducers. Importantly, they are bulky and expensive and also have series resistance, leading to non-ideal behavior. Fortunately, we can use op-amps to synthesize circuits that have the properties of (near) ideal RLC circuits. Because the op-amps are powered, these are called active filters."
+    "There are, however, many disadvantages to using inductors. Importantly, they are bulky and expensive and also have series resistance, leading to non-ideal behavior. Fortunately, we can use op-amps to synthesize circuits that have the properties of (near) ideal RLC circuits. Because the op-amps are powered, these are called active filters."
    ]
   },
   {
@@ -609,9 +609,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Follow-along exercise 18: Sallen-Key filters\n",
+    "## Follow-along exercise 17: Sallen-Key filters\n",
     "\n",
-    "In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise but also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.\n",
+    "In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise that also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.\n",
     "\n",
     "Build the circuit below. The resistances are marked, and the capacitors should have capacitance $C_1 = C_2 = 2.2$ µF and $C_3 = C_4 = 0.22$ µF. Note that the part of the circuit featuring resistors R₁ and R₂ and capacitors C₁ and C₂ constitutes a high-pass filter, and the part of the circuit featuring R₃, R₄, C₃, and C₄ constitutes a low-pass filter.\n",
     "\n",
@@ -836,7 +836,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

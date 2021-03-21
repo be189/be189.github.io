@@ -13,7 +13,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "In the previous lesson, showed a drawing of the circuit as it would appear physically in front of us. It looked like this:\n",
+    "In the previous lesson, I showed a drawing of the circuit as it would appear physically in front of us. It looked like this:\n",
     "\n",
     "<div style=\"margin: auto; width: 600px;\">\n",
     "    \n",
@@ -28,14 +28,8 @@
     "![blink_schem](blink_schem.svg)\n",
     "    \n",
     "</div>\n",
-    "\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "The resistor is now represented by a zig-zag line (I call them \"[Charlie Brown shirts](https://www.1843magazine.com/sites/default/files/styles/il_manual_crop_16_9/public/Charlie-Brown-Good-Grief-HEADER_0.png)\") with a label giving its resistance. The LED also has a symbol, and the the Arduino is also represented abstractly, with the pin locations not matching where they physically appear on the board."
+    "\n",
+    "The resistor is now represented by a zig-zag line (I call them \"[Charlie Brown shirts](https://www.1843magazine.com/sites/default/files/styles/il_manual_crop_16_9/public/Charlie-Brown-Good-Grief-HEADER_0.png)\") with a label giving its resistance. The LED is also represented by its own symbol, and the Arduino is also represented abstractly, with the pin locations no longer matching where they physically appear on the board."
    ]
   },
   {
@@ -53,7 +47,7 @@
    "source": [
     "## Drawing schematics\n",
     "\n",
-    "There are many computer programs available for drawing schematics. You will need to do so in your some of your exercises and definitely in your projects. I think it is also useful to show pictorial representations as well. To draw both of these, [Fritzing](https://fritzing.org/) is a valuable and widely used tool. It is possible to get it for free, but if you have the means, I could encourage you to make the suggested donation (€8). Fritzing is fairly self-explanatory to use."
+    "There are many computer programs available for drawing schematics. You will need to do so in some of your exercises and definitely in your projects. I think it is also useful to show pictorial representations as well. To draw both of these, [Fritzing](https://fritzing.org/) is a valuable and widely used tool. It is possible to get it for free, but if you have the means, I could encourage you to make the suggested donation (€8). Fritzing is fairly self-explanatory and easy to use."
    ]
   }
  ],
@@ -73,7 +67,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.3"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

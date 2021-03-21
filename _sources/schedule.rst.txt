@@ -5,22 +5,24 @@ Schedule overview
 
 *The schedule information on this page is subject to changes.*
 
-- Lab: Tuesdays and Thursdays (except Thanksgiving), 10:30 am–noon PDT
-- TA office hours
+- Lab: Tuesdays and Thursdays, 2:30–4:00 PM PDT
+- TA office hours TBD
 
-  + Mondays 5–6 pm PDT (`Michelle <http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/>`_)
-  + Wednesdays 7–10 pm PDT (`Changsoon <http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/>`_)
-  + Fridays 1–2 pm PDT (`Anne <http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/>`_)
+  .. + Mondays 5–6 pm PDT (`Michelle <http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/>`_)
+  .. + Wednesdays 7–10 pm PDT (`Changsoon <http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/>`_)
+  .. + Fridays 1–2 pm PDT (`Anne <http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/>`_)
 
-- Instructor office hours: by appointment at this `Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/>`_
+.. - Instructor office hours: by appointment at this `Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/>`_
 
-Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. All lab meetings are accessible from `this Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/>`_. However, during some lab sessions and during office hours, the TAs will be in their own Zoom rooms. Here are the links.
+Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. All lab meetings are accessible from `this Zoom link <http://bois.caltech.edu/be189/2021_spring/zoom_links/tuth_class/>`_. However, during some lab sessions and during office hours, the TAs will be in their own Zoom rooms. The links will be posted here.
 
-- `Changsoon Choi <http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/>`_
-- `Michelle Cua <http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/>`_
-- `Anne Kil <http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/>`_
+.. - `Changsoon Choi <http://bois.caltech.edu/be189/2020_fall/zoom_links/changsoon/>`_
+.. - `Michelle Cua <http://bois.caltech.edu/be189/2020_fall/zoom_links/michelle/>`_
+.. - `Anne Kil <http://bois.caltech.edu/be189/2020_fall/zoom_links/anne/>`_
 
-Sometimes the lab activities are recorded. You an access the recordings `here <http://bois.caltech.edu/be189/2020_fall/video_link/>`_.
+Sometimes the lab activities are recorded. The links to the videos will be posted here.
+
+.. You an access the recordings `here <http://bois.caltech.edu/be189/2020_fall/video_link/>`_.
 
 ----
 
@@ -31,23 +33,23 @@ Due dates
 .. role:: strike
     :class: strike
 
-- :ref:`Follow-along exercises` 1–4: due 11:59 pm PDT, October 6
-- :ref:`Do-it-yourself exercises` 1–3: due 11:59 pm PDT, October 6 
+- :ref:`Follow-along exercises` 1–4
+- :ref:`Do-it-yourself exercises` 1–3
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 5–11: due 11:59 pm PDT, October 13 (moved to October 15)
-- :ref:`Do-it-yourself exercises` 4–6: due 11:59 pm PDT, October 13 (moved to October 15)
+- :ref:`Follow-along exercises` 5–11
+- :ref:`Do-it-yourself exercises` 4–6
 .. - :ref:`Spectrophotometer` prelab: due 10:30 am PDT, October 15
 .. - :ref:`Follow-along exercises` 12–: due 11:59 pm PDT, October 20
 .. - :ref:`Do-it-yourself exercises` 7–: due 11:59 pm PDT, October 20
-- :ref:`Follow-along exercises` 12–15: due 11:59 pm PDT, October 27
-- :ref:`Do-it-yourself exercises` 7–10: due 11:59 pm PDT, October 27
+- :ref:`Follow-along exercises` 12–15
+- :ref:`Do-it-yourself exercises` 7–10
 .. - :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
-- :ref:`Spectrophotometer` write-up: due 10:30 am PDT, November 17
+- :ref:`Follow-along exercises` 16–17
+- :ref:`Do-it-yourself exercises` 11–12
 .. dummy comment
-- :ref:`Follow-along exercises` 16–18: due 11:59 pm PDT, November 24
-- :ref:`Do-it-yourself exercises` 11–12: due 11:59 pm PDT, November 24
+- :ref:`Spectrophotometer` write-up
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 11:59 pm, December 10
+- :ref:`Pulse oximetry` write-up
 
 
 ----
@@ -56,17 +58,17 @@ Due dates
 Weekly activities
 -----------------
 
-In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be working on your exercises or projects. Dates with special activities are shown below with more to be announced as the term progresses.
+In each lab session, you will be working on your exercises or projects. Dates with special activities are shown below.
 
-- **Tu 09/29**: Welcome, safety, introduction to Arduino
-- **Th 10/01**: A tour through your kit
-- **Tu 10/06**: A tour of Arduino Uno
-- **Th 10/08**: Lecture on design approaches
-- **Th 10/15**: Guest lecture from `Daniel Wagenaar <http://www.danielwagenaar.net>`_
-- **Th 10/22**: Guest lecture from Heather Lukas and Jihong Min from the `Gao lab <http://www.gao.caltech.edu>`_
-- **Tu 10/27**: Guest lecture from `Sina Booeshaghi <https://sinabooeshaghi.com>`_ and Anne Kil from the `Pachter lab <https://pachterlab.github.io>`_
-- **Tu 11/03**: Determination of growth rate from growth curves
-- **Tu 11/10**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
-- **Th 11/19**: Guest lecture from Mu Qiao
-- **Th 11/24**: Time series analysis
-- **Th 11/26**: Thanksgiving Day: no class
+.. - **Tu 09/29**: Welcome, safety, introduction to Arduino
+.. - **Th 10/01**: A tour through your kit
+.. - **Tu 10/06**: A tour of Arduino Uno
+.. - **Th 10/08**: Lecture on design approaches
+.. - **Th 10/15**: Guest lecture from `Daniel Wagenaar <http://www.danielwagenaar.net>`_
+.. - **Th 10/22**: Guest lecture from Heather Lukas and Jihong Min from the `Gao lab <http://www.gao.caltech.edu>`_
+.. - **Tu 10/27**: Guest lecture from `Sina Booeshaghi <https://sinabooeshaghi.com>`_ and Anne Kil from the `Pachter lab <https://pachterlab.github.io>`_
+.. - **Tu 11/03**: Determination of growth rate from growth curves
+.. - **Tu 11/10**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
+.. - **Th 11/19**: Guest lecture from Mu Qiao
+.. - **Th 11/24**: Time series analysis
+.. - **Th 11/26**: Thanksgiving Day: no class

@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -124,9 +121,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -506,18 +503,16 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <hr><p>So far, we have programmed Arduino using the Arduino IDE and have used the Serial Monitor and Serial Plotter of the IDE to display signals from Arduino. The Serial Monitor and Plotter are quite limited in their capabilities, and we would like to have much richer control of Arduino.</p>
-<p>In the next several lessons, we will learn how we can control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.</p>
-<p>We will start with building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.</p>
+<p>In the next several lessons, we will learn how to control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.</p>
+<p>We will start by building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.</p>
 <hr><div class="section" id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
 <h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Permalink to this headline">¶</a></h2>
 <p>There is no sketch required for this exercise. Wire up the circuit shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></p>
-</div><p>For convenience, here is a pictorial schematic.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="image1" src="../../_images/external_and_mechanical_led_bb.svg" /></p>
-</div><p>Note that the three-pin toggle switch in your kit does not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons in your kit.</p>
+<div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></div><p>For convenience, here is a pictorial schematic.</p>
+<div style="margin: auto; width: 500px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_bb.svg" /></div><p>Note that the three-pin toggle switch in your kit does not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons in your kit.</p>
 <p>For now, you can ignore LED2 (the one toward the top of the pictorial schematic). That is the LED we will control with buttons in the browser. LED1 (the one toward the right of the pictorial schematic) is under tactile control.</p>
 <p>Start with the toggle in the middle (upright position). The LED should be off. Now, depress the pushbutton. You will see that the LED comes on. When you release the button, it turns off.</p>
-<p>Next, switch the toggle to turn on the LED and switch it off. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
+<p>Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
 <p>There is no need to submit this follow-along exercise.</p>
 <hr><p>You have now controlled the on-off behavior of an LED with a toggle and a pushbutton. We will proceed to control those using Python-based control. Our objective is to turn the LED on and off using a virtual button in your browser. We will use a Jupyter notebook, so launch a fresh Jupyter notebook.</p>
 <hr></div>
@@ -568,7 +563,7 @@ div.rendered_html tbody tr:hover {
 [None, &#39;Arduino (www.arduino.cc)&#39;]
 </pre></div></div>
 </div>
-<p>Clearly, the second port is Arduino. We can get then get a string for the port associated with the device.</p>
+<p>Clearly, the second port is Arduino. We can get a string for the port associated with the device.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -647,8 +642,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="section" id="Arduino-sketch">
 <h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Permalink to this headline">¶</a></h3>
-<p>Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is that we will use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is good to send a byte and receive a byte to make
-sure everything is working ok; this is called handshaking. In my sketches, I always have <code class="docutils literal notranslate"><span class="pre">0</span></code> be a handshaking byte, and I have Arduino respond with a string, <code class="docutils literal notranslate"><span class="pre">&quot;Message</span> <span class="pre">received.&quot;</span></code>.</p>
+<p>Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is to use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is prudent to send a byte and receive a byte to make sure
+everything is working ok; this is called handshaking. In my sketches, I always have <code class="docutils literal notranslate"><span class="pre">0</span></code> be a handshaking byte, and I have Arduino respond with a string, <code class="docutils literal notranslate"><span class="pre">&quot;Message</span> <span class="pre">received.&quot;</span></code>.</p>
 <p>Here is the code for the sketch, which I describe in more detail below.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
 
@@ -900,13 +895,13 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fec1a160> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61d8e3430> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

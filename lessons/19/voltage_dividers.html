@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>19. Introduction to filters &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>19. Voltage dividers &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,7 +42,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Photoresistors, trimming, and ADC" href="../20/photoresistors_and_adc.html" />
+    <link rel="next" title="20. Introduction to filters" href="../20/introduction_to_filters.html" />
     <link rel="prev" title="18. Using a liquid crystal display" href="../18/lcd.html" /> 
 </head>
 
@@ -110,17 +109,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">19. Introduction to filters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Voltage-dividers">Voltage dividers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">19. Voltage dividers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-14:-Empirical-voltage-division">Follow-along exercise 14: Empirical voltage division</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Impedance">Impedance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#RC-filters">RC filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-6:-Passive-low-pass-RC-filter">Thinking exercise 6: Passive low-pass RC filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-8:-DAC-with-PWM">Do-it-yourself exercise 8: DAC with PWM</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -216,7 +210,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/19/introduction_to_filters.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/19/voltage_dividers.ipynb" download> Download notebook</a>
         
       
     
@@ -254,15 +248,11 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="19.-Introduction-to-filters">
-<h1>19. Introduction to filters<a class="headerlink" href="#19.-Introduction-to-filters" title="Permalink to this headline">¶</a></h1>
-<hr><p>In this lesson, we will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal.</p>
-<div class="section" id="Voltage-dividers">
-<h2>Voltage dividers<a class="headerlink" href="#Voltage-dividers" title="Permalink to this headline">¶</a></h2>
-<p>A <strong>voltage divider</strong> is one of the most commonly encountered simple circuits. Consider the circuit shown below.</p>
-<div style="width: 300px; margin: auto;"><p><img alt="generic voltage divider" src="../../_images/generic_voltage_divider.svg" /></p>
-</div><p>The symbol at the bottom with three lines indicates ground. For now, you can consider the two generic impedances, Z₁ and Z₂, to be resistances; that is, you can think of the two boxes as resistors with resistance R₁ and R₂. The question is how does <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> compare to <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>. We can derive this from three key properties of circuits. First, Ohm’s law, which says that <span class="math notranslate nohighlight">\(V = I R\)</span>, where <span class="math notranslate nohighlight">\(V\)</span> is a voltage, <span class="math notranslate nohighlight">\(I\)</span> is a current, and <span class="math notranslate nohighlight">\(R\)</span> is a resistance.
-Second, resistors in series add. Third, the current in to any point in a circuit is equal to the current out of it. This third rule means that in the circuit above, the current is the same everywhere. There is a voltage of <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> across R₂ and a voltage of <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> across R₁ and R₂. Thus,</p>
+<div class="section" id="19.-Voltage-dividers">
+<h1>19. Voltage dividers<a class="headerlink" href="#19.-Voltage-dividers" title="Permalink to this headline">¶</a></h1>
+<hr><p>A <strong>voltage divider</strong> is one of the most commonly encountered simple circuits. Consider the circuit shown below.</p>
+<div style="width: 300px; margin: auto;"><img alt="voltage divider with resistors" src="../../_images/voltage_divider_resistors.svg" /></div><p>The symbol at the bottom with three lines indicates ground. We ask how does <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> compare to <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>. We can derive the result from three key properties of circuits. First, Ohm’s law, which says that <span class="math notranslate nohighlight">\(V = I R\)</span>, where <span class="math notranslate nohighlight">\(V\)</span> is a voltage, <span class="math notranslate nohighlight">\(I\)</span> is a current, and <span class="math notranslate nohighlight">\(R\)</span> is a resistance. Second, resistors in series add. Third, the current in to any point in a circuit is equal to the current out of it. This third rule means that in the circuit above,
+the current is the same everywhere. There is a voltage of <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> across R₂ and a voltage of <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> across R₁ and R₂ together. Thus,</p>
 <p><span class="math">\begin{align}
 I = \frac{V_\mathrm{in}}{R_1 + R_2} = \frac{V_\mathrm{out}}{R_2},
 \end{align}</span></p>
@@ -271,89 +261,13 @@ I = \frac{V_\mathrm{in}}{R_1 + R_2} = \frac{V_\mathrm{out}}{R_2},
 \frac{V_\mathrm{out}}{V_\mathrm{in}} = \frac{R_2}{R_1 + R_2}.
 \end{align}</span></p>
 <p>So, the above circuit works as a voltage divider, giving <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> as a fraction <span class="math notranslate nohighlight">\(R_2/(R_1+R_2)\)</span> of <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-14:-Empirical-voltage-division">
+<p>Voltage dividers are one of the more ubiquitous circuits, as they allow delivery of a an arbitrary voltage that is less than the supplied voltage.</p>
+<hr><div class="section" id="Follow-along-exercise-14:-Empirical-voltage-division">
 <h2>Follow-along exercise 14: Empirical voltage division<a class="headerlink" href="#Follow-along-exercise-14:-Empirical-voltage-division" title="Permalink to this headline">¶</a></h2>
-<p>Write up the circuit below. It has many more components that you need for this portion of the exercise, but you will make use of the other components later.</p>
-<div style="width: 700px; margin: auto;"><p><img alt="schematic for analog converter from PWM" src="../../_images/analog_from_pwm_schem.svg" /></p>
-</div><p>You don’t need to upload any sketch yet; simply plug in your Arduino. Use your multimeter to verify that the resistors R₃ and R₄ function as a voltage divider. To do so, make sure you plug the red lead of your multimeter into the 500 mA port (the center one on the WeePro), and the black one on the COM port. Turn the dial to 20V DC (roughly at 10 o’clock on the dial). To measure the input voltage, touch the multimeter leads to the positive lead of R₃ and the negative lead of R₄. To measure the
-output voltage, touch the multimeter to the leads of R₄. Make sure you understand why touching those leads gives you the measurements they do.</p>
+<p>Wire up the circuit below.</p>
+<div style="width: 300px; margin: auto;"><img alt="schematic for voltage divider" src="../../_images/voltage_divider_schem.svg" /></div><p>You don’t need to upload any sketch; simply plug in your Arduino. Use your multimeter to verify that the resistors R₁ and R₂ function as a voltage divider. To do so, make sure you plug the red lead of your multimeter into the 500 mA port (the center one on the WeePro), and the black one on the COM port. Turn the dial to 20V DC (roughly at 10 o’clock on the dial). To measure the input voltage, touch the multimeter leads to the positive lead of R₁ and the negative lead of R₂. To measure the output
+voltage, touch the multimeter to the leads of R₂. Make sure you understand why touching those leads gives you the measurements they do.</p>
 <hr></div>
-<div class="section" id="Impedance">
-<h2>Impedance<a class="headerlink" href="#Impedance" title="Permalink to this headline">¶</a></h2>
-<p>Resistors, capacitors, and inductors are <strong>linear devices</strong>, meaning that there is a linear relationship between current and voltage. For resistors, the current and voltage are in phase. That is, for a sinusoidal input voltage, the current is also sinusoidal with zero phase shift. This make sense via Ohm’s law; <span class="math notranslate nohighlight">\(V = I R\)</span>. Capacitors, on the other hand, have a different voltage-current relationship,</p>
-<p><span class="math">\begin{align}
-\frac{\mathrm{d}V}{\mathrm{d}t} = \frac{I(t)}{C},
-\end{align}</span></p>
-<p>where <span class="math notranslate nohighlight">\(t\)</span> is time and <span class="math notranslate nohighlight">\(C\)</span> is the capacitance. So, for a sinusoidal input voltage, the current through a capacitor is out of phase by <span class="math notranslate nohighlight">\(\pi/2\)</span>. Finally, an inductor (which we directly will not use in this class) is <span class="math notranslate nohighlight">\(\pi/2\)</span> out of phase in the other direction, with the relationship</p>
-<p><span class="math">\begin{align}
-V(t) = L\,\frac{\mathrm{d}I}{\mathrm{d}t},
-\end{align}</span></p>
-<p>where <span class="math notranslate nohighlight">\(L\)</span> is the inductance.</p>
-<p>Because of the linearity of these elements, it is convenient to instead define a complex impedance, <span class="math notranslate nohighlight">\(Z = R + j X\)</span>, where <span class="math notranslate nohighlight">\(R\)</span> is a resistance and <span class="math notranslate nohighlight">\(X\)</span> is a <strong>reactance</strong>. Here, <span class="math notranslate nohighlight">\(j = \sqrt{-1}\)</span>; electrical engineers use <span class="math notranslate nohighlight">\(j\)</span> instead of <span class="math notranslate nohighlight">\(i\)</span> so as not to confuse symbols with current. Writing the impedance in polar form, <span class="math notranslate nohighlight">\(Z = Z_0\,\mathrm{e}^{j\phi}\)</span>, where <span class="math notranslate nohighlight">\(Z_0\)</span> is the magnitude of the impedance and <span class="math notranslate nohighlight">\(\phi\)</span> is the phase angle. So, if we put a
-sinusoidal voltage with amplitude <span class="math notranslate nohighlight">\(V_0\)</span> and frequency <span class="math notranslate nohighlight">\(\omega\)</span> across a resistor, we have</p>
-<p><span class="math">\begin{align}
-V(t) = \mathrm{Re}[V_0\,\mathrm{e}^{j\omega t}] = R I(t),
-\end{align}</span></p>
-<p>which gives</p>
-<p><span class="math">\begin{align}
-I(t) = \mathrm{Re}\left[\frac{1}{R}\,V_0\,\mathrm{e}^{j\omega t}\right].
-\end{align}</span></p>
-<p>The current is completely in phase with the voltage (which we already knew from Ohm’s law), meaning that resistors are completely (you guessed it) resistive. That is, for resistors, the impedance is <span class="math notranslate nohighlight">\(Z = R\)</span>.</p>
-<p>Now, let’s put a sinusoidal voltage across a capacitor.</p>
-<p><span class="math">\begin{align}
-\frac{\mathrm{d}V}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\,\mathrm{Re}[V_0\,\mathrm{e}^{j\omega t}]  = \omega\,V_0\,\mathrm{Re}[j \mathrm{e}^{j\omega t}] = \frac{I(t)}{C}.
-\end{align}</span></p>
-<p>Thus,</p>
-<p><span class="math">\begin{align}
-I(t) = \mathrm{Re}[j\omega\,V_0\,\mathrm{e}^{j\omega t}] = \mathrm{Re}\left[-\frac{1}{j/\omega C}\,V_0\,\mathrm{e}^{j\omega t}\right].
-\end{align}</span></p>
-<p>Here, the impedance is <span class="math notranslate nohighlight">\(Z = -j/\omega C\)</span>, which is purely imaginary, and therefore purely reactive. It is important to note that the impedance is <em>frequency dependent</em>. This is a key feature in filter design.</p>
-<p>These relations are useful to remember; the impedance for a resistor is <span class="math notranslate nohighlight">\(R\)</span>, that for a capacitor is <span class="math notranslate nohighlight">\(-j/\omega C\)</span>, and that for an inductor (which we will not use) is <span class="math notranslate nohighlight">\(j\omega L\)</span>. We further note that Ohm’s law generalizes to impedances, where <span class="math notranslate nohighlight">\(V = I Z\)</span>. The expression for the voltage divider also generalizes,</p>
-<p><span class="math">\begin{align}
-\frac{V_\mathrm{out}}{V_\mathrm{in}} = \frac{Z_2}{Z_1 + Z_2}.
-\end{align}</span></p>
-</div>
-<div class="section" id="RC-filters">
-<h2>RC filters<a class="headerlink" href="#RC-filters" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have worked out that how voltage dividers work for general impedances, let us consider the case where <span class="math notranslate nohighlight">\(Z_1\)</span> is purely reactive and <span class="math notranslate nohighlight">\(Z_2\)</span> is purely resistive. This means that the component Z₁ in the above circuit diagram is a capacitor, say with capacitance <span class="math notranslate nohighlight">\(C\)</span>, and Z₂ is a resistor, say with resistance <span class="math notranslate nohighlight">\(R\)</span>. The complex representation of the output voltage is then</p>
-<p><span class="math">\begin{align}
-V_\mathrm{out} = \frac{R}{-j/\omega C + R}\, V_\mathrm{in}.
-\end{align}</span></p>
-<p>The amplitude is found by taking the magnitude of the above expression, giving</p>
-<p><span class="math">\begin{align}
-\left|V_\mathrm{out}\right| = \frac{R}{\sqrt{1/\omega^2 C^2 + R^2}}\, \left|V_\mathrm{in}\right| = \frac{1}{\sqrt{1 + 1/\omega^2 R^2 C^2}}\, \left|V_\mathrm{in}\right|.
-\end{align}</span></p>
-<p>Note that in taking the amplitude, we are ignoring the phase shift. The result is interesting because the magnitude of the output voltage is frequency dependent. For frequencies much smaller than <span class="math notranslate nohighlight">\(1/RC\)</span>, the second term in the denominator gets large, and the output voltage approaches zero. For high frequencies, the second term in the denominator is small, and <span class="math notranslate nohighlight">\(\left|V_\mathrm{out}\right| \approx \left|V\mathrm{in}\right|\)</span>. Thus the circuit where Z₁ is a capacitor and Z₂ is a resistor
-is a <strong>high-pass filter</strong>. High frequency changes in voltages get through, while low frequency changes in voltages are blocked.</p>
-<hr></div>
-<div class="section" id="Thinking-exercise-6:-Passive-low-pass-RC-filter">
-<h2>Thinking exercise 6: Passive low-pass RC filter<a class="headerlink" href="#Thinking-exercise-6:-Passive-low-pass-RC-filter" title="Permalink to this headline">¶</a></h2>
-<p>Show that when the situation is switched around, when Z₁ is a resistor with resistance <span class="math notranslate nohighlight">\(R\)</span> and Z₂ is a capacitor with capacitance <span class="math notranslate nohighlight">\(C\)</span>, that the circuit works as a low-pass filter.</p>
-<hr></div>
-<div class="section" id="Do-it-yourself-exercise-8:-DAC-with-PWM">
-<h2>Do-it-yourself exercise 8: DAC with PWM<a class="headerlink" href="#Do-it-yourself-exercise-8:-DAC-with-PWM" title="Permalink to this headline">¶</a></h2>
-<p>In previous lessons, we have used the MCP4725 breakout board to do digital-to-analog conversion. This enables us to have an analog voltage available. Now, you will try to get an analog voltage by filtering a pulse-width-modulated signal. You will compare these signals to a signal you get from the MCP4725.</p>
-<p>Using the setup you wired above, write an Arduino sketch that does the following.</p>
-<ul class="simple">
-<li><p>Uses I2C to send a sinusoidal voltage with amplitude 5 V and frequency of 1 Hz to the MCP4725 DAC. The converted voltage is read in on pin A0.</p></li>
-<li><p>Uses digital pin 3 to send a sinusoidally varying voltage with amplitude 5 V and frequency 1 Hz. Remember, PWM works by switching the voltage on and off, such that the <em>average</em> voltage matches what you want. In this case, the average voltage you are sending with <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> is varying sinusoidally.</p></li>
-<li><p>Uses digital pin 6 to do the same.</p></li>
-<li><p>The PWM signals from pins 3 and 6 each go through a passive RC filter. The output voltages of these filters is read in on pins A1 and A2, respectively.</p></li>
-<li><p>You should send the readings from A0, A1, and A2 over serial to be plotted.</p></li>
-</ul>
-<p>For the passive filters in the circuit, what frequencies should be filtered out? Note that the frequency of the pulse-width-modulated signal from digital pin 3 is 490 Hz and that from digital pin 6 is 980 Hz. Make plots of the signals from the MCP4725 DAC, pin 3 + RC filter, and pin 6 + RC filter. Do your plots agree with your assessment about filtered frequencies? Finally, what are some drawbacks of using PWM + an RC filter for doing DAC?</p>
-<hr><p><strong>Answer to low-pass filter exercise</strong></p>
-<p>When we swap the resistor and capacitor from the high-pass filter, we get</p>
-<p><span class="math">\begin{align}
-V_\mathrm{out} = \frac{-j/\omega C}{R - j/\omega C}\, V_\mathrm{in} = -\frac{1}{1 + \omega R C}\, V_\mathrm{in},
-\end{align}</span></p>
-<p>which gives</p>
-<p><span class="math">\begin{align}
-\left|V_\mathrm{out}\right| = \frac{1}{\sqrt{1 + \omega^2 R^2 C^2}}\, \left|V_\mathrm{in}\right|.
-\end{align}</span></p>
-<p>So, when the frequency <span class="math notranslate nohighlight">\(\omega\)</span> is large compared to <span class="math notranslate nohighlight">\(1/RC\)</span>, the denominator is large, so that <span class="math notranslate nohighlight">\(V_\mathrm{out} \approx 0\)</span>. When <span class="math notranslate nohighlight">\(\omega\)</span> is small compared to <span class="math notranslate nohighlight">\(1/RC\)</span>, <span class="math notranslate nohighlight">\(\left|V_\mathrm{out}\right| \approx \left|V_\mathrm{in}\right|\)</span>. Thus, low frequencies go through, but high frequencies are blocked.</p>
-</div>
 </div>
 
 
@@ -364,7 +278,7 @@ V_\mathrm{out} = \frac{-j/\omega C}{R - j/\omega C}\, V_\mathrm{in} = -\frac{1}{
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../20/photoresistors_and_adc.html" class="btn btn-neutral float-right" title="20. Photoresistors, trimming, and ADC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../20/introduction_to_filters.html" class="btn btn-neutral float-right" title="20. Introduction to filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../18/lcd.html" class="btn btn-neutral float-left" title="18. Using a liquid crystal display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -377,13 +291,13 @@ V_\mathrm{out} = \frac{-j/\omega C}{R - j/\omega C}\, V_\mathrm{in} = -\frac{1}{
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fea17f10> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61da5eb50> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

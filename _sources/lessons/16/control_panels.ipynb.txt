@@ -360,9 +360,9 @@
    "source": [
     "<hr>\n",
     "\n",
-    "We have seen how to make buttons to control data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a *control panel* for a device. When building a device, it is important to have intuitive controls and display to get the most out of your device. Not only does this speed up your work, but also enables other researchers to use your device.\n",
+    "We have seen how to create buttons for controlling data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a *control panel* for a device. When building a device, it is important to have intuitive controls and displays to get the most out of your device. Not only does this speed up your work, it also enables other researchers to easily use your device.\n",
     "\n",
-    "You are of course thoughtful about the physical design of any device you make. There's no option; it won't work if you don't build it well. At the same time, you should also be thoughtful about how you *interface* with the device. This is often overlooked. I view it as similarly to software that has a bad, poorly documented API. No one, not even future you, will know how to operate your device unless you are careful about its interface and documentation.\n",
+    "You are of course thoughtful about the physical design of any device you make. There's no option; it won't work if you don't build it well. At the same time, you should also be thoughtful about how you *interface* with the device. This is often overlooked. I view it as similar to software that has a bad, poorly documented API. No one, not even future you, will know how to operate your device unless you are careful about its interface and documentation.\n",
     "\n",
     "We will again use the setup of the last few lessons with the same utility functions. You can again skip ahead to the [next section](#Python-based-dashboarding) after running the code cells below."
    ]
@@ -682,13 +682,13 @@
     "</div>\n",
     "\n",
     "\n",
-    "The idea is that I have a tabbed plot (which is possible in Bokeh). The user selects to either be in streaming mode or on-demand mode by selecting the tab. Streaming starts by pressing the start button (it's \"Acquire\" in on-demand mode), and stops by pressing the stop button. It is allowed to begin again by again pressing start. To save the data, the user can enter a file name and click the save button.\n",
+    "The idea is that I have a tabbed plot (which is possible in Bokeh). The user chooses either to be in streaming mode or to be in on-demand mode by selecting the tab. Streaming starts by pressing the start button (it is \"Acquire\" in on-demand mode), and stops by pressing the stop button. Streaming is allowed to begin again by again pressing start. To save the data, the user can enter a file name and click the save button.\n",
     "\n",
     "I built this app, and then realized some problems with it.\n",
     "\n",
     "1. It is ambiguous whether to save streaming or on-demand data in the event that both are happening at the same time.\n",
     "2. There actually is no stop button for on-demand. (Duh!)\n",
-    "3. If data are streaming and the user switches to on-demand mode, the user cannot see the streaming data any more.\n",
+    "3. If data are streaming and the user switches to on-demand mode, the user cannot see the streaming data anymore.\n",
     "\n",
     "I scrapped this design and moved on to another.\n",
     "\n",
@@ -2021,7 +2021,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

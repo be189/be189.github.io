@@ -13,9 +13,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "In this lesson, we will take a whirlwind tour through the syntax you need as you wire sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful [Arduino language reference](https://www.arduino.cc/reference/). \n",
+    "In this lesson, we will take a whirlwind tour through the syntax you need as you write sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful [Arduino language reference](https://www.arduino.cc/reference/). \n",
     "\n",
-    "When you finish this lesson, it is important to proceed with much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use."
+    "When you finish this lesson, it is important to proceed without much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use."
    ]
   },
   {
@@ -42,7 +42,7 @@
    "source": [
     "## A general note about programming in Arduino: keep it simple\n",
     "\n",
-    "You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. That means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task with static arrays. Unforeseen problems, such as memory fragmentation, can rear their ugly heads.\n",
+    "You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. This means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task in ARduino with static arrays. Unforeseen problems, such as memory fragmentation, can rear their ugly heads.\n",
     "\n",
     "It is safe to use pointers and work with them, e.g., to make two-dimensional arrays, but we will not discuss them here. Nonetheless, be careful when doing so.\n",
     "\n",
@@ -57,7 +57,7 @@
    "source": [
     "## Data types\n",
     "\n",
-    "As I mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:\n",
+    "As I have mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:\n",
     "\n",
     "```arduino\n",
     "int j;\n",
@@ -83,7 +83,7 @@
     "- `bool`: A `bool` stores a single bit of information. It can take values of 0 or 1. In your sketches, though, use the Boolean constants `true` and `false` for the values of a `bool`.\n",
     "- `byte`: A byte is an unsigned 8-bit integer. It can take values from 0 to 255; that is 0 to 2⁸ – 1.\n",
     "- `int`: An `int` in an Arduino sketch is a signed 16-bit integer. That means that the values of an `int` range from –32,768 to 32,767; that is –2⁻¹⁵ to 2¹⁵ – 1. The `int` is by far the most-used variable type. Note that the 10-bit ADC converts voltages to 10-bit integers that range from 0 to 1023. You can safely store these as `int`s. You will also have a external 16-bit ADC in your kit, and an `int` cannot store 16-bit numbers, so you will have to use an `unsigned int`.\n",
-    "- `unsigned int`: An `unsigned int` is also a 16-bit integers, but negative numbers are not allowed. Therefore `unsigned int`s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.\n",
+    "- `unsigned int`: An `unsigned int` is also a 16-bit integer, but negative numbers are not allowed. Therefore `unsigned int`s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.\n",
     "- `word`: A `word` is equivalent to `unsigned int`. Many programmers suggest using `word` instead of `unsigned int` for clarity, but I do not have a strong opinion on this.\n",
     "- `long`: A `long` is a signed 32-bit integer. They range from –2,147,483,648 to 2,147,483,647; that is –2⁻³¹ to 2³¹ – 1. To denote an integer as a `long`, it must be followed by an `L`. For example to store the number 3252 in a variable named `shoulderToShoulder` as a long, you would do `long shoulderToShoulder = 3252L`.\n",
     "- `unsigned long`: A `unsigned long` is an unsigned 32-bit integer. They range from 0 to 4,294,967,295; that is 0 to 2³² – 1. An `unsigned long` must also be followed by an `L` when written out as a number. `unsigned long`s are very often used when comparing times, since the values returned by the `millis()` and `micros()` functions (described below) are `unsigned long`s.\n",
@@ -633,7 +633,7 @@
    "source": [
     "## Functions\n",
     "\n",
-    "As in design of devices, it is useful to practice [modular design](https://en.wikipedia.org/wiki/Modular_programming) in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.\n",
+    "As with design of devices, it is useful to practice [modular design](https://en.wikipedia.org/wiki/Modular_programming) in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.\n",
     "\n",
     "It is easiest to see how functions are defined by looking at one. Here is a function to flash an LED  *n* times.\n",
     "\n",
@@ -709,7 +709,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

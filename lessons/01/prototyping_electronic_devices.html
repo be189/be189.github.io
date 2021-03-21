@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -113,9 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -251,10 +248,10 @@
 </style>
 <div class="section" id="1.-Prototyping-electronic-devices">
 <h1>1. Prototyping electronic devices<a class="headerlink" href="#1.-Prototyping-electronic-devices" title="Permalink to this headline">¶</a></h1>
-<hr><p>The title of this course is <em>Design and Construction of Biodevices</em>. We will be constructing a spectrophotometer and a pulse oximeter, two biodevices that you could easily buy, and not even for very much money. So why are we constructing them? There are two main goals.</p>
+<hr><p>The title of this course is <em>Design and Construction of Biodevices</em>. True to that spirit, we will be designing constructing a spectrophotometer and a pulse oximeter—two biodevices that you could easily buy, and not even for very much money. So why are we constructing them? There are two main goals.</p>
 <ol class="arabic simple">
-<li><p>You may have a novel idea for an experiment in which you need to make a measurement that has never been made before. Or maybe you want to to measure something in a new way. In either case, there may not be an available instrument to do the measurement, and you’ll have to build your own. This course develops the skills you need to build your own instruments by building instruments with well-established function.</p></li>
-<li><p>As you develop new instrumentation, you build prototypes. The process of building prototypes, testing them improving upon them, and repeating is key toward developing quality instrumentation. James Dyson <a class="reference external" href="https://nymag.com/vindicated/2016/11/james-dyson-on-5-126-vacuums-that-didnt-work-and-1-that-did.html">famously built over 5000 prototypes of his bagless vacuum cleaner</a> before it was ready for market. In building instruments, you will learn about the prototyping process and best
+<li><p>You may have a novel idea for an experiment in which you need to make a measurement that has never been made before. Or maybe you want to measure something in a new way. In either case, there may not be an available instrument to perform that measurement, and you’ll have to build your own. This course teaches you the skills needed to build your own instruments having you build instruments with well-established functions.</p></li>
+<li><p>As you develop new instrumentation, you build prototypes. The process of building prototypes, testing them, improving upon them, and repeating is key toward developing quality instrumentation. James Dyson <a class="reference external" href="https://nymag.com/vindicated/2016/11/james-dyson-on-5-126-vacuums-that-didnt-work-and-1-that-did.html">famously built over 5000 prototypes of his bagless vacuum cleaner</a> before it was ready for market. In building instruments, you will learn about the prototyping process and best
 practices.</p></li>
 </ol>
 <p>Before building your devices, you will learn about the tools we will use for prototyping our devices. You will do a set of exercises to solidify your understanding.</p>
@@ -269,14 +266,15 @@ practices.</p></li>
 </ol>
 <p>When a device is fully constructed, the electronics are efficiently and permanently packaged into a small space, often using <a class="reference external" href="https://en.wikipedia.org/wiki/Printed_circuit_board">printed circuit board assemblies</a>. When <em>designing</em> a device, the engineer needs space to tinker and make adjustments. In days of yore, engineers would hammer nails into flat wooden boards and would then connect the nails with wire to connect components. These pieces of wood were often breadboards, flat pieces of
 wood for kneading or serving bread. Prototyping in this way, while easier than trying to build a finished electronic product in each iteration, is slow, as you can imagine.</p>
-<p>Fifty or so years ago, engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).</p>
-<div style="width: 600px; margin: auto;"><p><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" /></p>
+<p>Fifty or so years ago (1971 to be exact), engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).</p>
+<div style="width: 600px; margin: auto;"><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" />
 </div><p>Engineers can stick the leads of electronic components into the little holes to rapidly connect circuitry. (We will discuss the structure of the solderless breadboards in the next lesson.) This greatly accelerated the prototyping process.</p>
-<p>While the solderless breadboards offered a much more rapid means of making electronic hardware, the past few decades have seen more innovation that leads to much more rapid prototyping: the ability to shift many design considerations to software.</p>
+<p>The past few decades have seen even more innovations that enabled further improvement in prototyping speed and efficiencies: the collective ability to shift many design implementations to software.</p>
 <p>As a simple example of how this can speed prototyping, consider the “blink” example you will soon construct in a follow-along exercise. The goal is to design a circuit that has a <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">light emitting diode</a> (LED) that blinks twice per second. You could build an <a class="reference external" href="https://en.wikipedia.org/wiki/Multivibrator">astable multivibrator</a>, which requires several resistors, capacitors, and transistors. The frequency of the blinking LED would be set by
 your choices for the resistor and capacitor values. Conversely, you could simply hook an LED up to a power source that you can control <em>with software</em>. You can write a computer program that turns the power on and off with a set frequency. Then, to change blinking frequency, you need only to change a line or two in code, rather than change out physical components.</p>
 <p>The <a class="reference external" href="http://arduino.cc/">Arduino</a> platform provides a means for software-based control of electronic circuits. Combined with solderless breadboards, this allows for very rapid prototyping.</p>
-<p>Finally, if we want to have a convenient interface for control of a device, such as a computer, we need means for communicating with the device, as controlled by a microcontroller on an Arduino board. We will use Python-based tools to do that. These are also readily programmed and the “control panel” is comprised of a series of configurable buttons presented in a web browser. This is much faster to design and redesign than a physical control panel.</p>
+<p>Finally, if we want to have a convenient interface for control of a device, such as a computer, we need means for communicating with the device. In the case of Arduino controlled devices, we need an interface to communicate with the Arduino board’s microcontroller. We will use Python-based tools to do that. These are also readily programmed and the “control panel” is comprised of a series of configurable buttons presented in a web browser. This is much faster to design and redesign than a
+physical control panel.</p>
 </div>
 </div>
 
@@ -301,13 +299,13 @@ your choices for the resistor and capacitor values. Conversely, you could simply
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe5ec850> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61d605430> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

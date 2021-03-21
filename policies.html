@@ -31,12 +31,9 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -110,9 +107,9 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -251,9 +248,10 @@
     text-align: unset;
 }
 </style>
+<p id="policies"><em>The policies on this page are tentative and subject to change.</em></p>
 <div class="section" id="meetings">
-<span id="policies"></span><h1>Meetings<a class="headerlink" href="#meetings" title="Permalink to this headline">¶</a></h1>
-<p>The class meets regularly on Tuesdays and Thursdays 10:30-noon PDT via <a class="reference external" href="http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/">this Zoom link</a>. Unless you have extenuating circumstances, the meetings are mandatory. Some course meetings will involve live instruction which will be recorded and posted on the <a class="reference internal" href="schedule.html#schedule"><span class="std std-ref">Schedule overview</span></a> page. Many of the course meetings will be check-ins and discussion about your projects. For these meetings, you are required to attend, but may leave after the instructor dismisses you.</p>
+<h1>Meetings<a class="headerlink" href="#meetings" title="Permalink to this headline">¶</a></h1>
+<p>The class meets regularly on Tuesdays and Thursdays 2:30–4:00 PM PDT via <a class="reference external" href="http://bois.caltech.edu/be189/2021_spring/zoom_links/tuth_class/">this Zoom link</a>. Unless you have extenuating circumstances, the meetings are mandatory. Some course meetings will involve live instruction which will be recorded and posted on the <a class="reference internal" href="schedule.html#schedule"><span class="std std-ref">Schedule overview</span></a> page. Many of the course meetings will be check-ins and discussion about your projects. For these meetings, you are required to attend, but may leave after the instructor dismisses you.</p>
 </div>
 <div class="section" id="course-structure">
 <h1>Course structure<a class="headerlink" href="#course-structure" title="Permalink to this headline">¶</a></h1>
@@ -263,7 +261,7 @@
 </div>
 <div class="section" id="course-communications">
 <h1>Course communications<a class="headerlink" href="#course-communications" title="Permalink to this headline">¶</a></h1>
-<p>Please use <a class="reference external" href="https://us.edstem.org/courses/2616/">the course Ed page</a> for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.</p>
+<p>Please use the course Ed page (link to be posted) for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.</p>
 <p>For private matters, such as extension requests, contact the course staff directly using email.</p>
 </div>
 <div class="section" id="equipment">
@@ -371,13 +369,13 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdbf9bb0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61dc71fd0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

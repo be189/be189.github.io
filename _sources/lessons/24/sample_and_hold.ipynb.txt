@@ -13,9 +13,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "We have performed analog-to-digital conversion (ADC) already. But let's think about what that entails for a moment. ADC involves taking an analog voltage and, ideally, *instantaneously* converting the voltage to a set of bits. (The ADCs built in to Arduino Uno are 10-bit.) The conversion is not instantaneous, though. The input voltage used for ADC has to be held constant for some time to enable ADC to proceed. (There are many ways of doing ADC; see section 13.5 of Horowitz and Hill for a discussion.)\n",
+    "We have performed analog-to-digital conversion (ADC) in earlier lessons. But let's think about what that entails for a moment. ADC involves taking an analog voltage and, ideally, *instantaneously* converting the voltage to a set of bits. (The ADCs built in to Arduino Uno are 10-bit.) The conversion is not instantaneous, though. The input voltage used for ADC has to be held constant for some time to enable ADC complete its process. (There are many ways of doing ADC; see section 13.5 of Horowitz and Hill for a discussion.)\n",
     "\n",
-    "**Sample-and-hold circuits** are designed for this purpose. Given a sampled voltage, they hold that voltage, usually so that it can be measured or used for some other purpose."
+    "**Sample-and-hold circuits** are designed for this purpose. Given a sampled voltage, a sample-and-hold circuit holds that voltage, usually so that it can be measured or used for some other purpose."
    ]
   },
   {
@@ -24,7 +24,7 @@
    "source": [
     "## Basic sample-and-hold architecture\n",
     "\n",
-    "The essential components of a sample-and-hold circuit are two unit-gain op-amps, a switch, and a capacitor, shown in the schematic below.\n",
+    "The essential components of a sample-and-hold circuit are two unit-gain amplifiers, a switch, and a capacitor, shown in the schematic below.\n",
     "\n",
     "<div style=\"margin: auto; width: 400px\">\n",
     "    \n",
@@ -32,11 +32,11 @@
     "    \n",
     "</div>\n",
     "\n",
-    "The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across it grows. When the switch opens (OFF), whatever charge was build up in the capacitor is held because the right op-amp does not allow current to flow through. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage in the capacitor.\n",
+    "The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across it grows. When the switch opens (OFF), whatever charge that has accumulated in the capacitor is held because the right op-amp does not allow current to flow through its input terminals. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage in the capacitor.\n",
     "\n",
     "So, the \"sample\" step involves turning the switch on and building up the charge of the capacitor so that the voltage across the capacitor matches the input voltage. The \"hold\" step involves turning the switch off and outputting the held capacitor voltage.\n",
     "\n",
-    "The choice of capacitance $C$ depends on the goals of the sample-and-hold circuit. If you need to hold the voltage for a long time, you want a large $C$, since you will lose voltage across the capacitor according to $\\mathrm{d}V/\\mathrm{d}t = I_\\mathrm{leak}/C$, where $I_\\mathrm{leak}$ is the current leaked through the right op-amp. (Such drop in voltage while holding is called **droop**.) On the other hand, if you want to have high frequency sampling, you need to be able to charge up the capacitor quickly, so you want $C$ to be small. Furthermore, there is some finite resistance in the switch, so the capacitor is part of a low-pass filter. So, you want $C$ to be small so that high frequency signals are not filtered out."
+    "The choice of capacitance $C$ depends on the goals of the sample-and-hold circuit. If you need to hold the voltage for a long time, you want a large $C$, since you will lose voltage across the capacitor according to $\\mathrm{d}V/\\mathrm{d}t = I_\\mathrm{leak}/C$, where $I_\\mathrm{leak}$ is the current that leaks through the right op-amp. (Such drop in voltage while holding is called **droop**.) On the other hand, if you want to have high frequency sampling, you need to be able to charge up the capacitor quickly, so you want $C$ to be small. Furthermore, there is some finite resistance in the switch, so the capacitor is part of a low-pass filter. So, you want $C$ to be small so that high frequency signals are not filtered out."
    ]
   },
   {
@@ -45,7 +45,7 @@
    "source": [
     "<hr>\n",
     "\n",
-    "## Follow-along exercise 17: Building a sample-and-hold circuit\n",
+    "## Follow-along exercise 16: Building a sample-and-hold circuit\n",
     "\n",
     "In most applications, the switch is a metal-oxide-semiconductor field-effect transistor (MOSFET). For this exercise, you will instead build a sample-and-hold circuit using an *npn* BJT as the switch.\n",
     "\n",
@@ -173,7 +173,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

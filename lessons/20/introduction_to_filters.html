@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>20. Photoresistors, trimming, and ADC &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>20. Introduction to filters &mdash; BE/EE/MedE 189 a  documentation</title>
   
 
   
@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -43,8 +42,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="21. Protecting Arduino with Zener diodes" href="../21/protection_with_zener.html" />
-    <link rel="prev" title="19. Introduction to filters" href="../19/introduction_to_filters.html" /> 
+    <link rel="next" title="21. Photoresistors, trimming, and ADC" href="../21/photoresistors_and_adc.html" />
+    <link rel="prev" title="19. Voltage dividers" href="../19/voltage_dividers.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,14 +109,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">20. Photoresistors, trimming, and ADC</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Photoresistors">Photoresistors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Trimming-resistances">Trimming resistances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC">Do-it-yourself exercise 9: Photoresistors with ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">20. Introduction to filters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Impedance">Impedance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#A-generalized-voltage-divider">A generalized voltage divider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#RC-filters">RC filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-6:-Passive-low-pass-RC-filter">Thinking exercise 6: Passive low-pass RC filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-8:-DAC-with-PWM">Do-it-yourself exercise 8: DAC with PWM</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -213,7 +214,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/20/photoresistors_and_adc.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/20/introduction_to_filters.ipynb" download> Download notebook</a>
         
       
     
@@ -251,42 +252,91 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="20.-Photoresistors,-trimming,-and-ADC">
-<h1>20. Photoresistors, trimming, and ADC<a class="headerlink" href="#20.-Photoresistors,-trimming,-and-ADC" title="Permalink to this headline">¶</a></h1>
-<hr><p>You have learned some of the basics of building prototypes of electronic circuits. In this lesson, you will get considerably less guidance on the do-it-yourself exercise, and will have to rely on what you have learned so far and online tutorials and data sheets.</p>
-<div class="section" id="Photoresistors">
-<h2>Photoresistors<a class="headerlink" href="#Photoresistors" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Optoelectronics">Optoelectronic devices</a> are devices that can detect and control light. Our primary interest is detection, since we will be building a spectrophotometer. There are many optoelectronic detectors, including photodiodes, phototransistors, and <a class="reference external" href="https://en.wikipedia.org/wiki/Photoresistor">photoresistors</a>. A photoresistor (pictured below) is a resistor whose resistance is dependent on the intensity of light incident on its surface. The more light,
-the lower the resistance.</p>
-<div style="width: 300px; margin: auto;"><p><img alt="photoresistor" src="../../_images/photoresistor.jpg" /></p>
-<p><em>Image by Nevit Dilman,</em><a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC-BY-SA 3.0 licened</a><em>.</em></p>
-</div><p>By measuring the voltage across a photoresistor, we can get a measure of the amount of incident light. In the exercise below, you will measure exactly that (which you will also do when you build your spectrophotometer).</p>
+<div class="section" id="20.-Introduction-to-filters">
+<h1>20. Introduction to filters<a class="headerlink" href="#20.-Introduction-to-filters" title="Permalink to this headline">¶</a></h1>
+<hr><p>In this lesson, we will explore passive filters and complete a do-it-yourself exercise using an RC filter to do DAC from a PWM signal.</p>
+<div class="section" id="Impedance">
+<h2>Impedance<a class="headerlink" href="#Impedance" title="Permalink to this headline">¶</a></h2>
+<p>Resistors, capacitors, and inductors are <strong>linear devices</strong>, meaning that there is a linear relationship between current and voltage. For resistors, the current and voltage are in phase. That is, for a sinusoidal input voltage, the current is also sinusoidal with zero phase shift. This makes sense via Ohm’s law; <span class="math notranslate nohighlight">\(V = I R\)</span>. Capacitors, on the other hand, have a different voltage-current relationship,</p>
+<p><span class="math">\begin{align}
+\frac{\mathrm{d}V}{\mathrm{d}t} = \frac{I(t)}{C},
+\end{align}</span></p>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is time and <span class="math notranslate nohighlight">\(C\)</span> is the capacitance. So, for a sinusoidal input voltage, the current through a capacitor is out of phase by <span class="math notranslate nohighlight">\(\pi/2\)</span>. Finally, an inductor (which we directly will not use in this class) is <span class="math notranslate nohighlight">\(\pi/2\)</span> out of phase in the other direction, with the relationship</p>
+<p><span class="math">\begin{align}
+V(t) = L\,\frac{\mathrm{d}I}{\mathrm{d}t},
+\end{align}</span></p>
+<p>where <span class="math notranslate nohighlight">\(L\)</span> is the inductance.</p>
+<p>Because of the linearity of these elements, it is convenient to instead define a complex impedance, <span class="math notranslate nohighlight">\(Z = R + j X\)</span>, where <span class="math notranslate nohighlight">\(R\)</span> is a resistance and <span class="math notranslate nohighlight">\(X\)</span> is a <strong>reactance</strong>. Here, <span class="math notranslate nohighlight">\(j = \sqrt{-1}\)</span>; electrical engineers use <span class="math notranslate nohighlight">\(j\)</span> instead of <span class="math notranslate nohighlight">\(i\)</span> so as not to confuse symbols with current. Writing the impedance in polar form, <span class="math notranslate nohighlight">\(Z = Z_0\,\mathrm{e}^{j\phi}\)</span>, where <span class="math notranslate nohighlight">\(Z_0\)</span> is the magnitude of the impedance and <span class="math notranslate nohighlight">\(\phi\)</span> is the phase angle. So, if we put a
+sinusoidal voltage with amplitude <span class="math notranslate nohighlight">\(V_0\)</span> and frequency <span class="math notranslate nohighlight">\(\omega\)</span> across a resistor, we have</p>
+<p><span class="math">\begin{align}
+V(t) = \mathrm{Re}[V_0\,\mathrm{e}^{j\omega t}] = R I(t),
+\end{align}</span></p>
+<p>which gives</p>
+<p><span class="math">\begin{align}
+I(t) = \mathrm{Re}\left[\frac{1}{R}\,V_0\,\mathrm{e}^{j\omega t}\right].
+\end{align}</span></p>
+<p>The current is completely in phase with the voltage (which we already knew from Ohm’s law), meaning that resistors are completely (you guessed it) resistive. That is, for resistors, the impedance is <span class="math notranslate nohighlight">\(Z = R\)</span>.</p>
+<p>Now, let’s put a sinusoidal voltage across a capacitor.</p>
+<p><span class="math">\begin{align}
+\frac{\mathrm{d}V}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\,\mathrm{Re}[V_0\,\mathrm{e}^{j\omega t}]  = \omega\,V_0\,\mathrm{Re}[j \mathrm{e}^{j\omega t}] = \frac{I(t)}{C}.
+\end{align}</span></p>
+<p>Thus,</p>
+<p><span class="math">\begin{align}
+I(t) = \mathrm{Re}[j\omega\,V_0\,\mathrm{e}^{j\omega t}] = \mathrm{Re}\left[-\frac{1}{j/\omega C}\,V_0\,\mathrm{e}^{j\omega t}\right].
+\end{align}</span></p>
+<p>Here, the impedance is <span class="math notranslate nohighlight">\(Z = -j/\omega C\)</span>, which is purely imaginary, and therefore purely reactive. It is important to note that the impedance is <em>frequency dependent</em>. This is a key feature in filter design.</p>
+<p>These relations are useful to remember; the impedance for a resistor is <span class="math notranslate nohighlight">\(R\)</span>, that for a capacitor is <span class="math notranslate nohighlight">\(-j/\omega C\)</span>, and that for an inductor (which we will not use) is <span class="math notranslate nohighlight">\(j\omega L\)</span>. We further note that Ohm’s law generalizes to impedances, where <span class="math notranslate nohighlight">\(V = I Z\)</span>.</p>
 </div>
-<div class="section" id="Trimming-resistances">
-<h2>Trimming resistances<a class="headerlink" href="#Trimming-resistances" title="Permalink to this headline">¶</a></h2>
-<p>In the exercise below, you will likely set up voltage dividers. It helps to have good control over the resistances in the dividers. You have many different resistors in your kits, but what if you want to obtain a resistance you do not have? You can use a couple simple principles to do that.</p>
-<ol class="arabic simple">
-<li><p>Resistances in series result in resistance <span class="math notranslate nohighlight">\(R = R_1 + R_2 + R_3 + \cdots\)</span>.</p></li>
-<li><p>Resistance in parallel result in resistance <span class="math notranslate nohighlight">\(R = \left(R_1^{-1} + R_2^{-1} + R_3^{-1} + \cdots\right)^{-1}\)</span>.</p></li>
-</ol>
-<p>Point (2) means that resistors in parallel always have a lower resistance than the largest individual resistor.</p>
-<p>Say you have an available resistor just below the value you want. You can trim the resistance <strong>up</strong> by adding small resistor or resistors <strong>in series</strong> to make up the difference.</p>
-<p>Now say you have an available resistor just above the value you want. You can trim the resistance <strong>down</strong> by adding a small resistor or resistors <strong>in parallel</strong> to bring the total resistance down.</p>
+<div class="section" id="A-generalized-voltage-divider">
+<h2>A generalized voltage divider<a class="headerlink" href="#A-generalized-voltage-divider" title="Permalink to this headline">¶</a></h2>
+<p>In the previous lesson, we learned about voltage dividers. Consider the same circuit as a voltage divider, but instead of resistance R₁ and R₂, we have generic impedances Z₁ and Z₂.</p>
+<div style="width: 300px; margin: auto;"><img alt="generic voltage divider" src="../../_images/generic_voltage_divider.svg" /></div><p>The expression for the voltage divider generalizes,</p>
+<p><span class="math">\begin{align}
+\frac{V_\mathrm{out}}{V_\mathrm{in}} = \frac{Z_2}{Z_1 + Z_2}.
+\end{align}</span></p>
+<p>We will use this generalized voltage divider architecture to make filters.</p>
+</div>
+<div class="section" id="RC-filters">
+<h2>RC filters<a class="headerlink" href="#RC-filters" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have worked out that how voltage dividers work for general impedances, let us consider the case where <span class="math notranslate nohighlight">\(Z_1\)</span> is purely reactive and <span class="math notranslate nohighlight">\(Z_2\)</span> is purely resistive. This means that the component Z₁ in the above circuit diagram is a capacitor, say with capacitance <span class="math notranslate nohighlight">\(C\)</span>, and Z₂ is a resistor, say with resistance <span class="math notranslate nohighlight">\(R\)</span>. The complex representation of the output voltage is then</p>
+<p><span class="math">\begin{align}
+V_\mathrm{out} = \frac{R}{-j/\omega C + R}\, V_\mathrm{in}.
+\end{align}</span></p>
+<p>The amplitude is found by taking the magnitude of the above expression, giving</p>
+<p><span class="math">\begin{align}
+\left|V_\mathrm{out}\right| = \frac{R}{\sqrt{1/\omega^2 C^2 + R^2}}\, \left|V_\mathrm{in}\right| = \frac{1}{\sqrt{1 + 1/\omega^2 R^2 C^2}}\, \left|V_\mathrm{in}\right|.
+\end{align}</span></p>
+<p>Note that in taking the amplitude, we are ignoring the phase shift. The result is interesting because the magnitude of the output voltage is frequency dependent. For frequencies much smaller than <span class="math notranslate nohighlight">\(1/RC\)</span>, the second term in the denominator gets large, and the output voltage approaches zero. For high frequencies, the second term in the denominator is small, and <span class="math notranslate nohighlight">\(\left|V_\mathrm{out}\right| \approx \left|V\mathrm{in}\right|\)</span>. Thus the circuit where Z₁ is a capacitor and Z₂ is a resistor
+is a <strong>high-pass filter</strong>. High frequency changes in voltages get through, while low frequency changes in voltages are blocked.</p>
 <hr></div>
-<div class="section" id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
-<h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline">¶</a></h2>
-<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you want higher bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to do ADC. You can ask Google, but as a
-hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.</p>
-<p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.</p>
-<p>The voltage across each photoresistor should be read both by using the built-in pins on the Arduino Uno and by using the ADS1015. Reading the voltage in two ways will give you a way to check to make sure everything is working properly. You should make an app wherein the voltages can be monitored in real time.</p>
-<p>You want to get the best resolution you can over a big dynamic range. Here are some hints.</p>
-<ol class="arabic simple">
-<li><p>Carefully read the information on the ADS1015. Here is a big hint that you will find: Unlike the ADC in the Arduino Uno, the ADS1015 can convert negative voltages. Its output is 12-bits, so the range of values is from –2048 to 2047. You should think carefully about how to take full advantage of the full range of numbers. Otherwise, if you are just using positive numbers, you only get one extra bit beyond the 10-bits in the built-in ADC. (Though in practice, you would probably use a 16-bit
-ADC, possibly the ADS1115.)</p></li>
-<li><p>Given that you can get negative numbers coming into Python from Arduino, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: <code class="docutils literal notranslate"><span class="pre">re.compile(b&quot;\d+|,|-&quot;)</span></code>.</p></li>
-<li><p>Think about how you can use voltage dividers to get the best dynamic range. The photoresistors in your kit have a resistance of about 50 to 100 kΩ depending on the light intensity.</p></li>
-</ol>
+<div class="section" id="Thinking-exercise-6:-Passive-low-pass-RC-filter">
+<h2>Thinking exercise 6: Passive low-pass RC filter<a class="headerlink" href="#Thinking-exercise-6:-Passive-low-pass-RC-filter" title="Permalink to this headline">¶</a></h2>
+<p>Show that when the situation is switched around, when Z₁ is a resistor with resistance <span class="math notranslate nohighlight">\(R\)</span> and Z₂ is a capacitor with capacitance <span class="math notranslate nohighlight">\(C\)</span>, that the circuit works as a low-pass filter.</p>
 <hr></div>
+<div class="section" id="Do-it-yourself-exercise-8:-DAC-with-PWM">
+<h2>Do-it-yourself exercise 8: DAC with PWM<a class="headerlink" href="#Do-it-yourself-exercise-8:-DAC-with-PWM" title="Permalink to this headline">¶</a></h2>
+<p>In previous lessons, we have used the MCP4725 breakout board to perform digital-to-analog conversion. This enables us to have an analog voltage available. Now, you will try to get an analog voltage by filtering a pulse-width-modulated signal. You will compare these signals to a signal you get from the MCP4725.</p>
+<p>Wire up this circuit:</p>
+<div style="width: 600px; margin: auto;"><img alt="analog signal from PWM circuit" src="../../_images/analog_from_pwm_schem.svg" /></div><p>Write an Arduino sketch that does the following.</p>
+<ul class="simple">
+<li><p>Uses I2C to send a sinusoidal voltage with amplitude 5 V and frequency of 1 Hz to the MCP4725 DAC. The converted voltage is read in on pin A0.</p></li>
+<li><p>Uses digital pin 3 to send a sinusoidally varying voltage with amplitude 5 V and frequency 1 Hz. Remember, PWM works by switching the voltage on and off, such that the <em>average</em> voltage matches what you want. In this case, the average voltage you are sending with <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> is varying sinusoidally.</p></li>
+<li><p>Uses digital pin 6 to do the same.</p></li>
+<li><p>The PWM signals from pins 3 and 6 each go through a passive RC filter. The output voltages of these filters is read in on pins A1 and A2, respectively.</p></li>
+<li><p>You should send the readings from A0, A1, and A2 over serial to be plotted.</p></li>
+</ul>
+<p>For the passive filters in the circuit, what frequencies would you expect to be filtered out? Note that the frequency of the pulse-width-modulated signal from digital pin 3 is 490 Hz and that from digital pin 6 is 980 Hz. Make plots of the signals from the MCP4725 DAC, pin 3 + RC filter, and pin 6 + RC filter. Do your plots agree with your assessment about filtered frequencies? Finally, what are some drawbacks of using PWM + an RC filter to perform DAC?</p>
+<hr><p><strong>Answer to low-pass filter exercise</strong></p>
+<p>When we swap the resistor and capacitor from the high-pass filter, we get</p>
+<p><span class="math">\begin{align}
+V_\mathrm{out} = \frac{-j/\omega C}{R - j/\omega C}\, V_\mathrm{in} = -\frac{1}{1 + \omega R C}\, V_\mathrm{in},
+\end{align}</span></p>
+<p>which gives</p>
+<p><span class="math">\begin{align}
+\left|V_\mathrm{out}\right| = \frac{1}{\sqrt{1 + \omega^2 R^2 C^2}}\, \left|V_\mathrm{in}\right|.
+\end{align}</span></p>
+<p>So, when the frequency <span class="math notranslate nohighlight">\(\omega\)</span> is large compared to <span class="math notranslate nohighlight">\(1/RC\)</span>, the denominator is large, so that <span class="math notranslate nohighlight">\(V_\mathrm{out} \approx 0\)</span>. When <span class="math notranslate nohighlight">\(\omega\)</span> is small compared to <span class="math notranslate nohighlight">\(1/RC\)</span>, <span class="math notranslate nohighlight">\(\left|V_\mathrm{out}\right| \approx \left|V_\mathrm{in}\right|\)</span>. Thus, low frequencies go through, but high frequencies are blocked.</p>
+</div>
 </div>
 
 
@@ -297,10 +347,10 @@ ADC, possibly the ADS1115.)</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../21/protection_with_zener.html" class="btn btn-neutral float-right" title="21. Protecting Arduino with Zener diodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../21/photoresistors_and_adc.html" class="btn btn-neutral float-right" title="21. Photoresistors, trimming, and ADC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../19/introduction_to_filters.html" class="btn btn-neutral float-left" title="19. Introduction to filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../19/voltage_dividers.html" class="btn btn-neutral float-left" title="19. Voltage dividers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -310,13 +360,13 @@ ADC, possibly the ADS1115.)</p></li>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fec56310> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61dc7b400> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

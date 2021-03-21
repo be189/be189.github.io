@@ -31,7 +31,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -110,9 +109,9 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -263,11 +262,12 @@
 <h1>Spectrophotometer<a class="headerlink" href="#spectrophotometer" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
-<p>At the center of the molecular revolution of biology that took place in the middle of the 20th century were measurement bacterial growth curves. In the most basic form, a solution of growth media is inoculated with bacteria. As the bacteria convert the sugars and salts in the media into more bacteria (literally making life from inanimate matter!), they multiply. Measuring the rate of multiplication of bacteria under different media and growth conditions ultimately enabled researchers to make great leaps in the understanding of bacterial physiology and biochemistry, including how regulation of gene expression works.</p>
+<p>At the center of the molecular revolution of biology that took place in the middle of the 20th century were measurement of bacterial growth curves. In its most basic form, a solution of growth media is inoculated with bacteria. As the bacteria convert the sugars and salts in the media into more bacteria (literally making life from inanimate matter!), they multiply. Measuring the rate of multiplication of bacteria under different media and growth conditions ultimately enabled researchers to make great leaps in the understanding of bacterial physiology and biochemistry, including how regulation of gene expression works.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Jacques_Monod">Jacques Monod</a> was a leader, if not <em>the</em> leader, in this field. In a beautiful review article about the subject (<a class="reference external" href="https://doi.org/10.1146/annurev.mi.03.100149.002103">Monod, Ann. Rev. Microbiol., 1949</a>) Monod stated in the strongest of terms the importance of studying bacterial growth: “The study of the growth of bacterial cultures does not constitute a specialized subject or branch of research: it is the basic method of Microbiology. It would be a foolish enterprise, and doomed to failure, to attempt reviewing briefly a ‘subject’ which covers actually our whole discipline.”</p>
 <p>Monod had comments on methods for measuring growth curves as well, and they are true today as they were more than 70 years ago. “The most widely used methods, by far, are based on determinations of transmitted or scattered light. (Actually, the introduction around 1935 of instruments fitted with photoelectric cells has contributed to a very large degree to the development of quantitative studies of bacterial growth.)”</p>
 <p>Owing to their central importance in microbial research, acquisition and analysis of growth curves has also become a central part of undergraduate study of biology. In the ensuing decades, the optical instruments used to acquire growth curves, called spectrophotometers, have played a central role in <em>education</em> as well as research.</p>
-<p>In the spring, dozens of freshmen will take our freshman biology lab course. Because the pandemic shows little signs of relenting, we almost certainly will be offering that course remotely. Your task is to build a spectrophotometer out of the components in your kit, in addition to materials you can find around your dwelling. We will take one of the designs from this class and ship it to our spring enrollees so that they can study the ever-important microbial growth curve.</p>
+<p>In fall of 2020, we were in the midst of the COVID-19 pandemic, and the students of this course were tasked with designing and easily-buildable spectrophotometer for use in a remote freshman biology lab course in offered in the spring of 2021. The students were successful! While our goal was to have a workable device for the freshman course, we found that building the spectrophotometer was an enjoyable and instructive experiments. Students learned to be resourceful and creative. Importantly, they found that they can cheaply build an instrument to acquire a growth curve. Measurements of growth curves, as Monod demonstrated, were the catalysts of the molecular revolution of biology. Making accessible instruments means democratizing science.</p>
+<p>Your task is to build a spectrophotometer out of the components in your kit, in addition to materials you can find around your dwelling. Newton developed a powerful new way to calculate π while quarantining at home during a bubonic plague outbreak (see <a class="reference external" href="https://www.youtube.com/watch?v=gMlf1ELvRzc">this YouTube video</a>. Perhaps you can come up with a better spectrophotometer design during your COVID isolation!</p>
 <div class="section" id="basics-of-spectrophotometry-in-microbiology">
 <h3>Basics of spectrophotometry in microbiology<a class="headerlink" href="#basics-of-spectrophotometry-in-microbiology" title="Permalink to this headline">¶</a></h3>
 <p>The block diagram of a typical spectrophotometer is shown below.</p>
@@ -816,7 +816,7 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <ol class="arabic simple">
 <li><p>There are two types of ≈600 nm emitting LEDs, <a class="reference external" href="https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y">one with 10 candela luminosity</a>, and <a class="reference external" href="https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y">one with 1 candela luminosity</a>. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.</p></li>
 <li><p>It is important to block stray light. Think about how to accomplish that with household items.</p></li>
-<li><p>You may want to attempt to collimate the light with the glass beads (actually from children’s jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole or slit for the light to pass through the cuvette.</p></li>
+<li><p>You may want to attempt to collimate the light with the glass beads (actually from children’s jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole or slit for the light to pass through the cuvette. If you do so, think about whether you need to account for diffraction or not.</p></li>
 <li><p>Think about ways of dealing with noise and amplification, if necessary.</p></li>
 <li><p>Think carefully about how to calibrate relationship between measured voltage across the photoresistor to OD.</p></li>
 <li><p>In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about <a class="reference external" href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce">debouncing</a>.</p></li>
@@ -827,7 +827,7 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <p>Because of difficulties associated with shipping and storing microbial agents, you will test your device by growing yeast, <em>Saccharomyces cerevisiae</em>. The measurement and analysis are the same as for bacteria, but we are instead using a common baking ingredient that is safe to have in the home.</p>
 <p>The media for <em>S. cerevisiae</em> is yeast peptone dextrose (YPD) broth. The broth contains yeast extract that has all of the necessary vitamins, peptone (source of carbon, nitrogen, and some vitamins), and dextrose (sugar). You have a Falcon tube containing <a class="reference external" href="https://www.fishersci.com/shop/products/bd-difco-dehydrated-culture-media-ypd-broth-2/df0428175">YPD powder</a>) that you can use to make broth. The broth is 5% powder. E.g., to make 100 mL of broth, add 5 g of YPD powder. If you do not have a scale in your house, as a rule of thumb, a tablespoon of the YPD power is about 9 g. You should add it to water as pure as you can find (for example, if you have a Britta filter in your house, you should use filtered water). Normally, you would autoclave the broth to sterilize it, but that is not an option for home use. Instead, boil the broth for one minute (this will also ensure everything is dissolved). The broth can be stored at room temperature, and you can store it in the provided falcon tubes.</p>
 <p>You can grow the yeast in the falcon tubes. Try to keep them in a place that does not have temperature fluctuations. You should occasionally shake the tube to be sure the oxygen in the solution is well mixed. (In a lab, these would be grown in a water bath shaker.) You can use the transfer pipettes in your kit to extract samples for measurement in the spectrophotometer. The cuvette volume is 4.5 mL, but do you not need to fill it up all the way, just high enough that the light from the LED passes through the media (with a bit of a buffer).</p>
-<p>In a lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. In our at-home version, you will likely need to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. You may even want to re-use the solution you measured, replacing it in the main growth mixture after using it if you are running low on supplies. (You may wish to do this anyway in practice runs before you get your “final” growth curve.) The inevitable contamination may affect the results, but this is a necessary consequence of being outside of laboratory conditions.</p>
+<p>In a lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. In our at-home version, you will likely need to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. You may even want to re-use the solution you measured, replacing it in the main growth mixture after using it if you are running low on supplies. (You may wish to do this anyway in practice runs before you get your “final” growth curve.) The inevitable contamination may affect the results, but this is a necessary consequence of of operating in outside-of-laboratory conditions.</p>
 <p>Bear in mind that you cannot calibrate the OD measurements to known microbe concentrations, which you should absolutely do in a lab (as Monod vehemently argues, “What should be noted is that in spite of the widespread use of the optical techniques, not enough efforts have been made to check them against direct estimations of cell concentrations or bacterial densities.”) This is not accessible to us because we do not have equipment or storage necessary to do those measurements in our living spaces, though any biology lab would be equipped with them.</p>
 </div>
 </div>
@@ -854,13 +854,13 @@ N(t) = N_0\,\mathrm{e}^{kt}.
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdad35e0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61d8f4790> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

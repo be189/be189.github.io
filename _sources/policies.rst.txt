@@ -1,9 +1,11 @@
 .. _Policies:
 
+*The policies on this page are tentative and subject to change.*
+
 Meetings
 --------
 
-The class meets regularly on Tuesdays and Thursdays 10:30-noon PDT via `this Zoom link <http://bois.caltech.edu/be189/2020_fall/zoom_links/tuth_class/>`_. Unless you have extenuating circumstances, the meetings are mandatory. Some course meetings will involve live instruction which will be recorded and posted on the :ref:`Schedule` page. Many of the course meetings will be check-ins and discussion about your projects. For these meetings, you are required to attend, but may leave after the instructor dismisses you.
+The class meets regularly on Tuesdays and Thursdays 2:30–4:00 PM PDT via `this Zoom link <http://bois.caltech.edu/be189/2021_spring/zoom_links/tuth_class/>`_. Unless you have extenuating circumstances, the meetings are mandatory. Some course meetings will involve live instruction which will be recorded and posted on the :ref:`Schedule` page. Many of the course meetings will be check-ins and discussion about your projects. For these meetings, you are required to attend, but may leave after the instructor dismisses you.
 
 
 Course structure
@@ -19,7 +21,7 @@ You can work at your own pace, but it is your responsibility to have your exerci
 Course communications
 ---------------------
 
-Please use `the course Ed page <https://us.edstem.org/courses/2616/>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
+Please use the course Ed page (link to be posted) for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
 
 For private matters, such as extension requests, contact the course staff directly using email.
 

@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -110,14 +109,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">24. Sample-and-hold circuits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Basic-sample-and-hold-architecture">Basic sample-and-hold architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-17:-Building-a-sample-and-hold-circuit">Follow-along exercise 17: Building a sample-and-hold circuit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-16:-Building-a-sample-and-hold-circuit">Follow-along exercise 16: Building a sample-and-hold circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#The-LF398N-integrated-circuit">The LF398N integrated circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold">Do-it-yourself exercise 11: Using the LF398N for sample-and-hold</a></li>
 </ul>
@@ -254,25 +253,23 @@
 </style>
 <div class="section" id="24.-Sample-and-hold-circuits">
 <h1>24. Sample-and-hold circuits<a class="headerlink" href="#24.-Sample-and-hold-circuits" title="Permalink to this headline">¶</a></h1>
-<hr><p>We have performed analog-to-digital conversion (ADC) already. But let’s think about what that entails for a moment. ADC involves taking an analog voltage and, ideally, <em>instantaneously</em> converting the voltage to a set of bits. (The ADCs built in to Arduino Uno are 10-bit.) The conversion is not instantaneous, though. The input voltage used for ADC has to be held constant for some time to enable ADC to proceed. (There are many ways of doing ADC; see section 13.5 of Horowitz and Hill for a
-discussion.)</p>
-<p><strong>Sample-and-hold circuits</strong> are designed for this purpose. Given a sampled voltage, they hold that voltage, usually so that it can be measured or used for some other purpose.</p>
+<hr><p>We have performed analog-to-digital conversion (ADC) in earlier lessons. But let’s think about what that entails for a moment. ADC involves taking an analog voltage and, ideally, <em>instantaneously</em> converting the voltage to a set of bits. (The ADCs built in to Arduino Uno are 10-bit.) The conversion is not instantaneous, though. The input voltage used for ADC has to be held constant for some time to enable ADC complete its process. (There are many ways of doing ADC; see section 13.5 of Horowitz
+and Hill for a discussion.)</p>
+<p><strong>Sample-and-hold circuits</strong> are designed for this purpose. Given a sampled voltage, a sample-and-hold circuit holds that voltage, usually so that it can be measured or used for some other purpose.</p>
 <div class="section" id="Basic-sample-and-hold-architecture">
 <h2>Basic sample-and-hold architecture<a class="headerlink" href="#Basic-sample-and-hold-architecture" title="Permalink to this headline">¶</a></h2>
-<p>The essential components of a sample-and-hold circuit are two unit-gain op-amps, a switch, and a capacitor, shown in the schematic below.</p>
-<div style="margin: auto; width: 400px"><p><img alt="Sample-and-hold architecture" src="../../_images/sample_and_hold.svg" /></p>
-</div><p>The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across it grows. When the switch opens (OFF), whatever charge was build up in the capacitor is held because the right op-amp does not allow current to flow through. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has nowhere to go. The voltage
-across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage in the capacitor.</p>
+<p>The essential components of a sample-and-hold circuit are two unit-gain amplifiers, a switch, and a capacitor, shown in the schematic below.</p>
+<div style="margin: auto; width: 400px"><img alt="Sample-and-hold architecture" src="../../_images/sample_and_hold.svg" /></div><p>The left op-amp serves to make a replica of the input, but after the op-amp, the input has very low impedance. Imagine that the open switch is now closed (ON). As charge builds up in the capacitor, the voltage across it grows. When the switch opens (OFF), whatever charge that has accumulated in the capacitor is held because the right op-amp does not allow current to flow through its input terminals. Thus, the voltage across the capacitor is held until the switch is closed again; the charge has
+nowhere to go. The voltage across the capacitor is the input voltage to the right op-amp. Since the op-amp has unit gain, its output voltage is the held voltage in the capacitor.</p>
 <p>So, the “sample” step involves turning the switch on and building up the charge of the capacitor so that the voltage across the capacitor matches the input voltage. The “hold” step involves turning the switch off and outputting the held capacitor voltage.</p>
-<p>The choice of capacitance <span class="math notranslate nohighlight">\(C\)</span> depends on the goals of the sample-and-hold circuit. If you need to hold the voltage for a long time, you want a large <span class="math notranslate nohighlight">\(C\)</span>, since you will lose voltage across the capacitor according to <span class="math notranslate nohighlight">\(\mathrm{d}V/\mathrm{d}t = I_\mathrm{leak}/C\)</span>, where <span class="math notranslate nohighlight">\(I_\mathrm{leak}\)</span> is the current leaked through the right op-amp. (Such drop in voltage while holding is called <strong>droop</strong>.) On the other hand, if you want to have high frequency sampling, you need to be able
-to charge up the capacitor quickly, so you want <span class="math notranslate nohighlight">\(C\)</span> to be small. Furthermore, there is some finite resistance in the switch, so the capacitor is part of a low-pass filter. So, you want <span class="math notranslate nohighlight">\(C\)</span> to be small so that high frequency signals are not filtered out.</p>
+<p>The choice of capacitance <span class="math notranslate nohighlight">\(C\)</span> depends on the goals of the sample-and-hold circuit. If you need to hold the voltage for a long time, you want a large <span class="math notranslate nohighlight">\(C\)</span>, since you will lose voltage across the capacitor according to <span class="math notranslate nohighlight">\(\mathrm{d}V/\mathrm{d}t = I_\mathrm{leak}/C\)</span>, where <span class="math notranslate nohighlight">\(I_\mathrm{leak}\)</span> is the current that leaks through the right op-amp. (Such drop in voltage while holding is called <strong>droop</strong>.) On the other hand, if you want to have high frequency sampling, you need to be
+able to charge up the capacitor quickly, so you want <span class="math notranslate nohighlight">\(C\)</span> to be small. Furthermore, there is some finite resistance in the switch, so the capacitor is part of a low-pass filter. So, you want <span class="math notranslate nohighlight">\(C\)</span> to be small so that high frequency signals are not filtered out.</p>
 <hr></div>
-<div class="section" id="Follow-along-exercise-17:-Building-a-sample-and-hold-circuit">
-<h2>Follow-along exercise 17: Building a sample-and-hold circuit<a class="headerlink" href="#Follow-along-exercise-17:-Building-a-sample-and-hold-circuit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Follow-along-exercise-16:-Building-a-sample-and-hold-circuit">
+<h2>Follow-along exercise 16: Building a sample-and-hold circuit<a class="headerlink" href="#Follow-along-exercise-16:-Building-a-sample-and-hold-circuit" title="Permalink to this headline">¶</a></h2>
 <p>In most applications, the switch is a metal-oxide-semiconductor field-effect transistor (MOSFET). For this exercise, you will instead build a sample-and-hold circuit using an <em>npn</em> BJT as the switch.</p>
 <p>Build the sample-and-hold circuit below using one of your LF412CP dual op-amp integrated circuits. Power the op-amps with your ±5 V PowerBRICK.</p>
-<div style="margin: auto; width:400px"><p><img alt="Sample-and-hold schematic" src="../../_images/sample_and_hold_schem.svg" /></p>
-</div><p>To demonstrate how sample-and-hold works, you will use the MCP4725 DAC to supply a sinusoidally varying voltage ranging from zero to 3.3 V with a frequency of 1 Hz. You will obtain a voltage from the DAC and from the output of the sample-and-hold circuit every 10 ms. Use a hold time of 100 ms in the sample-and-hold circuit.</p>
+<div style="margin: auto; width:400px"><img alt="Sample-and-hold schematic" src="../../_images/sample_and_hold_schem.svg" /></div><p>To demonstrate how sample-and-hold works, you will use the MCP4725 DAC to supply a sinusoidally varying voltage ranging from zero to 3.3 V with a frequency of 1 Hz. You will obtain a voltage from the DAC and from the output of the sample-and-hold circuit every 10 ms. Use a hold time of 100 ms in the sample-and-hold circuit.</p>
 <p>If you like, you can use the Arduino sketch below and use the Serial Plotter of the Arduino IDE to see the signal that comes out of the DAC (to pin A0) and the signal that comes out of the sample-and-hold circuit (to pin A1). Otherwise, you can build a Bokeh app to monitor the result (and possibly control things like hold times, frequency, etc.).</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span><span class="cp"></span>
 
@@ -337,7 +334,7 @@ to charge up the capacitor quickly, so you want <span class="math notranslate no
 <h2>The LF398N integrated circuit<a class="headerlink" href="#The-LF398N-integrated-circuit" title="Permalink to this headline">¶</a></h2>
 <p>In your kit, you have two <a class="reference external" href="https://www.ti.com/store/ti/en/p/product/?p=LF398N/NOPB">LF398N sample-and-hold integrated circuits</a>. These are widely used sample-and-hold components. They work much as the circuit you have built above, but naturally have some optimizations.</p>
 <p>The pinout for the LF398N integrated circuit is shown below.</p>
-<div style="margin: auto; width: 200px"><p><img alt="LF398N pinout" src="../../_images/LF398N_pinout.png" /></p>
+<div style="margin: auto; width: 200px"><img alt="LF398N pinout" src="../../_images/LF398N_pinout.png" />
 </div><p>The V+ and V- pins are connected to power supplies and may accept ±5 V up to ± 18 V. The offset adjustment pin compensates for any DC offsets (you should not need to connect that pin). The input and output pins are self-explanatory. Pin 6 in the pinout connects to the holding capacitor, which is then connected to ground. You can use this pin to use a capacitor with capacitance that is best for your application. The logic pin is used to open and close the switch. If the voltage across the logic
 pin is higher than that of the logic reference pin, the switch is on, and if the voltage across the logic pin is lower than that of the logic reference pin, the switch is off. You should choose how to control the logic depending on your application. For example, if you are going to turn the switch in the sample-and-hold on and off using an Arduino digital pin, which can write zero or five volts, you might want to use a voltage divider to connect 2.5 V to the logic reference pin. On the other
 hand, if you are going to be switching between positive and negative voltages for your logic, you should connect the logic reference pin to ground.</p>
@@ -369,13 +366,13 @@ hand, if you are going to be switching between positive and negative voltages fo
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe83e880> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61cf4eac0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

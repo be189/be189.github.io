@@ -32,9 +32,9 @@
     "    \n",
     "</div>\n",
     "\n",
-    "On the front (top photo) are 16 pins. In looking at the pinout on the [Wikipedia page](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller), you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. However, on the back of the LCD (bottom photo), there is a \"backpack,\" which enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver (there is one in your kit). The potentiometer adjusts the brightness of the display.\n",
+    "On the front (top photo) are 16 pins. In looking at the pinout on the [Wikipedia page](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller), you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD in your kit contains a \"backpack\", shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver (there is one in your kit). The potentiometer adjusts the brightness of the display.\n",
     "\n",
-    "So, fortunately, we can use I2C to update the display of the LCD and we do not need to use so many pins to do so."
+    "So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so."
    ]
   },
   {
@@ -43,7 +43,7 @@
    "source": [
     "## Running multiple devices on the I2C bus\n",
     "\n",
-    "You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will leave that set up, in addition to the the LCD we will set up presently. We will work through the rest of this lesson as a follow-along exercise."
+    "You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will the MCP4725 DAC device connected. We will also connet the LCD. We will work through the rest of this lesson as a follow-along exercise."
    ]
   },
   {
@@ -62,7 +62,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "Our goal with this circuit is to have the flashing LED with the DAC running just as it did before, but, separately have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C."
+    "Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C."
    ]
   },
   {
@@ -295,7 +295,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

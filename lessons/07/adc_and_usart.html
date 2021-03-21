@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -123,9 +120,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -495,8 +492,8 @@ div.rendered_html tbody tr:hover {
 <hr><p>You have already seen that you can use Arduino to control physical devices. In your projects, and indeed for most of the biodevices I can dream of, you will have a <strong>sensor</strong> that measures something in the physical world. In this lesson, you will learn how to convert an analog signal from a sensor into a digital value that your computer can understand. You will also learn how to transfer measurements from sensors to your computer over USB using a serial protocol.</p>
 <div class="section" id="ADC-on-Arduino">
 <h2>ADC on Arduino<a class="headerlink" href="#ADC-on-Arduino" title="Permalink to this headline">¶</a></h2>
-<p>A sensor converts a signal to an analog voltage. This voltage needs to be converted to a digital value by <a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">analog to digital conversion</a> (ADC). The ATmega328 microcontroller has a built-in 10-bit ADC. That means that an analog voltage value gets converted to a 10-bit unsigned integer. Voltages in Arduino range from 0 to 5V, so there is a mapping between the input voltage and the value given by the ADC. If <em>v</em> is the analog input
-voltage, then the ADC will give an integer between 0 and 1023 according to</p>
+<p>A sensor converts an external signal to an analog voltage. This voltage needs to be converted to a digital value by <a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">analog to digital conversion</a> (ADC). The ATmega328 microcontroller has a built-in 10-bit ADC. That means that an analog voltage value gets converted to a 10-bit unsigned integer. Voltages in Arduino range from 0 to 5V, so there is a mapping between the input voltage and the value given by the ADC. If <em>v</em> is the analog
+input voltage, then the ADC will give an integer between 0 and 1023 according to</p>
 <p><span class="math">\begin{align}
 \text{ADC value} = \frac{5\,v}{1023}.
 \end{align}</span></p>
@@ -523,8 +520,8 @@ focus on USART.</p>
 <p>The argument of the <code class="docutils literal notranslate"><span class="pre">Serial.begin()</span></code> function is the <strong>baud rate</strong>, which is the number of bits per second you want to send over serial. According to the <a class="reference external" href="http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">ATmega328 data sheet</a> (see the tables at the end of section 19), you can achieve baud rates up to 2 million bits per second. Serial communication relies on clock timing to work, so commonly used baud rates are in sync with
 clock operating frequencies. The most commonly used baud rates are 9600 and 115,200. We will usually use a baud rate of 115,200. <strong>The baud rate setting for whatever software you are using on your computer to receive a serial transmission must be the same as the baud rate you set in your sketch.</strong> If the baud rates are different, you will receive jibberish.</p>
 <p>As <a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/">described in the docs</a>, in addition to setting the baud rate, you can also set the configuration for the transmission of bytes. By default, the Serial library used <a class="reference external" href="https://en.wikipedia.org/wiki/8-N-1">8N1</a>. This means that a “byte” that is transmitted consists of eight bits, no parity bits, and one stop bit. This is a standard configuration and is the default for the Arduino IDE Serial Monitor and for
-PySerial, the package we will use in Python to receive serial data. It is a standard configuration and there is no need to change it for this class. It does mean that for every byte you wish to transfer, 10 bits are transfered: one start bit, eight bits of data, and one stop bit.</p>
-<p>Serial communications are done in bytes as defined by the configuration. In our case, it will be 8N1. The <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> function is a low-level function to send bytes as binary data. This can result in greater speed, but it requires careful coordination with your computer so that it knows which bits correspond to which values. For example, if each data packet has two 16 bit integers, 40 total bits are transmitted, and your computer needs to be programmed to know what the bits mean.</p>
+PySerial, the package we will use in Python to receive serial data. It is a standard configuration and there is no need to change it for this class. It does mean that for every byte you wish to transfer, 10 bits are transferred: one start bit, eight bits of data, and one stop bit.</p>
+<p>Serial communications are done in bytes as defined by the configuration. In our case, it will be 8N1. The <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> function is a low-level function for sending bytes as binary data. This can result in greater speed, but it requires careful coordination with your computer so that it knows which bits correspond to which values. For example, if each data packet has two 16 bit integers, 40 total bits are transmitted, and your computer needs to be programmed to know what the bits mean.</p>
 <p>The higher-level functions <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code> and <code class="docutils literal notranslate"><span class="pre">Serial.println()</span></code> provide serial communication that is much easier to parse on the receiving end. These functions send all data over USB <em>as text</em>. That is, if I want to send the number 27, it is sent not as its binary representation <code class="docutils literal notranslate"><span class="pre">00011011</span></code>, but rather as <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII text</a>. In this case, “27” is sent as two bytes, <code class="docutils literal notranslate"><span class="pre">00110010</span></code> and <code class="docutils literal notranslate"><span class="pre">00110111</span></code>, which give the numbers 50 and 55, which are the ASCII codes
 for the <em>characters</em> “2” and “7”. So, to transmit the number 27, you are using twice as many bits.</p>
 <p>To demonstrate the ease of parsing strings, say you wanted to send two 10-bit unsigned integers taken from calls to <code class="docutils literal notranslate"><span class="pre">analogRead()</span></code>, say 51 and 981. You could “waste” the extra data that you have to send over USB to make it a nicely formatted comma-separated string, <code class="docutils literal notranslate"><span class="pre">&quot;51,981\n&quot;</span></code>, where <code class="docutils literal notranslate"><span class="pre">\n</span></code> is the newline character marking the end of the transmission. Having the newline character is useful because you can tell Python, for example, to read until you hit the newline character, thereby
@@ -588,10 +585,8 @@ ensuring you get a full record. If you are using Python to read in the data from
 <h2>Follow-along exercise 3: Serial data and the serial monitor<a class="headerlink" href="#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor" title="Permalink to this headline">¶</a></h2>
 <p>To practice sending and receiving serial data, we will make a simple circuit in which we vary voltage using a <a class="reference external" href="https://en.wikipedia.org/wiki/Potentiometer">potentiometer</a>. The potentiometer in your kit is a blue square with three leads and a knob on it. By connecting the two outside leads to a voltage source and ground, the voltage read from the center lead can range from zero to the input voltage as you turn the knob.</p>
 <p>Write up the circuit shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></p>
-</div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="image1" src="../../_images/03-serial_bb.svg" /></p>
-</div><p>Now, we can code up Arduino to communicate with your computer.</p>
+<div style="margin: auto; width: 300px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
+<div style="margin: auto; width: 500px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_bb.svg" /></div><p>Now, we can code up Arduino to communicate with your computer.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
 <span class="kr">const</span> <span class="kr">int</span> <span class="n">sensorPin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
 
@@ -709,13 +704,13 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe752760> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61ceb2c40> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

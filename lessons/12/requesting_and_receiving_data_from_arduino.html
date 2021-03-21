@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -114,9 +111,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -815,11 +812,10 @@ var element = document.currentScript.previousSibling.previousSibling;
 }(window));
 </script></div>
 </div>
-<hr><p>In the previous lessons, we learned how to send a signal to Arduino from Python to ask it to do something, in that case to turn on an LED. Now, we will ask Arduino to send data back. We will store the data in RAM (or we could do it on disk) for later use.</p>
+<hr><p>In the previous lessons, we learned how to send a signal to Arduino from Python to ask it to do something, in that case to turn on an LED. Now, we will ask Arduino to send data back. We will store the data in RAM (or we could write it to disk) for later use.</p>
 <p>We will read in a voltage that we control with a potentiometer. The idea is that we send a request from Python to Arduino, and then it reads the voltage and sends it back, with all communication over USB. You should work in your own Jupyter notebook for this.</p>
 <p>To begin, wire up the following schematic.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Requesting and receiving data from arduino schematic" src="../../_images/requesting_and_receiving_data_from_arduino_schem.svg" /></p>
-</div><p>Upload the following sketch.</p>
+<div style="margin: auto; width: 300px;"><img alt="Requesting and receiving data from arduino schematic" src="../../_images/requesting_and_receiving_data_from_arduino_schem.svg" /></div><p>Upload the following sketch.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">voltagePin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span> <span class="kr">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -1242,7 +1238,7 @@ array([27, 28, 24, 25, 25, 23, 24, 29, 29, 27, 30, 26, 26, 24, 26, 28, 29,
 <hr><div class="section" id="Do-it-yourself-exercise-5:-Asking-for-data-with-buttons">
 <h2>Do-it-yourself exercise 5: Asking for data with buttons<a class="headerlink" href="#Do-it-yourself-exercise-5:-Asking-for-data-with-buttons" title="Permalink to this headline">¶</a></h2>
 <p>Using the same setup as we have so far in this lesson, make a small dashboard with two buttons. One of them blanks out lists <code class="docutils literal notranslate"><span class="pre">time_ms</span></code> and <code class="docutils literal notranslate"><span class="pre">voltage</span></code>, while the other one asks for a time, voltage pair from Arduino and appends them to the lists. You can embed them in the notebook with either Panel or base Bokeh. Since you would presumably be using the data right away, leave them in the notebook and not as a stand along Bokeh app.</p>
-<p>Use you button to ask for ten or more data points while messing around with the potentiometer knob and then make a plot of the result.</p>
+<p>Use your button to ask for ten or more data points while messing around with the potentiometer knob and then make a plot of the result.</p>
 <p><em>Hint</em>: Check out <a class="reference external" href="https://panel.holoviz.org/reference/index.html">Panel’s Reference Gallery</a>. A Button is different that a Toggle. If you use a button, there is no <code class="docutils literal notranslate"><span class="pre">on_change</span></code> method, but rather an <code class="docutils literal notranslate"><span class="pre">on_click</span></code> method.</p>
 <p><em>Another hint</em>: Say I have two widgets, <code class="docutils literal notranslate"><span class="pre">widget_1</span></code> and <code class="docutils literal notranslate"><span class="pre">widget_2</span></code>. To lay them out, you can use, e.g., <code class="docutils literal notranslate"><span class="pre">pn.Row(widget_1,</span> <span class="pre">pn.Spacer(width=15),</span> <span class="pre">widget_2)</span></code>.</p>
 <hr><div class="nbinput nblast docutils container">
@@ -1304,13 +1300,13 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fe6e7e50> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61df6fb80> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

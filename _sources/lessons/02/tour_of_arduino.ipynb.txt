@@ -13,7 +13,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Let us now get familiar with your Arduino board.  It will help to have your physical board in front of you. In fact, you should get your Arduino board and breadboard set up in their holder. "
+    "Let us get acquainted with your Arduino board. Take out your Arduino board, a large (64-row) solderless breadboard, and holder, and let's get started!"
    ]
   },
   {
@@ -22,7 +22,7 @@
    "source": [
     "## Setting up your Arduino and breadboard\n",
     "\n",
-    "Take out one of your long solderless breadboards; the long ones have 64 terminal strips (rows of holes). Also remove your Arduino Uno from the box. If it has a plastic holder included in the box, you can leave that in the box; you will not need it for the course. Finally, remove your RAB holder from its packaging. After constructing your holder, it should look like this:\n",
+    "Take out one of your long solderless breadboards; the long ones have 64 terminal strips (rows of holes). Also remove your Arduino Uno from the box. If it has a plastic holder included in the box, you can leave that in the box; you will not need it for this course. Finally, remove your RAB holder from its packaging. At the completion of this section, you should have something that looks like this:\n",
     "\n",
     "<div style=\"width: 600px; margin: auto;\">\n",
     "    \n",
@@ -32,7 +32,7 @@
     "\n",
     "1. Peel the nonstick coating off of the back of the solderless breadboard.\n",
     "2. Stick the breadboard into its place in the holder. By convention, I like to have the positive (red) bus strip nearest to the Arduino Uno, but it does not matter.\n",
-    "3. Screw the Arduino Uno into the holder. You should not have a problem screwing in the four screws, but is some cheaper holders, the holes in the Arduino Uno do not exactly match the holder. That should not be a problem for you, but do not force screws in if the alignment is off."
+    "3. Screw the Arduino Uno into the holder. You should not have a problem screwing in the four screws. For some cheaper holders, the holes in the Arduino Uno may not exactly match the holder. That should not be a problem for you, but do not force screws in if the alignment is off."
    ]
   },
   {
@@ -43,17 +43,35 @@
     "\n",
     "In reading this section, it will help to look at the picture above. The solderless breadboard shown above has 840 holes, called **terminals** into which you can stick leads of components. How are these terminals connected?\n",
     "\n",
-    "The two sets of terminals labeled with a red `+` and a blue `–` are referred to as **bus strips**. These are the strips that provide power to the components of the board. All of the terminals along the red line are connected to each other. All of those along the blue line are also connected to each other. In both cases, that is all they are connected to. So, if you want to proved power to components, you connect a voltage source to one of the terminals of the red strip, and all of the terminals on the strip are then connected to the voltage source. Similarly, if you connect one of the terminals in the blue strip to ground, then all of the terminals in the blue strip are connected to ground\n",
+    "The two sets of terminals labeled with a red `+` and a blue `–` are referred to as **bus strips**. These are the strips that provide power to the components of the board. All of the terminals along the red line are connected to each other. All of those along the blue line are also connected to each other. In both cases, that is all they are connected to. So, if you want to provide power to components, you connect a voltage source to one of the terminals of the red strip, and all of the terminals on the strip are then connected to the voltage source. Similarly, if you connect one of the terminals in the blue strip to ground, then all of the terminals in the blue strip are connected to ground\n",
     "\n",
     "The bus rails at the top of the image are similarly connected. Note that none of the bus rails are connected to each other.\n",
     "\n",
-    "Now, let's look in the middle of the breadboard, the **terminal strip**. You will notice based on the markings of the breadboard that each terminal as a unique letter-number address. `a1` is the terminal on the top right of the image and `j64` is at the bottom left. the terminals are connected as follows. `a#`, `b#`, `c#`, `d#`, and `e#`, where `#` denotes a number (e.g., `17`), are connected. `f#`, `g#`, `h#`, `i#`, and `j#`, are also connected. There is no other connections. So, if we view letters as indexing columns and numbers as indexing rows, then the first five terminals in a row are connected, and the last five terminals in a row are connected. There are no other connections within the terminal strip.\n",
+    "Now, let's look in the middle of the breadboard, the **terminal strip**. You will notice that, based on the markings of the breadboard, each terminal as a unique letter-number address. `a1` is the terminal on the top right of the image and `j64` is at the bottom left. the terminals are connected as follows. `a#`, `b#`, `c#`, `d#`, and `e#`, where `#` denotes a number (e.g., `17`), are connected. `f#`, `g#`, `h#`, `i#`, and `j#`, are also connected. There are no other connections. You will notice a gap (called a **ravine**) that separates rows `a` though `e` from rows `f` through `j`. (The ravine is just the right width so that an integrated circuit chip (IC) can fit perfectly over the ravine. You will learn more about this in a later lesson.) So, if we view letters as indexing columns and numbers as indexing rows, then the first five terminals in a row are connected, and the last five terminals in a row are connected. There are no other connections within the terminal strip.\n",
     "\n",
-    "Finally, note that some breadboards have a gap in the connections of the bus strips. An example is shown below.\n",
+    "Note that some breadboards have a gap in the connections of the bus strips. An example is shown below.\n",
     "\n",
     "<div style=\"width: 600px; margin: auto;\">\n",
     "    \n",
     "![Breadboard with gap in the bus strips](breadboard_with_gaps.jpg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "The breadboards in your kit should now have a gap in the bus strip, but gapped bus strips are rather common, so you should always check.\n",
+    "\n",
+    "To better understand the connections in a solderless breadboard, we can look at the breadboard with the backing removed, shown at right below (image from a [Sparkfun tutorial](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard) by M-SHORT and JOEL_E_B, [CC BY-SA-4.0 licensed](https://creativecommons.org/licenses/by-sa/4.0/)).\n",
+    "\n",
+    "<div style=\"width: 600px; margin: auto;\">\n",
+    "    \n",
+    "![peeled back breadboard](solderless_breadboard_inside.jpg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "The bus strips are labeled with red arrows. Now, let's take a look at the strip of clips that make up the terminals. Pictured below is a single strip from connected terminals (image also from the same [Sparkfun tutorial](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard) by M-SHORT and JOEL_E_B, [CC BY-SA-4.0 licensed](https://creativecommons.org/licenses/by-sa/4.0/)). You can see from the springy pincher-like design that the breadboard is well suited for repeat insertion and removal of components.\n",
+    "\n",
+    "<div style=\"width: 300px; margin: auto;\">\n",
+    "    \n",
+    "![strip from solderless breadboard with clips](strip_clips.jpg)\n",
     "    \n",
     "</div>\n"
    ]
@@ -64,7 +82,7 @@
    "source": [
     "## A tour of the Arduino Uno\n",
     "\n",
-    "We continue our tour of the essential pieces of our prototypes with a the Arduino Uno. Throughout the course, we will probably refer to the board simply as \"Arduino\" for short, not to be confused with the [Arduino IDE](https://www.arduino.cc/en/main/software). The board you will use is an [Arduino Uno (Revision 3)](https://store.arduino.cc/usa/arduino-uno-rev3). A labeled schematic of the board is shown below, and you should refer to it as well as your physical Arduino Uno in the following discussion.\n",
+    "We continue our tour of the essential pieces of our prototypes with the Arduino Uno. Throughout the course, we will probably refer to the board simply as \"Arduino\" for short, not to be confused with the [Arduino IDE](https://www.arduino.cc/en/main/software). The board you will use is an [Arduino Uno (Revision 3)](https://store.arduino.cc/usa/arduino-uno-rev3). A labeled schematic of the board is shown below, and you should refer to it as well as your physical Arduino Uno in the following discussion.\n",
     "\n",
     "<div style=\"width: 600px; margin: auto;\">\n",
     "    \n",
@@ -72,7 +90,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "In looking at the schematic, you will notice that not all of the components on the Arduino appear. Nonetheless, all of the important ones that you need to know about to do your projects are shown. Built-in LEDs and pins are labeled on the Arduino Uno itself and on the schematic, and I will discuss those in a moment. "
+    "In looking at the schematic, you will notice that not all of the components on the Arduino appear. Nonetheless, all of the important ones that you need to know about to do your projects are shown. The built-in LEDs and pins are labeled on the Arduino Uno itself and on the schematic, and I will discuss those in a moment. "
    ]
   },
   {
@@ -84,12 +102,12 @@
     "For now, I will focus on the components that are labeled with text outside of the area of the board, going counterclockwise, starting with the microcontroller.\n",
     "\n",
     "- **ATmega328 microcontroller**: This is the central nervous system of the board. Compiled code is loaded onto this chip and as it is executed, the chip sends and receives appropriate signals from the pins of the Arduino. I give more details on this component in the following section.\n",
-    "- **unconnected pin**: The unlabeled pin on the Arduino Uno is not connected to anything. It is only there for compatibility for future versions of the board.\n",
-    "- **DC supply input**: This is one of two ways you can deliver power to the Arduino Uno. The jack fits a 2.1mm DC Plug, and any DC power supply between 6 and 20 V may be used, but between 7 and 12 V is recommended. You will most likely not use this input, since you will almost always have your computer connected via the USB port, which also supplies power.\n",
+    "- **unconnected pin**: The unlabeled pin on the Arduino Uno is not connected to anything. It is only there for compatibility with future versions of the board.\n",
+    "- **DC supply input**: This is one of three ways you can deliver power to the Arduino Uno. The jack fits a 2.1mm DC Plug, and any DC power supply between 6 and 20 V may be used, but between 7 and 12 V is recommended. You will most likely not use this input, since you will almost always have your Arduino connected to your computer via the USB port, which also supplies power.\n",
     "- **5V voltage regulator**: The regulator takes the input from the power supply and delivers 5V to the Arduino.\n",
     "- **quartz timing crystal**: Having a reliable clock is essential for the functioning of the microcontroller. The quartz timing crystal delivers reliable timing.\n",
     "- **USB interface chip**: This chip does the calculations and data conversions necessary for communication via USB with external devices (almost always your computer). The maximum supported baud rate for sending and receiving data over USB is 115,200 baud (1 baud = 1 bit/second).\n",
-    "- **USB port**: This is where you insert the \"B\" end of the USB cable you will you to connect your computer to the Arduino Uno. This allows data to be sent and received from the Arduino and your computer. It also doubles as a power supply. When connected via USB, the Arduino does not need another power source.\n",
+    "- **USB port**: This is where you insert the \"B\" end of the USB cable you will use to connect your computer to the Arduino Uno. This allows data to be exchanged between the Arduino and your computer. It also doubles as a power supply. When connected via USB, the Arduino does not require another power source.\n",
     "- **SCL and SDA pins**: I will discuss these when I discuss the labeled pins in a subsequent section."
    ]
   },
@@ -109,8 +127,8 @@
     "- **1 kB of electrically erasable programmable read-only memory (EEPROM).** This is kind of like a hard disk. It is memory that code running on the microcontroller can read from and write to. Unlike SRAM, but like flash memory, data stored in EEPROM persists even when the Arduino is powered down. EEPROM is usually used to store configuration information. We generally will not use EEPROM, opting instead to send data via USB to the computer and store it there.\n",
     "- **23 general purpose input/output ports.** This allows the microcontroller to read in voltages from pins on the Arduino as well as write voltages to those pins.\n",
     "- **A universal synchronous/asynchronous receiver/transmitter (USART).** This takes bits of data and communicates them (either reading or writing) serially. The USART connects with the USB interface chip to communicate serially over USB with your computer.\n",
-    "- **An inter-integrated circuit (I2C or I²C) interface.** This two-wire interface also communication with peripheral devices. The default for data communication is 100 kbaud (100,000 bits per second), but this can be increased to 400 kbaud. The acronym is either pronounced \"I-squared-C\" or \"I-two-C.\" I2C communication will be discussed later in this lesson.\n",
-    "- **A serial peripheral interface (SPI) port.** This is used to communicate with peripheral devices and requires four wires. It is significantly faster than I2C, achieving about 15 Mbaud (15 million bits per second) on Arduino. SPI communication will be discussed later in this lesson.\n",
+    "- **An inter-integrated circuit (I2C or I²C) interface.** This two-wire interface is primarily used to communicate with peripheral devices. The default for data communication is 100 kbaud (100,000 bits per second), but this can be increased to 400 kbaud. The acronym is either pronounced \"I-squared-C\" or \"I-two-C.\" I2C communication will be discussed later in this lesson.\n",
+    "- **A serial peripheral interface (SPI) port.** This is also used to communicate with peripheral devices and requires four wires. It is significantly faster than I2C, achieving about 15 Mbaud (15 million bits per second) on Arduino. SPI communication will be discussed later in this lesson.\n",
     "- **A six-channel 10-bit analog-to-digital converter (ADC).** When an analog signal comes in, e.g., a voltage, it needs to be converted into digital data to be stored. The 10-bit converter converts a voltage between zero and five volts to a 10-bit integer (that is, an integer between 0 and 1023). The ADC on the ATmega328 can accept signal from six channels. Each conversion of an analog voltage to a digital number takes about 110 µs, but this can be reduced about ten-fold with some trickery involving the clock.\n",
     "- **Two 8-bit and one 16-bit timers.** The timers are referred to as Timer0, Timer1, and Timer2, with Timer1 being the 16-bit timer."
    ]
@@ -152,7 +170,7 @@
     "\n",
     "Because the pins of the ICSP1 are used for SPI communication with the ATmega328 microcontroller, some of the pins are identical to digital pins elsewhere on the Arduino. In the schematic diagram of the Arduino, we number the pins on starting from the top left (right next to number `1` in the schematic) and continue going clockwise to label the pins 1 through 6. Pin 1 on the ICSP1 is equivalent to digital pin 12 on the Arduino, ICSP1 pin 3 is equivalent to digital pin 11, and ICSP1 pin 6 is equivalent to digital pin 13.\n",
     "\n",
-    "We will not be needing to use the ICSP headers in this class, but they are important to know about."
+    "We will not be using the ICSP headers in this class, but it is good to be aware of them."
    ]
   },
   {
@@ -174,7 +192,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Not counting the unconnected pin, Arduino has 31 pins, plus two sets of SPI communication. Some of the pins are redundant, going to exactly the same pin on the ATmega328 microcontroller. Some pins have multiple functions. Some pins may not be used at the same time for different purposes. There can be a lot to entangle.\n",
+    "Not counting the unconnected pin, Arduino has 31 pins, plus two sets of SPI communication. Some of the pins are redundant, going to exactly the same pin on the ATmega328 microcontroller. Some pins have multiple functions. Some pins may not be used at the same time for different purposes. All these may begin to look intimidating now, but don't worry, we will start simple and work from there.\n",
     "\n",
     "Because I would like this lesson to serve as a useful reference, I will include descriptions of some pins that use terms that may still be unfamiliar. In particular, I will refer to some functions in the [Arduino library](https://github.com/arduino/ArduinoCore-avr/blob/master/cores/arduino/Arduino.h), "
    ]
@@ -319,7 +337,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.3"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

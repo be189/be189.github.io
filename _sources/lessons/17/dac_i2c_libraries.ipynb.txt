@@ -13,13 +13,11 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "<hr>\n",
+    "We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC is useful in many applications for biodevices. As an example consider measurement of a [cyclic voltammogram](https://en.wikipedia.org/wiki/Cyclic_voltammetry). In these assays, you need to supply a varying voltage and then measure a current. The voltage supply cannot be delivered with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.\n",
     "\n",
-    "We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC comes up in many applications for biodevices. As an example consider measurement of a [cyclic voltammogram](https://en.wikipedia.org/wiki/Cyclic_voltammetry). In these assays, you need to supply a varying voltage and then measure a current. The voltage supply cannot be delivered with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.\n",
+    "To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. In your kit, you have an [MCP4725 DAC breakout board from Adafruit](https://www.adafruit.com/product/935). The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. **Libraries** contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.\n",
     "\n",
-    "To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. In your kit, you have and [MCP4725 DAC breakout board from Adafruit](https://www.adafruit.com/product/935). The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. **Libraries** contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.\n",
-    "\n",
-    "This lesson covers three topics that are not necessarily related: DAC, I2C, and libraries. But learning about the latter two is necessary to do the former. You will learn about these three topics by working through a follow-along exercise."
+    "This lesson covers three topics that are not necessarily related: DAC, I2C, and libraries. However, to properly execute DAC, you need to learn about latter two. You will learn about these three topics by working through a follow-along exercise."
    ]
   },
   {
@@ -30,7 +28,7 @@
     "\n",
     "## Follow-along exercise 12: DAC with MCP4725\n",
     "\n",
-    "To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Rather, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC in your kit. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is single-channel, meaning that it can output only one analog voltage."
+    "To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Instead, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC in your kit. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is single-channel, meaning that it can output only one analog voltage."
    ]
   },
   {
@@ -55,8 +53,8 @@
     "A few things to take note of in the schematic:\n",
     "\n",
     "1. When lines in the schematic cross, they are *not* connected unless a dot (a node) is present at the crossing.\n",
-    "2. You can use with pins A4 and A5 or pins SDA and SCL, respectively. The respective pins go to the same place on the microcontroller. I always use the SDA and SCL pins just to remind myself that I am using them for I2C.\n",
-    "3. The labels on the MCP4725 on the schematic are different than printed on the board. Without going in to too much discussion behind the nomenclature, you can consider Vcc and Vdd to be the same thing: this is input voltage. Similarly, you can functionally consider Vee and Vss to be the same thing: these go to ground. On the MCP4725 breakout board in your kit, VSS is labeled GND and VOUT is labeled VOU.\n",
+    "2. You can use pins A4 and A5 or pins SDA and SCL, respectively. The respective pins go to the same place on the microcontroller. I always use the SDA and SCL pins just to remind myself that I am using them for I2C.\n",
+    "3. The labels on the MCP4725 on the schematic are different than printed on the board. Without going into too much discussion behind the nomenclature, you can consider Vcc and Vdd to be the same thing: this is input voltage. Similarly, you can functionally consider Vee and Vss to be the same thing: these go to ground. On the MCP4725 breakout board in your kit, VSS is labeled GND and VOUT is labeled VOU.\n",
     "\n",
     "The DAC is powered through the Vdd/ground pins. Communication via I2C is accomplished via the SDA and SCL pins, which are connected to the appropriate pins on the Arduino board. Recall from our [tour of Arduino](../02/tour_of_arduino.ipynb) that I2C works by switching the voltage on SCL (the clock) on and off at a given frequency. A comparison is made between the clock voltage and the data voltage (from the SDA pin); if both are high, the transmitted bit is one, and if the SDA voltage is low, the transmitted bit is zero."
    ]
@@ -126,7 +124,7 @@
    "source": [
     "## Using an external library\n",
     "\n",
-    "Libraries are there to make things easier for you. In the above example, we had to do some bit-twiddling to get our number sent across to the DAC. It would be nice we if had a library that took care of that for us. It turns out there is one! The library is made by Adafruit to go along with the breakout board. It is called `Adafruit_MCP4725`. The Arduino IDE is aware of many third-party libraries, and you can install them into the IDE. To install this library, within the Arduino IDE, click on `Tools` → `Manage Libraries...`. The Libary Manager window will pop up. You can type `MCP4725` in the search window, and you will have the option to install the Adafruit MCP4725 library. Go ahead and do this. While you are at it, find the Adafruit ADS1X15 library, which we will use in a future lesson. \n",
+    "Libraries are there to make things easier for you. In the above example, we had to do some bit-twiddling to get our number sent across to the DAC. It would be nice if we had a library that took care of that for us. It turns out there is one! The library is made by Adafruit to go along with the breakout board. It is called `Adafruit_MCP4725`. The Arduino IDE is aware of many third-party libraries, and you can install them into the IDE. To install this library, within the Arduino IDE, click on `Tools` → `Manage Libraries...`. The Libary Manager window will pop up. You can type `MCP4725` in the search window, and you will have the option to install the Adafruit MCP4725 library. Go ahead and do this. While you are at it, find the Adafruit ADS1X15 library, which we will use in a future lesson. \n",
     "\n",
     "Now that the library is installed, you can include it as we did with the built-in Wire library. The sketch below accomplishes the same result as the sketch above, but uses the convenient features of the Adafruit MCP4725 library.\n",
     "\n",
@@ -184,7 +182,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

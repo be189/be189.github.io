@@ -4,7 +4,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "# 20. Photoresistors, trimming, and ADC\n",
+    "# 21. Photoresistors, trimming, and ADC\n",
     "\n",
     "<hr>"
    ]
@@ -62,13 +62,13 @@
     "\n",
     "## Do-it-yourself exercise 9: Photoresistors with ADC\n",
     "\n",
-    "The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you want higher bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to do ADC. You can ask Google, but as a hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.\n",
+    "The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion capability, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you need a greater bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to perform ADC. You can ask Google, but as a hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.\n",
     "\n",
     "Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.\n",
     "\n",
     "The voltage across each photoresistor should be read both by using the built-in pins on the Arduino Uno and by using the ADS1015. Reading the voltage in two ways will give you a way to check to make sure everything is working properly. You should make an app wherein the voltages can be monitored in real time.\n",
     "\n",
-    "You want to get the best resolution you can over a big dynamic range. Here are some hints.\n",
+    "You want to get the best resolution you can over a large dynamic range. Here are some hints.\n",
     "\n",
     "1. Carefully read the information on the ADS1015. Here is a big hint that you will find: Unlike the ADC in the Arduino Uno, the ADS1015 can convert negative voltages. Its output is 12-bits, so the range of values is from –2048 to 2047. You should think carefully about how to take full advantage of the full range of numbers. Otherwise, if you are just using positive numbers, you only get one extra bit beyond the 10-bits in the built-in ADC. (Though in practice, you would probably use a 16-bit ADC, possibly the ADS1115.)\n",
     "2. Given that you can get negative numbers coming into Python from Arduino, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: `re.compile(b\"\\d+|,|-\")`.\n",
@@ -94,7 +94,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

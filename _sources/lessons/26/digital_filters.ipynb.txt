@@ -13,7 +13,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "Sometimes it is necessary to also apply **digital signal processing** techniques to your data. These are calculations typically done with your computer. These are often applied after some number of data points from your time series data are acquired and you wish to compute some properties of the signal. You will use one such technique, peak-finding, in your pulse oximetry project.\n",
+    "Sometimes it is necessary to also apply **digital signal processing** techniques to your data. These are calculations typically done with your computer. These are often applied after some number of data points from your time series data have been acquired and you wish to compute some properties of the signal. You will use one such technique, peak-finding, in your pulse oximetry project.\n",
     "\n",
     "**Digital filtering** is a type of digital signal processing that is used to achieve similar filtering results that we have thus far built using analog filtering using resistors, capacitors, and op-amps to filter out high or low frequencies that are not of interest to us."
    ]
@@ -55,7 +55,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

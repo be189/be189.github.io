@@ -31,12 +31,9 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -110,9 +107,9 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lessons/21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -257,8 +254,8 @@
 <li><p><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html#Do-it-yourself-exercise-5:-Asking-for-data-with-buttons"><span class="std std-ref">Do-it-yourself exercise 5: Asking for data with buttons</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html#Do-it-yourself-exercise-6:-Etch-A-Sketch"><span class="std std-ref">Do-it-yourself exercise 6: Etch-A-Sketch</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/16/control_panels.html#Do-it-yourself-exercise-7:-Potentiometer-app"><span class="std std-ref">Do-it-yourself exercise 7: Potentiometer app</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/19/introduction_to_filters.html#Do-it-yourself-exercise-8:-DAC-with-PWM"><span class="std std-ref">Do-it-yourself exercise 8: DAC with PWM</span></a></p></li>
-<li><p><a class="reference internal" href="lessons/20/photoresistors_and_adc.html#Do-it-yourself-exercise-9:-Photoresistors-with-ADC"><span class="std std-ref">Do-it-yourself exercise 9: Photoresistors with ADC</span></a></p></li>
+<li><p><a class="reference internal" href="lessons/20/introduction_to_filters.html#Do-it-yourself-exercise-8:-DAC-with-PWM"><span class="std std-ref">Do-it-yourself exercise 8: DAC with PWM</span></a></p></li>
+<li><p><a class="reference internal" href="lessons/21/photoresistors_and_adc.html#Do-it-yourself-exercise-9:-Photoresistors-with-ADC"><span class="std std-ref">Do-it-yourself exercise 9: Photoresistors with ADC</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/22/op_amps.html#Do-it-yourself-exercise-10:-Demonstration-of-noninverting-amplification"><span class="std std-ref">Do-it-yourself exercise 10: Demonstration of noninverting amplification</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/24/sample_and_hold.html#Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold"><span class="std std-ref">Do-it-yourself exercise 11: Using the LF398N for sample-and-hold</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/25/active_filters.html#Do-it-yourself-exercise-12:-A-bandpass-filter"><span class="std std-ref">Do-it-yourself exercise 12: A bandpass filter</span></a></p></li>
@@ -286,13 +283,13 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fcea82e0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61c76cbb0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

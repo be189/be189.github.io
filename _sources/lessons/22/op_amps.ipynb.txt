@@ -24,13 +24,18 @@
     "\n",
     "An op-amp is an active (meaning externally powered with a DC power source) integrated circuit that has two inputs and one output. The *difference* between the two inputs is amplified with very high gain. Because of the high gain op-amps are almost always used with feedback.\n",
     "\n",
-    "Op-amps are powered by a positive and negative voltage source, $V_+$ and $V_-$, with $V_- = -V_+$. Because it requires negative voltage, we cannot use the Arduino Uno to power the op-amp, but need an external power supply. The Digilent PowerBRICKs in your kit provide this.\n",
+    "Op-amps are powered by a positive and negative voltage source, $V_+$ and $V_-$, with $V_- = -V_+$. Because it requires negative voltage, we cannot use the Arduino Uno to power the op-amp, but need an external power supply. The Digilent PowerBRICKs in your kit can serve as a good power supply.\n",
     "\n",
     "There are a few \"rules\" to keep in mind about op-amps used in feedback loops.\n",
     "\n",
     "1. The gain is huge (typically $10^5$-$10^6$).\n",
     "2. The inputs draw very small current (typically of order picoamps).\n",
     "3. The output tends to make the voltage difference zero.\n",
+    "\n",
+    "<!--\n",
+    "More detail on rule 3, as per Yang:\n",
+    "The output will \"rail\" (go to the max or min voltage) unless the difference between the inputs is very small. By putting an op-amp in a negative feedback configuration, we let the output control one of the inputs. This way, the output will settle at a non-\"rail\" voltage while keeping the input difference effectively at zero.\n",
+    "-->\n",
     "\n",
     "Rule (3) follows from rules (1) and (2), which we demonstrate below. To quickly think about op-amps, it is useful to keep these rules of thumb in mind.\n",
     "\n",
@@ -51,7 +56,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "Note that we have labeled a point $a$ in the circuit as a reference for our analysis. The symbol for an op-amp is a triangle with two inputs and a single output. The op-amp amplifies the difference between the input labeled with a \"+\" (referred to as the noninverting input) and that labeled with a \"–\" (referred to as the inverting input). Play close attention when looking at a schematic; the inverting input can be on top or bottom. In some schematics, the power supplies ($V_+$ and $V_-$) for the op-amp are also included, given as vertical connections on the slanted sides of the triangle. In many schematics, including this one, we do not explicitly show those and note that they are in fact there.\n",
+    "Note that we have labeled a point $a$ in the circuit as a reference for our analysis. The symbol for an op-amp is a triangle with two inputs and a single output. The op-amp amplifies the difference between the input labeled with a \"+\" (referred to as the noninverting input) and that labeled with a \"–\" (referred to as the inverting input). Pay close attention when looking at a schematic; the inverting input can be on top or bottom. In some schematics, the power supplies ($V_+$ and $V_-$) for the op-amp are also included, given as vertical connections on the slanted sides of the triangle. In many schematics, including this one, we do not explicitly show those and note that they are in fact there.\n",
     "\n",
     "Thinking intuitively about the circuit, imagine $V_\\mathrm{in}$ goes up. Remembering rule 3 above, if $V_\\mathrm{in}$ goes up, the output will be adjusted so that $V_\\mathrm{a}$ also goes up in order to drive the difference between the inputs to the op-amp to be close to zero. In order to get $V_a$ to go  up, $V_\\mathrm{out}$ must also go up. Similarly, if $V_\\mathrm{in}$ goes down, so too does $V_\\mathrm{out}$.\n",
     "\n",
@@ -114,11 +119,30 @@
     "\\frac{A\\,R_2}{R_1 + R_2}\\,V_\\mathrm{out} \\approx A\\,V_\\mathrm{in}.\n",
     "\\end{align}\n",
     "\n",
-    "The gains cancel! This means that the input-output relationship of the op-amp is independent of the gain. We get the same result as we did above applying rule 3,\n",
+    "The gains cancel! This means that the input-output relationship of the op-amp is independent of the gain. We get the same result as we did above by applying rule 3,\n",
     "\n",
     "\\begin{align}\n",
     "V_\\mathrm{out} = (1 + R_1/R_2)V_\\mathrm{in}.\n",
     "\\end{align}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## A unit gain amplifier\n",
+    "\n",
+    "Consider the following circuit.\n",
+    "\n",
+    "<div style=\"margin:auto; width: 250px;\">\n",
+    "\n",
+    "![Unit gain amplifier](unit_gain_amp.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "This looks kind of funny. We take the output of the op-amp and put it right back in the inverting input without using a resister of capacitor. What is this doing? It makes more sense if we compare this circuit to the non-inverting amplifier. We see that our circuit is actually a non-inverting amplifier with $R_1 \\approx 0$ and $R_2 \\approx \\infty$. Thus, we have $V_\\mathrm{out} \\approx V_\\mathrm{in}$. The result is a unit-gain amplifier; the input signal is multiplied by unity.\n",
+    "\n",
+    "This circuit is an example of an **emitter follower** (sometimes just called a **follower**), so named because the output is emitted, following an input. Importantly, the output has very low impedance, much lower than typical input impedance. As a result, the output is isolated from the input due to the large impedance difference. Unit gain amplifiers are quite useful to stabilize input signals prior to measuring them."
    ]
   },
   {
@@ -138,6 +162,37 @@
     "</div>\n",
     "\n",
     "<hr>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Summing amplifiers\n",
+    "\n",
+    "When designing circuits, we often want to add voltages. A common example is when we use a high pass filter applied to a signal and the DC signal is attenuated to close to zero so that the filtered signal dips into negative voltages. If we have a detector that can only read nonnegative voltages, we will not be able to read our filtered signal. So, we may wish to add an offset voltage to the filtered signal to bring it above zero (e.g., if the *variation* of the signal is what we are interested in).\n",
+    "\n",
+    "The circuit below is a **non-inverting summing amplifier**. Comparing to the example just described, $V_1$ may be high pass-filtered signal and $V_2$ may be an offset voltage we wish to add to it. \n",
+    "\n",
+    "<div style=\"margin:auto; width: 300px;\">\n",
+    "\n",
+    "![Noninverting summing amplifier circuit](noninverting_summer.svg)\n",
+    "    \n",
+    "</div>\n",
+    "\n",
+    "The idea is the same as the non-inverting amplifier above; we simply bring in two (or more) input signals into the noninverting input of the op-amp. By [Millman's theorem](https://en.wikipedia.org/wiki/Millman%27s_theorem), the input voltage is\n",
+    "\n",
+    "\\begin{align}\n",
+    "V_\\mathrm{in} = \\frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.\n",
+    "\\end{align}\n",
+    "\n",
+    "We then apply the result derived above for the amplification, giving\n",
+    "\n",
+    "\\begin{align}\n",
+    "V_\\mathrm{out} = \\left(1 + \\frac{R_3}{R_4}\\right)\\frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.\n",
+    "\\end{align}\n",
+    "\n",
+    "The resistances $R_1$ and $R_2$ may be tuned to give a weighted sum of the input voltages $V_1$ and $V_2$, and the resistances $R_3$ and $R_4$ may be tuned to give the gain of the amplifier. In the case where $R_1 = R_2$ and $R_3 = R_4$, we get $V_\\mathrm{out} = V_1 + V_2$."
    ]
   },
   {
@@ -171,7 +226,7 @@
     "\n",
     "Build the circuit below, taking into account the following considerations.\n",
     "\n",
-    "1. Power the dual op-amp with your **5 V PowerBRICK** (*not* the 12 V). Because you are powering the dual op-amp with a ±5 V supply, inclusion of resistors R5 and R6 and the Zener diodes is optional. (Think about why.)\n",
+    "1. Power the dual op-amp with your **5 V PowerBRICK**.\n",
     "2. Do not connect the outputs of the op-amps to A0 and A2 right now. Do that after you upload your sketch.\n",
     "\n",
     "\n",
@@ -226,7 +281,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.5"
+   "version": "3.8.8"
   }
  },
  "nbformat": 4,

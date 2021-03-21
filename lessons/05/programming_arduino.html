@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -154,9 +151,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -292,8 +289,8 @@
 </style>
 <div class="section" id="5.-Programming-Arduino">
 <h1>5. Programming Arduino<a class="headerlink" href="#5.-Programming-Arduino" title="Permalink to this headline">¶</a></h1>
-<hr><p>In this lesson, we will take a whirlwind tour through the syntax you need as you wire sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>.</p>
-<p>When you finish this lesson, it is important to proceed with much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use.</p>
+<hr><p>In this lesson, we will take a whirlwind tour through the syntax you need as you write sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>.</p>
+<p>When you finish this lesson, it is important to proceed without much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use.</p>
 <div class="section" id="Review-of-last-lessons">
 <h2>Review of last lessons<a class="headerlink" href="#Review-of-last-lessons" title="Permalink to this headline">¶</a></h2>
 <p>You will remember in the previous lessons that we have already established a few key syntactical rules.</p>
@@ -309,15 +306,15 @@
 </div>
 <div class="section" id="A-general-note-about-programming-in-Arduino:-keep-it-simple">
 <h2>A general note about programming in Arduino: keep it simple<a class="headerlink" href="#A-general-note-about-programming-in-Arduino:-keep-it-simple" title="Permalink to this headline">¶</a></h2>
-<p>You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. That means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task with static arrays.
-Unforeseen problems, such as memory fragmentation, can rear their ugly heads.</p>
+<p>You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. This means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task in ARduino with
+static arrays. Unforeseen problems, such as memory fragmentation, can rear their ugly heads.</p>
 <p>It is safe to use pointers and work with them, e.g., to make two-dimensional arrays, but we will not discuss them here. Nonetheless, be careful when doing so.</p>
 <p>Since we ultimately will be using the Arduino Uno to run and instrument and collect and send data, we will be connecting it to your computer. You computer is <em>much</em> more powerful that the Arduino Uno (that’s why it probably costs two orders of magnitude more). Furthermore, you can program whatever manipulations you need to do to the data in Python, which, being a high-level interpreted language, is much easier to quickly write functional code with than C++.</p>
 <p>With that in mind, let us proceed to learn about programming Arduino.</p>
 </div>
 <div class="section" id="Data-types">
 <h2>Data types<a class="headerlink" href="#Data-types" title="Permalink to this headline">¶</a></h2>
-<p>As I mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:</p>
+<p>As I have mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">j</span><span class="p">;</span>
 
 <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -334,7 +331,7 @@ Unforeseen problems, such as memory fragmentation, can rear their ugly heads.</p
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: A <code class="docutils literal notranslate"><span class="pre">bool</span></code> stores a single bit of information. It can take values of 0 or 1. In your sketches, though, use the Boolean constants <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> for the values of a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">byte</span></code>: A byte is an unsigned 8-bit integer. It can take values from 0 to 255; that is 0 to 2⁸ – 1.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">int</span></code> in an Arduino sketch is a signed 16-bit integer. That means that the values of an <code class="docutils literal notranslate"><span class="pre">int</span></code> range from –32,768 to 32,767; that is –2⁻¹⁵ to 2¹⁵ – 1. The <code class="docutils literal notranslate"><span class="pre">int</span></code> is by far the most-used variable type. Note that the 10-bit ADC converts voltages to 10-bit integers that range from 0 to 1023. You can safely store these as <code class="docutils literal notranslate"><span class="pre">int</span></code>s. You will also have a external 16-bit ADC in your kit, and an <code class="docutils literal notranslate"><span class="pre">int</span></code> cannot store 16-bit numbers, so you will have to use an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> is also a 16-bit integers, but negative numbers are not allowed. Therefore <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> is also a 16-bit integer, but negative numbers are not allowed. Therefore <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">word</span></code>: A <code class="docutils literal notranslate"><span class="pre">word</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. Many programmers suggest using <code class="docutils literal notranslate"><span class="pre">word</span></code> instead of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> for clarity, but I do not have a strong opinion on this.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">long</span></code>: A <code class="docutils literal notranslate"><span class="pre">long</span></code> is a signed 32-bit integer. They range from –2,147,483,648 to 2,147,483,647; that is –2⁻³¹ to 2³¹ – 1. To denote an integer as a <code class="docutils literal notranslate"><span class="pre">long</span></code>, it must be followed by an <code class="docutils literal notranslate"><span class="pre">L</span></code>. For example to store the number 3252 in a variable named <code class="docutils literal notranslate"><span class="pre">shoulderToShoulder</span></code> as a long, you would do <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">shoulderToShoulder</span> <span class="pre">=</span> <span class="pre">3252L</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>: A <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code> is an unsigned 32-bit integer. They range from 0 to 4,294,967,295; that is 0 to 2³² – 1. An <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code> must also be followed by an <code class="docutils literal notranslate"><span class="pre">L</span></code> when written out as a number. <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s are very often used when comparing times, since the values returned by the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> and <code class="docutils literal notranslate"><span class="pre">micros()</span></code> functions (described below) are <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s.</p></li>
@@ -748,7 +745,7 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 </div>
 <div class="section" id="Functions">
 <h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h2>
-<p>As in design of devices, it is useful to practice <a class="reference external" href="https://en.wikipedia.org/wiki/Modular_programming">modular design</a> in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.</p>
+<p>As with design of devices, it is useful to practice <a class="reference external" href="https://en.wikipedia.org/wiki/Modular_programming">modular design</a> in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.</p>
 <p>It is easiest to see how functions are defined by looking at one. Here is a function to flash an LED <em>n</em> times.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span> <span class="nf">flashLED</span><span class="p">(</span><span class="kr">int</span> <span class="n">ledPin</span><span class="p">,</span> <span class="kr">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/*</span>
@@ -819,13 +816,13 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdbb9430> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61cf3c700> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

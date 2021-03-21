@@ -31,19 +31,16 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="19. Introduction to filters" href="../19/introduction_to_filters.html" />
+    <link rel="next" title="19. Voltage dividers" href="../19/voltage_dividers.html" />
     <link rel="prev" title="17. Libraries, DAC, and I2C" href="../17/dac_i2c_libraries.html" /> 
 </head>
 
@@ -120,9 +117,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -263,20 +260,19 @@
 <h2>The LDC in your kit<a class="headerlink" href="#The-LDC-in-your-kit" title="Permalink to this headline">¶</a></h2>
 <p>The LCD in your kit can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 chip</a>, which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use.</p>
 <p>Here are photos of the front and back of your LCD.</p>
-<div style="margin: auto; width: 400px;"><p><img alt="LCD photo" src="../../_images/lcd_photo.jpg" /></p>
-</div><p>On the front (top photo) are 16 pins. In looking at the pinout on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Wikipedia page</a>, you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. However, on the back of the LCD (bottom photo), there is a “backpack,” which enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the backpack is a potentiometer, which you can
-tune using a small Phillips head screwdriver (there is one in your kit). The potentiometer adjusts the brightness of the display.</p>
-<p>So, fortunately, we can use I2C to update the display of the LCD and we do not need to use so many pins to do so.</p>
+<div style="margin: auto; width: 400px;"><img alt="LCD photo" src="../../_images/lcd_photo.jpg" />
+</div><p>On the front (top photo) are 16 pins. In looking at the pinout on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Wikipedia page</a>, you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD in your kit contains a “backpack”, shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on
+the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver (there is one in your kit). The potentiometer adjusts the brightness of the display.</p>
+<p>So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so.</p>
 </div>
 <div class="section" id="Running-multiple-devices-on-the-I2C-bus">
 <h2>Running multiple devices on the I2C bus<a class="headerlink" href="#Running-multiple-devices-on-the-I2C-bus" title="Permalink to this headline">¶</a></h2>
-<p>You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will leave that set up, in addition to the the LCD we will set up presently. We will work through the rest of this lesson as a follow-along exercise.</p>
+<p>You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will the MCP4725 DAC device connected. We will also connet the LCD. We will work through the rest of this lesson as a follow-along exercise.</p>
 <hr></div>
 <div class="section" id="Follow-along-exercise-13:-Using-an-LCD-display">
 <h2>Follow-along exercise 13: Using an LCD display<a class="headerlink" href="#Follow-along-exercise-13:-Using-an-LCD-display" title="Permalink to this headline">¶</a></h2>
 <p>Set up the circuit below. You will add a potentiometer and the LCD to your setup from the last lesson. You may be able to leave your DAC setup as is, but you might need to move things around to keep wires tidy.</p>
-<div style="margin: auto; width: 400px;"><p><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" /></p>
-</div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before, but, separately have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
+<div style="margin: auto; width: 400px;"><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" /></div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
 <div class="section" id="Characters-for-the-LCD">
 <h3>Characters for the LCD<a class="headerlink" href="#Characters-for-the-LCD" title="Permalink to this headline">¶</a></h3>
 <p>The LCD can display a set of characters</p>
@@ -467,7 +463,7 @@ communication at 400k baud.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../19/introduction_to_filters.html" class="btn btn-neutral float-right" title="19. Introduction to filters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../19/voltage_dividers.html" class="btn btn-neutral float-right" title="19. Voltage dividers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../17/dac_i2c_libraries.html" class="btn btn-neutral float-left" title="17. Libraries, DAC, and I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -480,13 +476,13 @@ communication at 400k baud.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fece91c0> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61cccbdc0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

@@ -31,12 +31,9 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -129,9 +126,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -524,16 +521,16 @@ Hello, world.
 <div class="section" id="LEDs">
 <h3>LEDs<a class="headerlink" href="#LEDs" title="Permalink to this headline">¶</a></h3>
 <p>In your kit, you will find many red <strong>light-emitting diodes (LEDs)</strong>. An <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">LED</a> is a component that permits current to flow through it in one direction and emits light when it does. Here is a picture of one with a clear cover, though the ones in your kits will mostly have colored covers.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="led" src="../../_images/led.png" /></p>
+<div style="margin: auto; width: 500px;"><img alt="led" src="../../_images/led.png" />
 </div><p>Because of the directionality of the diode, it is important that the LED is properly oriented. LEDs typically have one long lead and one shorter lead. The long lead is the <strong>anode</strong>, which you connect to the higher voltage, and the shorter lead is the <strong>cathode</strong>, which you connect to the lower voltage (ground). In drawings of LEDs, the long lead is typically shown as a bent wire.</p>
-<p>You should also control how much current goes through an LED so you do not destroy it. LEDs are rated with a maximum <strong>forward current</strong>, which is the maximum continuous current an LED can allow. For many LEDs, including those in your kit, the forward current is 25 mA. They also have a <strong>forward voltage</strong>, which is the voltage drop across the LED. For the LEDs in your kit, the forward voltage is about 1.8 V. The maximum voltage that Arduino can provide is 5 V, so if you are powering your LED
-with Arduino, you will hit the forward current with a resistance of about 130 Ω by Ohm’s law. So, you should use 220 Ω resistors with the LEDs in your kit, and you will be safe.</p>
+<p>You should also control how much current goes through an LED so you do not destroy it. LEDs are rated with a maximum <strong>forward current</strong>, which is the maximum continuous current an LED can safely pass. For many LEDs, including those in your kit, the forward current is 25 mA. They also have a <strong>forward voltage</strong>, which is the voltage drop across the LED. For the LEDs in your kit, the forward voltage is about 1.8 V. The maximum voltage that Arduino can provide is 5 V, so if you are powering your
+LED with Arduino, you will hit the forward current with a resistance of about 130 Ω by Ohm’s law. As such, if you use 220 Ω resistors with the LEDs in your kit, they should not burn out.</p>
 </div>
 <div class="section" id="Resistors">
 <h3>Resistors<a class="headerlink" href="#Resistors" title="Permalink to this headline">¶</a></h3>
 <p>You also have lots of resistors in your kits. Resistors contain insulating material that restricts the flow of electrons through them. Different resistors can have different composition, which will lead to different degrees of effectiveness in restricting current, or <strong>resistance</strong>, which is measured in ohms (Ω).</p>
 <p>Resistors are color-coded for their resistance. The color-coding works in either four-, five-, or six-band codes. The resistors in your kit are either four- or five-band. Here is a picture of several four-band resistors (Evan Amos, public domain).</p>
-<div style="margin: auto; width: 350px;"><p><img alt="resistors" src="../../_images/resistors.jpg" /></p>
+<div style="margin: auto; width: 350px;"><img alt="resistors" src="../../_images/resistors.jpg" />
 </div><p>It can be hard to determine the direction in which to read the bands. In many resistors, the outer band that is closest to its respective lead is the first. In some four-band resistors, there is a larger gap between the third and fourth band. Finally, if there is a gold or silver band, it must be the last band.</p>
 <p>Each color corresponds to a number, as follows.</p>
 <ol class="arabic simple" start="0">
@@ -566,8 +563,9 @@ with Arduino, you will hit the forward current with a resistance of about 130 Ω
 <li><p>The color of the fifth band gives the tolerance of the resistor.</p></li>
 </ol>
 <p>The 220 Ω resistor in the four-band example would have rings of red-red-black-black-gold.</p>
-<p>To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
-<hr></div>
+<p>For reference, below is a diagram of resistor color codes (Adim kassn, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0 licensed</a>). To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
+<div style="margin: auto; width: 400px"><img alt="Color code chart for resistors" src="../../_images/resistor_color_code.png" />
+</div><hr></div>
 <div class="section" id="Thinking-exercise-1:-Resistor-values">
 <h3>Thinking exercise 1: Resistor values<a class="headerlink" href="#Thinking-exercise-1:-Resistor-values" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
@@ -579,7 +577,7 @@ with Arduino, you will hit the forward current with a resistance of about 130 Ω
 <hr></div>
 <div class="section" id="Jumper-wires">
 <h3>Jumper wires<a class="headerlink" href="#Jumper-wires" title="Permalink to this headline">¶</a></h3>
-<p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect components beyond the connections already present in the solderless breadboard. Jumper wires have different ends. In many cases, they simply have a bare wire at the end. They may also have plastic ends that force the wire to rise orthogonally from where is it plugged in. Some of these ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
+<p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect components beyond the connections already present in the solderless breadboard. Jumper wires have different ends. The vast majority of jumper wires end in bare wires. Some specialized jumper wires have plastic ends that force the wire to rise orthogonally from where it is plugged in. Some of these special-ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
 </div>
 </div>
 <div class="section" id="Arduino-sketches">
@@ -600,12 +598,11 @@ with Arduino, you will hit the forward current with a resistance of about 130 Ω
 <hr></div>
 <div class="section" id="Follow-along-exercise-1:-Blink">
 <h2>Follow-along exercise 1: Blink<a class="headerlink" href="#Follow-along-exercise-1:-Blink" title="Permalink to this headline">¶</a></h2>
-<p>With Arduino, we are now programming a physical device. So, instead of printing something to the screen of your computer, you are going to make a physical device <em>do</em> something. For our first program, we will make an LED blink.</p>
+<p>With Arduino, we program a physical device. So, instead of printing something to the screen of your computer, you are going to make a physical device <em>do</em> something. For our first program, we will make an LED blink.</p>
 <div class="section" id="Wiring-it-up">
 <h3>Wiring it up<a class="headerlink" href="#Wiring-it-up" title="Permalink to this headline">¶</a></h3>
 <p>The drawing below shows how to construct the physical device for the blink exercise.</p>
-<div style="margin: auto; width: 600px;"><p><img alt="blink_bb" src="../../_images/blink_bb.svg" /></p>
-</div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
+<div style="margin: auto; width: 600px;"><img alt="blink_bb" src="../../_images/blink_bb.svg" /></div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
 <p>In this circuit, digital pin 6 provides voltage driving current through the resistor, then through the LED, and finally to ground. In our Arduino sketch, we will change the output of digital pin 6 from high to low and back to high again to blink the LED.</p>
 </div>
 <div class="section" id="Connecting-the-Arduino-Uno-to-your-computer">
@@ -648,8 +645,8 @@ like <code class="docutils literal notranslate"><span class="pre">COM4</span></c
 </pre></div>
 </div>
 <p>We start by declaring a global variable <code class="docutils literal notranslate"><span class="pre">ledPin</span></code> to be 6. We have connected the LED up to pin 6, so we need to make sure Arduino knows this. In front of the declaration, we have the keyword <code class="docutils literal notranslate"><span class="pre">int</span></code>. This designates <code class="docutils literal notranslate"><span class="pre">ledPin</span></code> to be of integer <strong>type</strong>. <em>Any variable in an Arduino sketch needs to have its type declared.</em> We also have the keyword <code class="docutils literal notranslate"><span class="pre">const</span></code>, specifying that this variable is a constant. This is not necessary, but is good practice for a variable whose value will never change in
-your sketch (not least because it saves RAM; <code class="docutils literal notranslate"><span class="pre">const</span></code> variables are stored safely in flash memory). Finally, note that the line ends with a semicolon. <em>All statements in a sketch much end with a semicolon.</em></p>
-<p>Proceeding to the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function, we set up the pin controlling the LED so that it can output voltages. By default, all pins on an Arduino Uno are inputs. That is, they expect to receive a voltage signal that they then send to the ATmega328 microcontroller. If you want to pin to serve as an output, as we do here, we need to set the <strong>mode</strong> of the pin. We do this using the <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code> function. You can read about it
+your sketch (not least because it saves RAM; <code class="docutils literal notranslate"><span class="pre">const</span></code> variables are stored safely in flash memory). Finally, note that the line ends with a semicolon. <em>All statements in a sketch must end with a semicolon.</em></p>
+<p>Proceeding to the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function, we set up the pin controlling the LED so that it can output voltages. By default, all pins on an Arduino Uno are inputs. That is, they expect to receive a voltage signal that they then send to the ATmega328 microcontroller. If you want a pin to serve as an output, as we do here, we need to set the <strong>mode</strong> of the pin. We do this using the <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code> function. You can read about it
 <a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/">here</a> in the extremely useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>. (Seriously, bookmark <a class="reference external" href="https://www.arduino.cc/reference/">the reference</a>.) <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code> has return type <code class="docutils literal notranslate"><span class="pre">void</span></code>, which means it does not return anything, so you simply call the function with an assignment operation. I.e., <strong>do not</strong> do something like this: <code class="docutils literal notranslate"><span class="pre">ledPin</span> <span class="pre">=</span> <span class="pre">pinMode(ledPin,</span> <span class="pre">OUTPUT)</span></code>. The first argument is
 the pin whose mode you want to set. The second argument is either <code class="docutils literal notranslate"><span class="pre">INPUT</span></code> or <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>. In our case, we want <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>, since we are outputting a signal to the LED.</p>
 <p>Now, we turn our attention to the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function. We start by using the <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code> function to set the pin connected to the LED to <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>. Remember, pin 6 is a digital pin, so it can only take on two values, zero (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>) or five volts (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>). <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code> takes two arguments, the first bring the pin to which you want to write. The second argument must by <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> or <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. So, the <code class="docutils literal notranslate"><span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH)</span></code> statement results in a 5V potential across the LED,
@@ -665,8 +662,8 @@ you see a trend here? This is an exceptionally useful website!)</p>
 </div>
 <div class="section" id="Saving-the-sketch">
 <h3>Saving the sketch<a class="headerlink" href="#Saving-the-sketch" title="Permalink to this headline">¶</a></h3>
-<p>After your code is complete, you need to save the sketch. We will name our sketch <code class="docutils literal notranslate"><span class="pre">blink</span></code>. When you save an Arduino sketch it must be in a folder having the same name as your sketch. The Arduino IDE will automatically create this folder when you select <code class="docutils literal notranslate"><span class="pre">Save</span></code> from the <code class="docutils literal notranslate"><span class="pre">File</span></code> menu. Within the folder is a text file with the suffix <code class="docutils literal notranslate"><span class="pre">.ino</span></code> that contains the code of your sketch. In this case, the file is called <code class="docutils literal notranslate"><span class="pre">blink.ino</span></code>. You can have other files in the folder, including other <code class="docutils literal notranslate"><span class="pre">.ino</span></code>
-files, files with C++ code, and header (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) files. This is a bit more advanced than what we will encounter in this class, so you do not need to worry too much about that extra files in the sketch folder.</p>
+<p>After you have completed your code, you need to save the sketch. We will name our sketch <code class="docutils literal notranslate"><span class="pre">blink</span></code>. When you save an Arduino sketch it must be in a folder having the same name as your sketch. The Arduino IDE will automatically create this folder when you select <code class="docutils literal notranslate"><span class="pre">Save</span></code> from the <code class="docutils literal notranslate"><span class="pre">File</span></code> menu. Within the folder is a text file with the suffix <code class="docutils literal notranslate"><span class="pre">.ino</span></code> that contains the code of your sketch. In this case, the file is called <code class="docutils literal notranslate"><span class="pre">blink.ino</span></code>. You can have other files in the folder, including other
+<code class="docutils literal notranslate"><span class="pre">.ino</span></code> files, files with C++ code, and header (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) files. This is a bit more advanced than what we will encounter in this class, so you do not need to worry too much about that extra files in the sketch folder.</p>
 </div>
 <div class="section" id="Uploading-the-sketch-and-blinking!">
 <h3>Uploading the sketch and blinking!<a class="headerlink" href="#Uploading-the-sketch-and-blinking!" title="Permalink to this headline">¶</a></h3>
@@ -704,13 +701,13 @@ will help with debugging.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fda85a00> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61cd86b80> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

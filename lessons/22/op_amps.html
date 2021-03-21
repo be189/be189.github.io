@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +43,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="23. Transistors" href="../23/transistors.html" />
-    <link rel="prev" title="21. Protecting Arduino with Zener diodes" href="../21/protection_with_zener.html" /> 
+    <link rel="prev" title="21. Photoresistors, trimming, and ADC" href="../21/photoresistors_and_adc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,16 +109,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">22. Operational amplifiers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Op-amps-with-feedback">Op-amps with feedback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#A-non-inverting-amplifier">A non-inverting amplifier</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#A-more-detailed-look">A more detailed look</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#A-unit-gain-amplifier">A unit gain amplifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-7:-Another-amplifier">Thinking exercise 7: Another amplifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Summing-amplifiers">Summing amplifiers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Dual-op-amps">Dual op-amps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-10:-Demonstration-of-noninverting-amplification">Do-it-yourself exercise 10: Demonstration of noninverting amplification</a></li>
 </ul>
@@ -262,21 +263,23 @@
 <div class="section" id="Op-amps-with-feedback">
 <h2>Op-amps with feedback<a class="headerlink" href="#Op-amps-with-feedback" title="Permalink to this headline">¶</a></h2>
 <p>An op-amp is an active (meaning externally powered with a DC power source) integrated circuit that has two inputs and one output. The <em>difference</em> between the two inputs is amplified with very high gain. Because of the high gain op-amps are almost always used with feedback.</p>
-<p>Op-amps are powered by a positive and negative voltage source, <span class="math notranslate nohighlight">\(V_+\)</span> and <span class="math notranslate nohighlight">\(V_-\)</span>, with <span class="math notranslate nohighlight">\(V_- = -V_+\)</span>. Because it requires negative voltage, we cannot use the Arduino Uno to power the op-amp, but need an external power supply. The Digilent PowerBRICKs in your kit provide this.</p>
+<p>Op-amps are powered by a positive and negative voltage source, <span class="math notranslate nohighlight">\(V_+\)</span> and <span class="math notranslate nohighlight">\(V_-\)</span>, with <span class="math notranslate nohighlight">\(V_- = -V_+\)</span>. Because it requires negative voltage, we cannot use the Arduino Uno to power the op-amp, but need an external power supply. The Digilent PowerBRICKs in your kit can serve as a good power supply.</p>
 <p>There are a few “rules” to keep in mind about op-amps used in feedback loops.</p>
 <ol class="arabic simple">
 <li><p>The gain is huge (typically <span class="math notranslate nohighlight">\(10^5\)</span>-<span class="math notranslate nohighlight">\(10^6\)</span>).</p></li>
 <li><p>The inputs draw very small current (typically of order picoamps).</p></li>
 <li><p>The output tends to make the voltage difference zero.</p></li>
 </ol>
-<p>Rule (3) follows from rules (1) and (2), which we demonstrate below. To quickly think about op-amps, it is useful to keep these rules of thumb in mind.</p>
+<!--
+More detail on rule 3, as per Yang:
+The output will "rail" (go to the max or min voltage) unless the difference between the inputs is very small. By putting an op-amp in a negative feedback configuration, we let the output control one of the inputs. This way, the output will settle at a non-"rail" voltage while keeping the input difference effectively at zero.
+--><p>Rule (3) follows from rules (1) and (2), which we demonstrate below. To quickly think about op-amps, it is useful to keep these rules of thumb in mind.</p>
 <p>We will apply op-amps to active filters, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Sallen–Key_topology">Sallen-Key filters</a>, in the next lesson. For now, we will explore the use of an op-amp in a non-inverting amplifier, which is simpler to analyze, and the analysis provides insight.</p>
 </div>
 <div class="section" id="A-non-inverting-amplifier">
 <h2>A non-inverting amplifier<a class="headerlink" href="#A-non-inverting-amplifier" title="Permalink to this headline">¶</a></h2>
 <p>Consider the circuit below in which we connect an op-amp with feedback to a voltage divider.</p>
-<div style="margin:auto; width: 250px;"><p><img alt="Non-inverting amplifier circuit" src="../../_images/noninverting_amp.svg" /></p>
-</div><p>Note that we have labeled a point <span class="math notranslate nohighlight">\(a\)</span> in the circuit as a reference for our analysis. The symbol for an op-amp is a triangle with two inputs and a single output. The op-amp amplifies the difference between the input labeled with a “+” (referred to as the noninverting input) and that labeled with a “–” (referred to as the inverting input). Play close attention when looking at a schematic; the inverting input can be on top or bottom. In some schematics, the power supplies (<span class="math notranslate nohighlight">\(V_+\)</span> and
+<div style="margin:auto; width: 250px;"><img alt="Non-inverting amplifier circuit" src="../../_images/noninverting_amp.svg" /></div><p>Note that we have labeled a point <span class="math notranslate nohighlight">\(a\)</span> in the circuit as a reference for our analysis. The symbol for an op-amp is a triangle with two inputs and a single output. The op-amp amplifies the difference between the input labeled with a “+” (referred to as the noninverting input) and that labeled with a “–” (referred to as the inverting input). Pay close attention when looking at a schematic; the inverting input can be on top or bottom. In some schematics, the power supplies (<span class="math notranslate nohighlight">\(V_+\)</span> and
 <span class="math notranslate nohighlight">\(V_-\)</span>) for the op-amp are also included, given as vertical connections on the slanted sides of the triangle. In many schematics, including this one, we do not explicitly show those and note that they are in fact there.</p>
 <p>Thinking intuitively about the circuit, imagine <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> goes up. Remembering rule 3 above, if <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> goes up, the output will be adjusted so that <span class="math notranslate nohighlight">\(V_\mathrm{a}\)</span> also goes up in order to drive the difference between the inputs to the op-amp to be close to zero. In order to get <span class="math notranslate nohighlight">\(V_a\)</span> to go up, <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> must also go up. Similarly, if <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> goes down, so too does <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span>.</p>
 <p>To figure out how much <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> goes up, we need to find the value of <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> that will give <span class="math notranslate nohighlight">\(V_\mathrm{a} = V_\mathrm{in}\)</span>. Remembering what we have already worked out for a voltage divider, we have</p>
@@ -315,22 +318,41 @@ V_\mathrm{out} = A\left(V_\mathrm{in} - \frac{R_2}{R_1 + R_2}\,V_\mathrm{out}\ri
 <p><span class="math">\begin{align}
 \frac{A\,R_2}{R_1 + R_2}\,V_\mathrm{out} \approx A\,V_\mathrm{in}.
 \end{align}</span></p>
-<p>The gains cancel! This means that the input-output relationship of the op-amp is independent of the gain. We get the same result as we did above applying rule 3,</p>
+<p>The gains cancel! This means that the input-output relationship of the op-amp is independent of the gain. We get the same result as we did above by applying rule 3,</p>
 <p><span class="math">\begin{align}
 V_\mathrm{out} = (1 + R_1/R_2)V_\mathrm{in}.
 \end{align}</span></p>
-<hr></div>
 </div>
+</div>
+<div class="section" id="A-unit-gain-amplifier">
+<h2>A unit gain amplifier<a class="headerlink" href="#A-unit-gain-amplifier" title="Permalink to this headline">¶</a></h2>
+<p>Consider the following circuit.</p>
+<div style="margin:auto; width: 250px;"><img alt="Unit gain amplifier" src="../../_images/unit_gain_amp.svg" /></div><p>This looks kind of funny. We take the output of the op-amp and put it right back in the inverting input without using a resister of capacitor. What is this doing? It makes more sense if we compare this circuit to the non-inverting amplifier. We see that our circuit is actually a non-inverting amplifier with <span class="math notranslate nohighlight">\(R_1 \approx 0\)</span> and <span class="math notranslate nohighlight">\(R_2 \approx \infty\)</span>. Thus, we have <span class="math notranslate nohighlight">\(V_\mathrm{out} \approx V_\mathrm{in}\)</span>. The result is a unit-gain amplifier; the input signal is multiplied by unity.</p>
+<p>This circuit is an example of an <strong>emitter follower</strong> (sometimes just called a <strong>follower</strong>), so named because the output is emitted, following an input. Importantly, the output has very low impedance, much lower than typical input impedance. As a result, the output is isolated from the input due to the large impedance difference. Unit gain amplifiers are quite useful to stabilize input signals prior to measuring them.</p>
+<hr></div>
 <div class="section" id="Thinking-exercise-7:-Another-amplifier">
 <h2>Thinking exercise 7: Another amplifier<a class="headerlink" href="#Thinking-exercise-7:-Another-amplifier" title="Permalink to this headline">¶</a></h2>
 <p>What is the relationship between <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> and <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> in the circuit below?</p>
-<div style="margin:auto; width: 300px;"><p><img alt="Inverting amplifier circuit" src="../../_images/inverting_amp.svg" /></p>
-</div><hr></div>
+<div style="margin:auto; width: 300px;"><img alt="Inverting amplifier circuit" src="../../_images/inverting_amp.svg" /></div><hr></div>
+<div class="section" id="Summing-amplifiers">
+<h2>Summing amplifiers<a class="headerlink" href="#Summing-amplifiers" title="Permalink to this headline">¶</a></h2>
+<p>When designing circuits, we often want to add voltages. A common example is when we use a high pass filter applied to a signal and the DC signal is attenuated to close to zero so that the filtered signal dips into negative voltages. If we have a detector that can only read nonnegative voltages, we will not be able to read our filtered signal. So, we may wish to add an offset voltage to the filtered signal to bring it above zero (e.g., if the <em>variation</em> of the signal is what we are interested
+in).</p>
+<p>The circuit below is a <strong>non-inverting summing amplifier</strong>. Comparing to the example just described, <span class="math notranslate nohighlight">\(V_1\)</span> may be high pass-filtered signal and <span class="math notranslate nohighlight">\(V_2\)</span> may be an offset voltage we wish to add to it.</p>
+<div style="margin:auto; width: 300px;"><img alt="Noninverting summing amplifier circuit" src="../../_images/noninverting_summer.svg" /></div><p>The idea is the same as the non-inverting amplifier above; we simply bring in two (or more) input signals into the noninverting input of the op-amp. By <a class="reference external" href="https://en.wikipedia.org/wiki/Millman%27s_theorem">Millman’s theorem</a>, the input voltage is</p>
+<p><span class="math">\begin{align}
+V_\mathrm{in} = \frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.
+\end{align}</span></p>
+<p>We then apply the result derived above for the amplification, giving</p>
+<p><span class="math">\begin{align}
+V_\mathrm{out} = \left(1 + \frac{R_3}{R_4}\right)\frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.
+\end{align}</span></p>
+<p>The resistances <span class="math notranslate nohighlight">\(R_1\)</span> and <span class="math notranslate nohighlight">\(R_2\)</span> may be tuned to give a weighted sum of the input voltages <span class="math notranslate nohighlight">\(V_1\)</span> and <span class="math notranslate nohighlight">\(V_2\)</span>, and the resistances <span class="math notranslate nohighlight">\(R_3\)</span> and <span class="math notranslate nohighlight">\(R_4\)</span> may be tuned to give the gain of the amplifier. In the case where <span class="math notranslate nohighlight">\(R_1 = R_2\)</span> and <span class="math notranslate nohighlight">\(R_3 = R_4\)</span>, we get <span class="math notranslate nohighlight">\(V_\mathrm{out} = V_1 + V_2\)</span>.</p>
+</div>
 <div class="section" id="Dual-op-amps">
 <h2>Dual op-amps<a class="headerlink" href="#Dual-op-amps" title="Permalink to this headline">¶</a></h2>
 <p>In your kit, you have two <a class="reference external" href="https://www.digikey.com/en/products/detail/texas-instruments/LF412CP/378419">LF412CP dual op-amps</a>. A dual op-amp has two op-amps in the same integrated circuit. The pinout for this component is shown below.</p>
-<div style="margin:auto; width: 200px;"><p><img alt="LF412CP pinout" src="../../_images/LF412CP_pinout.svg" /></p>
-</div><p>Note that both of the op-amps share the same power source (Vcc+ and Vcc–).</p>
+<div style="margin:auto; width: 200px;"><img alt="LF412CP pinout" src="../../_images/LF412CP_pinout.svg" /></div><p>Note that both of the op-amps share the same power source (Vcc+ and Vcc–).</p>
 <p>When using this component, it is important to note the small circular indentation on the top. This is used to orient you so you know which pin is which.</p>
 <p>The component is laid out as a <a class="reference external" href="https://en.wikipedia.org/wiki/Dual_in-line_package">dual inline package</a> (DIP). The groove in the middle of your solderless breadboard is there for DIP support. You should mount the component across the groove. When you do so, none of the pins of the component are connected to <em>each other</em>, and you then can connect the pins to the necessary components of the circuit.</p>
 <hr></div>
@@ -338,11 +360,10 @@ V_\mathrm{out} = (1 + R_1/R_2)V_\mathrm{in}.
 <h2>Do-it-yourself exercise 10: Demonstration of noninverting amplification<a class="headerlink" href="#Do-it-yourself-exercise-10:-Demonstration-of-noninverting-amplification" title="Permalink to this headline">¶</a></h2>
 <p>Build the circuit below, taking into account the following considerations.</p>
 <ol class="arabic simple">
-<li><p>Power the dual op-amp with your <strong>5 V PowerBRICK</strong> (<em>not</em> the 12 V). Because you are powering the dual op-amp with a ±5 V supply, inclusion of resistors R5 and R6 and the Zener diodes is optional. (Think about why.)</p></li>
+<li><p>Power the dual op-amp with your <strong>5 V PowerBRICK</strong>.</p></li>
 <li><p>Do not connect the outputs of the op-amps to A0 and A2 right now. Do that after you upload your sketch.</p></li>
 </ol>
-<div style="margin:auto; width:500px;"><p><img alt="dual op-amp circuit" src="../../_images/op_amp_schem.svg" /></p>
-</div><p>Write an Arduino sketch to use the MCP4725 DAC to send one volt as input to the first op-amp and to send the outputs of the first and second op-amp to pins A0 and A2, respectively. Prior to plugging in pins A0 and A2 and uploading the sketch, what values to you think they will read?</p>
+<div style="margin:auto; width:500px;"><img alt="dual op-amp circuit" src="../../_images/op_amp_schem.svg" /></div><p>Write an Arduino sketch to use the MCP4725 DAC to send one volt as input to the first op-amp and to send the outputs of the first and second op-amp to pins A0 and A2, respectively. Prior to plugging in pins A0 and A2 and uploading the sketch, what values to you think they will read?</p>
 <p>Now plug in A0 and A2, upload the sketch, and see what values pins A0 and A2 read using the Serial Monitor. <em>Hint</em>: You may want to put a delay between opening the serial connection and reading and writing the results to make sure everything is ready to go for serial communication.</p>
 <hr><p><strong>Answer to inverting op-amp thinking exercise</strong></p>
 <p>We will use the simple rules of op-amps. First, the voltage difference is close to zero, giving <span class="math notranslate nohighlight">\(V_a \approx V_b\)</span>. But, <span class="math notranslate nohighlight">\(V_b = 0\)</span> because is ground. So, <span class="math notranslate nohighlight">\(V_a = 0\)</span>. Another rule of op-amps is that the input current is close to zero. Using Kirckhoff’s current law, the input current is the sum of the two currents coming in to node (a). The input current due to the input voltage is, by Ohm’s law, <span class="math notranslate nohighlight">\(V_\mathrm{in} / R_1\)</span>. The input current from the feedback is
@@ -369,7 +390,7 @@ V_\mathrm{out} = -\frac{R_2}{R_1}\,V_\mathrm{in}.
         <a href="../23/transistors.html" class="btn btn-neutral float-right" title="23. Transistors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../21/protection_with_zener.html" class="btn btn-neutral float-left" title="21. Protecting Arduino with Zener diodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../21/photoresistors_and_adc.html" class="btn btn-neutral float-left" title="21. Photoresistors, trimming, and ADC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -379,13 +400,13 @@ V_\mathrm{out} = -\frac{R_2}{R_1}\,V_\mathrm{in}.
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdafca30> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61ce5c3d0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

@@ -31,7 +31,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -110,9 +109,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/introduction_to_filters.html">19. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/photoresistors_and_adc.html">20. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/protection_with_zener.html">21. Protecting Arduino with Zener diodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
@@ -121,7 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Sallen-Key-filters">Sallen-Key filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-8:-Sallen-Key-response">Thinking exercise 8: Sallen-Key response</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#VCVS-filters">VCVS filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-18:-Sallen-Key-filters">Follow-along exercise 18: Sallen-Key filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-17:-Sallen-Key-filters">Follow-along exercise 17: Sallen-Key filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-12:-A-bandpass-filter">Do-it-yourself exercise 12: A bandpass filter</a></li>
 </ul>
 </li>
@@ -815,12 +814,11 @@ var element = document.currentScript.previousSibling.previousSibling;
 }(window));
 </script></div>
 </div>
-<hr><p>In <a class="reference internal" href="../19/introduction_to_filters.html"><span class="doc">a previous lesson</span></a>, we build RC filters. Those filters were <strong>passive</strong> because they are not powered. Here, we will consider <strong>active</strong> filters, which feature powered op-amps.</p>
+<hr><p>In <a class="reference internal" href="../20/introduction_to_filters.html"><span class="doc">a previous lesson</span></a>, we built RC filters. Those filters were <strong>passive</strong> because they are not powered. Here, we will consider <strong>active</strong> filters, which feature powered op-amps.</p>
 <div class="section" id="Motivation-for-active-filters">
 <h2>Motivation for active filters<a class="headerlink" href="#Motivation-for-active-filters" title="Permalink to this headline">¶</a></h2>
 <p>As we have already seen, the structure of a simple RC filter is the same as a voltage divider, as shown below.</p>
-<div style="margin: auto; width: 200px"><p><img alt="Generic voltage divider 2" src="../../_images/generic_voltage_divider1.svg" /></p>
-</div><p>For a low-pass filter, Z₁ is a resistor (say, with resistance <span class="math notranslate nohighlight">\(R\)</span>) and Z₂ is a capacitor (say, with capacitance <span class="math notranslate nohighlight">\(C\)</span>). In a high-pass filter, the Z₁ is a capacitor and Z₂ is a resistor.</p>
+<div style="margin: auto; width: 200px"><img alt="Generic voltage divider 2" src="../../_images/generic_voltage_divider1.svg" /></div><p>For a low-pass filter, Z₁ is a resistor (say, with resistance <span class="math notranslate nohighlight">\(R\)</span>) and Z₂ is a capacitor (say, with capacitance <span class="math notranslate nohighlight">\(C\)</span>). In a high-pass filter, the Z₁ is a capacitor and Z₂ is a resistor.</p>
 <p>Consider for a moment a low-pass RC filter. We previously worked out that</p>
 <p><span class="math">\begin{align}
 \left|V_\mathrm{out}\right| = \frac{1}{\sqrt{1 + \omega^2R^2C^2}}\,\left|V_\mathrm{in}\right|.
@@ -896,15 +894,14 @@ var element = document.currentScript.previousSibling.previousSibling;
 })(window);
 </script></div>
 </div>
-<p>I have also included in this plot the response of an ideal low-pass filter in gray. Any frequencies above <span class="math notranslate nohighlight">\(1/RC\)</span> are blocked and those below <span class="math notranslate nohighlight">\(1/RC\)</span> are passed through without attenuation. Conversely, the simple RC filter has a dull (as opposed to sharp) <strong>knee</strong>, the name given to the bend in the curve. To the right of the knee, the response features a <strong>roll off</strong> of ten dB per factor of ten in frequency.</p>
-<p>We would like the response to be as close to ideal as possible. That means we want steeper roll off. We also want the knee at <span class="math notranslate nohighlight">\(\omega = 1/RC\)</span> to be sharper. This can be accomplished with more complex filter designs, particularly through the use of <strong>inducers</strong> (giving so-called <strong>RLC filters</strong>).</p>
-<p>There are, however, many disadvantages to using inducers. Importantly, they are bulky and expensive and also have series resistance, leading to non-ideal behavior. Fortunately, we can use op-amps to synthesize circuits that have the properties of (near) ideal RLC circuits. Because the op-amps are powered, these are called active filters.</p>
+<p>I have also included in this plot the response of an ideal low-pass filter in gray. Any frequencies above <span class="math notranslate nohighlight">\(1/RC\)</span> are blocked and those below <span class="math notranslate nohighlight">\(1/RC\)</span> can be passed through without significant attenuation. Conversely, the simple RC filter has a dull (as opposed to sharp) <strong>knee</strong>, the name given to the bend in the curve. To the right of the knee, the response features a <strong>roll off</strong> of ten dB per factor of ten in frequency.</p>
+<p>We would like the response to be as close to ideal as possible. That means we want a steeper roll off. We also want the knee at <span class="math notranslate nohighlight">\(\omega = 1/RC\)</span> to be sharper. This can be accomplished with more complex filter designs, particularly through the use of <strong>inductors</strong> (giving so-called <strong>RLC filters</strong>).</p>
+<p>There are, however, many disadvantages to using inductors. Importantly, they are bulky and expensive and also have series resistance, leading to non-ideal behavior. Fortunately, we can use op-amps to synthesize circuits that have the properties of (near) ideal RLC circuits. Because the op-amps are powered, these are called active filters.</p>
 </div>
 <div class="section" id="Sallen-Key-filters">
 <h2>Sallen-Key filters<a class="headerlink" href="#Sallen-Key-filters" title="Permalink to this headline">¶</a></h2>
 <p>We will consider one of the simplest active filters, the <strong>Sallen-Key filter</strong>. It is a simple special case of <strong>voltage-controlled voltage-source</strong> (VCVS) filters. The topology of the Sallen-Key filter is shown below.</p>
-<div style="margin: auto; width: 500px"><p><img alt="Sallen-key topology" src="../../_images/sallen-key.svg" /></p>
-</div><p>For a high-pass filter, Z₁ and Z₂ are capacitors and Z₃ and Z₄ are resistors. For a low-pass filter, Z₁ and Z₂ are resistors and Z₃ and Z₄ are capacitors. The topology looks like cascaded RC filters, except with feedback.</p>
+<div style="margin: auto; width: 500px"><img alt="Sallen-key topology" src="../../_images/sallen-key.svg" /></div><p>For a high-pass filter, Z₁ and Z₂ are capacitors and Z₃ and Z₄ are resistors. For a low-pass filter, Z₁ and Z₂ are resistors and Z₃ and Z₄ are capacitors. The topology looks like cascaded RC filters, except with feedback.</p>
 <p>Taking as an example a low-pass filter, we an take <span class="math notranslate nohighlight">\(R_1 = R_2 = R\)</span> and <span class="math notranslate nohighlight">\(C_3 = C_4 = C\)</span>, and derive that the response is</p>
 <p><span class="math">\begin{align}
 \frac{\left|V_\mathrm{out}\right|}{\left|V_\mathrm{in}\right|} = \frac{1}{1 + \omega^2R^2C^2}.
@@ -972,16 +969,15 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="section" id="VCVS-filters">
 <h2>VCVS filters<a class="headerlink" href="#VCVS-filters" title="Permalink to this headline">¶</a></h2>
 <p>Though the Sallen-Key filter has better roll-off, the knee, however, is still dull. This can be fixed by using the op-amp to amplify the output signal, as is done in VCVS filters, the topology of which is shown below.</p>
-<div style="margin: auto; width: 500px"><p><img alt="VCVS topology" src="../../_images/VCVS.png" /></p>
+<div style="margin: auto; width: 500px"><img alt="VCVS topology" src="../../_images/VCVS.png" />
 </div><p>Within the VCVS topology many filters can be designed with sharp knees, strong roll-off, and flat pass bands. However, filter design requires careful thought, and things can go wrong, including introduction of <a class="reference external" href="https://en.wikipedia.org/wiki/Ripple_(electrical)#Frequency-domain_ripple">ripple</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Resonance">resonance</a>. I would recommend reading chapter 6 of Horowitz and Hill to learn more.</p>
 <p>For the purposes of the projects in this class, you should be able to get good signals using a Sallen-Key filter, perhaps with some amplification after the filtering. (In looking at the above diagram, it is clear that the Sallen-Key filter is a VCVS filter with <span class="math notranslate nohighlight">\(R_1 = 0\)</span> and infinite <span class="math notranslate nohighlight">\(R_2\)</span>.</p>
 </div>
-<div class="section" id="Follow-along-exercise-18:-Sallen-Key-filters">
-<h2>Follow-along exercise 18: Sallen-Key filters<a class="headerlink" href="#Follow-along-exercise-18:-Sallen-Key-filters" title="Permalink to this headline">¶</a></h2>
-<p>In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise but also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.</p>
+<div class="section" id="Follow-along-exercise-17:-Sallen-Key-filters">
+<h2>Follow-along exercise 17: Sallen-Key filters<a class="headerlink" href="#Follow-along-exercise-17:-Sallen-Key-filters" title="Permalink to this headline">¶</a></h2>
+<p>In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise that also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.</p>
 <p>Build the circuit below. The resistances are marked, and the capacitors should have capacitance <span class="math notranslate nohighlight">\(C_1 = C_2 = 2.2\)</span> µF and <span class="math notranslate nohighlight">\(C_3 = C_4 = 0.22\)</span> µF. Note that the part of the circuit featuring resistors R₁ and R₂ and capacitors C₁ and C₂ constitutes a high-pass filter, and the part of the circuit featuring R₃, R₄, C₃, and C₄ constitutes a low-pass filter.</p>
-<div style="margin: auto; width=600px;"><p><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" /></p>
-</div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
+<div style="margin: auto; width=600px;"><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" /></div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
 <p><span class="math">\begin{align}
 \frac{\left|V_\mathrm{out}\right|}{\left|V_\mathrm{in}\right|} = \frac{1}{1 + \omega^{-2}R^{-2}C^{-2}}.
 \end{align}</span></p>
@@ -1162,13 +1158,13 @@ bandpass filter.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Dec 06, 2020.
+        Last updated on Mar 20, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fe7fdb2f160> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fa61d937220> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
