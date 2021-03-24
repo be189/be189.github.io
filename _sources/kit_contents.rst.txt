@@ -33,7 +33,7 @@ Kit contents
 28. `MCP4725 <https://www.adafruit.com/product/935>`_ 12-bit digital-to-analog converter breakout board
 29. `ADS1015 <https://www.adafruit.com/product/1083>`_ 12-bit analog-to-digital converter breakout board
 30. `Nellcor™ DS100A SpO₂ sensor probe <https://amazon.com/gp/product/B089CVPXGS/>`_
-31. `DE-9 femal socket to terminal spring block adapter <https://www.adafruit.com/product/4510>`_
+31. `DE-9 female socket to terminal spring block adapter <https://www.adafruit.com/product/4510>`_
 32. Blue cellophane
 33. Decorative beads (×3)
 34. Self-standing 50 mL Falcon tube (×5)

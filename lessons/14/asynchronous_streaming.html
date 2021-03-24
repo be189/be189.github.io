@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>14. Asynchronously receiving data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
   
@@ -18,7 +18,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -210,6 +213,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -240,21 +245,35 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput.container,
-div.nbinput.container div.prompt,
-div.nbinput.container div.input_area,
-div.nbinput.container div[class*=highlight],
-div.nbinput.container div[class*=highlight] pre,
-div.nboutput.container,
-div.nboutput.container div.prompt,
-div.nboutput.container div.output_area,
-div.nboutput.container div[class*=highlight],
-div.nboutput.container div[class*=highlight] pre {
-    background: none;
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
     border: none;
-    padding: 0 0;
+    padding: 0;
     margin: 0;
     box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
 }
 
 /* avoid gaps between output lines */
@@ -355,7 +374,7 @@ div.nboutput.container div.output_area {
 div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
-    background: #f5f5f5;
+    /*background: #f5f5f5;*/
 }
 
 /* override MathJax center alignment in output cells */
@@ -421,6 +440,7 @@ div.nboutput.container div.output_area.rendered_html,
 div.nboutput.container div.output_area > div.output_javascript,
 div.nboutput.container div.output_area:not(.rendered_html) > img{
     padding: 5px;
+    margin: 0;
 }
 
 /* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
@@ -1044,7 +1064,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>For our present application, in which we read in comma-delimited time-voltage data, the byte string returned from this function might look like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sa">b</span><span class="s1">&#39;1032,541</span><span class="se">\r\n</span><span class="s1">1052,542</span><span class="se">\r\n</span><span class="s1">1073,554</span><span class="se">\r\n</span><span class="s1">1093,5&#39;</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b&#39;1032,541\r\n1052,542\r\n1073,554\r\n1093,5&#39;
 </pre></div>
 </div>
 <p>Note that it does not end in a carriage return and newline. Those characters might not be in the read buffer yet, and since we are not using <code class="docutils literal notranslate"><span class="pre">read_until()</span></code>, we will not keep reading until we get those terminating characters. So, if we are parsing the output of this function, we should keep the last incomplete part of the data (in this case, <code class="docutils literal notranslate"><span class="pre">b'1093,5'</span></code> around for the next read.</p>
@@ -1683,27 +1703,21 @@ jupyterlab 2.2.6
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../15/streaming_plots_with_bokeh.html" class="btn btn-neutral float-right" title="15. Streaming plots with Bokeh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../13/streaming_data_from_arduino.html" class="btn btn-neutral float-left" title="13. Streaming data from Arduino" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../15/streaming_plots_with_bokeh.html" class="btn btn-neutral float-right" title="15. Streaming plots with Bokeh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../13/streaming_data_from_arduino.html" class="btn btn-neutral float-left" title="13. Streaming data from Arduino" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Mar 20, 2021.
+        Last updated on Mar 24, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x7fa61ccfb520> 
+  </div> <jinja2.runtime.BlockReference object at 0x7fd6dad13c70> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
@@ -1718,7 +1732,6 @@ jupyterlab 2.2.6
  
 
 </footer>
-
         </div>
       </div>
 

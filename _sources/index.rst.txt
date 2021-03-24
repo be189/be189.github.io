@@ -9,7 +9,7 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- Ed link forthcoming (used for course communications)
+- `Ed <https://edstem.org/us/courses/5101/>`_ (used for course communications)
 - `Course Zoom link <http://bois.caltech.edu/be189/2021_spring/zoom_links/tuth_class>`_ (password protected)
 - `Recording of lectures <http://bois.caltech.edu/be189/2021_spring/video_link/>`_ (password protected)
 
