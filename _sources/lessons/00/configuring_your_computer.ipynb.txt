@@ -173,10 +173,10 @@
    "source": [
     "### Installations\n",
     "\n",
-    "There are a few additional installations you need to do. Most importantly, you need to install [pyserial](https://pyserial.readthedocs.io/), which enables serial communication with your device.\n",
+    "There are a few additional installations you need to do. Most importantly, you need to install [pyserial](https://pyserial.readthedocs.io/), which enables serial communication with your device. We will also install [Panel](https://panel.holoviz.org), which can be used to rapid dashboard prototyping.\n",
     "\n",
     "\n",
-    "    conda install pyserial\n",
+    "    conda install pyserial panel\n",
     "    \n",
     "    \n",
     "You should also install `jupyter_bokeh` to enable Bokeh to function in a Jupyter notebook.\n",
