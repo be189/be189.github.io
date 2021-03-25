@@ -37,7 +37,7 @@ To measure SpO₂, we consider absorption at a second wavelength in addition to 
     import bokeh.plotting
     import bokeh.io
     
-    df = pd.read_csv('../pulse_ox/spectra.csv', comment='#')
+    df = pd.read_csv('spectra.csv', comment='#')
 
     p = bokeh.plotting.figure(
         frame_width=400,

@@ -35,8 +35,7 @@ You will receive a box in the mail with components necessary to do the work for 
 Submission of exercises and project write-ups
 ----------------------------------------------
 
-Each project write-up and exercise must be submitted as a ZIP file via email to `caltechbe189@gmail.com`. The files names are `lastname_firstname_faexercise_##.zip` for follow-along exercises and `lastname_firstname_diyexercise_##.zip` for do-it-yourself exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_spectro.zip` and `lastname_firstname_pulseox.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes. The subject line of the email is the same as the file name of the ZIP file, minus the `.zip`.
-
+Each project write-up and exercise must be submitted as a ZIP file via CANVAS. 
 
 Exercises
 ---------
@@ -72,14 +71,16 @@ In a do-it-yourself exercise, you apply techniques covered in the course materia
 2. An HTML rendering of the Jupyter notebook.
 3. Any Arduino sketches you wrote.
 4. If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.
-5. A brief movie of your circuit functioning.
-6. A photo or photos of your board/breadboard if anything is unclear from the movie.
+5. A brief movie of your circuit functioning. 
+6. A photo or photos of your board/breadboard.
+
+The movie may be included as a separate movie file, or as a link to a movie file (hosted on Box, Google Drive, or Youtube). If specifying a link, please include the link in the Jupyter notebook and make sure that the movie is viewable by anyone with the link. 
 
 To include Arduino sketches in Jupyter notebooks, use the following syntax in a Markdown cell.
 
 .. code::
 
-	```arduino
+	```cpp
 	// Enter your sketch code here.
 	```
 

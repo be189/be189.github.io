@@ -8,8 +8,8 @@ Schedule overview
 - Lab: Tuesdays and Thursdays, 2:30–4:00 PM PDT
 - TA office hours
 
-  .. + TBD (`Michelle <http://bois.caltech.edu/be189/2021_spring/zoom_links/michelle/>`_)
-  .. + Fridays 2–3 pm PDT (`Mingshu <http://bois.caltech.edu/be189/2021_spring/zoom_links/mingshu/>`_)
+  + Mondays 5-6 pm PDT (`Michelle <http://bois.caltech.edu/be189/2021_spring/zoom_links/michelle/>`_)
+  + Fridays 2–3 pm PDT (`Mingshu <http://bois.caltech.edu/be189/2021_spring/zoom_links/mingshu/>`_)
 
 - Instructor office hours: By appointment, email ``chyang at caltech dot edu`` to schedule
 
@@ -37,7 +37,7 @@ Due dates
 - :ref:`Follow-along exercises` 8–13: due at 2:30 pm PDT, April 15
 - :ref:`Do-it-yourself exercises` 5–7: due at 2:30 pm PDT, April 15
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 14–18: due at 2:30 pm PDT, April 22
+- :ref:`Follow-along exercises` 14–17: due at 2:30 pm PDT, April 22
 - :ref:`Do-it-yourself exercises` 8–12: due at 2:30 pm PDT, April 22
 .. Random comment for spacing
 - :ref:`Spectrophotometer` write-up: due at 2:30 pm PDT, May 13
