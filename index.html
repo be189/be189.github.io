@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>BE/EE/MedE 189 a: Design and Construction of Biodevices &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -89,7 +88,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -103,6 +102,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -112,32 +115,33 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
@@ -149,7 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
@@ -243,11 +247,11 @@
     text-align: unset;
 }
 </style>
-<section id="be-ee-mede-189-a-design-and-construction-of-biodevices">
+<div class="section" id="be-ee-mede-189-a-design-and-construction-of-biodevices">
 <h1>BE/EE/MedE 189 a: Design and Construction of Biodevices<a class="headerlink" href="#be-ee-mede-189-a-design-and-construction-of-biodevices" title="Permalink to this headline">¶</a></h1>
 <p>Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an <a class="reference external" href="https://www.arduino.cc">Arduino platform</a>. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not “new” instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.</p>
 <p>Students are responsible for reading the <a class="reference internal" href="policies.html#policies"><span class="std std-ref">course policies</span></a>.</p>
-<section id="useful-links">
+<div class="section" id="useful-links">
 <h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://edstem.org/us/courses/5101/">Ed</a> (used for course communications)</p></li>
@@ -255,8 +259,8 @@
 <li><p><a class="reference external" href="http://bois.caltech.edu/be189/2021_spring/video_link/">Recording of lectures</a> (password protected)</p></li>
 </ul>
 <p>During lab sessions, we will sometimes break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.</p>
-</section>
-<section id="people">
+</div>
+<div class="section" id="people">
 <h2>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Instructor</p>
@@ -269,14 +273,14 @@
 <li><p>TAs</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2021_spring/zoom_links/michelle/">Michelle Cua</a> (<code class="docutils literal notranslate"><span class="pre">ecua</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>)</p></li>
-<li><p><a class="reference external" href="http://bois.caltech.edu/be189/2021_spring/zoom_links/mingshu/">Mingshu Liang</a> (<code class="docutils literal notranslate"><span class="pre">mlliang</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>)</p></li>
+<li><p>Michelle Cua (<code class="docutils literal notranslate"><span class="pre">ecua</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>)</p></li>
+<li><p>Mingshu Liang (<code class="docutils literal notranslate"><span class="pre">mlliang</span> <span class="pre">at</span> <span class="pre">caltech</span> <span class="pre">dot</span> <span class="pre">edu</span></code>)</p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Lessons</span></p>
+<p class="caption"><span class="caption-text">Lessons</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -290,6 +294,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -299,11 +307,12 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/26/digital_filters.html">26. Digital filters</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
@@ -311,14 +320,14 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
@@ -326,7 +335,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
@@ -334,7 +343,7 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
@@ -348,19 +357,19 @@
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
 </div>
-</section>
-<section id="previous-editions-of-the-course">
+</div>
+<div class="section" id="previous-editions-of-the-course">
 <h2>Previous editions of the course<a class="headerlink" href="#previous-editions-of-the-course" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/">Fall 2020</a></p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -376,11 +385,11 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x121549ac0> 
+  </div> <jinja2.runtime.BlockReference object at 0x11e8dce80> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

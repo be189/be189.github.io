@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>6. Practice programming Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -109,6 +108,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -118,32 +121,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -155,7 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -249,11 +253,11 @@
     text-align: unset;
 }
 </style>
-<section id="6.-Practice-programming-Arduino">
+<div class="section" id="6.-Practice-programming-Arduino">
 <h1>6. Practice programming Arduino<a class="headerlink" href="#6.-Practice-programming-Arduino" title="Permalink to this headline">¶</a></h1>
 <hr><p>In this lesson, we will practice using the programming techniques we learned in <a class="reference internal" href="../05/programming_arduino.html"><span class="doc">the previous lesson</span></a>. I advise keeping that window open for reference as you work through this lesson, which mostly consists of practice.</p>
 <p>To further demonstrate how software allows for rapid prototyping, we will use exactly the same physical setup, at least to begin with, as we used in the blink exercise.</p>
-<div style="width: 600px; margin: auto;"><img alt="Blink breadboard for lesson 6" src="../../_images/blink_bb2.svg" /></div><hr><section id="Follow-along-exercise-2:-Alien-contact">
+<div style="width: 600px; margin: auto;"><img alt="Blink breadboard for lesson 6" src="../../_images/blink_bb2.svg" /></div><hr><div class="section" id="Follow-along-exercise-2:-Alien-contact">
 <h2>Follow-along exercise 2: Alien contact<a class="headerlink" href="#Follow-along-exercise-2:-Alien-contact" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have the pieces of the language in place, let’s put them to use!</p>
 <p>In the 1997 film <em>Contact</em> (based on the Carl Sagan book of the same name), alien beings from the Vega star system make contact with people on Earth. They do it by sending a sequence of prime numbers. You can see the discovery in <a class="reference external" href="https://www.youtube.com/watch?v=GZDT-FsO9Uc">this video</a>. In the video, the aliens send the prime numbers as pulses one second apart, with a two-second pause between primes. After they get to 101, they pause for 43 seconds, and then send prime numbers again,
@@ -316,8 +320,8 @@ starting at 2.</p>
 </div>
 <p>Everything in this sketch could be constructed from the notes in <a class="reference internal" href="../05/programming_arduino.html"><span class="doc">Lesson 5</span></a>. Please carefully read it and make sure you understand it. Then, upload it to the Arduino Uno, and send your LED signals just like the aliens!</p>
 <p>There is no need to turn in this follow-along exercise, since you will expand upon it momentarily in a do-it-yourself exercise.</p>
-<hr></section>
-<section id="Do-it-yourself-exercise-1:-Alien-contact-with-audio">
+<hr></div>
+<div class="section" id="Do-it-yourself-exercise-1:-Alien-contact-with-audio">
 <h2>Do-it-yourself exercise 1: Alien contact with audio<a class="headerlink" href="#Do-it-yourself-exercise-1:-Alien-contact-with-audio" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Piezoelectric_speaker">piezo buzzer</a> is a device that can make sound by varying an electric field around a sheet of piezoelectic material. Piezoelectrics undergo mechanical deformations in response to accumulation of electric charge. By varying the voltage periodically, the sheet vibrates in the piezo buzzer, producing sound.</p>
 <ol class="arabic simple">
@@ -326,8 +330,8 @@ starting at 2.</p>
 </ol>
 <p>Now, put the device in action!</p>
 <p>This is the first exercise you will submit. Remember to submit your exercise as a ZIP file according to the <a class="reference external" href="policies.rst">course policies</a>.</p>
-<hr></section>
-<section id="Do-it-yourself-exercise-2:-A-proper-Hello,-world.">
+<hr></div>
+<div class="section" id="Do-it-yourself-exercise-2:-A-proper-Hello,-world.">
 <h2>Do-it-yourself exercise 2: A proper Hello, world.<a class="headerlink" href="#Do-it-yourself-exercise-2:-A-proper-Hello,-world." title="Permalink to this headline">¶</a></h2>
 <p>Our “Hello, world.” exercise was Blink. But let’s properly say “Hello, world.” Leaving your physical setup the same as in the previous exercise, say “Hello, world.” with <a class="reference external" href="https://en.wikipedia.org/wiki/Morse_code">Morse code</a>. Your light and piezo buzzer should be activated at the same time so that the Morse code message is received both visually and audibly.</p>
 <p>Here are some rules for Morse code.</p>
@@ -377,8 +381,8 @@ starting at 2.</p>
 </div>
 <p>This exercise is a bit more challenging, and I suspect you will want to refer to the Aduino language reference as you go through, in particular looking up which useful methods are available for <code class="docutils literal notranslate"><span class="pre">String</span></code> instances.</p>
 <p>When you submit this exercise, you do not need to show a schematic, since this schematic is the same as in the previous exercise.</p>
-<hr></section>
-</section>
+<hr></div>
+</div>
 
 
            </div>
@@ -395,11 +399,11 @@ starting at 2.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x1225e7c10> 
+  </div> <jinja2.runtime.BlockReference object at 0x11f5b6ac0> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

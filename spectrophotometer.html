@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Spectrophotometer &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -92,7 +91,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -106,6 +105,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -115,15 +118,16 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Spectrophotometer</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul>
@@ -141,19 +145,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
@@ -165,7 +169,7 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
@@ -259,9 +263,9 @@
     text-align: unset;
 }
 </style>
-<section id="spectrophotometer">
+<div class="section" id="spectrophotometer">
 <h1>Spectrophotometer<a class="headerlink" href="#spectrophotometer" title="Permalink to this headline">¶</a></h1>
-<section id="background">
+<div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>At the center of the molecular revolution of biology that took place in the middle of the 20th century were measurement of bacterial growth curves. In its most basic form, a solution of growth media is inoculated with bacteria. As the bacteria convert the sugars and salts in the media into more bacteria (literally making life from inanimate matter!), they multiply. Measuring the rate of multiplication of bacteria under different media and growth conditions ultimately enabled researchers to make great leaps in the understanding of bacterial physiology and biochemistry, including how regulation of gene expression works.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Jacques_Monod">Jacques Monod</a> was a leader, if not <em>the</em> leader, in this field. In a beautiful review article about the subject (<a class="reference external" href="https://doi.org/10.1146/annurev.mi.03.100149.002103">Monod, Ann. Rev. Microbiol., 1949</a>) Monod stated in the strongest of terms the importance of studying bacterial growth: “The study of the growth of bacterial cultures does not constitute a specialized subject or branch of research: it is the basic method of Microbiology. It would be a foolish enterprise, and doomed to failure, to attempt reviewing briefly a ‘subject’ which covers actually our whole discipline.”</p>
@@ -269,7 +273,7 @@
 <p>Owing to their central importance in microbial research, acquisition and analysis of growth curves has also become a central part of undergraduate study of biology. In the ensuing decades, the optical instruments used to acquire growth curves, called spectrophotometers, have played a central role in <em>education</em> as well as research.</p>
 <p>In fall of 2020, we were in the midst of the COVID-19 pandemic, and the students of this course were tasked with designing and easily-buildable spectrophotometer for use in a remote freshman biology lab course in offered in the spring of 2021. The students were successful! While our goal was to have a workable device for the freshman course, we found that building the spectrophotometer was an enjoyable and instructive experiments. Students learned to be resourceful and creative. Importantly, they found that they can cheaply build an instrument to acquire a growth curve. Measurements of growth curves, as Monod demonstrated, were the catalysts of the molecular revolution of biology. Making accessible instruments means democratizing science.</p>
 <p>Your task is to build a spectrophotometer out of the components in your kit, in addition to materials you can find around your dwelling. Newton developed a powerful new way to calculate π while quarantining at home during a bubonic plague outbreak (see <a class="reference external" href="https://www.youtube.com/watch?v=gMlf1ELvRzc">this YouTube video</a>. Perhaps you can come up with a better spectrophotometer design during your COVID isolation!</p>
-<section id="basics-of-spectrophotometry-in-microbiology">
+<div class="section" id="basics-of-spectrophotometry-in-microbiology">
 <h3>Basics of spectrophotometry in microbiology<a class="headerlink" href="#basics-of-spectrophotometry-in-microbiology" title="Permalink to this headline">¶</a></h3>
 <p>The block diagram of a typical spectrophotometer is shown below.</p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -769,8 +773,8 @@ I = I_0 \mathrm{e}^{-\epsilon l c},
 <p>where the wavelength-dependent parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> that contains the constants of proportionality is referred to as the molar attenuation coefficient. This equation is known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Beer–Lambert_law">Beer-Lambert Law</a>.</p>
 <p>The transmission efficiency of the sample is the ratio of the final and initial light intensity, <span class="math notranslate nohighlight">\(T = I/I_0\)</span>, and the reported quantity is called the <strong>optical density</strong>, <span class="math notranslate nohighlight">\(\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}\)</span>. The general rule of thumb is that the accurate OD readings lie in the range of <span class="math notranslate nohighlight">\(0.01 &lt; \mathrm{OD} &lt; 1\)</span>. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.</p>
 <p>As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is <span class="math notranslate nohighlight">\(\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{blank}\)</span>.</p>
-</section>
-<section id="basics-of-microbial-growth">
+</div>
+<div class="section" id="basics-of-microbial-growth">
 <h3>Basics of microbial growth<a class="headerlink" href="#basics-of-microbial-growth" title="Permalink to this headline">¶</a></h3>
 <p>Say we have a collection of cells in media that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the “stuff of life” at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time <span class="math notranslate nohighlight">\(t_\mathrm{div}\)</span>. Those two cells will grow and divide, and after time <span class="math notranslate nohighlight">\(2 t_\mathrm{div}\)</span>, we will have four cells. After a time <span class="math notranslate nohighlight">\(3t_\mathrm{div}\)</span> we will have eight cells, and so on. So, the <em>rate</em> at which new cells are produced is proportional to the number of cells in solution, or</p>
 <div class="math notranslate nohighlight">
@@ -791,9 +795,9 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <li><p>From this diluted sample, OD measurements are obtained at regular time intervals.</p></li>
 <li><p>A plot of OD versus time is generated and a regression is performed to get an estimate of the parameter <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
 </ol>
-</section>
-</section>
-<section id="specification">
+</div>
+</div>
+<div class="section" id="specification">
 <h2>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h2>
 <p>For this project, you are to build a spectrophotometer and obtain an example growth curve. The spectrophotometer must have the following characteristics.</p>
 <ol class="arabic simple">
@@ -802,7 +806,7 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <li><p>It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user has an on-screen control panel and can click buttons to obtain and display OD measurements.</p></li>
 </ol>
 <p>You must demonstrate the instrument by acquiring a growth curve and determining the growth rate <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<section id="documentation">
+<div class="section" id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
 <p>You must include documentation that we will send along to the freshmen in the spring term. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:</p>
 <ol class="arabic simple">
@@ -810,8 +814,8 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <li><p>Instructions for operating the instrument.</p></li>
 <li><p>Instructions for calibrating the instrument.</p></li>
 </ol>
-</section>
-<section id="suggestions">
+</div>
+<div class="section" id="suggestions">
 <h3>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h3>
 <p>Here are some things to consider in your design and the operation of your instrument.</p>
 <ol class="arabic simple">
@@ -822,17 +826,17 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 <li><p>Think carefully about how to calibrate relationship between measured voltage across the photoresistor to OD.</p></li>
 <li><p>In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about <a class="reference external" href="https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce">debouncing</a>.</p></li>
 </ol>
-</section>
-<section id="instructions-for-obtaining-growth-curves">
+</div>
+<div class="section" id="instructions-for-obtaining-growth-curves">
 <h3>Instructions for obtaining growth curves<a class="headerlink" href="#instructions-for-obtaining-growth-curves" title="Permalink to this headline">¶</a></h3>
 <p>Because of difficulties associated with shipping and storing microbial agents, you will test your device by growing yeast, <em>Saccharomyces cerevisiae</em>. The measurement and analysis are the same as for bacteria, but we are instead using a common baking ingredient that is safe to have in the home.</p>
 <p>The media for <em>S. cerevisiae</em> is yeast peptone dextrose (YPD) broth. The broth contains yeast extract that has all of the necessary vitamins, peptone (source of carbon, nitrogen, and some vitamins), and dextrose (sugar). You have a Falcon tube containing <a class="reference external" href="https://www.fishersci.com/shop/products/bd-difco-dehydrated-culture-media-ypd-broth-2/df0428175">YPD powder</a>) that you can use to make broth. The broth is 5% powder. E.g., to make 100 mL of broth, add 5 g of YPD powder. If you do not have a scale in your house, as a rule of thumb, a tablespoon of the YPD power is about 9 g. You should add it to water as pure as you can find (for example, if you have a Britta filter in your house, you should use filtered water). Normally, you would autoclave the broth to sterilize it, but that is not an option for home use. Instead, boil the broth for one minute (this will also ensure everything is dissolved). The broth can be stored at room temperature, and you can store it in the provided falcon tubes.</p>
 <p>You can grow the yeast in the falcon tubes. Try to keep them in a place that does not have temperature fluctuations. You should occasionally shake the tube to be sure the oxygen in the solution is well mixed. (In a lab, these would be grown in a water bath shaker.) You can use the transfer pipettes in your kit to extract samples for measurement in the spectrophotometer. The cuvette volume is 4.5 mL, but do you not need to fill it up all the way, just high enough that the light from the LED passes through the media (with a bit of a buffer).</p>
 <p>In a lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. In our at-home version, you will likely need to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. You may even want to re-use the solution you measured, replacing it in the main growth mixture after using it if you are running low on supplies. (You may wish to do this anyway in practice runs before you get your “final” growth curve.) The inevitable contamination may affect the results, but this is a necessary consequence of of operating in outside-of-laboratory conditions.</p>
 <p>Bear in mind that you cannot calibrate the OD measurements to known microbe concentrations, which you should absolutely do in a lab (as Monod vehemently argues, “What should be noted is that in spite of the widespread use of the optical techniques, not enough efforts have been made to check them against direct estimations of cell concentrations or bacterial densities.”) This is not accessible to us because we do not have equipment or storage necessary to do those measurements in our living spaces, though any biology lab would be equipped with them.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -849,11 +853,11 @@ N(t) = N_0\,\mathrm{e}^{kt}.
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x123326040> 
+  </div> <jinja2.runtime.BlockReference object at 0x11fa15b20> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

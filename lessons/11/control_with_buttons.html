@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>11. Controlling Arduino with widgets &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -44,7 +43,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../12/requesting_and_receiving_data_from_arduino.html" />
+    <link rel="next" title="12. Requesting and receiving data from Arduino" href="../12/requesting_and_receiving_data_from_arduino.html" />
     <link rel="prev" title="10. Serial communication with Python" href="../10/control_of_arduino_with_python.html" /> 
 </head>
 
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -115,6 +114,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -124,32 +127,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -161,7 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -501,7 +505,7 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="11.-Controlling-Arduino-with-widgets">
+<div class="section" id="11.-Controlling-Arduino-with-widgets">
 <h1>11. Controlling Arduino with widgets<a class="headerlink" href="#11.-Controlling-Arduino-with-widgets" title="Permalink to this headline">¶</a></h1>
 <hr><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1353,10 +1357,10 @@ if (window.Jupyter !== undefined) {
 </pre></div>
 </div>
 </div>
-<hr><section id="Follow-along-exercise-8:-Controlling-Arduino-with-Panel-widgets">
+<hr><div class="section" id="Follow-along-exercise-8:-Controlling-Arduino-with-Panel-widgets">
 <h2>Follow-along exercise 8: Controlling Arduino with Panel widgets<a class="headerlink" href="#Follow-along-exercise-8:-Controlling-Arduino-with-Panel-widgets" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://panel.holoviz.org/">Panel</a> is a Python package that allows you to build dashboards containing widgets, plots, and other graphics and text in an interactive way. It uses the <a class="reference external" href="https://bokeh.pydata.org/">Bokeh plotting package</a> under the hood to generate and connect the widgets. I have important Panel as <code class="docutils literal notranslate"><span class="pre">pn</span></code> in this lesson.</p>
-<section id="Widgets-and-callbacks">
+<div class="section" id="Widgets-and-callbacks">
 <h3>Widgets and callbacks<a class="headerlink" href="#Widgets-and-callbacks" title="Permalink to this headline">¶</a></h3>
 <p>As a first step in setting up control of the device, we will make toggle buttons to turn the red and green LEDs on and off. We can make the buttons using <code class="docutils literal notranslate"><span class="pre">pn.widgets.Toggle()</span></code>. We use <code class="docutils literal notranslate"><span class="pre">button_type=&quot;danger&quot;</span></code> to give us a red button (there actually is no danger!).</p>
 <div class="nbinput nblast docutils container">
@@ -1461,9 +1465,9 @@ if (window.Jupyter !== undefined) {
 </div>
 <p>LED2 on the Arduino can now be toggled using this button.</p>
 <p><em>You are not required to submit this follow-along exercise.</em></p>
-<hr></section>
-</section>
-<section id="Follow-along-exercise-9:-Controlling-Arduino-with-base-Bokeh">
+<hr></div>
+</div>
+<div class="section" id="Follow-along-exercise-9:-Controlling-Arduino-with-base-Bokeh">
 <h2>Follow-along exercise 9: Controlling Arduino with base Bokeh<a class="headerlink" href="#Follow-along-exercise-9:-Controlling-Arduino-with-base-Bokeh" title="Permalink to this headline">¶</a></h2>
 <p>While Panel, as a high-level interface for making Bokeh widgets, is easy to use and quite powerful, the apps you build with base Bokeh can have faster performance and are more configurable. Since we will be building a similar LED button using base Bokeh, we need to disconnect, or “unwatch” the Panel-generated widget.</p>
 <div class="nbinput nblast docutils container">
@@ -1546,7 +1550,7 @@ xhr.send();
 </pre></div>
 </div>
 </div>
-<section id="A-stand-alone-app-in-the-browser">
+<div class="section" id="A-stand-alone-app-in-the-browser">
 <h3>A stand-alone app in the browser<a class="headerlink" href="#A-stand-alone-app-in-the-browser" title="Permalink to this headline">¶</a></h3>
 <p>Interfacing through JupyterLab is convenient for development of dashboard apps for controlling devices. However, it is nice to have a stand-along dashboard for control, i.e., an app that is by itself in a browser tab.</p>
 <p>Setting that up requires just a bit more effort than what we have done so far. The code for the app needs to sit in its own <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. Below are the contents of a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file for the LED app.</p>
@@ -1650,9 +1654,9 @@ xhr.send();
 </div>
 <p>A browser page should open with address <code class="docutils literal notranslate"><span class="pre">http://localhost:5006/led_toggle_app</span></code>, which is where the app is running.</p>
 <p><em>This last part of the exercise is all you need to submit. That is, record a video of you clicking the toggle button in the stand-alone app and the LED coming on and off.</em></p>
-<hr></section>
-</section>
-<section id="Computing-environment">
+<hr></div>
+</div>
+<div class="section" id="Computing-environment">
 <h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1680,8 +1684,8 @@ jupyterlab: 3.0.11
 
 </pre></div></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -1689,7 +1693,7 @@ jupyterlab: 3.0.11
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../12/requesting_and_receiving_data_from_arduino.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../12/requesting_and_receiving_data_from_arduino.html" class="btn btn-neutral float-right" title="12. Requesting and receiving data from Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../10/control_of_arduino_with_python.html" class="btn btn-neutral float-left" title="10. Serial communication with Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -1698,11 +1702,11 @@ jupyterlab: 3.0.11
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x121549970> 
+  </div> <jinja2.runtime.BlockReference object at 0x11f78b3d0> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

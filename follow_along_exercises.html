@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Follow-along exercises &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -104,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -113,32 +116,33 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
@@ -150,7 +154,7 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
@@ -244,7 +248,7 @@
     text-align: unset;
 }
 </style>
-<section id="follow-along-exercises">
+<div class="section" id="follow-along-exercises">
 <h1>Follow-along exercises<a class="headerlink" href="#follow-along-exercises" title="Permalink to this headline">¶</a></h1>
 <p>Follow-along exercises are embedded in lessons. For convenience here are links to the respective exercises.</p>
 <ul class="simple">
@@ -258,16 +262,16 @@
 <li><p><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html#Follow-along-exercise-7:-Electronic-control-of-an-LED"><span class="std std-ref">Follow-along exercise 7: Electronic control of an LED</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/11/control_with_buttons.html#Follow-along-exercise-8:-Controlling-Arduino-with-Panel-widgets"><span class="std std-ref">Follow-along exercise 8: Controlling Arduino with Panel widgets</span></a> (submission not required)</p></li>
 <li><p><a class="reference internal" href="lessons/11/control_with_buttons.html#Follow-along-exercise-9:-Controlling-Arduino-with-base-Bokeh"><span class="std std-ref">Follow-along exercise 9: Controlling Arduino with base Bokeh</span></a></p></li>
-<li><p><span class="xref std std-ref">Follow-along exercise 10: Streaming data</span> (submission not required)</p></li>
-<li><p><span class="xref std std-ref">Follow-along exercise 11: Plotting streaming data</span></p></li>
+<li><p><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html#Follow-along-exercise-10:-Streaming-data"><span class="std std-ref">Follow-along exercise 10: Streaming data</span></a> (submission not required)</p></li>
+<li><p><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html#Follow-along-exercise-11:-Plotting-streaming-data"><span class="std std-ref">Follow-along exercise 11: Plotting streaming data</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/17/dac_i2c_libraries.html#Follow-along-exercise-12:-DAC-with-MCP4725"><span class="std std-ref">Follow-along exercise 12: DAC with MCP4725</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/18/lcd.html#Follow-along-exercise-13:-Using-an-LCD-display"><span class="std std-ref">Follow-along exercise 13: Using an LCD display</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/19/voltage_dividers.html#Follow-along-exercise-14:-Empirical-voltage-division"><span class="std std-ref">Follow-along exercise 14: Empirical voltage division</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/23/transistors.html#Follow-along-exercise-15:-BJTs-as-switches"><span class="std std-ref">Follow-along exercise 15: BJTs as switches</span></a></p></li>
 <li><p><a class="reference internal" href="lessons/24/sample_and_hold.html#Follow-along-exercise-16:-Building-a-sample-and-hold-circuit"><span class="std std-ref">Follow-along exercise 16: Building a sample-and-hold circuit</span></a></p></li>
-<li><p><span class="xref std std-ref">Follow-along exercise 17: Sallen-Key filters</span></p></li>
+<li><p><a class="reference internal" href="lessons/25/active_filters.html#Follow-along-exercise-17:-Sallen-Key-filters"><span class="std std-ref">Follow-along exercise 17: Sallen-Key filters</span></a></p></li>
 </ul>
-</section>
+</div>
 
 
            </div>
@@ -284,11 +288,11 @@
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x121fc4eb0> 
+  </div> <jinja2.runtime.BlockReference object at 0x10c2b5460> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

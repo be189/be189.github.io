@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>17. Libraries, DAC, and I2C &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -104,6 +103,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">17. Libraries, DAC, and I2C</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-12:-DAC-with-MCP4725">Follow-along exercise 12: DAC with MCP4725</a><ul>
@@ -121,32 +124,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -158,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -252,17 +256,17 @@
     text-align: unset;
 }
 </style>
-<section id="17.-Libraries,-DAC,-and-I2C">
+<div class="section" id="17.-Libraries,-DAC,-and-I2C">
 <h1>17. Libraries, DAC, and I2C<a class="headerlink" href="#17.-Libraries,-DAC,-and-I2C" title="Permalink to this headline">¶</a></h1>
 <hr><p>We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC is useful in many applications for biodevices. As an example consider measurement of a <a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_voltammetry">cyclic voltammogram</a>. In these assays, you need to supply a varying voltage and then measure a current. The
 voltage supply cannot be delivered with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.</p>
 <p>To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. In your kit, you have an <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC breakout board from Adafruit</a>. The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. <strong>Libraries</strong> contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.</p>
 <p>This lesson covers three topics that are not necessarily related: DAC, I2C, and libraries. However, to properly execute DAC, you need to learn about latter two. You will learn about these three topics by working through a follow-along exercise.</p>
-<hr><section id="Follow-along-exercise-12:-DAC-with-MCP4725">
+<hr><div class="section" id="Follow-along-exercise-12:-DAC-with-MCP4725">
 <h2>Follow-along exercise 12: DAC with MCP4725<a class="headerlink" href="#Follow-along-exercise-12:-DAC-with-MCP4725" title="Permalink to this headline">¶</a></h2>
 <p>To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Instead, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC in your kit. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is
 single-channel, meaning that it can output only one analog voltage.</p>
-<section id="Wiring-up-the-DAC">
+<div class="section" id="Wiring-up-the-DAC">
 <h3>Wiring up the DAC<a class="headerlink" href="#Wiring-up-the-DAC" title="Permalink to this headline">¶</a></h3>
 <p>Wire up the DAC/LED according to the schematic below.</p>
 <div style="margin: auto; width: 400px;"><img alt="dac_led_schem" src="../../_images/dac_led_schem.svg" /></div><p>A few things to take note of in the schematic:</p>
@@ -273,8 +277,8 @@ single-channel, meaning that it can output only one analog voltage.</p>
 </ol>
 <p>The DAC is powered through the Vdd/ground pins. Communication via I2C is accomplished via the SDA and SCL pins, which are connected to the appropriate pins on the Arduino board. Recall from our <a class="reference internal" href="../02/tour_of_arduino.html"><span class="doc">tour of Arduino</span></a> that I2C works by switching the voltage on SCL (the clock) on and off at a given frequency. A comparison is made between the clock voltage and the data voltage (from the SDA pin); if both are high, the transmitted bit is one, and if the SDA voltage is low,
 the transmitted bit is zero.</p>
-</section>
-<section id="Using-the-Wire-library">
+</div>
+<div class="section" id="Using-the-Wire-library">
 <h3>Using the Wire library<a class="headerlink" href="#Using-the-Wire-library" title="Permalink to this headline">¶</a></h3>
 <p>In order to conveniently communicate using I2C, we will use the <a class="reference external" href="https://www.arduino.cc/en/Reference/Wire">Wire library</a>. In order to use it, or any other library, it needs to be <strong>include</strong>d in your sketch. The syntax for including an installed library is <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">include</span> <span class="pre">&lt;Wire.h&gt;</span></code>, where you can substitute whatever library you are using for <code class="docutils literal notranslate"><span class="pre">Wire.h</span></code>. It is easiest to see how the library is used by example. Load the following sketch onto Arduino.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Wire is library to talk with I2C</span>
@@ -324,9 +328,9 @@ by the same Arduino Uno. We only have one here, so we will leave the A0 pin unco
 <code class="docutils literal notranslate"><span class="pre">Wire.write(64)</span></code>. Since we can only write a byte (8 bits) at a time, we have to write the 12-bit number in two steps. First, we write the 8 most significant bits by shifting the 12-bit integer rightward 4 bits. We get the remaining four bits as our input modulo 2⁴ = 16. We then shift it four bits leftward so that the next four bits received by the MCP4725 at the last four bits of the input. Finally, we end the transmission with <code class="docutils literal notranslate"><span class="pre">Wire.endTransmission()</span></code>. (If this all seems confusing, don’t
 worry; soon you won’t need to think about it.)</p>
 <p>In the loop, we generate a sine wave that oscillates between zero and 4095 with a frequency of 1 Hz. We send that to the DAC over I2C, sending data every 20 ms. The LED will then smoothly turn on and off.</p>
-<hr></section>
-</section>
-<section id="Using-an-external-library">
+<hr></div>
+</div>
+<div class="section" id="Using-an-external-library">
 <h2>Using an external library<a class="headerlink" href="#Using-an-external-library" title="Permalink to this headline">¶</a></h2>
 <p>Libraries are there to make things easier for you. In the above example, we had to do some bit-twiddling to get our number sent across to the DAC. It would be nice if we had a library that took care of that for us. It turns out there is one! The library is made by Adafruit to go along with the breakout board. It is called <code class="docutils literal notranslate"><span class="pre">Adafruit_MCP4725</span></code>. The Arduino IDE is aware of many third-party libraries, and you can install them into the IDE. To install this library, within the Arduino IDE, click on
 <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">Libraries...</span></code>. The Libary Manager window will pop up. You can type <code class="docutils literal notranslate"><span class="pre">MCP4725</span></code> in the search window, and you will have the option to install the Adafruit MCP4725 library. Go ahead and do this. While you are at it, find the Adafruit ADS1X15 library, which we will use in a future lesson.</p>
@@ -365,8 +369,8 @@ worry; soon you won’t need to think about it.)</p>
 <p>The sketch warrants some comments. The library defines a useful <code class="docutils literal notranslate"><span class="pre">Adafruit_MCP4725</span></code> class. This class has convenient <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> functions. The <code class="docutils literal notranslate"><span class="pre">begin()</span></code> function is called in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function to open communication. The address is given here, and is stored in the instance of the class, so you do not need to use the address in the <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. The <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> function sends an integer to the MCP4725 for conversion to an analog voltage. The function expects the
 integer to be of type <code class="docutils literal notranslate"><span class="pre">uint16_t</span></code>, which is a 16-bit unsigned integer. It also takes a second argument, which, if <code class="docutils literal notranslate"><span class="pre">true</span></code>, the integer is stored in the EEPROM on-board the MCP4725 breakout board. If the second argument is <code class="docutils literal notranslate"><span class="pre">false</span></code>, the input is simply converted to an analog voltage and not stored.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> function is also clever in that it speeds up the rate of data transfer by I2C. As we mentioned when introducing I2C in <a class="reference internal" href="../02/tour_of_arduino.html"><span class="doc">lesson 2</span></a>, the Arduino Uno can communicate over I2C at about 400 kbaud, but defaults to 100 kbaud. When you use <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code>, it automatically works at 400 kbaud.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -383,11 +387,11 @@ integer to be of type <code class="docutils literal notranslate"><span class="pr
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x12320e130> 
+  </div> <jinja2.runtime.BlockReference object at 0x11edc90a0> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

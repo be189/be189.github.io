@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>9. Asynchrony and blocking &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -112,6 +111,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -121,32 +124,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -158,7 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -252,11 +256,11 @@
     text-align: unset;
 }
 </style>
-<section id="9.-Asynchrony-and-blocking">
+<div class="section" id="9.-Asynchrony-and-blocking">
 <h1>9. Asynchrony and blocking<a class="headerlink" href="#9.-Asynchrony-and-blocking" title="Permalink to this headline">¶</a></h1>
 <hr><p>Thus far, we have used the <code class="docutils literal notranslate"><span class="pre">delay()</span></code> function to handle the timing of events, such as turning an LED on or off or writing data via a serial connection. The problem with using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is that it works by <strong>blocking</strong>. This means that while <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is running the microprocessor cannot do any other tasks. In the previous exercise, we waited 100 milliseconds before sending data. During that time, the ATmega328 could have performed about 2 million instructions. That is a lot of wasted
 computational resources to enable blocking! (The chip in your computer is more than 1000 times faster, so blocking on your computer wastes even more resources. We will address asynchrony on the Python side in later lessons.)</p>
-<section id="Asynchrony">
+<div class="section" id="Asynchrony">
 <h2>Asynchrony<a class="headerlink" href="#Asynchrony" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)">Asynchrony</a> is an important concept in the design of biodevices. It is best explained by example.</p>
 <p>Say you make a device that acquires data from a sensor and sends those data to your computer via USB. Meanwhile, your device should listen for a signal coming from the computer that will ask it to stop sending data. Say you wrote a function that listens to the USB channel for a signal from the computer. Upon receipt of the signal, it stops sending data over USB. The problem is that if you run the listener function and it is blocking, your device cannot do any other operations, including
@@ -264,25 +268,25 @@ processing and sending the sensor data.</p>
 <p>Similarly, if you are using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> to time the sending of data over USB, you are blocking and you could miss the signal from the computer requesting that data stop being sent.</p>
 <p>So, it is important that the listening and sending happen <strong>asynchronously</strong>. While waiting for the signal from the computer, the microprocessor is free to do other tasks. Similarly, while the microprocessor is waiting to send data over USB, it should be able to do other tasks.</p>
 <p>A function that can run asynchronous returns so that the program can proceed and then completes its tasks when possible.</p>
-</section>
-<section id="Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">
+</div>
+<div class="section" id="Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">
 <h2>Serial.print(), Serial.println(), and Serial.write() are asynchronous<a class="headerlink" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous" title="Permalink to this headline">¶</a></h2>
 <p>Writing data over USB is asynchronous. In most cases, <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code>, <code class="docutils literal notranslate"><span class="pre">Serial.println()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> will almost immediately return and the microcontroller will continue to the next lines of your sketch. Meanwhile, the data is sent over USB while the microcontroller is busy with other tasks. These functions do this by putting the bytes that need to be transfered into an <strong>output buffer</strong>, which is then processed by the USB interface chip and sent to your computer.</p>
 <p>The exception to this behavior is when the output buffer is full. In this case, the microcontroller has no place to dump the bytes that need to be written, so it has to wait (and block) until the buffer is free.</p>
-<hr></section>
-<section id="Thinking-exercise-3:-Other-asynchronous-functions">
+<hr></div>
+<div class="section" id="Thinking-exercise-3:-Other-asynchronous-functions">
 <h2>Thinking exercise 3: Other asynchronous functions<a class="headerlink" href="#Thinking-exercise-3:-Other-asynchronous-functions" title="Permalink to this headline">¶</a></h2>
 <p>Think back to some previous exercises.</p>
 <p><strong>a)</strong> Does <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operate asynchronously?</p>
 <p><strong>b)</strong> Does <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operate asynchronously?</p>
 <p>The answer to this exercise is at the bottom of this lesson.</p>
-<hr></section>
-<section id="Avoiding-delay()">
+<hr></div>
+<div class="section" id="Avoiding-delay()">
 <h2>Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code><a class="headerlink" href="#Avoiding-delay()" title="Permalink to this headline">¶</a></h2>
 <p>As a rule of thumb, you should avoid using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> because it is blocking. The function is really convenient when you are just learning or debugging with occasional serial output, but should not really be used beyond that.</p>
 <p>How do we go about avoiding delay? Again, this is best learned by example.</p>
-<hr></section>
-<section id="Follow-along-exercise-5:-Serial-output-without-delay">
+<hr></div>
+<div class="section" id="Follow-along-exercise-5:-Serial-output-without-delay">
 <h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Permalink to this headline">¶</a></h2>
 <p>Consider the same setup you had for <a class="reference internal" href="../07/adc_and_usart.html"><span class="doc">the follow-along exercise on serial communication</span></a>, the schematic of which is shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" /></div><p>We wish to write voltage values via USB, but without using the blocking function <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function returns this time in milliseconds. The number returned by <code class="docutils literal notranslate"><span class="pre">millis()</span></code> is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, so it is important to declare any variable storing its output as such. Similarly, the function <code class="docutils literal notranslate"><span class="pre">micros()</span></code> returns the amount of time since the last reset in units of microseconds. Note,
@@ -331,8 +335,8 @@ though, that because the Arduino Uno board operates at about 16 MHz, the resolut
 </div>
 <p>Note that I am careful with types, making sure to use <code class="docutils literal notranslate"><span class="pre">long</span></code>s and <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s where appropriate. Note also that it is important that <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> is a global variable. Remember that <code class="docutils literal notranslate"><span class="pre">loop()</span></code> must not take any arguments. We therefore cannot pass <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">long</span></code>, for example. Since it needs to retain its value each time <code class="docutils literal notranslate"><span class="pre">loop()</span></code> is called, which happens over and over again, we have to have <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a global variable.</p>
 <p>Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok.</p>
-<hr></section>
-<section id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
+<hr></div>
+<div class="section" id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
 <h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved.</p>
 <p>In the hit 1982 television show <a class="reference external" href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Knight Rider</a>, the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced “kit.” If you watch <a class="reference external" href="https://www.youtube.com/watch?v=oNyXYPhnUIs">the show’s opening credits</a>, you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up
@@ -341,8 +345,8 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
 <hr><p><strong>Answer to the asychronous functions exercise</strong></p>
 <p><strong>a)</strong> Yes, <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operates asynchronously. It sends a square wave with a 50% duty ratio at a given frequency on a given pin, and continues to do so even while the microcontroller performs other tasks. It therefore does not block.</p>
 <p><strong>b)</strong> Yes, <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operates asynchronously. It sends square waves with a given duty ratio at a frequency of 490 Hz (980 Hz for pins 5 and 6), and continues to do so even while the microcontroller performs other tasks. It therefore does not block.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
@@ -359,11 +363,11 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x122289b80> 
+  </div> <jinja2.runtime.BlockReference object at 0x11f904880> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

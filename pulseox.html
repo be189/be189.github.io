@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Pulse oximetry &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -92,7 +91,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lessons/00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -106,6 +105,10 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -115,15 +118,16 @@
 <li class="toctree-l1"><a class="reference internal" href="lessons/22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons/25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lessons/26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pulse oximetry</a><ul>
@@ -141,19 +145,19 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#course-structure">Course structure</a></li>
@@ -165,7 +169,7 @@
 <li class="toctree-l1"><a class="reference internal" href="policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kit_contents.html">Kit contents</a></li>
 </ul>
@@ -259,17 +263,17 @@
     text-align: unset;
 }
 </style>
-<section id="pulse-oximetry">
+<div class="section" id="pulse-oximetry">
 <h1>Pulse oximetry<a class="headerlink" href="#pulse-oximetry" title="Permalink to this headline">¶</a></h1>
-<section id="background">
+<div class="section" id="background">
 <h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>A pulse oximeter measures the oxygen saturation of the blood and changes in blood volume in a tissue by measuring the plethysmograph signal. The device is based on two physical principles: (1) the presence of a pulsatile signal generated by arterial blood; (2) the fact that oxyhemoglobin (O₂Hb) and deoxygenated hemoglobin (Hb) have different optical absorption spectra.</p>
 <p>A pulse oximeter is usually clipped to an appendage, most commonly a finger, but sometimes an ear lobe or nose septum is used. A light source, usually an LED, on one side of the tissue penetrates through the tissue to be detected by a photodetector on the other side. As the light passes through the tissue, it is absorbed by various species. Much absorption happens in the tissue, some more in venous and capillary blood, and still more in non-pulsatile arterial blood. On top of all of that absorption is varying absorption due to pulsatile arterial blood. It is this varying absorption that is measured in pulse oximetry.</p>
-<section id="pulse-detection">
+<div class="section" id="pulse-detection">
 <h3>Pulse detection<a class="headerlink" href="#pulse-detection" title="Permalink to this headline">¶</a></h3>
 <p>The transmitted light intensity fluctuates from peaks to valleys according to the systolic and diastolic phases of the cardiac cycle. This fluctuation is typically measured in the IR region of the light spectrum, around 940 nm. The time-trace of this variation is directly proportional to the blood pulsatile motion. Therefore, we can use it to deduce the pulse rate, the number of beats per minute.</p>
-</section>
-<section id="measurement-of-oxygen-saturation">
+</div>
+<div class="section" id="measurement-of-oxygen-saturation">
 <h3>Measurement of oxygen saturation<a class="headerlink" href="#measurement-of-oxygen-saturation" title="Permalink to this headline">¶</a></h3>
 <p>In addition to measuring a pulse rate, we also wish to measure <strong>oxygen saturation</strong>, which is defined as the ratio of oxyhemoglobin to the total hemoglobin concentration. We cannot exactly measure this with pulse oximetry because we cannot take into account the contributions of nonfunctional hemoglobin, such as carboxyhemoglobin and methemoglobin. So, instead, we define the oxygen saturation, as determined by pulse oximetry, to be</p>
 <div class="math notranslate nohighlight">
@@ -278,7 +282,7 @@
 \end{align}\]</div>
 <p>To measure SpO₂, we consider absorption at a second wavelength in addition to the IR used to measure the pulse. Below, I show the absoprtion spectra for O₂Hb and Hb. Between about 600 and 800 nm, Hb has a higher extinction coefficient than O₂Hb. If we monitor transmission of light at this second wavelength, in addition to the 940 nM we are already using to detect the pulse, we can determine SpO₂. In particular, there is a big gap between the extinction coefficient of O₂Hb and Hb in the red region, around 660 nm, and the gap is the opposite as in the IR, where O₂Hb has a lower extinction coefficient.</p>
 
-<script src="bokeh-plot-0a8fa09580a646eb968eedc886631aa4-external-pulseox.js" id="05a25101-4b35-4885-9896-ad7bafb4a902"></script><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
+<script src="bokeh-plot-306455e2b6c84bb5b43ae0904452b1ae-external-pulseox.js" id="86de55a1-f863-480a-9b12-b3b50ffd5370"></script><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \frac{I}{I_0} = \mathrm{e}^{-\epsilon c d},
@@ -343,14 +347,14 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 \end{align}\]</div>
 <p>As an example of a calibration curve, <a class="reference external" href="https://doi.org/10.1097/00000542-198901000-00019">Tremper and Barker</a> gave a curve valid for <span class="math notranslate nohighlight">\(0.4 \le R \le 3.3\)</span> as <span class="math notranslate nohighlight">\(\mathrm{SpO_2} = aR^2 + bR + c\)</span>, with <span class="math notranslate nohighlight">\(a = -3.3\)</span>, <span class="math notranslate nohighlight">\(b = -21.1\)</span>, and <span class="math notranslate nohighlight">\(c = 109.6\)</span>. Unfortunately, there is no guarantee this calibration will work with your device.</p>
 <p>(The <a class="reference external" href="https://doi.org/10.1097/00000542-198901000-00019">Tremper and Barker paper</a> is really worth reading for a more detailed background about pulse oximetry.)</p>
-</section>
-<section id="diagnostics-from-pulse-oximetry">
+</div>
+<div class="section" id="diagnostics-from-pulse-oximetry">
 <h3>Diagnostics from pulse oximetry<a class="headerlink" href="#diagnostics-from-pulse-oximetry" title="Permalink to this headline">¶</a></h3>
 <p>Pulse oximeters are used in many monitoring and diagnostic applications. Of immediate interest is the oxygen saturation, SpO₂. The SpO₂ for a health individual should be above 95%. People with lung disease or sleep apnea can have levels around 90%.</p>
 <p>Inter-pulse intervals are also of interest. Surprisingly, in a healthy individual, the intervals between successive heartbeats vary in a rather chaotic manner. It has been reported that patients with congestive heart failure (CHF) have decreased cardiac chaos as compared to healthy individuals (see, e.g., <a class="reference external" href="https://doi.org/10.1038/39043">Poon and Merrill, 1997</a>). A frequency spectrum (obtainable by FFT) will not sufficiently reveal irregular heartbeats and peak-identifications must be used.</p>
-</section>
-</section>
-<section id="specification">
+</div>
+</div>
+<div class="section" id="specification">
 <h2>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h2>
 <p>Your task is to construct a pulse oximeter using the Nellcor™ OxiMax-compatible sensor probe. (See descriptions below about the sensor.) Your pulse oximeter should have the following design characteristics.</p>
 <ol class="arabic simple">
@@ -358,11 +362,11 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 <li><p>You may also wish to include real-time displays of statistics of interpulse times.</p></li>
 <li><p>Your dashboard should have controls to download acquired traces for further analysis.</p></li>
 </ol>
-<section id="documentation">
+<div class="section" id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
 <p>The documentation for use of the pulse oximeter can be minimal. You may even wish to have instructions for attaching the sensor probe to the patient’s finger and operation displayed on the dashboard. It is, however, important to include all design considerations, schematics, etc., as already required in the write-up.</p>
-</section>
-<section id="suggestions">
+</div>
+<div class="section" id="suggestions">
 <h3>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this headline">¶</a></h3>
 <p>The Nellcor™ OxiMax-compatible sensor probe clips on to your finger as shown in the photo below.</p>
 <a class="reference internal image-reference" href="_images/sensor_probe.jpg"><img alt="Sensor probe" src="_images/sensor_probe.jpg" style="width: 300px;" /></a>
@@ -435,9 +439,9 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 <li><p>Do you need sample-and-hold circuits?</p></li>
 <li><p>If you use those components, should you filter and/or amplify your signals before or after the sample-and-hold?</p></li>
 </ol>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
@@ -454,11 +458,11 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x122b34610> 
+  </div> <jinja2.runtime.BlockReference object at 0x11faf1d30> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

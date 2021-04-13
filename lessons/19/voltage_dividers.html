@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>19. Voltage dividers &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -92,7 +91,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -106,6 +105,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -118,32 +121,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -155,7 +159,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -249,7 +253,7 @@
     text-align: unset;
 }
 </style>
-<section id="19.-Voltage-dividers">
+<div class="section" id="19.-Voltage-dividers">
 <h1>19. Voltage dividers<a class="headerlink" href="#19.-Voltage-dividers" title="Permalink to this headline">¶</a></h1>
 <hr><p>A <strong>voltage divider</strong> is one of the most commonly encountered simple circuits. Consider the circuit shown below.</p>
 <div style="width: 300px; margin: auto;"><img alt="voltage divider with resistors" src="../../_images/voltage_divider_resistors.svg" /></div><p>The symbol at the bottom with three lines indicates ground. We ask how does <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> compare to <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>. We can derive the result from three key properties of circuits. First, Ohm’s law, which says that <span class="math notranslate nohighlight">\(V = I R\)</span>, where <span class="math notranslate nohighlight">\(V\)</span> is a voltage, <span class="math notranslate nohighlight">\(I\)</span> is a current, and <span class="math notranslate nohighlight">\(R\)</span> is a resistance. Second, resistors in series add. Third, the current in to any point in a circuit is equal to the current out of it. This third rule means that in the circuit above,
@@ -263,13 +267,13 @@ I = \frac{V_\mathrm{in}}{R_1 + R_2} = \frac{V_\mathrm{out}}{R_2},
 \end{align}</span></p>
 <p>So, the above circuit works as a voltage divider, giving <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> as a fraction <span class="math notranslate nohighlight">\(R_2/(R_1+R_2)\)</span> of <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>.</p>
 <p>Voltage dividers are one of the more ubiquitous circuits, as they allow delivery of a an arbitrary voltage that is less than the supplied voltage.</p>
-<hr><section id="Follow-along-exercise-14:-Empirical-voltage-division">
+<hr><div class="section" id="Follow-along-exercise-14:-Empirical-voltage-division">
 <h2>Follow-along exercise 14: Empirical voltage division<a class="headerlink" href="#Follow-along-exercise-14:-Empirical-voltage-division" title="Permalink to this headline">¶</a></h2>
 <p>Wire up the circuit below.</p>
 <div style="width: 300px; margin: auto;"><img alt="schematic for voltage divider" src="../../_images/voltage_divider_schem.svg" /></div><p>You don’t need to upload any sketch; simply plug in your Arduino. Use your multimeter to verify that the resistors R₁ and R₂ function as a voltage divider. To do so, make sure you plug the red lead of your multimeter into the 500 mA port (the center one on the WeePro), and the black one on the COM port. Turn the dial to 20V DC (roughly at 10 o’clock on the dial). To measure the input voltage, touch the multimeter leads to the positive lead of R₁ and the negative lead of R₂. To measure the output
 voltage, touch the multimeter to the leads of R₂. Make sure you understand why touching those leads gives you the measurements they do.</p>
-<hr></section>
-</section>
+<hr></div>
+</div>
 
 
            </div>
@@ -286,11 +290,11 @@ voltage, touch the multimeter to the leads of R₂. Make sure you understand why
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x122d6e1c0> 
+  </div> <jinja2.runtime.BlockReference object at 0x11fbb8ac0> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

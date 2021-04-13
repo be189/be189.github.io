@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>2. A tour of Ardiuno Uno and the solderless breadboard &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -90,7 +89,7 @@
               
             
             
-              <p><span class="caption-text">Lessons</span></p>
+              <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -126,6 +125,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -135,32 +138,33 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p><span class="caption-text">Exercises</span></p>
+<p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p><span class="caption-text">Projects</span></p>
+<p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p><span class="caption-text">Schedule</span></p>
+<p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p><span class="caption-text">Resources</span></p>
+<p class="caption"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p><span class="caption-text">Policies</span></p>
+<p class="caption"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -172,7 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -266,10 +270,10 @@
     text-align: unset;
 }
 </style>
-<section id="2.-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard">
+<div class="section" id="2.-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard">
 <h1>2. A tour of Ardiuno Uno and the solderless breadboard<a class="headerlink" href="#2.-A-tour-of-Ardiuno-Uno-and-the-solderless-breadboard" title="Permalink to this headline">¶</a></h1>
 <hr><p>Let us get acquainted with your Arduino board. Take out your Arduino board, a large (64-row) solderless breadboard, and holder, and let’s get started!</p>
-<section id="Setting-up-your-Arduino-and-breadboard">
+<div class="section" id="Setting-up-your-Arduino-and-breadboard">
 <h2>Setting up your Arduino and breadboard<a class="headerlink" href="#Setting-up-your-Arduino-and-breadboard" title="Permalink to this headline">¶</a></h2>
 <p>Take out one of your long solderless breadboards; the long ones have 64 terminal strips (rows of holes). Also remove your Arduino Uno from the box. If it has a plastic holder included in the box, you can leave that in the box; you will not need it for this course. Finally, remove your RAB holder from its packaging. At the completion of this section, you should have something that looks like this:</p>
 <div style="width: 600px; margin: auto;"><img alt="Arduino and breadboard in holder" src="../../_images/arduino_and_breadboard.jpg" />
@@ -278,8 +282,8 @@
 <li><p>Stick the breadboard into its place in the holder. By convention, I like to have the positive (red) bus strip nearest to the Arduino Uno, but it does not matter.</p></li>
 <li><p>Screw the Arduino Uno into the holder. You should not have a problem screwing in the four screws. For some cheaper holders, the holes in the Arduino Uno may not exactly match the holder. That should not be a problem for you, but do not force screws in if the alignment is off.</p></li>
 </ol>
-</section>
-<section id="A-tour-of-a-solderless-breadboard">
+</div>
+<div class="section" id="A-tour-of-a-solderless-breadboard">
 <h2>A tour of a solderless breadboard<a class="headerlink" href="#A-tour-of-a-solderless-breadboard" title="Permalink to this headline">¶</a></h2>
 <p>In reading this section, it will help to look at the picture above. The solderless breadboard shown above has 840 holes, called <strong>terminals</strong> into which you can stick leads of components. How are these terminals connected?</p>
 <p>The two sets of terminals labeled with a red <code class="docutils literal notranslate"><span class="pre">+</span></code> and a blue <code class="docutils literal notranslate"><span class="pre">–</span></code> are referred to as <strong>bus strips</strong>. These are the strips that provide power to the components of the board. All of the terminals along the red line are connected to each other. All of those along the blue line are also connected to each other. In both cases, that is all they are connected to. So, if you want to provide power to components, you connect a voltage source to one of the terminals of the red strip, and all of the
@@ -296,13 +300,13 @@ within the terminal strip.</p>
 </div><p>The bus strips are labeled with red arrows. Now, let’s take a look at the strip of clips that make up the terminals. Pictured below is a single strip from connected terminals (image also from the same <a class="reference external" href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Sparkfun tutorial</a> by M-SHORT and JOEL_E_B, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0 licensed</a>). You can see from the springy pincher-like design that the breadboard is well suited for
 repeat insertion and removal of components.</p>
 <div style="width: 300px; margin: auto;"><img alt="strip from solderless breadboard with clips" src="../../_images/strip_clips.jpg" />
-</div></section>
-<section id="A-tour-of-the-Arduino-Uno">
+</div></div>
+<div class="section" id="A-tour-of-the-Arduino-Uno">
 <h2>A tour of the Arduino Uno<a class="headerlink" href="#A-tour-of-the-Arduino-Uno" title="Permalink to this headline">¶</a></h2>
 <p>We continue our tour of the essential pieces of our prototypes with the Arduino Uno. Throughout the course, we will probably refer to the board simply as “Arduino” for short, not to be confused with the <a class="reference external" href="https://www.arduino.cc/en/main/software">Arduino IDE</a>. The board you will use is an <a class="reference external" href="https://store.arduino.cc/usa/arduino-uno-rev3">Arduino Uno (Revision 3)</a>. A labeled schematic of the board is shown below, and you should refer to it as well as your physical Arduino Uno in the following
 discussion.</p>
 <div style="width: 600px; margin: auto;"><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" /></div><p>In looking at the schematic, you will notice that not all of the components on the Arduino appear. Nonetheless, all of the important ones that you need to know about to do your projects are shown. The built-in LEDs and pins are labeled on the Arduino Uno itself and on the schematic, and I will discuss those in a moment.</p>
-<section id="Components-of-the-Arduino-Uno">
+<div class="section" id="Components-of-the-Arduino-Uno">
 <h3>Components of the Arduino Uno<a class="headerlink" href="#Components-of-the-Arduino-Uno" title="Permalink to this headline">¶</a></h3>
 <p>For now, I will focus on the components that are labeled with text outside of the area of the board, going counterclockwise, starting with the microcontroller.</p>
 <ul class="simple">
@@ -315,8 +319,8 @@ discussion.</p>
 <li><p><strong>USB port</strong>: This is where you insert the “B” end of the USB cable you will use to connect your computer to the Arduino Uno. This allows data to be exchanged between the Arduino and your computer. It also doubles as a power supply. When connected via USB, the Arduino does not require another power source.</p></li>
 <li><p><strong>SCL and SDA pins</strong>: I will discuss these when I discuss the labeled pins in a subsequent section.</p></li>
 </ul>
-</section>
-<section id="The-ATmega328-microcontroller">
+</div>
+<div class="section" id="The-ATmega328-microcontroller">
 <h3>The ATmega328 microcontroller<a class="headerlink" href="#The-ATmega328-microcontroller" title="Permalink to this headline">¶</a></h3>
 <p>To program an Arduino, you write Arduino-flavored C++ code, called a “sketch,” on your computer using the Arduino IDE, and then that code is compiled using ARV-GCC, a compile specific to microcontrollers made by the company that makes the ATmega328. The compiler is included in the Arduino IDE. The compiled objects are uploaded onto the ATmega328 microcontroller. The program is then run on the board.</p>
 <p>The <a class="reference external" href="https://www.microchip.com/wwwproducts/en/atmega328p">ATmega328 microcontroller</a> can be thought of as a mini-computer. It has the following components.</p>
@@ -333,12 +337,12 @@ discussion.</p>
 involving the clock.</p></li>
 <li><p><strong>Two 8-bit and one 16-bit timers.</strong> The timers are referred to as Timer0, Timer1, and Timer2, with Timer1 being the 16-bit timer.</p></li>
 </ul>
-</section>
-<section id="The-reset-button">
+</div>
+<div class="section" id="The-reset-button">
 <h3>The reset button<a class="headerlink" href="#The-reset-button" title="Permalink to this headline">¶</a></h3>
 <p>Pressing the reset button on the upper left corner of the schematic above stops whatever code the microcontroller is running, clears all RAM, and begins running the sketch again from the beginning (<code class="docutils literal notranslate"><span class="pre">setup</span></code>, which we will discuss in a future lesson) of the sketch.</p>
-</section>
-<section id="Built-in-LEDs">
+</div>
+<div class="section" id="Built-in-LEDs">
 <h3>Built-in LEDs<a class="headerlink" href="#Built-in-LEDs" title="Permalink to this headline">¶</a></h3>
 <p>The four built-in LEDs in the above schematic have the following functions.</p>
 <ul class="simple">
@@ -348,21 +352,21 @@ involving the clock.</p></li>
 <li><p><strong>RX</strong>: This LED is on when data are being received via USB.</p></li>
 </ul>
 <p>You will see the TX and RX LEDs light up when you upload sketches, and the Arduino is communicating via USB with your computer.</p>
-</section>
-<section id="ICSP-headers">
+</div>
+<div class="section" id="ICSP-headers">
 <h3>ICSP headers<a class="headerlink" href="#ICSP-headers" title="Permalink to this headline">¶</a></h3>
 <p>The Arduino Uno features two in-circuit serial programming (ICSP) headers, each with size pins. These headers are used for <a class="reference external" href="https://en.wikipedia.org/wiki/In-system_programming">in-system programming (ISP)</a> using a protocol that uses SPI communication. This is how chips are programmed in the factory. <strong>ICSP1</strong> provides the ability to do ISP for the ATmega328 microcontroller and <strong>ICSP2</strong> provides the ability to do ISP for the USB interface chip.</p>
 <p>ISP allows programming the microcontroller without using the bootloader or Arduino IDE. It is usually used when the bootloader somehow gets damaged or erased, for example if you are attempting to write to flash memory against the advice I gave above. Similarly, if there is damage to the USB interface chip, you can use the ICSP2 interface to reprogram it.</p>
 <p>Because the pins of the ICSP1 are used for SPI communication with the ATmega328 microcontroller, some of the pins are identical to digital pins elsewhere on the Arduino. In the schematic diagram of the Arduino, we number the pins on starting from the top left (right next to number <code class="docutils literal notranslate"><span class="pre">1</span></code> in the schematic) and continue going clockwise to label the pins 1 through 6. Pin 1 on the ICSP1 is equivalent to digital pin 12 on the Arduino, ICSP1 pin 3 is equivalent to digital pin 11, and ICSP1 pin 6 is
 equivalent to digital pin 13.</p>
 <p>We will not be using the ICSP headers in this class, but it is good to be aware of them.</p>
-</section>
-<section id="Pins-on-the-Arduino-Uno-(Rev3)">
+</div>
+<div class="section" id="Pins-on-the-Arduino-Uno-(Rev3)">
 <h3>Pins on the Arduino Uno (Rev3)<a class="headerlink" href="#Pins-on-the-Arduino-Uno-(Rev3)" title="Permalink to this headline">¶</a></h3>
 <p>The pins on an Arduino Uno each have specific features, and I will describe them here. It is worth looking at <a class="reference external" href="https://content.arduino.cc/assets/Pinout-UNOrev3_latest.pdf">the detailed pinout diagram</a>, reproduced below, as well. Since the schematic is far up the page at this point, I reproduce it here for ease of reference while describing the pins on the Arduino Uno.</p>
 <div style="width: 600px; margin: auto;"><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" /></div><p>Not counting the unconnected pin, Arduino has 31 pins, plus two sets of SPI communication. Some of the pins are redundant, going to exactly the same pin on the ATmega328 microcontroller. Some pins have multiple functions. Some pins may not be used at the same time for different purposes. All these may begin to look intimidating now, but don’t worry, we will start simple and work from there.</p>
 <p>Because I would like this lesson to serve as a useful reference, I will include descriptions of some pins that use terms that may still be unfamiliar. In particular, I will refer to some functions in the <a class="reference external" href="https://github.com/arduino/ArduinoCore-avr/blob/master/cores/arduino/Arduino.h">Arduino library</a>,</p>
-<section id="Power-pins">
+<div class="section" id="Power-pins">
 <h4>Power pins<a class="headerlink" href="#Power-pins" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><strong>3V3</strong>: This power pin is set to 3.3V. You can use it to power peripheral devices that need to run on 3.3V.</p></li>
@@ -370,8 +374,8 @@ equivalent to digital pin 13.</p>
 <li><p><strong>GND</strong>: There are three GND pins, two next to the 5V pin and one on the opposite side of the board next to digital pin 13. GND is short for “ground,” which is the reference voltage to which all other voltages are relative. By convention, this is zero volts.</p></li>
 <li><p><strong>VIN</strong>: This pin is set to the voltage provided by the DC supply input, if it is used. It is therefore not 5V, and may be substantially larger.</p></li>
 </ul>
-</section>
-<section id="Digital-pins">
+</div>
+<div class="section" id="Digital-pins">
 <h4>Digital pins<a class="headerlink" href="#Digital-pins" title="Permalink to this headline">¶</a></h4>
 <p>The pins labeled 0 through 13 are digital pins, meaning that they can only read and write binary data. When they are being used to read input voltages, if the voltage is above a 3V threshold, it reads <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, and if it below that threshold, it reads <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. Similarly, they can only write low (0V) or high (5V) voltages.</p>
 <p>No pins on the Arduino Uno can write analog voltages. To write analog voltage, you need an external <strong>digital to analog converter (DAC)</strong>. We will discuss those in a future lesson. To approximate writing analog voltages with a digital pin, you can use <a class="reference external" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse width modulation (PWM)</a>. PWM, which requires use of one of the three timers in the ATmega328 microcontroller, is accomplished using the perhaps confusingly named <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>
@@ -393,9 +397,9 @@ function in your sketches. Digital pins marked with a tilde (<code class="docuti
 <li><p><strong>Digital pin 12</strong>: This pin is the MISO pin of the SPI. It is equivalent to pin 1 on the ICSP1 header. (SPI is explained below.)</p></li>
 <li><p><strong>Digital pin 13</strong>: This pin is the SCK pin of the SPI. It is equivalent to pin 3 on the ICSP1 header. When it is <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, then LED <code class="docutils literal notranslate"><span class="pre">L</span></code> is illuminated, and when it is low, LED <code class="docutils literal notranslate"><span class="pre">L</span></code> is not illuminated.</p></li>
 </ul>
-</section>
-</section>
-<section id="Analog-input-pins">
+</div>
+</div>
+<div class="section" id="Analog-input-pins">
 <h3>Analog input pins<a class="headerlink" href="#Analog-input-pins" title="Permalink to this headline">¶</a></h3>
 <p>The six analog input pins are connected to the ATmega328 microcontroller’s analog-to-digital converter (ADC). So, any input voltage into the analog input pins can be read and converted to a 10-bit integer using the <code class="docutils literal notranslate"><span class="pre">analogRead()</span></code> function. Additionally, all six of the analog input pins can function as digital I/O pins like those described above, though none of them can do pulse width modulation.</p>
 <ul class="simple">
@@ -406,23 +410,23 @@ function in your sketches. Digital pins marked with a tilde (<code class="docuti
 <li><p><strong>Pin A4</strong>: Also digital pin 18. This pin also served as the SDA for I2C communication. It connects to the same pin on the ATmega328 microcontroller as the pin labeled SDA in the above schematic. Functionally, these two pins are identical. I2C communication is described later in this lesson.</p></li>
 <li><p><strong>Pin A5</strong>: Also digital pin 18. This pin also served as the SCL for I2C communication. It connects to the same pin on the ATmega328 microcontroller as the pin labeled SCL in the above schematic. Functionally, these two pins are identical. I2C communication is described later in this lesson.</p></li>
 </ul>
-</section>
-<section id="Other-pins">
+</div>
+<div class="section" id="Other-pins">
 <h3>Other pins<a class="headerlink" href="#Other-pins" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><strong>IOREF</strong>: This pin is used as a voltage reference for shields. Shields are boards that can be plugged directly into the Arduino. For example, <a class="reference external" href="https://www.adafruit.com/product/1438">here</a> is a shield used to control motors. The IOREF pin provides a shield access to the voltage of the board, including boards with the same footprint as the Arduino Uno that may not operate at 5V. The IOREF pin on the Uno is always set to 5V.</p></li>
 <li><p><strong>RESET</strong>: If you set this pin to <code class="docutils literal notranslate"><span class="pre">LOW</span></code> (connect it to ground), it is equivalent to pressing the RESET button.</p></li>
 <li><p><strong>AREF</strong>: This pin serves as an analog reference. An external voltage is plugged in here and used as a reference for analog-to-digital conversion (ADC). By default, the operating voltage of 5V is used, and that will suffice for us in the course. You can read a <a class="reference external" href="https://tronixstuff.com/2013/12/12/arduino-tutorials-chapter-22-aref-pin/">blog post on using the AREF pin</a>.</p></li>
 </ul>
-</section>
-<section id="I2C-communication">
+</div>
+<div class="section" id="I2C-communication">
 <h3>I2C communication<a class="headerlink" href="#I2C-communication" title="Permalink to this headline">¶</a></h3>
 <p>Inter-integrated circuit (I2C), sometimes referred to as “two-wire interface,” communication is accessible via the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL)</strong> pins. To communicate data over I2C, the voltage on the SCL switches between high and low values in regular intervals timed by the clock. The SDA also switches at the same frequency. A voltage comparison is made on each cycle, and if the SDA voltage is low relative to that of the SCL, the bit is a zero, and is one otherwise,
 as shown in the sketch below.</p>
 <div style="width: 700px; margin: auto;"><img alt="I2C communication schematic" src="../../_images/I2C_communication_schematic.svg" /></div><p>Many external devices use I2C for their communication, including the <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC</a> we will use on a breakout board.</p>
 <p>On the Arduino Uno, the <strong>SDA</strong> and <strong>SCL</strong> pins are used for I2C communication. The maximum speed of I2C communication is about 400 kbaud, though by default the speed is 100 kbaud. The SDA and SLC pins are functionally equivalent to the A4 and A5 pins, respectively.</p>
-</section>
-<section id="SPI-communication">
+</div>
+<div class="section" id="SPI-communication">
 <h3>SPI communication<a class="headerlink" href="#SPI-communication" title="Permalink to this headline">¶</a></h3>
 <p>Serial peripheral interface (SPI) communication with Arduino is possible. In SPI communication, one device (almost always the Arduino Uno) is the <strong>primary</strong> device, and any other connected devices are <strong>secondary</strong> devices. The primary device can ask for and receive data from a secondary device and can also send data to a secondary device. A secondary device can send data to or receive data from the primary device.</p>
 <p>Note that in almost all of the documentation you see, the primary device will be referred to as a “master” device and secondary devices are referred to as “slave” devices. The pins are described by acronyms. MOSI, which means “master-out-slave-in,” means that the primary device sends data out to a secondary device. MISO, which means “master-in-slave-out,” means that the primary device receives data sent from a secondary device. We will use the terms primary and secondary because of the
@@ -430,14 +434,14 @@ as shown in the sketch below.</p>
 <p>SPI communication requires a MOSI, MISO, and <strong>system clock</strong> (SCK) connection. On the Arduino Uno, you would use digital pins 11, 12, and 13, respectively. Alternatively, you can respectively use ICSP1 pin 4, ICSP1 pin 1, and ICSP1 pin 3. The wires coming out of these pins can connect to multiple external devices, and each device using SPI communication needs to be connect to these three pins.</p>
 <p>The fourth pin necessary for SPI communication is the <strong>secondary select (SS)</strong> pin. Each secondary device has its own SS pin, and any digital pin on the Arduino Uno can serve as an SS pin. When using SPI communication, the microcontroller shuts down the SS pins of all secondary devices it is not communicating with, enabling it to communicate with one secondary device at a time.</p>
 <p>SPI is much faster than I2C, and can operate at about 15 Mbaud on Arduino Uno.</p>
-</section>
-<section id="Arduino-pinout">
+</div>
+<div class="section" id="Arduino-pinout">
 <h3>Arduino pinout<a class="headerlink" href="#Arduino-pinout" title="Permalink to this headline">¶</a></h3>
 <p>The Arduino pinout is shown below. If your broswer does not support embedded PDFs, you will not see it below, but you can see the document <a class="reference external" href="https://content.arduino.cc/assets/Pinout-UNOrev3_latest.pdf">here</a>. It is copyright Arduino, licensed under a CC-BY-4.0 license.</p>
 <div style="width: 800px; margin: auto;"><img alt="Arduino Uno pinout" src="../../_images/arduino_pinout.pdf" />
-</div></section>
-</section>
-</section>
+</div></div>
+</div>
+</div>
 
 
            </div>
@@ -454,11 +458,11 @@ as shown in the sketch below.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Apr 13, 2021.
+        Last updated on Mar 25, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x122583d00> 
+  </div> <jinja2.runtime.BlockReference object at 0x11ea94490> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
