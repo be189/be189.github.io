@@ -26,8 +26,8 @@ People
 
 - TAs
 
-   + Michelle Cua (``ecua at caltech dot edu``)
-   + Mingshu Liang (``mlliang at caltech dot edu``)
+   + `Michelle Cua <http://bois.caltech.edu/be189/2021_spring/zoom_links/michelle/>`_ (``ecua at caltech dot edu``)
+   + `Mingshu Liang <http://bois.caltech.edu/be189/2021_spring/zoom_links/mingshu/>`_ (``mlliang at caltech dot edu``)
 
 
 .. toctree::

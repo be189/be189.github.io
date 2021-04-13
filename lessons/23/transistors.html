@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>23. Transistors &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -91,7 +92,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -105,10 +106,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -123,33 +120,32 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -161,7 +157,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -255,10 +251,10 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="23.-Transistors">
+<section id="23.-Transistors">
 <h1>23. Transistors<a class="headerlink" href="#23.-Transistors" title="Permalink to this headline">¶</a></h1>
 <hr><p><strong>Transistors</strong> are key components of almost any modern circuit. They have myriad applications, and are included in pretty much all of the integrated circuits you have already been introduced to, including analog-to-digital converters, digital-to-analog converters, and op-amps. Horowitz and Hill go so far as to say that “The transistor is the essential component of every electronic circuit.” In this lesson, we will explore using transistors as switches.</p>
-<div class="section" id="Basic-concepts-behind-transistors">
+<section id="Basic-concepts-behind-transistors">
 <h2>Basic concepts behind transistors<a class="headerlink" href="#Basic-concepts-behind-transistors" title="Permalink to this headline">¶</a></h2>
 <p>We will not go into the details of the (Nobel Prize-winning) physics behind how transistors work, but will treat them from a practical perspective. Transistors are three-terminal components. They come predominantly in two varieties, <strong>bipolar junction transistors</strong> (BJTs) and <strong>field effect transistors</strong> (FETs). These two varieties of transistor vary in their mode of construction and in other meaningful ways in their operation that we will not spend much time on. FETs are dominant in electronics
 these days, including in the integrated circuits mentioned above, but BJTs are still widely used. Importantly, both varieties have the same two salient features.</p>
@@ -268,8 +264,8 @@ these days, including in the integrated circuits mentioned above, but BJTs are s
 <li><p>Transistors are active in the sense that the output signal they can produce is greater than an input (control) signal.</p></li>
 </ol>
 <p>The details of how transistors work is very interesting and worth delving into if you have the time. You can start with the Wikipedia pages for <a class="reference external" href="https://en.wikipedia.org/wiki/Bipolar_junction_transistor">BJTs</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Field-effect_transistor">FETs</a>.</p>
-</div>
-<div class="section" id="Bipolar-junction-transistors-as-switches">
+</section>
+<section id="Bipolar-junction-transistors-as-switches">
 <h2>Bipolar junction transistors as switches<a class="headerlink" href="#Bipolar-junction-transistors-as-switches" title="Permalink to this headline">¶</a></h2>
 <p>Your kit does not include any FETs, but it does have both varieties of BJTs, <em>npn</em> and <em>pnp</em>. The difference in ordering of the constitutive layers of the transistors results in reversed polarities. Here, “<em>n</em>” means that the semiconductor is doped in such a way that there are an abundance of free electrons. Current flow in <em>n</em>-type material consists predominantly of electrons moving in response to the voltage difference across the material. Conversely, “<em>p</em>” means that the semiconductor is
 doped in such a way that there are an abundance of free “holes.” You can think of the “holes” as a deficit of electrons. Current flow in <em>n</em>-type material consists predominantly of “holes” moving in response to the voltage difference across the material.</p>
@@ -288,8 +284,8 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 <li><p>Transistor-based switches can be miniaturized down to the micron level. This is why your laptop, which is predominantly a collection of switches, can sit on your lap without crushing your legs!</p></li>
 </ol>
 <p>To explore transistors as switches, complete the following follow-along exercise.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-15:-BJTs-as-switches">
+<hr></section>
+<section id="Follow-along-exercise-15:-BJTs-as-switches">
 <h2>Follow-along exercise 15: BJTs as switches<a class="headerlink" href="#Follow-along-exercise-15:-BJTs-as-switches" title="Permalink to this headline">¶</a></h2>
 <p>The leads of the BJTs in your kit are as in the sketch below.</p>
 <div style="margin:auto; width: 100px;"><img alt="BJT drawing" src="../../_images/bjt_drawing.png" />
@@ -381,8 +377,8 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 </ol>
 <p>After building the circuit and uploading the sketch, either control which LEDs are on (and showing the oscillating illumination) via widgets on a dashboard or by hand-entering the numbers in the Serial Monitor. You will see that the transistors act as a switch, sending the input voltage across the LED when on and not while off.</p>
 <p>A simpler way to make the LEDs flash on and off sinusoidally would be to use PWM directly from the digital pins of the Arduino. There is no need for transistors in that case. However, if we want to have an analog input to the LEDs, and we only have one DAC, the transistors make it possible to switch them on and off.</p>
-<hr></div>
-</div>
+<hr></section>
+</section>
 
 
            </div>
@@ -399,11 +395,11 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Mar 25, 2021.
+        Last updated on Apr 13, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11fa3f0d0> 
+  </div> <jinja2.runtime.BlockReference object at 0x122450f10> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

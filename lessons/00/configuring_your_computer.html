@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>0. Getting set up &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -89,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">0. Getting set up</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#The-Arduino-IDE">The Arduino IDE</a></li>
@@ -119,10 +120,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -132,33 +129,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -170,7 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -510,18 +506,18 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="0.-Getting-set-up">
+<section id="0.-Getting-set-up">
 <h1>0. Getting set up<a class="headerlink" href="#0.-Getting-set-up" title="Permalink to this headline">¶</a></h1>
 <hr/><p>In this lesson, you will set up your computer for programming your Arduino board and controlling it with Python-based tools. You will also use Jupyter notebooks for preparing your write-ups.</p>
 <p>In this class, we will use Anaconda, with its associated package manager, <code class="docutils literal notranslate"><span class="pre">conda</span></code>. It has become the de facto package manager/distribution for scientific use. To use it, and also to serve up Bokeh apps to control your devices, you should have access to a Terminal program on your computer and have basic skills for using the command line. If you want to learn more about the command line, you can check out <a class="reference external" href="http://justinbois.github.io/bootcamp/2020/lessons/l02_basic_command_line_skills.html">this
 lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which you can used. You can use the same, but it is probably better to use a suitable terminal program on your OS.)</p>
-<div class="section" id="The-Arduino-IDE">
+<section id="The-Arduino-IDE">
 <h2>The Arduino IDE<a class="headerlink" href="#The-Arduino-IDE" title="Permalink to this headline">¶</a></h2>
 <p>You will use the Arduino interactive development environment (Arduino IDE) to write and compile code for Arduino and upload it to your board. To install it, follow the instructions on the <a class="reference external" href="https://www.arduino.cc/en/Guide">Getting Started with Arduino page</a>. You will be given a choice of using an online IDE or the desktop IDE. I recommend the desktop IDE. You can download and install the most recent stable version of the desktop IDE <a class="reference external" href="https://www.arduino.cc/en/Main/Software#download">here</a>.</p>
 <p>Once you have downloaded the IDE, follow the <a class="reference external" href="https://www.arduino.cc/en/Guide">IDE installation instructions</a> for your operating system.</p>
 <p>You should then have a functioning Arduino IDE on your machine.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-0:-Testing-Arduino">
+<hr></section>
+<section id="Follow-along-exercise-0:-Testing-Arduino">
 <h2>Follow-along exercise 0: Testing Arduino<a class="headerlink" href="#Follow-along-exercise-0:-Testing-Arduino" title="Permalink to this headline">¶</a></h2>
 <p>This is the one follow-along exercise for which you are not required to submit anything. This is a test to make sure your Arduino works properly.</p>
 <ol class="arabic simple">
@@ -560,25 +556,25 @@ lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which yo
 <p>You will watch your Arduino board to make sure everything is functioning properly. In particular, pay attention to the built-in LEDs, highlighted on the board drawing below. (There is another built-in LED, labeled <code class="docutils literal notranslate"><span class="pre">ON</span></code>, which is illuminated when the board has power.)</p>
 <div style="width: 500px; margin: auto;"><img alt="Arduino board with LEDs highlighted" src="../../_images/arduino_board_leds_highlighted.svg" /></div><p>After you have saved the file, you need to compile and upload the code (referred to as a “sketch”) to Arduino. You can do this by clicking on the rightward-pointing arrow at the top of the Arduino IDE window. You will get some messages at the bottom of the Arduino IDE window telling you about the success of the compilation-and-upload process and the storage footprint of your sketch. You will also see the <code class="docutils literal notranslate"><span class="pre">TX</span></code> and <code class="docutils literal notranslate"><span class="pre">RX</span></code> lights flash as the sketch is being uploaded.</p>
 <p>Once the sketch has been uploaded, you will see the LED labeled <code class="docutils literal notranslate"><span class="pre">L</span></code> flash at a rate of twice per second. If you see this, it means you have successfully uploaded your sketch and your Arduino board is successfully executing it!</p>
-<hr></div>
-<div class="section" id="Installation-of-Anaconda">
+<hr></section>
+<section id="Installation-of-Anaconda">
 <h2>Installation of Anaconda<a class="headerlink" href="#Installation-of-Anaconda" title="Permalink to this headline">¶</a></h2>
 <p>We now proceed to install Anaconda, which provides a Python environment for your computer.</p>
-<div class="section" id="macOS-users:-Install-XCode">
+<section id="macOS-users:-Install-XCode">
 <h3>macOS users: Install XCode<a class="headerlink" href="#macOS-users:-Install-XCode" title="Permalink to this headline">¶</a></h3>
 <p>If you are using macOS, you should install <a class="reference external" href="https://developer.apple.com/xcode/">XCode</a>, if you haven’t already. It’s a large piece of software, taking up about 5GB on your hard drive, so make sure you have enough space. You can install it through the App Store.</p>
 <p>After installing it, you need to open the program so that it will be accessible to your Anaconda-installed packages. Be sure to do that, for example by clicking on the XCode icon in your Applications folder. Upon opening XCode, it may perform more installations. After opening XCode and installing whatever additional installations it prompts you to do, you can close XCode.</p>
-</div>
-<div class="section" id="Windows-users:-Install-Chrome-or-Firefox">
+</section>
+<section id="Windows-users:-Install-Chrome-or-Firefox">
 <h3>Windows users: Install Chrome or Firefox<a class="headerlink" href="#Windows-users:-Install-Chrome-or-Firefox" title="Permalink to this headline">¶</a></h3>
 <p>We will be using <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> in class. It is browser-based, and Chrome, Firefox, and Safari are supported. Microsoft Edge is <strong>not</strong>. Therefore, if you are a Windows user, you need to be sure you have either Chrome or Firefox installed.</p>
-</div>
-<div class="section" id="Uninstalling-Anaconda">
+</section>
+<section id="Uninstalling-Anaconda">
 <h3>Uninstalling Anaconda<a class="headerlink" href="#Uninstalling-Anaconda" title="Permalink to this headline">¶</a></h3>
 <p>If you have previously installed Anaconda with a version of Python other than 3.8, you may want to uninstall it, removing it completely from your computer. You can find instructions on how to do that from the <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">official uninstallation documentation</a>.</p>
 <p>Having a fresh installation on your machine will help us work together, troubleshoot, etc.</p>
-</div>
-<div class="section" id="Downloading-and-installing-Anaconda">
+</section>
+<section id="Downloading-and-installing-Anaconda">
 <h3>Downloading and installing Anaconda<a class="headerlink" href="#Downloading-and-installing-Anaconda" title="Permalink to this headline">¶</a></h3>
 <p>Downloading and installing Anaconda is simple.</p>
 <ol class="arabic simple">
@@ -587,8 +583,8 @@ lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which yo
 <li><p>You may be prompted for optional installations, like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a>. You will not need those.</p></li>
 </ol>
 <p>That’s it! After you do that, you should have a functioning Python distribution.</p>
-</div>
-<div class="section" id="The-conda-package-manager">
+</section>
+<section id="The-conda-package-manager">
 <h3>The conda package manager<a class="headerlink" href="#The-conda-package-manager" title="Permalink to this headline">¶</a></h3>
 <p>conda is a package manager for keeping all of your packages up-to-date. It has plenty of functionality beyond our basic usage in class, which you can learn more about by reading the <a class="reference external" href="https://docs.conda.io/en/latest/">docs</a>. We will primarily be using conda to install and update packages.</p>
 <p>conda works from the command line. The first thing we’ll do is update the packages that came with the Anaconda distribution. To do this, enter the following on the command line (yes, do the first command twice):</p>
@@ -598,8 +594,8 @@ conda update --all
 </pre></div>
 </div>
 <p>You will be prompted to perform the updates, and press <code class="docutils literal notranslate"><span class="pre">y</span></code> to continue. (If everything is up to date, you will just see a list of all the installed packages.) There may even be some downgrades. This happens when there are package conflicts where one package requires an earlier version of another. conda is very smart and figures all of this out for you, so you can almost always say “yes” (or “<code class="docutils literal notranslate"><span class="pre">y</span></code>”) to conda when it prompts you.</p>
-</div>
-<div class="section" id="Installations">
+</section>
+<section id="Installations">
 <h3>Installations<a class="headerlink" href="#Installations" title="Permalink to this headline">¶</a></h3>
 <p>There are a few additional installations you need to do. Most importantly, you need to install <a class="reference external" href="https://pyserial.readthedocs.io/">pyserial</a>, which enables serial communication with your device. We will also install <a class="reference external" href="https://panel.holoviz.org">Panel</a>, which can be used to rapid dashboard prototyping.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install pyserial panel
@@ -609,8 +605,8 @@ conda update --all
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c bokeh jupyter_bokeh
 </pre></div>
 </div>
-</div>
-<div class="section" id="Optional-installations">
+</section>
+<section id="Optional-installations">
 <h3>Optional installations<a class="headerlink" href="#Optional-installations" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://black.readthedocs.io/">Black</a> comes pre-installed with Anaconda. It enables convenient code formatting to help keep your code clean. To use Black with JupyterLab, you can install <a class="reference external" href="https://github.com/csurfer/blackcellmagic">blackcellmagic</a>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install blackcellmagic
@@ -624,8 +620,8 @@ conda update --all
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 </pre></div>
 </div>
-</div>
-<div class="section" id="Checking-your-Python-distribution">
+</section>
+<section id="Checking-your-Python-distribution">
 <h3>Checking your Python distribution<a class="headerlink" href="#Checking-your-Python-distribution" title="Permalink to this headline">¶</a></h3>
 <p>We’ll now run a quick test to make sure things are working properly. We will make a quick plot that requires some of the scientific packages you just installed.</p>
 <p>Launch JupyterLab, preferably from the command line using</p>
@@ -1019,9 +1015,9 @@ var element = document.currentScript.previousSibling.previousSibling;
 })(window);
 </script></div>
 </div>
-</div>
-</div>
-<div class="section" id="Computing-environment">
+</section>
+</section>
+<section id="Computing-environment">
 <h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -1048,8 +1044,8 @@ jupyterlab: 3.0.11
 
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -1066,11 +1062,11 @@ jupyterlab: 3.0.11
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Mar 25, 2021.
+        Last updated on Apr 13, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11f6b6f40> 
+  </div> <jinja2.runtime.BlockReference object at 0x121549070> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

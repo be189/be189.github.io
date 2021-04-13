@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>10. Serial communication with Python &mdash; BE/EE/MedE 189 a  documentation</title>
@@ -89,7 +90,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -117,10 +118,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
@@ -130,33 +127,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -168,7 +164,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p><span class="caption-text">Kit contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
 </ul>
@@ -508,7 +504,7 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="10.-Serial-communication-with-Python">
+<section id="10.-Serial-communication-with-Python">
 <h1>10. Serial communication with Python<a class="headerlink" href="#10.-Serial-communication-with-Python" title="Permalink to this headline">¶</a></h1>
 <hr><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -525,7 +521,7 @@ div.rendered_html tbody tr:hover {
 <hr><p>So far, we have programmed Arduino using the Arduino IDE and have used the Serial Monitor and Serial Plotter of the IDE to display signals from Arduino. The Serial Monitor and Plotter are quite limited in their capabilities, and we would like to have much richer control of Arduino.</p>
 <p>In the next several lessons, we will learn how to control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.</p>
 <p>We will start by building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.</p>
-<hr><div class="section" id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
+<hr><section id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
 <h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Permalink to this headline">¶</a></h2>
 <p>There is no sketch required for this exercise. Wire up the circuit shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></div><p>For convenience, here is a pictorial schematic.</p>
@@ -535,11 +531,11 @@ div.rendered_html tbody tr:hover {
 <p>Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
 <p>There is no need to submit this follow-along exercise.</p>
 <hr><p>You have now controlled the on-off behavior of an LED with a toggle and a pushbutton. We will proceed to control those using Python-based control. Our objective is to turn the LED on and off using a virtual button in your browser. We will use a Jupyter notebook, so launch a fresh Jupyter notebook.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-7:-Electronic-control-of-an-LED">
+<hr></section>
+<section id="Follow-along-exercise-7:-Electronic-control-of-an-LED">
 <h2>Follow-along exercise 7: Electronic control of an LED<a class="headerlink" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED" title="Permalink to this headline">¶</a></h2>
 <p>In this rather long follow-along exercise, we will introduce you to control of Arduino using Python. We will extensively use <a class="reference external" href="https://pyserial.readthedocs.io/">PySerial</a>. This is the most commonly used package for communicating with devices over USB. Note that in this lesson, and in all subsequent lessons, all of the imports are at the top of the notebook.</p>
-<div class="section" id="Finding-the-port">
+<section id="Finding-the-port">
 <h3>Finding the port<a class="headerlink" href="#Finding-the-port" title="Permalink to this headline">¶</a></h3>
 <p>With your Arduino plugged into your computer via a USB connection, you first need to find out which port it is. The names of the ports will differ based on your operating system and when you plugged it in (your OS may assign the ports different names). You can get a list of ports using the <code class="docutils literal notranslate"><span class="pre">serial.tools.list_ports.comports()</span></code> function.</p>
 <div class="nbinput docutils container">
@@ -659,8 +655,8 @@ div.rendered_html tbody tr:hover {
 /dev/cu.usbmodem146301
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Arduino-sketch">
+</section>
+<section id="Arduino-sketch">
 <h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Permalink to this headline">¶</a></h3>
 <p>Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is to use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is prudent to send a byte and receive a byte to make sure
 everything is working ok; this is called handshaking. In my sketches, I always have <code class="docutils literal notranslate"><span class="pre">0</span></code> be a handshaking byte, and I have Arduino respond with a string, <code class="docutils literal notranslate"><span class="pre">&quot;Message</span> <span class="pre">received.&quot;</span></code>.</p>
@@ -725,13 +721,13 @@ everything is working ok; this is called handshaking. In my sketches, I always h
 </pre></div>
 </div>
 </div>
-<div class="section" id="Thinking-exercise-4:-if-vs. while">
+<section id="Thinking-exercise-4:-if-vs. while">
 <h4>Thinking exercise 4: if vs. while<a class="headerlink" href="#Thinking-exercise-4:-if-vs. while" title="Permalink to this headline">¶</a></h4>
 <p>As a quick aside, think about this: I used <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>. Could I have used <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>? What is the difference?</p>
 <p><em>The answer to this thinking exercise is at the bottom of this lesson.</em></p>
-</div>
-</div>
-<div class="section" id="Opening-a-connection">
+</section>
+</section>
+<section id="Opening-a-connection">
 <h3>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Permalink to this headline">¶</a></h3>
 <p>When opening a connection with Python, you cannot have the Serial Monitor nor Serial Plotter of the Arduino IDE open, since they will keep the port busy and Python cannot communicate with Arduino.</p>
 <p>To open a connection to the device, we instantiate a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and
@@ -827,8 +823,8 @@ Handshake message: Message received.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Turning-on-the-LED">
+</section>
+<section id="Turning-on-the-LED">
 <h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Permalink to this headline">¶</a></h3>
 <p>To turn on the red LED, we need to send code <code class="docutils literal notranslate"><span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">bytes</span></code> to the Arduino. Let’s open up a port to Arduino and send a signal to turn on the red LED.</p>
 <div class="nbinput nblast docutils container">
@@ -864,9 +860,9 @@ Handshake message: Message received.
 </div>
 <hr><p><strong>Answer to if vs. while exercise</strong></p>
 <p>I could have used a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. In the case of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, it keeps reading, byte by byte, what is in the input buffer to Arduino until all bytes are read. However, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement achieves the same because the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is called over and over again. So, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop are in practice equivalent.</p>
-</div>
-</div>
-<div class="section" id="Computing-environment">
+</section>
+</section>
+<section id="Computing-environment">
 <h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -891,8 +887,8 @@ panel 0.9.7
 jupyterlab 2.2.6
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -909,11 +905,11 @@ jupyterlab 2.2.6
   <div role="contentinfo">
     <p>
       <span class="lastupdated">
-        Last updated on Mar 25, 2021.
+        Last updated on Apr 13, 2021.
       </span>
 
     </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11fa15340> 
+  </div> <jinja2.runtime.BlockReference object at 0x12258d0d0> 
 
 <p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
