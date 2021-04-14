@@ -31,18 +31,18 @@ Due dates
 .. role:: strike
     :class: strike
 
-- :ref:`Follow-along exercises` 1–7: due at 2:30 pm PDT, April 8
-- :ref:`Do-it-yourself exercises` 1–4: due at 2:30 pm PDT, April 8
+- :ref:`Follow-along exercises` 1–7: due at 11:59 pm PDT, April 8
+- :ref:`Do-it-yourself exercises` 1–4: due at 11:59 pm PDT, April 8
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 8–13: due at 2:30 pm PDT, April 15
-- :ref:`Do-it-yourself exercises` 5–7: due at 2:30 pm PDT, April 15
+- :ref:`Follow-along exercises` 8–13: due at 11:59 pm PDT, April 15
+- :ref:`Do-it-yourself exercises` 5–7: due at 11:59 pm PDT, April 15
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 14–17: due at 2:30 pm PDT, April 22
-- :ref:`Do-it-yourself exercises` 8–12: due at 2:30 pm PDT, April 22
+- :ref:`Follow-along exercises` 14–17: due at 11:59 pm PDT, April 22
+- :ref:`Do-it-yourself exercises` 8–12: due at 11:59 pm PDT, April 22
 .. Random comment for spacing
-- :ref:`Spectrophotometer` write-up: due at 2:30 pm PDT, May 13
+- :ref:`Spectrophotometer` write-up: due at 11:59 pm PDT, May 13
 .. Random comment for spacing
-- :ref:`Pulse oximetry` write-up: due at 2:30 pm PDT, June 2
+- :ref:`Pulse oximetry` write-up: due at 11:59 pm PDT, June 2
 
 
 ----
@@ -53,6 +53,8 @@ Weekly activities
 
 In each lab session, you will be working on your exercises or projects. Dates with special activities are shown below.
 
+- **Tu 04/27**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
+
 .. - **Tu 09/29**: Welcome, safety, introduction to Arduino
 .. - **Th 10/01**: A tour through your kit
 .. - **Tu 10/06**: A tour of Arduino Uno
@@ -61,7 +63,7 @@ In each lab session, you will be working on your exercises or projects. Dates wi
 .. - **Th 10/22**: Guest lecture from Heather Lukas and Jihong Min from the `Gao lab <http://www.gao.caltech.edu>`_
 .. - **Tu 10/27**: Guest lecture from `Sina Booeshaghi <https://sinabooeshaghi.com>`_ and Anne Kil from the `Pachter lab <https://pachterlab.github.io>`_
 .. - **Tu 11/03**: Determination of growth rate from growth curves
-.. - **Tu 11/10**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
+.. - **Tu 04/27**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
 .. - **Th 11/19**: Guest lecture from Mu Qiao
 .. - **Th 11/24**: Time series analysis
 .. - **Th 11/26**: Thanksgiving Day: no class
