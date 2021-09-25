@@ -161,38 +161,9 @@
     "    \n",
     "</div>\n",
     "\n",
+    "The circuit in this exercise is *very* important. Be sure you read the answer to this thinking exercise at the end of this lesson.\n",
+    "\n",
     "<hr>"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Summing amplifiers\n",
-    "\n",
-    "When designing circuits, we often want to add voltages. A common example is when we use a high pass filter applied to a signal and the DC signal is attenuated to close to zero so that the filtered signal dips into negative voltages. If we have a detector that can only read nonnegative voltages, we will not be able to read our filtered signal. So, we may wish to add an offset voltage to the filtered signal to bring it above zero (e.g., if the *variation* of the signal is what we are interested in).\n",
-    "\n",
-    "The circuit below is a **non-inverting summing amplifier**. Comparing to the example just described, $V_1$ may be high pass-filtered signal and $V_2$ may be an offset voltage we wish to add to it. \n",
-    "\n",
-    "<div style=\"margin:auto; width: 300px;\">\n",
-    "\n",
-    "![Noninverting summing amplifier circuit](noninverting_summer.svg)\n",
-    "    \n",
-    "</div>\n",
-    "\n",
-    "The idea is the same as the non-inverting amplifier above; we simply bring in two (or more) input signals into the noninverting input of the op-amp. By [Millman's theorem](https://en.wikipedia.org/wiki/Millman%27s_theorem), the input voltage is\n",
-    "\n",
-    "\\begin{align}\n",
-    "V_\\mathrm{in} = \\frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.\n",
-    "\\end{align}\n",
-    "\n",
-    "We then apply the result derived above for the amplification, giving\n",
-    "\n",
-    "\\begin{align}\n",
-    "V_\\mathrm{out} = \\left(1 + \\frac{R_3}{R_4}\\right)\\frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.\n",
-    "\\end{align}\n",
-    "\n",
-    "The resistances $R_1$ and $R_2$ may be tuned to give a weighted sum of the input voltages $V_1$ and $V_2$, and the resistances $R_3$ and $R_4$ may be tuned to give the gain of the amplifier. In the case where $R_1 = R_2$ and $R_3 = R_4$, we get $V_\\mathrm{out} = V_1 + V_2$."
    ]
   },
   {
@@ -261,13 +232,13 @@
     "V_\\mathrm{out} = -\\frac{R_2}{R_1}\\,V_\\mathrm{in}.\n",
     "\\end{align}\n",
     "\n",
-    "The minus sign means that the output voltage is of opposite sign as the input voltage. This circuit is therefore referred to as an **inverting amplifier**."
+    "The minus sign means that the output voltage is of opposite sign as the input voltage. This circuit is therefore referred to as an **inverting amplifier**. This is one of the most widely used op-amp-based circuits. When $R_1 = R_2$, it is used to flip the sign of a voltage."
    ]
   }
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3",
+   "display_name": "Python 3 (ipykernel)",
    "language": "python",
    "name": "python3"
   },
@@ -281,7 +252,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.8.8"
+   "version": "3.8.11"
   }
  },
  "nbformat": 4,

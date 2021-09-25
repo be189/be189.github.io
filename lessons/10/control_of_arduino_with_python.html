@@ -1,75 +1,42 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>10. Serial communication with Python &mdash; BE/EE/MedE 189 a  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="11. Controlling Arduino with widgets" href="../11/control_with_buttons.html" />
     <link rel="prev" title="9. Asynchrony and blocking" href="../09/asynchrony_and_blocking.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-          
-
-          
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
@@ -128,10 +84,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -141,8 +98,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -168,76 +125,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Components</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #FEE0D2" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">BE/EE/MedE 189 a</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
 
-    
   <li class="wy-breadcrumbs-aside">
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/10/control_of_arduino_with_python.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/10/control_of_arduino_with_python" download> Download notebook</a>
         
       
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -508,8 +431,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="10.-Serial-communication-with-Python">
-<h1>10. Serial communication with Python<a class="headerlink" href="#10.-Serial-communication-with-Python" title="Permalink to this headline">¶</a></h1>
+<section id="10.-Serial-communication-with-Python">
+<h1>10. Serial communication with Python<a class="headerlink" href="#10.-Serial-communication-with-Python" title="Permalink to this headline"></a></h1>
 <hr><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -525,8 +448,8 @@ div.rendered_html tbody tr:hover {
 <hr><p>So far, we have programmed Arduino using the Arduino IDE and have used the Serial Monitor and Serial Plotter of the IDE to display signals from Arduino. The Serial Monitor and Plotter are quite limited in their capabilities, and we would like to have much richer control of Arduino.</p>
 <p>In the next several lessons, we will learn how to control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.</p>
 <p>We will start by building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.</p>
-<hr><div class="section" id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
-<h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Permalink to this headline">¶</a></h2>
+<hr><section id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
+<h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Permalink to this headline"></a></h2>
 <p>There is no sketch required for this exercise. Wire up the circuit shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></div><p>For convenience, here is a pictorial schematic.</p>
 <div style="margin: auto; width: 500px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_bb.svg" /></div><p>Note that the three-pin toggle switch in your kit does not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons in your kit.</p>
@@ -535,12 +458,12 @@ div.rendered_html tbody tr:hover {
 <p>Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
 <p>There is no need to submit this follow-along exercise.</p>
 <hr><p>You have now controlled the on-off behavior of an LED with a toggle and a pushbutton. We will proceed to control those using Python-based control. Our objective is to turn the LED on and off using a virtual button in your browser. We will use a Jupyter notebook, so launch a fresh Jupyter notebook.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-7:-Electronic-control-of-an-LED">
-<h2>Follow-along exercise 7: Electronic control of an LED<a class="headerlink" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Follow-along-exercise-7:-Electronic-control-of-an-LED">
+<h2>Follow-along exercise 7: Electronic control of an LED<a class="headerlink" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED" title="Permalink to this headline"></a></h2>
 <p>In this rather long follow-along exercise, we will introduce you to control of Arduino using Python. We will extensively use <a class="reference external" href="https://pyserial.readthedocs.io/">PySerial</a>. This is the most commonly used package for communicating with devices over USB. Note that in this lesson, and in all subsequent lessons, all of the imports are at the top of the notebook.</p>
-<div class="section" id="Finding-the-port">
-<h3>Finding the port<a class="headerlink" href="#Finding-the-port" title="Permalink to this headline">¶</a></h3>
+<section id="Finding-the-port">
+<h3>Finding the port<a class="headerlink" href="#Finding-the-port" title="Permalink to this headline"></a></h3>
 <p>With your Arduino plugged into your computer via a USB connection, you first need to find out which port it is. The names of the ports will differ based on your operating system and when you plugged it in (your OS may assign the ports different names). You can get a list of ports using the <code class="docutils literal notranslate"><span class="pre">serial.tools.list_ports.comports()</span></code> function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -659,49 +582,49 @@ div.rendered_html tbody tr:hover {
 /dev/cu.usbmodem146301
 </pre></div></div>
 </div>
-</div>
-<div class="section" id="Arduino-sketch">
-<h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Arduino-sketch">
+<h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Permalink to this headline"></a></h3>
 <p>Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is to use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is prudent to send a byte and receive a byte to make sure
 everything is working ok; this is called handshaking. In my sketches, I always have <code class="docutils literal notranslate"><span class="pre">0</span></code> be a handshaking byte, and I have Arduino respond with a string, <code class="docutils literal notranslate"><span class="pre">&quot;Message</span> <span class="pre">received.&quot;</span></code>.</p>
 <p>Here is the code for the sketch, which I describe in more detail below.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
 
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED_OFF</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">LED_ON</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-
-
-<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
-
-  <span class="c1">// initialize serial communication</span>
-  <span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">LED_OFF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Read in request</span>
-    <span class="kr">int</span> <span class="n">inByte</span> <span class="o">=</span> <span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c1">// Take appropriate action</span>
-    <span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="nl">LED_ON</span><span class="p">:</span>
-        <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="k">case</span> <span class="nl">LED_OFF</span><span class="p">:</span>
-        <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="k">case</span> <span class="nl">HANDSHAKE</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
-          <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="c1">// initialize serial communication</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Read in request</span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">inByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Take appropriate action</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">LED_ON</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">LED_OFF</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">HANDSHAKE</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Some comments:</p>
@@ -725,14 +648,14 @@ everything is working ok; this is called handshaking. In my sketches, I always h
 </pre></div>
 </div>
 </div>
-<div class="section" id="Thinking-exercise-4:-if-vs. while">
-<h4>Thinking exercise 4: if vs. while<a class="headerlink" href="#Thinking-exercise-4:-if-vs. while" title="Permalink to this headline">¶</a></h4>
+<section id="Thinking-exercise-4:-if-vs. while">
+<h4>Thinking exercise 4: if vs. while<a class="headerlink" href="#Thinking-exercise-4:-if-vs. while" title="Permalink to this headline"></a></h4>
 <p>As a quick aside, think about this: I used <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>. Could I have used <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>? What is the difference?</p>
 <p><em>The answer to this thinking exercise is at the bottom of this lesson.</em></p>
-</div>
-</div>
-<div class="section" id="Opening-a-connection">
-<h3>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Opening-a-connection">
+<h3>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Permalink to this headline"></a></h3>
 <p>When opening a connection with Python, you cannot have the Serial Monitor nor Serial Plotter of the Arduino IDE open, since they will keep the port busy and Python cannot communicate with Arduino.</p>
 <p>To open a connection to the device, we instantiate a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and
 receive a handshake message again to make sure everything is working properly.</p>
@@ -827,9 +750,9 @@ Handshake message: Message received.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="Turning-on-the-LED">
-<h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Turning-on-the-LED">
+<h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Permalink to this headline"></a></h3>
 <p>To turn on the red LED, we need to send code <code class="docutils literal notranslate"><span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">bytes</span></code> to the Arduino. Let’s open up a port to Arduino and send a signal to turn on the red LED.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -864,10 +787,10 @@ Handshake message: Message received.
 </div>
 <hr><p><strong>Answer to if vs. while exercise</strong></p>
 <p>I could have used a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. In the case of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, it keeps reading, byte by byte, what is in the input buffer to Arduino until all bytes are read. However, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement achieves the same because the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is called over and over again. So, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop are in practice equivalent.</p>
-</div>
-</div>
-<div class="section" id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -891,31 +814,28 @@ panel 0.9.7
 jupyterlab 2.2.6
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../11/control_with_buttons.html" class="btn btn-neutral float-right" title="11. Controlling Arduino with widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../09/asynchrony_and_blocking.html" class="btn btn-neutral float-left" title="9. Asynchrony and blocking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../11/control_with_buttons.html" class="btn btn-neutral float-right" title="11. Controlling Arduino with widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">
-        Last updated on Apr 14, 2021.
-      </span>
+      <span class="lastupdated">Last updated on Sep 25, 2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11aec3e50> 
+   <jinja2.runtime.BlockReference object at 0x7f98551011c0> 
 
-<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
@@ -930,22 +850,13 @@ jupyterlab 2.2.6
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

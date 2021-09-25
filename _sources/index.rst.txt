@@ -1,7 +1,7 @@
 BE/EE/MedE 189 a: Design and Construction of Biodevices
 ===============================================================
 
-Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a spectrophotometer and a pulse oximeter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
+Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a pulse oximeter and a cyclic voltameter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
 
 Students are responsible for reading the :ref:`course policies<Policies>`.
 
@@ -9,11 +9,8 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Ed <https://edstem.org/us/courses/5101/>`_ (used for course communications)
-- `Course Zoom link <http://bois.caltech.edu/be189/2021_spring/zoom_links/tuth_class>`_ (password protected)
-- `Recording of lectures <http://bois.caltech.edu/be189/2021_spring/video_link/>`_ (password protected)
-
-During lab sessions, we will sometimes break out into different Zoom sessions headed by various course staff members. Their individual Zoom links are accessible below.
+- `Ed <https://edstem.org/us/courses/14669/>`_ (used for course communications)
+- `Course Zoom link <http://bois.caltech.edu/be189/2021_fall/zoom_links/tuth_class>`_ (password protected)
 
 
 
@@ -22,12 +19,13 @@ People
 
 - Instructor
 
-   + `Changhuei Yang <http://www.biophot.caltech.edu/>`_ (``chyang at caltech dot edu``)
+   + `Justin Bois <http://bois.caltech.edu/>`_ (``bois at caltech dot edu``)
 
 - TAs
 
-   + `Michelle <http://bois.caltech.edu/be189/2021_spring/zoom_links/michelle/>`_ (``ecua at caltech dot edu``)
-   + `Mingshu <http://bois.caltech.edu/be189/2021_spring/zoom_links/mingshu/>`_ (``mlliang at caltech dot edu``)
+   + Tom Duan (``mduan at caltech dot edu``)
+   + Heather Lukas (``hlukas at caltech dot edu``)
+   + Kevin Marx (``kmarx at caltech dot edu``)
 
 
 .. toctree::
@@ -57,10 +55,12 @@ People
    lessons/20/introduction_to_filters.ipynb
    lessons/21/photoresistors_and_adc.ipynb
    lessons/22/op_amps.ipynb
-   lessons/23/transistors.ipynb
-   lessons/24/sample_and_hold.ipynb
-   lessons/25/active_filters.ipynb
-   lessons/26/digital_filters.ipynb
+   lessons/23/applications_of_op_amps.ipynb
+   lessons/24/transistors.ipynb
+   lessons/25/sample_and_hold.ipynb
+   lessons/26/active_filters.ipynb
+   lessons/27/digital_filters.ipynb
+
 
 .. toctree::
    :maxdepth: 1
@@ -75,8 +75,8 @@ People
    :maxdepth: 1
    :caption: Projects
 
-   spectrophotometer.rst
    pulseox.rst
+   cv.rst
 
 
 .. toctree::
@@ -101,13 +101,14 @@ People
 
 .. toctree::
    :maxdepth: 1
-   :caption: Kit contents
+   :caption: Components
 
-   kit_contents.rst
+   components.rst
 
 
 Previous editions of the course
 ------------------------------- 
 
 - `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
+- `Spring 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_spring/>`_
 

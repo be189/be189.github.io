@@ -1,75 +1,42 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>15. Streaming plots with Bokeh &mdash; BE/EE/MedE 189 a  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="16. Control panels" href="../16/control_panels.html" />
     <link rel="prev" title="14. Asynchronously receiving data from Arduino" href="../14/asynchronous_streaming.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-          
-
-          
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
@@ -120,10 +76,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -133,8 +90,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -160,76 +117,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Components</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #FEE0D2" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">BE/EE/MedE 189 a</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
 
-    
   <li class="wy-breadcrumbs-aside">
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/15/streaming_plots_with_bokeh.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/15/streaming_plots_with_bokeh" download> Download notebook</a>
         
       
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -500,8 +423,8 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<div class="section" id="15.-Streaming-plots-with-Bokeh">
-<h1>15. Streaming plots with Bokeh<a class="headerlink" href="#15.-Streaming-plots-with-Bokeh" title="Permalink to this headline">¶</a></h1>
+<section id="15.-Streaming-plots-with-Bokeh">
+<h1>15. Streaming plots with Bokeh<a class="headerlink" href="#15.-Streaming-plots-with-Bokeh" title="Permalink to this headline"></a></h1>
 <hr><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -1051,96 +974,96 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <p>The schematic we will use is shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem2.svg" /></div><p>The sketch is</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">int</span> <span class="n">voltagePin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
 
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">VOLTAGE_REQUEST</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">ON_REQUEST</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">STREAM</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">READ_DAQ_DELAY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">VOLTAGE_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">STREAM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">READ_DAQ_DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Initially, only send data upon request</span>
-<span class="kr">int</span> <span class="n">daqMode</span> <span class="o">=</span> <span class="n">ON_REQUEST</span><span class="p">;</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Default time between data acquisition is 100 ms</span>
-<span class="kr">int</span> <span class="n">daqDelay</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">daqDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// String to store input of DAQ delay</span>
-<span class="kr">String</span> <span class="n">daqDelayStr</span><span class="p">;</span>
+<span class="kr">String</span><span class="w"> </span><span class="n">daqDelayStr</span><span class="p">;</span><span class="w"></span>
 
 
 <span class="c1">// Keep track of last data acquistion for delays</span>
-<span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">timeOfLastDAQ</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
 
-<span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">printVoltage</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Read value from analog pin</span>
-  <span class="kr">int</span> <span class="n">value</span> <span class="o">=</span> <span class="nf">analogRead</span><span class="p">(</span><span class="n">voltagePin</span><span class="p">);</span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Read value from analog pin</span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">voltagePin</span><span class="p">);</span><span class="w"></span>
 
-  <span class="c1">// Get the time point</span>
-  <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">timeMilliseconds</span> <span class="o">=</span> <span class="nf">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// Get the time point</span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeMilliseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
 
-  <span class="c1">// Write the result</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
-    <span class="kr">String</span> <span class="n">outstr</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">timeMilliseconds</span><span class="p">,</span> <span class="n">DEC</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="kr">String</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">DEC</span><span class="p">));</span>
-    <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">outstr</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="c1">// Write the result</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">String</span><span class="w"> </span><span class="n">outstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">timeMilliseconds</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">outstr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// Return time of acquisition</span>
-  <span class="k">return</span> <span class="n">timeMilliseconds</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Initialize serial communication</span>
-  <span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="c1">// Return time of acquisition</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">timeMilliseconds</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// If we&#39;re streaming</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">daqMode</span> <span class="o">==</span> <span class="n">STREAM</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nf">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">timeOfLastDAQ</span> <span class="o">&gt;=</span> <span class="n">daqDelay</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">timeOfLastDAQ</span> <span class="o">=</span> <span class="n">printVoltage</span><span class="p">();</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Initialize serial communication</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-  <span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Read in request</span>
-    <span class="kr">int</span> <span class="n">inByte</span> <span class="o">=</span> <span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span>
 
-    <span class="c1">// If data is requested, fetch it and write it, or handshake</span>
-    <span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">case</span> <span class="nl">VOLTAGE_REQUEST</span><span class="p">:</span>
-        <span class="n">timeOfLastDAQ</span> <span class="o">=</span> <span class="n">printVoltage</span><span class="p">();</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="k">case</span> <span class="nl">ON_REQUEST</span><span class="p">:</span>
-        <span class="n">daqMode</span> <span class="o">=</span> <span class="n">ON_REQUEST</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="k">case</span> <span class="nl">STREAM</span><span class="p">:</span>
-        <span class="n">daqMode</span> <span class="o">=</span> <span class="n">STREAM</span><span class="p">;</span>
-        <span class="k">break</span><span class="p">;</span>
-      <span class="k">case</span> <span class="nl">READ_DAQ_DELAY</span><span class="p">:</span>
-        <span class="c1">// Read in delay, knowing it is appended with an x</span>
-        <span class="n">daqDelayStr</span> <span class="o">=</span> <span class="nf">Serial</span><span class="p">.</span><span class="nf">readStringUntil</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">);</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// If we&#39;re streaming</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">daqMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">STREAM</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">daqDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-        <span class="c1">// Convert to int and store</span>
-        <span class="n">daqDelay</span> <span class="o">=</span> <span class="n">daqDelayStr</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="w">  </span><span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Read in request</span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">inByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span><span class="w"></span>
 
-        <span class="k">break</span><span class="p">;</span>
-      <span class="k">case</span> <span class="nl">HANDSHAKE</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span> <span class="p">{</span>
-          <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// If data is requested, fetch it and write it, or handshake</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">VOLTAGE_REQUEST</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">ON_REQUEST</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">STREAM</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STREAM</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">READ_DAQ_DELAY</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// Read in delay, knowing it is appended with an x</span>
+<span class="w">        </span><span class="n">daqDelayStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">readStringUntil</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// Convert to int and store</span>
+<span class="w">        </span><span class="n">daqDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">daqDelayStr</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">HANDSHAKE</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="section" id="Bokeh-apps">
-<h2>Bokeh apps<a class="headerlink" href="#Bokeh-apps" title="Permalink to this headline">¶</a></h2>
+<section id="Bokeh-apps">
+<h2>Bokeh apps<a class="headerlink" href="#Bokeh-apps" title="Permalink to this headline"></a></h2>
 <p><em>Though this section is not a follow-along exercise, you should run it on your machine so you can see the dynamics.</em></p>
 <p>Thus far, we have used Bokeh to make zoom-able, pan-able, save-able JavaScript-based plots of data. We also used it to make widgets that we could use to control Arduino. But <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a> allows much more interactivity. We can update plots based on results of calculation by the Python interpreter. In our case, we want to update a plot of voltages coming off of the Arduino board in real time.</p>
 <p>As an example of how a Bokeh app can be used to update a plot I build one below to dynamically plot a random walk. The walk will proceed with a dot doing the walk and the trail behind it represented as a line. To build a Bokeh app, we need to write a function that controls the app. The function for the random walker is shown below with an explanation following immediately.</p>
@@ -1219,9 +1142,9 @@ whole data set for the plot each time. As the size of the data set being plotted
 xhr.send();
 </script></div>
 </div>
-</div>
-<div class="section" id="Follow-along-exercise-11:-Plotting-streaming-data">
-<h2>Follow-along exercise 11: Plotting streaming data<a class="headerlink" href="#Follow-along-exercise-11:-Plotting-streaming-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Follow-along-exercise-11:-Plotting-streaming-data">
+<h2>Follow-along exercise 11: Plotting streaming data<a class="headerlink" href="#Follow-along-exercise-11:-Plotting-streaming-data" title="Permalink to this headline"></a></h2>
 <p>We will expand on the work we did in the last lesson to acquire data asynchronously and push the data to a Bokeh plot for updating. To start with, as usual, we need to shake hands with Arduino.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1432,14 +1355,14 @@ var element = document.currentScript.previousSibling.previousSibling;
 </pre></div>
 </div>
 </div>
-<hr></div>
-<div class="section" id="Do-it-yourself-exercise-6:-Etch-A-Sketch">
-<h2>Do-it-yourself exercise 6: Etch-A-Sketch<a class="headerlink" href="#Do-it-yourself-exercise-6:-Etch-A-Sketch" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Do-it-yourself-exercise-6:-Etch-A-Sketch">
+<h2>Do-it-yourself exercise 6: Etch-A-Sketch<a class="headerlink" href="#Do-it-yourself-exercise-6:-Etch-A-Sketch" title="Permalink to this headline"></a></h2>
 <p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Etch_A_Sketch">Etch-A-Sketch</a> is a classic toy wherein a child (or adult!) turns knobs to draw lines. To get an idea of how it works, check out <a class="reference external" href="https://www.youtube.com/watch?v=q4CTyWwQrMo">this video</a>.</p>
 <p>In this exercise, make an Etch-A-Sketch by using two potentiometers as the “knobs”. The voltages measured from analog inputs are then sent to Python and interpreted as positions in an x-y plane. You should have a Bokeh plot that gets updated as the knobs are turned.</p>
-<hr></div>
-<div class="section" id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this headline"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -1465,31 +1388,28 @@ bokeh 2.2.1
 jupyterlab 2.2.6
 </pre></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../16/control_panels.html" class="btn btn-neutral float-right" title="16. Control panels" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../14/asynchronous_streaming.html" class="btn btn-neutral float-left" title="14. Asynchronously receiving data from Arduino" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../16/control_panels.html" class="btn btn-neutral float-right" title="16. Control panels" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">
-        Last updated on Apr 14, 2021.
-      </span>
+      <span class="lastupdated">Last updated on Sep 25, 2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11a16bf70> 
+   <jinja2.runtime.BlockReference object at 0x7f9854a3cdc0> 
 
-<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
@@ -1504,22 +1424,13 @@ jupyterlab 2.2.6
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

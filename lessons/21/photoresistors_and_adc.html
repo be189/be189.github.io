@@ -1,77 +1,42 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>21. Photoresistors, trimming, and ADC &mdash; BE/EE/MedE 189 a  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="22. Operational amplifiers" href="../22/op_amps.html" />
     <link rel="prev" title="20. Introduction to filters" href="../20/introduction_to_filters.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-          
-
-          
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,18 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
@@ -121,10 +75,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -134,8 +89,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -161,76 +116,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Components</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #FEE0D2" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">BE/EE/MedE 189 a</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
 
-    
   <li class="wy-breadcrumbs-aside">
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/21/photoresistors_and_adc.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/21/photoresistors_and_adc" download> Download notebook</a>
         
       
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -255,19 +176,19 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="21.-Photoresistors,-trimming,-and-ADC">
-<h1>21. Photoresistors, trimming, and ADC<a class="headerlink" href="#21.-Photoresistors,-trimming,-and-ADC" title="Permalink to this headline">¶</a></h1>
+<section id="21.-Photoresistors,-trimming,-and-ADC">
+<h1>21. Photoresistors, trimming, and ADC<a class="headerlink" href="#21.-Photoresistors,-trimming,-and-ADC" title="Permalink to this headline"></a></h1>
 <hr><p>You have learned some of the basics of building prototypes of electronic circuits. In this lesson, you will get considerably less guidance on the do-it-yourself exercise, and will have to rely on what you have learned so far and online tutorials and data sheets.</p>
-<div class="section" id="Photoresistors">
-<h2>Photoresistors<a class="headerlink" href="#Photoresistors" title="Permalink to this headline">¶</a></h2>
+<section id="Photoresistors">
+<h2>Photoresistors<a class="headerlink" href="#Photoresistors" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Optoelectronics">Optoelectronic devices</a> are devices that can detect and control light. Our primary interest is detection, since we will be building a spectrophotometer. There are many optoelectronic detectors, including photodiodes, phototransistors, and <a class="reference external" href="https://en.wikipedia.org/wiki/Photoresistor">photoresistors</a>. A photoresistor (pictured below) is a resistor whose resistance is dependent on the intensity of light incident on its surface. The more light,
 the lower the resistance.</p>
 <div style="width: 300px; margin: auto;"><img alt="photoresistor" src="../../_images/photoresistor.jpg" />
 <p><em>Image by Nevit Dilman,</em><a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC-BY-SA 3.0 licened</a><em>.</em></p>
 </div><p>By measuring the voltage across a photoresistor, we can get a measure of the amount of incident light. In the exercise below, you will measure exactly that (which you will also do when you build your spectrophotometer).</p>
-</div>
-<div class="section" id="Trimming-resistances">
-<h2>Trimming resistances<a class="headerlink" href="#Trimming-resistances" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Trimming-resistances">
+<h2>Trimming resistances<a class="headerlink" href="#Trimming-resistances" title="Permalink to this headline"></a></h2>
 <p>In the exercise below, you will likely set up voltage dividers. It helps to have good control over the resistances in the dividers. You have many different resistors in your kits, but what if you want to obtain a resistance you do not have? You can use a couple simple principles to do that.</p>
 <ol class="arabic simple">
 <li><p>Resistances in series result in resistance <span class="math notranslate nohighlight">\(R = R_1 + R_2 + R_3 + \cdots\)</span>.</p></li>
@@ -276,9 +197,9 @@ the lower the resistance.</p>
 <p>Point (2) means that resistors in parallel always have a lower resistance than the largest individual resistor.</p>
 <p>Say you have an available resistor just below the value you want. You can trim the resistance <strong>up</strong> by adding small resistor or resistors <strong>in series</strong> to make up the difference.</p>
 <p>Now say you have an available resistor just above the value you want. You can trim the resistance <strong>down</strong> by adding a small resistor or resistors <strong>in parallel</strong> to bring the total resistance down.</p>
-<hr></div>
-<div class="section" id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
-<h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
+<h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline"></a></h2>
 <p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion capability, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you need a greater bit depth. Included in your kit is a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to perform ADC. You can ask
 Google, but as a hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.</p>
 <p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.</p>
@@ -290,31 +211,28 @@ ADC, possibly the ADS1115.)</p></li>
 <li><p>Given that you can get negative numbers coming into Python from Arduino, you need to allow for that. If you are screening the input data using regular expressions in your parser (as I did in the lessons), you have to include the minus sign in your pattern, for example like this: <code class="docutils literal notranslate"><span class="pre">re.compile(b&quot;\d+|,|-&quot;)</span></code>.</p></li>
 <li><p>Think about how you can use voltage dividers to get the best dynamic range. The photoresistors in your kit have a resistance of about 50 to 100 kΩ depending on the light intensity.</p></li>
 </ol>
-<hr></div>
-</div>
+<hr></section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../22/op_amps.html" class="btn btn-neutral float-right" title="22. Operational amplifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../20/introduction_to_filters.html" class="btn btn-neutral float-left" title="20. Introduction to filters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../22/op_amps.html" class="btn btn-neutral float-right" title="22. Operational amplifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">
-        Last updated on Apr 14, 2021.
-      </span>
+      <span class="lastupdated">Last updated on Sep 25, 2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11a1b1df0> 
+   <jinja2.runtime.BlockReference object at 0x7f9854b85820> 
 
-<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
@@ -329,22 +247,13 @@ ADC, possibly the ADS1115.)</p></li>
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

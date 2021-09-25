@@ -1,75 +1,42 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>9. Asynchrony and blocking &mdash; BE/EE/MedE 189 a  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="10. Serial communication with Python" href="../10/control_of_arduino_with_python.html" />
     <link rel="prev" title="8. Pulse width modulation" href="../08/pulse_width_modulation.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-          
-
-          
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
@@ -122,10 +78,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -135,8 +92,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -162,76 +119,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Components</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #FEE0D2" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">BE/EE/MedE 189 a</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
 
-    
   <li class="wy-breadcrumbs-aside">
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/09/asynchrony_and_blocking.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/09/asynchrony_and_blocking" download> Download notebook</a>
         
       
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -256,88 +179,88 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="9.-Asynchrony-and-blocking">
-<h1>9. Asynchrony and blocking<a class="headerlink" href="#9.-Asynchrony-and-blocking" title="Permalink to this headline">¶</a></h1>
+<section id="9.-Asynchrony-and-blocking">
+<h1>9. Asynchrony and blocking<a class="headerlink" href="#9.-Asynchrony-and-blocking" title="Permalink to this headline"></a></h1>
 <hr><p>Thus far, we have used the <code class="docutils literal notranslate"><span class="pre">delay()</span></code> function to handle the timing of events, such as turning an LED on or off or writing data via a serial connection. The problem with using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is that it works by <strong>blocking</strong>. This means that while <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is running the microprocessor cannot do any other tasks. In the previous exercise, we waited 100 milliseconds before sending data. During that time, the ATmega328 could have performed about 2 million instructions. That is a lot of wasted
 computational resources to enable blocking! (The chip in your computer is more than 1000 times faster, so blocking on your computer wastes even more resources. We will address asynchrony on the Python side in later lessons.)</p>
-<div class="section" id="Asynchrony">
-<h2>Asynchrony<a class="headerlink" href="#Asynchrony" title="Permalink to this headline">¶</a></h2>
+<section id="Asynchrony">
+<h2>Asynchrony<a class="headerlink" href="#Asynchrony" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)">Asynchrony</a> is an important concept in the design of biodevices. It is best explained by example.</p>
 <p>Say you make a device that acquires data from a sensor and sends those data to your computer via USB. Meanwhile, your device should listen for a signal coming from the computer that will ask it to stop sending data. Say you wrote a function that listens to the USB channel for a signal from the computer. Upon receipt of the signal, it stops sending data over USB. The problem is that if you run the listener function and it is blocking, your device cannot do any other operations, including
 processing and sending the sensor data.</p>
 <p>Similarly, if you are using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> to time the sending of data over USB, you are blocking and you could miss the signal from the computer requesting that data stop being sent.</p>
 <p>So, it is important that the listening and sending happen <strong>asynchronously</strong>. While waiting for the signal from the computer, the microprocessor is free to do other tasks. Similarly, while the microprocessor is waiting to send data over USB, it should be able to do other tasks.</p>
 <p>A function that can run asynchronous returns so that the program can proceed and then completes its tasks when possible.</p>
-</div>
-<div class="section" id="Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">
-<h2>Serial.print(), Serial.println(), and Serial.write() are asynchronous<a class="headerlink" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">
+<h2>Serial.print(), Serial.println(), and Serial.write() are asynchronous<a class="headerlink" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous" title="Permalink to this headline"></a></h2>
 <p>Writing data over USB is asynchronous. In most cases, <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code>, <code class="docutils literal notranslate"><span class="pre">Serial.println()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> will almost immediately return and the microcontroller will continue to the next lines of your sketch. Meanwhile, the data is sent over USB while the microcontroller is busy with other tasks. These functions do this by putting the bytes that need to be transfered into an <strong>output buffer</strong>, which is then processed by the USB interface chip and sent to your computer.</p>
 <p>The exception to this behavior is when the output buffer is full. In this case, the microcontroller has no place to dump the bytes that need to be written, so it has to wait (and block) until the buffer is free.</p>
-<hr></div>
-<div class="section" id="Thinking-exercise-3:-Other-asynchronous-functions">
-<h2>Thinking exercise 3: Other asynchronous functions<a class="headerlink" href="#Thinking-exercise-3:-Other-asynchronous-functions" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Thinking-exercise-3:-Other-asynchronous-functions">
+<h2>Thinking exercise 3: Other asynchronous functions<a class="headerlink" href="#Thinking-exercise-3:-Other-asynchronous-functions" title="Permalink to this headline"></a></h2>
 <p>Think back to some previous exercises.</p>
 <p><strong>a)</strong> Does <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operate asynchronously?</p>
 <p><strong>b)</strong> Does <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operate asynchronously?</p>
 <p>The answer to this exercise is at the bottom of this lesson.</p>
-<hr></div>
-<div class="section" id="Avoiding-delay()">
-<h2>Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code><a class="headerlink" href="#Avoiding-delay()" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Avoiding-delay()">
+<h2>Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code><a class="headerlink" href="#Avoiding-delay()" title="Permalink to this headline"></a></h2>
 <p>As a rule of thumb, you should avoid using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> because it is blocking. The function is really convenient when you are just learning or debugging with occasional serial output, but should not really be used beyond that.</p>
 <p>How do we go about avoiding delay? Again, this is best learned by example.</p>
-<hr></div>
-<div class="section" id="Follow-along-exercise-5:-Serial-output-without-delay">
-<h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Follow-along-exercise-5:-Serial-output-without-delay">
+<h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Permalink to this headline"></a></h2>
 <p>Consider the same setup you had for <a class="reference internal" href="../07/adc_and_usart.html"><span class="doc">the follow-along exercise on serial communication</span></a>, the schematic of which is shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" /></div><p>We wish to write voltage values via USB, but without using the blocking function <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function returns this time in milliseconds. The number returned by <code class="docutils literal notranslate"><span class="pre">millis()</span></code> is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, so it is important to declare any variable storing its output as such. Similarly, the function <code class="docutils literal notranslate"><span class="pre">micros()</span></code> returns the amount of time since the last reset in units of microseconds. Note,
 though, that because the Arduino Uno board operates at about 16 MHz, the resolution of <code class="docutils literal notranslate"><span class="pre">micros()</span></code> is four µs.</p>
 <p>So, we use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function to capture when we last sent data. We then use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function again to get the current time. When the difference between the current time and the last time we sent data is at least as large as the time we want between sending data, we then go ahead and send the data. We also set the last time that data was sent to the current time, and then continue. This is implemented in the code below.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">sensorPin</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// How often to write the result to serial in milliseconds</span>
-<span class="kr">const</span> <span class="kr">long</span> <span class="n">reportInterval</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">reportInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Baud rate (must be long)</span>
-<span class="kr">const</span> <span class="kr">long</span> <span class="n">baudRate</span> <span class="o">=</span> <span class="mi">115200</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">115200</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Global variable to keep track of the last writeout</span>
-<span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">timeLastWrite</span><span class="p">;</span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeLastWrite</span><span class="p">;</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">baudRate</span><span class="p">);</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">baudRate</span><span class="p">);</span><span class="w"></span>
 
-  <span class="c1">// Initialize timing</span>
-  <span class="n">timeLastWrite</span> <span class="o">=</span> <span class="nf">millis</span><span class="p">();</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="c1">// Initialize timing</span>
+<span class="w">  </span><span class="n">timeLastWrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Grab the current time</span>
-  <span class="kr">unsigned</span> <span class="kr">long</span> <span class="n">currTime</span> <span class="o">=</span> <span class="nf">millis</span><span class="p">();</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Grab the current time</span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="n">currTime</span> <span class="o">-</span> <span class="n">timeLastWrite</span> <span class="o">&gt;=</span> <span class="n">reportInterval</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Record time of last write</span>
-    <span class="n">timeLastWrite</span> <span class="o">=</span> <span class="n">currTime</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">timeLastWrite</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">reportInterval</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Record time of last write</span>
+<span class="w">    </span><span class="n">timeLastWrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1">// Use ADC to get 10-bit integer sensor value</span>
-    <span class="kr">int</span> <span class="n">sensorVal</span> <span class="o">=</span> <span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Use ADC to get 10-bit integer sensor value</span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">);</span><span class="w"></span>
 
-    <span class="c1">// Convert to voltage</span>
-    <span class="kr">float</span> <span class="n">voltage</span> <span class="o">=</span> <span class="n">sensorVal</span> <span class="o">/</span> <span class="mf">1023.0</span> <span class="o">*</span> <span class="mf">5.0</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// Convert to voltage</span>
+<span class="w">    </span><span class="kr">float</span><span class="w"> </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sensorVal</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1023.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1">// Write the voltage out to two decimal places</span>
-    <span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="c1">// Write the voltage out to two decimal places</span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that I am careful with types, making sure to use <code class="docutils literal notranslate"><span class="pre">long</span></code>s and <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s where appropriate. Note also that it is important that <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> is a global variable. Remember that <code class="docutils literal notranslate"><span class="pre">loop()</span></code> must not take any arguments. We therefore cannot pass <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">long</span></code>, for example. Since it needs to retain its value each time <code class="docutils literal notranslate"><span class="pre">loop()</span></code> is called, which happens over and over again, we have to have <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a global variable.</p>
 <p>Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok.</p>
-<hr></div>
-<div class="section" id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
-<h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
+<h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Permalink to this headline"></a></h2>
 <p>Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved.</p>
 <p>In the hit 1982 television show <a class="reference external" href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Knight Rider</a>, the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced “kit.” If you watch <a class="reference external" href="https://www.youtube.com/watch?v=oNyXYPhnUIs">the show’s opening credits</a>, you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up
 of the scanner bar <a class="reference external" href="https://www.youtube.com/watch?v=WxE2xWZNfOc">here</a>. Note that this scanner bar is from later in the series and features eight lights, while the one in the original pilot and opening credits features six.</p>
@@ -345,31 +268,28 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
 <hr><p><strong>Answer to the asychronous functions exercise</strong></p>
 <p><strong>a)</strong> Yes, <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operates asynchronously. It sends a square wave with a 50% duty ratio at a given frequency on a given pin, and continues to do so even while the microcontroller performs other tasks. It therefore does not block.</p>
 <p><strong>b)</strong> Yes, <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operates asynchronously. It sends square waves with a given duty ratio at a frequency of 490 Hz (980 Hz for pins 5 and 6), and continues to do so even while the microcontroller performs other tasks. It therefore does not block.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../10/control_of_arduino_with_python.html" class="btn btn-neutral float-right" title="10. Serial communication with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../08/pulse_width_modulation.html" class="btn btn-neutral float-left" title="8. Pulse width modulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../10/control_of_arduino_with_python.html" class="btn btn-neutral float-right" title="10. Serial communication with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">
-        Last updated on Apr 14, 2021.
-      </span>
+      <span class="lastupdated">Last updated on Sep 25, 2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11ad6b790> 
+   <jinja2.runtime.BlockReference object at 0x7f9854d94910> 
 
-<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
@@ -384,22 +304,13 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

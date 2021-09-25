@@ -11,7 +11,8 @@ Software
 Books
 -----
 
-- `The Art of Electronics <https://artofelectronics.net>`_ by Horowitz and Hill is considered by many to be *the* book on building electronic circuits.
+- `The Art of Electronics <https://artofelectronics.net>`_ by Horowitz and Hill is considered by many to be *the* book on building electronic circuits. We have two copies in the lab.
+- `Practical Electronics for Inventors <https://www.amazon.com/Practical-Electronics-Inventors-Fourth-Scherz/dp/1259587541>`_ by Scherz and Monk provides good practical advice for building circuits and even for building an electronic workshop. We have a copy in the lab.
 - `Getting Started with Arduino <https://www.makershed.com/products/make-getting-started-with-arduino-3rd-edition>`_ by Banzi and Shiloh is a good introduction to using Arduino for building electronic prototypes.
 - `Programming Arduino <http://simonmonk.org/progardui2ed/>`_ and `Programming Arduino Next Steps <http://simonmonk.org/nextsteps2/>`_ by Simon Monk focus on the software side of making Arduino-based prototypes.
 - `Arduino Cookbook <https://www.oreilly.com/library/view/arduino-cookbook-3rd/9781491903513/>`_ by Margolis, Jepson, and Weldin provides more advanced recipes for using Arduino.

@@ -1116,7 +1116,7 @@
    "source": [
     "Some comments:\n",
     "\n",
-    "- Instead of setting up a watcher like we do with Panel, we use an the `on_change()` method of a toggle widget. The callback function for on-change behavior must have call signature `callback(attr, old, new)`, where `attr` is an attribute of the widget, `old` is the pre-change value of that attribute, and `new` is the post-change value of the attribute.\n",
+    "- Instead of setting up a watcher like we do with Panel, we use the `on_change()` method of a toggle widget. The callback function for on-change behavior must have call signature `callback(attr, old, new)`, where `attr` is an attribute of the widget, `old` is the pre-change value of that attribute, and `new` is the post-change value of the attribute.\n",
     "- We instantiate a toggle with `bokeh.models.Toggle`. Instead of `name`, we use the kwarg `label`.\n",
     "- Instead of setting up a watcher for the toggle widget, the callback is linked using the `on_change()` method of the toggle itself. A toggle has an `active` attribute, which is `True` when the toggle is on and `False` when off. Whenever that value changes, the callback is triggered.\n",
     "\n",

@@ -1,75 +1,42 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>6. Practice programming Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="7. ADC and USART" href="../07/adc_and_usart.html" />
     <link rel="prev" title="5. Programming Arduino" href="../05/programming_arduino.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-          
-
-          
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
@@ -119,10 +75,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -132,8 +89,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -159,76 +116,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Components</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #FEE0D2" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">BE/EE/MedE 189 a</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
 
-    
   <li class="wy-breadcrumbs-aside">
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/06/practice_programming_arduino.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/06/practice_programming_arduino" download> Download notebook</a>
         
       
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -253,76 +176,76 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="6.-Practice-programming-Arduino">
-<h1>6. Practice programming Arduino<a class="headerlink" href="#6.-Practice-programming-Arduino" title="Permalink to this headline">¶</a></h1>
+<section id="6.-Practice-programming-Arduino">
+<h1>6. Practice programming Arduino<a class="headerlink" href="#6.-Practice-programming-Arduino" title="Permalink to this headline"></a></h1>
 <hr><p>In this lesson, we will practice using the programming techniques we learned in <a class="reference internal" href="../05/programming_arduino.html"><span class="doc">the previous lesson</span></a>. I advise keeping that window open for reference as you work through this lesson, which mostly consists of practice.</p>
 <p>To further demonstrate how software allows for rapid prototyping, we will use exactly the same physical setup, at least to begin with, as we used in the blink exercise.</p>
-<div style="width: 600px; margin: auto;"><img alt="Blink breadboard for lesson 6" src="../../_images/blink_bb2.svg" /></div><hr><div class="section" id="Follow-along-exercise-2:-Alien-contact">
-<h2>Follow-along exercise 2: Alien contact<a class="headerlink" href="#Follow-along-exercise-2:-Alien-contact" title="Permalink to this headline">¶</a></h2>
+<div style="width: 600px; margin: auto;"><img alt="Blink breadboard for lesson 6" src="../../_images/blink_bb2.svg" /></div><hr><section id="Follow-along-exercise-2:-Alien-contact">
+<h2>Follow-along exercise 2: Alien contact<a class="headerlink" href="#Follow-along-exercise-2:-Alien-contact" title="Permalink to this headline"></a></h2>
 <p>Now that we have the pieces of the language in place, let’s put them to use!</p>
 <p>In the 1997 film <em>Contact</em> (based on the Carl Sagan book of the same name), alien beings from the Vega star system make contact with people on Earth. They do it by sending a sequence of prime numbers. You can see the discovery in <a class="reference external" href="https://www.youtube.com/watch?v=GZDT-FsO9Uc">this video</a>. In the video, the aliens send the prime numbers as pulses one second apart, with a two-second pause between primes. After they get to 101, they pause for 43 seconds, and then send prime numbers again,
 starting at 2.</p>
 <p>Our task now is to use the same setup we had for our blink exercise to make the LED flash the prime numbers like the aliens did in the movie. We do not need to change the board configuration, only the code.</p>
 <p>The following Arduino code accomplishes the extraterrestrial communication.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set pin 6 as pin controlling LED</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// List of all primes up to and including 101</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">nPrimes</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
-<span class="kr">const</span> <span class="kr">int</span> <span class="n">primes</span><span class="p">[</span><span class="n">nPrimes</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span>
-  <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span>
-  <span class="mi">61</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">101</span>
-<span class="p">};</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nPrimes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">primes</span><span class="p">[</span><span class="n">nPrimes</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="mi">61</span><span class="p">,</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="mi">73</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nf">flash</span><span class="p">(</span><span class="kr">int</span> <span class="n">ledPin</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/*</span>
+<span class="kr">void</span><span class="w"> </span><span class="nf">flash</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Flash the LED over one second.</span>
-<span class="cm">   */</span>
+<span class="cm">   */</span><span class="w"></span>
 
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nf">flashSequence</span><span class="p">(</span><span class="kr">int</span> <span class="n">ledPin</span><span class="p">,</span> <span class="kr">int</span> <span class="n">nFlashes</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/*</span>
+<span class="kr">void</span><span class="w"> </span><span class="nf">flashSequence</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nFlashes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Flash the LED nFlashes times, with one second per flash.</span>
-<span class="cm">   */</span>
+<span class="cm">   */</span><span class="w"></span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nFlashes</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">flash</span><span class="p">(</span><span class="n">ledPin</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="kr">void</span> <span class="nb">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// LED pin is output</span>
-  <span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">OUTPUT</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nFlashes</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">flash</span><span class="p">(</span><span class="n">ledPin</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-<span class="kr">void</span> <span class="nb">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// Loop through each prime</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nPrimes</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Flash prime number of times</span>
-    <span class="n">flashSequence</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// LED pin is output</span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-    <span class="c1">// Wait two seconds until the next prime</span>
-    <span class="nf">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-  <span class="p">}</span>
 
-  <span class="c1">// Wait 43 seconds until transmitting again, just like in the movie</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">43000</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Loop through each prime</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nPrimes</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Flash prime number of times</span>
+<span class="w">    </span><span class="n">flashSequence</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Wait two seconds until the next prime</span>
+<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Wait 43 seconds until transmitting again, just like in the movie</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">43000</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Everything in this sketch could be constructed from the notes in <a class="reference internal" href="../05/programming_arduino.html"><span class="doc">Lesson 5</span></a>. Please carefully read it and make sure you understand it. Then, upload it to the Arduino Uno, and send your LED signals just like the aliens!</p>
 <p>There is no need to turn in this follow-along exercise, since you will expand upon it momentarily in a do-it-yourself exercise.</p>
-<hr></div>
-<div class="section" id="Do-it-yourself-exercise-1:-Alien-contact-with-audio">
-<h2>Do-it-yourself exercise 1: Alien contact with audio<a class="headerlink" href="#Do-it-yourself-exercise-1:-Alien-contact-with-audio" title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Do-it-yourself-exercise-1:-Alien-contact-with-audio">
+<h2>Do-it-yourself exercise 1: Alien contact with audio<a class="headerlink" href="#Do-it-yourself-exercise-1:-Alien-contact-with-audio" title="Permalink to this headline"></a></h2>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Piezoelectric_speaker">piezo buzzer</a> is a device that can make sound by varying an electric field around a sheet of piezoelectic material. Piezoelectrics undergo mechanical deformations in response to accumulation of electric charge. By varying the voltage periodically, the sheet vibrates in the piezo buzzer, producing sound.</p>
 <ol class="arabic simple">
 <li><p>You should have at least one piezo buzzer in your kit. It is black and disk-shaped. Add it to your set up. Be sure to connect the red lead to a digital pin of the Arduino and the black lead to ground (you do not need resistors).</p></li>
@@ -330,9 +253,9 @@ starting at 2.</p>
 </ol>
 <p>Now, put the device in action!</p>
 <p>This is the first exercise you will submit. Remember to submit your exercise as a ZIP file according to the <a class="reference external" href="policies.rst">course policies</a>.</p>
-<hr></div>
-<div class="section" id="Do-it-yourself-exercise-2:-A-proper-Hello,-world.">
-<h2>Do-it-yourself exercise 2: A proper Hello, world.<a class="headerlink" href="#Do-it-yourself-exercise-2:-A-proper-Hello,-world." title="Permalink to this headline">¶</a></h2>
+<hr></section>
+<section id="Do-it-yourself-exercise-2:-A-proper-Hello,-world.">
+<h2>Do-it-yourself exercise 2: A proper Hello, world.<a class="headerlink" href="#Do-it-yourself-exercise-2:-A-proper-Hello,-world." title="Permalink to this headline"></a></h2>
 <p>Our “Hello, world.” exercise was Blink. But let’s properly say “Hello, world.” Leaving your physical setup the same as in the previous exercise, say “Hello, world.” with <a class="reference external" href="https://en.wikipedia.org/wiki/Morse_code">Morse code</a>. Your light and piezo buzzer should be activated at the same time so that the Morse code message is received both visually and audibly.</p>
 <p>Here are some rules for Morse code.</p>
 <ol class="arabic simple">
@@ -345,67 +268,64 @@ starting at 2.</p>
 <li><p>A pause equal to seven dot durations is used between words.</p></li>
 </ol>
 <p>The following aligned arrays give characters and their corresponding Morse code representations.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="kr">String</span> <span class="n">characters</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ,.&quot;</span><span class="p">);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">String</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ,.&quot;</span><span class="p">);</span><span class="w"></span>
 
-<span class="kr">const</span> <span class="kr">String</span> <span class="n">codes</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">&quot;.-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-...&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-.-.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-..&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;..-.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;--.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;....&quot;</span><span class="p">,</span>
-  <span class="s">&quot;..&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.---&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-.-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.-..&quot;</span><span class="p">,</span>
-  <span class="s">&quot;--&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;---&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.--.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;--.-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.-.&quot;</span><span class="p">,</span>
-  <span class="s">&quot;...&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;..-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;...-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.--&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-..-&quot;</span><span class="p">,</span>
-  <span class="s">&quot;-.--&quot;</span><span class="p">,</span>
-  <span class="s">&quot;--..&quot;</span><span class="p">,</span>
-  <span class="s">&quot;--..--&quot;</span><span class="p">,</span>
-  <span class="s">&quot;.-.-.-&quot;</span>
-<span class="p">};</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">String</span><span class="w"> </span><span class="n">codes</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-...&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-.-.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-..&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;..-.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;--.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;....&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;..&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.---&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-.-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.-..&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;--&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;---&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.--.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;--.-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.-.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;...&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;..-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;...-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.--&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-..-&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;-.--&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;--..&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;--..--&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;.-.-.-&quot;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This exercise is a bit more challenging, and I suspect you will want to refer to the Aduino language reference as you go through, in particular looking up which useful methods are available for <code class="docutils literal notranslate"><span class="pre">String</span></code> instances.</p>
 <p>When you submit this exercise, you do not need to show a schematic, since this schematic is the same as in the previous exercise.</p>
-<hr></div>
-</div>
+<hr></section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../07/adc_and_usart.html" class="btn btn-neutral float-right" title="7. ADC and USART" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../05/programming_arduino.html" class="btn btn-neutral float-left" title="5. Programming Arduino" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../07/adc_and_usart.html" class="btn btn-neutral float-right" title="7. ADC and USART" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">
-        Last updated on Apr 14, 2021.
-      </span>
+      <span class="lastupdated">Last updated on Sep 25, 2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> <jinja2.runtime.BlockReference object at 0x11a6cb190> 
+   <jinja2.runtime.BlockReference object at 0x7f98546c2190> 
 
-<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
@@ -420,22 +340,13 @@ starting at 2.</p>
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

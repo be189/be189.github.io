@@ -1,75 +1,42 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>5. Programming Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="6. Practice programming Arduino" href="../06/practice_programming_arduino.html" />
     <link rel="prev" title="4. Schematics" href="../04/schematics.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-          
-
-          
             <a href="../../index.html">
-          
-
-          
-            
             <img src="../../_static/logo.png" class="logo" alt="Logo"/>
-          
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +44,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
@@ -158,10 +114,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/transistors.html">23. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/sample_and_hold.html">24. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/active_filters.html">25. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/digital_filters.html">26. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -171,8 +128,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -198,76 +155,42 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Kit contents</span></p>
+<p class="caption"><span class="caption-text">Components</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../kit_contents.html">Kit contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #FEE0D2" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">BE/EE/MedE 189 a</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
 
 
-    
   <li class="wy-breadcrumbs-aside">
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/05/programming_arduino.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/05/programming_arduino" download> Download notebook</a>
         
       
     
   </li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -292,12 +215,12 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="5.-Programming-Arduino">
-<h1>5. Programming Arduino<a class="headerlink" href="#5.-Programming-Arduino" title="Permalink to this headline">¶</a></h1>
+<section id="5.-Programming-Arduino">
+<h1>5. Programming Arduino<a class="headerlink" href="#5.-Programming-Arduino" title="Permalink to this headline"></a></h1>
 <hr><p>In this lesson, we will take a whirlwind tour through the syntax you need as you write sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>.</p>
 <p>When you finish this lesson, it is important to proceed without much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use.</p>
-<div class="section" id="Review-of-last-lessons">
-<h2>Review of last lessons<a class="headerlink" href="#Review-of-last-lessons" title="Permalink to this headline">¶</a></h2>
+<section id="Review-of-last-lessons">
+<h2>Review of last lessons<a class="headerlink" href="#Review-of-last-lessons" title="Permalink to this headline"></a></h2>
 <p>You will remember in the previous lessons that we have already established a few key syntactical rules.</p>
 <ol class="arabic simple">
 <li><p>All variables have to have a <strong>type declaration</strong>. So far, we have only seen <code class="docutils literal notranslate"><span class="pre">int</span></code> data types, some of which we declared as <code class="docutils literal notranslate"><span class="pre">const</span></code>, meaning that the value of the variable cannot change.</p></li>
@@ -308,30 +231,30 @@
 <li><p>Comments start with <code class="docutils literal notranslate"><span class="pre">//</span></code> or appear between <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>.</p></li>
 </ol>
 <p>We will now proceed to learn about programming the Arduino microcontroller.</p>
-</div>
-<div class="section" id="A-general-note-about-programming-in-Arduino:-keep-it-simple">
-<h2>A general note about programming in Arduino: keep it simple<a class="headerlink" href="#A-general-note-about-programming-in-Arduino:-keep-it-simple" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="A-general-note-about-programming-in-Arduino:-keep-it-simple">
+<h2>A general note about programming in Arduino: keep it simple<a class="headerlink" href="#A-general-note-about-programming-in-Arduino:-keep-it-simple" title="Permalink to this headline"></a></h2>
 <p>You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. This means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task in ARduino with
 static arrays. Unforeseen problems, such as memory fragmentation, can rear their ugly heads.</p>
 <p>It is safe to use pointers and work with them, e.g., to make two-dimensional arrays, but we will not discuss them here. Nonetheless, be careful when doing so.</p>
 <p>Since we ultimately will be using the Arduino Uno to run and instrument and collect and send data, we will be connecting it to your computer. You computer is <em>much</em> more powerful that the Arduino Uno (that’s why it probably costs two orders of magnitude more). Furthermore, you can program whatever manipulations you need to do to the data in Python, which, being a high-level interpreted language, is much easier to quickly write functional code with than C++.</p>
 <p>With that in mind, let us proceed to learn about programming Arduino.</p>
-</div>
-<div class="section" id="Data-types">
-<h2>Data types<a class="headerlink" href="#Data-types" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Data-types">
+<h2>Data types<a class="headerlink" href="#Data-types" title="Permalink to this headline"></a></h2>
 <p>As I have mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">j</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 
-<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>as is this:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>They give the same result.</p>
-<div class="section" id="Scalar-data-types">
-<h3>Scalar data types<a class="headerlink" href="#Scalar-data-types" title="Permalink to this headline">¶</a></h3>
+<section id="Scalar-data-types">
+<h3>Scalar data types<a class="headerlink" href="#Scalar-data-types" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: A <code class="docutils literal notranslate"><span class="pre">bool</span></code> stores a single bit of information. It can take values of 0 or 1. In your sketches, though, use the Boolean constants <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> for the values of a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">byte</span></code>: A byte is an unsigned 8-bit integer. It can take values from 0 to 255; that is 0 to 2⁸ – 1.</p></li>
@@ -344,149 +267,149 @@ static arrays. Unforeseen problems, such as memory fragmentation, can rear their
 <li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: A <code class="docutils literal notranslate"><span class="pre">float</span></code> in an Arduino sketch is a 32-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point number</a>. A <code class="docutils literal notranslate"><span class="pre">float</span></code> can take values between –3.4028235×10³⁸ and 3.4028235×10³⁸. It provides six or seven digits of precision.</p></li>
 </ul>
 <p>Note that on an Ardunio Uno, there is no <code class="docutils literal notranslate"><span class="pre">double</span></code> data type. Note also that the data type <code class="docutils literal notranslate"><span class="pre">short</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-</div>
-<div class="section" id="Arrays">
-<h3>Arrays<a class="headerlink" href="#Arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Arrays">
+<h3>Arrays<a class="headerlink" href="#Arrays" title="Permalink to this headline"></a></h3>
 <p>As I mentioned above, we will not discuss complicated array structures. For this class, simple static one-dimensional arrays will suffice.</p>
-<div class="section" id="Declaring-arrays">
-<h4>Declaring arrays<a class="headerlink" href="#Declaring-arrays" title="Permalink to this headline">¶</a></h4>
+<section id="Declaring-arrays">
+<h4>Declaring arrays<a class="headerlink" href="#Declaring-arrays" title="Permalink to this headline"></a></h4>
 <p>There is no <code class="docutils literal notranslate"><span class="pre">array</span></code> data type. Rather, an array is an ordered collection of elements of a single data type. An array is declared with the data type of its elements. To declare an array of 5 <code class="docutils literal notranslate"><span class="pre">int</span></code>s, the syntax is</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Indexing-an-array">
-<h4>Indexing an array<a class="headerlink" href="#Indexing-an-array" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="Indexing-an-array">
+<h4>Indexing an array<a class="headerlink" href="#Indexing-an-array" title="Permalink to this headline"></a></h4>
 <p>To access the elements of an array, I use indexing with brackets. <strong>Indexing in C++ is 0-based.</strong></p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
 
-<span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="n">myArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">myArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If I asked for <code class="docutils literal notranslate"><span class="pre">myArray[4]</span></code>, which does not exist, the compiler will not give an error, and I’ll get weird results when I run the code. It is therefore very important that you are careful not to overrun an array.</p>
-</div>
-<div class="section" id="Directly-creating-an-array">
-<h4>Directly creating an array<a class="headerlink" href="#Directly-creating-an-array" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="Directly-creating-an-array">
+<h4>Directly creating an array<a class="headerlink" href="#Directly-creating-an-array" title="Permalink to this headline"></a></h4>
 <p>Alternatively, I can create an array using braces.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>When creating an array in this case, I do not need to specify how many entries; the compiler will infer it.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myArray</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Determining-the-number-of-elements-in-an-array">
-<h4>Determining the number of elements in an array<a class="headerlink" href="#Determining-the-number-of-elements-in-an-array" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="Determining-the-number-of-elements-in-an-array">
+<h4>Determining the number of elements in an array<a class="headerlink" href="#Determining-the-number-of-elements-in-an-array" title="Permalink to this headline"></a></h4>
 <p>Later on in a program, I might like to know how many entries are in an array. There is no built-in function to do that. But you can use the <code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> function, which returns the number of bytes that an object occupies in memory. Since every entry in an array is of the same type, you can use the <code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> function to get the number of entries by dividing the size of the array by the size of an entry.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">lenArray</span> <span class="o">=</span> <span class="kr">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span> <span class="o">/</span> <span class="kr">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">lenArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kr">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Mutating-arrays">
-<h4>Mutating arrays<a class="headerlink" href="#Mutating-arrays" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="Mutating-arrays">
+<h4>Mutating arrays<a class="headerlink" href="#Mutating-arrays" title="Permalink to this headline"></a></h4>
 <p>Because I do not have <code class="docutils literal notranslate"><span class="pre">const</span></code> in front of the declaration, I can change the values of entries in the array.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
 
-<span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// myArray is now {3, 2, 5, 3}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Using-entries-of-an-array-in-a-calculation">
-<h4>Using entries of an array in a calculation<a class="headerlink" href="#Using-entries-of-an-array-in-a-calculation" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="Using-entries-of-an-array-in-a-calculation">
+<h4>Using entries of an array in a calculation<a class="headerlink" href="#Using-entries-of-an-array-in-a-calculation" title="Permalink to this headline"></a></h4>
 <p>I can also access entries of an array with indexing and use their values.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
 
-<span class="kr">int</span> <span class="n">mySum</span> <span class="o">=</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">mySum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
 
 <span class="c1">// mySum stores the value 12.</span>
 </pre></div>
 </div>
 <p>I can also pluck values out of an array and store them.</p>
-</div>
-</div>
-<div class="section" id="Character-and-string-data-types">
-<h3>Character and string data types<a class="headerlink" href="#Character-and-string-data-types" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Character-and-string-data-types">
+<h3>Character and string data types<a class="headerlink" href="#Character-and-string-data-types" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>: A single character, like <code class="docutils literal notranslate"><span class="pre">'A'</span></code> is stored as a <code class="docutils literal notranslate"><span class="pre">char</span></code>. When defining a <code class="docutils literal notranslate"><span class="pre">char</span></code>, it is in single quotes, e.g., <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">myGradeInBE189</span> <span class="pre">=</span> <span class="pre">'A';</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: A <code class="docutils literal notranslate"><span class="pre">string</span></code> is an array of <code class="docutils literal notranslate"><span class="pre">char</span></code>s. They are constructed using double quotes. <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">myString[]</span> <span class="pre">=</span> <span class="pre">&quot;Hello,</span> <span class="pre">world.&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">string</span></code>s are <strong>null-terminated</strong>, which means that the last element of the array of characters is a special character called a <strong>null character</strong>. This character is <code class="docutils literal notranslate"><span class="pre">\0</span></code>. It is important because it lets functions that work with strings know where the string ends.</p></li>
 </ul>
-<div class="section" id="The-String-class">
-<h4>The String class<a class="headerlink" href="#The-String-class" title="Permalink to this headline">¶</a></h4>
+<section id="The-String-class">
+<h4>The String class<a class="headerlink" href="#The-String-class" title="Permalink to this headline"></a></h4>
 <p>While I gave a warning about using C++’s object orientation, the core libraries have some handy classes that you can make use of. The <code class="docutils literal notranslate"><span class="pre">String</span></code> class is particularly useful.</p>
 <p>To construct a <code class="docutils literal notranslate"><span class="pre">String</span></code> instance, you use <code class="docutils literal notranslate"><span class="pre">String()</span></code> as a function. You have to make sure to declare your variable to be of a <code class="docutils literal notranslate"><span class="pre">String</span></code> type.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span> <span class="n">myString</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The variable <code class="docutils literal notranslate"><span class="pre">myString</span></code> now has many methods to use. Here are a few:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span> <span class="n">myString</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Gives 13</span>
-<span class="kr">int</span> <span class="n">lenString</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">lenString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// Converts to upper case in place.</span>
-<span class="n">myString</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">();</span>
+<span class="n">myString</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// Gives 5</span>
-<span class="kr">int</span> <span class="n">commaIndex</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">commaIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myString</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can also use operators with the string.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span> <span class="n">myString</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// You can use + to concatenate with instantiating</span>
-<span class="kr">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span> <span class="o">+</span> <span class="s">&quot; Pleased to meet you.&quot;</span><span class="p">);</span>
+<span class="kr">String</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Pleased to meet you.&quot;</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// Or after instantiation</span>
-<span class="kr">String</span> <span class="n">greeting</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="n">myString</span> <span class="o">+</span> <span class="s">&quot; Pleased to meet you.&quot;</span><span class="p">);</span>
+<span class="kr">String</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">myString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Pleased to meet you.&quot;</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can also convert a number to a string, and a string to a number.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Convert an integer</span>
-<span class="kr">String</span> <span class="n">intAsString</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="mi">3252</span><span class="p">);</span>
+<span class="kr">String</span><span class="w"> </span><span class="n">intAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="mi">3252</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// And bring it back to an integer</span>
-<span class="kr">int</span> <span class="n">favoriteInt</span> <span class="o">=</span> <span class="n">intAsString</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">favoriteInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intAsString</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span><span class="w"></span>
 
 <span class="c1">// If you convert a float, the second argument is how many decimal places to keep.</span>
 <span class="c1">// This gives &quot;3.14&quot;.</span>
-<span class="kr">String</span> <span class="n">floatAsString</span> <span class="o">=</span> <span class="kr">String</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="kr">String</span><span class="w"> </span><span class="n">floatAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// You can convert back to a float. This will give 3.14.</span>
-<span class="kr">float</span> <span class="n">pi</span> <span class="o">=</span> <span class="n">floatAsString</span><span class="p">.</span><span class="n">toFloat</span><span class="p">();</span>
+<span class="kr">float</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">floatAsString</span><span class="p">.</span><span class="n">toFloat</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Unless you are RAM constrained, you should just use <code class="docutils literal notranslate"><span class="pre">String</span></code> objects when handling strings. They have a bigger footprint in RAM, but the benefits are substantial.</p>
-</div>
-</div>
-<div class="section" id="Type-conversion">
-<h3>Type conversion<a class="headerlink" href="#Type-conversion" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="Type-conversion">
+<h3>Type conversion<a class="headerlink" href="#Type-conversion" title="Permalink to this headline"></a></h3>
 <p>You can change types of a variable using <strong>casting</strong>. To cast, place the data type you want to convert to in parentheses before the variable you are converting. Here are a few examples.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">myInt</span> <span class="o">=</span> <span class="mi">176</span><span class="p">;</span>
-<span class="kr">float</span> <span class="n">myFloat</span> <span class="o">=</span> <span class="mf">2.718</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">176</span><span class="p">;</span><span class="w"></span>
+<span class="kr">float</span><span class="w"> </span><span class="n">myFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.718</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Convert an int to a byte. Be sure it&#39;s ≤ 255</span>
-<span class="kr">byte</span> <span class="n">intAsByte</span> <span class="o">=</span> <span class="p">(</span><span class="kr">byte</span><span class="p">)</span> <span class="n">myInt</span><span class="p">;</span>
+<span class="kr">byte</span><span class="w"> </span><span class="n">intAsByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">byte</span><span class="p">)</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Convert an int to a float</span>
-<span class="kr">float</span> <span class="n">intAsFloat</span> <span class="o">=</span> <span class="p">(</span><span class="kr">float</span><span class="p">)</span> <span class="n">myInt</span><span class="p">;</span>
+<span class="kr">float</span><span class="w"> </span><span class="n">intAsFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">float</span><span class="p">)</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// Convert a float to an int (gives 2; chops off decimal)</span>
-<span class="kr">int</span> <span class="n">floatAsInt</span> <span class="o">=</span> <span class="p">(</span><span class="kr">int</span><span class="p">)</span> <span class="n">myFloat</span><span class="p">;</span>
+<span class="kr">int</span><span class="w"> </span><span class="n">floatAsInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="p">)</span><span class="w"> </span><span class="n">myFloat</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="Operators">
-<h2>Operators<a class="headerlink" href="#Operators" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Operators">
+<h2>Operators<a class="headerlink" href="#Operators" title="Permalink to this headline"></a></h2>
 <p>Now that we have a handle on data types, we can look into operators.</p>
-<div class="section" id="Arithmetic-operators">
-<h3>Arithmetic operators<a class="headerlink" href="#Arithmetic-operators" title="Permalink to this headline">¶</a></h3>
+<section id="Arithmetic-operators">
+<h3>Arithmetic operators<a class="headerlink" href="#Arithmetic-operators" title="Permalink to this headline"></a></h3>
 <p>We have already seen the <strong>assignment operator</strong>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, and it works as you might intuit. Other arithmetic operators are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>: Addition. It is overloaded for <code class="docutils literal notranslate"><span class="pre">String</span></code> objects, doing concatenation instead.</p></li>
@@ -497,9 +420,9 @@ static arrays. Unforeseen problems, such as memory fragmentation, can rear their
 </ul>
 <p>Note that there is no floor division. This can be accomplished with casting, e.g., <code class="docutils literal notranslate"><span class="pre">(int)</span> <span class="pre">6</span> <span class="pre">/</span> <span class="pre">4</span></code> will give <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>There is also no raise-to-power operator. This is achieved using the <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function.</p>
-</div>
-<div class="section" id="Comparison-operators">
-<h3>Comparison operators<a class="headerlink" href="#Comparison-operators" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Comparison-operators">
+<h3>Comparison operators<a class="headerlink" href="#Comparison-operators" title="Permalink to this headline"></a></h3>
 <p>These are the same as in Python and give a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, as a result.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>: Equal to.</p></li>
@@ -509,9 +432,9 @@ static arrays. Unforeseen problems, such as memory fragmentation, can rear their
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>: Less than or equal to.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>: Greater than or equal to.</p></li>
 </ul>
-</div>
-<div class="section" id="Boolean-operators">
-<h3>Boolean operators<a class="headerlink" href="#Boolean-operators" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Boolean-operators">
+<h3>Boolean operators<a class="headerlink" href="#Boolean-operators" title="Permalink to this headline"></a></h3>
 <p>The three Boolean operators are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>: AND</p></li>
@@ -520,24 +443,24 @@ static arrays. Unforeseen problems, such as memory fragmentation, can rear their
 </ul>
 <p>Here are some examples.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Gives true</span>
-<span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="o">&amp;&amp;</span> <span class="mi">7</span> <span class="o">&lt;</span> <span class="mi">93</span>
+<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
 
 <span class="c1">// Gives true</span>
-<span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="o">||</span> <span class="mi">7</span> <span class="o">&lt;</span> <span class="mi">93</span>
+<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
 
 <span class="c1">// Gives false</span>
-<span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="o">&amp;&amp;</span> <span class="mi">7</span> <span class="o">&gt;</span> <span class="mi">93</span>
+<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
 
 <span class="c1">// Gives true</span>
-<span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="o">||</span> <span class="mi">7</span> <span class="o">&gt;</span> <span class="mi">93</span>
+<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
 
 <span class="c1">// Gives false</span>
-<span class="o">!</span><span class="p">(</span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">6</span> <span class="o">||</span> <span class="mi">7</span> <span class="o">&gt;</span> <span class="mi">93</span><span class="p">)</span>
+<span class="o">!</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">93</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Compound-operators">
-<h3>Compound operators<a class="headerlink" href="#Compound-operators" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Compound-operators">
+<h3>Compound operators<a class="headerlink" href="#Compound-operators" title="Permalink to this headline"></a></h3>
 <p><strong>Compound operators</strong> are used to change the values of variables in place. The operators are best explained by considering equivalent expressions.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -573,9 +496,9 @@ static arrays. Unforeseen problems, such as memory fragmentation, can rear their
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="Bitwise-operators">
-<h3>Bitwise operators<a class="headerlink" href="#Bitwise-operators" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Bitwise-operators">
+<h3>Bitwise operators<a class="headerlink" href="#Bitwise-operators" title="Permalink to this headline"></a></h3>
 <p>Bitwise operations work on numbers at the level of their binary representations. While I have not used these operators very often in my various hacking pursuits, they do come up fairly often in programming devices, especially in the context of communications where data are sent and received as bits and bytes.</p>
 <p>I think the operators are best explored by example. To keep the binary representations short, we will use <code class="docutils literal notranslate"><span class="pre">byte</span></code>s instead of <code class="docutils literal notranslate"><span class="pre">int</span></code>s. Say we have a <code class="docutils literal notranslate"><span class="pre">byte</span></code> variable <code class="docutils literal notranslate"><span class="pre">01001101</span></code>. This corresponds to the decimal number 77. The number <code class="docutils literal notranslate"><span class="pre">10001110</span></code> is 142. Let us now consider some bitwise operators on these two numbers to see how they work. It helps to look at these two binary numbers on top of each other to make easy comparisons</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = 77:  01001101
@@ -583,8 +506,8 @@ y = 142: 10001110
 </pre></div>
 </div>
 <p>In what follows, assume that we have already executed the code</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">byte</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">77</span><span class="p">;</span>
-<span class="kr">byte</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">142</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">byte</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">77</span><span class="p">;</span><span class="w"></span>
+<span class="kr">byte</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">142</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -601,53 +524,53 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>: Right bitshift. This operations slides <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">0</span></code>s rightward a set number of steps, discarding bits that are shifted off to the right. <em>Be careful</em>, the bits that are padded to the left are whatever the highest bit is if you are using an <code class="docutils literal notranslate"><span class="pre">int</span></code>. That means that negative integers are padded with <code class="docutils literal notranslate"><span class="pre">1</span></code>s and positive integers are padded with <code class="docutils literal notranslate"><span class="pre">0</span></code>s. This method of padding is called <strong>sign extension</strong>. So, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">3</span></code> gives 9, which has a binary representation of
 <code class="docutils literal notranslate"><span class="pre">0000000001001</span></code>. Conversely, consider a right bitshift on <code class="docutils literal notranslate"><span class="pre">-77</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111110110011</span></code>. <code class="docutils literal notranslate"><span class="pre">-77</span> <span class="pre">&gt;&gt;</span> <span class="pre">3</span></code> gives <code class="docutils literal notranslate"><span class="pre">-10</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111111110110</span></code>.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="Conditionals">
-<h2>Conditionals<a class="headerlink" href="#Conditionals" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Conditionals">
+<h2>Conditionals<a class="headerlink" href="#Conditionals" title="Permalink to this headline"></a></h2>
 <p>We have now seen the various data types and operations we can do with them. Let us now turn our attention to control flow, starting with conditionals.</p>
-<div class="section" id="if-statements">
-<h3>if statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h3>
+<section id="if-statements">
+<h3>if statements<a class="headerlink" href="#if-statements" title="Permalink to this headline"></a></h3>
 <p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement has the following syntax.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">expression_that_evaluates_to_a_bool</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Expressions that are evaluated in the case of true</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="c1">// Expressions that are evaluated in the case of false</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_that_evaluates_to_a_bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of true</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of false</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The else clause may be omitted. You may also chain <code class="docutils literal notranslate"><span class="pre">if</span></code> statements together.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">expression_that_evaluates_to_a_bool</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Expressions that are evaluated in the case of true</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">another_expression_that_evaluates_to_a_bool</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Expressions that are evaluated in the case of true for another expression</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="c1">// Expressions that are evaluated in the case of falses for all if&#39;s</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_that_evaluates_to_a_bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of true</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">another_expression_that_evaluates_to_a_bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of true for another expression</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of falses for all if&#39;s</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You can have as many <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> blocks as you like.</p>
-</div>
-<div class="section" id="switch-cases">
-<h3>switch cases<a class="headerlink" href="#switch-cases" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="switch-cases">
+<h3>switch cases<a class="headerlink" href="#switch-cases" title="Permalink to this headline"></a></h3>
 <p>We can also use <strong>switch-cases</strong> as conditionals. Let’s say we have a <code class="docutils literal notranslate"><span class="pre">char</span></code> variable called <code class="docutils literal notranslate"><span class="pre">var</span></code> that can take on 26 values, <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">'B'</span></code>, <code class="docutils literal notranslate"><span class="pre">'C'</span></code>, etc. We want to do specific tasks when the value is <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">'B'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'C'</span></code>, and a different task if it is any other letter. A switch-case accomplishes this.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="sc">&#39;A&#39;</span><span class="o">:</span>
-    <span class="c1">// Do what I want for &#39;A&#39;</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="sc">&#39;B&#39;</span><span class="o">:</span>
-    <span class="c1">// Do what I want for &#39;B&#39;</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">case</span> <span class="sc">&#39;C&#39;</span><span class="o">:</span>
-    <span class="c1">// Do what I want for &#39;B&#39;</span>
-    <span class="k">break</span><span class="p">;</span>
-  <span class="k">default</span><span class="o">:</span>
-    <span class="c1">// Whatever I want to do for the others</span>
-    <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do what I want for &#39;A&#39;</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do what I want for &#39;B&#39;</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Do what I want for &#39;B&#39;</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Whatever I want to do for the others</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A few notes.</p>
@@ -657,130 +580,130 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 <li><p>You can omit the <code class="docutils literal notranslate"><span class="pre">default</span></code> case if you like.</p></li>
 <li><p>The above will give the same result as:</p></li>
 </ol>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">var</span> <span class="o">==</span> <span class="sc">&#39;A&#39;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Do what I want for &#39;A&#39;</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">var</span> <span class="o">==</span> <span class="sc">&#39;B&#39;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Do what I want for &#39;B&#39;</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span>  <span class="p">(</span><span class="n">var</span> <span class="o">==</span> <span class="sc">&#39;C&#39;</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Do what I want for &#39;C&#39;</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
-  <span class="c1">// Whatever I want to do for the others</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do what I want for &#39;A&#39;</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do what I want for &#39;B&#39;</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w">  </span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do what I want for &#39;C&#39;</span>
+<span class="p">}</span><span class="w"></span>
+<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Whatever I want to do for the others</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Switch-cases are typically preferred when evaluating fixed data values, whereas if statements are preferred when evaluating expressions that give a Boolean.</p>
-</div>
-</div>
-<div class="section" id="Iteration">
-<h2>Iteration<a class="headerlink" href="#Iteration" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Iteration">
+<h2>Iteration<a class="headerlink" href="#Iteration" title="Permalink to this headline"></a></h2>
 <p>There are three structures for iteration, a for loop, a while loop, and a do-while loop.</p>
-<div class="section" id="for-loops">
-<h3>for loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h3>
+<section id="for-loops">
+<h3>for loops<a class="headerlink" href="#for-loops" title="Permalink to this headline"></a></h3>
 <p>A for loop is used to do a task over and over again a set number of times. A for loop looks like this:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">initialization</span><span class="p">;</span> <span class="n">condition_to_keep_going</span><span class="p">;</span> <span class="n">increment</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Stuff you want to do over and over</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition_to_keep_going</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Stuff you want to do over and over</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The initialization happens when the loop is first entered. Usually, it initializes a counter that you will increment in a for loop. The condition is tested at the beginning of each iteration through the loop. If the expression for the condition must give <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. If it gives <code class="docutils literal notranslate"><span class="pre">false</span></code>, iteration is terminated. Finally, the increment statement is run after each cycle of the loop.</p>
 <p>For example, to make an LED flash exactly ten times, you might do this.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Note that if the body of the loop is a single line, it can come after the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement and end with a semicolon. For example, if we wanted to do something silly, like a series of delays, we could do:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="while-loops">
-<h3>while loops<a class="headerlink" href="#while-loops" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="while-loops">
+<h3>while loops<a class="headerlink" href="#while-loops" title="Permalink to this headline"></a></h3>
 <p>A while loop is used when you want to do a task over and over again until a condition is met. Its syntax is:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="n">condition_to_keep_going</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Do want you want to do</span>
-<span class="p">}</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition_to_keep_going</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do want you want to do</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>At the start of each iteration, the condition is checked. If it evaluates <code class="docutils literal notranslate"><span class="pre">false</span></code>, iteration is terminated. Inside the block of the while loop, it is important that the condition changes, otherwise the while loop will never stop. The ten-flashes of an LED written using a while loop looks like this.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Similar to for loops, one-liner bodies can come directly after the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement, with the braces being dispensable.</p>
-</div>
-<div class="section" id="do-while-loops">
-<h3>do-while loops<a class="headerlink" href="#do-while-loops" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="do-while-loops">
+<h3>do-while loops<a class="headerlink" href="#do-while-loops" title="Permalink to this headline"></a></h3>
 <p>A do-while loop is just like a while loop, except the condition is evaluated at the end of the loop. This means that the body of the loop is evaluated at least once, on the first iteration. The syntax is:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">do</span> <span class="p">{</span>
-  <span class="c1">// Do want you want to do</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">condition_to_keep_going</span><span class="p">);</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Do want you want to do</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition_to_keep_going</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Here is the flash-the-LED-ten-times code as a do-while loop.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">do</span> <span class="p">{</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-  <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">);</span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="Breaking-and-continuing">
-<h3>Breaking and continuing<a class="headerlink" href="#Breaking-and-continuing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="Breaking-and-continuing">
+<h3>Breaking and continuing<a class="headerlink" href="#Breaking-and-continuing" title="Permalink to this headline"></a></h3>
 <p>In any of the three types of loops, the <code class="docutils literal notranslate"><span class="pre">break</span></code> keyword will stop iteration and break out of the loop, heading to the next part of the program. If the <code class="docutils literal notranslate"><span class="pre">continue</span></code> keyword is encountered within the body of a loop, the rest of the body is ignored and then iteration continues.</p>
-</div>
-</div>
-<div class="section" id="Functions">
-<h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="Functions">
+<h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline"></a></h2>
 <p>As with design of devices, it is useful to practice <a class="reference external" href="https://en.wikipedia.org/wiki/Modular_programming">modular design</a> in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.</p>
 <p>It is easiest to see how functions are defined by looking at one. Here is a function to flash an LED <em>n</em> times.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span> <span class="nf">flashLED</span><span class="p">(</span><span class="kr">int</span> <span class="n">ledPin</span><span class="p">,</span> <span class="kr">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/*</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nf">flashLED</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Flash an LED controlled via `ledPin` `n` times.</span>
-<span class="cm">   */</span>
+<span class="cm">   */</span><span class="w"></span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">HIGH</span><span class="p">);</span>
-    <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-    <span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="kr">LOW</span><span class="p">);</span>
-    <span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-<span class="p">}</span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>And here is another function that give the sum or an array of integers.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span> <span class="nf">intSum</span><span class="p">(</span><span class="kr">int</span> <span class="n">ar</span><span class="p">[],</span> <span class="kr">int</span> <span class="n">lenArray</span><span class="p">)</span> <span class="p">{</span>
-  <span class="cm">/*</span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="nf">intSum</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[],</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">lenArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Compute the sum of an array of integers. Doesn&#39;t check</span>
 <span class="cm">   * if the sum overruns the maximum value of an int.</span>
-<span class="cm">   */</span>
-  <span class="kr">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 
-  <span class="k">for</span> <span class="p">(</span><span class="kr">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lenArray</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">sum</span> <span class="o">+=</span> <span class="n">ar</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lenArray</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ar</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Referring to the above two functions, here are some syntactical rules for functions.</p>
@@ -792,36 +715,33 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 <li><p>If a function returns something, this is accomplished with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p></li>
 <li><p>Variables used within functions need to be declared with type declarations. By default, the scope of these variables is limited to the function in which they are declared.</p></li>
 </ol>
-</div>
-<div class="section" id="Onwards!">
-<h2>Onwards!<a class="headerlink" href="#Onwards!" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="Onwards!">
+<h2>Onwards!<a class="headerlink" href="#Onwards!" title="Permalink to this headline"></a></h2>
 <p>There are many many more features to C++, and therefore many more ways you can program Arduino. However, the basics here are sufficient to build quite powerful programs and rapidly increase the speed of your prototypes.</p>
 <p>As always, just reading this will not make these ideas stick. You need to practice. I advise you to proceed directly to the next lesson.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../06/practice_programming_arduino.html" class="btn btn-neutral float-right" title="6. Practice programming Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../04/schematics.html" class="btn btn-neutral float-left" title="4. Schematics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../06/practice_programming_arduino.html" class="btn btn-neutral float-right" title="6. Practice programming Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">
-        Last updated on Apr 14, 2021.
-      </span>
+      <span class="lastupdated">Last updated on Sep 25, 2021.
+      </span></p>
+  </div>
 
-    </p>
-  </div> <jinja2.runtime.BlockReference object at 0x119ebf070> 
+   <jinja2.runtime.BlockReference object at 0x7f9854a45820> 
 
-<p>© 2021 Justin Bois and BE/EE/MedE 189 a course staff. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
@@ -836,22 +756,13 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-    
+  </script>  
 
   <style>
          .wy-nav-content { max-width: none; }

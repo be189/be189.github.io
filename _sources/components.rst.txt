@@ -1,0 +1,111 @@
+.. _Components:
+
+Components
+-----------------
+
+1. `Arduino Uno <https://store.arduino.cc/usa/arduino-uno-rev3>`_
+2. male USB male A to USB male B cable
+3. Solderless breadboards
+4. RAB holder
+5. Jumper wire kit
+6. Multimeter
+7. Alligator clip cables
+8. Electrical tape
+9. Resistors (see resistance values below)
+10. Capacitors (see capacitance values below)
+11. USB power plug
+12. male USB male-A to USB mini cable
+13. `5V power brick <https://store.digilentinc.com/powerbricks-breadboardable-dual-output-usb-power-supplies/>`_
+14. `12V power brick <https://store.digilentinc.com/powerbricks-breadboardable-dual-output-usb-power-supplies/>`_
+15. `Liquid crystal display <https://wiki.52pi.com/index.php?title=1602_Serial_LCD_Module_Display_SKU:Z-0234>`_
+16. Two-pin pushbuttons
+17. Four-pin pushbuttons
+18. Three-pin toggle switch
+19. 10 kΩ potentiometer
+20. Piezo buzzer
+21. Red LED
+22. Amber/Orange 600-610 nm LED
+23. Photoresistor
+24. `LF 412CP <https://www.digikey.com/product-detail/en/texas-instruments/LF412CP/296-7141-5-ND/378419>`_ dual operational amplifier
+25. `LF 398 N <https://www.ti.com/product/LF398-N>`_ sample-and-hold amplifier
+26. NPN bipolar junction transistor `2N3904 <https://www.digikey.com/product-detail/en/2N3904-AP/2N3904-APCT-ND/950591>`_
+27. PNP bipolar junction transistor `2N3906 <https://www.digikey.com/product-detail/en/2N3906-G/641-1946-ND/9477908/>`_
+28. Thermistor `TMP 37F <https://www.digikey.com/product-detail/en/TMP37FT9Z/TMP37FT9Z-ND/1217626/>`_
+29. `Zener diode <https://www.digikey.com/product-detail/en/BZX79-C5V1%2c133/1727-6149-1-ND/2762644/>`_, 5.1 Vz
+30. `MCP4725 <https://www.adafruit.com/product/935>`_ 12-bit digital-to-analog converter breakout board
+31. `ADS1015 <https://www.adafruit.com/product/1083>`_ 12-bit analog-to-digital converter breakout board
+32. `Nellcor™ DS100A SpO₂ sensor probe <https://amazon.com/gp/product/B089CVPXGS/>`_
+33. `DE-9 female socket to terminal spring block adapter <https://www.adafruit.com/product/4510>`_
+34. `Metrohm DropSens DRP-110-U75 screen-printed carbon electrode <https://www.dropsens.com/en/pdfs_productos/new_brochures/110-11l-c110-c11l.pdf>`_
+35. `IO Rodeo Type B screen-printed electrode adapter <https://iorodeo.com/collections/cheapstat-open-source-potentiostat/products/cheapstat-screen-printed-electrode-adapters>`_
+
+
+Capacitor values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- 0.01 µF
+- 0.012 µF
+- 0.022 µF
+- 0.027 µF
+- 0.04 µF
+- 0.047 µF
+- 0.068 µF
+- 0.1 µF
+- 0.22 µF
+- 0.47 µF
+- 0.68 µF
+- 1 µF
+- 2.2 µF
+
+
+Resistance values
+^^^^^^^^^^^^^^^^^
+- 0 Ω
+- 1 Ω
+- 2.2 Ω
+- 4.7 Ω
+- 7.5 Ω
+- 10 Ω
+- 15 Ω
+- 22 Ω
+- 33 Ω
+- 39 Ω
+- 47 Ω
+- 56 Ω
+- 68 Ω
+- 100 Ω
+- 120 Ω
+- 150 Ω
+- 220 Ω
+- 330 Ω
+- 390 Ω
+- 470 Ω
+- 510 Ω
+- 680 Ω
+- 1 kΩ
+- 1.5 kΩ
+- 2 kΩ
+- 2.2 kΩ
+- 3 kΩ
+- 4.7 kΩ
+- 5.1 kΩ
+- 5.6 kΩ
+- 7.5 kΩ
+- 8.2 kΩ
+- 10 kΩ
+- 15 kΩ
+- 22 kΩ
+- 33 kΩ
+- 47 kΩ
+- 56 kΩ
+- 68 kΩ
+- 75 kΩ
+- 100 kΩ
+- 150 kΩ
+- 220 kΩ
+- 330 kΩ
+- 470 kΩ
+- 680 kΩ
+- 1 MΩ
+- 2 MΩ
+- 4.7 MΩ
+- 5.6 MΩ
