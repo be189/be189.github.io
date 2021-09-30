@@ -15,7 +15,7 @@
    "source": [
     "We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC is useful in many applications for biodevices. As an example consider measurement of a [cyclic voltammogram](https://en.wikipedia.org/wiki/Cyclic_voltammetry). In these assays, you need to supply a varying voltage and then measure a current. The voltage supply cannot be delivered with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.\n",
     "\n",
-    "To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. In your kit, you have an [MCP4725 DAC breakout board from Adafruit](https://www.adafruit.com/product/935). The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. **Libraries** contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.\n",
+    "To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. We have an [MCP4725 DAC breakout board from Adafruit](https://www.adafruit.com/product/935). The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. **Libraries** contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.\n",
     "\n",
     "This lesson covers three topics that are not necessarily related: DAC, I2C, and libraries. However, to properly execute DAC, you need to learn about latter two. You will learn about these three topics by working through a follow-along exercise."
    ]
@@ -28,7 +28,7 @@
     "\n",
     "## Follow-along exercise 12: DAC with MCP4725\n",
     "\n",
-    "To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Instead, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC in your kit. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is single-channel, meaning that it can output only one analog voltage."
+    "To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Instead, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is single-channel, meaning that it can output only one analog voltage."
    ]
   },
   {
@@ -54,7 +54,7 @@
     "\n",
     "1. When lines in the schematic cross, they are *not* connected unless a dot (a node) is present at the crossing.\n",
     "2. You can use pins A4 and A5 or pins SDA and SCL, respectively. The respective pins go to the same place on the microcontroller. I always use the SDA and SCL pins just to remind myself that I am using them for I2C.\n",
-    "3. The labels on the MCP4725 on the schematic are different than printed on the board. Without going into too much discussion behind the nomenclature, you can consider Vcc and Vdd to be the same thing: this is input voltage. Similarly, you can functionally consider Vee and Vss to be the same thing: these go to ground. On the MCP4725 breakout board in your kit, VSS is labeled GND and VOUT is labeled VOU.\n",
+    "3. The labels on the MCP4725 on the schematic are different than printed on the board. Without going into too much discussion behind the nomenclature, you can consider Vcc and Vdd to be the same thing: this is input voltage. Similarly, you can functionally consider Vee and Vss to be the same thing: these go to ground. On the MCP4725 breakout boards we have, VSS is labeled GND and VOUT is labeled VOU.\n",
     "\n",
     "The DAC is powered through the Vdd/ground pins. Communication via I2C is accomplished via the SDA and SCL pins, which are connected to the appropriate pins on the Arduino board. Recall from our [tour of Arduino](../02/tour_of_arduino.ipynb) that I2C works by switching the voltage on SCL (the clock) on and off at a given frequency. A comparison is made between the clock voltage and the data voltage (from the SDA pin); if both are high, the transmitted bit is one, and if the SDA voltage is low, the transmitted bit is zero."
    ]

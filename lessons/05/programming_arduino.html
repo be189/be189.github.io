@@ -45,7 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -120,30 +120,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -155,7 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Components</span></p>
+<p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
@@ -258,7 +258,7 @@ static arrays. Unforeseen problems, such as memory fragmentation, can rear their
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: A <code class="docutils literal notranslate"><span class="pre">bool</span></code> stores a single bit of information. It can take values of 0 or 1. In your sketches, though, use the Boolean constants <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> for the values of a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">byte</span></code>: A byte is an unsigned 8-bit integer. It can take values from 0 to 255; that is 0 to 2⁸ – 1.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">int</span></code> in an Arduino sketch is a signed 16-bit integer. That means that the values of an <code class="docutils literal notranslate"><span class="pre">int</span></code> range from –32,768 to 32,767; that is –2⁻¹⁵ to 2¹⁵ – 1. The <code class="docutils literal notranslate"><span class="pre">int</span></code> is by far the most-used variable type. Note that the 10-bit ADC converts voltages to 10-bit integers that range from 0 to 1023. You can safely store these as <code class="docutils literal notranslate"><span class="pre">int</span></code>s. You will also have a external 16-bit ADC in your kit, and an <code class="docutils literal notranslate"><span class="pre">int</span></code> cannot store 16-bit numbers, so you will have to use an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">int</span></code> in an Arduino sketch is a signed 16-bit integer. That means that the values of an <code class="docutils literal notranslate"><span class="pre">int</span></code> range from –32,768 to 32,767; that is –2⁻¹⁵ to 2¹⁵ – 1. The <code class="docutils literal notranslate"><span class="pre">int</span></code> is by far the most-used variable type. Note that the 10-bit ADC converts voltages to 10-bit integers that range from 0 to 1023. You can safely store these as <code class="docutils literal notranslate"><span class="pre">int</span></code>s. If you use an external 16-bit ADC, because an <code class="docutils literal notranslate"><span class="pre">int</span></code> cannot store 16-bit numbers, you will have to use an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> is also a 16-bit integer, but negative numbers are not allowed. Therefore <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">word</span></code>: A <code class="docutils literal notranslate"><span class="pre">word</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. Many programmers suggest using <code class="docutils literal notranslate"><span class="pre">word</span></code> instead of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> for clarity, but I do not have a strong opinion on this.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">long</span></code>: A <code class="docutils literal notranslate"><span class="pre">long</span></code> is a signed 32-bit integer. They range from –2,147,483,648 to 2,147,483,647; that is –2⁻³¹ to 2³¹ – 1. To denote an integer as a <code class="docutils literal notranslate"><span class="pre">long</span></code>, it must be followed by an <code class="docutils literal notranslate"><span class="pre">L</span></code>. For example to store the number 3252 in a variable named <code class="docutils literal notranslate"><span class="pre">shoulderToShoulder</span></code> as a long, you would do <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">shoulderToShoulder</span> <span class="pre">=</span> <span class="pre">3252L</span></code>.</p></li>
@@ -735,11 +735,11 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 25, 2021.
+      <span class="lastupdated">Last updated on Sep 30, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f9854a45820> 
+   <jinja2.runtime.BlockReference object at 0x7fa894c43c40> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

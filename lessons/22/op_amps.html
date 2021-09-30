@@ -45,7 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -87,30 +87,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -122,7 +122,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Components</span></p>
+<p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
@@ -188,7 +188,7 @@
 <section id="Op-amps-with-feedback">
 <h2>Op-amps with feedback<a class="headerlink" href="#Op-amps-with-feedback" title="Permalink to this headline"></a></h2>
 <p>An op-amp is an active (meaning externally powered with a DC power source) integrated circuit that has two inputs and one output. The <em>difference</em> between the two inputs is amplified with very high gain. Because of the high gain op-amps are almost always used with feedback.</p>
-<p>Op-amps are powered by a positive and negative voltage source, <span class="math notranslate nohighlight">\(V_+\)</span> and <span class="math notranslate nohighlight">\(V_-\)</span>, with <span class="math notranslate nohighlight">\(V_- = -V_+\)</span>. Because it requires negative voltage, we cannot use the Arduino Uno to power the op-amp, but need an external power supply. The Digilent PowerBRICKs in your kit can serve as a good power supply.</p>
+<p>Op-amps are powered by a positive and negative voltage source, <span class="math notranslate nohighlight">\(V_+\)</span> and <span class="math notranslate nohighlight">\(V_-\)</span>, with <span class="math notranslate nohighlight">\(V_- = -V_+\)</span>. Because it requires negative voltage, we cannot use the Arduino Uno to power the op-amp, but need an external power supply. The Digilent PowerBRICKs can serve as a good power supply.</p>
 <p>There are a few “rules” to keep in mind about op-amps used in feedback loops.</p>
 <ol class="arabic simple">
 <li><p>The gain is huge (typically <span class="math notranslate nohighlight">\(10^5\)</span>-<span class="math notranslate nohighlight">\(10^6\)</span>).</p></li>
@@ -262,7 +262,7 @@ V_\mathrm{out} = (1 + R_1/R_2)V_\mathrm{in}.
 <hr></section>
 <section id="Dual-op-amps">
 <h2>Dual op-amps<a class="headerlink" href="#Dual-op-amps" title="Permalink to this headline"></a></h2>
-<p>In your kit, you have two <a class="reference external" href="https://www.digikey.com/en/products/detail/texas-instruments/LF412CP/378419">LF412CP dual op-amps</a>. A dual op-amp has two op-amps in the same integrated circuit. The pinout for this component is shown below.</p>
+<p>We have <a class="reference external" href="https://www.digikey.com/en/products/detail/texas-instruments/LF412CP/378419">LF412CP dual op-amps</a>. A dual op-amp has two op-amps in the same integrated circuit. The pinout for this component is shown below.</p>
 <div style="margin:auto; width: 200px;"><img alt="LF412CP pinout" src="../../_images/LF412CP_pinout.svg" /></div><p>Note that both of the op-amps share the same power source (Vcc+ and Vcc–).</p>
 <p>When using this component, it is important to note the small circular indentation on the top. This is used to orient you so you know which pin is which.</p>
 <p>The component is laid out as a <a class="reference external" href="https://en.wikipedia.org/wiki/Dual_in-line_package">dual inline package</a> (DIP). The groove in the middle of your solderless breadboard is there for DIP support. You should mount the component across the groove. When you do so, none of the pins of the component are connected to <em>each other</em>, and you then can connect the pins to the necessary components of the circuit.</p>
@@ -302,11 +302,11 @@ V_\mathrm{out} = -\frac{R_2}{R_1}\,V_\mathrm{in}.
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 25, 2021.
+      <span class="lastupdated">Last updated on Sep 30, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f985497de50> 
+   <jinja2.runtime.BlockReference object at 0x7fa894afde80> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

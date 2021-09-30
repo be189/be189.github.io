@@ -45,7 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -66,7 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">18. Using a liquid crystal display</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#The-LDC-in-your-kit">The LDC in your kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-LDC">The LDC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Running-multiple-devices-on-the-I2C-bus">Running multiple devices on the I2C bus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-13:-Using-an-LCD-display">Follow-along exercise 13: Using an LCD display</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Characters-for-the-LCD">Characters for the LCD</a></li>
@@ -86,30 +86,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -121,7 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Components</span></p>
+<p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
@@ -184,13 +184,13 @@
 <section id="18.-Using-a-liquid-crystal-display">
 <h1>18. Using a liquid crystal display<a class="headerlink" href="#18.-Using-a-liquid-crystal-display" title="Permalink to this headline"></a></h1>
 <hr><p>While using a computer to control and display results from a device is very powerful, it does result in the device being tethered to a computer in order to function. You may wish to have a stand-alone device. For such applications, portable <strong>liquid crystal displays</strong> (LCDs) are quite useful.</p>
-<section id="The-LDC-in-your-kit">
-<h2>The LDC in your kit<a class="headerlink" href="#The-LDC-in-your-kit" title="Permalink to this headline"></a></h2>
-<p>The LCD in your kit can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 chip</a>, which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use.</p>
+<section id="The-LDC">
+<h2>The LDC<a class="headerlink" href="#The-LDC" title="Permalink to this headline"></a></h2>
+<p>The LCD we have in lab can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 chip</a>, which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use.</p>
 <p>Here are photos of the front and back of your LCD.</p>
 <div style="margin: auto; width: 400px;"><img alt="LCD photo" src="../../_images/lcd_photo.jpg" />
-</div><p>On the front (top photo) are 16 pins. In looking at the pinout on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Wikipedia page</a>, you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD in your kit contains a “backpack”, shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on
-the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver (there is one in your kit). The potentiometer adjusts the brightness of the display.</p>
+</div><p>On the front (top photo) are 16 pins. In looking at the pinout on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Wikipedia page</a>, you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD we have contains a “backpack”, shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the
+backpack is a potentiometer, which you can tune using a small Phillips head screwdriver. The potentiometer adjusts the brightness of the display.</p>
 <p>So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so.</p>
 </section>
 <section id="Running-multiple-devices-on-the-I2C-bus">
@@ -213,7 +213,7 @@ communication at 400k baud.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">LiquidCrystal_I2C</span><span class="w"> </span><span class="n">lcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LiquidCrystal_I2C</span><span class="p">(</span><span class="n">LCD_ADDR</span><span class="p">,</span><span class="w"> </span><span class="n">nCols</span><span class="p">,</span><span class="w"> </span><span class="n">nRows</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Here, <code class="docutils literal notranslate"><span class="pre">LCD_ADDR</span></code> is <code class="docutils literal notranslate"><span class="pre">0x27</span></code>, the address of the LCD, and <code class="docutils literal notranslate"><span class="pre">nCols</span></code> and <code class="docutils literal notranslate"><span class="pre">nRows</span></code> are the number of columns and rows of blocks of pixels, respectively, in the LCD. For the onces in your kit, there are 16 columns and 2 rows. Once the <code class="docutils literal notranslate"><span class="pre">lcd</span></code> instance is in place, you need to initialize and backlight the LCD by calling</p>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">LCD_ADDR</span></code> is <code class="docutils literal notranslate"><span class="pre">0x27</span></code>, the address of the LCD, and <code class="docutils literal notranslate"><span class="pre">nCols</span></code> and <code class="docutils literal notranslate"><span class="pre">nRows</span></code> are the number of columns and rows of blocks of pixels, respectively, in the LCD. For the ones we have, there are 16 columns and 2 rows. Once the <code class="docutils literal notranslate"><span class="pre">lcd</span></code> instance is in place, you need to initialize and backlight the LCD by calling</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">lcd</span><span class="p">.</span><span class="n">init</span><span class="p">();</span><span class="w"></span>
 <span class="n">lcd</span><span class="p">.</span><span class="n">backlight</span><span class="p">();</span><span class="w"></span>
 </pre></div>
@@ -395,11 +395,11 @@ communication at 400k baud.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 25, 2021.
+      <span class="lastupdated">Last updated on Sep 30, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f985559c550> 
+   <jinja2.runtime.BlockReference object at 0x7fa89484e1f0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

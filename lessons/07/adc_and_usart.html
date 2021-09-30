@@ -45,7 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -64,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor">Follow-along exercise 3: Serial data and the serial monitor</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#The-Serial-Monitor-of-the-Arduino-IDE">The Serial Monitor of the Arduino IDE</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#The-Serial-Plotter-of-the-Arduino-IDE">The Serial Plotter of the Arduino IDE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-serial-dashboard-package">The serial-dashboard package</a></li>
 </ul>
 </li>
 </ul>
@@ -89,30 +90,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -124,7 +125,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Components</span></p>
+<p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
@@ -436,9 +437,9 @@ div.rendered_html tbody tr:hover {
 <section id="ADC-on-Arduino">
 <h2>ADC on Arduino<a class="headerlink" href="#ADC-on-Arduino" title="Permalink to this headline"></a></h2>
 <p>A sensor converts an external signal to an analog voltage. This voltage needs to be converted to a digital value by <a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">analog to digital conversion</a> (ADC). The ATmega328 microcontroller has a built-in 10-bit ADC. That means that an analog voltage value gets converted to a 10-bit unsigned integer. Voltages in Arduino range from 0 to 5V, so there is a mapping between the input voltage and the value given by the ADC. If <em>v</em> is the analog
-input voltage, then the ADC will give an integer between 0 and 1023 according to</p>
+input voltage in units of Volts, then the ADC will give an integer between 0 and 1023 according to</p>
 <p><span class="math">\begin{align}
-\text{ADC value} = \frac{1023\,v}{5}.
+\text{ADC value} = \frac{1023\,v}{5\text{ Volts}}.
 \end{align}</span></p>
 <p>While it only has one ADC, the microcontroller allows six channels for ADC, coming from pins A0, A1, A2, A3, A4, and A5. You can use the <code class="docutils literal notranslate"><span class="pre">analogRead()</span></code> function on these pins. For example, if you want to read in a pseudo-instantaneous (“pseudo” because the process of ADC is not instantaneous itself, taking about 100 µs) voltage value from pin A0 and store the value as a voltage, you can do the following.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">voltageADC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">A0</span><span class="p">);</span><span class="w"></span>
@@ -449,8 +450,8 @@ input voltage, then the ADC will give an integer between 0 and 1023 according to
 </section>
 <section id="Serial-communication">
 <h2>Serial communication<a class="headerlink" href="#Serial-communication" title="Permalink to this headline"></a></h2>
-<p>When you upload a sketch from your computer onto Arduino, you do so over USB. You can see the TX and RX LEDs flashing when you do this. Data is being sent back and forth over the USB cable. This is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_communication">serial communication</a>. In serial communication, data is sent single-file, bit-by-bit. All of Arduino’s serial communication protocols (I2C, SPI, 1-wire, and USART) are serial. We will discuss and use I2C in a forthcoming lesson; here we
-focus on USART.</p>
+<p>When you upload a sketch from your computer onto Arduino, you do so over USB. You can see the TX and RX LEDs flashing when you do this. Data is being sent back and forth over the USB cable. This is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_communication">serial communication</a>. In serial communication, data is sent single-file, bit-by-bit. All of Arduino’s communication protocols (I2C, SPI, 1-wire, and USART) are serial. We will discuss and use I2C in a forthcoming lesson; here we focus
+on USART.</p>
 <p>Arduino uses USART (universal synchronous/asynchronous receiver/transmitter) to package data in bits that may be communicated serially. The USB interface chip on board the Arduino Uno does the calculations necessary to send and receive bits via USB.</p>
 </section>
 <section id="Sending-data-over-USB">
@@ -462,9 +463,9 @@ focus on USART.</p>
 </div>
 <p>The argument of the <code class="docutils literal notranslate"><span class="pre">Serial.begin()</span></code> function is the <strong>baud rate</strong>, which is the number of bits per second you want to send over serial. According to the <a class="reference external" href="http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">ATmega328 data sheet</a> (see the tables at the end of section 19), you can achieve baud rates up to 2 million bits per second. Serial communication relies on clock timing to work, so commonly used baud rates are in sync with
 clock operating frequencies. The most commonly used baud rates are 9600 and 115,200. We will usually use a baud rate of 115,200. <strong>The baud rate setting for whatever software you are using on your computer to receive a serial transmission must be the same as the baud rate you set in your sketch.</strong> If the baud rates are different, you will receive jibberish.</p>
-<p>As <a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/">described in the docs</a>, in addition to setting the baud rate, you can also set the configuration for the transmission of bytes. By default, the Serial library used <a class="reference external" href="https://en.wikipedia.org/wiki/8-N-1">8N1</a>. This means that a “byte” that is transmitted consists of eight bits, no parity bits, and one stop bit. This is a standard configuration and is the default for the Arduino IDE Serial Monitor and for
-PySerial, the package we will use in Python to receive serial data. It is a standard configuration and there is no need to change it for this class. It does mean that for every byte you wish to transfer, 10 bits are transferred: one start bit, eight bits of data, and one stop bit.</p>
-<p>Serial communications are done in bytes as defined by the configuration. In our case, it will be 8N1. The <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> function is a low-level function for sending bytes as binary data. This can result in greater speed, but it requires careful coordination with your computer so that it knows which bits correspond to which values. For example, if each data packet has two 16 bit integers, 40 total bits are transmitted, and your computer needs to be programmed to know what the bits mean.</p>
+<p>As <a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/">described in the docs</a>, in addition to setting the baud rate, you can also set the configuration for the transmission of bytes. By default, the Serial library used <a class="reference external" href="https://en.wikipedia.org/wiki/8-N-1">8N1</a>. This means that a “byte” that is transmitted consists of eight bits, no parity bits, and one stop bit. This is a standard configuration and is the default for the Arduino IDE Serial Monitor and
+Plotter and for PySerial, the package we will use in Python to receive serial data. It is a standard configuration and there is no need to change it for this class. It does mean that for every byte you wish to transfer, 10 bits are transferred: one start bit, eight bits of data, and one stop bit.</p>
+<p>Serial communications are done in bytes as defined by the configuration, in our case 8N1. The <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> function is a low-level function for sending bytes as binary data. This can result in greater speed, but it requires careful coordination with your computer so that it knows which bits correspond to which values. For example, if each data packet has two 16 bit integers, 40 total bits are transmitted, and your computer needs to be programmed to know what the bits mean.</p>
 <p>The higher-level functions <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code> and <code class="docutils literal notranslate"><span class="pre">Serial.println()</span></code> provide serial communication that is much easier to parse on the receiving end. These functions send all data over USB <em>as text</em>. That is, if I want to send the number 27, it is sent not as its binary representation <code class="docutils literal notranslate"><span class="pre">00011011</span></code>, but rather as <a class="reference external" href="https://en.wikipedia.org/wiki/ASCII">ASCII text</a>. In this case, “27” is sent as two bytes, <code class="docutils literal notranslate"><span class="pre">00110010</span></code> and <code class="docutils literal notranslate"><span class="pre">00110111</span></code>, which give the numbers 50 and 55, which are the ASCII codes
 for the <em>characters</em> “2” and “7”. So, to transmit the number 27, you are using twice as many bits.</p>
 <p>To demonstrate the ease of parsing strings, say you wanted to send two 10-bit unsigned integers taken from calls to <code class="docutils literal notranslate"><span class="pre">analogRead()</span></code>, say 51 and 981. You could “waste” the extra data that you have to send over USB to make it a nicely formatted comma-separated string, <code class="docutils literal notranslate"><span class="pre">&quot;51,981\n&quot;</span></code>, where <code class="docutils literal notranslate"><span class="pre">\n</span></code> is the newline character marking the end of the transmission. Having the newline character is useful because you can tell Python, for example, to read until you hit the newline character, thereby
@@ -513,7 +514,7 @@ ensuring you get a full record. If you are using Python to read in the data from
 </div>
 <p>I have not demonstrated it here, but reading in the serial bytes data is trickier than reading in strings with newlines. Writing integers as bytes on the Arduino side is also more challenging.</p>
 <p>Sending the two numbers 51 and 981 with binary encoding meant sending four bytes, or 40 total bits, over USB. Sending the string <code class="docutils literal notranslate"><span class="pre">&quot;51,981\n&quot;</span></code> required a byte for each character, which is 70 total bits in this case. In the worse case scenario in which you wish to send two large 16-bit integers, such as 17752 and 63954, this is eleven characters, or 110 total bits, compared to the 40 bits using binary.</p>
-<p>Note, though, that for our purposes, we have at best a 12-bit ADC (you have a 12-bit external ADC in your kit; the built-in ADC, as we mentioned, is 10-bit), meaning we maximally transmit four digit numbers. One four digit number is 40 total bits if transmitted as strings, and 20 bits if transmitted in binary.</p>
+<p>Note, though, that for our purposes, we have at best a 12-bit ADC (you have a 12-bit external ADC; the built-in ADC, as we mentioned, is 10-bit), meaning we maximally transmit four digit numbers. One four digit number is 40 total bits if transmitted as strings, and 20 bits if transmitted in binary.</p>
 <p>Getting binary transmission right is tricky, and using binary encodings is harder to debug. The speed improvement is roughly a factor of two for our purposes. Unless we <em>need</em> the speed of a binary transmission, using strings is preferred, and this is mostly what we encourage in this course.</p>
 <hr><section id="Thinking-exercise-2:-USB-speed-limits">
 <h3>Thinking exercise 2: USB speed limits<a class="headerlink" href="#Thinking-exercise-2:-USB-speed-limits" title="Permalink to this headline"></a></h3>
@@ -526,7 +527,7 @@ ensuring you get a full record. If you are using Python to read in the data from
 </section>
 <section id="Follow-along-exercise-3:-Serial-data-and-the-serial-monitor">
 <h2>Follow-along exercise 3: Serial data and the serial monitor<a class="headerlink" href="#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor" title="Permalink to this headline"></a></h2>
-<p>To practice sending and receiving serial data, we will make a simple circuit in which we vary voltage using a <a class="reference external" href="https://en.wikipedia.org/wiki/Potentiometer">potentiometer</a>. The potentiometer in your kit is a blue square with three leads and a knob on it. By connecting the two outside leads to a voltage source and ground, the voltage read from the center lead can range from zero to the input voltage as you turn the knob.</p>
+<p>To practice sending and receiving serial data, we will make a simple circuit in which we vary voltage using a <a class="reference external" href="https://en.wikipedia.org/wiki/Potentiometer">potentiometer</a>. Most of the potentiometers we use are blue squares with three leads and a knob. By connecting the two outside leads to a voltage source and ground, the voltage read from the center lead can range from zero to the input voltage as you turn the knob.</p>
 <p>Write up the circuit shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
 <div style="margin: auto; width: 500px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_bb.svg" /></div><p>Now, we can code up Arduino to communicate with your computer.</p>
@@ -570,14 +571,14 @@ ensuring you get a full record. If you are using Python to read in the data from
 <p>Once you upload your code, you will see the TX LED flashing at 10 Hz. It flashes every time data is being transmitted over USB from Arduino. (The RX LED flashes when data is transmitted <em>to</em> Arduino.) This means data is being transmitted!</p>
 <section id="The-Serial-Monitor-of-the-Arduino-IDE">
 <h3>The Serial Monitor of the Arduino IDE<a class="headerlink" href="#The-Serial-Monitor-of-the-Arduino-IDE" title="Permalink to this headline"></a></h3>
-<p>Soon, we will monitor data coming from Ardiuno using Python-based tools. They allow for rich interfacing with the board. For a simpler interface, you can use the built-in serial monitor of the Arduino IDE. To activate it, use your mouse to click <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Monitor</span></code>. The Serial Monitor window will open and you will see the voltages you are writing out. The numbers will change as you turn the potentiometer. At the bottom of the Serial Monitor window is a dropdown menu to select
-supported baud rates. Make sure it is set to 115200 baud, the same as in the Arduino sketch.</p>
+<p>In a moment, we will monitor data coming from Ardiuno using Python-based tools. They allow for rich interfacing with the board, and you will build your own custom interfaces. For a simple, more primtive interface, you can use the built-in serial monitor of the Arduino IDE. To activate it, use your mouse to click <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Monitor</span></code>. The Serial Monitor window will open and you will see the voltages you are writing out. The numbers will change as you turn the potentiometer. At the
+bottom of the Serial Monitor window is a dropdown menu to select supported baud rates. Make sure it is set to 115200 baud, the same as in the Arduino sketch.</p>
 </section>
 <section id="The-Serial-Plotter-of-the-Arduino-IDE">
 <h3>The Serial Plotter of the Arduino IDE<a class="headerlink" href="#The-Serial-Plotter-of-the-Arduino-IDE" title="Permalink to this headline"></a></h3>
 <p>While the Serial Monitor is open, none of Arduino’s other menu options are available. This is because the Serial Monitor is tying up the USB connection to the board. Close the Serial Monitor.</p>
 <p>Now, use your mouse to click <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Plotter</span></code>. In the new window, you will see a live-update of the data coming out of the Arduino. If you wait long enough, you will see that it will start to scroll.</p>
-<p>If you want to show multiple variables on the plotter at a time, you need to print out the numbers with spaces separating them. For example, if you also want to print a sine wave, you can use the following Arduino code.</p>
+<p>If you want to show multiple variables on the plotter at a time, you need to print out the numbers with spaces or commas separating them. For example, if you also want to print a sine wave, you can use the following Arduino code.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
 
@@ -605,7 +606,7 @@ supported baud rates. Make sure it is set to 115200 baud, the same as in the Ard
 
 <span class="w">  </span><span class="c1">// Write the sine wave and voltage separated by a space</span>
 <span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">wave</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span><span class="w"></span>
-<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="sc">&#39; &#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
 
 <span class="w">  </span><span class="c1">// Wait until it&#39;s time for the next report.</span>
@@ -613,7 +614,15 @@ supported baud rates. Make sure it is set to 115200 baud, the same as in the Ard
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Note that in this code, we use the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> function. This is included in the Arduino core libraries, along with other simple mathematical functions like <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, and <code class="docutils literal notranslate"><span class="pre">pow()</span></code>. The <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function is use to raise a number to a power. It is not necessary to submit this follow-along exercise because we will use this setup again in the next follow-along exercise, which you will submit.</p>
+<p>Note that in this code, we use the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> function. This is included in the Arduino core libraries, along with other simple mathematical functions like <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, and <code class="docutils literal notranslate"><span class="pre">pow()</span></code>. The <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function is use to raise a number to a power.</p>
+</section>
+<section id="The-serial-dashboard-package">
+<h3>The serial-dashboard package<a class="headerlink" href="#The-serial-dashboard-package" title="Permalink to this headline"></a></h3>
+<p>I wrote a Python package, <a class="reference external" href="https://serial-dashboard.github.io">serial-dashboard</a>, to provide a browser-based dashboard as a replacement for the Serial Plotter and Serial Monitor of the Arduino IDE. It includes extra utilities, such as plotting of a time axis (as opposed to strictly sample number), ability to save data transferred over serial, and ability to start and stop streams. It is substantially more feature rich than the tools of the Arduino IDE and should be of use when prototyping to
+quickly access data I/O of your devices.</p>
+<p>You can read the documentation of how to use serial-dashboard <a class="reference external" href="https://serial-dashboard.github.io">here</a>. Importantly, to launch it (after it has been installed, of course), you can enter <code class="docutils literal notranslate"><span class="pre">serialdashboard</span></code> on the command line.</p>
+<p>Launch a serial dashboard and communicated with the board as above.</p>
+<p>It is not necessary to submit this follow-along exercise because we will use this setup again in the next follow-along exercise, which you will submit.</p>
 <hr><p><strong>Answer to the USB speed limit exercise</strong></p>
 <p><strong>a)</strong> We will assume an 8N1 protocol. Let’s assume that we want to include the time stamp in microseconds and also a single voltage value from ADC. We’ll assume we have at best a 16-bit ADC and at worst a 10-bit ADC, so we’ll need to transmit two bytes either way for the voltage value. (We are not actually transmitting the voltage value, but an integer that can be converted to a voltage value.) The time stamp, being in microseconds is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, which means it is a 32-bit integer. If
 we do a reading for an hour, we will get to 10-digit numbers for the time stamps. Assuming we transmit each pair of data as a comma separated string, like <code class="docutils literal notranslate"><span class="pre">&quot;3600000000,55231\n&quot;</span></code>, we are sending 17 characters for a total of 170 bits per reading. We have to send those every 40 µs, or 25,000 transmissions per second. At 170 bits each, this is 4.25 million bits per second. This is faster than the ATmega328’s maximum baud rate of 2 million bits per second.</p>
@@ -638,11 +647,11 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 25, 2021.
+      <span class="lastupdated">Last updated on Sep 30, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f9854d038b0> 
+   <jinja2.runtime.BlockReference object at 0x7fa8950cd400> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

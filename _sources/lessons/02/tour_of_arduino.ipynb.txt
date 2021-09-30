@@ -57,7 +57,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "The breadboards in your kit should now have a gap in the bus strip, but gapped bus strips are rather common, so you should always check.\n",
+    "The breadboards should now have a gap in the bus strip, but gapped bus strips are rather common, so you should always check.\n",
     "\n",
     "To better understand the connections in a solderless breadboard, we can look at the breadboard with the backing removed, shown at right below (image from a [Sparkfun tutorial](https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard) by M-SHORT and JOEL_E_B, [CC BY-SA-4.0 licensed](https://creativecommons.org/licenses/by-sa/4.0/)).\n",
     "\n",

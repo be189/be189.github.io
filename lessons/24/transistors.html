@@ -45,7 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Lessons</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
@@ -81,30 +81,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Exercises</span></p>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Projects</span></p>
+<p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltameter</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Schedule</span></p>
+<p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Policies</span></p>
+<p class="caption" role="heading"><span class="caption-text">Policies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html">Meetings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#course-structure">Course structure</a></li>
@@ -116,7 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#collaboration-policy">Collaboration policy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../policies.html#grading">Grading</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Components</span></p>
+<p class="caption" role="heading"><span class="caption-text">Components</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../components.html">Components</a></li>
 </ul>
@@ -192,11 +192,11 @@ these days, including in the integrated circuits mentioned above, but BJTs are s
 </section>
 <section id="Bipolar-junction-transistors-as-switches">
 <h2>Bipolar junction transistors as switches<a class="headerlink" href="#Bipolar-junction-transistors-as-switches" title="Permalink to this headline"></a></h2>
-<p>Your kit does not include any FETs, but it does have both varieties of BJTs, <em>npn</em> and <em>pnp</em>. The difference in ordering of the constitutive layers of the transistors results in reversed polarities. Here, “<em>n</em>” means that the semiconductor is doped in such a way that there are an abundance of free electrons. Current flow in <em>n</em>-type material consists predominantly of electrons moving in response to the voltage difference across the material. Conversely, “<em>p</em>” means that the semiconductor is
-doped in such a way that there are an abundance of free “holes.” You can think of the “holes” as a deficit of electrons. Current flow in <em>n</em>-type material consists predominantly of “holes” moving in response to the voltage difference across the material.</p>
+<p>We only have a few FETs, but we do have both varieties of BJTs, <em>npn</em> and <em>pnp</em>. The difference in ordering of the constitutive layers of the transistors results in reversed polarities. Here, “<em>n</em>” means that the semiconductor is doped in such a way that there are an abundance of free electrons. Current flow in <em>n</em>-type material consists predominantly of electrons moving in response to the voltage difference across the material. Conversely, “<em>p</em>” means that the semiconductor is doped in such a
+way that there are an abundance of free “holes.” You can think of the “holes” as a deficit of electrons. Current flow in <em>n</em>-type material consists predominantly of “holes” moving in response to the voltage difference across the material.</p>
 <p>Below is the schematic symbol for BJTs (though they are sometimes drawn with a circle around them).</p>
 <div style="margin:auto; width: 250px;"><img alt="BJT symbols" src="../../_images/bjt_symbols.jpg" />
-</div><p>The labels C, B, and E refer to collector, base, and emitter, respectively. In this exercise, we will use the <em>npn</em> BJTs in your kit. They are labeled 2N3904. Do not confuse them with the <em>pnp</em> BJTs.</p>
+</div><p>The labels C, B, and E refer to collector, base, and emitter, respectively. In this exercise, we will use <em>npn</em> BJTs. They are labeled 2N3904. Do not confuse them with the <em>pnp</em> BJTs.</p>
 <p>For an <em>npn</em>, the current flows from collector through emitter; the collector must be more positive than the emitter. (The opposite is true for a <em>pnp</em>.) The current flowing through the collector is approximately <span class="math notranslate nohighlight">\(I_C = \beta I_B\)</span>, where <span class="math notranslate nohighlight">\(\beta\)</span> is the gain, typically around 100. (This is an approximation of a result from the Ebers-Moll model.) Note, though, that because the collector must be more positive than the emitter, the transistor reaches <strong>saturation</strong> above a given input
 current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 <p>So, if the input current is sufficiently high, the transistor operates at saturation and the current through it is set by the resistance of the load (that is the current that would be there if the load was connected to ground and not through the transistor). When the base current is zero, then no current flows through the transistor. In such a way, the transistor can function like a switch.</p>
@@ -212,7 +212,7 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 <hr></section>
 <section id="Follow-along-exercise-16:-BJTs-as-switches">
 <h2>Follow-along exercise 16: BJTs as switches<a class="headerlink" href="#Follow-along-exercise-16:-BJTs-as-switches" title="Permalink to this headline"></a></h2>
-<p>The leads of the BJTs in your kit are as in the sketch below.</p>
+<p>The leads of the BJTs we have are as in the sketch below.</p>
 <div style="margin:auto; width: 100px;"><img alt="BJT drawing" src="../../_images/bjt_drawing.png" />
 </div><p>So, with the flat surface of the package facing you, the left lead is the emitter, the center is the base, and the right is the collector.</p>
 <p>With this in mind, build the circuit below.</p>
@@ -317,11 +317,11 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 25, 2021.
+      <span class="lastupdated">Last updated on Sep 30, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f98548ed100> 
+   <jinja2.runtime.BlockReference object at 0x7fa8947c1f40> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

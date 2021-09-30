@@ -20,9 +20,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## The LDC in your kit\n",
+    "## The LDC\n",
     "\n",
-    "The LCD in your kit can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the [Hitachi HD44780 chip](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller), which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use. \n",
+    "The LCD we have in lab can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the [Hitachi HD44780 chip](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller), which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use. \n",
     "\n",
     "Here are photos of the front and back of your LCD.\n",
     "\n",
@@ -32,7 +32,7 @@
     "    \n",
     "</div>\n",
     "\n",
-    "On the front (top photo) are 16 pins. In looking at the pinout on the [Wikipedia page](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller), you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD in your kit contains a \"backpack\", shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver (there is one in your kit). The potentiometer adjusts the brightness of the display.\n",
+    "On the front (top photo) are 16 pins. In looking at the pinout on the [Wikipedia page](https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller), you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD we have contains a \"backpack\", shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver. The potentiometer adjusts the brightness of the display.\n",
     "\n",
     "So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so."
    ]
@@ -88,7 +88,7 @@
     "LiquidCrystal_I2C lcd = LiquidCrystal_I2C(LCD_ADDR, nCols, nRows);\n",
     "```\n",
     "\n",
-    "Here, `LCD_ADDR` is `0x27`, the address of the LCD, and `nCols` and `nRows` are the number of columns and rows of blocks of pixels, respectively, in the LCD. For the onces in your kit, there are 16 columns and 2 rows. Once the `lcd` instance is in place, you need to initialize and backlight the LCD by calling\n",
+    "Here, `LCD_ADDR` is `0x27`, the address of the LCD, and `nCols` and `nRows` are the number of columns and rows of blocks of pixels, respectively, in the LCD. For the ones we have, there are 16 columns and 2 rows. Once the `lcd` instance is in place, you need to initialize and backlight the LCD by calling\n",
     "\n",
     "```arduino\n",
     "lcd.init();\n",
