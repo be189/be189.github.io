@@ -129,4 +129,4 @@ Grading
 -------
 
 - 30% of your grade is determined from exercises and 65% of your grade is determined from your projects, with 30% of your grade coming from the pulse oximeter project and 35% from the cyclic voltameter project. The remaining 5% of your grade is determined but your lab technique and citizenship. You need to keep your workspace and the communal space tidy and organized.
-- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/2:sup:`(ceil(number of days late))`. The exception is the cyclic voltameter write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
+- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/2\ :superscript:`(ceil(number of days late))`\ . The exception is the cyclic voltameter write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
