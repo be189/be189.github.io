@@ -544,6 +544,8 @@
     "const int outPin = 3;\n",
     "\n",
     "void setup() {\n",
+    "  pinMode(outPin, OUTPUT);\n",
+    "\n",
     "  Serial.begin(2000000);\n",
     "  analogWrite(outPin, 127);\n",
     "}\n",
