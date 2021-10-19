@@ -72,7 +72,7 @@
    "source": [
     "<hr>\n",
     "\n",
-    "## Follow-along exercise 16: BJTs as switches\n",
+    "## Follow-along exercise 15: BJTs as switches\n",
     "\n",
     "The leads of the BJTs we have are as in the sketch below.\n",
     "\n",

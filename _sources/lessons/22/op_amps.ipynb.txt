@@ -39,7 +39,7 @@
     "\n",
     "Rule (3) follows from rules (1) and (2), which we demonstrate below. To quickly think about op-amps, it is useful to keep these rules of thumb in mind.\n",
     "\n",
-    "We will apply op-amps to active filters, such as [Sallen-Key filters](https://en.wikipedia.org/wiki/Sallen–Key_topology), in the next lesson. For now, we will explore the use of an op-amp in a non-inverting amplifier, which is simpler to analyze, and the analysis provides insight."
+    "We will apply op-amps to active filters, such as [Sallen-Key filters](https://en.wikipedia.org/wiki/Sallen–Key_topology), in a future lesson, and we will see other applications of op-amps in the next one. For now, we will explore the use of an op-amp in a non-inverting amplifier, which is simpler to analyze, and the analysis provides insight."
    ]
   },
   {

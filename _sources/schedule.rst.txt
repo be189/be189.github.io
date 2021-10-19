@@ -5,7 +5,7 @@ Schedule overview
 
 *The schedule information on this page is subject to changes.*
 
-All meetings are in 127 Kerckhoff.
+All meetings are in B127 Kerckhoff.
 
 - Lab: Tuesdays and Thursdays (except Thanksgiving), 10:30 am–noon Pacific time
 - TA office hours
@@ -32,19 +32,20 @@ The due dates below may change. They will not be moved to an earlier date, but m
 - :ref:`Follow-along exercises` 1–7: due 11:59 pm PDT, October 7
 - :ref:`Do-it-yourself exercises` 1–4: due 11:59 pm PDT, October 7
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 8–13: due 11:59 pm PDT, October 14
-- :ref:`Do-it-yourself exercises` 5–7: due 11:59 pm PDT, October 14
+- :ref:`Follow-along exercises` 8–13: due 11:59 pm PDT, October 14 (accepted at 11:59 October 17 without penalty)
+- :ref:`Do-it-yourself exercises` 5–7: due 11:59 pm PDT, October 14 (accepted at 11:59 October 17 without penalty)
 .. dummy comment
-- :ref:`Follow-along exercises` 14–18: due 11:59 pm PDT, October 21
-- :ref:`Do-it-yourself exercises` 8–13: due 11:59 pm PDT, October 21
+- :ref:`Follow-along exercises` 14–17: due 11:59 pm PDT, October 21 (accepted at 11:59 October 26 without penalty)
+- :ref:`Do-it-yourself exercises` 8–13: due 11:59 pm PDT, October 21 (accepted at 11:59 October 26 without penalty)
 .. - :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
-- :ref:`Pulse oximetry` demo: 10:30 am PDT, November 11
+- :ref:`Pulse oximetry` demo: 10:30 am PST, November 11
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 10:30 am PDT, November 16
+- :ref:`Pulse oximetry` write-up: due 10:30 am PST, November 16
 .. dummy comment
-- :ref:`Cyclic voltametry` demo: 10:30 am, December 2
+- :ref:`Follow-along exercises` 18 and 19: due 11:59 pm PST, November 18
+- :ref:`Cyclic voltametry` demo: 10:30 am PST, December 2
 .. dummy comment
-- :ref:`Cyclic voltametry` write-up: due 11:59 pm, December 7
+- :ref:`Cyclic voltametry` write-up: due 11:59 pm PST, December 7
 
 
 ----
@@ -59,10 +60,10 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-11:55, you will be 
 - **Th 09/30**: A tour through available components
 - **Tu 10/05**: A tour of Arduino Uno
 - **Th 10/07**: Lecture on design approaches
-- **Th 10/14**: Guest lecture from `Daniel Wagenaar <http://www.danielwagenaar.net>`_ (tentative)
-- **Tu 10/26**: Guest lecture from `Sina Booeshaghi <https://sinabooeshaghi.com>`_, Anne Kil, and Kevin Marx from the `Pachter lab <https://pachterlab.github.io>`_ (tentative)
+- **Th 10/14**: Guest lecture from `Daniel Wagenaar <http://www.danielwagenaar.net>`_
+- **Tu 10/26**: Guest lecture from `Sina Booeshaghi <https://sinabooeshaghi.com>`_, Anne Kil, and Kevin Marx from the `Pachter lab <https://pachterlab.github.io>`_
 - **Th 10/28**: Time series analysis
-- **Tu 11/02**: Guest lecture from Lev Tsypin about cyclic voltammetry in the study of microbial metabolism
+- **Tu 11/02**: Guest lecture from Lev Tsypin from the `Newman lab <https://dknweb.caltech.edu>`_ about cyclic voltammetry in the study of microbial metabolism and Jihong Min from the `Gao lab <http://www.gao.caltech.edu>`_ about wearable, on-body detection
 - **Tu 11/09**: Guest lecture from `Amir Behbehani <https://dickinsonlab.caltech.edu/people/amir-behbahani/>`_
 - **Th 11/26**: Thanksgiving Day: no class
 

@@ -25,7 +25,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. More applications of op-amps" href="../23/applications_of_op_amps.html" />
+    <link rel="next" title="23. Op-amps as mathematical operators" href="../23/op_amps_as_mathematical_operators.html" />
     <link rel="prev" title="21. Photoresistors, trimming, and ADC" href="../21/photoresistors_and_adc.html" /> 
 </head>
 
@@ -81,11 +81,13 @@
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-10:-Demonstration-of-noninverting-amplification">Do-it-yourself exercise 10: Demonstration of noninverting amplification</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../28/transimpedance_amplifiers.html">28. Transimpedance amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../29/instrumentation_amplifiers.html">29. Instrumentation amplifiers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -199,7 +201,7 @@
 More detail on rule 3, as per Yang:
 The output will "rail" (go to the max or min voltage) unless the difference between the inputs is very small. By putting an op-amp in a negative feedback configuration, we let the output control one of the inputs. This way, the output will settle at a non-"rail" voltage while keeping the input difference effectively at zero.
 --><p>Rule (3) follows from rules (1) and (2), which we demonstrate below. To quickly think about op-amps, it is useful to keep these rules of thumb in mind.</p>
-<p>We will apply op-amps to active filters, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Sallen–Key_topology">Sallen-Key filters</a>, in the next lesson. For now, we will explore the use of an op-amp in a non-inverting amplifier, which is simpler to analyze, and the analysis provides insight.</p>
+<p>We will apply op-amps to active filters, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Sallen–Key_topology">Sallen-Key filters</a>, in a future lesson, and we will see other applications of op-amps in the next one. For now, we will explore the use of an op-amp in a non-inverting amplifier, which is simpler to analyze, and the analysis provides insight.</p>
 </section>
 <section id="A-non-inverting-amplifier">
 <h2>A non-inverting amplifier<a class="headerlink" href="#A-non-inverting-amplifier" title="Permalink to this headline"></a></h2>
@@ -295,18 +297,18 @@ V_\mathrm{out} = -\frac{R_2}{R_1}\,V_\mathrm{in}.
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../21/photoresistors_and_adc.html" class="btn btn-neutral float-left" title="21. Photoresistors, trimming, and ADC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../23/applications_of_op_amps.html" class="btn btn-neutral float-right" title="23. More applications of op-amps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../23/op_amps_as_mathematical_operators.html" class="btn btn-neutral float-right" title="23. Op-amps as mathematical operators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 12, 2021.
+      <span class="lastupdated">Last updated on Oct 19, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fad93872ee0> 
+   <jinja2.runtime.BlockReference object at 0x7fee5a8e7340> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

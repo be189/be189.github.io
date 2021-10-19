@@ -609,7 +609,7 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Follow-along exercise 18: Sallen-Key filters\n",
+    "## Follow-along exercise 17: Sallen-Key filters\n",
     "\n",
     "In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise that also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.\n",
     "\n",

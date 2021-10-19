@@ -45,7 +45,7 @@
    "source": [
     "<hr>\n",
     "\n",
-    "## Follow-along exercise 17: Building a sample-and-hold circuit\n",
+    "## Follow-along exercise 16: Building a sample-and-hold circuit\n",
     "\n",
     "In most applications, the switch is a metal-oxide-semiconductor field-effect transistor (MOSFET). For this exercise, you will instead build a sample-and-hold circuit using an *npn* BJT as the switch.\n",
     "\n",

@@ -70,17 +70,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/applications_of_op_amps.html">23. More applications of op-amps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">25. Sample-and-hold circuits</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Basic-sample-and-hold-architecture">Basic sample-and-hold architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-17:-Building-a-sample-and-hold-circuit">Follow-along exercise 17: Building a sample-and-hold circuit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-16:-Building-a-sample-and-hold-circuit">Follow-along exercise 16: Building a sample-and-hold circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#The-LF398N-integrated-circuit">The LF398N integrated circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-12:-Using-the-LF398N-for-sample-and-hold">Do-it-yourself exercise 12: Using the LF398N for sample-and-hold</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../28/transimpedance_amplifiers.html">28. Transimpedance amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../29/instrumentation_amplifiers.html">29. Instrumentation amplifiers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -191,8 +193,8 @@ nowhere to go. The voltage across the capacitor is the input voltage to the righ
 <p>The choice of capacitance <span class="math notranslate nohighlight">\(C\)</span> depends on the goals of the sample-and-hold circuit. If you need to hold the voltage for a long time, you want a large <span class="math notranslate nohighlight">\(C\)</span>, since you will lose voltage across the capacitor according to <span class="math notranslate nohighlight">\(\mathrm{d}V/\mathrm{d}t = I_\mathrm{leak}/C\)</span>, where <span class="math notranslate nohighlight">\(I_\mathrm{leak}\)</span> is the current that leaks through the right op-amp. (Such drop in voltage while holding is called <strong>droop</strong>.) On the other hand, if you want to have high frequency sampling, you need to be
 able to charge up the capacitor quickly, so you want <span class="math notranslate nohighlight">\(C\)</span> to be small. Furthermore, there is some finite resistance in the switch, so the capacitor is part of a low-pass filter. So, you want <span class="math notranslate nohighlight">\(C\)</span> to be small so that high frequency signals are not filtered out.</p>
 <hr></section>
-<section id="Follow-along-exercise-17:-Building-a-sample-and-hold-circuit">
-<h2>Follow-along exercise 17: Building a sample-and-hold circuit<a class="headerlink" href="#Follow-along-exercise-17:-Building-a-sample-and-hold-circuit" title="Permalink to this headline"></a></h2>
+<section id="Follow-along-exercise-16:-Building-a-sample-and-hold-circuit">
+<h2>Follow-along exercise 16: Building a sample-and-hold circuit<a class="headerlink" href="#Follow-along-exercise-16:-Building-a-sample-and-hold-circuit" title="Permalink to this headline"></a></h2>
 <p>In most applications, the switch is a metal-oxide-semiconductor field-effect transistor (MOSFET). For this exercise, you will instead build a sample-and-hold circuit using an <em>npn</em> BJT as the switch.</p>
 <p>Build the sample-and-hold circuit below using one of your LF412CP dual op-amp integrated circuits. Power the op-amps with your ±5 V PowerBRICK.</p>
 <div style="margin: auto; width:400px"><img alt="Sample-and-hold schematic" src="../../_images/sample_and_hold_schem.svg" /></div><p>To demonstrate how sample-and-hold works, you will use the MCP4725 DAC to supply a sinusoidally varying voltage ranging from zero to 3.3 V with a frequency of 1 Hz. You will obtain a voltage from the DAC and from the output of the sample-and-hold circuit every 10 ms. Use a hold time of 100 ms in the sample-and-hold circuit.</p>
@@ -283,11 +285,11 @@ hand, if you are going to be switching between positive and negative voltages fo
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 12, 2021.
+      <span class="lastupdated">Last updated on Oct 19, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fad9422b640> 
+   <jinja2.runtime.BlockReference object at 0x7fee5a907fa0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

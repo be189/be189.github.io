@@ -55,11 +55,13 @@ People
    lessons/20/introduction_to_filters.ipynb
    lessons/21/photoresistors_and_adc.ipynb
    lessons/22/op_amps.ipynb
-   lessons/23/applications_of_op_amps.ipynb
+   lessons/23/op_amps_as_mathematical_operators.ipynb
    lessons/24/transistors.ipynb
    lessons/25/sample_and_hold.ipynb
    lessons/26/active_filters.ipynb
    lessons/27/digital_filters.ipynb
+   lessons/28/transimpedance_amplifiers.ipynb
+   lessons/29/instrumentation_amplifiers.ipynb
 
 
 .. toctree::

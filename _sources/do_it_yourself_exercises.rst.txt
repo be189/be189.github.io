@@ -14,6 +14,5 @@ Do-it-yourself exercises are embedded in lessons. For convenience here are links
 - :ref:`Do-it-yourself exercise 8: DAC with PWM`
 - :ref:`Do-it-yourself exercise 9: Photoresistors with ADC`
 - :ref:`Do-it-yourself exercise 10: Demonstration of noninverting amplification`
-- Do-it-yourself exercise 11: Demonstration of transimpedence amplification
 - :ref:`Do-it-yourself exercise 12: Using the LF398N for sample-and-hold`
 - :ref:`Do-it-yourself exercise 13: A bandpass filter`

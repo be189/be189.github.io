@@ -19,7 +19,8 @@ Follow-along exercises are embedded in lessons. For convenience here are links t
 - :ref:`Follow-along exercise 12: DAC with MCP4725`
 - :ref:`Follow-along exercise 13: Using an LCD display`
 - :ref:`Follow-along exercise 14: Empirical voltage division`
-- Follow-along exercise 15: Building a compartor
-- :ref:`Follow-along exercise 16: BJTs as switches`
-- :ref:`Follow-along exercise 17: Building a sample-and-hold circuit`
-- :ref:`Follow-along exercise 18: Sallen-Key filters`
+- :ref:`Follow-along exercise 15: BJTs as switches`
+- :ref:`Follow-along exercise 16: Building a sample-and-hold circuit`
+- :ref:`Follow-along exercise 17: Sallen-Key filters`
+- Follow-along exercise 18: Demonstration of transimpedance amplification
+- Follow-along exercise 19: Building an instrumentation amplifier
