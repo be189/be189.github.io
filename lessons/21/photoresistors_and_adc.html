@@ -202,9 +202,9 @@ the lower the resistance.</p>
 <hr></section>
 <section id="Do-it-yourself-exercise-9:-Photoresistors-with-ADC">
 <h2>Do-it-yourself exercise 9: Photoresistors with ADC<a class="headerlink" href="#Do-it-yourself-exercise-9:-Photoresistors-with-ADC" title="Permalink to this headline"></a></h2>
-<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion capability, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you need a greater bit depth. You ahve available a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to perform ADC. You can ask
+<p>The Arduino Uno has built-in six-channel 10-bit analog-to-digital conversion capability, available via pins A0 through A5. For many purposes, these are sufficient. However, if you want to have better resolution, you need a greater bit depth. You have available a 12-bit ADC breakout board which uses the ADS1015 ADC and also includes a programmable gain amplifier (PGA). As part of this exercise, you will need to read about this device and figure out how to use it to perform ADC. You can ask
 Google, but as a hint, the manufacturer of the breakout board, Adafruit, has useful material on their website, and the data sheet from Texas Instruments on the ADS1015 is also useful.</p>
-<p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor. For your project, you will want to carefully calibrate the measured voltage versus incident light.</p>
+<p>Your task is this: Build a circuit in which you measure incident light intensity on two photoresistors at the same time. Of course, you cannot measure incident light intensity directly, but rather will measure a related quantity, the voltage across a photoresistor.</p>
 <p>The voltage across each photoresistor should be read both by using the built-in pins on the Arduino Uno and by using the ADS1015. Reading the voltage in two ways will give you a way to check to make sure everything is working properly. You should make an app wherein the voltages can be monitored in real time.</p>
 <p>You want to get the best resolution you can over a large dynamic range. Here are some hints.</p>
 <ol class="arabic simple">
@@ -228,11 +228,11 @@ ADC, possibly the ADS1115.)</p></li>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 19, 2021.
+      <span class="lastupdated">Last updated on Oct 28, 2021.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fee598f96d0> 
+   <jinja2.runtime.BlockReference object at 0x7f8e7a51cbb0> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
