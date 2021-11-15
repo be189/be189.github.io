@@ -9,14 +9,14 @@ Background
 Electrochemistry is an important family of analytical techniques with applications ranging from renewable fuel cells to medical diagnostics. Cyclic voltammetry is the most widely used technique for acquiring qualitative information about electrochemical reactions and is often the first experiment performed in an electroanalytical study. From cyclic voltammetry, one can study the charge transfer kinetics of a reaction, characterize the behavior of an electrode material, and determine the concentration of a specific analyte in a solution. At the foundation of cyclic voltammetry, a range of voltages is applied to a working electrode and a resulting current is measured based on the redox reaction occurring in solution.
 
 
-Electrochemical cells
-~~~~~~~~~~~~~~~~~~~~~
+.. Electrochemical cells
+.. ~~~~~~~~~~~~~~~~~~~~~
 
-Electrochemical cells are constructed to connect an analyte in solution to electrodes that can apply and measure voltages and currents. A three-electrode electrochemical cell, shown below, is composed of a **working electrode** (WE), a **reference electrode** (RE), and a **counter electrode** (CE). On one half of the cell, the electrodes are connected through a wired circuit, and on the other half of the cell, the electrodes are in contact with an electrolyte solution. The working electrode is the site of interest where a redox reaction will take place. The potential across the working electrode is controlled and varied over time. The reference electrode has a well-defined and stable equilibrium potential, so it provides a reference potential that the working electrode potential can be measured relative to. The counter electrode allows for a closed electrical circuit by serving to conduct current from the signal course through the solution to the working electrode. Electrons flow between the WE and CE; as oxidation occurs at the WE, reduction occurs at the CE. The counter electrode must be sufficiently large so as not to limit the kinetics of the reaction.
+.. Electrochemical cells are constructed to connect an analyte in solution to electrodes that can apply and measure voltages and currents. A three-electrode electrochemical cell, shown below, is composed of a **working electrode** (WE), a **reference electrode** (RE), and a **counter electrode** (CE). On one half of the cell, the electrodes are connected through a wired circuit, and on the other half of the cell, the electrodes are in contact with an electrolyte solution. The working electrode is the site of interest where a redox reaction will take place. The potential across the working electrode is controlled and varied over time. The reference electrode has a well-defined and stable equilibrium potential, so it provides a reference potential that the working electrode potential can be measured relative to. The counter electrode allows for a closed electrical circuit by serving to conduct current from the signal course through the solution to the working electrode. Electrons flow between the WE and CE; as oxidation occurs at the WE, reduction occurs at the CE. The counter electrode must be sufficiently large so as not to limit the kinetics of the reaction.
 
-.. image:: electrochemical_cell.png
-    :width: 300
-    :alt: electrochemical cell
+.. .. image:: electrochemical_cell.png
+..     :width: 300
+..     :alt: electrochemical cell
 
 
 Voltammetry
