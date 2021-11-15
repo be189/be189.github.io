@@ -38,11 +38,11 @@ The due dates below may change. They will not be moved to an earlier date, but m
 - :ref:`Follow-along exercises` 14–17: due 11:59 pm PDT, October 21 (accepted at 11:59 October 26 without penalty)
 - :ref:`Do-it-yourself exercises` 8–13: due 11:59 pm PDT, October 21 (accepted at 11:59 October 26 without penalty)
 .. - :ref:`Pulse oximetry` prelab: due 10:30 am PDT, November 5
-- :ref:`Pulse oximetry` demo: 10:30 am PST, November 11
+- :ref:`Pulse oximetry` demo: 10:30 am PST, November 11 (accepted without penalty until noon on November 16)
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 10:30 am PST, November 16
+- :ref:`Pulse oximetry` write-up: due 10:30 am PST, November 16 (accepted without penalty until 11:59 pm on November 16)
 .. dummy comment
-- :ref:`Follow-along exercises` 18 and 19: due 11:59 pm PST, November 18
+.. - :ref:`Follow-along exercises` 18 and 19: due 11:59 pm PST, November 18
 - :ref:`Cyclic voltametry` demo: 10:30 am PST, December 2
 .. dummy comment
 - :ref:`Cyclic voltametry` write-up: due 11:59 pm PST, December 7

@@ -60,8 +60,8 @@ People
    lessons/25/sample_and_hold.ipynb
    lessons/26/active_filters.ipynb
    lessons/27/digital_filters.ipynb
-   lessons/28/transimpedance_amplifiers.ipynb
-   lessons/29/instrumentation_amplifiers.ipynb
+   .. lessons/28/transimpedance_amplifiers.ipynb
+   .. lessons/29/instrumentation_amplifiers.ipynb
 
 
 .. toctree::
