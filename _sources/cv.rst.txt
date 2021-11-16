@@ -166,7 +166,7 @@ Diffusion-limited redox reactions
 
 The rate of redox reactions, and thus the resulting current, can be limited by either mass transport (diffusion of redox species to the electrode surface) or charge transfer kinetics (determined by interactions between the specific reactant and electrode material). Many chemical reactions, and indeed the ones you will encounter in testing your device, are mass transport limited with fast electron transfer. To work out the kinetics, then, we need to describe the molecular flux :math:`\mathbf{j}(\mathbf{x}, t)` of species. 
 
-The **Nernst-Planck**equation is a diffusion-advection-electromigration equation describing transport.
+The **Nernst-Planck equation** is a diffusion-advection-electromigration equation describing transport.
 
 .. math::
 
@@ -493,6 +493,9 @@ To demonstrate your functioning instrument, you will do the following.
 Suggestions
 ~~~~~~~~~~~
 
+Use of SPCEs
+************
+
 The screen-printed carbon electrode is composed of a carbon working and counter electrode and a silver reference electrode. See `the diagram on this webpage <https://www.dropsens.com/en/screen_printed_electrodes_pag.html>`_ for the electrode connections. Some important things to be careful of when using the electrodes:
 
 1. They are reusable, but care should be taken to rinse the working electrode surface well with water. Dried on samples may contaminate the sample you are measuring.
@@ -501,7 +504,15 @@ The screen-printed carbon electrode is composed of a carbon working and counter 
 4. Measurements should be made when the electrode is flat. It may be helpful to tape the connector and the electrode to the table.
 5. Remember that for an electrochemical cell to function, the counter, reference, and working electrode must all be in solution. Make sure to fully cover each electrode with the droplet. The electrodes are designed to work with a 50 µL solution of analyte.
 
+
+Staying tidy
+************
+
 Since we will be dealing with both liquids and electronics, it is imperative you have an organized work station. Make sure that there are separate areas for each on your table. Do not be shy of using long connectors to keep things separate.
+
+
+Tips for building the potentiostat
+************************************
 
 When constructing the circuits for your potentiostat, you should keep the following in mind.
 
@@ -510,6 +521,19 @@ When constructing the circuits for your potentiostat, you should keep the follow
 3. In creating your voltage sweep, you will need to provide negative voltages, so you will need to include some sort of adding or differencing circuit since the DAC you have will only provide positive voltages.
 4. You should try to obtain as high resolution as possible in your voltage sweep. This means that you should use the 10-bit DAC as opposed to, e.g., using Arduino's built-in 8-bit PWM with a low-pass filter.
 5. Be sure you *measure* the applied voltage; do not just assume that what you send via the DAC is what is delivered.
+
+
+Useful reading
+**************
+
+You may wish to read the following references.
+
+- `Elgrishi et al., J. Chem. Educ., 2018 <https://doi.org/10.1021/acs.jchemed.7b00361>`_. This is a pedagogical guide for the background of CV.
+- `Yomthiangthae, et al., New J. Chem., 2020 <https://doi.org/10.1039/D0NJ02175J>`_. This paper discusses analysis of vitamin C and other analytes using SPCEs.
+
+
+Parting wisdom
+**************
 
 As a final suggestion, I want to remind you to *think modularly*. Draw out a block diagram with the various components (the electrodes and any amplifiers or filters) and think through your design before building.
 
