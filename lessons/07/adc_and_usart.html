@@ -20,8 +20,8 @@
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -98,8 +98,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cv.html">Cyclic Voltametry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -371,7 +371,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -474,8 +474,7 @@ ensuring you get a full record. If you are using Python to read in the data from
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">num_str</span><span class="p">)</span> <span class="k">for</span> <span class="n">num_str</span> <span class="ow">in</span> <span class="s2">&quot;51,981</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">num_str</span><span class="p">)</span> <span class="k">for</span> <span class="n">num_str</span> <span class="ow">in</span> <span class="s2">&quot;51,981</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -493,8 +492,7 @@ ensuring you get a full record. If you are using Python to read in the data from
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">from_arduino</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;3</span><span class="se">\x00\xd5\x03</span><span class="s1">&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">from_arduino</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;3</span><span class="se">\x00\xd5\x03</span><span class="s1">&#39;</span>
 
 <span class="n">first_number</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">from_arduino</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span>
 <span class="n">second_number</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">from_arduino</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="s1">&#39;little&#39;</span><span class="p">)</span>
@@ -647,11 +645,11 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 15, 2021.
+      <span class="lastupdated">Last updated on Mar 24, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f872f439a90> 
+   <jinja2.runtime.BlockReference object at 0x7fb56d462880> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

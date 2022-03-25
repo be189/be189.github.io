@@ -425,7 +425,7 @@ Consider another annotated duck plot below.
     
     bokeh.io.show(p)
 
-Based on the shape of the duck plot, we can learn key features about the redox reaction. If the redox reaction is reversible, the difference between the anodic and cathodic peak potentials, called the peak-to-peak separation :math:`\Delta E_\mathrm{p}`, allows for calculation of the standard voltage. Halfway between these two peaks is E_{1/2}, the point at which the concentrations of the oxidized and the reduced form are equal. Then, we can determine the standard potential according to the Nernst equation.
+Based on the shape of the duck plot, we can learn key features about the redox reaction. If the redox reaction is reversible, the difference between the anodic and cathodic peak potentials, called the peak-to-peak separation :math:`\Delta E_\mathrm{p}`, allows for calculation of the standard voltage. Halfway between these two peaks is :math:`E_{1/2}`, the point at which the concentrations of the oxidized and the reduced form are equal. Then, we can determine the standard potential according to the Nernst equation.
 
 .. math::
     \begin{align}

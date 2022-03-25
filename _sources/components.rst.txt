@@ -36,8 +36,9 @@ Components
 31. `ADS1015 <https://www.adafruit.com/product/1083>`_ 12-bit analog-to-digital converter breakout board
 32. `Nellcor™ DS100A SpO₂ sensor probe <https://amazon.com/gp/product/B089CVPXGS/>`_
 33. `DE-9 female socket to terminal spring block adapter <https://www.adafruit.com/product/4510>`_
-34. `Metrohm DropSens DRP-110-U75 screen-printed carbon electrode <https://www.dropsens.com/en/pdfs_productos/new_brochures/110-11l-c110-c11l.pdf>`_
-35. `IO Rodeo Type B screen-printed electrode adapter <https://iorodeo.com/collections/cheapstat-open-source-potentiostat/products/cheapstat-screen-printed-electrode-adapters>`_
+
+.. 34. `Metrohm DropSens DRP-110-U75 screen-printed carbon electrode <https://www.dropsens.com/en/pdfs_productos/new_brochures/110-11l-c110-c11l.pdf>`_
+.. 35. `IO Rodeo Type B screen-printed electrode adapter <https://iorodeo.com/collections/cheapstat-open-source-potentiostat/products/cheapstat-screen-printed-electrode-adapters>`_
 
 
 Capacitor values

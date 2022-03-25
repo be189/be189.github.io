@@ -9,8 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Ed <https://edstem.org/us/courses/14669/>`_ (used for course communications)
-- `Course Zoom link <http://bois.caltech.edu/be189/2021_fall/zoom_links/tuth_class>`_ (password protected)
+- `Ed <https://edstem.org/us/join/JEHfHw>`_ (used for course communications)
+- Gradescope (used for homework and project submission)
+
 
 
 
@@ -19,13 +20,12 @@ People
 
 - Instructor
 
-   + `Justin Bois <http://bois.caltech.edu/>`_ (``bois at caltech dot edu``)
+   + `Changhuei Yang <http://www.biophot.caltech.edu>`_ (``chyang at caltech dot edu``)
 
 - TAs
 
-   + Tom Duan (``mduan at caltech dot edu``)
-   + Heather Lukas (``hlukas at caltech dot edu``)
-   + Kevin Marx (``kmarx at caltech dot edu``)
+   + Mingshu Liang (``mlliang at caltech dot edu``)
+   + Hayward Melton (``hmelton at caltech dot edu``)
 
 
 .. toctree::
@@ -60,8 +60,6 @@ People
    lessons/25/sample_and_hold.ipynb
    lessons/26/active_filters.ipynb
    lessons/27/digital_filters.ipynb
-   .. lessons/28/transimpedance_amplifiers.ipynb
-   .. lessons/29/instrumentation_amplifiers.ipynb
 
 
 .. toctree::
@@ -77,8 +75,8 @@ People
    :maxdepth: 1
    :caption: Projects
 
+   spectrophotometer.rst
    pulseox.rst
-   cv.rst
 
 
 .. toctree::
@@ -111,6 +109,8 @@ People
 Previous editions of the course
 ------------------------------- 
 
+
 - `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
 - `Spring 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_spring/>`_
+- `Fall 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_fall/>`_
 

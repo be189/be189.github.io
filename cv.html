@@ -20,13 +20,11 @@
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Schedule overview" href="schedule.html" />
-    <link rel="prev" title="Pulse oximetry" href="pulseox.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,31 +81,9 @@
 <li class="toctree-l1"><a class="reference internal" href="do_it_yourself_exercises.html">Do-it-yourself exercises</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
-<ul class="current">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulseox.html">Pulse oximetry</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cyclic Voltametry</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#background">Background</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#voltammetry">Voltammetry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cyclic-voltammetry">Cyclic Voltammetry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#duck-plots">“Duck” plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#diffusion-limited-redox-reactions">Diffusion-limited redox reactions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#more-complicated-cv-curves">More complicated CV curves</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#specification">Specification</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#demonstration">Demonstration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#suggestions">Suggestions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#use-of-spces">Use of SPCEs</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#staying-tidy">Staying tidy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#tips-for-building-the-potentiostat">Tips for building the potentiostat</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#useful-reading">Useful reading</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#parting-wisdom">Parting wisdom</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -224,14 +200,14 @@ E = E^0 + \frac{k_BT}{ne}\,\ln \frac{c_\mathrm{ox}}{c_\mathrm{re}},
 \end{align}\]</div>
 <p>The data in the plots were aqcuired by Heather Lukas.</p>
 
-<script src="bokeh-plot-7add44cc66204b1f9b6e09f023befbb2-external-cv.js" id="579bdf53-ee5e-46cc-9580-668bc4b6fbd3"></script><p>The blue sections of the plot are referred to as the “forward” scan and the orange sections the “reverse” scan. In the plots above, positive current is anodic, resulting from oxidation of the reduced species, <span class="math notranslate nohighlight">\(\text{Re} \longrightarrow \text{Ox} + n\,\text{e}^-\)</span>. Negative current is cathodic, resulting from reduction of the oxidized species, <span class="math notranslate nohighlight">\(\text{Ox} + n\,\text{e}^- \longrightarrow \text{Re}\)</span>.</p>
+<script src="bokeh-content-9c310dbe3a424e4385e53658e1c5f2ed-cv.js" id="06556539-e7cd-46da-98e7-90cd96803dda"></script><p>The blue sections of the plot are referred to as the “forward” scan and the orange sections the “reverse” scan. In the plots above, positive current is anodic, resulting from oxidation of the reduced species, <span class="math notranslate nohighlight">\(\text{Re} \longrightarrow \text{Ox} + n\,\text{e}^-\)</span>. Negative current is cathodic, resulting from reduction of the oxidized species, <span class="math notranslate nohighlight">\(\text{Ox} + n\,\text{e}^- \longrightarrow \text{Re}\)</span>.</p>
 <p>Unfortunately, this convention, known as the IUPAC convention, is not universal, which can lead to great confusion. For example in the US convention the signs of the current are flipped, considering cathodic current as positive and anodic current as negative, which is the opposite of what I have shown in the above. The applied potential is also plotted with the axis flipped. So, when reading literature about CV, look carefully at axes and be sure you are clear on convention. In this project, please use the convention in the plots shown in this document.</p>
 </section>
 <section id="duck-plots">
 <h3>“Duck” plots<a class="headerlink" href="#duck-plots" title="Permalink to this headline"></a></h3>
 <p>The current and applied potential curves are typically plotted against each other, with applied potential on the x-axis and measured current on the y-axis, as shown below.</p>
-
-<script src="bokeh-plot-8bfa9150182247ae89149372400ac0a3-external-cv.js" id="dbe23217-39b4-44cc-a618-b78fc3ecb234"></script><p>It is not a technical term, but I call these “duck plots” because the plot looks like a duck. This is not a technical term, but we will use it going forward here. The forward and reverse scans are typically not colored, but I color them here for clarity. Using our convention, the reverse scan lies below the forward scan.</p>
+<div style="height:600px;">
+<script src="bokeh-content-9b6a905b68de4f8faff16c4baf8a1be1-cv.js" id="c1575e41-36e1-4c7b-9516-f2616677ed35"></script></div><p>It is not a technical term, but I call these “duck plots” because the plot looks like a duck. This is not a technical term, but we will use it going forward here. The forward and reverse scans are typically not colored, but I color them here for clarity. Using our convention, the reverse scan lies below the forward scan.</p>
 <p>A redox reaction is <strong>reversible</strong> if repeated traces of the I-V curves are identical; that is, the duck plots overlap. The redox reaction of hexacyanoferrate si reversible, as the traces almost exactly overlap. (The initial lack of overlap at 0.2 V is due to start-up effects in the experiment.) Repeated traces being shifted and nonoverlapping is a sign of irreversibility.</p>
 </section>
 <section id="diffusion-limited-redox-reactions">
@@ -254,14 +230,14 @@ i(t) = -n A j(r_0, t) = n A D\,\frac{\mathrm{d}c(r_0,t)}{\mathrm{d}r},
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(r_0\)</span> is the position of the electrode surface and <span class="math notranslate nohighlight">\(A\)</span> is its area.</p>
 <p>With this in mind, let us now investigate what gives the duck curve its shape. Below is a plot of the second cycle of the above cyclic voltammograms with annotations.</p>
-
-<script src="bokeh-plot-80391a278f02467c91f62652a513f210-external-cv.js" id="d4a179f4-b7b4-4c82-bbac-06c132713f3c"></script><p>We start the scan at point A, with a low applied potential. When the applied potential is low (or largely negative), conditions are such that the reduced species is thermodynamically favored, as per the Nernst equation. The oxidized species is enriched at the electrode, leading to a small gradient in oxidized species concentration. Meanwhile, the reduced species is depleted at the electrode and its concentration grows away from the electrode. As a result, there is a diffusive flux of oxidized species away from the electrode and a flux of reduced species toward it. This results in a slow rise in the anodic current; the rise is only slow because the oxidized state is still strongly favored. The current in this region of the trace is referred to as the <strong>capacitive current</strong></p>
+<div style="height:600px;">
+<script src="bokeh-content-bc75b7ed3daa4af59d83d4d67c8b87a8-cv.js" id="635dff3b-14af-4aec-91b2-bf03eb298356"></script></div><p>We start the scan at point A, with a low applied potential. When the applied potential is low (or largely negative), conditions are such that the reduced species is thermodynamically favored, as per the Nernst equation. The oxidized species is enriched at the electrode, leading to a small gradient in oxidized species concentration. Meanwhile, the reduced species is depleted at the electrode and its concentration grows away from the electrode. As a result, there is a diffusive flux of oxidized species away from the electrode and a flux of reduced species toward it. This results in a slow rise in the anodic current; the rise is only slow because the oxidized state is still strongly favored. The current in this region of the trace is referred to as the <strong>capacitive current</strong></p>
 <p>At point B, the potential has gotten high enough where the oxidized species starts to be thermodynamically favored, and oxidation rate grows rapidly as the potential continues to increase toward point C. At point C, where oxidation is proceeding at maximal rate, the potential is referred to as the <strong>peak anodic potential</strong>, denoted <span class="math notranslate nohighlight">\(E_{\mathrm{pa}}\)</span>. The current between points B and C of the trace is referred to as the <strong>Faradaic current</strong>.</p>
 <p>Past point C until point D, even though oxidation is thermodynamically favored, the <em>rate</em> of oxidation at the electrode is slowed down because the oxidized species has accumulated at the electrode, leading to a wider concentration gradient, thereby slowing diffusive delivery of the reduced species to the electrode surface.</p>
 <p>The potential at point D is called the <strong>switching potential</strong>, which is the peak of the triangular wave of applied potential. Moving from point D toward point E, we still have slow oxidation, even slower than between points C and D, because we are bringing the potential down. Eventually, the potential drops low enough the the reduced species is thermodynamically preferred, leading to peak cathodic current at point F where the reduction reaction proceeds with maximal speed. The potential where the cathodic current is maximal is called the <strong>peak cathodic potential</strong>, denoted <span class="math notranslate nohighlight">\(E_{\mathrm{pc}}\)</span>. As the potential continues to drop, we again have a wide diffusive layer, reducing the diffusive flux of analyte to the electrode, thereby slowing the reaction rate that therefore the current.</p>
 <p>Consider another annotated duck plot below.</p>
-
-<script src="bokeh-plot-891d0e98eb69436494c75416564f2954-external-cv.js" id="e5c04cb8-55bb-43b4-8fa8-71f6f30d4ec3"></script><p>Based on the shape of the duck plot, we can learn key features about the redox reaction. If the redox reaction is reversible, the difference between the anodic and cathodic peak potentials, called the peak-to-peak separation <span class="math notranslate nohighlight">\(\Delta E_\mathrm{p}\)</span>, allows for calculation of the standard voltage. Halfway between these two peaks is E_{1/2}, the point at which the concentrations of the oxidized and the reduced form are equal. Then, we can determine the standard potential according to the Nernst equation.</p>
+<div style="height:600px;">
+<script src="bokeh-content-ed7a969c027743ac9b9135b7e8a67204-cv.js" id="5f47224b-7e0f-4d71-b019-5f7f8435522a"></script></div><p>Based on the shape of the duck plot, we can learn key features about the redox reaction. If the redox reaction is reversible, the difference between the anodic and cathodic peak potentials, called the peak-to-peak separation <span class="math notranslate nohighlight">\(\Delta E_\mathrm{p}\)</span>, allows for calculation of the standard voltage. Halfway between these two peaks is <span class="math notranslate nohighlight">\(E_{1/2}\)</span>, the point at which the concentrations of the oxidized and the reduced form are equal. Then, we can determine the standard potential according to the Nernst equation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 E^0 \approx E_{1/2} = E_{\mathrm{pa}} - \Delta E_\mathrm{p} / 2.
@@ -373,20 +349,17 @@ i_\mathrm{pa} = 0.4463\,n e A c \left(\frac{n e v D}{k_BT}\right)^{1/2},
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pulseox.html" class="btn btn-neutral float-left" title="Pulse oximetry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="schedule.html" class="btn btn-neutral float-right" title="Schedule overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 15, 2021.
+      <span class="lastupdated">Last updated on Mar 24, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f872e6f2d00> 
+   <jinja2.runtime.BlockReference object at 0x7fb56c068130> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
