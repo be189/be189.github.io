@@ -28,4 +28,5 @@ Free instructional materials for electronic prototyping abound. You can often do
 - The `Arduino forums <https://forum.arduino.cc>`_ abound with tutorials, tips, and traps.
 - `Adafruit <https://learn.adafruit.com>`_ has fun learning modules that can help get you started with electronics projects. They do not go into much technical detail, but provide a nice functional level of understanding.
 - Like Adafruit, `SparkFun <https://learn.sparkfun.com/>`_ also has good learning resources.
+- Anne's presentation on `Principles of Open Source Bioinstrument Design <https://drive.google.com/file/d/1MK_hpH-GlIpveH9f5NmTLQULbaQ3IIFa/view?usp=sharing>`_
 

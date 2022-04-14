@@ -76,7 +76,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Basic-sample-and-hold-architecture">Basic sample-and-hold architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-16:-Building-a-sample-and-hold-circuit">Follow-along exercise 16: Building a sample-and-hold circuit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#The-LF398N-integrated-circuit">The LF398N integrated circuit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-12:-Using-the-LF398N-for-sample-and-hold">Do-it-yourself exercise 12: Using the LF398N for sample-and-hold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold">Do-it-yourself exercise 11: Using the LF398N for sample-and-hold</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
@@ -265,8 +265,8 @@ able to charge up the capacitor quickly, so you want <span class="math notransla
 pin is higher than that of the logic reference pin, the switch is on, and if the voltage across the logic pin is lower than that of the logic reference pin, the switch is off. You should choose how to control the logic depending on your application. For example, if you are going to turn the switch in the sample-and-hold on and off using an Arduino digital pin, which can write zero or five volts, you might want to use a voltage divider to connect 2.5 V to the logic reference pin. On the other
 hand, if you are going to be switching between positive and negative voltages for your logic, you should connect the logic reference pin to ground.</p>
 <hr></section>
-<section id="Do-it-yourself-exercise-12:-Using-the-LF398N-for-sample-and-hold">
-<h2>Do-it-yourself exercise 12: Using the LF398N for sample-and-hold<a class="headerlink" href="#Do-it-yourself-exercise-12:-Using-the-LF398N-for-sample-and-hold" title="Permalink to this headline"></a></h2>
+<section id="Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold">
+<h2>Do-it-yourself exercise 11: Using the LF398N for sample-and-hold<a class="headerlink" href="#Do-it-yourself-exercise-11:-Using-the-LF398N-for-sample-and-hold" title="Permalink to this headline"></a></h2>
 <p>Now perform sample-and-hold using the LF398N integrated circuit using a similar circuit as above. That is, swap out the hand-built sample-and-hold circuit above with one using LF398N. You can even just add LF398N-based sample-and-hold to that circuit if you wish. Generate similar plots either using the Serial Plotter in the Arduino IDE or with a Bokeh app.</p>
 <hr></section>
 </section>
@@ -283,11 +283,11 @@ hand, if you are going to be switching between positive and negative voltages fo
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 01, 2022.
+      <span class="lastupdated">Last updated on Apr 14, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7f8027971ca0> 
+   <jinja2.runtime.BlockReference object at 0x7fd3f5755a00> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
