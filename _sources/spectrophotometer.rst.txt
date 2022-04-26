@@ -135,5 +135,5 @@ You can grow the yeast in the falcon tubes. Try to keep them in a place that doe
 
 In a biology lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. To help conserve cost, we encourage you to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. However, we recommend you run your final demonstration experiment with fresh receptacles to reduce the risk of contamination skewing your measurements.  
 
-You should calibrate the OD measurements to known microbe concentrations. For this purpose, we have prepared a proxy known number concentration solution of latex beads that you can use for this calibration. The latex beads are of comparable size to the microbes. When you are ready for this calibration, pls borrow the falcon tube of latex beads from the TAs.  
+You should calibrate the OD measurements to known microbe concentrations. For this purpose, we have prepared `a proxy known number concentration solution of polystyrene beads <https://docs.google.com/presentation/d/1NKN9UFTiDP0zxMrLTKoVC-AM6xPgibiINKbcXZU2JkM/edit?usp=sharing>`_ that you can use for this calibration. The polystyrene beads are of comparable size to the microbes. When you are ready for this calibration, pls borrow the falcon tube of polystyrene beads from the TAs.  
 
