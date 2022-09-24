@@ -29,6 +29,7 @@ In addition to measuring a pulse rate, we also wish to measure **oxygen saturati
 
 To measure SpO₂, we consider absorption at a second wavelength in addition to the IR used to measure the pulse. Below, I show the absoprtion spectra for O₂Hb and Hb. Between about 600 and 800 nm, Hb has a higher extinction coefficient than O₂Hb. If we monitor transmission of light at this second wavelength, in addition to the 940 nM we are already using to detect the pulse, we can determine SpO₂. In particular, there is a big gap between the extinction coefficient of O₂Hb and Hb in the red region, around 660 nm, and the gap is the opposite as in the IR, where O₂Hb has a lower extinction coefficient.
 
+
 .. bokeh-plot::
     :source-position: none
 
@@ -39,8 +40,8 @@ To measure SpO₂, we consider absorption at a second wavelength in addition to 
     df = pd.read_csv('spectra.csv', comment='#')
 
     p = bokeh.plotting.figure(
-        plot_width=600,
-        plot_height=300,
+        frame_width=400,
+        frame_height=200,
         y_axis_type='log',
         x_axis_label='wavelength (nm)',
         y_axis_label='extinction coefficient (1/cm-M)',
@@ -64,8 +65,9 @@ To measure SpO₂, we consider absorption at a second wavelength in addition to 
         line_color='tomato'
     )
     
-    bokeh.plotting.show(p)  
-      
+    bokeh.io.show(p)
+    
+
 Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.
 
 .. math::

@@ -14,7 +14,7 @@ Owing to their central importance in microbial research, acquisition and analysi
 
 In fall of 2020, we were in the midst of the COVID-19 pandemic, and the students of this course were tasked with designing and easily-buildable spectrophotometer for use in a remote freshman biology lab course in offered in the spring of 2021. The students were successful! While our goal was to have a workable device for the freshman course, we found that building the spectrophotometer was an enjoyable and instructive experiments. Students learned to be resourceful and creative. Importantly, they found that they can cheaply build an instrument to acquire a growth curve. Measurements of growth curves, as Monod demonstrated, were the catalysts of the molecular revolution of biology. Making accessible instruments means democratizing science.
 
-Your task is to build a spectrophotometer out of the components in your kit, in addition to materials you can find around your dwelling. You can also make use of your new knowledge of styrene construction and carpentry to construct your setup.  
+Your task is to build a spectrophotometer out of the components in your kit, in addition to materials you can find around your dwelling. Newton developed a powerful new way to calculate π while quarantining at home during a bubonic plague outbreak (see `this YouTube video <https://www.youtube.com/watch?v=gMlf1ELvRzc>`_. Perhaps you can come up with a better spectrophotometer design during your COVID isolation!
 
 
 Basics of spectrophotometry in microbiology
@@ -30,7 +30,7 @@ The block diagram of a typical spectrophotometer is shown below.
 
 To determine the density (concentration) of microbes in liquid media, we load a cuvette with the suspension of cells. Some of the light is absorbed or scattered, and some is transmitted. The amount of transmitted light is measured. As will be described momentarily, the intensity of transmitted light is related to the concentration of microbes. 
 
-Most spectrophotometers use a prism to allow measurement of transmitted light at multiple wavelengths. The best wavelength of light to measure microbial growth while minimally perturbing the culture is about 600 nm. For your design, you will not include a prism, since we do not need measurements at multiple wavelengths (and we are taking a minimalist approach). Rather, you will use an LED that emits light near 600 nm.
+Most spectrophotometers use a prism to allow measurement of transmitted light at multiple wavelengths. The best wavelength of light to measure microbial growth, i.e., that which has strong scattering, is about 600 nm. For your design, you will not include a prism, since we do not need measurements at multiple wavelengths (and we are taking a minimalist approach). Rather, you will use an LED that emits light near 600 nm.
 
 Cells, having a different index of refraction as the surrounding medium, randomly reflect and scatter light out of the incident light path. Imagine a photon traversing the media. If the cell concentration is low, then collisions of a photon with a cell may be modeled as a Poisson process. The time of arrival of a Poisson process is Exponentially distributed with cumulative distribution function
 
@@ -102,9 +102,9 @@ You must demonstrate the instrument by acquiring a growth curve and determining 
 Documentation
 ~~~~~~~~~~~~~
 
-You must include documentation that is plainly and clearly written. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:
+You must include documentation that we will send along to the freshmen in the spring term. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:
 
-1. Instructions to build the device from the items you are provided and from household items.
+1. Instructions to build the device from the items we will ship them and from household items.
 2. Instructions for operating the instrument.
 3. Instructions for calibrating the instrument.
 
@@ -115,7 +115,7 @@ Suggestions
 Here are some things to consider in your design and the operation of your instrument.
 
 1. There are two types of ≈600 nm emitting LEDs, `one with 10 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_, and `one with 1 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.
-2. It is important to block stray light. Think about how to accomplish that with household items, or how you would build something for this specific purpose.
+2. It is important to block stray light. Think about how to accomplish that with household items.
 3. You may want to attempt to collimate the light with the glass beads (actually from children's jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole or slit for the light to pass through the cuvette. If you do so, think about whether you need to account for diffraction or not. 
 4. Think about ways of dealing with noise and amplification, if necessary.
 5. Think carefully about how to calibrate relationship between measured voltage across the photoresistor to OD. 
@@ -127,13 +127,12 @@ Instructions for obtaining growth curves
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-You will test your device by growing yeast, *Saccharomyces cerevisiae*. The measurement and analysis are the same as for bacteria, but we are instead using a common baking ingredient that is safe to have in the home. 
+Because of difficulties associated with shipping and storing microbial agents, you will test your device by growing yeast, *Saccharomyces cerevisiae*. The measurement and analysis are the same as for bacteria, but we are instead using a common baking ingredient that is safe to have in the home. 
 
-The media for *S. cerevisiae* is yeast peptone dextrose (YPD) broth. The broth contains yeast extract that has all of the necessary vitamins, peptone (source of carbon, nitrogen, and some vitamins), and dextrose (sugar). You have a Falcon tube containing `YPD powder <https://www.fishersci.com/shop/products/bd-difco-dehydrated-culture-media-ypd-broth-2/df0428175>`_) that you can use to make broth. The broth is 5% powder. E.g., to make 100 mL of broth, add 5 g of YPD powder. If you do not have a scale in your house, as a rule of thumb, a tablespoon of the YPD power is about 9 g. You can also weigh the powder in the lab. You should add it to water as pure as you can find (for example, if you have a Britta filter in your house, you should use filtered water). Normally, you would autoclave the broth to sterilize it, but that is not an option for home use. Instead, boil the broth for one minute (this will also ensure everything is dissolved). The broth can be stored at room temperature, and you can store it in the provided falcon tubes.
+The media for *S. cerevisiae* is yeast peptone dextrose (YPD) broth. The broth contains yeast extract that has all of the necessary vitamins, peptone (source of carbon, nitrogen, and some vitamins), and dextrose (sugar). You have a Falcon tube containing `YPD powder <https://www.fishersci.com/shop/products/bd-difco-dehydrated-culture-media-ypd-broth-2/df0428175>`_) that you can use to make broth. The broth is 5% powder. E.g., to make 100 mL of broth, add 5 g of YPD powder. If you do not have a scale in your house, as a rule of thumb, a tablespoon of the YPD power is about 9 g. You should add it to water as pure as you can find (for example, if you have a Britta filter in your house, you should use filtered water). Normally, you would autoclave the broth to sterilize it, but that is not an option for home use. Instead, boil the broth for one minute (this will also ensure everything is dissolved). The broth can be stored at room temperature, and you can store it in the provided falcon tubes.
 
-You can grow the yeast in the falcon tubes. Try to keep them in a place that does not have temperature fluctuations. You should occasionally shake the tube to be sure the oxygen in the solution is well mixed. (In a biology lab, these would be grown in a water bath shaker.) You can use the transfer pipettes in your kit to extract samples for measurement in the spectrophotometer. The cuvette volume is 4.5 mL, but do you not need to fill it up all the way, just high enough that the light from the LED passes through the media (with a bit of a buffer).
+You can grow the yeast in the falcon tubes. Try to keep them in a place that does not have temperature fluctuations. You should occasionally shake the tube to be sure the oxygen in the solution is well mixed. (In a lab, these would be grown in a water bath shaker.) You can use the transfer pipettes in your kit to extract samples for measurement in the spectrophotometer. The cuvette volume is 4.5 mL, but do you not need to fill it up all the way, just high enough that the light from the LED passes through the media (with a bit of a buffer).
 
-In a biology lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. To help conserve cost, we encourage you to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. However, we recommend you run your final demonstration experiment with fresh receptacles to reduce the risk of contamination skewing your measurements.  
+In a lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. In our at-home version, you will likely need to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. You may even want to re-use the solution you measured, replacing it in the main growth mixture after using it if you are running low on supplies. (You may wish to do this anyway in practice runs before you get your "final" growth curve.) The inevitable contamination may affect the results, but this is a necessary consequence of of operating in outside-of-laboratory conditions.
 
-You should calibrate the OD measurements to known microbe concentrations. For this purpose, we have prepared `a proxy known number concentration solution of polystyrene beads <https://docs.google.com/presentation/d/1NKN9UFTiDP0zxMrLTKoVC-AM6xPgibiINKbcXZU2JkM/edit?usp=sharing>`_ that you can use for this calibration. The polystyrene beads are of comparable size to the microbes. When you are ready for this calibration, pls borrow the falcon tube of polystyrene beads from the TAs.  
-
+Bear in mind that you cannot calibrate the OD measurements to known microbe concentrations, which you should absolutely do in a lab (as Monod vehemently argues, "What should be noted is that in spite of the widespread use of the optical techniques, not enough efforts have been made to check them against direct estimations of cell concentrations or bacterial densities.") This is not accessible to us because we do not have equipment or storage necessary to do those measurements in our living spaces, though any biology lab would be equipped with them.

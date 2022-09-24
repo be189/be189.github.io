@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5. Programming Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -20,13 +20,11 @@
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6. Practice programming Arduino" href="../06/practice_programming_arduino.html" />
-    <link rel="prev" title="4. Schematics" href="../04/schematics.html" /> 
+    <link rel="next" title="&lt;no title&gt;" href="../06/practice_programming_arduino.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../04/schematics.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,82 +43,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Programming Arduino</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Review-of-last-lessons">Review of last lessons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#A-general-note-about-programming-in-Arduino:-keep-it-simple">A general note about programming in Arduino: keep it simple</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Data-types">Data types</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Scalar-data-types">Scalar data types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Arrays">Arrays</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Declaring-arrays">Declaring arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Indexing-an-array">Indexing an array</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Directly-creating-an-array">Directly creating an array</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Determining-the-number-of-elements-in-an-array">Determining the number of elements in an array</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Mutating-arrays">Mutating arrays</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Using-entries-of-an-array-in-a-calculation">Using entries of an array in a calculation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Character-and-string-data-types">Character and string data types</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#The-String-class">The String class</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Type-conversion">Type conversion</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Operators">Operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Arithmetic-operators">Arithmetic operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Comparison-operators">Comparison operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Boolean-operators">Boolean operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Compound-operators">Compound operators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bitwise-operators">Bitwise operators</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Conditionals">Conditionals</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#if-statements">if statements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#switch-cases">switch cases</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Iteration">Iteration</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#for-loops">for loops</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#while-loops">while loops</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#do-while-loops">do-while loops</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Breaking-and-continuing">Breaking and continuing</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Functions">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Onwards!">Onwards!</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -128,8 +51,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -215,531 +138,881 @@
     text-align: unset;
 }
 </style>
-<section id="5.-Programming-Arduino">
-<h1>5. Programming Arduino<a class="headerlink" href="#5.-Programming-Arduino" title="Permalink to this headline"></a></h1>
-<hr><p>In this lesson, we will take a whirlwind tour through the syntax you need as you write sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>.</p>
-<p>When you finish this lesson, it is important to proceed without much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use.</p>
-<section id="Review-of-last-lessons">
-<h2>Review of last lessons<a class="headerlink" href="#Review-of-last-lessons" title="Permalink to this headline"></a></h2>
-<p>You will remember in the previous lessons that we have already established a few key syntactical rules.</p>
-<ol class="arabic simple">
-<li><p>All variables have to have a <strong>type declaration</strong>. So far, we have only seen <code class="docutils literal notranslate"><span class="pre">int</span></code> data types, some of which we declared as <code class="docutils literal notranslate"><span class="pre">const</span></code>, meaning that the value of the variable cannot change.</p></li>
-<li><p>All functions have to have a type declaration for their return value. We have seen <code class="docutils literal notranslate"><span class="pre">void</span></code>, but we could have <code class="docutils literal notranslate"><span class="pre">int</span></code> or other data types we will introduce here.</p></li>
-<li><p>All commands end in a semicolon.</p></li>
-<li><p>Every Arduino sketch has a <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and a <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function. The <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function is run upon upload of the compiled sketch and upon reset, and the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is then run over and over again.</p></li>
-<li><p>The core Arduino libraries have built-in functions and variables. For variables, we have seen <code class="docutils literal notranslate"><span class="pre">INPUT</span></code>, <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>, <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, and <code class="docutils literal notranslate"><span class="pre">LOW</span></code>. We actually also saw <code class="docutils literal notranslate"><span class="pre">LED_BUILTIN</span></code> in the <a class="reference internal" href="../00/configuring_your_computer.html"><span class="doc">setup lesson</span></a>.</p></li>
-<li><p>Comments start with <code class="docutils literal notranslate"><span class="pre">//</span></code> or appear between <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code>.</p></li>
-</ol>
-<p>We will now proceed to learn about programming the Arduino microcontroller.</p>
-</section>
-<section id="A-general-note-about-programming-in-Arduino:-keep-it-simple">
-<h2>A general note about programming in Arduino: keep it simple<a class="headerlink" href="#A-general-note-about-programming-in-Arduino:-keep-it-simple" title="Permalink to this headline"></a></h2>
-<p>You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. This means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task in ARduino with
-static arrays. Unforeseen problems, such as memory fragmentation, can rear their ugly heads.</p>
-<p>It is safe to use pointers and work with them, e.g., to make two-dimensional arrays, but we will not discuss them here. Nonetheless, be careful when doing so.</p>
-<p>Since we ultimately will be using the Arduino Uno to run and instrument and collect and send data, we will be connecting it to your computer. You computer is <em>much</em> more powerful that the Arduino Uno (that’s why it probably costs two orders of magnitude more). Furthermore, you can program whatever manipulations you need to do to the data in Python, which, being a high-level interpreted language, is much easier to quickly write functional code with than C++.</p>
-<p>With that in mind, let us proceed to learn about programming Arduino.</p>
-</section>
-<section id="Data-types">
-<h2>Data types<a class="headerlink" href="#Data-types" title="Permalink to this headline"></a></h2>
-<p>As I have mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
-
-<span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>as is this:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>They give the same result.</p>
-<section id="Scalar-data-types">
-<h3>Scalar data types<a class="headerlink" href="#Scalar-data-types" title="Permalink to this headline"></a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code>: A <code class="docutils literal notranslate"><span class="pre">bool</span></code> stores a single bit of information. It can take values of 0 or 1. In your sketches, though, use the Boolean constants <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> for the values of a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">byte</span></code>: A byte is an unsigned 8-bit integer. It can take values from 0 to 255; that is 0 to 2⁸ – 1.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">int</span></code> in an Arduino sketch is a signed 16-bit integer. That means that the values of an <code class="docutils literal notranslate"><span class="pre">int</span></code> range from –32,768 to 32,767; that is –2⁻¹⁵ to 2¹⁵ – 1. The <code class="docutils literal notranslate"><span class="pre">int</span></code> is by far the most-used variable type. Note that the 10-bit ADC converts voltages to 10-bit integers that range from 0 to 1023. You can safely store these as <code class="docutils literal notranslate"><span class="pre">int</span></code>s. If you use an external 16-bit ADC, because an <code class="docutils literal notranslate"><span class="pre">int</span></code> cannot store 16-bit numbers, you will have to use an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>: An <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> is also a 16-bit integer, but negative numbers are not allowed. Therefore <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">word</span></code>: A <code class="docutils literal notranslate"><span class="pre">word</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code>. Many programmers suggest using <code class="docutils literal notranslate"><span class="pre">word</span></code> instead of <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> for clarity, but I do not have a strong opinion on this.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">long</span></code>: A <code class="docutils literal notranslate"><span class="pre">long</span></code> is a signed 32-bit integer. They range from –2,147,483,648 to 2,147,483,647; that is –2⁻³¹ to 2³¹ – 1. To denote an integer as a <code class="docutils literal notranslate"><span class="pre">long</span></code>, it must be followed by an <code class="docutils literal notranslate"><span class="pre">L</span></code>. For example to store the number 3252 in a variable named <code class="docutils literal notranslate"><span class="pre">shoulderToShoulder</span></code> as a long, you would do <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">shoulderToShoulder</span> <span class="pre">=</span> <span class="pre">3252L</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>: A <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code> is an unsigned 32-bit integer. They range from 0 to 4,294,967,295; that is 0 to 2³² – 1. An <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code> must also be followed by an <code class="docutils literal notranslate"><span class="pre">L</span></code> when written out as a number. <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s are very often used when comparing times, since the values returned by the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> and <code class="docutils literal notranslate"><span class="pre">micros()</span></code> functions (described below) are <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">size_t</span></code>: This is a special data type used to represent the size of a variable (or any object, really) in bytes.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code>: A <code class="docutils literal notranslate"><span class="pre">float</span></code> in an Arduino sketch is a 32-bit <a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">floating point number</a>. A <code class="docutils literal notranslate"><span class="pre">float</span></code> can take values between –3.4028235×10³⁸ and 3.4028235×10³⁸. It provides six or seven digits of precision.</p></li>
-</ul>
-<p>Note that on an Ardunio Uno, there is no <code class="docutils literal notranslate"><span class="pre">double</span></code> data type. Note also that the data type <code class="docutils literal notranslate"><span class="pre">short</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">int</span></code>.</p>
-</section>
-<section id="Arrays">
-<h3>Arrays<a class="headerlink" href="#Arrays" title="Permalink to this headline"></a></h3>
-<p>As I mentioned above, we will not discuss complicated array structures. For this class, simple static one-dimensional arrays will suffice.</p>
-<section id="Declaring-arrays">
-<h4>Declaring arrays<a class="headerlink" href="#Declaring-arrays" title="Permalink to this headline"></a></h4>
-<p>There is no <code class="docutils literal notranslate"><span class="pre">array</span></code> data type. Rather, an array is an ordered collection of elements of a single data type. An array is declared with the data type of its elements. To declare an array of 5 <code class="docutils literal notranslate"><span class="pre">int</span></code>s, the syntax is</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="Indexing-an-array">
-<h4>Indexing an array<a class="headerlink" href="#Indexing-an-array" title="Permalink to this headline"></a></h4>
-<p>To access the elements of an array, I use indexing with brackets. <strong>Indexing in C++ is 0-based.</strong></p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
-
-<span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="n">myArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
-<span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>If I asked for <code class="docutils literal notranslate"><span class="pre">myArray[4]</span></code>, which does not exist, the compiler will not give an error, and I’ll get weird results when I run the code. It is therefore very important that you are careful not to overrun an array.</p>
-</section>
-<section id="Directly-creating-an-array">
-<h4>Directly creating an array<a class="headerlink" href="#Directly-creating-an-array" title="Permalink to this headline"></a></h4>
-<p>Alternatively, I can create an array using braces.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
-</pre></div>
-</div>
-<p>When creating an array in this case, I do not need to specify how many entries; the compiler will infer it.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="Determining-the-number-of-elements-in-an-array">
-<h4>Determining the number of elements in an array<a class="headerlink" href="#Determining-the-number-of-elements-in-an-array" title="Permalink to this headline"></a></h4>
-<p>Later on in a program, I might like to know how many entries are in an array. There is no built-in function to do that. But you can use the <code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> function, which returns the number of bytes that an object occupies in memory. Since every entry in an array is of the same type, you can use the <code class="docutils literal notranslate"><span class="pre">sizeof()</span></code> function to get the number of entries by dividing the size of the array by the size of an entry.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">lenArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kr">sizeof</span><span class="p">(</span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="Mutating-arrays">
-<h4>Mutating arrays<a class="headerlink" href="#Mutating-arrays" title="Permalink to this headline"></a></h4>
-<p>Because I do not have <code class="docutils literal notranslate"><span class="pre">const</span></code> in front of the declaration, I can change the values of entries in the array.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
-
-<span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">// myArray is now {3, 2, 5, 3}</span>
-</pre></div>
-</div>
-</section>
-<section id="Using-entries-of-an-array-in-a-calculation">
-<h4>Using entries of an array in a calculation<a class="headerlink" href="#Using-entries-of-an-array-in-a-calculation" title="Permalink to this headline"></a></h4>
-<p>I can also access entries of an array with indexing and use their values.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
-
-<span class="kr">int</span><span class="w"> </span><span class="n">mySum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">myArray</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
-
-<span class="c1">// mySum stores the value 12.</span>
-</pre></div>
-</div>
-<p>I can also pluck values out of an array and store them.</p>
-</section>
-</section>
-<section id="Character-and-string-data-types">
-<h3>Character and string data types<a class="headerlink" href="#Character-and-string-data-types" title="Permalink to this headline"></a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code>: A single character, like <code class="docutils literal notranslate"><span class="pre">'A'</span></code> is stored as a <code class="docutils literal notranslate"><span class="pre">char</span></code>. When defining a <code class="docutils literal notranslate"><span class="pre">char</span></code>, it is in single quotes, e.g., <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">myGradeInBE189</span> <span class="pre">=</span> <span class="pre">'A';</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code>: A <code class="docutils literal notranslate"><span class="pre">string</span></code> is an array of <code class="docutils literal notranslate"><span class="pre">char</span></code>s. They are constructed using double quotes. <code class="docutils literal notranslate"><span class="pre">char</span> <span class="pre">myString[]</span> <span class="pre">=</span> <span class="pre">&quot;Hello,</span> <span class="pre">world.&quot;</span></code> <code class="docutils literal notranslate"><span class="pre">string</span></code>s are <strong>null-terminated</strong>, which means that the last element of the array of characters is a special character called a <strong>null character</strong>. This character is <code class="docutils literal notranslate"><span class="pre">\0</span></code>. It is important because it lets functions that work with strings know where the string ends.</p></li>
-</ul>
-<section id="The-String-class">
-<h4>The String class<a class="headerlink" href="#The-String-class" title="Permalink to this headline"></a></h4>
-<p>While I gave a warning about using C++’s object orientation, the core libraries have some handy classes that you can make use of. The <code class="docutils literal notranslate"><span class="pre">String</span></code> class is particularly useful.</p>
-<p>To construct a <code class="docutils literal notranslate"><span class="pre">String</span></code> instance, you use <code class="docutils literal notranslate"><span class="pre">String()</span></code> as a function. You have to make sure to declare your variable to be of a <code class="docutils literal notranslate"><span class="pre">String</span></code> type.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The variable <code class="docutils literal notranslate"><span class="pre">myString</span></code> now has many methods to use. Here are a few:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// Gives 13</span>
-<span class="kr">int</span><span class="w"> </span><span class="n">lenString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span><span class="w"></span>
-
-<span class="c1">// Converts to upper case in place.</span>
-<span class="n">myString</span><span class="p">.</span><span class="n">toUpperCase</span><span class="p">();</span><span class="w"></span>
-
-<span class="c1">// Gives 5</span>
-<span class="kr">int</span><span class="w"> </span><span class="n">commaIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myString</span><span class="p">.</span><span class="n">indexOf</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>You can also use operators with the string.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">String</span><span class="w"> </span><span class="n">myString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// You can use + to concatenate with instantiating</span>
-<span class="kr">String</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Pleased to meet you.&quot;</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// Or after instantiation</span>
-<span class="kr">String</span><span class="w"> </span><span class="n">greeting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">myString</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Pleased to meet you.&quot;</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>You can also convert a number to a string, and a string to a number.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Convert an integer</span>
-<span class="kr">String</span><span class="w"> </span><span class="n">intAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="mi">3252</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// And bring it back to an integer</span>
-<span class="kr">int</span><span class="w"> </span><span class="n">favoriteInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intAsString</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span><span class="w"></span>
-
-<span class="c1">// If you convert a float, the second argument is how many decimal places to keep.</span>
-<span class="c1">// This gives &quot;3.14&quot;.</span>
-<span class="kr">String</span><span class="w"> </span><span class="n">floatAsString</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-
-<span class="c1">// You can convert back to a float. This will give 3.14.</span>
-<span class="kr">float</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">floatAsString</span><span class="p">.</span><span class="n">toFloat</span><span class="p">();</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Unless you are RAM constrained, you should just use <code class="docutils literal notranslate"><span class="pre">String</span></code> objects when handling strings. They have a bigger footprint in RAM, but the benefits are substantial.</p>
-</section>
-</section>
-<section id="Type-conversion">
-<h3>Type conversion<a class="headerlink" href="#Type-conversion" title="Permalink to this headline"></a></h3>
-<p>You can change types of a variable using <strong>casting</strong>. To cast, place the data type you want to convert to in parentheses before the variable you are converting. Here are a few examples.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">myInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">176</span><span class="p">;</span><span class="w"></span>
-<span class="kr">float</span><span class="w"> </span><span class="n">myFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.718</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">// Convert an int to a byte. Be sure it&#39;s ≤ 255</span>
-<span class="kr">byte</span><span class="w"> </span><span class="n">intAsByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">byte</span><span class="p">)</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">// Convert an int to a float</span>
-<span class="kr">float</span><span class="w"> </span><span class="n">intAsFloat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">float</span><span class="p">)</span><span class="w"> </span><span class="n">myInt</span><span class="p">;</span><span class="w"></span>
-
-<span class="c1">// Convert a float to an int (gives 2; chops off decimal)</span>
-<span class="kr">int</span><span class="w"> </span><span class="n">floatAsInt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="p">)</span><span class="w"> </span><span class="n">myFloat</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="Operators">
-<h2>Operators<a class="headerlink" href="#Operators" title="Permalink to this headline"></a></h2>
-<p>Now that we have a handle on data types, we can look into operators.</p>
-<section id="Arithmetic-operators">
-<h3>Arithmetic operators<a class="headerlink" href="#Arithmetic-operators" title="Permalink to this headline"></a></h3>
-<p>We have already seen the <strong>assignment operator</strong>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, and it works as you might intuit. Other arithmetic operators are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code>: Addition. It is overloaded for <code class="docutils literal notranslate"><span class="pre">String</span></code> objects, doing concatenation instead.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>: Subtraction.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: Multiplication.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/</span></code>: Division</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">%</span></code>: Mod. <code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">%</span> <span class="pre">3</span></code> gives <code class="docutils literal notranslate"><span class="pre">0</span></code>. <code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">%</span> <span class="pre">4</span></code> gives 2.</p></li>
-</ul>
-<p>Note that there is no floor division. This can be accomplished with casting, e.g., <code class="docutils literal notranslate"><span class="pre">(int)</span> <span class="pre">6</span> <span class="pre">/</span> <span class="pre">4</span></code> will give <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
-<p>There is also no raise-to-power operator. This is achieved using the <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function.</p>
-</section>
-<section id="Comparison-operators">
-<h3>Comparison operators<a class="headerlink" href="#Comparison-operators" title="Permalink to this headline"></a></h3>
-<p>These are the same as in Python and give a <code class="docutils literal notranslate"><span class="pre">bool</span></code>, either <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, as a result.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>: Equal to.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code>: Not equal to.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>: Less than.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>: Greater than.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>: Less than or equal to.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>: Greater than or equal to.</p></li>
-</ul>
-</section>
-<section id="Boolean-operators">
-<h3>Boolean operators<a class="headerlink" href="#Boolean-operators" title="Permalink to this headline"></a></h3>
-<p>The three Boolean operators are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>: AND</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">||</span></code>: OR</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!</span></code>: NOT</p></li>
-</ul>
-<p>Here are some examples.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Gives true</span>
-<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
-
-<span class="c1">// Gives true</span>
-<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
-
-<span class="c1">// Gives false</span>
-<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
-
-<span class="c1">// Gives true</span>
-<span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">93</span><span class="w"></span>
-
-<span class="c1">// Gives false</span>
-<span class="o">!</span><span class="p">(</span><span class="mi">4</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">93</span><span class="p">)</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="Compound-operators">
-<h3>Compound operators<a class="headerlink" href="#Compound-operators" title="Permalink to this headline"></a></h3>
-<p><strong>Compound operators</strong> are used to change the values of variables in place. The operators are best explained by considering equivalent expressions.</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 57%" />
-<col style="width: 43%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>compound operator expression</p></th>
-<th class="head"><p>equivalent expression</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+=</span> <span class="pre">1</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x++</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-=</span> <span class="pre">1</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">1</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x--</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">-</span> <span class="pre">1</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*=</span> <span class="pre">2</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">2</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/=</span> <span class="pre">2</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">/</span> <span class="pre">2</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%=</span> <span class="pre">2</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span></code></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="Bitwise-operators">
-<h3>Bitwise operators<a class="headerlink" href="#Bitwise-operators" title="Permalink to this headline"></a></h3>
-<p>Bitwise operations work on numbers at the level of their binary representations. While I have not used these operators very often in my various hacking pursuits, they do come up fairly often in programming devices, especially in the context of communications where data are sent and received as bits and bytes.</p>
-<p>I think the operators are best explored by example. To keep the binary representations short, we will use <code class="docutils literal notranslate"><span class="pre">byte</span></code>s instead of <code class="docutils literal notranslate"><span class="pre">int</span></code>s. Say we have a <code class="docutils literal notranslate"><span class="pre">byte</span></code> variable <code class="docutils literal notranslate"><span class="pre">01001101</span></code>. This corresponds to the decimal number 77. The number <code class="docutils literal notranslate"><span class="pre">10001110</span></code> is 142. Let us now consider some bitwise operators on these two numbers to see how they work. It helps to look at these two binary numbers on top of each other to make easy comparisons</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = 77:  01001101
-y = 142: 10001110
-</pre></div>
-</div>
-<p>In what follows, assume that we have already executed the code</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">byte</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">77</span><span class="p">;</span><span class="w"></span>
-<span class="kr">byte</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">142</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code>: Bitwise AND. Two numbers with the same number of bits (e.g., both <code class="docutils literal notranslate"><span class="pre">int</span></code>s, both <code class="docutils literal notranslate"><span class="pre">byte</span></code>s, both <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">int</span></code>s, etc.) are compared. The result has a <code class="docutils literal notranslate"><span class="pre">1</span></code> in a given bit position if both numbers have a <code class="docutils literal notranslate"><span class="pre">1</span></code> in that position. So, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&amp;</span> <span class="pre">y</span></code> gives <code class="docutils literal notranslate"><span class="pre">12</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">00001100</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code>: Bitwise OR. Two numbers with the same number of bits are compared. The result has a <code class="docutils literal notranslate"><span class="pre">1</span></code> in a given bit position if either of the numbers has a <code class="docutils literal notranslate"><span class="pre">1</span></code> in that position. So, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">|</span> <span class="pre">y</span></code> gives <code class="docutils literal notranslate"><span class="pre">207</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">11001111</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code>: Bitwise XOR. Two numbers with the same number of bits are compared. The result has a <code class="docutils literal notranslate"><span class="pre">1</span></code> in a given bit position if the two numbers have different numbers in that position. So, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code> gives <code class="docutils literal notranslate"><span class="pre">195</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">11000011</span></code>.</p></li>
-</ul>
-<p>We will not consider operations that work on the binary representation of a single number.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: Bitwise NOT. I call this operator a bit-flipper, since it flips the bits of a number, changing a 1 to a 0 and a 0 to a 1. <code class="docutils literal notranslate"><span class="pre">~x</span></code> gives <code class="docutils literal notranslate"><span class="pre">-78</span></code>. Wait…. WHAT!? It turns out that the <code class="docutils literal notranslate"><span class="pre">~</span></code> operator does not work on <code class="docutils literal notranslate"><span class="pre">byte</span></code>s, but on <code class="docutils literal notranslate"><span class="pre">int</span></code>s. The compiler will case the <code class="docutils literal notranslate"><span class="pre">byte</span></code> variable as an <code class="docutils literal notranslate"><span class="pre">int</span></code> in order to perform the <code class="docutils literal notranslate"><span class="pre">~</span></code> operation. Remember that an <code class="docutils literal notranslate"><span class="pre">int</span></code> is a <em>signed</em> integer, meaning that one of the bits is used to indicate the sign of the number. By convention, that is
-the first bit, the so-called <strong>highest bit</strong>. The variable <code class="docutils literal notranslate"><span class="pre">x</span></code> as an <code class="docutils literal notranslate"><span class="pre">int</span></code> has representation <code class="docutils literal notranslate"><span class="pre">0000000001001101</span></code>. The highest bit is the sign, which is zero in this case, indicating a positive number. Applying bitwise NOT gives <code class="docutils literal notranslate"><span class="pre">-78</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111110110010</span></code>. For any <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">~x</span></code> is equivalent go <code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>: Left bitshift. This operation slides the <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">0</span></code>s leftward a set number of steps, padding the right bits with zeros and discarding bits that get shifted off to the left. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">3</span></code> will shift the bits three places to the left and gives <code class="docutils literal notranslate"><span class="pre">616</span></code>. Wait….. WHAT AGAIN!? The result of a bitshift operation is an <code class="docutils literal notranslate"><span class="pre">int</span></code>. So, this bitshift results in <code class="docutils literal notranslate"><span class="pre">0000001001101000</span></code>, which has a decimal value of 616. Conversely, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">13</span></code> gives <code class="docutils literal notranslate"><span class="pre">-24576</span></code>, which has a binary representation
-of <code class="docutils literal notranslate"><span class="pre">1010000000000000</span></code>. Note that the second operand (in our case, we used <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">13</span></code>) must be less than or equal to 32.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>: Right bitshift. This operations slides <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">0</span></code>s rightward a set number of steps, discarding bits that are shifted off to the right. <em>Be careful</em>, the bits that are padded to the left are whatever the highest bit is if you are using an <code class="docutils literal notranslate"><span class="pre">int</span></code>. That means that negative integers are padded with <code class="docutils literal notranslate"><span class="pre">1</span></code>s and positive integers are padded with <code class="docutils literal notranslate"><span class="pre">0</span></code>s. This method of padding is called <strong>sign extension</strong>. So, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">3</span></code> gives 9, which has a binary representation of
-<code class="docutils literal notranslate"><span class="pre">0000000001001</span></code>. Conversely, consider a right bitshift on <code class="docutils literal notranslate"><span class="pre">-77</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111110110011</span></code>. <code class="docutils literal notranslate"><span class="pre">-77</span> <span class="pre">&gt;&gt;</span> <span class="pre">3</span></code> gives <code class="docutils literal notranslate"><span class="pre">-10</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111111110110</span></code>.</p></li>
-</ul>
-</section>
-</section>
-<section id="Conditionals">
-<h2>Conditionals<a class="headerlink" href="#Conditionals" title="Permalink to this headline"></a></h2>
-<p>We have now seen the various data types and operations we can do with them. Let us now turn our attention to control flow, starting with conditionals.</p>
-<section id="if-statements">
-<h3>if statements<a class="headerlink" href="#if-statements" title="Permalink to this headline"></a></h3>
-<p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement has the following syntax.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_that_evaluates_to_a_bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of true</span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of false</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The else clause may be omitted. You may also chain <code class="docutils literal notranslate"><span class="pre">if</span></code> statements together.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">expression_that_evaluates_to_a_bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of true</span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">another_expression_that_evaluates_to_a_bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of true for another expression</span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Expressions that are evaluated in the case of falses for all if&#39;s</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>You can have as many <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">if</span></code> blocks as you like.</p>
-</section>
-<section id="switch-cases">
-<h3>switch cases<a class="headerlink" href="#switch-cases" title="Permalink to this headline"></a></h3>
-<p>We can also use <strong>switch-cases</strong> as conditionals. Let’s say we have a <code class="docutils literal notranslate"><span class="pre">char</span></code> variable called <code class="docutils literal notranslate"><span class="pre">var</span></code> that can take on 26 values, <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">'B'</span></code>, <code class="docutils literal notranslate"><span class="pre">'C'</span></code>, etc. We want to do specific tasks when the value is <code class="docutils literal notranslate"><span class="pre">'A'</span></code>, <code class="docutils literal notranslate"><span class="pre">'B'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'C'</span></code>, and a different task if it is any other letter. A switch-case accomplishes this.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Do what I want for &#39;A&#39;</span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Do what I want for &#39;B&#39;</span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Do what I want for &#39;B&#39;</span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Whatever I want to do for the others</span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>A few notes.</p>
-<ol class="arabic simple">
-<li><p>Note the keyword <code class="docutils literal notranslate"><span class="pre">break</span></code>. It is necessary in the switch-case and it stops evaluation of the switch case. <code class="docutils literal notranslate"><span class="pre">break</span></code> is also used to break out of loops, which we will soon see.</p></li>
-<li><p>The cases can be either <code class="docutils literal notranslate"><span class="pre">char</span></code>s or <code class="docutils literal notranslate"><span class="pre">int</span></code>s.</p></li>
-<li><p>You can omit the <code class="docutils literal notranslate"><span class="pre">default</span></code> case if you like.</p></li>
-<li><p>The above will give the same result as:</p></li>
-</ol>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Do what I want for &#39;A&#39;</span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Do what I want for &#39;B&#39;</span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w">  </span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;C&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Do what I want for &#39;C&#39;</span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Whatever I want to do for the others</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Switch-cases are typically preferred when evaluating fixed data values, whereas if statements are preferred when evaluating expressions that give a Boolean.</p>
-</section>
-</section>
-<section id="Iteration">
-<h2>Iteration<a class="headerlink" href="#Iteration" title="Permalink to this headline"></a></h2>
-<p>There are three structures for iteration, a for loop, a while loop, and a do-while loop.</p>
-<section id="for-loops">
-<h3>for loops<a class="headerlink" href="#for-loops" title="Permalink to this headline"></a></h3>
-<p>A for loop is used to do a task over and over again a set number of times. A for loop looks like this:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">initialization</span><span class="p">;</span><span class="w"> </span><span class="n">condition_to_keep_going</span><span class="p">;</span><span class="w"> </span><span class="n">increment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Stuff you want to do over and over</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The initialization happens when the loop is first entered. Usually, it initializes a counter that you will increment in a for loop. The condition is tested at the beginning of each iteration through the loop. If the expression for the condition must give <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>. If it gives <code class="docutils literal notranslate"><span class="pre">false</span></code>, iteration is terminated. Finally, the increment statement is run after each cycle of the loop.</p>
-<p>For example, to make an LED flash exactly ten times, you might do this.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Note that if the body of the loop is a single line, it can come after the <code class="docutils literal notranslate"><span class="pre">for</span></code> statement and end with a semicolon. For example, if we wanted to do something silly, like a series of delays, we could do:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="while-loops">
-<h3>while loops<a class="headerlink" href="#while-loops" title="Permalink to this headline"></a></h3>
-<p>A while loop is used when you want to do a task over and over again until a condition is met. Its syntax is:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition_to_keep_going</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Do want you want to do</span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>At the start of each iteration, the condition is checked. If it evaluates <code class="docutils literal notranslate"><span class="pre">false</span></code>, iteration is terminated. Inside the block of the while loop, it is important that the condition changes, otherwise the while loop will never stop. The ten-flashes of an LED written using a while loop looks like this.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Similar to for loops, one-liner bodies can come directly after the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement, with the braces being dispensable.</p>
-</section>
-<section id="do-while-loops">
-<h3>do-while loops<a class="headerlink" href="#do-while-loops" title="Permalink to this headline"></a></h3>
-<p>A do-while loop is just like a while loop, except the condition is evaluated at the end of the loop. This means that the body of the loop is evaluated at least once, on the first iteration. The syntax is:</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// Do want you want to do</span>
-<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">condition_to_keep_going</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Here is the flash-the-LED-ten-times code as a do-while loop.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="n">i</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="Breaking-and-continuing">
-<h3>Breaking and continuing<a class="headerlink" href="#Breaking-and-continuing" title="Permalink to this headline"></a></h3>
-<p>In any of the three types of loops, the <code class="docutils literal notranslate"><span class="pre">break</span></code> keyword will stop iteration and break out of the loop, heading to the next part of the program. If the <code class="docutils literal notranslate"><span class="pre">continue</span></code> keyword is encountered within the body of a loop, the rest of the body is ignored and then iteration continues.</p>
-</section>
-</section>
-<section id="Functions">
-<h2>Functions<a class="headerlink" href="#Functions" title="Permalink to this headline"></a></h2>
-<p>As with design of devices, it is useful to practice <a class="reference external" href="https://en.wikipedia.org/wiki/Modular_programming">modular design</a> in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.</p>
-<p>It is easiest to see how functions are defined by looking at one. Here is a function to flash an LED <em>n</em> times.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nf">flashLED</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="cm">/*</span>
-<span class="cm">   * Flash an LED controlled via `ledPin` `n` times.</span>
-<span class="cm">   */</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>And here is another function that give the sum or an array of integers.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">int</span><span class="w"> </span><span class="nf">intSum</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ar</span><span class="p">[],</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">lenArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="cm">/*</span>
-<span class="cm">   * Compute the sum of an array of integers. Doesn&#39;t check</span>
-<span class="cm">   * if the sum overruns the maximum value of an int.</span>
-<span class="cm">   */</span><span class="w"></span>
-<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lenArray</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">ar</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Referring to the above two functions, here are some syntactical rules for functions.</p>
-<ol class="arabic simple">
-<li><p>The definition of the function must start with the data type of what the function returns. If it returns nothing, use <code class="docutils literal notranslate"><span class="pre">void</span></code>.</p></li>
-<li><p>Each argument of the function needs to have its type declared in the function declaration.</p></li>
-<li><p>The body of the function follows the definition statement and is contained in braces.</p></li>
-<li><p>It is good practice to start your function body with comments saying what it does.</p></li>
-<li><p>If a function returns something, this is accomplished with a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p></li>
-<li><p>Variables used within functions need to be declared with type declarations. By default, the scope of these variables is limited to the function in which they are declared.</p></li>
-</ol>
-</section>
-<section id="Onwards!">
-<h2>Onwards!<a class="headerlink" href="#Onwards!" title="Permalink to this headline"></a></h2>
-<p>There are many many more features to C++, and therefore many more ways you can program Arduino. However, the basics here are sufficient to build quite powerful programs and rapidly increase the speed of your prototypes.</p>
-<p>As always, just reading this will not make these ideas stick. You need to practice. I advise you to proceed directly to the next lesson.</p>
-</section>
-</section>
+<dl>
+<dt>{</dt><dd><dl>
+<dt>“cells”: [</dt><dd><dl>
+<dt>{</dt><dd><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“# 5. Programming Arduinon”,
+“n”,
+“&lt;hr&gt;”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“In this lesson, we will take a whirlwind tour through the syntax you need as you write sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful [Arduino language reference](<a class="reference external" href="https://www.arduino.cc/reference/">https://www.arduino.cc/reference/</a>). n”,
+“n”,
+“When you finish this lesson, it is important to proceed without much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Review of last lessonsn”,
+“n”,
+“You will remember in the previous lessons that we have already established a few key syntactical rules.n”,
+“n”,
+“1. All variables have to have a <strong>type declaration</strong>. So far, we have only seen <cite>int</cite> data types, some of which we declared as <cite>const</cite>, meaning that the value of the variable cannot change.n”,
+“2. All functions have to have a type declaration for their return value. We have seen <cite>void</cite>, but we could have <cite>int</cite> or other data types we will introduce here.n”,
+“3. All commands end in a semicolon.n”,
+“4. Every Arduino sketch has a <cite>setup()</cite> and a <cite>loop()</cite> function. The <cite>setup()</cite> function is run upon upload of the compiled sketch and upon reset, and the <cite>loop()</cite> function is then run over and over again.n”,
+“5. The core Arduino libraries have built-in functions and variables. For variables, we have seen <cite>INPUT</cite>, <cite>OUTPUT</cite>, <cite>HIGH</cite>, and <cite>LOW</cite>. We actually also saw <cite>LED_BUILTIN</cite> in the [setup lesson](../00/configuring_your_computer.ipynb).n”,
+“6. Comments start with <cite>//</cite> or appear between <cite>/*</cite> and <cite>*/</cite>.n”,
+“n”,
+“We will now proceed to learn about programming the Arduino microcontroller.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## A general note about programming in Arduino: keep it simplen”,
+“n”,
+“You may have experience coding in C++ and have used all of its rich object orientation in your code. You may have constructed complicated, but powerful data types. You can do a lot of that with Arduino, but I have found that it is easier not to. The main reason is that you have only 2 kB of RAM to work with. This means that if you are doing to do something like dynamic memory allocation, which you would do in almost any C++ program, you should try to accomplish the same task in ARduino with static arrays. Unforeseen problems, such as memory fragmentation, can rear their ugly heads.n”,
+“n”,
+“It is safe to use pointers and work with them, e.g., to make two-dimensional arrays, but we will not discuss them here. Nonetheless, be careful when doing so.n”,
+“n”,
+“Since we ultimately will be using the Arduino Uno to run and instrument and collect and send data, we will be connecting it to your computer. You computer is <em>much</em> more powerful that the Arduino Uno (that’s why it probably costs two orders of magnitude more). Furthermore, you can program whatever manipulations you need to do to the data in Python, which, being a high-level interpreted language, is much easier to quickly write functional code with than C++.n”,
+“n”,
+“With that in mind, let us proceed to learn about programming Arduino.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Data typesn”,
+“n”,
+“As I have mentioned, every variable in an Arduino sketch has a type, and that type must be declared when the variable first appears. It is ok to declare it before you use it. That is, this is ok:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">j;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;j</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“as is this:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">j</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“They give the same result.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Scalar data typesn”,
+“n”,
+“- <cite>bool</cite>: A <cite>bool</cite> stores a single bit of information. It can take values of 0 or 1. In your sketches, though, use the Boolean constants <cite>true</cite> and <cite>false</cite> for the values of a <cite>bool</cite>.n”,
+“- <cite>byte</cite>: A byte is an unsigned 8-bit integer. It can take values from 0 to 255; that is 0 to 2⁸ – 1.n”,
+“- <cite>int</cite>: An <cite>int</cite> in an Arduino sketch is a signed 16-bit integer. That means that the values of an <cite>int</cite> range from –32,768 to 32,767; that is –2⁻¹⁵ to 2¹⁵ – 1. The <cite>int</cite> is by far the most-used variable type. Note that the 10-bit ADC converts voltages to 10-bit integers that range from 0 to 1023. You can safely store these as <cite>int`s. If you use an external 16-bit ADC, because an `int</cite> cannot store 16-bit numbers, you will have to use an <cite>unsigned int</cite>.n”,
+“- <cite>unsigned int</cite>: An <cite>unsigned int</cite> is also a 16-bit integer, but negative numbers are not allowed. Therefore <cite>unsigned int`s can range from zero to 65,535; that is 0 to 2¹⁶ – 1, which means you an store a 16-bit integer with it.n”,
+“- `word</cite>: A <cite>word</cite> is equivalent to <cite>unsigned int</cite>. Many programmers suggest using <cite>word</cite> instead of <cite>unsigned int</cite> for clarity, but I do not have a strong opinion on this.n”,
+“- <cite>long</cite>: A <cite>long</cite> is a signed 32-bit integer. They range from –2,147,483,648 to 2,147,483,647; that is –2⁻³¹ to 2³¹ – 1. To denote an integer as a <cite>long</cite>, it must be followed by an <cite>L</cite>. For example to store the number 3252 in a variable named <cite>shoulderToShoulder</cite> as a long, you would do <cite>long shoulderToShoulder = 3252L</cite>.n”,
+“- <cite>unsigned long</cite>: A <cite>unsigned long</cite> is an unsigned 32-bit integer. They range from 0 to 4,294,967,295; that is 0 to 2³² – 1. An <cite>unsigned long</cite> must also be followed by an <cite>L</cite> when written out as a number. <cite>unsigned long`s are very often used when comparing times, since the values returned by the `millis()</cite> and <cite>micros()</cite> functions (described below) are <cite>unsigned long`s.n”,
+“- `size_t</cite>: This is a special data type used to represent the size of a variable (or any object, really) in bytes.n”,
+“- <cite>float</cite>: A <cite>float</cite> in an Arduino sketch is a 32-bit [floating point number](<a class="reference external" href="https://en.wikipedia.org/wiki/Floating-point_arithmetic">https://en.wikipedia.org/wiki/Floating-point_arithmetic</a>). A <cite>float</cite> can take values between –3.4028235×10³⁸ and 3.4028235×10³⁸. It provides six or seven digits of precision.n”,
+“n”,
+“Note that on an Ardunio Uno, there is no <cite>double</cite> data type. Note also that the data type <cite>short</cite> is equivalent to <cite>int</cite>.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Arraysn”,
+“n”,
+“As I mentioned above, we will not discuss complicated array structures. For this class, simple static one-dimensional arrays will suffice.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### Declaring arraysn”,
+“n”,
+“There is no <cite>array</cite> data type. Rather, an array is an ordered collection of elements of a single data type. An array is declared with the data type of its elements. To declare an array of 5 <cite>int`s, the syntax isn”,
+“n”,
+“```arduinon”,
+“int myArray[5];n”,
+“``</cite>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### Indexing an arrayn”,
+“n”,
+“To access the elements of an array, I use indexing with brackets. <strong>Indexing in C++ is 0-based.</strong>n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">myArray[4];\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;myArray[0]</span> <span class="pre">=</span> <span class="pre">3;\n&quot;,</span>
+<span class="pre">&quot;myArray[1]</span> <span class="pre">=</span> <span class="pre">2;\n&quot;,</span>
+<span class="pre">&quot;myArray[2]</span> <span class="pre">=</span> <span class="pre">5;\n&quot;,</span>
+<span class="pre">&quot;myArray[3]</span> <span class="pre">=</span> <span class="pre">2;\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“If I asked for <cite>myArray[4]</cite>, which does not exist, the compiler will not give an error, and I’ll get weird results when I run the code. It is therefore very important that you are careful not to overrun an array.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### Directly creating an arrayn”,
+“n”,
+“Alternatively, I can create an array using braces.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">myArray[4]</span> <span class="pre">=</span> <span class="pre">{3,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">2};\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“When creating an array in this case, I do not need to specify how many entries; the compiler will infer it.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">myArray[]</span> <span class="pre">=</span> <span class="pre">{3,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">2};\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### Determining the number of elements in an arrayn”,
+“n”,
+“Later on in a program, I might like to know how many entries are in an array. There is no built-in function to do that. But you can use the <cite>sizeof()</cite> function, which returns the number of bytes that an object occupies in memory. Since every entry in an array is of the same type, you can use the <cite>sizeof()</cite> function to get the number of entries by dividing the size of the array by the size of an entry.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">lenArray</span> <span class="pre">=</span> <span class="pre">sizeof(myArray)</span> <span class="pre">/</span> <span class="pre">sizeof(myArray[0]);\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### Mutating arraysn”,
+“n”,
+“Because I do not have <cite>const</cite> in front of the declaration, I can change the values of entries in the array.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">myArray[4]</span> <span class="pre">=</span> <span class="pre">{3,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">2};\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;myArray[3]</span> <span class="pre">=</span> <span class="pre">3;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">myArray</span> <span class="pre">is</span> <span class="pre">now</span> <span class="pre">{3,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">3}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### Using entries of an array in a calculationn”,
+“n”,
+“I can also access entries of an array with indexing and use their values.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">myArray[4]</span> <span class="pre">=</span> <span class="pre">{3,</span> <span class="pre">2,</span> <span class="pre">5,</span> <span class="pre">2};\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">mySum</span> <span class="pre">=</span> <span class="pre">myArray[0]</span> <span class="pre">+</span> <span class="pre">myArray[1]</span> <span class="pre">+</span> <span class="pre">myArray[2]</span> <span class="pre">+</span> <span class="pre">myArray[3];\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">mySum</span> <span class="pre">stores</span> <span class="pre">the</span> <span class="pre">value</span> <span class="pre">12.\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“I can also pluck values out of an array and store them.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Character and string data typesn”,
+“n”,
+“- <cite>char</cite>: A single character, like <cite>‘A’</cite> is stored as a <cite>char</cite>. When defining a <cite>char</cite>, it is in single quotes, e.g., <cite>char myGradeInBE189 = ‘A’;</cite>.n”,
+“- <cite>string</cite>: A <cite>string</cite> is an array of <cite>char`s. They are constructed using double quotes. `char myString[] = &quot;Hello, world.&quot;</cite> <cite>string`s are **null-terminated**, which means that the last element of the array of characters is a special character called a **null character**. This character is `\0</cite>. It is important because it lets functions that work with strings know where the string ends.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“#### The String classn”,
+“n”,
+“While I gave a warning about using C++’s object orientation, the core libraries have some handy classes that you can make use of. The <cite>String</cite> class is particularly useful.n”,
+“n”,
+“To construct a <cite>String</cite> instance, you use <cite>String()</cite> as a function. You have to make sure to declare your variable to be of a <cite>String</cite> type.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">myString</span> <span class="pre">=</span> <span class="pre">String(\&quot;Hello,</span> <span class="pre">world.\&quot;);\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“The variable <cite>myString</cite> now has many methods to use. Here are a few:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">myString</span> <span class="pre">=</span> <span class="pre">String(\&quot;Hello,</span> <span class="pre">world.\&quot;);\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">13\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">lenString</span> <span class="pre">=</span> <span class="pre">myString.length();\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Converts</span> <span class="pre">to</span> <span class="pre">upper</span> <span class="pre">case</span> <span class="pre">in</span> <span class="pre">place.\n&quot;,</span>
+<span class="pre">&quot;myString.toUpperCase();\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">5\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">commaIndex</span> <span class="pre">=</span> <span class="pre">myString.indexOf(',');\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“You can also use operators with the string.n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">myString</span> <span class="pre">=</span> <span class="pre">String(\&quot;Hello,</span> <span class="pre">world.\&quot;);\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">You</span> <span class="pre">can</span> <span class="pre">use</span> <span class="pre">+</span> <span class="pre">to</span> <span class="pre">concatenate</span> <span class="pre">with</span> <span class="pre">instantiating\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">greeting</span> <span class="pre">=</span> <span class="pre">String(\&quot;Hello,</span> <span class="pre">world.\&quot;</span> <span class="pre">+</span> <span class="pre">\&quot;</span> <span class="pre">Pleased</span> <span class="pre">to</span> <span class="pre">meet</span> <span class="pre">you.\&quot;);\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Or</span> <span class="pre">after</span> <span class="pre">instantiation\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">greeting</span> <span class="pre">=</span> <span class="pre">String(myString</span> <span class="pre">+</span> <span class="pre">\&quot;</span> <span class="pre">Pleased</span> <span class="pre">to</span> <span class="pre">meet</span> <span class="pre">you.\&quot;);\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“You can also convert a number to a string, and a string to a number.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Convert</span> <span class="pre">an</span> <span class="pre">integer\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">intAsString</span> <span class="pre">=</span> <span class="pre">String(3252);\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">And</span> <span class="pre">bring</span> <span class="pre">it</span> <span class="pre">back</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">integer\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">favoriteInt</span> <span class="pre">=</span> <span class="pre">intAsString.toInt();\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">If</span> <span class="pre">you</span> <span class="pre">convert</span> <span class="pre">a</span> <span class="pre">float,</span> <span class="pre">the</span> <span class="pre">second</span> <span class="pre">argument</span> <span class="pre">is</span> <span class="pre">how</span> <span class="pre">many</span> <span class="pre">decimal</span> <span class="pre">places</span> <span class="pre">to</span> <span class="pre">keep.\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">This</span> <span class="pre">gives</span> <span class="pre">\&quot;3.14\&quot;.\n&quot;,</span>
+<span class="pre">&quot;String</span> <span class="pre">floatAsString</span> <span class="pre">=</span> <span class="pre">String(3.14159,</span> <span class="pre">2);\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">You</span> <span class="pre">can</span> <span class="pre">convert</span> <span class="pre">back</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">float.</span> <span class="pre">This</span> <span class="pre">will</span> <span class="pre">give</span> <span class="pre">3.14.\n&quot;,</span>
+<span class="pre">&quot;float</span> <span class="pre">pi</span> <span class="pre">=</span> <span class="pre">floatAsString.toFloat();\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“Unless you are RAM constrained, you should just use <cite>String</cite> objects when handling strings. They have a bigger footprint in RAM, but the benefits are substantial.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Type conversionn”,
+“n”,
+“You can change types of a variable using <strong>casting</strong>. To cast, place the data type you want to convert to in parentheses before the variable you are converting. Here are a few examples.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">myInt</span> <span class="pre">=</span> <span class="pre">176;\n&quot;,</span>
+<span class="pre">&quot;float</span> <span class="pre">myFloat</span> <span class="pre">=</span> <span class="pre">2.718;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Convert</span> <span class="pre">an</span> <span class="pre">int</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">byte.</span> <span class="pre">Be</span> <span class="pre">sure</span> <span class="pre">it's</span> <span class="pre">≤</span> <span class="pre">255\n&quot;,</span>
+<span class="pre">&quot;byte</span> <span class="pre">intAsByte</span> <span class="pre">=</span> <span class="pre">(byte)</span> <span class="pre">myInt;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Convert</span> <span class="pre">an</span> <span class="pre">int</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">float\n&quot;,</span>
+<span class="pre">&quot;float</span> <span class="pre">intAsFloat</span> <span class="pre">=</span> <span class="pre">(float)</span> <span class="pre">myInt;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Convert</span> <span class="pre">a</span> <span class="pre">float</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">int</span> <span class="pre">(gives</span> <span class="pre">2;</span> <span class="pre">chops</span> <span class="pre">off</span> <span class="pre">decimal)\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">floatAsInt</span> <span class="pre">=</span> <span class="pre">(int)</span> <span class="pre">myFloat;\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Operatorsn”,
+“n”,
+“Now that we have a handle on data types, we can look into operators. “</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Arithmetic operatorsn”,
+“n”,
+“We have already seen the <strong>assignment operator</strong>, <cite>=</cite>, and it works as you might intuit. Other arithmetic operators are:n”,
+“n”,
+“- <cite>+</cite>: Addition. It is overloaded for <cite>String</cite> objects, doing concatenation instead.n”,
+“- <cite>-</cite>: Subtraction.n”,
+“- <cite>*</cite>: Multiplication.n”,
+“- <cite>/</cite>: Divisionn”,
+“- <cite>%</cite>: Mod. <cite>6 % 3</cite> gives <cite>0</cite>. <cite>6 % 4</cite> gives 2.n”,
+“n”,
+“Note that there is no floor division. This can be accomplished with casting, e.g., <cite>(int) 6 / 4</cite> will give <cite>1</cite>.n”,
+“n”,
+“There is also no raise-to-power operator. This is achieved using the <cite>pow()</cite> function.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Comparison operatorsn”,
+“n”,
+“These are the same as in Python and give a <cite>bool</cite>, either <cite>true</cite> or <cite>false</cite>, as a result.n”,
+“n”,
+“- <cite>==</cite>: Equal to.n”,
+“- <cite>!=</cite>: Not equal to.n”,
+“- <cite>&lt;</cite>: Less than.n”,
+“- <cite>&gt;</cite>: Greater than.n”,
+“- <cite>&lt;=</cite>: Less than or equal to.n”,
+“- <cite>&gt;=</cite>: Greater than or equal to.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Boolean operatorsn”,
+“n”,
+“The three Boolean operators are:n”,
+“n”,
+“- <cite>&amp;&amp;</cite>: ANDn”,
+“- <cite>||</cite>: ORn”,
+“- <cite>!</cite>: NOTn”,
+“n”,
+“Here are some examples.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">true\n&quot;,</span>
+<span class="pre">&quot;4</span> <span class="pre">&lt;</span> <span class="pre">6</span> <span class="pre">&amp;&amp;</span> <span class="pre">7</span> <span class="pre">&lt;</span> <span class="pre">93\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">true\n&quot;,</span>
+<span class="pre">&quot;4</span> <span class="pre">&lt;</span> <span class="pre">6</span> <span class="pre">||</span> <span class="pre">7</span> <span class="pre">&lt;</span> <span class="pre">93\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">false\n&quot;,</span>
+<span class="pre">&quot;4</span> <span class="pre">&lt;</span> <span class="pre">6</span> <span class="pre">&amp;&amp;</span> <span class="pre">7</span> <span class="pre">&gt;</span> <span class="pre">93\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">true\n&quot;,</span>
+<span class="pre">&quot;4</span> <span class="pre">&lt;</span> <span class="pre">6</span> <span class="pre">||</span> <span class="pre">7</span> <span class="pre">&gt;</span> <span class="pre">93\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;//</span> <span class="pre">Gives</span> <span class="pre">false\n&quot;,</span>
+<span class="pre">&quot;!(4</span> <span class="pre">&lt;</span> <span class="pre">6</span> <span class="pre">||</span> <span class="pre">7</span> <span class="pre">&gt;</span> <span class="pre">93)\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Compound operatorsn”,
+“n”,
+“<strong>Compound operators</strong> are used to change the values of variables in place. The operators are best explained by considering equivalent expressions.n”,
+“n”,
+“<a href="#id3"><span class="problematic" id="id4">|compound operator expression | equivalent expression |\n&quot;,
+&quot;|</span></a>:——–<a href="#id5"><span class="problematic" id="id6">|:------|</span></a>n”,
+“| <cite>x += 1</cite> | <cite>x = x + 1</cite> <a href="#id7"><span class="problematic" id="id8">|\n&quot;,
+&quot;|</span></a> <cite>x++</cite>    | <cite>x = x + 1</cite> <a href="#id9"><span class="problematic" id="id10">|\n&quot;,
+&quot;|</span></a> <cite>x -= 1</cite> | <cite>x = x - 1</cite> <a href="#id11"><span class="problematic" id="id12">|\n&quot;,
+&quot;|</span></a> <cite>x–</cite> | <cite>x = x - 1</cite> <a href="#id13"><span class="problematic" id="id14">|\n&quot;,
+&quot;|</span></a> <cite>x *= 2</cite> | <cite>x = x * 2</cite> <a href="#id15"><span class="problematic" id="id16">|\n&quot;,
+&quot;|</span></a> <cite>x /= 2</cite> | <cite>x = x / 2</cite> <a href="#id17"><span class="problematic" id="id18">|\n&quot;,
+&quot;|</span></a> <cite>x %= 2</cite> | <cite>x = x % 2</cite> <a href="#id1"><span class="problematic" id="id2">|</span></a>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Bitwise operatorsn”,
+“n”,
+“Bitwise operations work on numbers at the level of their binary representations. While I have not used these operators very often in my various hacking pursuits, they do come up fairly often in programming devices, especially in the context of communications where data are sent and received as bits and bytes.n”,
+“n”,
+“I think the operators are best explored by example. To keep the binary representations short, we will use <cite>byte`s instead of `int`s. Say we have a `byte</cite> variable <cite>01001101</cite>. This corresponds to the decimal number 77. The number <cite>10001110</cite> is 142. Let us now consider some bitwise operators on these two numbers to see how they work. It helps to look at these two binary numbers on top of each other to make easy comparisonsn”,
+“n”,
+”    x = 77:  01001101n”,
+”    y = 142: 10001110n”,
+”    n”,
+“In what follows, assume that we have already executed the coden”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;byte</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">77;\n&quot;,</span>
+<span class="pre">&quot;byte</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">142;\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+”    n”,
+“- <cite>&amp;</cite>: Bitwise AND. Two numbers with the same number of bits (e.g., both <cite>int`s, both `byte`s, both `long int`s, etc.) are compared. The result has a `1</cite> in a given bit position if both numbers have a <cite>1</cite> in that position. So, <cite>x &amp; y</cite> gives <cite>12</cite>, which has a binary representation of <cite>00001100</cite>.n”,
+“- <cite>|</cite>: Bitwise OR. Two numbers with the same number of bits are compared. The result has a <cite>1</cite> in a given bit position if either of the numbers has a <cite>1</cite> in that position. So, <cite>x | y</cite> gives <cite>207</cite>, which has a binary representation of <cite>11001111</cite>.n”,
+“- <cite>^</cite>: Bitwise XOR. Two numbers with the same number of bits are compared. The result has a <cite>1</cite> in a given bit position if the two numbers have different numbers in that position. So, <cite>x ^ y</cite> gives <cite>195</cite>, which has a binary representation of <cite>11000011</cite>.n”,
+“n”,
+“We will not consider operations that work on the binary representation of a single number.n”,
+“n”,
+“- <cite>~</cite>: Bitwise NOT. I call this operator a bit-flipper, since it flips the bits of a number, changing a 1 to a 0 and a 0 to a 1. <cite>~x</cite> gives <cite>-78</cite>. Wait…. WHAT!? It turns out that the <cite>~</cite> operator does not work on <cite>byte`s, but on `int`s. The compiler will case the `byte</cite> variable as an <cite>int</cite> in order to perform the <cite>~</cite> operation. Remember that an <cite>int</cite> is a <em>signed</em> integer, meaning that one of the bits is used to indicate the sign of the number. By convention, that is the first bit, the so-called <strong>highest bit</strong>. The variable <cite>x</cite> as an <cite>int</cite> has representation <cite>0000000001001101</cite>. The highest bit is the sign, which is zero in this case, indicating a positive number. Applying bitwise NOT gives <cite>-78</cite>, which has a binary representation of <cite>1111111110110010</cite>. For any <cite>int</cite> <cite>x</cite>, <cite>~x</cite> is equivalent go <cite>-x - 1</cite>.n”,
+“- <cite>&lt;&lt;</cite>: Left bitshift. This operation slides the <cite>1`s and `0`s leftward a set number of steps, padding the right bits with zeros and discarding bits that get shifted off to the left. `x &lt;&lt; 3</cite> will shift the bits three places to the left and gives <cite>616</cite>. Wait….. WHAT AGAIN!? The result of a bitshift operation is an <cite>int</cite>. So, this bitshift  results in <cite>0000001001101000</cite>, which has a decimal value of 616. Conversely, <cite>x &lt;&lt; 13</cite> gives <cite>-24576</cite>, which has a binary representation of <cite>1010000000000000</cite>. Note that the second operand (in our case, we used <cite>3</cite> and <cite>13</cite>) must be less than or equal to 32.n”,
+“- <cite>&gt;&gt;</cite>: Right bitshift. This operations slides <cite>1`s and `0`s rightward a set number of steps, discarding bits that are shifted off to the right. *Be careful*, the bits that are padded to the left are whatever the highest bit is if you are using an `int</cite>. That means that negative integers are padded with <cite>1`s and positive integers are padded with `0`s. This method of padding is called **sign extension**. So, `x &gt;&gt; 3</cite> gives 9, which has a binary representation of <cite>0000000001001</cite>. Conversely, consider a right bitshift on <cite>-77</cite>, which has a binary representation of <cite>1111111110110011</cite>. <cite>-77 &gt;&gt; 3</cite> gives <cite>-10</cite>, which has a binary representation of <cite>1111111111110110</cite>.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Conditionalsn”,
+“n”,
+“We have now seen the various data types and operations we can do with them. Let us now turn our attention to control flow, starting with conditionals. “</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### if statementsn”,
+“n”,
+“An <cite>if</cite> statement has the following syntax.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;if</span> <span class="pre">(expression_that_evaluates_to_a_bool)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Expressions</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">evaluated</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">case</span> <span class="pre">of</span> <span class="pre">true\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;else</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Expressions</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">evaluated</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">case</span> <span class="pre">of</span> <span class="pre">false\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“The else clause may be omitted. You may also chain <cite>if</cite> statements together.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;if</span> <span class="pre">(expression_that_evaluates_to_a_bool)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Expressions</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">evaluated</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">case</span> <span class="pre">of</span> <span class="pre">true\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;else</span> <span class="pre">if</span> <span class="pre">(another_expression_that_evaluates_to_a_bool)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Expressions</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">evaluated</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">case</span> <span class="pre">of</span> <span class="pre">true</span> <span class="pre">for</span> <span class="pre">another</span> <span class="pre">expression\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;else</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Expressions</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">evaluated</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">case</span> <span class="pre">of</span> <span class="pre">falses</span> <span class="pre">for</span> <span class="pre">all</span> <span class="pre">if's\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“You can have as many <cite>else if</cite> blocks as you like.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### switch casesn”,
+“n”,
+“We can also use <strong>switch-cases</strong> as conditionals. Let’s say we have a <cite>char</cite> variable called <cite>var</cite> that can take on 26 values, <cite>‘A’</cite>, <cite>‘B’</cite>, <cite>‘C’</cite>, etc. We want to do specific tasks when the value is <cite>‘A’</cite>, <cite>‘B’</cite>, or <cite>‘C’</cite>, and a different task if it is any other letter. A switch-case accomplishes this.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;switch(var)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">case</span> <span class="pre">'A':\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">what</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">for</span> <span class="pre">'A'\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">case</span> <span class="pre">'B':\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">what</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">for</span> <span class="pre">'B'\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">case</span> <span class="pre">'C':\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">what</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">for</span> <span class="pre">'B'\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">default:\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Whatever</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">do</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">others\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“A few notes.n”,
+“n”,
+“1. Note the keyword <cite>break</cite>. It is necessary in the switch-case and it stops evaluation of the switch case. <cite>break</cite> is also used to break out of loops, which we will soon see.n”,
+“2. The cases can be either <cite>char`s or `int`s. n”,
+“3. You can omit the `default</cite> case if you like. n”,
+“4. The above will give the same result as:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;if</span> <span class="pre">(var</span> <span class="pre">==</span> <span class="pre">'A')</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">what</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">for</span> <span class="pre">'A'\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;else</span> <span class="pre">if</span> <span class="pre">(var</span> <span class="pre">==</span> <span class="pre">'B')</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">what</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">for</span> <span class="pre">'B'\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;else</span> <span class="pre">if</span>&#160; <span class="pre">(var</span> <span class="pre">==</span> <span class="pre">'C')</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">what</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">for</span> <span class="pre">'C'\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;else</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Whatever</span> <span class="pre">I</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">do</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">others\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“Switch-cases are typically preferred when evaluating fixed data values, whereas if statements are preferred when evaluating expressions that give a Boolean.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Iterationn”,
+“n”,
+“There are three structures for iteration, a for loop, a while loop, and a do-while loop.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### for loopsn”,
+“n”,
+“A for loop is used to do a task over and over again a set number of times. A for loop looks like this:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;for</span> <span class="pre">(initialization;</span> <span class="pre">condition_to_keep_going;</span> <span class="pre">increment)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Stuff</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">do</span> <span class="pre">over</span> <span class="pre">and</span> <span class="pre">over\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“The initialization happens when the loop is first entered. Usually, it initializes a counter that you will increment in a for loop. The condition is tested at the beginning of each iteration through the loop. If the expression for the condition must give <cite>true</cite> or <cite>false</cite>. If it gives <cite>false</cite>, iteration is terminated. Finally, the increment statement is run after each cycle of the loop.n”,
+“n”,
+“For example, to make an LED flash exactly ten times, you might do this.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">10;</span> <span class="pre">i++)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">LOW);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“Note that if the body of the loop is a single line, it can come after the <cite>for</cite> statement and end with a semicolon. For example, if we wanted to do something silly, like a series of delays, we could do:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">10;</span> <span class="pre">i++)</span> <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### while loopsn”,
+“n”,
+“A while loop is used when you want to do a task over and over again until a condition is met. Its syntax is:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;while</span> <span class="pre">(condition_to_keep_going)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">want</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">do\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“At the start of each iteration, the condition is checked. If it evaluates <cite>false</cite>, iteration is terminated. Inside the block of the while loop, it is important that the condition changes, otherwise the while loop will never stop. The ten-flashes of an LED written using a while loop looks like this.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;while</span> <span class="pre">(i</span> <span class="pre">&lt;</span> <span class="pre">10)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">LOW);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">i++;\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“Similar to for loops, one-liner bodies can come directly after the <cite>while</cite> statement, with the braces being dispensable.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### do-while loopsn”,
+“n”,
+“A do-while loop is just like a while loop, except the condition is evaluated at the end of the loop. This means that the body of the loop is evaluated at least once, on the first iteration. The syntax is:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;do</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Do</span> <span class="pre">want</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">do\n&quot;,</span>
+<span class="pre">&quot;}</span> <span class="pre">while</span> <span class="pre">(condition_to_keep_going);\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“Here is the flash-the-LED-ten-times code as a do-while loop.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;do</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">LOW);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">i++;\n&quot;,</span>
+<span class="pre">&quot;}</span> <span class="pre">while</span> <span class="pre">(i</span> <span class="pre">&lt;</span> <span class="pre">10);\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Breaking and continuingn”,
+“n”,
+“In any of the three types of loops, the <cite>break</cite> keyword will stop iteration and break out of the loop, heading to the next part of the program. If the <cite>continue</cite> keyword is encountered within the body of a loop, the rest of the body is ignored and then iteration continues.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Functionsn”,
+“n”,
+“As with design of devices, it is useful to practice [modular design](<a class="reference external" href="https://en.wikipedia.org/wiki/Modular_programming">https://en.wikipedia.org/wiki/Modular_programming</a>) in the design of software. If you have a task that will be done more than once in a sketch, or that you might use in other sketches, you should write it as a function.n”,
+“n”,
+“It is easiest to see how functions are defined by looking at one. Here is a function to flash an LED  <em>n</em> times.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;void</span> <span class="pre">flashLED(int</span> <span class="pre">ledPin,</span> <span class="pre">int</span> <span class="pre">n)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">/*\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*</span> <span class="pre">Flash</span> <span class="pre">an</span> <span class="pre">LED</span> <span class="pre">controlled</span> <span class="pre">via</span> <span class="pre">`ledPin`</span> <span class="pre">`n`</span> <span class="pre">times.\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*/\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160; <span class="pre">\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">10;</span> <span class="pre">i++)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">LOW);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">delay(250);\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“And here is another function that give the sum or an array of integers.n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
+<span class="pre">&quot;int</span> <span class="pre">intSum(int</span> <span class="pre">ar[],</span> <span class="pre">int</span> <span class="pre">lenArray)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">/*\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*</span> <span class="pre">Compute</span> <span class="pre">the</span> <span class="pre">sum</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">of</span> <span class="pre">integers.</span> <span class="pre">Doesn't</span> <span class="pre">check\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*</span> <span class="pre">if</span> <span class="pre">the</span> <span class="pre">sum</span> <span class="pre">overruns</span> <span class="pre">the</span> <span class="pre">maximum</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">an</span> <span class="pre">int.\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*/\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">int</span> <span class="pre">sum</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">lenArray;</span> <span class="pre">i++)</span> <span class="pre">{\n&quot;,</span>
+<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">sum</span> <span class="pre">+=</span> <span class="pre">ar[i];\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
+<span class="pre">&quot;\n&quot;,</span>
+<span class="pre">&quot;</span>&#160; <span class="pre">return</span> <span class="pre">sum;\n&quot;,</span>
+<span class="pre">&quot;}\n&quot;,</span>
+<span class="pre">&quot;`</span></code>n”,
+“n”,
+“Referring to the above two functions, here are some syntactical rules for functions.n”,
+“n”,
+“1. The definition of the function must start with the data type of what the function returns. If it returns nothing, use <cite>void</cite>.n”,
+“2. Each argument of the function needs to have its type declared in the function declaration.n”,
+“3. The body of the function follows the definition statement and is contained in braces.n”,
+“4. It is good practice to start your function body with comments saying what it does.n”,
+“5. If a function returns something, this is accomplished with a <cite>return</cite> statement.n”,
+“6. Variables used within functions need to be declared with type declarations. By default, the scope of these variables is limited to the function in which they are declared.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Onwards!n”,
+“n”,
+“There are many many more features to C++, and therefore many more ways you can program Arduino. However, the basics here are sufficient to build quite powerful programs and rapidly increase the speed of your prototypes.n”,
+“n”,
+“As always, just reading this will not make these ideas stick. You need to practice. I advise you to proceed directly to the next lesson.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>],
+“metadata”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
+“language”: “python”,
+“name”: “python3”</p>
+</dd>
+</dl>
+<p>},
+“language_info”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
+“version”: 3</p>
+</dd>
+</dl>
+<p>},
+“file_extension”: “.py”,
+“mimetype”: “text/x-python”,
+“name”: “python”,
+“nbconvert_exporter”: “python”,
+“pygments_lexer”: “ipython3”,
+“version”: “3.8.8”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+“nbformat”: 4,
+“nbformat_minor”: 4</p>
+</dd>
+</dl>
+<p>}</p>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../04/schematics.html" class="btn btn-neutral float-left" title="4. Schematics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../06/practice_programming_arduino.html" class="btn btn-neutral float-right" title="6. Practice programming Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../04/schematics.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../06/practice_programming_arduino.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 26, 2022.
+      <span class="lastupdated">Last updated on Mar 22, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fc60112dfa0> 
+   <jinja2.runtime.BlockReference object at 0x7fb0fdc08730> 
 
 <p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

@@ -3,13 +3,13 @@
 Meetings
 --------
 
-The class meets regularly on Tuesdays and Thursdays 14:30-15:55 Pacific in B127 Kerckhoff. Unless you have extenuating circumstances, the meetings are mandatory. Most class meetings involve working on exercises and projects. Some meetings will involve live instruction, which is posted on the :ref:`Schedule` page.
+The class meets regularly on Tuesdays and Thursdays 1:00 pm-2:30 pm Pacific in 123/125/137 Kerckhoff. Unless you have extenuating circumstances, the meetings are mandatory. Most class meetings involve working on exercises and projects. Some meetings will involve live instruction, which is posted on the :ref:`Schedule` page.
 
 
 Course structure
 ----------------
 
-In this course, we provide you with two design challenges. First, you will design and build a spectrophotometer. You will use this devise to measure growth curves of yeast or bacteria. After completing that project, you will tackle the more challenging project of designing and building a pulse oximeter. We provide basic specifications and most construction materials for these devices, and it is your job to implement the specification and demonstrate a working prototype.
+In this course, we provide you with two design challenges. First, you will design and build a spectrophotometer. After completing that project, you will tackle the more challenging project of designing and building a pulse oximeter. We provide basic specifications and most construction materials for these devices, and it is your job to implement the specification and demonstrate a working prototype.
 
 At the beginning of the term, you will complete a series of exercises to bring you up to speed using the Arduino platform and interfacing with Arduino using Python-based tools. After that, you work on design projects.
 
@@ -19,7 +19,7 @@ You can work at your own pace, but it is your responsibility to have your exerci
 Course communications
 ---------------------
 
-Please use `the course Ed page <https://edstem.org/us/join/JEHfHw>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
+Please use `the course Ed page <https://edstem.org/us/courses/14669/>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
 
 For private matters, such as extension requests, contact the course staff directly using email.
 
@@ -33,7 +33,7 @@ We will be using shared equipment and components in the lab. It is your responsi
 Submission of exercises and project write-ups
 ----------------------------------------------
 
-Each project write-up and exercise must be submitted as a ZIP file via **Gradescope**. The files names are `lastname_firstname_faexercise_##.zip` for follow-along exercises and `lastname_firstname_diyexercise_##.zip` for do-it-yourself exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_spectrophotometer.zip` and `lastname_firstname_pulseox.zip`.
+Each project write-up and exercise must be submitted as a ZIP file via email to `caltechbe189@gmail.com`. The files names are `lastname_firstname_faexercise_##.zip` for follow-along exercises and `lastname_firstname_diyexercise_##.zip` for do-it-yourself exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_pulseox.zip` and `lastname_firstname_cv.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes. The subject line of the email is the same as the file name of the ZIP file, minus the `.zip`.
 
 
 Exercises
@@ -94,7 +94,7 @@ IF syntax highlighting does not properly work, you can instead use C++ highlight
 Project write-ups
 -----------------
 
-You will complete two major design projects in the course. You will construct a spectrophotometer and a pulse oximeter. Your goal is to develop a prototype to achieve the provided design specification. Each project has a description on the course website with some background information, overall design specification, a set of details about the specification, as well as some prelab and postlab questions. You should read the entire project description before submitting your prelab questions. Additionally included are spec sheets (or links to them) for components used in the projects.
+You will complete two major design projects in the course. You will construct a pulse oximeter and a cyclic voltameter. Your goal is to develop a prototype to achieve the provided design specification. Each project has a description on the course website with some background information, overall design specification, and a set of details about the specification.
 
 In designing your project, you also need to design and implement a user interface for controlling the device and acquiring data from it. You can use `Bokeh <https://bokeh.pydata.org/>`_ to do this.
 
@@ -128,5 +128,5 @@ Collaboration policy
 Grading
 -------
 
-- 30% of your grade is determined from exercises and 70% of your grade is determined from your projects, with 30% of your grade coming from the spectrophotometer and 40% from the pulse oximeter project. You need to keep your workspace and the communal space tidy and organized.
-- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/2\ :superscript:`(ceil(number of days late))`\ . The exception is the pulse oximeter write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
+- 30% of your grade is determined from exercises and 65% of your grade is determined from your projects, with 30% of your grade coming from the pulse oximeter project and 35% from the cyclic voltameter project. The remaining 5% of your grade is determined but your lab technique and citizenship. You need to keep your workspace and the communal space tidy and organized.
+- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/2\ :superscript:`(ceil(number of days late))`\ . The exception is the pulse oximetry write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
