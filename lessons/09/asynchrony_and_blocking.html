@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>9. Asynchrony and blocking &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -16,15 +16,18 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../10/control_of_arduino_with_python.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../08/pulse_width_modulation.html" /> 
+    <link rel="next" title="10. Serial communication with Python" href="../10/control_of_arduino_with_python.html" />
+    <link rel="prev" title="8. Pulse width modulation" href="../08/pulse_width_modulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +46,46 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Asynchrony and blocking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Asynchrony">Asynchrony</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">Serial.print(), Serial.println(), and Serial.write() are asynchronous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-3:-Other-asynchronous-functions">Thinking exercise 3: Other asynchronous functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Avoiding-delay()">Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-5:-Serial-output-without-delay">Follow-along exercise 5: Serial output without delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">Do-it-yourself exercise 4: K.I.T.T. scanner bar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -51,8 +93,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -138,268 +180,117 @@
     text-align: unset;
 }
 </style>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# 9. Asynchrony and blockingn”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Thus far, we have used the <cite>delay()</cite> function to handle the timing of events, such as turning an LED on or off or writing data via a serial connection. The problem with using <cite>delay()</cite> is that it works by <strong>blocking</strong>. This means that while <cite>delay()</cite> is running the microprocessor cannot do any other tasks. In the previous exercise, we waited 100 milliseconds before sending data. During that time, the ATmega328 could have performed about 2 million instructions. That is a lot of wasted computational resources to enable blocking! (The chip in your computer is more than 1000 times faster, so blocking on your computer wastes even more resources. We will address asynchrony on the Python side in later lessons.)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Asynchronyn”,
-“n”,
-“[Asynchrony](<a class="reference external" href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming">https://en.wikipedia.org/wiki/Asynchrony_(computer_programming</a>)) is an important concept in the design of biodevices. It is best explained by example.n”,
-“n”,
-“Say you make a device that acquires data from a sensor and sends those data to your computer via USB. Meanwhile, your device should listen for a signal coming from the computer that will ask it to stop sending data. Say you wrote a function that listens to the USB channel for a signal from the computer. Upon receipt of the signal, it stops sending data over USB. The problem is that if you run the listener function and it is blocking, your device cannot do any other operations, including processing and sending the sensor data.n”,
-“n”,
-“Similarly, if you are using <cite>delay()</cite> to time the sending of data over USB, you  are blocking and you could miss the signal from the computer requesting that data stop being sent.n”,
-“n”,
-“So, it is important that the listening and sending happen <strong>asynchronously</strong>. While waiting for the signal from the computer, the microprocessor is free to do other tasks. Similarly, while the microprocessor is waiting to send data over USB, it should be able to do other tasks.n”,
-“n”,
-“A function that can run asynchronous returns so that the program can proceed and then completes its tasks when possible.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Serial.print(), Serial.println(), and Serial.write() are asynchronousn”,
-“n”,
-“Writing data over USB is asynchronous. In most cases, <cite>Serial.print()</cite>, <cite>Serial.println()</cite>, and <cite>Serial.write()</cite> will almost immediately return and the microcontroller will continue to the next lines of your sketch. Meanwhile, the data is sent over USB while the microcontroller is busy with other tasks. These functions do this by putting the bytes that need to be transfered into an <strong>output buffer</strong>, which is then processed by the USB interface chip and sent to your computer.n”,
-“n”,
-“The exception to this behavior is when the output buffer is full. In this case, the microcontroller has no place to dump the bytes that need to be written, so it has to wait (and block) until the buffer is free.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Thinking exercise 3: Other asynchronous functionsn”,
-“n”,
-“Think back to some previous exercises.n”,
-“n”,
-“<strong>a)</strong> Does <cite>tone()</cite> operate asynchronously?n”,
-“n”,
-“<strong>b)</strong> Does <cite>analogWrite()</cite> operate asynchronously?n”,
-“n”,
-“The answer to this exercise is at the bottom of this lesson.n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Avoiding <cite>delay()</cite>n”,
-“n”,
-“As a rule of thumb, you should avoid using <cite>delay()</cite> because it is blocking. The function is really convenient when you are just learning or debugging with occasional serial output, but should not really be used beyond that.n”,
-“n”,
-“How do we go about avoiding delay? Again, this is best learned by example.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Follow-along exercise 5: Serial output without delayn”,
-“n”,
-“Consider the same setup you had for [the follow-along exercise on serial communication](../07/adc_and_usart.ipynb), the schematic of which is shown below.n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 300px;&quot;&gt;n”,
-”    n”,
-“![potentiometer schematic](05-serial_without_delay_schem.svg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“We wish to write voltage values via USB, but without using the blocking function <cite>delay()</cite>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <cite>millis()</cite> function returns this time in milliseconds. The number returned by <cite>millis()</cite> is an <cite>unsigned long</cite>, so it is important to declare any variable storing its output as such. Similarly, the function <cite>micros()</cite> returns the amount of time since the last reset in units of microseconds. Note, though, that because the Arduino Uno board operates at about 16 MHz, the resolution of <cite>micros()</cite> is four µs.n”,
-“n”,
-“So, we use the <cite>millis()</cite> function to capture when we last sent data. We then use the <cite>millis()</cite> function again to get the current time. When the difference between the current time and the last time we sent data is at least as large as the time we want between sending data, we then go ahead and send the data. We also set the last time that data was sent to the current time, and then continue. This is implemented in the code below.n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Which</span> <span class="pre">pin</span> <span class="pre">we</span> <span class="pre">will</span> <span class="pre">read</span> <span class="pre">from\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">sensorPin</span> <span class="pre">=</span> <span class="pre">A0;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">How</span> <span class="pre">often</span> <span class="pre">to</span> <span class="pre">write</span> <span class="pre">the</span> <span class="pre">result</span> <span class="pre">to</span> <span class="pre">serial</span> <span class="pre">in</span> <span class="pre">milliseconds\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">long</span> <span class="pre">reportInterval</span> <span class="pre">=</span> <span class="pre">100;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Baud</span> <span class="pre">rate</span> <span class="pre">(must</span> <span class="pre">be</span> <span class="pre">long)\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">long</span> <span class="pre">baudRate</span> <span class="pre">=</span> <span class="pre">115200;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Global</span> <span class="pre">variable</span> <span class="pre">to</span> <span class="pre">keep</span> <span class="pre">track</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">last</span> <span class="pre">writeout\n&quot;,</span>
-<span class="pre">&quot;unsigned</span> <span class="pre">long</span> <span class="pre">timeLastWrite;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">setup()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">Serial.begin(baudRate);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Initialize</span> <span class="pre">timing\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">timeLastWrite</span> <span class="pre">=</span> <span class="pre">millis();\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">loop()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Grab</span> <span class="pre">the</span> <span class="pre">current</span> <span class="pre">time\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">currTime</span> <span class="pre">=</span> <span class="pre">millis();\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">if</span> <span class="pre">(currTime</span> <span class="pre">-</span> <span class="pre">timeLastWrite</span> <span class="pre">&gt;=</span> <span class="pre">reportInterval)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Record</span> <span class="pre">time</span> <span class="pre">of</span> <span class="pre">last</span> <span class="pre">write\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">timeLastWrite</span> <span class="pre">=</span> <span class="pre">currTime;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Use</span> <span class="pre">ADC</span> <span class="pre">to</span> <span class="pre">get</span> <span class="pre">10-bit</span> <span class="pre">integer</span> <span class="pre">sensor</span> <span class="pre">value\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">int</span> <span class="pre">sensorVal</span> <span class="pre">=</span> <span class="pre">analogRead(sensorPin);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Convert</span> <span class="pre">to</span> <span class="pre">voltage\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">float</span> <span class="pre">voltage</span> <span class="pre">=</span> <span class="pre">sensorVal</span> <span class="pre">/</span> <span class="pre">1023.0</span> <span class="pre">*</span> <span class="pre">5.0;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Write</span> <span class="pre">the</span> <span class="pre">voltage</span> <span class="pre">out</span> <span class="pre">to</span> <span class="pre">two</span> <span class="pre">decimal</span> <span class="pre">places\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">Serial.println(String(voltage,</span> <span class="pre">2));\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“Note that I am careful with types, making sure to use <cite>long`s and `unsigned long`s where appropriate. Note also that it is important that `timeLastWrite</cite> is a global variable. Remember that <cite>loop()</cite> must not take any arguments. We therefore cannot pass <cite>timeLastWrite</cite> as a <cite>static long</cite>, for example. Since it needs to retain its value each time <cite>loop()</cite> is called, which happens over and over again, we have to have <cite>timeLastWrite</cite> as a global variable.n”,
-“n”,
-“Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Do-it-yourself exercise 4: K.I.T.T. scanner barn”,
-“n”,
-“Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved. n”,
-“n”,
-“In the hit 1982 television show [Knight Rider](<a class="reference external" href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series">https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series</a>)), the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced &quot;kit.&quot; If you watch [the show’s opening credits](<a class="reference external" href="https://www.youtube.com/watch?v=oNyXYPhnUIs">https://www.youtube.com/watch?v=oNyXYPhnUIs</a>), you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up of the scanner bar [here](<a class="reference external" href="https://www.youtube.com/watch?v=WxE2xWZNfOc">https://www.youtube.com/watch?v=WxE2xWZNfOc</a>). Note that this scanner bar is from later in the series and features eight lights, while the one in the original pilot and opening credits features six.n”,
-“n”,
-“For this exercise, you will make an LED array that lights up like K.I.T.T.’s scanner bar in the opening credits of the series. To this end, you will line up six LEDs (do not forget to connect them to 220 Ω resistors.) You can vary their light intensity using pulse width modulation. Do not use delays, and try to get the pattern of lighting as similar as possible to K.I.T.T.’s from the videos.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“<strong>Answer to the asychronous functions exercise</strong>n”,
-“n”,
-“<strong>a)</strong> Yes, <cite>tone()</cite> operates asynchronously. It sends a square wave with a 50% duty ratio at a given frequency on a given pin, and continues to do so even while the microcontroller performs other tasks. It therefore does not block.n”,
-“n”,
-“<strong>b)</strong> Yes, <cite>analogWrite()</cite> operates asynchronously. It sends square waves with a given duty ratio at a frequency of 490 Hz (980 Hz for pins 5 and 6), and continues to do so even while the microcontroller performs other tasks. It therefore does not block.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.8.8”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 4</p>
-</dd>
-</dl>
-<p>}</p>
+<section id="9.-Asynchrony-and-blocking">
+<h1>9. Asynchrony and blocking<a class="headerlink" href="#9.-Asynchrony-and-blocking" title="Permalink to this heading"></a></h1>
+<hr><p>Thus far, we have used the <code class="docutils literal notranslate"><span class="pre">delay()</span></code> function to handle the timing of events, such as turning an LED on or off or writing data via a serial connection. The problem with using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is that it works by <strong>blocking</strong>. This means that while <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is running the microprocessor cannot do any other tasks. In the previous exercise, we waited 100 milliseconds before sending data. During that time, the ATmega328 could have performed about 2 million instructions. That is a lot of wasted
+computational resources to enable blocking! (The chip in your computer is more than 1000 times faster, so blocking on your computer wastes even more resources. We will address asynchrony on the Python side in later lessons.)</p>
+<section id="Asynchrony">
+<h2>Asynchrony<a class="headerlink" href="#Asynchrony" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)">Asynchrony</a> is an important concept in the design of biodevices. It is best explained by example.</p>
+<p>Say you make a device that acquires data from a sensor and sends those data to your computer via USB. Meanwhile, your device should listen for a signal coming from the computer that will ask it to stop sending data. Say you wrote a function that listens to the USB channel for a signal from the computer. Upon receipt of the signal, it stops sending data over USB. The problem is that if you run the listener function and it is blocking, your device cannot do any other operations, including
+processing and sending the sensor data.</p>
+<p>Similarly, if you are using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> to time the sending of data over USB, you are blocking and you could miss the signal from the computer requesting that data stop being sent.</p>
+<p>So, it is important that the listening and sending happen <strong>asynchronously</strong>. While waiting for the signal from the computer, the microprocessor is free to do other tasks. Similarly, while the microprocessor is waiting to send data over USB, it should be able to do other tasks.</p>
+<p>A function that can run asynchronous returns so that the program can proceed and then completes its tasks when possible.</p>
+</section>
+<section id="Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">
+<h2>Serial.print(), Serial.println(), and Serial.write() are asynchronous<a class="headerlink" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous" title="Permalink to this heading"></a></h2>
+<p>Writing data over USB is asynchronous. In most cases, <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code>, <code class="docutils literal notranslate"><span class="pre">Serial.println()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> will almost immediately return and the microcontroller will continue to the next lines of your sketch. Meanwhile, the data is sent over USB while the microcontroller is busy with other tasks. These functions do this by putting the bytes that need to be transfered into an <strong>output buffer</strong>, which is then processed by the USB interface chip and sent to your computer.</p>
+<p>The exception to this behavior is when the output buffer is full. In this case, the microcontroller has no place to dump the bytes that need to be written, so it has to wait (and block) until the buffer is free.</p>
+<hr></section>
+<section id="Thinking-exercise-3:-Other-asynchronous-functions">
+<h2>Thinking exercise 3: Other asynchronous functions<a class="headerlink" href="#Thinking-exercise-3:-Other-asynchronous-functions" title="Permalink to this heading"></a></h2>
+<p>Think back to some previous exercises.</p>
+<p><strong>a)</strong> Does <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operate asynchronously?</p>
+<p><strong>b)</strong> Does <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operate asynchronously?</p>
+<p>The answer to this exercise is at the bottom of this lesson.</p>
+<hr></section>
+<section id="Avoiding-delay()">
+<h2>Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code><a class="headerlink" href="#Avoiding-delay()" title="Permalink to this heading"></a></h2>
+<p>As a rule of thumb, you should avoid using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> because it is blocking. The function is really convenient when you are just learning or debugging with occasional serial output, but should not really be used beyond that.</p>
+<p>How do we go about avoiding delay? Again, this is best learned by example.</p>
+<hr></section>
+<section id="Follow-along-exercise-5:-Serial-output-without-delay">
+<h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Permalink to this heading"></a></h2>
+<p>Consider the same setup you had for <a class="reference internal" href="../07/adc_and_usart.html"><span class="doc">the follow-along exercise on serial communication</span></a>, the schematic of which is shown below.</p>
+<div style="margin: auto; width: 300px;"><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" /></div><p>We wish to write voltage values via USB, but without using the blocking function <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function returns this time in milliseconds. The number returned by <code class="docutils literal notranslate"><span class="pre">millis()</span></code> is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, so it is important to declare any variable storing its output as such. Similarly, the function <code class="docutils literal notranslate"><span class="pre">micros()</span></code> returns the amount of time since the last reset in units of microseconds. Note,
+though, that because the Arduino Uno board operates at about 16 MHz, the resolution of <code class="docutils literal notranslate"><span class="pre">micros()</span></code> is four µs.</p>
+<p>So, we use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function to capture when we last sent data. We then use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function again to get the current time. When the difference between the current time and the last time we sent data is at least as large as the time we want between sending data, we then go ahead and send the data. We also set the last time that data was sent to the current time, and then continue. This is implemented in the code below.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// How often to write the result to serial in milliseconds</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">reportInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Baud rate (must be long)</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">baudRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">115200</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Global variable to keep track of the last writeout</span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeLastWrite</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">baudRate</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Initialize timing</span>
+<span class="w">  </span><span class="n">timeLastWrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Grab the current time</span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">timeLastWrite</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">reportInterval</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Record time of last write</span>
+<span class="w">    </span><span class="n">timeLastWrite</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Use ADC to get 10-bit integer sensor value</span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Convert to voltage</span>
+<span class="w">    </span><span class="kr">float</span><span class="w"> </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sensorVal</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1023.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Write the voltage out to two decimal places</span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note that I am careful with types, making sure to use <code class="docutils literal notranslate"><span class="pre">long</span></code>s and <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>s where appropriate. Note also that it is important that <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> is a global variable. Remember that <code class="docutils literal notranslate"><span class="pre">loop()</span></code> must not take any arguments. We therefore cannot pass <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">long</span></code>, for example. Since it needs to retain its value each time <code class="docutils literal notranslate"><span class="pre">loop()</span></code> is called, which happens over and over again, we have to have <code class="docutils literal notranslate"><span class="pre">timeLastWrite</span></code> as a global variable.</p>
+<p>Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok.</p>
+<hr></section>
+<section id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
+<h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Permalink to this heading"></a></h2>
+<p>Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved.</p>
+<p>In the hit 1982 television show <a class="reference external" href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Knight Rider</a>, the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced “kit.” If you watch <a class="reference external" href="https://www.youtube.com/watch?v=oNyXYPhnUIs">the show’s opening credits</a>, you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up
+of the scanner bar <a class="reference external" href="https://www.youtube.com/watch?v=WxE2xWZNfOc">here</a>. Note that this scanner bar is from later in the series and features eight lights, while the one in the original pilot and opening credits features six.</p>
+<p>For this exercise, you will make an LED array that lights up like K.I.T.T.’s scanner bar in the opening credits of the series. To this end, you will line up six LEDs (do not forget to connect them to 220 Ω resistors.) You can vary their light intensity using pulse width modulation. Do not use delays, and try to get the pattern of lighting as similar as possible to K.I.T.T.’s from the videos.</p>
+<hr><p><strong>Answer to the asychronous functions exercise</strong></p>
+<p><strong>a)</strong> Yes, <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operates asynchronously. It sends a square wave with a 50% duty ratio at a given frequency on a given pin, and continues to do so even while the microcontroller performs other tasks. It therefore does not block.</p>
+<p><strong>b)</strong> Yes, <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operates asynchronously. It sends square waves with a given duty ratio at a frequency of 490 Hz (980 Hz for pins 5 and 6), and continues to do so even while the microcontroller performs other tasks. It therefore does not block.</p>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../08/pulse_width_modulation.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../10/control_of_arduino_with_python.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../08/pulse_width_modulation.html" class="btn btn-neutral float-left" title="8. Pulse width modulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../10/control_of_arduino_with_python.html" class="btn btn-neutral float-right" title="10. Serial communication with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 22, 2022.
+      <span class="lastupdated">Last updated on Sep 26, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fb0fe97b910> 
+   <jinja2.runtime.BlockReference object at 0x7ff5d502d700> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

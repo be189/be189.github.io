@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>10. Serial communication with Python &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -16,15 +16,18 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../11/control_with_buttons.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../09/asynchrony_and_blocking.html" /> 
+    <link rel="next" title="11. Controlling Arduino with widgets" href="../11/control_with_buttons.html" />
+    <link rel="prev" title="9. Asynchrony and blocking" href="../09/asynchrony_and_blocking.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +46,52 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Serial communication with Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED">Follow-along exercise 6: Tactile control of an LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED">Follow-along exercise 7: Electronic control of an LED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Finding-the-port">Finding the port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Arduino-sketch">Arduino sketch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Thinking-exercise-4:-if-vs. while">Thinking exercise 4: if vs. while</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Opening-a-connection">Opening a connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Turning-on-the-LED">Turning on the LED</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -51,8 +99,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -116,6 +164,260 @@
              
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -138,798 +440,397 @@
     text-align: unset;
 }
 </style>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# 10. Serial communication with Pythonn”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 1,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“import timen”,
-“n”,
-“import serialn”,
-“import serial.tools.list_ports”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“So far, we have programmed Arduino using the Arduino IDE and have used the Serial Monitor and Serial Plotter of the IDE to display signals from Arduino. The Serial Monitor and Plotter are quite limited in their capabilities, and we would like to have much richer control of Arduino.n”,
-“n”,
-“In the next several lessons, we will learn how to control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.n”,
-“n”,
-“We will start by building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Follow-along exercise 6: Tactile control of an LEDn”,
-“n”,
-“There is no sketch required for this exercise. Wire up the circuit shown below.n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 300px;&quot;&gt;n”,
-”    n”,
-“![PWM LED schematic](external_and_mechanical_led_schem.svg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“For convenience, here is a pictorial schematic.n”,
-“n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 500px;&quot;&gt;n”,
-”    n”,
-“![PWM LED schematic](external_and_mechanical_led_bb.svg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“Note that the three-pin toggle switches we have do not look like the one shown in the schematic, but rather [this](<a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020</a>) is the part. The pushbutton in the schematic is one of the two-lead pushbuttons we have in lab.n”,
-“n”,
-“For now, you can ignore LED2 (the one toward the top of the pictorial schematic). That is the LED we will control with buttons in the browser. LED1 (the one toward the right of the pictorial schematic) is under tactile control. n”,
-“n”,
-“Start with the toggle in the middle (upright position). The LED should be off. Now, depress the pushbutton. You will see that the LED comes on. When you release the button, it turns off.n”,
-“n”,
-“Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.n”,
-“n”,
-“There is no need to submit this follow-along exercise.n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“You have now controlled the on-off behavior of an LED with a toggle and a pushbutton. We will proceed to control those using Python-based control. Our objective is to turn the LED on and off using a virtual button in your browser. We will use a Jupyter notebook, so launch a fresh Jupyter notebook.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Follow-along exercise 7: Electronic control of an LEDn”,
-“n”,
-“In this rather long follow-along exercise, we will introduce you to control of Arduino using Python. We will extensively use [PySerial](<a class="reference external" href="https://pyserial.readthedocs.io/">https://pyserial.readthedocs.io/</a>). This is the most commonly used package for communicating with devices over USB. Note that in this lesson, and in all subsequent lessons, all of the imports are at the top of the notebook.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### Finding the portn”,
-“n”,
-“With your Arduino plugged into your computer via a USB connection, you first need to find out which port it is. The names of the ports will differ based on your operating system and when you plugged it in (your OS may assign the ports different names). You can get a list of ports using the <cite>serial.tools.list_ports.comports()</cite> function.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 2,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7fe9a236c580&gt;,n”,
-” &lt;serial.tools.list_ports_common.ListPortInfo at 0x7fe9a236cb20&gt;]”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 2,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“ports = serial.tools.list_ports.comports()n”,
-“n”,
-“# Take a lookn”,
-“ports”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“On my machine, there are two ports open. We can look at the manufacturer of the devices attached to the ports to find Arduino.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 3,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“[None, ‘Arduino (www.arduino.cc)’]”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 3,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“[port.manufacturer for port in ports]”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Clearly, the second port is Arduino. We can get a string for the port associated with the device.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 4,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“’/dev/cu.usbmodem146301’”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 4,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“ports[1].device”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“On Windows, the manufacturer might not appear as Arduino. In this case, you should take a look at the devices for each port.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 5,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“[‘/dev/cu.Bluetooth-Incoming-Port’, ‘/dev/cu.usbmodem146301’]”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 5,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“[port.device for port in ports]”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“The appropriate port for Windows will be something like <cite>‘COM3’</cite>.n”,
-“n”,
-“For convenience, we can write a function to find Arduino. Called without arguments, it will give the port for Arduino if the manufacturer comes up as Arduino in the query. Otherwise, you can provide a string (like <cite>‘COM7’</cite>) for the port, and it will connect to that port.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 6,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“def find_arduino(port=None):n”,
-”    &quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;n”,
-”    if port is None:n”,
-”        ports = serial.tools.list_ports.comports()n”,
-”        for p in ports:n”,
-”            if p.manufacturer is not None and &quot;Arduino&quot; in p.manufacturer:n”,
-”                port = p.devicen”,
-”    return port”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“We’ll use it to get the port for Arduino.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 7,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stdout”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“/dev/cu.usbmodem146301n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“port = find_arduino()n”,
-“n”,
-“print(port)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### Arduino sketchn”,
-“n”,
-“Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is to use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is prudent to send a byte and receive a byte to make sure everything is working ok; this is called handshaking. In my sketches, I always have <cite>0</cite> be a handshaking byte, and I have Arduino respond with a string, <cite>&quot;Message received.&quot;</cite>.n”,
-“n”,
-“Here is the code for the sketch, which I describe in more detail below.n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">ledPin</span> <span class="pre">=</span> <span class="pre">9;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">HANDSHAKE</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">LED_OFF</span> <span class="pre">=</span> <span class="pre">1;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">LED_ON</span> <span class="pre">=</span> <span class="pre">2;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">setup()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">pinMode(ledPin,</span> <span class="pre">OUTPUT);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">initialize</span> <span class="pre">serial</span> <span class="pre">communication\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">Serial.begin(115200);\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">loop()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Check</span> <span class="pre">if</span> <span class="pre">data</span> <span class="pre">has</span> <span class="pre">been</span> <span class="pre">sent</span> <span class="pre">to</span> <span class="pre">Arduino</span> <span class="pre">and</span> <span class="pre">respond</span> <span class="pre">accordingly\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">if</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Read</span> <span class="pre">in</span> <span class="pre">request\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">int</span> <span class="pre">inByte</span> <span class="pre">=</span> <span class="pre">Serial.read();\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Take</span> <span class="pre">appropriate</span> <span class="pre">action\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">switch(inByte)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">case</span> <span class="pre">LED_ON:\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">HIGH);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">case</span> <span class="pre">LED_OFF:\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">digitalWrite(ledPin,</span> <span class="pre">LOW);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">case</span> <span class="pre">HANDSHAKE:\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">if</span> <span class="pre">(Serial.availableForWrite())</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Serial.println(\&quot;Message</span> <span class="pre">received.\&quot;);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“Some comments:n”,
-“n”,
-“- I have set global variables (<cite>LED_ON</cite>, <cite>LED_OFF</cite>, and <cite>HANDSHAKE</cite>) to be the integers corresponding to the bytes sent by Python to Arduino. Though they are <cite>bytes</cite>, the return type of <cite>Serial.read()</cite> is an <cite>int</cite>, so we declare these global variables to also be <cite>int`s.n”,
-“- I set the `pinMode</cite> of the pin controlling the LED to be <cite>OUTPUT</cite>. This is important because an internal pull-up resistor is enabled on the pin if the <cite>pinMode</cite> is note set to <cite>OUTPUT</cite>.n”,
-“- Within the <cite>loop()</cite> function, we first check to see how many bytes are in the read buffer using <cite>Serial.available()</cite>. If any bytes are available, we proceed to read them.n”,
-“- The <cite>Serial.read()</cite> function reads in a single byte from the read buffer. When it is read, the byte vanishes from the read buffer.n”,
-“- We next have a set of cases that determine what Arduino will do, depending on what byte was sent. If the sent byte does not match any of those specified by the global variables, it is ignored.n”,
-“- When we check for handshaking, we check to make sure the write buffer is not full. The <cite>Serial.availableForWrite()</cite> function returns the number of bytes in the write buffer (out of the total of 64) that are available for writing. We then proceed to write the handshake message.n”,
-“n”,
-“I always like to keep the same global codes for messages in my Python code as well. It helps avoid bugs.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 8,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“HANDSHAKE = 0n”,
-“LED_OFF = 1n”,
-“LED_ON = 2”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“#### Thinking exercise 4: if vs. whilen”,
-“n”,
-“As a quick aside, think about this: I used <cite>if (Serial.available() &gt; 0)</cite>. Could I have used <cite>while (Serial.available() &gt; 0)</cite>? What is the difference?n”,
-“n”,
-“<em>The answer to this thinking exercise is at the bottom of this lesson.</em>”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### Opening a connectionn”,
-“n”,
-“When opening a connection with Python, you cannot have the Serial Monitor nor Serial Plotter of the Arduino IDE open, since they will keep the port busy and Python cannot communicate with Arduino.n”,
-“n”,
-“To open a connection to the device, we instantiate a <cite>serial.Serial</cite> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <cite>time.sleep()</cite> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and receive a handshake message again to make sure everything is working properly.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 9,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stdout”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“Handshake message: Message received.n”,
-“n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“# Open portn”,
-“arduino = serial.Serial(port, baudrate=115200, timeout=1)n”,
-“n”,
-“n”,
-“def handshake_arduino(n”,
-”    arduino, sleep_time=1, print_handshake_message=False, handshake_code=0n”,
-“):n”,
-”    &quot;&quot;&quot;Make sure connection is established by sendingn”,
-”    and receiving bytes.&quot;&quot;&quot;n”,
-”    # Close and reopenn”,
-”    arduino.close()n”,
-”    arduino.open()n”,
-“n”,
-”    # Chill out while everything gets setn”,
-”    time.sleep(sleep_time)n”,
-“n”,
-”    # Set a long timeout to complete handshaken”,
-”    timeout = arduino.timeoutn”,
-”    arduino.timeout = 2n”,
-”    n”,
-”    # Read and discard everything that may be in the input buffern”,
-”    _ = arduino.read_all()n”,
-“n”,
-”    # Send request to Arduinon”,
-”    arduino.write(bytes([handshake_code]))n”,
-“n”,
-”    # Read in what Arduino sentn”,
-”    handshake_message = arduino.read_until()n”,
-“n”,
-”    # Send and receive request againn”,
-”    arduino.write(bytes([handshake_code]))n”,
-”    handshake_message = arduino.read_until()n”,
-“n”,
-”    # Print the handshake message, if desiredn”,
-”    if print_handshake_message:n”,
-”        print(&quot;Handshake message: &quot; + handshake_message.decode())n”,
-“n”,
-”    # Reset the timeoutn”,
-”    arduino.timeout = timeoutn”,
-“n”,
-“n”,
-“# Call the handshake functionn”,
-“handshake_arduino(arduino, print_handshake_message=True)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“A few comments about the above code, bearing in mind that the Python variable <cite>arduino</cite> is a <cite>serial.Serial</cite> instance.n”,
-“n”,
-“- The <cite>arduino.timeout</cite> attribute sets the maximum time in seconds to wait for serial communication.n”,
-“- To handshake, we need to send code <cite>0</cite> to the Arduino. It must be sent as bytes, machine numbers Arduino can understand. To convert an integer to bytes in Python, we use the built-in <cite>bytes()</cite> function. It accepts an iterable (like a list of tuple) of <cite>int`s and converts them to bytes. So, the signal we would send for code `0</cite> is <cite>bytes([0])</cite>.n”,
-“- The <cite>arduino.read_all()</cite> function reads all bytes that are in the input buffer on the Python side.n”,
-“- The <cite>arduino.read_until()</cite> function reads from the input buffer on the Python side until a newline character is encountered. This is convenient because the Python interpreter moves along <em>way</em> faster than Arduino can perform calculations and write data over USB. By asking Python to read until it hits a newline character, it has to wait until the complete message is sent by Arduino.n”,
-“- The message sent from Arduino is a <cite>bytesarray</cite>. To convert it to a string, use the <cite>decode()</cite> method, as we did with <cite>handshake_message.decode()</cite>.n”,
-“n”,
-“The port is currently open, and I’m not going to anything with it now, so I am going to close it. This is very important: <em>Make sure you close your serial connection when you are done with it.</em>”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 10,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“arduino.close()”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“When possible, it is good practice to instead use context management when opening a serial connection. That way, it is always guaranteed to close, even when things may go awry.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 11,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“with serial.Serial(port, baudrate=115200, timeout=1) as arduino:n”,
-”    handshake_arduino(arduino)n”,
-”    n”,
-”    # And the rest of what you want to do follows….”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### Turning on the LEDn”,
-“n”,
-“To turn on the red LED, we need to send code <cite>2</cite> as <cite>bytes</cite> to the Arduino. Let’s open up a port to Arduino and send a signal to turn on the red LED. “</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 12,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“with serial.Serial(port, baudrate=115200, timeout=1) as arduino:n”,
-”    handshake_arduino(arduino)n”,
-”    n”,
-”    # Turn on the LEDn”,
-”    arduino.write(bytes([LED_ON]))”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Now that we know how to turn an LED on (and off), we can make a little disco party!”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 13,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“with serial.Serial(port, baudrate=115200, timeout=1) as arduino:n”,
-”    handshake_arduino(arduino)n”,
-”    n”,
-”    # Flash the LEDsn”,
-”    for _ in range(40):n”,
-”        arduino.write(bytes([LED_ON]))n”,
-”        time.sleep(0.05)n”,
-”        arduino.write(bytes([LED_OFF]))n”,
-”        time.sleep(0.05)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“<strong>Answer to if vs. while exercise</strong>n”,
-“n”,
-“I could have used a <cite>while</cite> loop instead of the <cite>if</cite> statement. In the case of a <cite>while</cite> loop, it keeps reading, byte by byte, what is in the input buffer to Arduino until all bytes are read. However, the <cite>if</cite> statement achieves the same because the <cite>loop()</cite> function is called over and over again. So, the <cite>if</cite> statement and the <cite>while</cite> loop are in practice equivalent.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Computing environment”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 14,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stdout”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“CPython 3.8.5n”,
-“IPython 7.18.1n”,
-“n”,
-“serial 3.4n”,
-“panel 0.9.7n”,
-“jupyterlab 2.2.6n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“%load_ext watermarkn”,
-“%watermark -v -p serial,panel,jupyterlab”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.8.8”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 4</p>
-</dd>
-</dl>
-<p>}</p>
+<section id="10.-Serial-communication-with-Python">
+<h1>10. Serial communication with Python<a class="headerlink" href="#10.-Serial-communication-with-Python" title="Permalink to this heading"></a></h1>
+<hr><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+</pre></div>
+</div>
+</div>
+<hr><p>So far, we have programmed Arduino using the Arduino IDE and have used the Serial Monitor and Serial Plotter of the IDE to display signals from Arduino. The Serial Monitor and Plotter are quite limited in their capabilities, and we would like to have much richer control of Arduino.</p>
+<p>In the next several lessons, we will learn how to control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.</p>
+<p>We will start by building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.</p>
+<hr><section id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
+<h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Permalink to this heading"></a></h2>
+<p>There is no sketch required for this exercise. Wire up the circuit shown below.</p>
+<div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></div><p>For convenience, here is a pictorial schematic.</p>
+<div style="margin: auto; width: 500px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_bb.svg" /></div><p>Note that the three-pin toggle switches we have do not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons we have in lab.</p>
+<p>For now, you can ignore LED2 (the one toward the top of the pictorial schematic). That is the LED we will control with buttons in the browser. LED1 (the one toward the right of the pictorial schematic) is under tactile control.</p>
+<p>Start with the toggle in the middle (upright position). The LED should be off. Now, depress the pushbutton. You will see that the LED comes on. When you release the button, it turns off.</p>
+<p>Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
+<p>There is no need to submit this follow-along exercise.</p>
+<hr><p>You have now controlled the on-off behavior of an LED with a toggle and a pushbutton. We will proceed to control those using Python-based control. Our objective is to turn the LED on and off using a virtual button in your browser. We will use a Jupyter notebook, so launch a fresh Jupyter notebook.</p>
+<hr></section>
+<section id="Follow-along-exercise-7:-Electronic-control-of-an-LED">
+<h2>Follow-along exercise 7: Electronic control of an LED<a class="headerlink" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED" title="Permalink to this heading"></a></h2>
+<p>In this rather long follow-along exercise, we will introduce you to control of Arduino using Python. We will extensively use <a class="reference external" href="https://pyserial.readthedocs.io/">PySerial</a>. This is the most commonly used package for communicating with devices over USB. Note that in this lesson, and in all subsequent lessons, all of the imports are at the top of the notebook.</p>
+<section id="Finding-the-port">
+<h3>Finding the port<a class="headerlink" href="#Finding-the-port" title="Permalink to this heading"></a></h3>
+<p>With your Arduino plugged into your computer via a USB connection, you first need to find out which port it is. The names of the ports will differ based on your operating system and when you plugged it in (your OS may assign the ports different names). You can get a list of ports using the <code class="docutils literal notranslate"><span class="pre">serial.tools.list_ports.comports()</span></code> function.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">ports</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&lt;serial.tools.list_ports_common.ListPortInfo at 0x7fe9a236c580&gt;,
+ &lt;serial.tools.list_ports_common.ListPortInfo at 0x7fe9a236cb20&gt;]
+</pre></div></div>
+</div>
+<p>On my machine, there are two ports open. We can look at the manufacturer of the devices attached to the ports to find Arduino.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">port</span><span class="o">.</span><span class="n">manufacturer</span> <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[None, &#39;Arduino (www.arduino.cc)&#39;]
+</pre></div></div>
+</div>
+<p>Clearly, the second port is Arduino. We can get a string for the port associated with the device.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ports</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">device</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/dev/cu.usbmodem146301&#39;
+</pre></div></div>
+</div>
+<p>On Windows, the manufacturer might not appear as Arduino. In this case, you should take a look at the devices for each port.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">port</span><span class="o">.</span><span class="n">device</span> <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;/dev/cu.Bluetooth-Incoming-Port&#39;, &#39;/dev/cu.usbmodem146301&#39;]
+</pre></div></div>
+</div>
+<p>The appropriate port for Windows will be something like <code class="docutils literal notranslate"><span class="pre">'COM3'</span></code>.</p>
+<p>For convenience, we can write a function to find Arduino. Called without arguments, it will give the port for Arduino if the manufacturer comes up as Arduino in the query. Otherwise, you can provide a string (like <code class="docutils literal notranslate"><span class="pre">'COM7'</span></code>) for the port, and it will connect to that port.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">&quot;Arduino&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span><span class="p">:</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">device</span>
+    <span class="k">return</span> <span class="n">port</span>
+</pre></div>
+</div>
+</div>
+<p>We’ll use it to get the port for Arduino.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">port</span> <span class="o">=</span> <span class="n">find_arduino</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+/dev/cu.usbmodem146301
+</pre></div></div>
+</div>
+</section>
+<section id="Arduino-sketch">
+<h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Permalink to this heading"></a></h3>
+<p>Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is to use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is prudent to send a byte and receive a byte to make sure
+everything is working ok; this is called handshaking. In my sketches, I always have <code class="docutils literal notranslate"><span class="pre">0</span></code> be a handshaking byte, and I have Arduino respond with a string, <code class="docutils literal notranslate"><span class="pre">&quot;Message</span> <span class="pre">received.&quot;</span></code>.</p>
+<p>Here is the code for the sketch, which I describe in more detail below.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
+
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">LED_OFF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">LED_ON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// initialize serial communication</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Read in request</span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">inByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Take appropriate action</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">LED_ON</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">LED_OFF</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">HANDSHAKE</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Some comments:</p>
+<ul class="simple">
+<li><p>I have set global variables (<code class="docutils literal notranslate"><span class="pre">LED_ON</span></code>, <code class="docutils literal notranslate"><span class="pre">LED_OFF</span></code>, and <code class="docutils literal notranslate"><span class="pre">HANDSHAKE</span></code>) to be the integers corresponding to the bytes sent by Python to Arduino. Though they are <code class="docutils literal notranslate"><span class="pre">bytes</span></code>, the return type of <code class="docutils literal notranslate"><span class="pre">Serial.read()</span></code> is an <code class="docutils literal notranslate"><span class="pre">int</span></code>, so we declare these global variables to also be <code class="docutils literal notranslate"><span class="pre">int</span></code>s.</p></li>
+<li><p>I set the <code class="docutils literal notranslate"><span class="pre">pinMode</span></code> of the pin controlling the LED to be <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>. This is important because an internal pull-up resistor is enabled on the pin if the <code class="docutils literal notranslate"><span class="pre">pinMode</span></code> is note set to <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>.</p></li>
+<li><p>Within the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function, we first check to see how many bytes are in the read buffer using <code class="docutils literal notranslate"><span class="pre">Serial.available()</span></code>. If any bytes are available, we proceed to read them.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Serial.read()</span></code> function reads in a single byte from the read buffer. When it is read, the byte vanishes from the read buffer.</p></li>
+<li><p>We next have a set of cases that determine what Arduino will do, depending on what byte was sent. If the sent byte does not match any of those specified by the global variables, it is ignored.</p></li>
+<li><p>When we check for handshaking, we check to make sure the write buffer is not full. The <code class="docutils literal notranslate"><span class="pre">Serial.availableForWrite()</span></code> function returns the number of bytes in the write buffer (out of the total of 64) that are available for writing. We then proceed to write the handshake message.</p></li>
+</ul>
+<p>I always like to keep the same global codes for messages in my Python code as well. It helps avoid bugs.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">LED_OFF</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">LED_ON</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<section id="Thinking-exercise-4:-if-vs. while">
+<h4>Thinking exercise 4: if vs. while<a class="headerlink" href="#Thinking-exercise-4:-if-vs. while" title="Permalink to this heading"></a></h4>
+<p>As a quick aside, think about this: I used <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>. Could I have used <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>? What is the difference?</p>
+<p><em>The answer to this thinking exercise is at the bottom of this lesson.</em></p>
+</section>
+</section>
+<section id="Opening-a-connection">
+<h3>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Permalink to this heading"></a></h3>
+<p>When opening a connection with Python, you cannot have the Serial Monitor nor Serial Plotter of the Arduino IDE open, since they will keep the port busy and Python cannot communicate with Arduino.</p>
+<p>To open a connection to the device, we instantiate a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and
+receive a handshake message again to make sure everything is working properly.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open port</span>
+<span class="n">arduino</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
+<span class="sd">    and receiving bytes.&quot;&quot;&quot;</span>
+    <span class="c1"># Close and reopen</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+    <span class="c1"># Chill out while everything gets set</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="p">)</span>
+
+    <span class="c1"># Set a long timeout to complete handshake</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Read and discard everything that may be in the input buffer</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
+
+    <span class="c1"># Send request to Arduino</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+
+    <span class="c1"># Read in what Arduino sent</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Send and receive request again</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Print the handshake message, if desired</span>
+    <span class="k">if</span> <span class="n">print_handshake_message</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Handshake message: &quot;</span> <span class="o">+</span> <span class="n">handshake_message</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="c1"># Reset the timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+
+
+<span class="c1"># Call the handshake function</span>
+<span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Handshake message: Message received.
+
+</pre></div></div>
+</div>
+<p>A few comments about the above code, bearing in mind that the Python variable <code class="docutils literal notranslate"><span class="pre">arduino</span></code> is a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance.</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">arduino.timeout</span></code> attribute sets the maximum time in seconds to wait for serial communication.</p></li>
+<li><p>To handshake, we need to send code <code class="docutils literal notranslate"><span class="pre">0</span></code> to the Arduino. It must be sent as bytes, machine numbers Arduino can understand. To convert an integer to bytes in Python, we use the built-in <code class="docutils literal notranslate"><span class="pre">bytes()</span></code> function. It accepts an iterable (like a list of tuple) of <code class="docutils literal notranslate"><span class="pre">int</span></code>s and converts them to bytes. So, the signal we would send for code <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">bytes([0])</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">arduino.read_all()</span></code> function reads all bytes that are in the input buffer on the Python side.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">arduino.read_until()</span></code> function reads from the input buffer on the Python side until a newline character is encountered. This is convenient because the Python interpreter moves along <em>way</em> faster than Arduino can perform calculations and write data over USB. By asking Python to read until it hits a newline character, it has to wait until the complete message is sent by Arduino.</p></li>
+<li><p>The message sent from Arduino is a <code class="docutils literal notranslate"><span class="pre">bytesarray</span></code>. To convert it to a string, use the <code class="docutils literal notranslate"><span class="pre">decode()</span></code> method, as we did with <code class="docutils literal notranslate"><span class="pre">handshake_message.decode()</span></code>.</p></li>
+</ul>
+<p>The port is currently open, and I’m not going to anything with it now, so I am going to close it. This is very important: <em>Make sure you close your serial connection when you are done with it.</em></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>When possible, it is good practice to instead use context management when opening a serial connection. That way, it is always guaranteed to close, even when things may go awry.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">arduino</span><span class="p">:</span>
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># And the rest of what you want to do follows....</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Turning-on-the-LED">
+<h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Permalink to this heading"></a></h3>
+<p>To turn on the red LED, we need to send code <code class="docutils literal notranslate"><span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">bytes</span></code> to the Arduino. Let’s open up a port to Arduino and send a signal to turn on the red LED.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">arduino</span><span class="p">:</span>
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># Turn on the LED</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">LED_ON</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<p>Now that we know how to turn an LED on (and off), we can make a little disco party!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">arduino</span><span class="p">:</span>
+    <span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># Flash the LEDs</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">LED_ON</span><span class="p">]))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">LED_OFF</span><span class="p">]))</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr><p><strong>Answer to if vs. while exercise</strong></p>
+<p>I could have used a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop instead of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. In the case of a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, it keeps reading, byte by byte, what is in the input buffer to Arduino until all bytes are read. However, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement achieves the same because the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is called over and over again. So, the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop are in practice equivalent.</p>
+</section>
+</section>
+<section id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p serial,panel,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPython 3.8.5
+IPython 7.18.1
+
+serial 3.4
+panel 0.9.7
+jupyterlab 2.2.6
+</pre></div></div>
+</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../09/asynchrony_and_blocking.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../11/control_with_buttons.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../09/asynchrony_and_blocking.html" class="btn btn-neutral float-left" title="9. Asynchrony and blocking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../11/control_with_buttons.html" class="btn btn-neutral float-right" title="11. Controlling Arduino with widgets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 22, 2022.
+      <span class="lastupdated">Last updated on Sep 26, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fb0fec9ee80> 
+   <jinja2.runtime.BlockReference object at 0x7ff5d46983a0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

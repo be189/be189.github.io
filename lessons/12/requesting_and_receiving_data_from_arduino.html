@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>12. Requesting and receiving data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -16,15 +16,18 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../13/streaming_data_from_arduino.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../11/control_with_buttons.html" /> 
+    <link rel="next" title="13. Streaming data from Arduino" href="../13/streaming_data_from_arduino.html" />
+    <link rel="prev" title="11. Controlling Arduino with widgets" href="../11/control_with_buttons.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +46,42 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">12. Requesting and receiving data from Arduino</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-5:-Asking-for-data-with-buttons">Do-it-yourself exercise 5: Asking for data with buttons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -51,8 +89,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -116,6 +154,260 @@
              
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -138,1236 +430,810 @@
     text-align: unset;
 }
 </style>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# 12. Requesting and receiving data from Arduinon”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 1,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/html”: [</dt><dd><p>“n”,
-”    &lt;div class=&quot;bk-root&quot;&gt;n”,
-”        &lt;a href=&quot;<a class="reference external" href="https://bokeh.org">https://bokeh.org</a>&quot; target=&quot;_blank&quot; class=&quot;bk-logo bk-logo-small bk-logo-notebook&quot;&gt;&lt;/a&gt;n”,
-”        &lt;span id=&quot;1001&quot;&gt;Loading BokehJS …&lt;/span&gt;n”,
-”    &lt;/div&gt;”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {},
-“output_type”: “display_data”</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“application/javascript”: [</dt><dd><p>“n”,
-“(function(root) {n”,
-”  function now() {n”,
-”    return new Date();n”,
-”  }n”,
-“n”,
-”  var force = true;n”,
-“n”,
-”  if (typeof root._bokeh_onload_callbacks === &quot;undefined&quot; || force === true) {n”,
-”    root._bokeh_onload_callbacks = [];n”,
-”    root._bokeh_is_loading = undefined;n”,
-”  }n”,
-“n”,
-”  var JS_MIME_TYPE = ‘application/javascript’;n”,
-”  var HTML_MIME_TYPE = ‘text/html’;n”,
-”  var EXEC_MIME_TYPE = ‘application/vnd.bokehjs_exec.v0+json’;n”,
-”  var CLASS_NAME = ‘output_bokeh rendered_html’;n”,
-“n”,
-”  /<strong>n”,
-”   * Render data to the DOM noden”,
-”   */n”,
-”  function render(props, node) {n”,
-”    var script = document.createElement(&quot;script&quot;);n”,
-”    node.appendChild(script);n”,
-”  }n”,
-“n”,
-”  /</strong>n”,
-”   * Handle when an output is cleared or removedn”,
-”   <em>/n”,
-”  function handleClearOutput(event, handle) {n”,
-”    var cell = handle.cell;n”,
-“n”,
-”    var id = cell.output_area._bokeh_element_id;n”,
-”    var server_id = cell.output_area._bokeh_server_id;n”,
-”    // Clean up Bokeh referencesn”,
-”    if (id != null &amp;&amp; id in Bokeh.index) {n”,
-”      Bokeh.index[id].model.document.clear();n”,
-”      delete Bokeh.index[id];n”,
-”    }n”,
-“n”,
-”    if (server_id !== undefined) {n”,
-”      // Clean up Bokeh referencesn”,
-”      var cmd = &quot;from bokeh.io.state import curstate; print(curstate().uuid_to_server[’&quot; + server_id + &quot;’].get_sessions()[0].document.roots[0]._id)&quot;;n”,
-”      cell.notebook.kernel.execute(cmd, {n”,
-”        iopub: {n”,
-”          output: function(msg) {n”,
-”            var id = msg.content.text.trim();n”,
-”            if (id in Bokeh.index) {n”,
-”              Bokeh.index[id].model.document.clear();n”,
-”              delete Bokeh.index[id];n”,
-”            }n”,
-”          }n”,
-”        }n”,
-”      });n”,
-”      // Destroy server and sessionn”,
-”      var cmd = &quot;import bokeh.io.notebook as ion; ion.destroy_server(’&quot; + server_id + &quot;’)&quot;;n”,
-”      cell.notebook.kernel.execute(cmd);n”,
-”    }n”,
-”  }n”,
-“n”,
-”  /*</em>n”,
-”   * Handle when a new output is addedn”,
-”   <em>/n”,
-”  function handleAddOutput(event, handle) {n”,
-”    var output_area = handle.output_area;n”,
-”    var output = handle.output;n”,
-“n”,
-”    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content onlyn”,
-”    if ((output.output_type != &quot;display_data&quot;) || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {n”,
-”      returnn”,
-”    }n”,
-“n”,
-”    var toinsert = output_area.element.find(&quot;.&quot; + CLASS_NAME.split(’ ‘)[0]);n”,
-“n”,
-”    if (output.metadata[EXEC_MIME_TYPE][&quot;id&quot;] !== undefined) {n”,
-”      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];n”,
-”      // store reference to embed id on output_arean”,
-”      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE][&quot;id&quot;];n”,
-”    }n”,
-”    if (output.metadata[EXEC_MIME_TYPE][&quot;server_id&quot;] !== undefined) {n”,
-”      var bk_div = document.createElement(&quot;div&quot;);n”,
-”      bk_div.innerHTML = output.data[HTML_MIME_TYPE];n”,
-”      var script_attrs = bk_div.children[0].attributes;n”,
-”      for (var i = 0; i &lt; script_attrs.length; i++) {n”,
-”        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);n”,
-”        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContentn”,
-”      }n”,
-”      // store reference to server id on output_arean”,
-”      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE][&quot;server_id&quot;];n”,
-”    }n”,
-”  }n”,
-“n”,
-”  function register_renderer(events, OutputArea) {n”,
-“n”,
-”    function append_mime(data, metadata, element) {n”,
-”      // create a DOM node to render ton”,
-”      var toinsert = this.create_output_subarea(n”,
-”        metadata,n”,
-”        CLASS_NAME,n”,
-”        EXEC_MIME_TYPEn”,
-”      );n”,
-”      this.keyboard_manager.register_events(toinsert);n”,
-”      // Render to noden”,
-”      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};n”,
-”      render(props, toinsert[toinsert.length - 1]);n”,
-”      element.append(toinsert);n”,
-”      return toinsertn”,
-”    }n”,
-“n”,
-”    /</em> Handle when an output is cleared or removed <em>/n”,
-”    events.on(‘clear_output.CodeCell’, handleClearOutput);n”,
-”    events.on(‘delete.Cell’, handleClearOutput);n”,
-“n”,
-”    /</em> Handle when a new output is added <em>/n”,
-”    events.on(‘output_added.OutputArea’, handleAddOutput);n”,
-“n”,
-”    /*</em>n”,
-”     * Register the mime type and append_mime function with output_arean”,
-”     <em>/n”,
-”    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {n”,
-”      /</em> Is output safe? <em>/n”,
-”      safe: true,n”,
-”      /</em> Index of renderer in <cite>output_area.display_order</cite> <a href="#id1"><span class="problematic" id="id2">*</span></a>/n”,
-”      index: 0n”,
-”    });n”,
-”  }n”,
-“n”,
-”  // register the mime type if in Jupyter Notebook environment and previously unregisteredn”,
-”  if (root.Jupyter !== undefined) {n”,
-”    var events = require(‘base/js/events’);n”,
-”    var OutputArea = require(‘notebook/js/outputarea’).OutputArea;n”,
-“n”,
-”    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {n”,
-”      register_renderer(events, OutputArea);n”,
-”    }n”,
-”  }n”,
-“n”,
-”  n”,
-”  if (typeof (root._bokeh_timeout) === &quot;undefined&quot; || force === true) {n”,
-”    root._bokeh_timeout = Date.now() + 5000;n”,
-”    root._bokeh_failed_load = false;n”,
-”  }n”,
-“n”,
-”  var NB_LOAD_WARNING = {‘data’: {‘text/html’:n”,
-”     &quot;&lt;div style=’background-color: #fdd’&gt;\n&quot;+n”,
-”     &quot;&lt;p&gt;\n&quot;+n”,
-”     &quot;BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n&quot;+n”,
-”     &quot;may be due to a slow or bad network connection. Possible fixes:\n&quot;+n”,
-”     &quot;&lt;/p&gt;\n&quot;+n”,
-”     &quot;&lt;ul&gt;\n&quot;+n”,
-”     &quot;&lt;li&gt;re-rerun <cite>output_notebook()</cite> to attempt to load from CDN again, or&lt;/li&gt;\n&quot;+n”,
-”     &quot;&lt;li&gt;use INLINE resources instead, as so:&lt;/li&gt;\n&quot;+n”,
-”     &quot;&lt;/ul&gt;\n&quot;+n”,
-”     &quot;&lt;code&gt;\n&quot;+n”,
-”     &quot;from bokeh.resources import INLINE\n&quot;+n”,
-”     &quot;output_notebook(resources=INLINE)\n&quot;+n”,
-”     &quot;&lt;/code&gt;\n&quot;+n”,
-”     &quot;&lt;/div&gt;&quot;}};n”,
-“n”,
-”  function display_loaded() {n”,
-”    var el = document.getElementById(&quot;1001&quot;);n”,
-”    if (el != null) {n”,
-”      el.textContent = &quot;BokehJS is loading…&quot;;n”,
-”    }n”,
-”    if (root.Bokeh !== undefined) {n”,
-”      if (el != null) {n”,
-”        el.textContent = &quot;BokehJS &quot; + root.Bokeh.version + &quot; successfully loaded.&quot;;n”,
-”      }n”,
-”    } else if (Date.now() &lt; root._bokeh_timeout) {n”,
-”      setTimeout(display_loaded, 100)n”,
-”    }n”,
-”  }n”,
-“n”,
-“n”,
-”  function run_callbacks() {n”,
-”    try {n”,
-”      root._bokeh_onload_callbacks.forEach(function(callback) {n”,
-”        if (callback != null)n”,
-”          callback();n”,
-”      });n”,
-”    } finally {n”,
-”      delete root._bokeh_onload_callbacksn”,
-”    }n”,
-”    console.debug(&quot;Bokeh: all callbacks have finished&quot;);n”,
-”  }n”,
-“n”,
-”  function load_libs(css_urls, js_urls, callback) {n”,
-”    if (css_urls == null) css_urls = [];n”,
-”    if (js_urls == null) js_urls = [];n”,
-“n”,
-”    root._bokeh_onload_callbacks.push(callback);n”,
-”    if (root._bokeh_is_loading &gt; 0) {n”,
-”      console.debug(&quot;Bokeh: BokehJS is being loaded, scheduling callback at&quot;, now());n”,
-”      return null;n”,
-”    }n”,
-”    if (js_urls == null || js_urls.length === 0) {n”,
-”      run_callbacks();n”,
-”      return null;n”,
-”    }n”,
-”    console.debug(&quot;Bokeh: BokehJS not loaded, scheduling load and callback at&quot;, now());n”,
-”    root._bokeh_is_loading = css_urls.length + js_urls.length;n”,
-“n”,
-”    function on_load() {n”,
-”      root._bokeh_is_loading–;n”,
-”      if (root._bokeh_is_loading === 0) {n”,
-”        console.debug(&quot;Bokeh: all BokehJS libraries/stylesheets loaded&quot;);n”,
-”        run_callbacks()n”,
-”      }n”,
-”    }n”,
-“n”,
-”    function on_error() {n”,
-”      console.error(&quot;failed to load &quot; + url);n”,
-”    }n”,
-“n”,
-”    for (var i = 0; i &lt; css_urls.length; i++) {n”,
-”      var url = css_urls[i];n”,
-”      const element = document.createElement(&quot;link&quot;);n”,
-”      element.onload = on_load;n”,
-”      element.onerror = on_error;n”,
-”      element.rel = &quot;stylesheet&quot;;n”,
-”      element.type = &quot;text/css&quot;;n”,
-”      element.href = url;n”,
-”      console.debug(&quot;Bokeh: injecting link tag for BokehJS stylesheet: &quot;, url);n”,
-”      document.body.appendChild(element);n”,
-”    }n”,
-“n”,
-”    const hashes = {&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js</a>&quot;: &quot;qkRvDQVAIfzsJo40iRBbxt6sttt0hv4lh74DG7OK4MCHv4C5oohXYoHUM5W11uqS&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js</a>&quot;: &quot;Sb7Mr06a9TNlet/GEBeKaf5xH3eb6AlCzwjtU82wNPyDrnfoiVl26qnvlKjmcAd+&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js</a>&quot;: &quot;HaJ15vgfmcfRtB4c4YBOI4f1MUujukqInOWVqZJZZGK7Q+ivud0OKGSTn/Vm2iso&quot;};n”,
-“n”,
-”    for (var i = 0; i &lt; js_urls.length; i++) {n”,
-”      var url = js_urls[i];n”,
-”      var element = document.createElement(‘script’);n”,
-”      element.onload = on_load;n”,
-”      element.onerror = on_error;n”,
-”      element.async = false;n”,
-”      element.src = url;n”,
-”      if (url in hashes) {n”,
-”        element.crossOrigin = &quot;anonymous&quot;;n”,
-”        element.integrity = &quot;sha384-&quot; + hashes[url];n”,
-”      }n”,
-”      console.debug(&quot;Bokeh: injecting script tag for BokehJS library: &quot;, url);n”,
-”      document.head.appendChild(element);n”,
-”    }n”,
-”  };n”,
-“n”,
-”  function inject_raw_css(css) {n”,
-”    const element = document.createElement(&quot;style&quot;);n”,
-”    element.appendChild(document.createTextNode(css));n”,
-”    document.body.appendChild(element);n”,
-”  }n”,
-“n”,
-”  n”,
-”  var js_urls = [&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js</a>&quot;];n”,
-”  var css_urls = [];n”,
-”  n”,
-“n”,
-”  var inline_js = [n”,
-”    function(Bokeh) {n”,
-”      Bokeh.set_log_level(&quot;info&quot;);n”,
-”    },n”,
-”    function(Bokeh) {n”,
-”    n”,
-”    n”,
-”    }n”,
-”  ];n”,
-“n”,
-”  function run_inline_js() {n”,
-”    n”,
-”    if (root.Bokeh !== undefined || force === true) {n”,
-”      n”,
-”    for (var i = 0; i &lt; inline_js.length; i++) {n”,
-”      inline_js[i].call(root, root.Bokeh);n”,
-”    }n”,
-”    if (force === true) {n”,
-”        display_loaded();n”,
-”      }} else if (Date.now() &lt; root._bokeh_timeout) {n”,
-”      setTimeout(run_inline_js, 100);n”,
-”    } else if (!root._bokeh_failed_load) {n”,
-”      console.log(&quot;Bokeh: BokehJS failed to load within specified timeout.&quot;);n”,
-”      root._bokeh_failed_load = true;n”,
-”    } else if (force !== true) {n”,
-”      var cell = $(document.getElementById(&quot;1001&quot;)).parents(‘.cell’).data().cell;n”,
-”      cell.output_area.append_execute_result(NB_LOAD_WARNING)n”,
-”    }n”,
-“n”,
-”  }n”,
-“n”,
-”  if (root._bokeh_is_loading === 0) {n”,
-”    console.debug(&quot;Bokeh: BokehJS loaded, going straight to plotting&quot;);n”,
-”    run_inline_js();n”,
-”  } else {n”,
-”    load_libs(css_urls, js_urls, function() {n”,
-”      console.debug(&quot;Bokeh: BokehJS plotting callback run at&quot;, now());n”,
-”      run_inline_js();n”,
-”    });n”,
-”  }n”,
-“}(window));”</p>
-</dd>
-</dl>
-<p>],
-“application/vnd.bokehjs_load.v0+json”: “n(function(root) {n  function now() {n    return new Date();n  }nn  var force = true;nn  if (typeof root._bokeh_onload_callbacks === &quot;undefined&quot; || force === true) {n    root._bokeh_onload_callbacks = [];n    root._bokeh_is_loading = undefined;n  }nn  nn  n  if (typeof (root._bokeh_timeout) === &quot;undefined&quot; || force === true) {n    root._bokeh_timeout = Date.now() + 5000;n    root._bokeh_failed_load = false;n  }nn  var NB_LOAD_WARNING = {‘data’: {‘text/html’:n     &quot;&lt;div style=’background-color: #fdd’&gt;\n&quot;+n     &quot;&lt;p&gt;\n&quot;+n     &quot;BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n&quot;+n     &quot;may be due to a slow or bad network connection. Possible fixes:\n&quot;+n     &quot;&lt;/p&gt;\n&quot;+n     &quot;&lt;ul&gt;\n&quot;+n     &quot;&lt;li&gt;re-rerun <cite>output_notebook()</cite> to attempt to load from CDN again, or&lt;/li&gt;\n&quot;+n     &quot;&lt;li&gt;use INLINE resources instead, as so:&lt;/li&gt;\n&quot;+n     &quot;&lt;/ul&gt;\n&quot;+n     &quot;&lt;code&gt;\n&quot;+n     &quot;from bokeh.resources import INLINE\n&quot;+n     &quot;output_notebook(resources=INLINE)\n&quot;+n     &quot;&lt;/code&gt;\n&quot;+n     &quot;&lt;/div&gt;&quot;}};nn  function display_loaded() {n    var el = document.getElementById(&quot;1001&quot;);n    if (el != null) {n      el.textContent = &quot;BokehJS is loading…&quot;;n    }n    if (root.Bokeh !== undefined) {n      if (el != null) {n        el.textContent = &quot;BokehJS &quot; + root.Bokeh.version + &quot; successfully loaded.&quot;;n      }n    } else if (Date.now() &lt; root._bokeh_timeout) {n      setTimeout(display_loaded, 100)n    }n  }nnn  function run_callbacks() {n    try {n      root._bokeh_onload_callbacks.forEach(function(callback) {n        if (callback != null)n          callback();n      });n    } finally {n      delete root._bokeh_onload_callbacksn    }n    console.debug(&quot;Bokeh: all callbacks have finished&quot;);n  }nn  function load_libs(css_urls, js_urls, callback) {n    if (css_urls == null) css_urls = [];n    if (js_urls == null) js_urls = [];nn    root._bokeh_onload_callbacks.push(callback);n    if (root._bokeh_is_loading &gt; 0) {n      console.debug(&quot;Bokeh: BokehJS is being loaded, scheduling callback at&quot;, now());n      return null;n    }n    if (js_urls == null || js_urls.length === 0) {n      run_callbacks();n      return null;n    }n    console.debug(&quot;Bokeh: BokehJS not loaded, scheduling load and callback at&quot;, now());n    root._bokeh_is_loading = css_urls.length + js_urls.length;nn    function on_load() {n      root._bokeh_is_loading–;n      if (root._bokeh_is_loading === 0) {n        console.debug(&quot;Bokeh: all BokehJS libraries/stylesheets loaded&quot;);n        run_callbacks()n      }n    }nn    function on_error() {n      console.error(&quot;failed to load &quot; + url);n    }nn    for (var i = 0; i &lt; css_urls.length; i++) {n      var url = css_urls[i];n      const element = document.createElement(&quot;link&quot;);n      element.onload = on_load;n      element.onerror = on_error;n      element.rel = &quot;stylesheet&quot;;n      element.type = &quot;text/css&quot;;n      element.href = url;n      console.debug(&quot;Bokeh: injecting link tag for BokehJS stylesheet: &quot;, url);n      document.body.appendChild(element);n    }nn    const hashes = {&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js</a>&quot;: &quot;qkRvDQVAIfzsJo40iRBbxt6sttt0hv4lh74DG7OK4MCHv4C5oohXYoHUM5W11uqS&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js</a>&quot;: &quot;Sb7Mr06a9TNlet/GEBeKaf5xH3eb6AlCzwjtU82wNPyDrnfoiVl26qnvlKjmcAd+&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js</a>&quot;: &quot;HaJ15vgfmcfRtB4c4YBOI4f1MUujukqInOWVqZJZZGK7Q+ivud0OKGSTn/Vm2iso&quot;};nn    for (var i = 0; i &lt; js_urls.length; i++) {n      var url = js_urls[i];n      var element = document.createElement(‘script’);n      element.onload = on_load;n      element.onerror = on_error;n      element.async = false;n      element.src = url;n      if (url in hashes) {n        element.crossOrigin = &quot;anonymous&quot;;n        element.integrity = &quot;sha384-&quot; + hashes[url];n      }n      console.debug(&quot;Bokeh: injecting script tag for BokehJS library: &quot;, url);n      document.head.appendChild(element);n    }n  };nn  function inject_raw_css(css) {n    const element = document.createElement(&quot;style&quot;);n    element.appendChild(document.createTextNode(css));n    document.body.appendChild(element);n  }nn  n  var js_urls = [&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js</a>&quot;];n  var css_urls = [];n  nn  var inline_js = [n    function(Bokeh) {n      Bokeh.set_log_level(&quot;info&quot;);n    },n    function(Bokeh) {n    n    n    }n  ];nn  function run_inline_js() {n    n    if (root.Bokeh !== undefined || force === true) {n      n    for (var i = 0; i &lt; inline_js.length; i++) {n      inline_js[i].call(root, root.Bokeh);n    }n    if (force === true) {n        display_loaded();n      }} else if (Date.now() &lt; root._bokeh_timeout) {n      setTimeout(run_inline_js, 100);n    } else if (!root._bokeh_failed_load) {n      console.log(&quot;Bokeh: BokehJS failed to load within specified timeout.&quot;);n      root._bokeh_failed_load = true;n    } else if (force !== true) {n      var cell = $(document.getElementById(&quot;1001&quot;)).parents(‘.cell’).data().cell;n      cell.output_area.append_execute_result(NB_LOAD_WARNING)n    }nn  }nn  if (root._bokeh_is_loading === 0) {n    console.debug(&quot;Bokeh: BokehJS loaded, going straight to plotting&quot;);n    run_inline_js();n  } else {n    load_libs(css_urls, js_urls, function() {n      console.debug(&quot;Bokeh: BokehJS plotting callback run at&quot;, now());n      run_inline_js();n    });n  }n}(window));”</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {},
-“output_type”: “display_data”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“import timen”,
-“n”,
-“import numpy as npn”,
-“n”,
-“import serialn”,
-“import serial.tools.list_portsn”,
-“n”,
-“import bokeh.plottingn”,
-“import bokeh.ion”,
-“bokeh.io.output_notebook()”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“In the previous lessons, we learned how to send a signal to Arduino from Python to ask it to do something, in that case to turn on an LED. Now, we will ask Arduino to send data back. We will store the data in RAM (or we could write it to disk) for later use.n”,
-“n”,
-“We will read in a voltage that we control with a potentiometer. The idea is that we send a request from Python to Arduino, and then it reads the voltage and sends it back, with all communication over USB. You should work in your own Jupyter notebook for this.n”,
-“n”,
-“To begin, wire up the following schematic.n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 300px;&quot;&gt;n”,
-”    n”,
-“![Requesting and receiving data from arduino schematic](requesting_and_receiving_data_from_arduino_schem.svg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“Upload the following sketch.n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">voltagePin</span> <span class="pre">=</span> <span class="pre">A0;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">HANDSHAKE</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">VOLTAGE_REQUEST</span> <span class="pre">=</span> <span class="pre">1;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;int</span> <span class="pre">inByte;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">printVoltage()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Read</span> <span class="pre">value</span> <span class="pre">from</span> <span class="pre">analog</span> <span class="pre">pin\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">int</span> <span class="pre">value</span> <span class="pre">=</span> <span class="pre">analogRead(voltagePin);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Get</span> <span class="pre">the</span> <span class="pre">time</span> <span class="pre">point\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">time_ms</span> <span class="pre">=</span> <span class="pre">millis();\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Write</span> <span class="pre">the</span> <span class="pre">result\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">if</span> <span class="pre">(Serial.availableForWrite())</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">String</span> <span class="pre">outstr</span> <span class="pre">=</span> <span class="pre">String(String(time_ms,</span> <span class="pre">DEC)</span> <span class="pre">+</span> <span class="pre">\&quot;,\&quot;</span> <span class="pre">+</span> <span class="pre">String(value,</span> <span class="pre">DEC));\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">Serial.println(outstr);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">setup()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Initialize</span> <span class="pre">serial</span> <span class="pre">communication\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">Serial.begin(115200);\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">loop()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Check</span> <span class="pre">if</span> <span class="pre">data</span> <span class="pre">has</span> <span class="pre">been</span> <span class="pre">sent</span> <span class="pre">to</span> <span class="pre">Arduino</span> <span class="pre">and</span> <span class="pre">respond</span> <span class="pre">accordingly\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">if</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Read</span> <span class="pre">in</span> <span class="pre">request\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">inByte</span> <span class="pre">=</span> <span class="pre">Serial.read();\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">If</span> <span class="pre">data</span> <span class="pre">is</span> <span class="pre">requested,</span> <span class="pre">fetch</span> <span class="pre">it</span> <span class="pre">and</span> <span class="pre">write</span> <span class="pre">it,</span> <span class="pre">or</span> <span class="pre">handshake\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">switch(inByte)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">case</span> <span class="pre">VOLTAGE_REQUEST:\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">printVoltage();\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">case</span> <span class="pre">HANDSHAKE:\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">if</span> <span class="pre">(Serial.availableForWrite())</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">Serial.println(\&quot;Message</span> <span class="pre">received.\&quot;);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">break;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“This sketch warrants some explanation.n”,
-“n”,
-“- I have written a function <cite>printVoltage()</cite> that handles reading in the voltage on the appropriate pin, adding a time stamp, and then printing the result to the serial connection. Note that I have used <cite>String</cite> objects to write a comma-delimited string, separating the time and the voltage. I have chosen not to convert the time to seconds nor the 10-bit integer from the <cite>analogRead()</cite> to volts on Arduino. I usually make this choice; conversions on the Python side are faster, and it is easier to send integers.n”,
-“- The <cite>DEC</cite> argument in <cite>String()</cite> specifies the format of the number as decimal, as opposed to, e.g., <cite>HEX</cite> for hexidecimal. It is not necessary (<cite>DEC</cite> is the default), but I left it in there because it is better to be explicit than implicit.n”,
-“- The structure of the <cite>loop()</cite> function is much the same as we have seen, except that we conveniently call the <cite>printVoltage()</cite> function. Writing modular code is always a good idea.n”,
-“n”,
-“We’ll use the same global variable names on the Python side.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 2,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“HANDSHAKE = 0n”,
-“VOLTAGE_REQUEST = 1”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“And, of course, we have our usual connectivity functions.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 3,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“def find_arduino(port=None):n”,
-”    &quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;n”,
-”    if port is None:n”,
-”        ports = serial.tools.list_ports.comports()n”,
-”        for p in ports:n”,
-”            if p.manufacturer is not None and &quot;Arduino&quot; in p.manufacturer:n”,
-”                port = p.devicen”,
-”    return portn”,
-“n”,
-“n”,
-“def handshake_arduino(n”,
-”    arduino, sleep_time=1, print_handshake_message=False, handshake_code=0n”,
-“):n”,
-”    &quot;&quot;&quot;Make sure connection is established by sendingn”,
-”    and receiving bytes.&quot;&quot;&quot;n”,
-”    # Close and reopenn”,
-”    arduino.close()n”,
-”    arduino.open()n”,
-“n”,
-”    # Chill out while everything gets setn”,
-”    time.sleep(sleep_time)n”,
-“n”,
-”    # Set a long timeout to complete handshaken”,
-”    timeout = arduino.timeoutn”,
-”    arduino.timeout = 2n”,
-”    n”,
-”    # Read and discard everything that may be in the input buffern”,
-”    _ = arduino.read_all()n”,
-“n”,
-”    # Send request to Arduinon”,
-”    arduino.write(bytes([handshake_code]))n”,
-“n”,
-”    # Read in what Arduino sentn”,
-”    handshake_message = arduino.read_until()n”,
-“n”,
-”    # Send and receive request againn”,
-”    arduino.write(bytes([handshake_code]))n”,
-”    handshake_message = arduino.read_until()n”,
-“n”,
-”    # Print the handshake message, if desiredn”,
-”    if print_handshake_message:n”,
-”        print(&quot;Handshake message: &quot; + handshake_message.decode())n”,
-“n”,
-”    # Reset the timeoutn”,
-”    arduino.timeout = timeout”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“And now, let’s make a connection. We’ll leave it open through the exercise and close it at the end.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 4,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stdout”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“Handshake message: Message received.n”,
-“n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“port = find_arduino()n”,
-“arduino = serial.Serial(port, baudrate=115200)n”,
-“handshake_arduino(arduino, handshake_code=HANDSHAKE, print_handshake_message=True)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Let’s ask for data from Arduino and receive it. We will again use <cite>arduino.read_until()</cite>, forcing reading until a newline character is encountered. This makes Python wait until Arduino has finished sending the message (or until the timeout, which is one second by default).”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 5,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“b’20423,0\r\n’”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 5,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“# Ask Arduino for datan”,
-“arduino.write(bytes([VOLTAGE_REQUEST]))n”,
-“n”,
-“# Receive datan”,
-“raw = arduino.read_until()n”,
-“n”,
-“# Look at what we gotn”,
-“raw”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“The <cite>b</cite> in front of the string signifies that the string is a bytes literal. This is not a Python string, but a representation of an ASCII encoded set of characters as binary. To convert it to a string, we need to use the <cite>decode()</cite> method.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 6,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“‘20423,0\r\n’”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 6,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“raw_str = raw.decode()n”,
-“n”,
-“# Take a lookn”,
-“raw_str”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Now it is a Python string that we can convert to two integers. The carriage return (<cite>\r</cite>) and the newline (<cite>\n</cite>) should be stripped off the end, and we split the string at the comma.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 7,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(‘20423’, ‘0’)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 7,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“t, V = raw_str.rstrip().split(&quot;,&quot;)n”,
-“n”,
-“# Take a lookn”,
-“t, V”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“We now have two strings, the time and the voltage. We can convert these to integers and then to whatever units we like. I’ll leave time in milliseconds and convert the voltage to volts.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 8,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(20423, 0.0)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 8,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“t = int(t)n”,
-“V = int(V) * 5 / 1023n”,
-“n”,
-“# Take a lookn”,
-“t, V”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Since modular programming is a good idea, let’s write this parsing into a function.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 9,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“def parse_raw(raw):n”,
-”    &quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;n”,
-”    raw = raw.decode()n”,
-”    if raw[-1] != &quot;\n&quot;:n”,
-”        raise ValueError(n”,
-”            &quot;Input must end with newline, otherwise message is incomplete.&quot;n”,
-”        )n”,
-“n”,
-”    t, V = raw.rstrip().split(&quot;,&quot;)n”,
-“n”,
-”    return int(t), int(V) * 5 / 1023”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Finally, we can write a function to acquire a data point from the Arduino.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 10,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“def request_single_voltage(arduino):n”,
-”    &quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;n”,
-”    # Ask Arduino for datan”,
-”    arduino.write(bytes([VOLTAGE_REQUEST]))n”,
-“n”,
-”    # Read in the datan”,
-”    raw = arduino.read_until()n”,
-“n”,
-”    # Parse and returnn”,
-”    return parse_raw(raw)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“We can call the function to get single time, voltage pairs.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 11,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“(23638, 0.0)”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 11,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“request_single_voltage(arduino)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“We could set up lists containing the time and voltages we acquire and use the functions to get them programmatically, say every 20 ms. I’ll run the following code cell while twisting the potentiometer knob back and forth.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 12,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“time_ms = []n”,
-“voltage = []n”,
-“n”,
-“for i in range(400):n”,
-”    # Request and appendn”,
-”    t, V = request_single_voltage(arduino)n”,
-”    time_ms.append(t)n”,
-”    voltage.append(V)n”,
-”    n”,
-”    # Wait 20 msn”,
-”    time.sleep(0.02)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“We can make a plot of the results.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 13,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/html”: [</dt><dd><p>“n”,
-“n”,
-“n”,
-“n”,
-“n”,
-“n”,
-”  &lt;div class=&quot;bk-root&quot; id=&quot;8f68f3f0-7a3e-42b8-8138-3b28106e117a&quot; data-root-id=&quot;1002&quot;&gt;&lt;/div&gt;n”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {},
-“output_type”: “display_data”</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“application/javascript”: [</dt><dd><p>“(function(root) {n”,
-”  function embed_document(root) {n”,
-”    n”,
-”  var docs_json = {&quot;b1898008-df2c-4f94-9d1b-2a639faae338&quot;:{&quot;roots&quot;:{&quot;references&quot;:[{&quot;attributes&quot;:{&quot;below&quot;:[{&quot;id&quot;:&quot;1011&quot;}],&quot;center&quot;:[{&quot;id&quot;:&quot;1014&quot;},{&quot;id&quot;:&quot;1018&quot;}],&quot;frame_height&quot;:175,&quot;frame_width&quot;:500,&quot;left&quot;:[{&quot;id&quot;:&quot;1015&quot;}],&quot;renderers&quot;:[{&quot;id&quot;:&quot;1036&quot;}],&quot;title&quot;:{&quot;id&quot;:&quot;1039&quot;},&quot;toolbar&quot;:{&quot;id&quot;:&quot;1026&quot;},&quot;x_range&quot;:{&quot;id&quot;:&quot;1003&quot;},&quot;x_scale&quot;:{&quot;id&quot;:&quot;1007&quot;},&quot;y_range&quot;:{&quot;id&quot;:&quot;1005&quot;},&quot;y_scale&quot;:{&quot;id&quot;:&quot;1009&quot;}},&quot;id&quot;:&quot;1002&quot;,&quot;subtype&quot;:&quot;Figure&quot;,&quot;type&quot;:&quot;Plot&quot;},{&quot;attributes&quot;:{&quot;data_source&quot;:{&quot;id&quot;:&quot;1033&quot;},&quot;glyph&quot;:{&quot;id&quot;:&quot;1034&quot;},&quot;hover_glyph&quot;:null,&quot;muted_glyph&quot;:null,&quot;nonselection_glyph&quot;:{&quot;id&quot;:&quot;1035&quot;},&quot;selection_glyph&quot;:null,&quot;view&quot;:{&quot;id&quot;:&quot;1037&quot;}},&quot;id&quot;:&quot;1036&quot;,&quot;type&quot;:&quot;GlyphRenderer&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;1015&quot;},&quot;dimension&quot;:1,&quot;ticker&quot;:null},&quot;id&quot;:&quot;1018&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1045&quot;,&quot;type&quot;:&quot;Selection&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1046&quot;,&quot;type&quot;:&quot;UnionRenderers&quot;},{&quot;attributes&quot;:{&quot;text&quot;:&quot;&quot;},&quot;id&quot;:&quot;1039&quot;,&quot;type&quot;:&quot;Title&quot;},{&quot;attributes&quot;:{&quot;axis_label&quot;:&quot;time (s)&quot;,&quot;formatter&quot;:{&quot;id&quot;:&quot;1043&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;1012&quot;}},&quot;id&quot;:&quot;1011&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;line_color&quot;:&quot;#1f77b4&quot;,&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;1034&quot;,&quot;type&quot;:&quot;Line&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1005&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{&quot;end&quot;:35.042,&quot;start&quot;:24.267},&quot;id&quot;:&quot;1003&quot;,&quot;type&quot;:&quot;Range1d&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1022&quot;,&quot;type&quot;:&quot;SaveTool&quot;},{&quot;attributes&quot;:{&quot;source&quot;:{&quot;id&quot;:&quot;1033&quot;}},&quot;id&quot;:&quot;1037&quot;,&quot;type&quot;:&quot;CDSView&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1041&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1020&quot;,&quot;type&quot;:&quot;WheelZoomTool&quot;},{&quot;attributes&quot;:{&quot;active_drag&quot;:&quot;auto&quot;,&quot;active_inspect&quot;:&quot;auto&quot;,&quot;active_multi&quot;:null,&quot;active_scroll&quot;:&quot;auto&quot;,&quot;active_tap&quot;:&quot;auto&quot;,&quot;tools&quot;:[{&quot;id&quot;:&quot;1019&quot;},{&quot;id&quot;:&quot;1020&quot;},{&quot;id&quot;:&quot;1021&quot;},{&quot;id&quot;:&quot;1022&quot;},{&quot;id&quot;:&quot;1023&quot;},{&quot;id&quot;:&quot;1024&quot;}]},&quot;id&quot;:&quot;1026&quot;,&quot;type&quot;:&quot;Toolbar&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1012&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1007&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{&quot;axis_label&quot;:&quot;voltage (V)&quot;,&quot;formatter&quot;:{&quot;id&quot;:&quot;1041&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;1016&quot;}},&quot;id&quot;:&quot;1015&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1019&quot;,&quot;type&quot;:&quot;PanTool&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1024&quot;,&quot;type&quot;:&quot;HelpTool&quot;},{&quot;attributes&quot;:{&quot;data&quot;:{&quot;x&quot;:{&quot;__ndarray__&quot;:&quot;MQisHFpEOEAlBoGVQ0s4QN9PjZduUjhAf2q8dJNYOEDl0CLb+V44QEw3iUFgZThAJQaBlUNrOEDFILByaHE4QEa28/3UeDhAx0s3iUGAOEC6SQwCK4c4QAIrhxbZjjhAL90kBoGVOEBcj8L1KJw4QPyp8dJNojhAKVyPwvWoOEDjpZvEILA4QGQ730+NtzhAH4XrUbi+OED4U+Olm8Q4QLKd76fGyzhAppvEILDSOEC4HoXrUdg4QHNoke183zhALbKd76fmOEBaZDvfT+04QMHKoUW28zhAJzEIrBz6OEDhehSuRwE5QNV46SYxCDlAyXa+nxoPOUAv3SQGgRU5QJZDi2znGzlAw/UoXI8iOUApXI/C9Sg5QKrx0k1iMDlAK4cW2c43OUCR7Xw/NT45QIXrUbgeRTlAJQaBlUNLOUAZBFYOLVI5QNNNYhBYWTlAx0s3iUFgOUDVeOkmMWg5QFYOLbKdbzlA9ihcj8J1OUB3vp8aL305QKRwPQrXgzlAmG4Sg8CKOUAZBFYOLZI5QGDl0CLbmTlAjZduEoOgOUDVeOkmMag5QDvfT42XrjlAaJHtfD+1OUAIrBxaZLs5QDVeukkMwjlAfT81XrrJOUAdWmQ73885QJ7vp8ZL1zlA5dAi2/neOUBMN4lBYOU5QAaBlUOL7DlAMzMzMzPzOUBg5dAi2/k5QKjGSzeJATpAYhBYObQIOkCPwvUoXA86QPYoXI/CFTpA6SYxCKwcOkDdJAaBlSM6QOxRuB6FKzpAbef7qfEyOkBg5dAi2zk6QI2XbhKDQDpAukkMAitHOkDJdr6fGk86QEoMAiuHVjpAPQrXo3BdOkAxCKwcWmQ6QJhuEoPAajpAN4lBYOVwOkDy0k1iEHg6QFg5tMh2fjpA+FPjpZuEOkAlBoGVQ4s6QBkEVg4tkjpAf2q8dJOYOkAAAAAAAKA6QPT91HjppjpAdZMYBFauOkD2KFyPwrU6QHe+nxovvTpA+FPjpZvEOkCYbhKDwMo6QBkEVg4t0jpARrbz/dTYOkCsHFpkO986QKAaL90k5jpAIbByaJHtOkBOYhBYOfQ6QCcxCKwc+jpAx0s3iUEAO0CBlUOLbAc7QK5H4XoUDjtAFK5H4XoUO0C0yHa+nxo7QFTjpZvEIDtAukkMAisnO0B1kxgEVi47QGiR7Xw/NTtAlkOLbOc7O0BQjZduEkM7QArXo3A9SjtAN4lBYOVQO0Dy0k1iEFg7QAAAAAAAYDtAukkMAitnO0CuR+F6FG47QLx0kxgEdjtA6SYxCKx8O0CJQWDl0II7QESLbOf7iTtAN4lBYOWQO0Dy0k1iEJg7QKwcWmQ7nztAZmZmZmamO0AhsHJoka07QKJFtvP9tDtAXI/C9Si8O0BQjZduEsM7QH0/NV66yTtA/tR46SbRO0Dy0k1iENg7QAAAAAAA4DtAgZVDi2znO0B1kxgEVu47QLx0kxgE9jtAPQrXo3D9O0CkcD0K1wM8QF66SQwCCzxAGQRWDi0SPEC4HoXrURg8QHNoke18HzxAoBov3SQmPEAhsHJokS08QKJFtvP9NDxAXI/C9Sg8PEBQjZduEkM8QESLbOf7STxA46WbxCBQPECe76fGS1c8QARWDi2yXTxAvp8aL91kPEDsUbgehWs8QFK4HoXrcTxAf2q8dJN4PEAfhetRuH48QBKDwMqhhTxAPzVeukmMPEAZBFYOLZI8QNNNYhBYmTxAVOOlm8SgPECBlUOLbKc8QHWTGARWrjxAvHSTGAS2PEA9CtejcL08QDEIrBxaxDxAJQaBlUPLPEBSuB6F69E8QH9qvHST2DxAAAAAAADgPED0/dR46eY8QDvfT42X7jxAvHSTGAT2PEDpJjEIrPw8QMP1KFyPAj1ARIts5/sJPUD+1HjpJhE9QH9qvHSTGD1AAAAAAAAgPUCBlUOLbCc9QDvfT42XLj1AL90kBoE1PUAIrBxaZDs9QPyp8dJNQj1ARIts5/tJPUDFILByaFE9QLgehetRWD1AAAAAAABgPUAtsp3vp2Y9QJMYBFYObT1A2/l+arx0PUDP91PjpXs9QKjGSzeJgT1AnMQgsHKIPUDJdr6fGo89QPYoXI/ClT1AsHJoke2cPUBqvHSTGKQ9QOxRuB6Fqz1AGQRWDi2yPUB/arx0k7g9QOXQItv5vj1Avp8aL93EPUB56SYxCMw9QN9PjZdu0j1Af2q8dJPYPUDHSzeJQeA9QLpJDAIr5z1AAiuHFtnuPUBoke18P/U9QCPb+X5q/D1Aw/UoXI8CPkAK16NwPQo+QOOlm8QgED5AZDvfT40XPkDl0CLb+R4+QEw3iUFgJT5ABoGVQ4ssPkBt5/up8TI+QCcxCKwcOj5AVOOlm8RAPkCBlUOLbEc+QAIrhxbZTj5AaJHtfD9VPkCwcmiR7Vw+QGq8dJMYZD5AJQaBlUNrPkAZBFYOLXI+QAwCK4cWeT5AjZduEoOAPkCBlUOLbIc+QDvfT42Xjj5AFK5H4XqUPkCWQ4ts55s+QDVeukkMoj5AtvP91HipPkBxPQrXo7A+QNejcD0Ktz5Ake18PzW+PkDZzvdT48U+QHnpJjEIzD5Abef7qfHSPkDufD81Xto+QOF6FK5H4T5AnMQgsHLoPkDJdr6fGu8+QLx0kxgE9j5APQrXo3D9PkAxCKwcWgQ/QF66SQwCCz9AxSCwcmgRP0B/arx0kxg/QDm0yHa+Hz9ASOF6FK4nP0CuR+F6FC4/QNv5fmq8ND9AI9v5fmo8P0DdJAaBlUM/QCUGgZVDSz9AppvEILBSP0DTTWIQWFk/QOF6FK5HYT9AYhBYObRoP0BWDi2ynW8/QBBYObTIdj9Ay6FFtvN9P0DdJAaBlYM/QF66SQwCiz9AxSCwcmiRP0BGtvP91Jg/QMdLN4lBoD9AgZVDi2ynP0B1kxgEVq4/QGiR7Xw/tT9AI9v5fmq8P0CkcD0K18M/QNEi2/l+yj9AqvHSTWLQP0Ce76fGS9c/QKwcWmQ73z9A2c73U+PlP0AhsHJoke0/QNv5fmq89D9AlkOLbOf7P0CLbOf7qQFAQBSuR+F6BEBASOF6FK4HQECYbhKDwApAQHWTGARWDkBANV66SQwSQEASg8DKoRVAQEa28/3UGEBAI9v5fmocQEAdWmQ73x9AQDMzMzMzI0BAukkMAisnQECYbhKDwCpAQFg5tMh2LkBAi2zn+6kxQEBoke18PzVAQJzEILByOEBAz/dT46U7QECsHFpkOz9AQN9PjZduQkBAvHSTGARGQEBg5dAi20lAQLByaJHtTEBAAAAAAABQQEDByqFFtlNAQLpJDAIrV0BAQmDl0CJbQEACK4cW2V5AQFK4HoXrYUBATDeJQWBlQEDTTWIQWGlAQAaBlUOLbEBA46WbxCBwQEAX2c73U3NAQBBYObTIdkBAtMh2vp96QEAEVg4tsn1AQMUgsHJogUBAokW28/2EQEC4HoXrUYhAQCUGgZVDi0BAH4XrUbiOQEAZBFYOLZJAQGiR7Xw/lUBAKVyPwvWYQEDpJjEIrJxAQDm0yHa+n0BAMzMzMzOjQED0/dR46aZAQESLbOf7qUBAsHJoke2sQECNl24Sg7BAQMHKoUW2s0BAgZVDi2y3QECYbhKDwLpAQK5H4XoUvkBAUrgehevBQECF61G4HsVAQGIQWDm0yEBAI9v5fmrMQEDjpZvEINBAQDMzMzMz00BA9P3UeOnWQEC0yHa+n9pAQJHtfD813kBAUrgehevhQEAv3SQGgeVAQPCnxks36UBA6SYxCKzsQEAAAAAAAPBAQBfZzvdT80BA16NwPQr3QEBEi2zn+/lAQARWDi2y/UBAqMZLN4kBQUD4U+OlmwRBQNV46SYxCEFAJQaBlUMLQUDJdr6fGg9BQIlBYOXQEkFA9ihcj8IVQUC28/3UeBlBQJMYBFYOHUFAcT0K16MgQUBOYhBYOSRBQGQ730+NJ0FAXrpJDAIrQUA730+Nly5BQPyp8dJNMkFAaJHtfD81QUCcxCCwcjhBQM/3U+OlO0FAAiuHFtk+QUA1XrpJDEJBQIXrUbgeRUFAf2q8dJNIQUAj2/l+akxBQOOlm8QgUEFAF9nO91NTQUBmZmZmZlZBQGDl0CLbWUFAzczMzMxcQUAAAAAAAGBBQFCNl24SY0FAZmZmZmZmQUBg5dAi22lBQLByaJHtbEFAx0s3iUFwQUDdJAaBlXNBQIGVQ4tsd0FAXrpJDAJ7QUACK4cW2X5BQDVeukkMgkFATDeJQWCFQUA=&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[400]},&quot;y&quot;:[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.02932551319648094,0.12218963831867058,0.1466275659824047,0.22482893450635386,0.2590420332355816,0.3128054740957967,0.33235581622678395,0.33724340175953077,0.33724340175953077,0.3421309872922776,0.34701857282502446,0.34701857282502446,0.3567937438905181,0.37145650048875856,0.4252199413489736,0.46432062561094817,0.5034213098729228,0.5718475073313783,0.6256109481915934,0.6793743890518084,0.7624633431085044,0.8406647116324536,0.8993157380254154,0.9384164222873901,0.9579667644183774,0.9970674486803519,1.04594330400782,1.099706744868035,1.1485826001955035,1.1925708699902249,1.2365591397849462,1.270772238514174,1.3196480938416422,1.3929618768328447,1.436950146627566,1.4858260019550342,1.5102639296187683,1.5493646138807429,1.6031280547409579,1.6959921798631477,1.8084066471163245,1.906158357771261,1.9843597262952102,2.043010752688172,2.121212121212121,2.179863147605083,2.2189638318670575,2.2434017595307916,2.2629521016617793,2.3118279569892475,2.3362658846529816,2.3900293255131966,2.4437927663734116,2.487781036168133,2.5464320625610948,2.5855327468230693,2.6295210166177907,2.6686217008797652,2.702834799608993,2.7517106549364616,2.8103616813294234,2.8934506353861194,2.9716520039100685,3.113391984359726,3.2795698924731185,3.455522971652004,3.587487781036168,3.675464320625611,3.7341153470185726,3.7829912023460412,3.8269794721407626,3.900293255131965,3.9687194525904204,4.032258064516129,4.1006842619745845,4.193548387096774,4.281524926686217,4.374389051808406,4.511241446725318,4.687194525904204,4.848484848484849,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,4.9853372434017595,4.921798631476051,4.848484848484849,4.79960899315738,4.780058651026393,4.765395894428153,4.760508308895406,4.7702834799608995,4.794721407624634,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.78494623655914,4.775171065493646,4.7702834799608995,4.760508308895406,4.736070381231672,4.736070381231672,4.696969696969697,4.618768328445748,4.560117302052786,4.521016617790812,4.486803519061583,4.462365591397849,4.418377321603128,4.374389051808406,4.330400782013685,4.27663734115347,4.232649071358749,4.18377321603128,4.130009775171065,4.051808406647116,3.978494623655914,3.8856304985337244,3.7536656891495603,3.5972629521016617,3.4066471163245358,3.225806451612903,3.005865102639296,2.8054740957966766,2.6344086021505375,2.4389051808406648,2.3362658846529816,2.2825024437927666,2.2482893450635384,2.19941348973607,2.1652003910068425,2.126099706744868,2.101661779081134,2.0772238514173997,2.0576735092864125,2.0234604105571847,1.9941348973607038,1.964809384164223,1.911045943304008,1.847507331378299,1.7741935483870968,1.7204301075268817,1.656891495601173,1.598240469208211,1.5493646138807429,1.4858260019550342,1.4173998044965788,1.2805474095796676,1.1192570869990224,0.9384164222873901,0.6793743890518084,0.5034213098729228,0.37145650048875856,0.24926686217008798,0.10752688172043011,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.14173998044965788,0.5034213098729228,0.7820136852394917,0.8699902248289345,0.8748778103616813,0.8211143695014663,0.4789833822091887,0.04398826979472141,0.0,0.0,0.0,0.0,0.053763440860215055,0.23460410557184752,0.4398826979472141,0.5571847507331378,0.5913978494623656,0.5913978494623656,0.5767350928641252,0.36656891495601174,0.1466275659824047,0.13196480938416422,0.1710654936461388,0.3176930596285435,0.7135874877810362,1.133919843597263,1.2805474095796676,1.2658846529814272,1.1925708699902249,1.021505376344086,0.9237536656891495,0.9188660801564027,0.967741935483871,1.1485826001955035,1.3929618768328447,1.5835777126099706,1.6422287390029326,1.6422287390029326,1.632453567937439,1.6373411534701858,1.6422287390029326,1.6422287390029326,1.6471163245356795,1.6911045943304008,1.7595307917888563,1.8132942326490713,1.8719452590420331,1.8914956011730206,1.8768328445747802,1.8279569892473118,1.739980449657869,1.686217008797654,1.6911045943304008,1.7302052785923754,1.9159335288367547,2.096774193548387,2.2531769305962857,2.355816226783969,2.375366568914956,2.3607038123167157,2.350928641251222,2.297165200391007,2.2385141739980448,2.209188660801564,2.209188660801564,2.2434017595307916,2.463343108504399,2.6148582600195502,2.732160312805474,2.7419354838709675,2.7468230694037143,2.7517106549364616,2.732160312805474,2.653958944281525,2.649071358748778,2.653958944281525,2.790811339198436,2.9423264907135875,3.1036168132942326,3.196480938416422,3.2355816226783967,3.2404692082111435,3.2502443792766376,3.2551319648093844,3.23069403714565,3.176930596285435,3.118279569892473,3.12316715542522,3.1378299120234603,3.2795698924731185,3.4408602150537635,3.6265884652981426,3.729227761485826,3.763440860215054,3.7781036168132944,3.787878787878788,3.792766373411535,3.7829912023460412,3.768328445747801,3.7438905180840663,3.758553274682307,3.8025415444770285,3.919843597262952,4.066471163245357]},&quot;selected&quot;:{&quot;id&quot;:&quot;1045&quot;},&quot;selection_policy&quot;:{&quot;id&quot;:&quot;1046&quot;}},&quot;id&quot;:&quot;1033&quot;,&quot;type&quot;:&quot;ColumnDataSource&quot;},{&quot;attributes&quot;:{&quot;overlay&quot;:{&quot;id&quot;:&quot;1025&quot;}},&quot;id&quot;:&quot;1021&quot;,&quot;type&quot;:&quot;BoxZoomTool&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1043&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1009&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1023&quot;,&quot;type&quot;:&quot;ResetTool&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;1011&quot;},&quot;ticker&quot;:null},&quot;id&quot;:&quot;1014&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{&quot;bottom_units&quot;:&quot;screen&quot;,&quot;fill_alpha&quot;:0.5,&quot;fill_color&quot;:&quot;lightgrey&quot;,&quot;left_units&quot;:&quot;screen&quot;,&quot;level&quot;:&quot;overlay&quot;,&quot;line_alpha&quot;:1.0,&quot;line_color&quot;:&quot;black&quot;,&quot;line_dash&quot;:[4,4],&quot;line_width&quot;:2,&quot;right_units&quot;:&quot;screen&quot;,&quot;top_units&quot;:&quot;screen&quot;},&quot;id&quot;:&quot;1025&quot;,&quot;type&quot;:&quot;BoxAnnotation&quot;},{&quot;attributes&quot;:{&quot;line_alpha&quot;:0.1,&quot;line_color&quot;:&quot;#1f77b4&quot;,&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;1035&quot;,&quot;type&quot;:&quot;Line&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1016&quot;,&quot;type&quot;:&quot;BasicTicker&quot;}],&quot;root_ids&quot;:[&quot;1002&quot;]},&quot;title&quot;:&quot;Bokeh Application&quot;,&quot;version&quot;:&quot;2.2.1&quot;}};n”,
-”  var render_items = [{&quot;docid&quot;:&quot;b1898008-df2c-4f94-9d1b-2a639faae338&quot;,&quot;root_ids&quot;:[&quot;1002&quot;],&quot;roots&quot;:{&quot;1002&quot;:&quot;8f68f3f0-7a3e-42b8-8138-3b28106e117a&quot;}}];n”,
-”  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);n”,
-“n”,
-”  }n”,
-”  if (root.Bokeh !== undefined) {n”,
-”    embed_document(root);n”,
-”  } else {n”,
-”    var attempts = 0;n”,
-”    var timer = setInterval(function(root) {n”,
-”      if (root.Bokeh !== undefined) {n”,
-”        clearInterval(timer);n”,
-”        embed_document(root);n”,
-”      } else {n”,
-”        attempts++;n”,
-”        if (attempts &gt; 100) {n”,
-”          clearInterval(timer);n”,
-”          console.log(&quot;Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing&quot;);n”,
-”        }n”,
-”      }n”,
-”    }, 10, root)n”,
-”  }n”,
-“})(window);”</p>
-</dd>
-</dl>
-<p>],
-“application/vnd.bokehjs_exec.v0+json”: “”</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“application/vnd.bokehjs_exec.v0+json”: {</dt><dd><p>“id”: “1002”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>},
-“output_type”: “display_data”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“time_s = np.array(time_ms) / 1000n”,
-“n”,
-“p = bokeh.plotting.figure(n”,
-”    x_axis_label=’time (s)’,n”,
-”    y_axis_label=’voltage (V)’,n”,
-”    frame_height=175,n”,
-”    frame_width=500,n”,
-”    x_range=[time_s[0], time_s[-1]],n”,
-“)n”,
-“p.line(time_s, voltage)n”,
-“n”,
-“bokeh.io.show(p)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“As it turns out, this is <em>not</em> the preferred method to stream data from Arduino, though it works fine if you are sampling at much longer time intervals. The call-and-response and the use of Python’s <cite>time.sleep()</cite> to do the delays leads to inconsistent timing. We can see this by computing the time difference between subsequent data points.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 14,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/plain”: [</dt><dd><p>“array([27, 28, 24, 25, 25, 23, 24, 29, 29, 27, 30, 26, 26, 24, 26, 28, 29,n”,
-”       28, 23, 28, 27, 22, 28, 28, 26, 25, 25, 28, 27, 27, 25, 25, 26, 25,n”,
-”       29, 29, 25, 27, 24, 27, 28, 27, 31, 29, 24, 29, 26, 27, 29, 30, 26,n”,
-”       30, 25, 26, 24, 26, 30, 24, 29, 30, 25, 28, 26, 26, 30, 28, 26, 25,n”,
-”       27, 27, 31, 29, 27, 26, 26, 31, 29, 27, 27, 25, 24, 28, 25, 24, 26,n”,
-”       27, 25, 29, 27, 29, 29, 29, 29, 24, 29, 26, 25, 27, 29, 26, 23, 24,n”,
-”       28, 26, 25, 24, 24, 25, 28, 27, 26, 28, 28, 26, 28, 31, 28, 27, 31,n”,
-”       26, 24, 28, 27, 28, 28, 28, 28, 29, 28, 27, 26, 29, 27, 31, 29, 27,n”,
-”       30, 29, 25, 28, 28, 24, 28, 26, 29, 29, 28, 27, 27, 24, 28, 25, 28,n”,
-”       26, 25, 26, 24, 27, 26, 23, 28, 29, 26, 27, 30, 29, 27, 27, 26, 26,n”,
-”       29, 27, 30, 29, 26, 23, 29, 28, 29, 29, 29, 28, 27, 23, 27, 30, 29,n”,
-”       27, 30, 26, 25, 30, 27, 23, 27, 26, 26, 28, 28, 29, 26, 25, 25, 23,n”,
-”       28, 25, 24, 30, 27, 30, 25, 28, 24, 30, 23, 29, 29, 25, 28, 25, 28,n”,
-”       26, 26, 29, 25, 30, 28, 28, 27, 27, 29, 27, 28, 23, 29, 24, 29, 28,n”,
-”       25, 28, 30, 24, 27, 29, 27, 28, 26, 27, 29, 27, 26, 25, 28, 28, 31,n”,
-”       25, 26, 30, 28, 30, 29, 26, 31, 29, 27, 28, 28, 22, 29, 25, 29, 29,n”,
-”       28, 27, 27, 28, 29, 26, 23, 27, 31, 26, 30, 28, 28, 29, 22, 25, 24,n”,
-”       28, 29, 28, 25, 28, 27, 26, 31, 28, 29, 25, 28, 25, 25, 28, 25, 28,n”,
-”       30, 24, 24, 29, 27, 31, 29, 24, 27, 31, 25, 28, 25, 27, 30, 24, 29,n”,
-”       28, 26, 23, 27, 27, 24, 29, 29, 24, 27, 29, 24, 23, 28, 25, 29, 26,n”,
-”       26, 30, 25, 28, 29, 29, 24, 29, 29, 28, 29, 28, 29, 27, 26, 26, 29,n”,
-”       23, 29, 30, 24, 28, 24, 30, 29, 23, 29, 28, 28, 28, 26, 27, 28, 29,n”,
-”       23, 25, 25, 25, 25, 24, 27, 30, 29, 25, 24, 27, 23, 25, 24, 26, 27,n”,
-”       24, 26, 26, 30, 28, 30, 25, 26])”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“execution_count”: 14,
-“metadata”: {},
-“output_type”: “execute_result”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“np.diff(time_ms)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“This is not the 20 ms we wanted, and the time between acquisitions jumps around a lot. In future lessons, we will cover how to get better streaming data from Arduino. For now, you will code up a dashboard for a more commonly used mode of data-upon-request, where you hit a button and get data back.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Do-it-yourself exercise 5: Asking for data with buttonsn”,
-“n”,
-“Using the same setup as we have so far in this lesson, make a small dashboard with two buttons. One of them blanks out lists <cite>time_ms</cite> and <cite>voltage</cite>, while the other one asks for a time, voltage pair from Arduino and appends them to the lists. You can embed them in the notebook with either Panel or base Bokeh. Since you would presumably be using the data right away, leave them in the notebook and not as a stand along Bokeh app.n”,
-“n”,
-“Use your button to ask for ten or more data points while messing around with the potentiometer knob and then make a plot of the result.n”,
-“n”,
-“<em>Hint</em>: Check out [Panel’s Reference Gallery](<a class="reference external" href="https://panel.holoviz.org/reference/index.html">https://panel.holoviz.org/reference/index.html</a>). A Button is different that a Toggle. If you use a button, there is no <cite>on_change</cite> method, but rather an <cite>on_click</cite> method.n”,
-“n”,
-“<em>Another hint</em>: Say I have two widgets, <cite>widget_1</cite> and <cite>widget_2</cite>. To lay them out, you can use, e.g., <cite>pn.Row(widget_1, pn.Spacer(width=15), widget_2)</cite>.n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 15,
-“metadata”: {},
-“outputs”: [],
-“source”: [</p>
-<blockquote>
-<div><p>“arduino.close()”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Computing environment”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 16,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stdout”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“CPython 3.8.5n”,
-“IPython 7.18.1n”,
-“n”,
-“serial 3.4n”,
-“bokeh 2.2.1n”,
-“jupyterlab 2.2.6n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“%load_ext watermarkn”,
-“%watermark -v -p serial,bokeh,jupyterlab”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.8.8”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 4</p>
-</dd>
-</dl>
-<p>}</p>
+<section id="12.-Requesting-and-receiving-data-from-Arduino">
+<h1>12. Requesting and receiving data from Arduino<a class="headerlink" href="#12.-Requesting-and-receiving-data-from-Arduino" title="Permalink to this heading"></a></h1>
+<hr><div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1001">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!output.data.hasOwnProperty(EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1001");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error() {
+      console.error("failed to load " + url);
+    }
+
+    for (var i = 0; i < css_urls.length; i++) {
+      var url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js": "qkRvDQVAIfzsJo40iRBbxt6sttt0hv4lh74DG7OK4MCHv4C5oohXYoHUM5W11uqS", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js": "Sb7Mr06a9TNlet/GEBeKaf5xH3eb6AlCzwjtU82wNPyDrnfoiVl26qnvlKjmcAd+", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js": "HaJ15vgfmcfRtB4c4YBOI4f1MUujukqInOWVqZJZZGK7Q+ivud0OKGSTn/Vm2iso"};
+
+    for (var i = 0; i < js_urls.length; i++) {
+      var url = js_urls[i];
+      var element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error;
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.2.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.2.1.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1001")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<hr><p>In the previous lessons, we learned how to send a signal to Arduino from Python to ask it to do something, in that case to turn on an LED. Now, we will ask Arduino to send data back. We will store the data in RAM (or we could write it to disk) for later use.</p>
+<p>We will read in a voltage that we control with a potentiometer. The idea is that we send a request from Python to Arduino, and then it reads the voltage and sends it back, with all communication over USB. You should work in your own Jupyter notebook for this.</p>
+<p>To begin, wire up the following schematic.</p>
+<div style="margin: auto; width: 300px;"><img alt="Requesting and receiving data from arduino schematic" src="../../_images/requesting_and_receiving_data_from_arduino_schem.svg" /></div><p>Upload the following sketch.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
+
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">VOLTAGE_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="kr">int</span><span class="w"> </span><span class="n">inByte</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nf">printVoltage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Read value from analog pin</span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">voltagePin</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Get the time point</span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">time_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Write the result</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kr">String</span><span class="w"> </span><span class="n">outstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">time_ms</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">outstr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Initialize serial communication</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Read in request</span>
+<span class="w">    </span><span class="n">inByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// If data is requested, fetch it and write it, or handshake</span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">VOLTAGE_REQUEST</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">printVoltage</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">HANDSHAKE</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This sketch warrants some explanation.</p>
+<ul class="simple">
+<li><p>I have written a function <code class="docutils literal notranslate"><span class="pre">printVoltage()</span></code> that handles reading in the voltage on the appropriate pin, adding a time stamp, and then printing the result to the serial connection. Note that I have used <code class="docutils literal notranslate"><span class="pre">String</span></code> objects to write a comma-delimited string, separating the time and the voltage. I have chosen not to convert the time to seconds nor the 10-bit integer from the <code class="docutils literal notranslate"><span class="pre">analogRead()</span></code> to volts on Arduino. I usually make this choice; conversions on the Python side are faster, and it is
+easier to send integers.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">DEC</span></code> argument in <code class="docutils literal notranslate"><span class="pre">String()</span></code> specifies the format of the number as decimal, as opposed to, e.g., <code class="docutils literal notranslate"><span class="pre">HEX</span></code> for hexidecimal. It is not necessary (<code class="docutils literal notranslate"><span class="pre">DEC</span></code> is the default), but I left it in there because it is better to be explicit than implicit.</p></li>
+<li><p>The structure of the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is much the same as we have seen, except that we conveniently call the <code class="docutils literal notranslate"><span class="pre">printVoltage()</span></code> function. Writing modular code is always a good idea.</p></li>
+</ul>
+<p>We’ll use the same global variable names on the Python side.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">VOLTAGE_REQUEST</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<p>And, of course, we have our usual connectivity functions.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">&quot;Arduino&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span><span class="p">:</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">device</span>
+    <span class="k">return</span> <span class="n">port</span>
+
+
+<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
+<span class="sd">    and receiving bytes.&quot;&quot;&quot;</span>
+    <span class="c1"># Close and reopen</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+    <span class="c1"># Chill out while everything gets set</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="p">)</span>
+
+    <span class="c1"># Set a long timeout to complete handshake</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Read and discard everything that may be in the input buffer</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
+
+    <span class="c1"># Send request to Arduino</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+
+    <span class="c1"># Read in what Arduino sent</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Send and receive request again</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Print the handshake message, if desired</span>
+    <span class="k">if</span> <span class="n">print_handshake_message</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Handshake message: &quot;</span> <span class="o">+</span> <span class="n">handshake_message</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="c1"># Reset the timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+</pre></div>
+</div>
+</div>
+<p>And now, let’s make a connection. We’ll leave it open through the exercise and close it at the end.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">port</span> <span class="o">=</span> <span class="n">find_arduino</span><span class="p">()</span>
+<span class="n">arduino</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+<span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="n">HANDSHAKE</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Handshake message: Message received.
+
+</pre></div></div>
+</div>
+<p>Let’s ask for data from Arduino and receive it. We will again use <code class="docutils literal notranslate"><span class="pre">arduino.read_until()</span></code>, forcing reading until a newline character is encountered. This makes Python wait until Arduino has finished sending the message (or until the timeout, which is one second by default).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask Arduino for data</span>
+<span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
+
+<span class="c1"># Receive data</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+<span class="c1"># Look at what we got</span>
+<span class="n">raw</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+b&#39;20423,0\r\n&#39;
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">b</span></code> in front of the string signifies that the string is a bytes literal. This is not a Python string, but a representation of an ASCII encoded set of characters as binary. To convert it to a string, we need to use the <code class="docutils literal notranslate"><span class="pre">decode()</span></code> method.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_str</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">raw_str</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;20423,0\r\n&#39;
+</pre></div></div>
+</div>
+<p>Now it is a Python string that we can convert to two integers. The carriage return (<code class="docutils literal notranslate"><span class="pre">\r</span></code>) and the newline (<code class="docutils literal notranslate"><span class="pre">\n</span></code>) should be stripped off the end, and we split the string at the comma.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw_str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">V</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&#39;20423&#39;, &#39;0&#39;)
+</pre></div></div>
+</div>
+<p>We now have two strings, the time and the voltage. We can convert these to integers and then to whatever units we like. I’ll leave time in milliseconds and convert the voltage to volts.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span>
+
+<span class="c1"># Take a look</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">V</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(20423, 0.0)
+</pre></div></div>
+</div>
+<p>Since modular programming is a good idea, let’s write this parsing into a function.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Input must end with newline, otherwise message is incomplete.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span>
+</pre></div>
+</div>
+</div>
+<p>Finally, we can write a function to acquire a data point from the Arduino.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
+    <span class="c1"># Ask Arduino for data</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
+
+    <span class="c1"># Read in the data</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Parse and return</span>
+    <span class="k">return</span> <span class="n">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can call the function to get single time, voltage pairs.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(23638, 0.0)
+</pre></div></div>
+</div>
+<p>We could set up lists containing the time and voltages we acquire and use the functions to get them programmatically, say every 20 ms. I’ll run the following code cell while twisting the potentiometer knob back and forth.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">):</span>
+    <span class="c1"># Request and append</span>
+    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+    <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+    <span class="c1"># Wait 20 ms</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>We can make a plot of the results.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_ms</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s1">&#39;voltage (V)&#39;</span><span class="p">,</span>
+    <span class="n">frame_height</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
+    <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="n">time_s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">time_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span>
+<span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">time_s</span><span class="p">,</span> <span class="n">voltage</span><span class="p">)</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root" id="8f68f3f0-7a3e-42b8-8138-3b28106e117a" data-root-id="1002"></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+(function(root) {
+  function embed_document(root) {
+
+  var docs_json = {"b1898008-df2c-4f94-9d1b-2a639faae338":{"roots":{"references":[{"attributes":{"below":[{"id":"1011"}],"center":[{"id":"1014"},{"id":"1018"}],"frame_height":175,"frame_width":500,"left":[{"id":"1015"}],"renderers":[{"id":"1036"}],"title":{"id":"1039"},"toolbar":{"id":"1026"},"x_range":{"id":"1003"},"x_scale":{"id":"1007"},"y_range":{"id":"1005"},"y_scale":{"id":"1009"}},"id":"1002","subtype":"Figure","type":"Plot"},{"attributes":{"data_source":{"id":"1033"},"glyph":{"id":"1034"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1035"},"selection_glyph":null,"view":{"id":"1037"}},"id":"1036","type":"GlyphRenderer"},{"attributes":{"axis":{"id":"1015"},"dimension":1,"ticker":null},"id":"1018","type":"Grid"},{"attributes":{},"id":"1045","type":"Selection"},{"attributes":{},"id":"1046","type":"UnionRenderers"},{"attributes":{"text":""},"id":"1039","type":"Title"},{"attributes":{"axis_label":"time (s)","formatter":{"id":"1043"},"ticker":{"id":"1012"}},"id":"1011","type":"LinearAxis"},{"attributes":{"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1034","type":"Line"},{"attributes":{},"id":"1005","type":"DataRange1d"},{"attributes":{"end":35.042,"start":24.267},"id":"1003","type":"Range1d"},{"attributes":{},"id":"1022","type":"SaveTool"},{"attributes":{"source":{"id":"1033"}},"id":"1037","type":"CDSView"},{"attributes":{},"id":"1041","type":"BasicTickFormatter"},{"attributes":{},"id":"1020","type":"WheelZoomTool"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1019"},{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"}]},"id":"1026","type":"Toolbar"},{"attributes":{},"id":"1012","type":"BasicTicker"},{"attributes":{},"id":"1007","type":"LinearScale"},{"attributes":{"axis_label":"voltage (V)","formatter":{"id":"1041"},"ticker":{"id":"1016"}},"id":"1015","type":"LinearAxis"},{"attributes":{},"id":"1019","type":"PanTool"},{"attributes":{},"id":"1024","type":"HelpTool"},{"attributes":{"data":{"x":{"__ndarray__":"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","dtype":"float64","order":"little","shape":[400]},"y":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.02932551319648094,0.12218963831867058,0.1466275659824047,0.22482893450635386,0.2590420332355816,0.3128054740957967,0.33235581622678395,0.33724340175953077,0.33724340175953077,0.3421309872922776,0.34701857282502446,0.34701857282502446,0.3567937438905181,0.37145650048875856,0.4252199413489736,0.46432062561094817,0.5034213098729228,0.5718475073313783,0.6256109481915934,0.6793743890518084,0.7624633431085044,0.8406647116324536,0.8993157380254154,0.9384164222873901,0.9579667644183774,0.9970674486803519,1.04594330400782,1.099706744868035,1.1485826001955035,1.1925708699902249,1.2365591397849462,1.270772238514174,1.3196480938416422,1.3929618768328447,1.436950146627566,1.4858260019550342,1.5102639296187683,1.5493646138807429,1.6031280547409579,1.6959921798631477,1.8084066471163245,1.906158357771261,1.9843597262952102,2.043010752688172,2.121212121212121,2.179863147605083,2.2189638318670575,2.2434017595307916,2.2629521016617793,2.3118279569892475,2.3362658846529816,2.3900293255131966,2.4437927663734116,2.487781036168133,2.5464320625610948,2.5855327468230693,2.6295210166177907,2.6686217008797652,2.702834799608993,2.7517106549364616,2.8103616813294234,2.8934506353861194,2.9716520039100685,3.113391984359726,3.2795698924731185,3.455522971652004,3.587487781036168,3.675464320625611,3.7341153470185726,3.7829912023460412,3.8269794721407626,3.900293255131965,3.9687194525904204,4.032258064516129,4.1006842619745845,4.193548387096774,4.281524926686217,4.374389051808406,4.511241446725318,4.687194525904204,4.848484848484849,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,5.0,4.9853372434017595,4.921798631476051,4.848484848484849,4.79960899315738,4.780058651026393,4.765395894428153,4.760508308895406,4.7702834799608995,4.794721407624634,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.79960899315738,4.78494623655914,4.775171065493646,4.7702834799608995,4.760508308895406,4.736070381231672,4.736070381231672,4.696969696969697,4.618768328445748,4.560117302052786,4.521016617790812,4.486803519061583,4.462365591397849,4.418377321603128,4.374389051808406,4.330400782013685,4.27663734115347,4.232649071358749,4.18377321603128,4.130009775171065,4.051808406647116,3.978494623655914,3.8856304985337244,3.7536656891495603,3.5972629521016617,3.4066471163245358,3.225806451612903,3.005865102639296,2.8054740957966766,2.6344086021505375,2.4389051808406648,2.3362658846529816,2.2825024437927666,2.2482893450635384,2.19941348973607,2.1652003910068425,2.126099706744868,2.101661779081134,2.0772238514173997,2.0576735092864125,2.0234604105571847,1.9941348973607038,1.964809384164223,1.911045943304008,1.847507331378299,1.7741935483870968,1.7204301075268817,1.656891495601173,1.598240469208211,1.5493646138807429,1.4858260019550342,1.4173998044965788,1.2805474095796676,1.1192570869990224,0.9384164222873901,0.6793743890518084,0.5034213098729228,0.37145650048875856,0.24926686217008798,0.10752688172043011,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.14173998044965788,0.5034213098729228,0.7820136852394917,0.8699902248289345,0.8748778103616813,0.8211143695014663,0.4789833822091887,0.04398826979472141,0.0,0.0,0.0,0.0,0.053763440860215055,0.23460410557184752,0.4398826979472141,0.5571847507331378,0.5913978494623656,0.5913978494623656,0.5767350928641252,0.36656891495601174,0.1466275659824047,0.13196480938416422,0.1710654936461388,0.3176930596285435,0.7135874877810362,1.133919843597263,1.2805474095796676,1.2658846529814272,1.1925708699902249,1.021505376344086,0.9237536656891495,0.9188660801564027,0.967741935483871,1.1485826001955035,1.3929618768328447,1.5835777126099706,1.6422287390029326,1.6422287390029326,1.632453567937439,1.6373411534701858,1.6422287390029326,1.6422287390029326,1.6471163245356795,1.6911045943304008,1.7595307917888563,1.8132942326490713,1.8719452590420331,1.8914956011730206,1.8768328445747802,1.8279569892473118,1.739980449657869,1.686217008797654,1.6911045943304008,1.7302052785923754,1.9159335288367547,2.096774193548387,2.2531769305962857,2.355816226783969,2.375366568914956,2.3607038123167157,2.350928641251222,2.297165200391007,2.2385141739980448,2.209188660801564,2.209188660801564,2.2434017595307916,2.463343108504399,2.6148582600195502,2.732160312805474,2.7419354838709675,2.7468230694037143,2.7517106549364616,2.732160312805474,2.653958944281525,2.649071358748778,2.653958944281525,2.790811339198436,2.9423264907135875,3.1036168132942326,3.196480938416422,3.2355816226783967,3.2404692082111435,3.2502443792766376,3.2551319648093844,3.23069403714565,3.176930596285435,3.118279569892473,3.12316715542522,3.1378299120234603,3.2795698924731185,3.4408602150537635,3.6265884652981426,3.729227761485826,3.763440860215054,3.7781036168132944,3.787878787878788,3.792766373411535,3.7829912023460412,3.768328445747801,3.7438905180840663,3.758553274682307,3.8025415444770285,3.919843597262952,4.066471163245357]},"selected":{"id":"1045"},"selection_policy":{"id":"1046"}},"id":"1033","type":"ColumnDataSource"},{"attributes":{"overlay":{"id":"1025"}},"id":"1021","type":"BoxZoomTool"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{},"id":"1009","type":"LinearScale"},{"attributes":{},"id":"1023","type":"ResetTool"},{"attributes":{"axis":{"id":"1011"},"ticker":null},"id":"1014","type":"Grid"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"1025","type":"BoxAnnotation"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Line"},{"attributes":{},"id":"1016","type":"BasicTicker"}],"root_ids":["1002"]},"title":"Bokeh Application","version":"2.2.1"}};
+  var render_items = [{"docid":"b1898008-df2c-4f94-9d1b-2a639faae338","root_ids":["1002"],"roots":{"1002":"8f68f3f0-7a3e-42b8-8138-3b28106e117a"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script></div>
+</div>
+<p>As it turns out, this is <em>not</em> the preferred method to stream data from Arduino, though it works fine if you are sampling at much longer time intervals. The call-and-response and the use of Python’s <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> to do the delays leads to inconsistent timing. We can see this by computing the time difference between subsequent data points.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">time_ms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([27, 28, 24, 25, 25, 23, 24, 29, 29, 27, 30, 26, 26, 24, 26, 28, 29,
+       28, 23, 28, 27, 22, 28, 28, 26, 25, 25, 28, 27, 27, 25, 25, 26, 25,
+       29, 29, 25, 27, 24, 27, 28, 27, 31, 29, 24, 29, 26, 27, 29, 30, 26,
+       30, 25, 26, 24, 26, 30, 24, 29, 30, 25, 28, 26, 26, 30, 28, 26, 25,
+       27, 27, 31, 29, 27, 26, 26, 31, 29, 27, 27, 25, 24, 28, 25, 24, 26,
+       27, 25, 29, 27, 29, 29, 29, 29, 24, 29, 26, 25, 27, 29, 26, 23, 24,
+       28, 26, 25, 24, 24, 25, 28, 27, 26, 28, 28, 26, 28, 31, 28, 27, 31,
+       26, 24, 28, 27, 28, 28, 28, 28, 29, 28, 27, 26, 29, 27, 31, 29, 27,
+       30, 29, 25, 28, 28, 24, 28, 26, 29, 29, 28, 27, 27, 24, 28, 25, 28,
+       26, 25, 26, 24, 27, 26, 23, 28, 29, 26, 27, 30, 29, 27, 27, 26, 26,
+       29, 27, 30, 29, 26, 23, 29, 28, 29, 29, 29, 28, 27, 23, 27, 30, 29,
+       27, 30, 26, 25, 30, 27, 23, 27, 26, 26, 28, 28, 29, 26, 25, 25, 23,
+       28, 25, 24, 30, 27, 30, 25, 28, 24, 30, 23, 29, 29, 25, 28, 25, 28,
+       26, 26, 29, 25, 30, 28, 28, 27, 27, 29, 27, 28, 23, 29, 24, 29, 28,
+       25, 28, 30, 24, 27, 29, 27, 28, 26, 27, 29, 27, 26, 25, 28, 28, 31,
+       25, 26, 30, 28, 30, 29, 26, 31, 29, 27, 28, 28, 22, 29, 25, 29, 29,
+       28, 27, 27, 28, 29, 26, 23, 27, 31, 26, 30, 28, 28, 29, 22, 25, 24,
+       28, 29, 28, 25, 28, 27, 26, 31, 28, 29, 25, 28, 25, 25, 28, 25, 28,
+       30, 24, 24, 29, 27, 31, 29, 24, 27, 31, 25, 28, 25, 27, 30, 24, 29,
+       28, 26, 23, 27, 27, 24, 29, 29, 24, 27, 29, 24, 23, 28, 25, 29, 26,
+       26, 30, 25, 28, 29, 29, 24, 29, 29, 28, 29, 28, 29, 27, 26, 26, 29,
+       23, 29, 30, 24, 28, 24, 30, 29, 23, 29, 28, 28, 28, 26, 27, 28, 29,
+       23, 25, 25, 25, 25, 24, 27, 30, 29, 25, 24, 27, 23, 25, 24, 26, 27,
+       24, 26, 26, 30, 28, 30, 25, 26])
+</pre></div></div>
+</div>
+<p>This is not the 20 ms we wanted, and the time between acquisitions jumps around a lot. In future lessons, we will cover how to get better streaming data from Arduino. For now, you will code up a dashboard for a more commonly used mode of data-upon-request, where you hit a button and get data back.</p>
+<hr><section id="Do-it-yourself-exercise-5:-Asking-for-data-with-buttons">
+<h2>Do-it-yourself exercise 5: Asking for data with buttons<a class="headerlink" href="#Do-it-yourself-exercise-5:-Asking-for-data-with-buttons" title="Permalink to this heading"></a></h2>
+<p>Using the same setup as we have so far in this lesson, make a small dashboard with two buttons. One of them blanks out lists <code class="docutils literal notranslate"><span class="pre">time_ms</span></code> and <code class="docutils literal notranslate"><span class="pre">voltage</span></code>, while the other one asks for a time, voltage pair from Arduino and appends them to the lists. You can embed them in the notebook with either Panel or base Bokeh. Since you would presumably be using the data right away, leave them in the notebook and not as a stand along Bokeh app.</p>
+<p>Use your button to ask for ten or more data points while messing around with the potentiometer knob and then make a plot of the result.</p>
+<p><em>Hint</em>: Check out <a class="reference external" href="https://panel.holoviz.org/reference/index.html">Panel’s Reference Gallery</a>. A Button is different that a Toggle. If you use a button, there is no <code class="docutils literal notranslate"><span class="pre">on_change</span></code> method, but rather an <code class="docutils literal notranslate"><span class="pre">on_click</span></code> method.</p>
+<p><em>Another hint</em>: Say I have two widgets, <code class="docutils literal notranslate"><span class="pre">widget_1</span></code> and <code class="docutils literal notranslate"><span class="pre">widget_2</span></code>. To lay them out, you can use, e.g., <code class="docutils literal notranslate"><span class="pre">pn.Row(widget_1,</span> <span class="pre">pn.Spacer(width=15),</span> <span class="pre">widget_2)</span></code>.</p>
+<hr><div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p serial,bokeh,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPython 3.8.5
+IPython 7.18.1
+
+serial 3.4
+bokeh 2.2.1
+jupyterlab 2.2.6
+</pre></div></div>
+</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../11/control_with_buttons.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../13/streaming_data_from_arduino.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../11/control_with_buttons.html" class="btn btn-neutral float-left" title="11. Controlling Arduino with widgets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../13/streaming_data_from_arduino.html" class="btn btn-neutral float-right" title="13. Streaming data from Arduino" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 22, 2022.
+      <span class="lastupdated">Last updated on Sep 26, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fb0fe32d190> 
+   <jinja2.runtime.BlockReference object at 0x7ff5d52d82b0> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

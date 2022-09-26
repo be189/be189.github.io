@@ -4,21 +4,27 @@ Spectrophotometer
 Background
 ^^^^^^^^^^
 
-At the center of the molecular revolution of biology that took place in the middle of the 20th century were measurement of bacterial growth curves. In its most basic form, a solution of growth media is inoculated with bacteria. As the bacteria convert the sugars and salts in the media into more bacteria (literally making life from inanimate matter!), they multiply. Measuring the rate of multiplication of bacteria under different media and growth conditions ultimately enabled researchers to make great leaps in the understanding of bacterial physiology and biochemistry, including how regulation of gene expression works.
+Spectrophotometers have been, and continue to be, the workhorses of molecular and cell biology. The basic idea is simple. A beam of light is shone through a sample and the intensity of the light coming out of the other side of the sample is measured. The applications are numerous, but two have been particularly prominent in biology. First, the concentration of unicellular organisms can be ascertained. Due to their size, each cell of a microbe scatter light of specific wavelengths (about 600 nanometers for *E. coli*). As a result, less transmitted light is detected from samples with higher concentration of microbes. Second, some molecular species absorb light at a given wavelength due to their electronic structure. A sample of higher concentration will have lower detected intensity. Measurements of concentrations of cells and molecules over time enables study of the kinetics, e.g., of microbial growth and rate of chemical reactions. 
 
-`Jacques Monod <https://en.wikipedia.org/wiki/Jacques_Monod>`_ was a leader, if not *the* leader, in this field. In a beautiful review article about the subject (`Monod, Ann. Rev. Microbiol., 1949 <https://doi.org/10.1146/annurev.mi.03.100149.002103>`_) Monod stated in the strongest of terms the importance of studying bacterial growth: "The study of the growth of bacterial cultures does not constitute a specialized subject or branch of research: it is the basic method of Microbiology. It would be a foolish enterprise, and doomed to failure, to attempt reviewing briefly a 'subject' which covers actually our whole discipline."
+Your task in this project is to construct a spectrophotometer. Though it would certainly be fun to apply the device to bacterial growth curves, such curves take a long time to acquire (since you have to wait for the bugs to grow!). Instead, we will perform an assay of the kinetics of an enzyme catalyzed reaction. Optical assays have long been the workhorses of kinetics assays. As a classic example, Leonor Michaelis and Maud Menten studied the hydrolysis of sucrose into fructose and glucose by the enzyme invertase. Sucrose rotates plane polarized light to the right, while glucose and fructose rotate it to the left. Michaelis and Menten could therefore make measurements of the rotation of polarized light to determine the relative concentrations of the sugars in their reaction mixture and could thus work out the kinetcs of the enzyme-catalyzed hydrolysis. You will instead measure the rate at which the enzyme amylase catalyzed the breakdown of starch into sugars.
 
-Monod had comments on methods for measuring growth curves as well, and they are true today as they were more than 70 years ago. "The most widely used methods, by far, are based on determinations of transmitted or scattered light. (Actually, the introduction around 1935 of instruments fitted with photoelectric cells has contributed to a very large degree to the development of quantitative studies of bacterial growth.)" 
+.. At the center of the molecular revolution of biology that took place in the middle of the 20th century were measurement of bacterial growth curves. In its most basic form, a solution of growth media is inoculated with bacteria. As the bacteria convert the sugars and salts in the media into more bacteria (literally making life from inanimate matter!), they multiply. Measuring the rate of multiplication of bacteria under different media and growth conditions ultimately enabled researchers to make great leaps in the understanding of bacterial physiology and biochemistry, including how regulation of gene expression works.
 
-Owing to their central importance in microbial research, acquisition and analysis of growth curves has also become a central part of undergraduate study of biology. In the ensuing decades, the optical instruments used to acquire growth curves, called spectrophotometers, have played a central role in *education* as well as research.
+.. `Jacques Monod <https://en.wikipedia.org/wiki/Jacques_Monod>`_ was a leader, if not *the* leader, in this field. In a beautiful review article about the subject (`Monod, Ann. Rev. Microbiol., 1949 <https://doi.org/10.1146/annurev.mi.03.100149.002103>`_) Monod stated in the strongest of terms the importance of studying bacterial growth: "The study of the growth of bacterial cultures does not constitute a specialized subject or branch of research: it is the basic method of Microbiology. It would be a foolish enterprise, and doomed to failure, to attempt reviewing briefly a 'subject' which covers actually our whole discipline."
 
-In fall of 2020, we were in the midst of the COVID-19 pandemic, and the students of this course were tasked with designing and easily-buildable spectrophotometer for use in a remote freshman biology lab course in offered in the spring of 2021. The students were successful! While our goal was to have a workable device for the freshman course, we found that building the spectrophotometer was an enjoyable and instructive experiments. Students learned to be resourceful and creative. Importantly, they found that they can cheaply build an instrument to acquire a growth curve. Measurements of growth curves, as Monod demonstrated, were the catalysts of the molecular revolution of biology. Making accessible instruments means democratizing science.
+.. Monod had comments on methods for measuring growth curves as well, and they are true today as they were more than 70 years ago. "The most widely used methods, by far, are based on determinations of transmitted or scattered light. (Actually, the introduction around 1935 of instruments fitted with photoelectric cells has contributed to a very large degree to the development of quantitative studies of bacterial growth.)" 
 
-Your task is to build a spectrophotometer out of the components in your kit, in addition to materials you can find around your dwelling. Newton developed a powerful new way to calculate π while quarantining at home during a bubonic plague outbreak (see `this YouTube video <https://www.youtube.com/watch?v=gMlf1ELvRzc>`_. Perhaps you can come up with a better spectrophotometer design during your COVID isolation!
+.. Owing to their central importance in microbial research, acquisition and analysis of growth curves has also become a central part of undergraduate study of biology. In the ensuing decades, the optical instruments used to acquire growth curves, called spectrophotometers, have played a central role in *education* as well as research.
+
+.. In fall of 2020, we were in the midst of the COVID-19 pandemic, and the students of this course were tasked with designing and easily-buildable spectrophotometer for use in a remote freshman biology lab course in offered in the spring of 2021. The students were successful! While our goal was to have a workable device for the freshman course, we found that building the spectrophotometer was an enjoyable and instructive experiments. Students learned to be resourceful and creative. Importantly, they found that they can cheaply build an instrument to acquire a growth curve. Measurements of growth curves, as Monod demonstrated, were the catalysts of the molecular revolution of biology. Making accessible instruments means democratizing science.
+
+.. While we will provide supplies if you wish to measure a growth curve with your device, growth curves take a long time to acquire (since you have to wait for the bugs to grow!). Instead, we will perform an assay of the kinetics of an enzyme catalyzed reaction. Optical assays have long been the workhorses of kinetics assays. As a classic example, Leonor Michaelis and Maud Menten studied the hydrolysis of sucrose into fructose and glucose by the enzyme invertase. Sucrose rotates plane polarized light to the right, while glucose and fructose rotate it to the left. Michaelis and Menten could therefore make measurements of the rotation of polarized light to determine the relative concentrations of the sugars in their reaction mixture and could thus work out the kinetcs of the enzyme-catalyzed hydrolysis.
 
 
 Basics of spectrophotometry in microbiology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We will introduce the concepts behind spectrophotometry as applied to measurement of transmitted light through microbial solutions, since this is a "classic" application of spectrophotometry in biology. In fact, the molecular revolution of biology which transformed the way we think about the living world was largely pushed forward by spectroscopic measurements of microbes.
 
 The block diagram of a typical spectrophotometer is shown below.
 
@@ -30,7 +36,7 @@ The block diagram of a typical spectrophotometer is shown below.
 
 To determine the density (concentration) of microbes in liquid media, we load a cuvette with the suspension of cells. Some of the light is absorbed or scattered, and some is transmitted. The amount of transmitted light is measured. As will be described momentarily, the intensity of transmitted light is related to the concentration of microbes. 
 
-Most spectrophotometers use a prism to allow measurement of transmitted light at multiple wavelengths. The best wavelength of light to measure microbial growth, i.e., that which has strong scattering, is about 600 nm. For your design, you will not include a prism, since we do not need measurements at multiple wavelengths (and we are taking a minimalist approach). Rather, you will use an LED that emits light near 600 nm.
+Most spectrophotometers use a prism to allow measurement of transmitted light at multiple wavelengths. The best wavelength of light to measure microbial growth, i.e., that which has strong scattering, is about 600 nm. For your design, you will not include a prism, since we do not need measurements at multiple wavelengths (and we are taking a minimalist approach). Rather, you will use an LED that emits light near 600 nm. (It is a very fortunate coincidence that the wavelength of light absorbed by the starch-iodine complexes we will use in our enzyme kinetics assay is very close to 600 nm, so you are coincidentally building a dual-purpose spectrophotometer.)
 
 Cells, having a different index of refraction as the surrounding medium, randomly reflect and scatter light out of the incident light path. Imagine a photon traversing the media. If the cell concentration is low, then collisions of a photon with a cell may be modeled as a Poisson process. The time of arrival of a Poisson process is Exponentially distributed with cumulative distribution function
 
@@ -52,13 +58,23 @@ The time it takes to traverse the sample is proportional to the length of the cu
 
 where the wavelength-dependent parameter :math:`\epsilon` that contains the constants of proportionality is referred to as the molar attenuation coefficient. This equation is known as the `Beer-Lambert Law <https://en.wikipedia.org/wiki/Beer–Lambert_law>`_.
 
-The transmission efficiency of the sample is the ratio of the final and initial light intensity, :math:`T = I/I_0`, and the reported quantity is called the **optical density**, :math:`\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}`. The general rule of thumb is that the accurate OD readings lie in the range of :math:`0.01 < \mathrm{OD} < 1`. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
+The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, :math:`T = I/I_0`, and the reported quantity is called the **optical density**, :math:`\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}`. The general rule of thumb is that the accurate OD readings lie in the range of :math:`0.01 < \mathrm{OD} < 1`. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
 
 As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is :math:`\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{blank}`.
 
 
+Basics of spectrophotometry in enzyme kinetics assays
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We can use optical methods to measure the concentration of a given chemical species, known as `absorption spectroscopy <https://en.wikipedia.org/wiki/Absorption_spectroscopy>`_. When a photon of an wavelength whose energy matches that of an electronic transition of a molecule of interest impinges upon the molecule, the electronic transition is made and the photon is **absorbed**. These photons do not make it through the sample.
+
+The reasoning with which we derived the Beer-Lambert Law for scattering is exactly the same as for scattering by microbes. The only difference is that the photons that fail to pass through the sample are absorbed rather than scattered. The reported quantity has exactly the same form as the optical density above, but is referred to as **absorbance**, :math:`A = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}`.
+
+
 Basics of microbial growth
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Because microbial growth is such an important application of spectroscopy, we give a brief description of how the **growth rate** of a microbe under given conditions can be obtained by spectroscopic measurement. Obtaining a growth curve is not required for your project, but you should be able to use your spectrophotometer to obtain one.
 
 Say we have a collection of cells in media that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the "stuff of life" at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time :math:`t_\mathrm{div}`. Those two cells will grow and divide, and after time :math:`2 t_\mathrm{div}`, we will have four cells. After a time :math:`3t_\mathrm{div}` we will have eight cells, and so on. So, the *rate* at which new cells are produced is proportional to the number of cells in solution, or
 
@@ -87,16 +103,122 @@ The mechanics of the experiment goes as follows.
 5. A plot of OD versus time is generated and a regression is performed to get an estimate of the parameter :math:`k`.
 
 
+Basics of enzyme kinetics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*This section was written in collaboration with Victoria Chen.*
+
+The **Michaelis-Menten model** is commonly and effectively used to model enzyme kinetics. It models enzyme kinetics as a set of chemical reactions between an enzyme, E, and a substrate, S, to give product P.
+
+.. math::
+
+  \begin{align}
+  \require{mhchem}
+  \ce{E + S <=>[$k_+$][$k_-$] ES ->[$v$] P + E}.
+  \end{align}
+
+The enzyme reversibly binds the substrate with binding rate constant :math:`k_+`. The substrate may also unbind with unbinding rate constant :math:`k_-`. When bound, the enzyme can serve to convert the substrate to product with rate constant :math:`v`. 
+
+We can explore how the concentration of each species changes over time by using mass action kinetics, which says that the rate of a reaction is proportional to the product of the concentrations of the reacting species. Applying this rule, we can write the dynamics as a system of ordinary differential equations.
+
+.. math::
+
+  \begin{align}
+  &\frac{\mathrm{d} c_\mathrm{e}}{\mathrm{d} t}=-\frac{\mathrm{d} c_\mathrm{es}}{\mathrm{~d} t}=-k_{+} c_\mathrm{e} c_\mathrm{s}+\left(k_{-}+v\right) c_\mathrm{es},\\
+  &\frac{\mathrm{d} c_\mathrm{s}}{\mathrm{d} t}=-k_{+} c_\mathrm{s} c_\mathrm{e}+k_{-} c_\mathrm{es},\\
+  &\frac{\mathrm{d} c_{p}}{\mathrm{d} t}=v c_\mathrm{es},
+  \end{align}
+
+where :math:`c_{i}` denotes the concentration of species :math:`i`. Note that
+
+.. math::
+
+  \begin{align}
+  \frac{\mathrm{d} c_\mathrm{e}}{\mathrm{d} t}+\frac{\mathrm{d} c_\mathrm{es}}{\mathrm{d} t}=0
+  \end{align}
+
+which is a statement of conservation of enzyme. This means that we need to specify a total enzyme amount to fully specify the problem. We define this to be :math:`c_\mathrm{e}^{0}` such that :math:`c_\mathrm{e}^{0}=c_\mathrm{e} + c_\mathrm{es}`. With this conservation law, we can write the ODEs as
+
+.. math::
+
+  \begin{align}
+  &\frac{\mathrm{d} c_\mathrm{es}}{\mathrm{~d} t}=k_{+}\left(c_\mathrm{e}^{0}-c_\mathrm{es}\right) c_\mathrm{s}-\left(k_{-}+v\right) c_\mathrm{es},\\
+  &\frac{\mathrm{d} c_\mathrm{s}}{\mathrm{~d} t}=-k_{+}\left(c_\mathrm{e}^{0}-c_\mathrm{es}\right) c_\mathrm{s}+k_{-} c_\mathrm{es},\\
+  &\frac{\mathrm{d} c_{p}}{\mathrm{~d} t}=v c_\mathrm{es}.
+  \end{align}
+
+These equations describe the full dynamics of the enzyme-catalyzed system. To simplify the analysis, we often make the quasi-steady state approximation that the bound substrate intermediate :math:`ES` does not see appreciable change in its concentration on the time scale of the production of the product :math:`P`. That is,
+
+.. math::
+
+  \begin{align}
+  \frac{\mathrm{d} c_\mathrm{es}}{\mathrm{d} t}=k_{+}\left(c_\mathrm{e}^{0}-c_\mathrm{es}\right) c_\mathrm{s}-\left(k_{-}+v\right) c_\mathrm{es} \approx 0
+  \end{align}
+
+This enables us to solve for the quasi-steady state fraction of enzyme that is bound to substrate.
+
+.. math::
+
+  \begin{align}
+  \frac{c_\mathrm{es}}{c_\mathrm{e}^{0}} \approx \frac{c_\mathrm{s} / K}{1+c_\mathrm{s} / K},
+  \end{align}
+
+where we have defined the **Michaelis constant**
+
+.. math::
+
+  \begin{align}
+  K=\frac{v+k_{-}}{k_{+}} .
+  \end{align}
+
+It has dimension of concentration and is analogous to a dissociation constant in that it is the ratio of the total rate constant for dissociation of the enzyme from the catalyst to that of binding the enzyme to the catalyst.
+
+Finally, substitution of this expression gives the rate of product formation,
+
+.. math::
+
+  \begin{align}
+  \frac{\mathrm{d} c_{p}}{\mathrm{d} t} \approx v c_\mathrm{e}^{0}\, \frac{c_\mathrm{s} / K}{1+c_\mathrm{s} / K}
+  \end{align}
+
+If :math:`\mathrm{d}c_\mathrm{es} / \mathrm{d} t \approx 0`, then the rate of substrate consumption is
+
+.. math::
+
+  \begin{align}
+  \frac{\mathrm{d} c_\mathrm{s}}{\mathrm{~d} t} \approx-\frac{\mathrm{d} c_{p}}{\mathrm{~d} t} \approx-v c_\mathrm{e}^{0} 
+  ,\frac{c_\mathrm{s} / K}{1+c_\mathrm{s} / K}
+  \end{align}
+
+Inspection of this expression identifies two constants. The first is :math:`V_0 \equiv v\,c_\mathrm{e}^0`, commonly referred to as the **maximum velocity**, which is the fastest that the enzyme-catalyzed reaction can proceed. It makes sense that it is the product of the rate constant for conversion of enzyme-substrate complex to product, :math:`v`, and the total enzyme concentration :math:`c_\mathrm{e}^0`. The second parameter is the Michaelis constant :math:`K`.
+
+There is no closed-form solution for the Michaelis-Menten equation, but it can be written in terms of the Lambert-W special function. The result is
+
+.. math::
+
+  \begin{align}
+  c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s}^0-V_0t)/K}\right),
+  \end{align}
+
+where :math:`c_\mathrm{s}(t=0) = c_\mathrm{s}^0` and :math:`W_0(x)` denotes the primary branch of the Lambert-W function.
+
+In an enzyme kinetics experiment, the concentration of substrate or product is measured over time by taking optical density measurements. 
+
+The above expression may be used for curve-fitting applications to ascertain the parameters of interest. Alternatively, the differential equation for :math:`c_\mathrm{s}(t)` may be solved numerically. 
+
+.. The molar attenuation coefficient for starch-iodine complex is approximately 0.04.
+
 Specification
 ^^^^^^^^^^^^^
 
-For this project, you are to build a spectrophotometer and obtain an example growth curve. The spectrophotometer must have the following characteristics.
+For this project, you are to build a spectrophotometer and obtain an example curve from an optically monitored enzyme catalyzed reaction. The spectrophotometer must have the following characteristics.
 
-1. It must be built from the components in your kit, plus any household items you may wish to use. (These household items should be common and/or low cost.)
-2. It must operate in stand-alone mode. In this mode, the device does not need to be connected to a computer (only a power source). The user pushes a button and the resulting OD is displayed on the LCD display.
-3. It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user has an on-screen control panel and can click buttons to obtain and display OD measurements.
+#. It must be built from the components we have in lab, plus any household items you may wish to use. (These household items should be common and/or low cost.) You may also 3D print objects if you like.
+#. For this prototype, you may calibrate the relationship between voltage and absorbance using a commercial spectrophotometer provided in lab. The calibration may be hard-coded into the software of the device.
+#. It must operate in stand-alone mode. In this mode, the device does not need to be connected to a computer (only a power source). The user pushes a button and the resulting OD/absorbance is displayed on the LCD display.
+#. It must also operate while controlled by a computer. It is up to the user to choose the mode of operation. In this mode, the user has an on-screen control panel and can click buttons to obtain and display OD/absorbance measurements.
 
-You must demonstrate the instrument by acquiring a growth curve and determining the growth rate :math:`k`.
+You must demonstrate use of the instrument by acquiring a measurement of the concentration of starch-iodine complex (or something proportional to it) and performing a curve fit. You must minimally ascertain the time constant given by the ratio :math:`V_0/K`, but you may try to obtain individual values for :math:`V_0` and :math:`K` if you wish. This will require careful calibration of your spectrophotometer to obtain the molar attenuation coefficient for the starch-iodine complex.
 
 
 Documentation
@@ -104,7 +226,7 @@ Documentation
 
 You must include documentation that we will send along to the freshmen in the spring term. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:
 
-1. Instructions to build the device from the items we will ship them and from household items.
+1. Instructions to build the device.
 2. Instructions for operating the instrument.
 3. Instructions for calibrating the instrument.
 
@@ -114,25 +236,39 @@ Suggestions
 
 Here are some things to consider in your design and the operation of your instrument.
 
-1. There are two types of ≈600 nm emitting LEDs, `one with 10 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_, and `one with 1 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.
-2. It is important to block stray light. Think about how to accomplish that with household items.
-3. You may want to attempt to collimate the light with the glass beads (actually from children's jewelry) provided in your kit or any other lens-like object you can find. You may also want to set up a pinhole or slit for the light to pass through the cuvette. If you do so, think about whether you need to account for diffraction or not. 
-4. Think about ways of dealing with noise and amplification, if necessary.
-5. Think carefully about how to calibrate relationship between measured voltage across the photoresistor to OD. 
-6. In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about `debouncing <https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce>`_.
+#. There are two types of ≈600 nm emitting LEDs in the lab, `one with 10 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_, and `one with 1 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.
+#. It is important to block stray light. Think about how to accomplish that.
+#. Think about ways of dealing with noise and amplification, if necessary.
+#. You may wish to use a photodiode instead of a photoresistor to measuring light intensite. Indeed, many modern spectrophotometers use photodiodes. If you do that, bear in mind that a photodiode has a nice linear relationship between intensity of light and *current* through the photodiode. To convert the current to a voltage that you can measure with Arduino, you will need a transimpedance amplifier.
+#. In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about `debouncing <https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce>`_.
 
 
+You may also want to think about the following considerations when demonstrating your spectrophotometer with the amylase kinetics experiment.
 
-Instructions for obtaining growth curves
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Think carefully about how to calibrate relationship between measured voltage across the photoresistor or current through a photodiode to OD/absorbance. 
+#. As you can read in the instructions below, you will use your own saliva as a source for amylase. The concentration of amylase will vary from experiment to experiment as a result. Therefore, :math:`V_0` will be different from experiment to experiment. The Michaelis constant, however, should not vary from experiment to experiment, provided you use the same starch source for each experiment.
 
 
-Because of difficulties associated with shipping and storing microbial agents, you will test your device by growing yeast, *Saccharomyces cerevisiae*. The measurement and analysis are the same as for bacteria, but we are instead using a common baking ingredient that is safe to have in the home. 
+Instructions for obtaining a curve for enzymatic catalysis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The media for *S. cerevisiae* is yeast peptone dextrose (YPD) broth. The broth contains yeast extract that has all of the necessary vitamins, peptone (source of carbon, nitrogen, and some vitamins), and dextrose (sugar). You have a Falcon tube containing `YPD powder <https://www.fishersci.com/shop/products/bd-difco-dehydrated-culture-media-ypd-broth-2/df0428175>`_) that you can use to make broth. The broth is 5% powder. E.g., to make 100 mL of broth, add 5 g of YPD powder. If you do not have a scale in your house, as a rule of thumb, a tablespoon of the YPD power is about 9 g. You should add it to water as pure as you can find (for example, if you have a Britta filter in your house, you should use filtered water). Normally, you would autoclave the broth to sterilize it, but that is not an option for home use. Instead, boil the broth for one minute (this will also ensure everything is dissolved). The broth can be stored at room temperature, and you can store it in the provided falcon tubes.
+The reaction we will monitor is starch-iodine complex ⟶ sugars + free iodine, catalyzed by amylase in your saliva. The starch-iodine complex absorbs near 600 nm and is the substrate in the Michaelis-Menten mechanism. We will monitor its concentration over time.
 
-You can grow the yeast in the falcon tubes. Try to keep them in a place that does not have temperature fluctuations. You should occasionally shake the tube to be sure the oxygen in the solution is well mixed. (In a lab, these would be grown in a water bath shaker.) You can use the transfer pipettes in your kit to extract samples for measurement in the spectrophotometer. The cuvette volume is 4.5 mL, but do you not need to fill it up all the way, just high enough that the light from the LED passes through the media (with a bit of a buffer).
+Obtaining a saliva sample
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In a lab, you would dispose of the pipette tip used in the transfer and throw away the cuvette after a measurement. In our at-home version, you will likely need to re-use the Falcon tubes, pipettes, and cuvettes. You can wash them with water between uses. You may even want to re-use the solution you measured, replacing it in the main growth mixture after using it if you are running low on supplies. (You may wish to do this anyway in practice runs before you get your "final" growth curve.) The inevitable contamination may affect the results, but this is a necessary consequence of of operating in outside-of-laboratory conditions.
+#. Do not eat, brush your teeth, or rinse your mouth for about 30 minutes.
+#. Take a sip of water, and try to secrete saliva for 2-5 min. You should collect the saliva in a small cup or other container.
+#. Filter the saliva through a coffee filter to obtain a clear saliva solution.
 
-Bear in mind that you cannot calibrate the OD measurements to known microbe concentrations, which you should absolutely do in a lab (as Monod vehemently argues, "What should be noted is that in spite of the widespread use of the optical techniques, not enough efforts have been made to check them against direct estimations of cell concentrations or bacterial densities.") This is not accessible to us because we do not have equipment or storage necessary to do those measurements in our living spaces, though any biology lab would be equipped with them.
+
+Measuring the growth curve
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Because you want to capture as much of the reaction dynamics as possible, you will need to work quickly to get the reaction mixture assembled and into your spectrophotometer.
+
+#. Using a pipette, dispense a small amount of the provided iodine solution into an empty cuvette. You will not need much; around 20-50 µL should be sufficient. You may need to experiment with the amount, adjusting so the absorbance readings fall into the accurate range below A ≈ 1.
+#. In a separate container, add 2 mL of the provided starch solution. Then add a small amount of the filtered saliva. You should use a volume that goes up to the first gradation in the provided Beral pipettes. This is about 30 µL. Quickly mix the solution by pipetting up-and-down several times.
+#. Working quickly, pipette approximately 1 mL of starch-saliva solution into each cuvette. Pipette the mixture up and down a couple times to mix. Take measurements until the absorbance approaches zero, or until there is no more observable decrease in absorbance.
+
+

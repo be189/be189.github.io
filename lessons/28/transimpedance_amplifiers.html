@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>28. Transimpedance amplifiers &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -16,10 +16,13 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -41,7 +44,38 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -49,8 +83,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -136,67 +170,10 @@
     text-align: unset;
 }
 </style>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# 28. Transimpedance amplifiersn”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“This lesson is forthcoming.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3 (ipykernel)”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.8.12”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 4</p>
-</dd>
-</dl>
-<p>}</p>
+<section id="28.-Transimpedance-amplifiers">
+<h1>28. Transimpedance amplifiers<a class="headerlink" href="#28.-Transimpedance-amplifiers" title="Permalink to this heading"></a></h1>
+<hr><p>This lesson is forthcoming.</p>
+</section>
 
 
            </div>
@@ -207,13 +184,13 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 22, 2022.
+      <span class="lastupdated">Last updated on Sep 26, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fb0fed093a0> 
+   <jinja2.runtime.BlockReference object at 0x7ff5d473be20> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

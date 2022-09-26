@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>18. Using a liquid crystal display &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -16,15 +16,18 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../19/voltage_dividers.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../17/dac_i2c_libraries.html" /> 
+    <link rel="next" title="19. Voltage dividers" href="../19/voltage_dividers.html" />
+    <link rel="prev" title="17. Libraries, DAC, and I2C" href="../17/dac_i2c_libraries.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +46,48 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../08/pulse_width_modulation.html">8. Pulse width modulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">18. Using a liquid crystal display</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#The-LDC">The LDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Running-multiple-devices-on-the-I2C-bus">Running multiple devices on the I2C bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-13:-Using-an-LCD-display">Follow-along exercise 13: Using an LCD display</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Characters-for-the-LCD">Characters for the LCD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Driving-the-LCD">Driving the LCD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#The-sketch">The sketch</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -51,8 +95,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -138,373 +182,227 @@
     text-align: unset;
 }
 </style>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# 18. Using a liquid crystal displayn”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“While using a computer to control and display results from a device is very powerful, it does result in the device being tethered to a computer in order to function. You may wish to have a stand-alone device. For such applications, portable <strong>liquid crystal displays</strong> (LCDs) are quite useful.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## The LDCn”,
-“n”,
-“The LCD we have in lab can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the [Hitachi HD44780 chip](<a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller</a>), which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use. n”,
-“n”,
-“Here are photos of the front and back of your LCD.n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 400px;&quot;&gt;n”,
-”    n”,
-“![LCD photo](lcd_photo.jpg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“On the front (top photo) are 16 pins. In looking at the pinout on the [Wikipedia page](<a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller</a>), you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD we have contains a &quot;backpack&quot;, shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the backpack is a potentiometer, which you can tune using a small Phillips head screwdriver. The potentiometer adjusts the brightness of the display.n”,
-“n”,
-“So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Running multiple devices on the I2C busn”,
-“n”,
-“You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will the MCP4725 DAC device connected. We will also connet the LCD. We will work through the rest of this lesson as a follow-along exercise.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Follow-along exercise 13: Using an LCD displayn”,
-“n”,
-“Set up the circuit below. You will add a potentiometer and the LCD to your setup from the last lesson. You may be able to leave your DAC setup as is, but you might need to move things around to keep wires tidy.n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 400px;&quot;&gt;n”,
-”    n”,
-“![DAC with LCD](13-dac_with_lcd_potentiometer_schem.svg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### Characters for the LCDn”,
-“n”,
-“The LCD can display a set of characters”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### Driving the LCDn”,
-“n”,
-“The address of the of the LCD is <cite>0x27</cite>. (If you are trying to find the addresses of I2C devices you have wired up, [this sketch](<a class="reference external" href="https://playground.arduino.cc/Main/I2cScanner/">https://playground.arduino.cc/Main/I2cScanner/</a>) is really useful!) We use the <cite>LiquidCrystal_I2C</cite> library to drive the LCD, so we need to be sure to <cite>#include &lt;LiquidCrystal_I2C.h&gt;</cite> in your sketch. It is also a good idea to <cite>#include &lt;Wire.h&gt;</cite> so that you can set your I2C speed to fast mode using <cite>Wire.setClock(400000)</cite>, which will enable I2C communication at 400k baud.n”,
-“n”,
-“With that library included, you can instantiate an instance for communicating with the LCD usingn”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;LiquidCrystal_I2C</span> <span class="pre">lcd</span> <span class="pre">=</span> <span class="pre">LiquidCrystal_I2C(LCD_ADDR,</span> <span class="pre">nCols,</span> <span class="pre">nRows);\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“Here, <cite>LCD_ADDR</cite> is <cite>0x27</cite>, the address of the LCD, and <cite>nCols</cite> and <cite>nRows</cite> are the number of columns and rows of blocks of pixels, respectively, in the LCD. For the ones we have, there are 16 columns and 2 rows. Once the <cite>lcd</cite> instance is in place, you need to initialize and backlight the LCD by callingn”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;lcd.init();\n&quot;,</span>
-<span class="pre">&quot;lcd.backlight();\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“This should be done in the <cite>setup()</cite> function.n”,
-“n”,
-“When using the LCD, you need to set the cursor position before writing a character. This is done using the <cite>lcd.setCursor()</cite> function. The first argument is the column position (starting at zero), and the second argument is the row position (also starting at zero). To write &quot;Hello, world.&quot; on the LCD on the first line starting to the left, you can do the following.n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;lcd.setCursor(0,</span> <span class="pre">0);\n&quot;,</span>
-<span class="pre">&quot;lcd.print(\&quot;Hello,</span> <span class="pre">world.\&quot;);\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“The <cite>lcd.print()</cite> function is useful for printing strings. You can also define your own characters and write them using <cite>lcd.write()</cite>. The format of your own characters is a byte array of <cite>nCols</cite> 5-bit binary numbers. For example, to make an [LA logo](<a class="reference external" href="https://www.lamag.com/citythinkblog/meet-guy-made-la-fingers-thing/">https://www.lamag.com/citythinkblog/meet-guy-made-la-fingers-thing/</a>), you could define the character like this:n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">LAlogo[8]</span> <span class="pre">=</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B10000,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B10000,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B10010,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B10101,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B11111,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B00101,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B00101,\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">B00101\n&quot;,</span>
-<span class="pre">&quot;};\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“To make this a character that the LCD can display, you need to calln”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;lcd.creatChar(0,</span> <span class="pre">LAlogo);\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“The first argument is an integer that will stand for the character in calls to <cite>lcd.write()</cite>. You can specify up to eight characters, and they need to be numbered zero through seven.n”,
-“n”,
-“To write this character a few places over on the second row, you would do:n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;lcd.setCursor(3,</span> <span class="pre">1);\n&quot;,</span>
-<span class="pre">&quot;lcd.write(0);\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“We will make custom characters to represent a graphical display of voltage.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“### The sketchn”,
-“n”,
-“Now that we have a basic idea of how to use the LCD, let’s look at the sketch, which you can go ahead and upload.n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;#include</span> <span class="pre">&lt;Adafruit_MCP4725.h&gt;\n&quot;,</span>
-<span class="pre">&quot;#include</span> <span class="pre">&lt;LiquidCrystal_I2C.h&gt;\n&quot;,</span>
-<span class="pre">&quot;#include</span> <span class="pre">&lt;Wire.h&gt;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">I2C</span> <span class="pre">Address</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">MCP4725,</span> <span class="pre">by</span> <span class="pre">default</span> <span class="pre">(A0</span> <span class="pre">pulled</span> <span class="pre">to</span> <span class="pre">GND).\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">For</span> <span class="pre">devices</span> <span class="pre">with</span> <span class="pre">A0</span> <span class="pre">pulled</span> <span class="pre">HIGH,</span> <span class="pre">use</span> <span class="pre">0x61\n&quot;,</span>
-<span class="pre">&quot;#define</span> <span class="pre">MCP4725_ADDR</span> <span class="pre">0x62\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">LCD</span> <span class="pre">address\n&quot;,</span>
-<span class="pre">&quot;#define</span> <span class="pre">LCD_ADDR</span> <span class="pre">0x27\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Geometry</span> <span class="pre">of</span> <span class="pre">LCD\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">nRows</span> <span class="pre">=</span> <span class="pre">2;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">nCols</span> <span class="pre">=</span> <span class="pre">16;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Custom</span> <span class="pre">characters</span> <span class="pre">for</span> <span class="pre">LCD</span> <span class="pre">bars\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">zeroBlock[8]</span> <span class="pre">=</span> <span class="pre">{B00000,</span> <span class="pre">B00000,</span> <span class="pre">B00000,</span> <span class="pre">B00000,</span> <span class="pre">B00000,</span> <span class="pre">B00000,</span> <span class="pre">B00000,</span> <span class="pre">B00000};\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">twentyBlock[8]</span> <span class="pre">=</span> <span class="pre">{B10000,</span> <span class="pre">B10000,</span> <span class="pre">B10000,</span> <span class="pre">B10000,</span> <span class="pre">B10000,</span> <span class="pre">B10000,</span> <span class="pre">B10000,</span> <span class="pre">B10000};\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">fortyBlock[8]</span> <span class="pre">=</span> <span class="pre">{B11000,</span> <span class="pre">B11000,</span> <span class="pre">B11000,</span> <span class="pre">B11000,</span> <span class="pre">B11000,</span> <span class="pre">B11000,</span> <span class="pre">B11000,</span> <span class="pre">B11000};\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">sixtyBlock[8]</span> <span class="pre">=</span> <span class="pre">{B11100,</span> <span class="pre">B11100,</span> <span class="pre">B11100,</span> <span class="pre">B11100,</span> <span class="pre">B11100,</span> <span class="pre">B11100,</span> <span class="pre">B11100,</span> <span class="pre">B11100};\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">eightyBlock[8]</span> <span class="pre">=</span> <span class="pre">{B11110,</span> <span class="pre">B11110,</span> <span class="pre">B11110,</span> <span class="pre">B11110,</span> <span class="pre">B11110,</span> <span class="pre">B11110,</span> <span class="pre">B11110,</span> <span class="pre">B11110};\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">byte</span> <span class="pre">fullBlock[8]</span> <span class="pre">=</span> <span class="pre">{B11111,</span> <span class="pre">B11111,</span> <span class="pre">B11111,</span> <span class="pre">B11111,</span> <span class="pre">B11111,</span> <span class="pre">B11111,</span> <span class="pre">B11111,</span> <span class="pre">B11111};\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Frequency</span> <span class="pre">of</span> <span class="pre">oscillating</span> <span class="pre">signal\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">freq</span> <span class="pre">=</span> <span class="pre">1;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Delays</span> <span class="pre">for</span> <span class="pre">updating\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">sampleDelay</span> <span class="pre">=</span> <span class="pre">20;\n&quot;,</span>
-<span class="pre">&quot;unsigned</span> <span class="pre">long</span> <span class="pre">lastSampleTime</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">reportDelay</span> <span class="pre">=</span> <span class="pre">100;\n&quot;,</span>
-<span class="pre">&quot;unsigned</span> <span class="pre">long</span> <span class="pre">lastReportTime</span> <span class="pre">=</span> <span class="pre">0;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Sensor</span> <span class="pre">pin</span> <span class="pre">connected</span> <span class="pre">to</span> <span class="pre">potentiometer\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">sensorPin</span> <span class="pre">=</span> <span class="pre">A0;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;//</span> <span class="pre">Instantiate</span> <span class="pre">the</span> <span class="pre">convenient</span> <span class="pre">classses</span> <span class="pre">for</span> <span class="pre">DAC</span> <span class="pre">and</span> <span class="pre">LCD\n&quot;,</span>
-<span class="pre">&quot;Adafruit_MCP4725</span> <span class="pre">dac;\n&quot;,</span>
-<span class="pre">&quot;LiquidCrystal_I2C</span> <span class="pre">lcd</span> <span class="pre">=</span> <span class="pre">LiquidCrystal_I2C(LCD_ADDR,</span> <span class="pre">nCols,</span> <span class="pre">nRows);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">writeGraphicalVoltage(int</span> <span class="pre">x,</span> <span class="pre">int</span> <span class="pre">minX,</span> <span class="pre">int</span> <span class="pre">maxX)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">/*\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*</span> <span class="pre">Graphical</span> <span class="pre">display</span> <span class="pre">of</span> <span class="pre">voltage</span> <span class="pre">on</span> <span class="pre">second</span> <span class="pre">row</span> <span class="pre">of</span> <span class="pre">LCD\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160; <span class="pre">*/\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">float</span> <span class="pre">frac</span> <span class="pre">=</span> <span class="pre">((float)</span> <span class="pre">(x</span> <span class="pre">-</span> <span class="pre">minX))</span> <span class="pre">/</span> <span class="pre">(maxX</span> <span class="pre">-</span> <span class="pre">minX);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">int</span> <span class="pre">nBars</span> <span class="pre">=</span> <span class="pre">(int)</span> <span class="pre">(nCols</span> <span class="pre">*</span> <span class="pre">5</span> <span class="pre">*</span> <span class="pre">frac);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">int</span> <span class="pre">n5BarBlocks</span> <span class="pre">=</span> <span class="pre">nBars</span> <span class="pre">/</span> <span class="pre">5;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">int</span> <span class="pre">fracBlock</span> <span class="pre">=</span> <span class="pre">nBars</span> <span class="pre">%</span> <span class="pre">5;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Write</span> <span class="pre">the</span> <span class="pre">parts</span> <span class="pre">that</span> <span class="pre">are</span> <span class="pre">full</span> <span class="pre">blocks\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">n5BarBlocks;</span> <span class="pre">i++)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lcd.setCursor(i,</span> <span class="pre">1);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lcd.write(5);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Write</span> <span class="pre">fractional</span> <span class="pre">block\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">if</span> <span class="pre">(n5BarBlocks</span> <span class="pre">&lt;</span> <span class="pre">nCols)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lcd.setCursor(n5BarBlocks,</span> <span class="pre">1);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lcd.write(fracBlock);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Write</span> <span class="pre">blank</span> <span class="pre">blocks\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">for</span> <span class="pre">(int</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">n5BarBlocks</span> <span class="pre">+</span> <span class="pre">1;</span> <span class="pre">i</span> <span class="pre">&lt;</span> <span class="pre">nCols;</span> <span class="pre">i++)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lcd.setCursor(i,</span> <span class="pre">1);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lcd.write(0);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">setup()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Set</span> <span class="pre">I2C</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">fast</span> <span class="pre">mode\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">Wire.setClock(400000);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">dac.begin(MCP4725_ADDR);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Initialize</span> <span class="pre">the</span> <span class="pre">LCD\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.init();\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.backlight();\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Add</span> <span class="pre">the</span> <span class="pre">special</span> <span class="pre">characters</span> <span class="pre">for</span> <span class="pre">blocks\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.createChar(0,</span> <span class="pre">zeroBlock);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.createChar(1,</span> <span class="pre">twentyBlock);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.createChar(2,</span> <span class="pre">fortyBlock);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.createChar(3,</span> <span class="pre">sixtyBlock);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.createChar(4,</span> <span class="pre">eightyBlock);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.createChar(5,</span> <span class="pre">fullBlock);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">//</span> <span class="pre">Label</span> <span class="pre">message</span> <span class="pre">on</span> <span class="pre">LCD\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.setCursor(0,</span> <span class="pre">0);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">lcd.print(\&quot;Voltage:</span> <span class="pre">\&quot;);\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">loop()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">currTime</span> <span class="pre">=</span> <span class="pre">millis();\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">if</span> <span class="pre">(currTime</span> <span class="pre">-</span> <span class="pre">lastSampleTime</span> <span class="pre">&gt;</span> <span class="pre">sampleDelay)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Sinusoidal</span> <span class="pre">signal</span> <span class="pre">to</span> <span class="pre">DAC\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">uint16_t</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">(uint16_t)(4095</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">sin(2</span> <span class="pre">*</span> <span class="pre">PI</span> <span class="pre">*</span> <span class="pre">freq</span> <span class="pre">*</span> <span class="pre">millis()</span> <span class="pre">/</span> <span class="pre">1000.0))</span> <span class="pre">/</span> <span class="pre">2.0);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">dac.setVoltage(x,</span> <span class="pre">false);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">lastSampleTime</span> <span class="pre">=</span> <span class="pre">currTime;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Report</span> <span class="pre">voltage</span> <span class="pre">to</span> <span class="pre">LCE\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">if</span> <span class="pre">(currTime</span> <span class="pre">-</span> <span class="pre">lastReportTime</span> <span class="pre">&gt;</span> <span class="pre">reportDelay)</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Read</span> <span class="pre">in</span> <span class="pre">and</span> <span class="pre">convert</span> <span class="pre">voltage\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">int</span> <span class="pre">sensorValue</span> <span class="pre">=</span> <span class="pre">analogRead(sensorPin);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">float</span> <span class="pre">voltage</span> <span class="pre">=</span> <span class="pre">sensorValue</span> <span class="pre">/</span> <span class="pre">1023.0</span> <span class="pre">*</span> <span class="pre">5.0;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Write</span> <span class="pre">the</span> <span class="pre">voltage</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">first</span> <span class="pre">row</span> <span class="pre">(text</span> <span class="pre">display)\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">lcd.setCursor(9,</span> <span class="pre">0);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">lcd.print(String(voltage,</span> <span class="pre">2)</span> <span class="pre">+</span> <span class="pre">\&quot;</span> <span class="pre">V\&quot;);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">//</span> <span class="pre">Display</span> <span class="pre">the</span> <span class="pre">voltage</span> <span class="pre">graphically\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">writeGraphicalVoltage(sensorValue,</span> <span class="pre">0,</span> <span class="pre">1023);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">lastReportTime</span> <span class="pre">=</span> <span class="pre">currTime;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;</span>&#160;&#160;&#160; <span class="pre">\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“The sketch should be self-explanatory since we have covered how to communicate with the LCD. Importantly the <cite>writeGRaphicalVoltage()</cite> function plots the voltage graphically on the second line of the LCD.n”,
-“n”,
-“Note also that we have two devices connected to the same I2C bus and it is trivial to control them independently; we just have to set their addresses.n”,
-“n”,
-“You can play with the potentiometer and watch the LCD change!n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.8.8”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 4</p>
-</dd>
-</dl>
-<p>}</p>
+<section id="18.-Using-a-liquid-crystal-display">
+<h1>18. Using a liquid crystal display<a class="headerlink" href="#18.-Using-a-liquid-crystal-display" title="Permalink to this heading"></a></h1>
+<hr><p>While using a computer to control and display results from a device is very powerful, it does result in the device being tethered to a computer in order to function. You may wish to have a stand-alone device. For such applications, portable <strong>liquid crystal displays</strong> (LCDs) are quite useful.</p>
+<section id="The-LDC">
+<h2>The LDC<a class="headerlink" href="#The-LDC" title="Permalink to this heading"></a></h2>
+<p>The LCD we have in lab can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 chip</a>, which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use.</p>
+<p>Here are photos of the front and back of your LCD.</p>
+<div style="margin: auto; width: 400px;"><img alt="LCD photo" src="../../_images/lcd_photo.jpg" />
+</div><p>On the front (top photo) are 16 pins. In looking at the pinout on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Wikipedia page</a>, you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD we have contains a “backpack”, shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the
+backpack is a potentiometer, which you can tune using a small Phillips head screwdriver. The potentiometer adjusts the brightness of the display.</p>
+<p>So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so.</p>
+</section>
+<section id="Running-multiple-devices-on-the-I2C-bus">
+<h2>Running multiple devices on the I2C bus<a class="headerlink" href="#Running-multiple-devices-on-the-I2C-bus" title="Permalink to this heading"></a></h2>
+<p>You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will the MCP4725 DAC device connected. We will also connet the LCD. We will work through the rest of this lesson as a follow-along exercise.</p>
+<hr></section>
+<section id="Follow-along-exercise-13:-Using-an-LCD-display">
+<h2>Follow-along exercise 13: Using an LCD display<a class="headerlink" href="#Follow-along-exercise-13:-Using-an-LCD-display" title="Permalink to this heading"></a></h2>
+<p>Set up the circuit below. You will add a potentiometer and the LCD to your setup from the last lesson. You may be able to leave your DAC setup as is, but you might need to move things around to keep wires tidy.</p>
+<div style="margin: auto; width: 400px;"><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" /></div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
+<section id="Characters-for-the-LCD">
+<h3>Characters for the LCD<a class="headerlink" href="#Characters-for-the-LCD" title="Permalink to this heading"></a></h3>
+<p>The LCD can display a set of characters</p>
+</section>
+<section id="Driving-the-LCD">
+<h3>Driving the LCD<a class="headerlink" href="#Driving-the-LCD" title="Permalink to this heading"></a></h3>
+<p>The address of the of the LCD is <code class="docutils literal notranslate"><span class="pre">0x27</span></code>. (If you are trying to find the addresses of I2C devices you have wired up, <a class="reference external" href="https://playground.arduino.cc/Main/I2cScanner/">this sketch</a> is really useful!) We use the <code class="docutils literal notranslate"><span class="pre">LiquidCrystal_I2C</span></code> library to drive the LCD, so we need to be sure to <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;LiquidCrystal_I2C.h&gt;</span></code> in your sketch. It is also a good idea to <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;Wire.h&gt;</span></code> so that you can set your I2C speed to fast mode using <code class="docutils literal notranslate"><span class="pre">Wire.setClock(400000)</span></code>, which will enable I2C
+communication at 400k baud.</p>
+<p>With that library included, you can instantiate an instance for communicating with the LCD using</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">LiquidCrystal_I2C</span><span class="w"> </span><span class="n">lcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LiquidCrystal_I2C</span><span class="p">(</span><span class="n">LCD_ADDR</span><span class="p">,</span><span class="w"> </span><span class="n">nCols</span><span class="p">,</span><span class="w"> </span><span class="n">nRows</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">LCD_ADDR</span></code> is <code class="docutils literal notranslate"><span class="pre">0x27</span></code>, the address of the LCD, and <code class="docutils literal notranslate"><span class="pre">nCols</span></code> and <code class="docutils literal notranslate"><span class="pre">nRows</span></code> are the number of columns and rows of blocks of pixels, respectively, in the LCD. For the ones we have, there are 16 columns and 2 rows. Once the <code class="docutils literal notranslate"><span class="pre">lcd</span></code> instance is in place, you need to initialize and backlight the LCD by calling</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">lcd</span><span class="p">.</span><span class="n">init</span><span class="p">();</span><span class="w"></span>
+<span class="n">lcd</span><span class="p">.</span><span class="n">backlight</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This should be done in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function.</p>
+<p>When using the LCD, you need to set the cursor position before writing a character. This is done using the <code class="docutils literal notranslate"><span class="pre">lcd.setCursor()</span></code> function. The first argument is the column position (starting at zero), and the second argument is the row position (also starting at zero). To write “Hello, world.” on the LCD on the first line starting to the left, you can do the following.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="n">lcd</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">lcd.print()</span></code> function is useful for printing strings. You can also define your own characters and write them using <code class="docutils literal notranslate"><span class="pre">lcd.write()</span></code>. The format of your own characters is a byte array of <code class="docutils literal notranslate"><span class="pre">nCols</span></code> 5-bit binary numbers. For example, to make an <a class="reference external" href="https://www.lamag.com/citythinkblog/meet-guy-made-la-fingers-thing/">LA logo</a>, you could define the character like this:</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">LAlogo</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">B10000</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B10000</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B10010</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B10101</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B11111</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B00101</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B00101</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">B00101</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To make this a character that the LCD can display, you need to call</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">lcd</span><span class="p">.</span><span class="n">creatChar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">LAlogo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The first argument is an integer that will stand for the character in calls to <code class="docutils literal notranslate"><span class="pre">lcd.write()</span></code>. You can specify up to eight characters, and they need to be numbered zero through seven.</p>
+<p>To write this character a few places over on the second row, you would do:</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="n">lcd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>We will make custom characters to represent a graphical display of voltage.</p>
+</section>
+<section id="The-sketch">
+<h3>The sketch<a class="headerlink" href="#The-sketch" title="Permalink to this heading"></a></h3>
+<p>Now that we have a basic idea of how to use the LCD, let’s look at the sketch, which you can go ahead and upload.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;LiquidCrystal_I2C.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// This is the I2C Address of the MCP4725, by default (A0 pulled to GND).</span>
+<span class="c1">// For devices with A0 pulled HIGH, use 0x61</span>
+<span class="cp">#define MCP4725_ADDR 0x62</span>
+
+<span class="c1">// LCD address</span>
+<span class="cp">#define LCD_ADDR 0x27</span>
+
+<span class="c1">// Geometry of LCD</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nRows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nCols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Custom characters for LCD bars</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">zeroBlock</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">,</span><span class="w"> </span><span class="n">B00000</span><span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">twentyBlock</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">,</span><span class="w"> </span><span class="n">B10000</span><span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">fortyBlock</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">,</span><span class="w"> </span><span class="n">B11000</span><span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">sixtyBlock</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">,</span><span class="w"> </span><span class="n">B11100</span><span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">eightyBlock</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">,</span><span class="w"> </span><span class="n">B11110</span><span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">byte</span><span class="w"> </span><span class="n">fullBlock</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">,</span><span class="w"> </span><span class="n">B11111</span><span class="p">};</span><span class="w"></span>
+
+<span class="c1">// Frequency of oscillating signal</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Delays for updating</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">sampleDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">reportDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">lastReportTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Sensor pin connected to potentiometer</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Instantiate the convenient classses for DAC and LCD</span>
+<span class="n">Adafruit_MCP4725</span><span class="w"> </span><span class="n">dac</span><span class="p">;</span><span class="w"></span>
+<span class="n">LiquidCrystal_I2C</span><span class="w"> </span><span class="n">lcd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LiquidCrystal_I2C</span><span class="p">(</span><span class="n">LCD_ADDR</span><span class="p">,</span><span class="w"> </span><span class="n">nCols</span><span class="p">,</span><span class="w"> </span><span class="n">nRows</span><span class="p">);</span><span class="w"></span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nf">writeGraphicalVoltage</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">minX</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">maxX</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*</span>
+<span class="cm">   * Graphical display of voltage on second row of LCD</span>
+<span class="cm">   */</span><span class="w"></span>
+<span class="w">  </span><span class="kr">float</span><span class="w"> </span><span class="n">frac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kr">float</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">minX</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">maxX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">minX</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">nBars</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">nCols</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">frac</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">n5BarBlocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nBars</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">fracBlock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nBars</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Write the parts that are full blocks</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n5BarBlocks</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">lcd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Write fractional block</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n5BarBlocks</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nCols</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="n">n5BarBlocks</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">lcd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">fracBlock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Write blank blocks</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n5BarBlocks</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nCols</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">lcd</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Set I2C to be fast mode</span>
+<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="n">setClock</span><span class="p">(</span><span class="mi">400000</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">dac</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Initialize the LCD</span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="n">init</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="n">backlight</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Add the special characters for blocks</span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">createChar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">zeroBlock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">createChar</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">twentyBlock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">createChar</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">fortyBlock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">createChar</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">sixtyBlock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">createChar</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">eightyBlock</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">createChar</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">fullBlock</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">// Label message on LCD</span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lcd</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="s">&quot;Voltage: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">sampleDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Sinusoidal signal to DAC</span>
+<span class="w">    </span><span class="kr">uint16_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">uint16_t</span><span class="p">)(</span><span class="mi">4095</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">dac</span><span class="p">.</span><span class="n">setVoltage</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kr">false</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Report voltage to LCE</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastReportTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">reportDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// Read in and convert voltage</span>
+<span class="w">      </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="kr">float</span><span class="w"> </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sensorValue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1023.0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// Write the voltage on the first row (text display)</span>
+<span class="w">      </span><span class="n">lcd</span><span class="p">.</span><span class="nf">setCursor</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">lcd</span><span class="p">.</span><span class="nf">print</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; V&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1">// Display the voltage graphically</span>
+<span class="w">      </span><span class="n">writeGraphicalVoltage</span><span class="p">(</span><span class="n">sensorValue</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1023</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">lastReportTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The sketch should be self-explanatory since we have covered how to communicate with the LCD. Importantly the <code class="docutils literal notranslate"><span class="pre">writeGRaphicalVoltage()</span></code> function plots the voltage graphically on the second line of the LCD.</p>
+<p>Note also that we have two devices connected to the same I2C bus and it is trivial to control them independently; we just have to set their addresses.</p>
+<p>You can play with the potentiometer and watch the LCD change!</p>
+<hr></section>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../17/dac_i2c_libraries.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../19/voltage_dividers.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../17/dac_i2c_libraries.html" class="btn btn-neutral float-left" title="17. Libraries, DAC, and I2C" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../19/voltage_dividers.html" class="btn btn-neutral float-right" title="19. Voltage dividers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 22, 2022.
+      <span class="lastupdated">Last updated on Sep 26, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fb0fde12a00> 
+   <jinja2.runtime.BlockReference object at 0x7ff5d50d5220> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

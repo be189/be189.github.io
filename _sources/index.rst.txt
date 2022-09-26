@@ -9,11 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- Link to course Ed page TBA
+- `Course Ed Page <https://edstem.org/us/courses/25675/>`_ (used for course communications)
 
-.. - `Ed <https://edstem.org/us/courses/14669/>`_ (used for course communications)
-
-.. - `Course Zoom link <http://bois.caltech.edu/be189/2021_fall/zoom_links/tuth_class>`_ (password protected)
+- :ref:`References and resources<Software>`
 
 
 
@@ -22,12 +20,12 @@ People
 
 - Instructor
 
-   + `Changhuei Yang <http://biophot.caltech.edu/>`_ (``chyang at caltech dot edu``)
+   + `Justin Bois <http://bois.caltech.edu>`_ (``bois at caltech dot edu``)
 
 - TAs
 
-   + Mingshu Liang (``mlliang at caltech dot edu``)
-   + Hayward Melton (``hmelton at caltech dot edu``)
+   + Anne Kil (``annekil0530 at caltech dot edu``)
+   + Arkadev Roy (``arroy at caltech dot edu``)
 
 
 .. toctree::
@@ -79,8 +77,8 @@ People
    :maxdepth: 1
    :caption: Projects
 
-   pulseox.rst
    spectrophotometer.rst
+   pulseox.rst
 
 
 .. toctree::
@@ -113,6 +111,7 @@ People
 Previous editions of the course
 ------------------------------- 
 
+- `Spring 2022 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2022_spring/>`_
 - `Fall 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_fall/>`_
 - `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
 - `Spring 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_spring/>`_

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; BE/EE/MedE 189 a  documentation</title>
+  <title>8. Pulse width modulation &mdash; BE/EE/MedE 189 a  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
@@ -16,15 +16,18 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../09/asynchrony_and_blocking.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="../07/adc_and_usart.html" /> 
+    <link rel="next" title="9. Asynchrony and blocking" href="../09/asynchrony_and_blocking.html" />
+    <link rel="prev" title="7. ADC and USART" href="../07/adc_and_usart.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +46,45 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Lessons</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../00/configuring_your_computer.html">0. Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01/prototyping_electronic_devices.html">1. Prototyping electronic devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02/tour_of_arduino.html">2. A tour of Ardiuno Uno and the solderless breadboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03/blink.html">3. Hello, world. (a.k.a. Blink)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04/schematics.html">4. Schematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05/programming_arduino.html">5. Programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06/practice_programming_arduino.html">6. Practice programming Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07/adc_and_usart.html">7. ADC and USART</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Pulse width modulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#The-idea-behind-PWM">The idea behind PWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#PWM-on-the-Arduino-Uno-with-analogWrite()">PWM on the Arduino Uno with analogWrite()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-4:-PWM-demo">Follow-along exercise 4: PWM demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM">Do-it-yourself exercise 3: Brightness control by PWM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../09/asynchrony_and_blocking.html">9. Asynchrony and blocking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10/control_of_arduino_with_python.html">10. Serial communication with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11/control_with_buttons.html">11. Controlling Arduino with widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12/requesting_and_receiving_data_from_arduino.html">12. Requesting and receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13/streaming_data_from_arduino.html">13. Streaming data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../14/asynchronous_streaming.html">14. Asynchronously receiving data from Arduino</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../15/streaming_plots_with_bokeh.html">15. Streaming plots with Bokeh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../18/lcd.html">18. Using a liquid crystal display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../19/voltage_dividers.html">19. Voltage dividers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../20/introduction_to_filters.html">20. Introduction to filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../21/photoresistors_and_adc.html">21. Photoresistors, trimming, and ADC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22/op_amps.html">22. Operational amplifiers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../23/op_amps_as_mathematical_operators.html">23. Op-amps as mathematical operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../24/transistors.html">24. Transistors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../thinking_exercises.html">Thinking exercises</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../follow_along_exercises.html">Follow-along exercises</a></li>
@@ -51,8 +92,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectrophotometer.html">Spectrophotometer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pulseox.html">Pulse oximetry</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Schedule</span></p>
 <ul>
@@ -116,6 +157,260 @@
              
   
 <style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt .copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.jp-RenderedHTMLCommon thead,
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+.jp-RenderedHTMLCommon th,
+div.rendered_html th {
+  font-weight: bold;
+}
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.jp-RenderedHTMLCommon tbody tr:hover,
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
@@ -138,753 +433,575 @@
     text-align: unset;
 }
 </style>
-<dl>
-<dt>{</dt><dd><dl>
-<dt>“cells”: [</dt><dd><dl>
-<dt>{</dt><dd><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“# 8. Pulse width modulationn”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Let’s say we want to provide a component with a constant voltage of, say, 2.5 volts. It would be convenient if we could just tell the Arduino Uno to deliver analog 2.5 volts out of a specified pin. This process, in which you send a digital number that results in an analog voltage coming out is called [digital-to-analog conversion](<a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">https://en.wikipedia.org/wiki/Digital-to-analog_converter</a>), abbreviated as DAC. [Arduino Due](<a class="reference external" href="https://store.arduino.cc/usa/due">https://store.arduino.cc/usa/due</a>) and [Ardunio Zero](<a class="reference external" href="https://store.arduino.cc/usa/arduino-zero">https://store.arduino.cc/usa/arduino-zero</a>) offer 12-bit and 10-bit DAC, respectively, but there are no built-in DAC capabilities in Arduino Uno. The Uno board can only write digital values. That is, it can only send values that are <cite>HIGH</cite> (5 V) and <cite>LOW</cite> (0 V). To deliver voltages out of pins between zero and five volts, it uses <strong>pulse width modulation (PWM)</strong> as a replacement for DAC.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## The idea behind PWMn”,
-“n”,
-“While we cannot deliver 2.5 volts at any given time using Arduino Uno, we can deliver an <em>average</em> of 2.5 volts over time. Think of a light switch. If you flip it on for a second, then off for a second, them back on for a second, etc., over the course of a minute, you would have, on average, a half-dimmed light.n”,
-“n”,
-“Now, say we turn digital pin 3 on (<cite>HIGH</cite>, 5 V) for one millisecond. Then we turn it off (<cite>LOW</cite>, 0 V) for one millisecond. We keep doing this, and, on average, we deliver 2.5 V.n”,
-“n”,
-“A signal given by PWM is characterized by three parameters.n”,
-“n”,
-“1. The amplitude. For Arduino Uno, this is 5 Volts.n”,
-“2. The frequency. This is how rapidly the voltage oscillates.n”,
-“3. The duty ratio. This is the fraction of time in one period of the oscillation that the voltage is high.n”,
-“n”,
-“To see how these parameters affect the voltage levels over time, you can manipulate the interactive plot below. I fixed the amplitude to 5 V, and you can vary the frequency and duty ratio. I intentionally left the Python/JavaScript code to generate the plot in case you are interested in how to build these things using [Bokeh](<a class="reference external" href="http://bokeh.pydata.org/">http://bokeh.pydata.org/</a>). Soon, we will be building interactive dashboards for controlling devices using Bokeh. (But don’t worry, you won’t have to hack and JavaScript; I used JavaScript so you could interact with the plot in the static HTML document.)”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 1,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/html”: [</dt><dd><p>“n”,
-”    &lt;div class=&quot;bk-root&quot;&gt;n”,
-”        &lt;a href=&quot;<a class="reference external" href="https://bokeh.org">https://bokeh.org</a>&quot; target=&quot;_blank&quot; class=&quot;bk-logo bk-logo-small bk-logo-notebook&quot;&gt;&lt;/a&gt;n”,
-”        &lt;span id=&quot;1002&quot;&gt;Loading BokehJS …&lt;/span&gt;n”,
-”    &lt;/div&gt;”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {},
-“output_type”: “display_data”</p>
-</dd>
-</dl>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“application/javascript”: [</dt><dd><p>“n”,
-“(function(root) {n”,
-”  function now() {n”,
-”    return new Date();n”,
-”  }n”,
-“n”,
-”  var force = true;n”,
-“n”,
-”  if (typeof root._bokeh_onload_callbacks === &quot;undefined&quot; || force === true) {n”,
-”    root._bokeh_onload_callbacks = [];n”,
-”    root._bokeh_is_loading = undefined;n”,
-”  }n”,
-“n”,
-”  var JS_MIME_TYPE = ‘application/javascript’;n”,
-”  var HTML_MIME_TYPE = ‘text/html’;n”,
-”  var EXEC_MIME_TYPE = ‘application/vnd.bokehjs_exec.v0+json’;n”,
-”  var CLASS_NAME = ‘output_bokeh rendered_html’;n”,
-“n”,
-”  /<strong>n”,
-”   * Render data to the DOM noden”,
-”   */n”,
-”  function render(props, node) {n”,
-”    var script = document.createElement(&quot;script&quot;);n”,
-”    node.appendChild(script);n”,
-”  }n”,
-“n”,
-”  /</strong>n”,
-”   * Handle when an output is cleared or removedn”,
-”   <em>/n”,
-”  function handleClearOutput(event, handle) {n”,
-”    var cell = handle.cell;n”,
-“n”,
-”    var id = cell.output_area._bokeh_element_id;n”,
-”    var server_id = cell.output_area._bokeh_server_id;n”,
-”    // Clean up Bokeh referencesn”,
-”    if (id != null &amp;&amp; id in Bokeh.index) {n”,
-”      Bokeh.index[id].model.document.clear();n”,
-”      delete Bokeh.index[id];n”,
-”    }n”,
-“n”,
-”    if (server_id !== undefined) {n”,
-”      // Clean up Bokeh referencesn”,
-”      var cmd = &quot;from bokeh.io.state import curstate; print(curstate().uuid_to_server[’&quot; + server_id + &quot;’].get_sessions()[0].document.roots[0]._id)&quot;;n”,
-”      cell.notebook.kernel.execute(cmd, {n”,
-”        iopub: {n”,
-”          output: function(msg) {n”,
-”            var id = msg.content.text.trim();n”,
-”            if (id in Bokeh.index) {n”,
-”              Bokeh.index[id].model.document.clear();n”,
-”              delete Bokeh.index[id];n”,
-”            }n”,
-”          }n”,
-”        }n”,
-”      });n”,
-”      // Destroy server and sessionn”,
-”      var cmd = &quot;import bokeh.io.notebook as ion; ion.destroy_server(’&quot; + server_id + &quot;’)&quot;;n”,
-”      cell.notebook.kernel.execute(cmd);n”,
-”    }n”,
-”  }n”,
-“n”,
-”  /*</em>n”,
-”   * Handle when a new output is addedn”,
-”   <em>/n”,
-”  function handleAddOutput(event, handle) {n”,
-”    var output_area = handle.output_area;n”,
-”    var output = handle.output;n”,
-“n”,
-”    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content onlyn”,
-”    if ((output.output_type != &quot;display_data&quot;) || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {n”,
-”      returnn”,
-”    }n”,
-“n”,
-”    var toinsert = output_area.element.find(&quot;.&quot; + CLASS_NAME.split(’ ‘)[0]);n”,
-“n”,
-”    if (output.metadata[EXEC_MIME_TYPE][&quot;id&quot;] !== undefined) {n”,
-”      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];n”,
-”      // store reference to embed id on output_arean”,
-”      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE][&quot;id&quot;];n”,
-”    }n”,
-”    if (output.metadata[EXEC_MIME_TYPE][&quot;server_id&quot;] !== undefined) {n”,
-”      var bk_div = document.createElement(&quot;div&quot;);n”,
-”      bk_div.innerHTML = output.data[HTML_MIME_TYPE];n”,
-”      var script_attrs = bk_div.children[0].attributes;n”,
-”      for (var i = 0; i &lt; script_attrs.length; i++) {n”,
-”        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);n”,
-”        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContentn”,
-”      }n”,
-”      // store reference to server id on output_arean”,
-”      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE][&quot;server_id&quot;];n”,
-”    }n”,
-”  }n”,
-“n”,
-”  function register_renderer(events, OutputArea) {n”,
-“n”,
-”    function append_mime(data, metadata, element) {n”,
-”      // create a DOM node to render ton”,
-”      var toinsert = this.create_output_subarea(n”,
-”        metadata,n”,
-”        CLASS_NAME,n”,
-”        EXEC_MIME_TYPEn”,
-”      );n”,
-”      this.keyboard_manager.register_events(toinsert);n”,
-”      // Render to noden”,
-”      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};n”,
-”      render(props, toinsert[toinsert.length - 1]);n”,
-”      element.append(toinsert);n”,
-”      return toinsertn”,
-”    }n”,
-“n”,
-”    /</em> Handle when an output is cleared or removed <em>/n”,
-”    events.on(‘clear_output.CodeCell’, handleClearOutput);n”,
-”    events.on(‘delete.Cell’, handleClearOutput);n”,
-“n”,
-”    /</em> Handle when a new output is added <em>/n”,
-”    events.on(‘output_added.OutputArea’, handleAddOutput);n”,
-“n”,
-”    /*</em>n”,
-”     * Register the mime type and append_mime function with output_arean”,
-”     <em>/n”,
-”    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {n”,
-”      /</em> Is output safe? <em>/n”,
-”      safe: true,n”,
-”      /</em> Index of renderer in <cite>output_area.display_order</cite> <a href="#id1"><span class="problematic" id="id2">*</span></a>/n”,
-”      index: 0n”,
-”    });n”,
-”  }n”,
-“n”,
-”  // register the mime type if in Jupyter Notebook environment and previously unregisteredn”,
-”  if (root.Jupyter !== undefined) {n”,
-”    var events = require(‘base/js/events’);n”,
-”    var OutputArea = require(‘notebook/js/outputarea’).OutputArea;n”,
-“n”,
-”    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {n”,
-”      register_renderer(events, OutputArea);n”,
-”    }n”,
-”  }n”,
-“n”,
-”  n”,
-”  if (typeof (root._bokeh_timeout) === &quot;undefined&quot; || force === true) {n”,
-”    root._bokeh_timeout = Date.now() + 5000;n”,
-”    root._bokeh_failed_load = false;n”,
-”  }n”,
-“n”,
-”  var NB_LOAD_WARNING = {‘data’: {‘text/html’:n”,
-”     &quot;&lt;div style=’background-color: #fdd’&gt;\n&quot;+n”,
-”     &quot;&lt;p&gt;\n&quot;+n”,
-”     &quot;BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n&quot;+n”,
-”     &quot;may be due to a slow or bad network connection. Possible fixes:\n&quot;+n”,
-”     &quot;&lt;/p&gt;\n&quot;+n”,
-”     &quot;&lt;ul&gt;\n&quot;+n”,
-”     &quot;&lt;li&gt;re-rerun <cite>output_notebook()</cite> to attempt to load from CDN again, or&lt;/li&gt;\n&quot;+n”,
-”     &quot;&lt;li&gt;use INLINE resources instead, as so:&lt;/li&gt;\n&quot;+n”,
-”     &quot;&lt;/ul&gt;\n&quot;+n”,
-”     &quot;&lt;code&gt;\n&quot;+n”,
-”     &quot;from bokeh.resources import INLINE\n&quot;+n”,
-”     &quot;output_notebook(resources=INLINE)\n&quot;+n”,
-”     &quot;&lt;/code&gt;\n&quot;+n”,
-”     &quot;&lt;/div&gt;&quot;}};n”,
-“n”,
-”  function display_loaded() {n”,
-”    var el = document.getElementById(&quot;1002&quot;);n”,
-”    if (el != null) {n”,
-”      el.textContent = &quot;BokehJS is loading…&quot;;n”,
-”    }n”,
-”    if (root.Bokeh !== undefined) {n”,
-”      if (el != null) {n”,
-”        el.textContent = &quot;BokehJS &quot; + root.Bokeh.version + &quot; successfully loaded.&quot;;n”,
-”      }n”,
-”    } else if (Date.now() &lt; root._bokeh_timeout) {n”,
-”      setTimeout(display_loaded, 100)n”,
-”    }n”,
-”  }n”,
-“n”,
-“n”,
-”  function run_callbacks() {n”,
-”    try {n”,
-”      root._bokeh_onload_callbacks.forEach(function(callback) {n”,
-”        if (callback != null)n”,
-”          callback();n”,
-”      });n”,
-”    } finally {n”,
-”      delete root._bokeh_onload_callbacksn”,
-”    }n”,
-”    console.debug(&quot;Bokeh: all callbacks have finished&quot;);n”,
-”  }n”,
-“n”,
-”  function load_libs(css_urls, js_urls, callback) {n”,
-”    if (css_urls == null) css_urls = [];n”,
-”    if (js_urls == null) js_urls = [];n”,
-“n”,
-”    root._bokeh_onload_callbacks.push(callback);n”,
-”    if (root._bokeh_is_loading &gt; 0) {n”,
-”      console.debug(&quot;Bokeh: BokehJS is being loaded, scheduling callback at&quot;, now());n”,
-”      return null;n”,
-”    }n”,
-”    if (js_urls == null || js_urls.length === 0) {n”,
-”      run_callbacks();n”,
-”      return null;n”,
-”    }n”,
-”    console.debug(&quot;Bokeh: BokehJS not loaded, scheduling load and callback at&quot;, now());n”,
-”    root._bokeh_is_loading = css_urls.length + js_urls.length;n”,
-“n”,
-”    function on_load() {n”,
-”      root._bokeh_is_loading–;n”,
-”      if (root._bokeh_is_loading === 0) {n”,
-”        console.debug(&quot;Bokeh: all BokehJS libraries/stylesheets loaded&quot;);n”,
-”        run_callbacks()n”,
-”      }n”,
-”    }n”,
-“n”,
-”    function on_error(url) {n”,
-”      console.error(&quot;failed to load &quot; + url);n”,
-”    }n”,
-“n”,
-”    for (let i = 0; i &lt; css_urls.length; i++) {n”,
-”      const url = css_urls[i];n”,
-”      const element = document.createElement(&quot;link&quot;);n”,
-”      element.onload = on_load;n”,
-”      element.onerror = on_error.bind(null, url);n”,
-”      element.rel = &quot;stylesheet&quot;;n”,
-”      element.type = &quot;text/css&quot;;n”,
-”      element.href = url;n”,
-”      console.debug(&quot;Bokeh: injecting link tag for BokehJS stylesheet: &quot;, url);n”,
-”      document.body.appendChild(element);n”,
-”    }n”,
-“n”,
-”    const hashes = {&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js</a>&quot;: &quot;HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js</a>&quot;: &quot;ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js</a>&quot;: &quot;exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV&quot;};n”,
-“n”,
-”    for (let i = 0; i &lt; js_urls.length; i++) {n”,
-”      const url = js_urls[i];n”,
-”      const element = document.createElement(‘script’);n”,
-”      element.onload = on_load;n”,
-”      element.onerror = on_error.bind(null, url);n”,
-”      element.async = false;n”,
-”      element.src = url;n”,
-”      if (url in hashes) {n”,
-”        element.crossOrigin = &quot;anonymous&quot;;n”,
-”        element.integrity = &quot;sha384-&quot; + hashes[url];n”,
-”      }n”,
-”      console.debug(&quot;Bokeh: injecting script tag for BokehJS library: &quot;, url);n”,
-”      document.head.appendChild(element);n”,
-”    }n”,
-”  };n”,
-“n”,
-”  function inject_raw_css(css) {n”,
-”    const element = document.createElement(&quot;style&quot;);n”,
-”    element.appendChild(document.createTextNode(css));n”,
-”    document.body.appendChild(element);n”,
-”  }n”,
-“n”,
-”  n”,
-”  var js_urls = [&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js</a>&quot;];n”,
-”  var css_urls = [];n”,
-”  n”,
-“n”,
-”  var inline_js = [n”,
-”    function(Bokeh) {n”,
-”      Bokeh.set_log_level(&quot;info&quot;);n”,
-”    },n”,
-”    function(Bokeh) {n”,
-”    n”,
-”    n”,
-”    }n”,
-”  ];n”,
-“n”,
-”  function run_inline_js() {n”,
-”    n”,
-”    if (root.Bokeh !== undefined || force === true) {n”,
-”      n”,
-”    for (var i = 0; i &lt; inline_js.length; i++) {n”,
-”      inline_js[i].call(root, root.Bokeh);n”,
-”    }n”,
-”    if (force === true) {n”,
-”        display_loaded();n”,
-”      }} else if (Date.now() &lt; root._bokeh_timeout) {n”,
-”      setTimeout(run_inline_js, 100);n”,
-”    } else if (!root._bokeh_failed_load) {n”,
-”      console.log(&quot;Bokeh: BokehJS failed to load within specified timeout.&quot;);n”,
-”      root._bokeh_failed_load = true;n”,
-”    } else if (force !== true) {n”,
-”      var cell = $(document.getElementById(&quot;1002&quot;)).parents(‘.cell’).data().cell;n”,
-”      cell.output_area.append_execute_result(NB_LOAD_WARNING)n”,
-”    }n”,
-“n”,
-”  }n”,
-“n”,
-”  if (root._bokeh_is_loading === 0) {n”,
-”    console.debug(&quot;Bokeh: BokehJS loaded, going straight to plotting&quot;);n”,
-”    run_inline_js();n”,
-”  } else {n”,
-”    load_libs(css_urls, js_urls, function() {n”,
-”      console.debug(&quot;Bokeh: BokehJS plotting callback run at&quot;, now());n”,
-”      run_inline_js();n”,
-”    });n”,
-”  }n”,
-“}(window));”</p>
-</dd>
-</dl>
-<p>],
-“application/vnd.bokehjs_load.v0+json”: “n(function(root) {n  function now() {n    return new Date();n  }nn  var force = true;nn  if (typeof root._bokeh_onload_callbacks === &quot;undefined&quot; || force === true) {n    root._bokeh_onload_callbacks = [];n    root._bokeh_is_loading = undefined;n  }nn  nn  n  if (typeof (root._bokeh_timeout) === &quot;undefined&quot; || force === true) {n    root._bokeh_timeout = Date.now() + 5000;n    root._bokeh_failed_load = false;n  }nn  var NB_LOAD_WARNING = {‘data’: {‘text/html’:n     &quot;&lt;div style=’background-color: #fdd’&gt;\n&quot;+n     &quot;&lt;p&gt;\n&quot;+n     &quot;BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n&quot;+n     &quot;may be due to a slow or bad network connection. Possible fixes:\n&quot;+n     &quot;&lt;/p&gt;\n&quot;+n     &quot;&lt;ul&gt;\n&quot;+n     &quot;&lt;li&gt;re-rerun <cite>output_notebook()</cite> to attempt to load from CDN again, or&lt;/li&gt;\n&quot;+n     &quot;&lt;li&gt;use INLINE resources instead, as so:&lt;/li&gt;\n&quot;+n     &quot;&lt;/ul&gt;\n&quot;+n     &quot;&lt;code&gt;\n&quot;+n     &quot;from bokeh.resources import INLINE\n&quot;+n     &quot;output_notebook(resources=INLINE)\n&quot;+n     &quot;&lt;/code&gt;\n&quot;+n     &quot;&lt;/div&gt;&quot;}};nn  function display_loaded() {n    var el = document.getElementById(&quot;1002&quot;);n    if (el != null) {n      el.textContent = &quot;BokehJS is loading…&quot;;n    }n    if (root.Bokeh !== undefined) {n      if (el != null) {n        el.textContent = &quot;BokehJS &quot; + root.Bokeh.version + &quot; successfully loaded.&quot;;n      }n    } else if (Date.now() &lt; root._bokeh_timeout) {n      setTimeout(display_loaded, 100)n    }n  }nnn  function run_callbacks() {n    try {n      root._bokeh_onload_callbacks.forEach(function(callback) {n        if (callback != null)n          callback();n      });n    } finally {n      delete root._bokeh_onload_callbacksn    }n    console.debug(&quot;Bokeh: all callbacks have finished&quot;);n  }nn  function load_libs(css_urls, js_urls, callback) {n    if (css_urls == null) css_urls = [];n    if (js_urls == null) js_urls = [];nn    root._bokeh_onload_callbacks.push(callback);n    if (root._bokeh_is_loading &gt; 0) {n      console.debug(&quot;Bokeh: BokehJS is being loaded, scheduling callback at&quot;, now());n      return null;n    }n    if (js_urls == null || js_urls.length === 0) {n      run_callbacks();n      return null;n    }n    console.debug(&quot;Bokeh: BokehJS not loaded, scheduling load and callback at&quot;, now());n    root._bokeh_is_loading = css_urls.length + js_urls.length;nn    function on_load() {n      root._bokeh_is_loading–;n      if (root._bokeh_is_loading === 0) {n        console.debug(&quot;Bokeh: all BokehJS libraries/stylesheets loaded&quot;);n        run_callbacks()n      }n    }nn    function on_error(url) {n      console.error(&quot;failed to load &quot; + url);n    }nn    for (let i = 0; i &lt; css_urls.length; i++) {n      const url = css_urls[i];n      const element = document.createElement(&quot;link&quot;);n      element.onload = on_load;n      element.onerror = on_error.bind(null, url);n      element.rel = &quot;stylesheet&quot;;n      element.type = &quot;text/css&quot;;n      element.href = url;n      console.debug(&quot;Bokeh: injecting link tag for BokehJS stylesheet: &quot;, url);n      document.body.appendChild(element);n    }nn    const hashes = {&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js</a>&quot;: &quot;HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js</a>&quot;: &quot;ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js</a>&quot;: &quot;exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV&quot;};nn    for (let i = 0; i &lt; js_urls.length; i++) {n      const url = js_urls[i];n      const element = document.createElement(‘script’);n      element.onload = on_load;n      element.onerror = on_error.bind(null, url);n      element.async = false;n      element.src = url;n      if (url in hashes) {n        element.crossOrigin = &quot;anonymous&quot;;n        element.integrity = &quot;sha384-&quot; + hashes[url];n      }n      console.debug(&quot;Bokeh: injecting script tag for BokehJS library: &quot;, url);n      document.head.appendChild(element);n    }n  };nn  function inject_raw_css(css) {n    const element = document.createElement(&quot;style&quot;);n    element.appendChild(document.createTextNode(css));n    document.body.appendChild(element);n  }nn  n  var js_urls = [&quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js</a>&quot;, &quot;<a class="reference external" href="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js">https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js</a>&quot;];n  var css_urls = [];n  nn  var inline_js = [n    function(Bokeh) {n      Bokeh.set_log_level(&quot;info&quot;);n    },n    function(Bokeh) {n    n    n    }n  ];nn  function run_inline_js() {n    n    if (root.Bokeh !== undefined || force === true) {n      n    for (var i = 0; i &lt; inline_js.length; i++) {n      inline_js[i].call(root, root.Bokeh);n    }n    if (force === true) {n        display_loaded();n      }} else if (Date.now() &lt; root._bokeh_timeout) {n      setTimeout(run_inline_js, 100);n    } else if (!root._bokeh_failed_load) {n      console.log(&quot;Bokeh: BokehJS failed to load within specified timeout.&quot;);n      root._bokeh_failed_load = true;n    } else if (force !== true) {n      var cell = $(document.getElementById(&quot;1002&quot;)).parents(‘.cell’).data().cell;n      cell.output_area.append_execute_result(NB_LOAD_WARNING)n    }nn  }nn  if (root._bokeh_is_loading === 0) {n    console.debug(&quot;Bokeh: BokehJS loaded, going straight to plotting&quot;);n    run_inline_js();n  } else {n    load_libs(css_urls, js_urls, function() {n      console.debug(&quot;Bokeh: BokehJS plotting callback run at&quot;, now());n      run_inline_js();n    });n  }n}(window));”</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {},
-“output_type”: “display_data”</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“text/html”: [</dt><dd><p>“n”,
-“n”,
-“n”,
-“n”,
-“n”,
-“n”,
-”  &lt;div class=&quot;bk-root&quot; id=&quot;3c472f9c-2b14-423b-94e2-6b199d806ff7&quot; data-root-id=&quot;1032&quot;&gt;&lt;/div&gt;n”</p>
-</dd>
-</dl>
-<p>]</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {},
-“output_type”: “display_data”</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><dl>
-<dt>“data”: {</dt><dd><dl class="simple">
-<dt>“application/javascript”: [</dt><dd><p>“(function(root) {n”,
-”  function embed_document(root) {n”,
-”    n”,
-”  var docs_json = {&quot;a414496b-b6a3-4c34-bfc9-df1c9daeb7ca&quot;:{&quot;defs&quot;:[{&quot;extends&quot;:null,&quot;module&quot;:null,&quot;name&quot;:&quot;DataModel&quot;,&quot;overrides&quot;:[],&quot;properties&quot;:[]}],&quot;roots&quot;:{&quot;references&quot;:[{&quot;attributes&quot;:{&quot;children&quot;:[{&quot;id&quot;:&quot;1004&quot;},{&quot;id&quot;:&quot;1005&quot;},{&quot;id&quot;:&quot;1007&quot;}]},&quot;id&quot;:&quot;1032&quot;,&quot;type&quot;:&quot;Column&quot;},{&quot;attributes&quot;:{&quot;active_multi&quot;:null,&quot;tools&quot;:[{&quot;id&quot;:&quot;1024&quot;}]},&quot;id&quot;:&quot;1025&quot;,&quot;type&quot;:&quot;Toolbar&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1024&quot;,&quot;type&quot;:&quot;SaveTool&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1035&quot;,&quot;type&quot;:&quot;AllLabels&quot;},{&quot;attributes&quot;:{&quot;source&quot;:{&quot;id&quot;:&quot;1003&quot;}},&quot;id&quot;:&quot;1031&quot;,&quot;type&quot;:&quot;CDSView&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1037&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{&quot;end&quot;:0.99,&quot;js_property_callbacks&quot;:{&quot;change:value&quot;:[{&quot;id&quot;:&quot;1006&quot;}]},&quot;start&quot;:0.01,&quot;step&quot;:0.01,&quot;title&quot;:&quot;duty ratio&quot;,&quot;value&quot;:0.5},&quot;id&quot;:&quot;1004&quot;,&quot;type&quot;:&quot;Slider&quot;},{&quot;attributes&quot;:{&quot;end&quot;:1000,&quot;js_property_callbacks&quot;:{&quot;change:value&quot;:[{&quot;id&quot;:&quot;1006&quot;}]},&quot;start&quot;:100,&quot;title&quot;:&quot;frequency (Hz)&quot;,&quot;value&quot;:490},&quot;id&quot;:&quot;1005&quot;,&quot;type&quot;:&quot;Slider&quot;},{&quot;attributes&quot;:{&quot;end&quot;:0.025},&quot;id&quot;:&quot;1008&quot;,&quot;type&quot;:&quot;Range1d&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1034&quot;,&quot;type&quot;:&quot;Title&quot;},{&quot;attributes&quot;:{&quot;axis_label&quot;:&quot;time (s)&quot;,&quot;formatter&quot;:{&quot;id&quot;:&quot;1037&quot;},&quot;major_label_policy&quot;:{&quot;id&quot;:&quot;1035&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;1017&quot;}},&quot;id&quot;:&quot;1016&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;data_source&quot;:{&quot;id&quot;:&quot;1003&quot;},&quot;glyph&quot;:{&quot;id&quot;:&quot;1028&quot;},&quot;hover_glyph&quot;:null,&quot;muted_glyph&quot;:null,&quot;nonselection_glyph&quot;:{&quot;id&quot;:&quot;1029&quot;},&quot;view&quot;:{&quot;id&quot;:&quot;1031&quot;}},&quot;id&quot;:&quot;1030&quot;,&quot;type&quot;:&quot;GlyphRenderer&quot;},{&quot;attributes&quot;:{&quot;below&quot;:[{&quot;id&quot;:&quot;1016&quot;}],&quot;center&quot;:[{&quot;id&quot;:&quot;1019&quot;},{&quot;id&quot;:&quot;1023&quot;}],&quot;frame_height&quot;:150,&quot;frame_width&quot;:500,&quot;left&quot;:[{&quot;id&quot;:&quot;1020&quot;}],&quot;renderers&quot;:[{&quot;id&quot;:&quot;1030&quot;}],&quot;title&quot;:{&quot;id&quot;:&quot;1034&quot;},&quot;toolbar&quot;:{&quot;id&quot;:&quot;1025&quot;},&quot;x_range&quot;:{&quot;id&quot;:&quot;1008&quot;},&quot;x_scale&quot;:{&quot;id&quot;:&quot;1012&quot;},&quot;y_range&quot;:{&quot;id&quot;:&quot;1010&quot;},&quot;y_scale&quot;:{&quot;id&quot;:&quot;1014&quot;}},&quot;id&quot;:&quot;1007&quot;,&quot;subtype&quot;:&quot;Figure&quot;,&quot;type&quot;:&quot;Plot&quot;},{&quot;attributes&quot;:{&quot;line_color&quot;:&quot;#1f77b4&quot;,&quot;line_width&quot;:2,&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;1028&quot;,&quot;type&quot;:&quot;Line&quot;},{&quot;attributes&quot;:{&quot;line_alpha&quot;:0.1,&quot;line_color&quot;:&quot;#1f77b4&quot;,&quot;line_width&quot;:2,&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;1029&quot;,&quot;type&quot;:&quot;Line&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1012&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1038&quot;,&quot;type&quot;:&quot;AllLabels&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1040&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1014&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{&quot;end&quot;:5.25,&quot;start&quot;:-0.25},&quot;id&quot;:&quot;1010&quot;,&quot;type&quot;:&quot;Range1d&quot;},{&quot;attributes&quot;:{&quot;args&quot;:{&quot;duty_ratio_slider&quot;:{&quot;id&quot;:&quot;1004&quot;},&quot;freq_slider&quot;:{&quot;id&quot;:&quot;1005&quot;},&quot;source&quot;:{&quot;id&quot;:&quot;1003&quot;}},&quot;code&quot;:&quot;\n// Exract data from sliders\nlet dutyRatio = duty_ratio_slider.value;\nlet freq = freq_slider.value;\nlet tmax = 0.025;\n\n// Compute period, duty ratio in units of seconds and number of periods\nlet T = 1.0 / freq;\nlet d = dutyRatio * T;\nlet nPeriods = Math.ceil(tmax / T)\n\n// Update the data in the plot\nlet x = [];\nlet y = []\nfor (let i = 0; i &lt; nPeriods; i++) {\n    let iT = i * T;\n    x = x.concat([0 + iT, d + iT, d + iT, T + iT]);\n    y = y.concat([5, 5, 0, 0]);\n}\n\nsource.data[‘x’] = x;\nsource.data[‘y’] = y;\n\nsource.change.emit();\n&quot;},&quot;id&quot;:&quot;1006&quot;,&quot;type&quot;:&quot;CustomJS&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1041&quot;,&quot;type&quot;:&quot;UnionRenderers&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1017&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1042&quot;,&quot;type&quot;:&quot;Selection&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;1016&quot;},&quot;ticker&quot;:null},&quot;id&quot;:&quot;1019&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{&quot;data&quot;:{&quot;x&quot;:{&quot;__ndarray__&quot;:&quot;AAAAAAAAAADInSXs5rdQP8idJezmt1A/yJ0l7Oa3YD/InSXs5rdgP6xsOGLaE2k/rGw4YtoTaT/InSXs5rdwP8idJezmt3A/OgUvp+DldD86BS+n4OV0P6xsOGLaE3k/rGw4YtoTeT8e1EEd1EF9Px7UQR3UQX0/yJ0l7Oa3gD/InSXs5reAP4FRqsnjzoI/gVGqyePOgj86BS+n4OWEPzoFL6fg5YQ/87izhN38hj/zuLOE3fyGP6xsOGLaE4k/rGw4YtoTiT9lIL0/1yqLP2UgvT/XKos/HtRBHdRBjT8e1EEd1EGNP9eHxvrQWI8/14fG+tBYjz/InSXs5reQP8idJezmt5A/pPfnWmXDkT+k9+daZcORP4FRqsnjzpI/gVGqyePOkj9eq2w4YtqTP16rbDhi2pM/OgUvp+DllD86BS+n4OWUPxZf8RVf8ZU/Fl/xFV/xlT/zuLOE3fyWP/O4s4Td/JY/0BJ281sImD/QEnbzWwiYP6xsOGLaE5k/rGw4YtoTmT+IxvrQWB+aP4jG+tBYH5o/ZSC9P9cqmz8=&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[52]},&quot;y&quot;:[5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0]},&quot;selected&quot;:{&quot;id&quot;:&quot;1042&quot;},&quot;selection_policy&quot;:{&quot;id&quot;:&quot;1041&quot;}},&quot;id&quot;:&quot;1003&quot;,&quot;type&quot;:&quot;ColumnDataSource&quot;},{&quot;attributes&quot;:{&quot;axis_label&quot;:&quot;voltage(V)&quot;,&quot;formatter&quot;:{&quot;id&quot;:&quot;1040&quot;},&quot;major_label_policy&quot;:{&quot;id&quot;:&quot;1038&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;1021&quot;}},&quot;id&quot;:&quot;1020&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;1020&quot;},&quot;dimension&quot;:1,&quot;ticker&quot;:null},&quot;id&quot;:&quot;1023&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;1021&quot;,&quot;type&quot;:&quot;BasicTicker&quot;}],&quot;root_ids&quot;:[&quot;1032&quot;]},&quot;title&quot;:&quot;Bokeh Application&quot;,&quot;version&quot;:&quot;2.3.0&quot;}};n”,
-”  var render_items = [{&quot;docid&quot;:&quot;a414496b-b6a3-4c34-bfc9-df1c9daeb7ca&quot;,&quot;root_ids&quot;:[&quot;1032&quot;],&quot;roots&quot;:{&quot;1032&quot;:&quot;3c472f9c-2b14-423b-94e2-6b199d806ff7&quot;}}];n”,
-”  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);n”,
-“n”,
-”  }n”,
-”  if (root.Bokeh !== undefined) {n”,
-”    embed_document(root);n”,
-”  } else {n”,
-”    var attempts = 0;n”,
-”    var timer = setInterval(function(root) {n”,
-”      if (root.Bokeh !== undefined) {n”,
-”        clearInterval(timer);n”,
-”        embed_document(root);n”,
-”      } else {n”,
-”        attempts++;n”,
-”        if (attempts &gt; 100) {n”,
-”          clearInterval(timer);n”,
-”          console.log(&quot;Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing&quot;);n”,
-”        }n”,
-”      }n”,
-”    }, 10, root)n”,
-”  }n”,
-“})(window);”</p>
-</dd>
-</dl>
-<p>],
-“application/vnd.bokehjs_exec.v0+json”: “”</p>
-</dd>
-</dl>
-<p>},
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“application/vnd.bokehjs_exec.v0+json”: {</dt><dd><p>“id”: “1032”</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>},
-“output_type”: “display_data”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“import numpy as npn”,
-“n”,
-“import bokeh.plottingn”,
-“import bokeh.ion”,
-“n”,
-“bokeh.io.output_notebook()n”,
-“n”,
-“tmax = 0.025n”,
-“n”,
-“n”,
-“def pwm_signal(duty_ratio, freq):n”,
-”    T = 1 / freqn”,
-”    d = duty_ratio * Tn”,
-”    n_periods = int(tmax / T) + 1n”,
-”    x = np.concatenate([np.array([0, d, d, T]) + i * T for i in range(n_periods)])n”,
-”    y = np.concatenate([np.array([5, 5, 0, 0])] * n_periods)n”,
-“n”,
-”    return x, yn”,
-“n”,
-“n”,
-“x, y = pwm_signal(0.5, 490)n”,
-“source = bokeh.models.ColumnDataSource(dict(x=x, y=y))n”,
-“n”,
-“duty_ratio_slider = bokeh.models.Slider(n”,
-”    start=0.01, end=0.99, value=0.5, step=0.01, title=&quot;duty ratio&quot;n”,
-“)n”,
-“freq_slider = bokeh.models.Slider(n”,
-”    start=100, end=1000, value=490, step=1, title=&quot;frequency (Hz)&quot;n”,
-“)n”,
-“n”,
-“js_code = &quot;&quot;&quot;n”,
-“// Exract data from slidersn”,
-“let dutyRatio = duty_ratio_slider.value;n”,
-“let freq = freq_slider.value;n”,
-“let tmax = 0.025;n”,
-“n”,
-“// Compute period, duty ratio in units of seconds and number of periodsn”,
-“let T = 1.0 / freq;n”,
-“let d = dutyRatio * T;n”,
-“let nPeriods = Math.ceil(tmax / T)n”,
-“n”,
-“// Update the data in the plotn”,
-“let x = [];n”,
-“let y = []n”,
-“for (let i = 0; i &lt; nPeriods; i++) {n”,
-”    let iT = i * T;n”,
-”    x = x.concat([0 + iT, d + iT, d + iT, T + iT]);n”,
-”    y = y.concat([5, 5, 0, 0]);n”,
-“}n”,
-“n”,
-“source.data[‘x’] = x;n”,
-“source.data[‘y’] = y;n”,
-“n”,
-“source.change.emit();n”,
-“&quot;&quot;&quot;n”,
-“n”,
-“callback = bokeh.models.CustomJS(n”,
-”    args=dict(n”,
-”        source=source, duty_ratio_slider=duty_ratio_slider, freq_slider=freq_slidern”,
-”    ),n”,
-”    code=js_code,n”,
-“)n”,
-“n”,
-“duty_ratio_slider.js_on_change(&quot;value&quot;, callback)n”,
-“freq_slider.js_on_change(&quot;value&quot;, callback)n”,
-“n”,
-“p = bokeh.plotting.figure(n”,
-”    x_axis_label=&quot;time (s)&quot;,n”,
-”    y_axis_label=&quot;voltage(V)&quot;,n”,
-”    frame_height=150,n”,
-”    frame_width=500,n”,
-”    x_range=[0, tmax],n”,
-”    y_range=[-0.25, 5.25],n”,
-”    tools=&quot;save&quot;,n”,
-“)n”,
-“n”,
-“p.line(source=source, x=&quot;x&quot;, y=&quot;y&quot;, line_width=2)n”,
-“n”,
-“bokeh.io.show(bokeh.layouts.column(duty_ratio_slider, freq_slider, p))”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## PWM on the Arduino Uno with analogWrite()n”,
-“n”,
-“Given that the Arduino Uno does not have DAC, why does it have a function <cite>analogWrite()</cite>? The perhaps ill-named function actually invokes PWM from a digital pin. The <cite>analogWrite()</cite> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather an <cite>int</cite>. Although this argument must be given as an <cite>int</cite>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a duty ratio of one. So, if you wanted a duty ratio of $d$, you can compute the number you want to pass to <cite>analogWrite()</cite> as $255 d$. Here is an example of telling pin 3 to perform PWM with a duty ratio of approximately 0.5.n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;analogWrite(3,</span> <span class="pre">127);\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“Note that not all digital pins can do PWM. This is because PWM requires use of the various timers available on Arduino, and a maximum of six pins can be performing PWM at a time. Those that can do PWM are marked with a tilde next to them on the Arduino Uno. Because they use different timers, they have different frequencies.n”,
-“n”,
-“| Pin       | Frequency (Hz)|n”,
-“| ————- <a href="#id5"><span class="problematic" id="id6">|:-------------:|</span></a>n”,
-“| 3      | 490 <a href="#id7"><span class="problematic" id="id8">|\n&quot;,
-&quot;|</span></a> 5      | 980      <a href="#id9"><span class="problematic" id="id10">|\n&quot;,
-&quot;|</span></a> 6 | 980      <a href="#id11"><span class="problematic" id="id12">|\n&quot;,
-&quot;|</span></a> 9      | 490 <a href="#id13"><span class="problematic" id="id14">|\n&quot;,
-&quot;|</span></a> 10      | 490      <a href="#id15"><span class="problematic" id="id16">|\n&quot;,
-&quot;|</span></a> 11 | 490      <a href="#id3"><span class="problematic" id="id4">|</span></a>n”,
-“n”,
-“Note that when PWM is invoked on a pin, its use of the time could affect other functions. Specifically, pins 3 and 11 use Timer2, which is also used for <cite>tone()</cite>. When <cite>tone()</cite> is being used, it may interfere with PWM on pins 3 and 11.n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Follow-along exercise 4: PWM demon”,
-“n”,
-“To demonstrate how the Arduino Uno does PWM in lieu of an [oscilloscope](<a class="reference external" href="https://en.wikipedia.org/wiki/Oscilloscope">https://en.wikipedia.org/wiki/Oscilloscope</a>), you can watch the voltage sent out of a digital pin by reading its output via ADC. The set-up couldn’t be simpler. Connect digital pin 3 to analog input A0.n”,
-“n”,
-“&lt;div style=&quot;margin: auto; width: 300px;&quot;&gt;n”,
-”    n”,
-“![PWM demo setup](pwm_demo_schem.svg)n”,
-”    n”,
-“&lt;/div&gt;n”,
-“n”,
-“We will do PWM on pin 3 and then immediately read in the signal on pin A0. We will send the reading along the serial connection as fast as we can (which is 2,000,000 baud).n”,
-“n”,
-“<code class="docutils literal notranslate"><span class="pre">`arduino\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">sensorPin</span> <span class="pre">=</span> <span class="pre">A0;\n&quot;,</span>
-<span class="pre">&quot;const</span> <span class="pre">int</span> <span class="pre">outPin</span> <span class="pre">=</span> <span class="pre">3;\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">setup()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">pinMode(outPin,</span> <span class="pre">OUTPUT);\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">Serial.begin(2000000);\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">analogWrite(outPin,</span> <span class="pre">127);\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;\n&quot;,</span>
-<span class="pre">&quot;void</span> <span class="pre">loop()</span> <span class="pre">{\n&quot;,</span>
-<span class="pre">&quot;</span>&#160; <span class="pre">Serial.println(analogRead(sensorPin));\n&quot;,</span>
-<span class="pre">&quot;}\n&quot;,</span>
-<span class="pre">&quot;`</span></code>n”,
-“n”,
-“To visualize the signal, you can either use serial-dashboard or the Serial Plotter of the Arduino IDE. In either case, be sure to set the baud rate to 2,000,000. If you do use serial-dashboard, note that you may fill up RAM as you watch the signal, since serial-dashboard aims to store whatever you record, while the Serial Plotter will dump values not displayed.n”,
-“n”,
-“Go ahead and upload this sketch and watch the plot to see the actual voltage signals coming out of pin 3.n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“Many devices, especially mechanical devices like motors, do not react as quickly as the rate at which the voltage switches on and off during PWM. This means that PWM can be an effective means to throttle power to a device.n”,
-“n”,
-“Even when some devices can react as fast as the PWM, when <em>perception</em> of the device is more important, the device would be perceived as having throttled voltage. This is the case for LEDs. By flipping the input voltage on and off via PWM, an LED can appear brighter or dimmer, depending on the duty ratio. Let’s put that idea to work.”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“&lt;hr&gt;n”,
-“n”,
-“## Do-it-yourself exercise 3: Brightness control by PWMn”,
-“n”,
-“Connect a red LED to a pin capable of PWM. Don’t forget to use a 220 Ω resistor so you do not fry your LED. Write a sketch that gradually brings the brightness of the LED up and down, up and down, up and down, ad infinitum.n”,
-“n”,
-“&lt;hr&gt;”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “markdown”,
-“metadata”: {},
-“source”: [</p>
-<blockquote>
-<div><p>“## Computing environment”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>},
-{</p>
-<blockquote>
-<div><p>“cell_type”: “code”,
-“execution_count”: 2,
-“metadata”: {},
-“outputs”: [</p>
-<blockquote>
-<div><dl>
-<dt>{</dt><dd><p>“name”: “stdout”,
-“output_type”: “stream”,
-“text”: [</p>
-<blockquote>
-<div><p>“CPython 3.8.8n”,
-“IPython 7.21.0n”,
-“n”,
-“numpy 1.19.2n”,
-“bokeh 2.3.0n”,
-“jupyterlab 3.0.11n”</p>
-</div></blockquote>
-<p>]</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
-<p>],
-“source”: [</p>
-<blockquote>
-<div><p>“%load_ext watermarkn”,
-“%watermark -v -p numpy,bokeh,jupyterlab”</p>
-</div></blockquote>
-<p>]</p>
-</div></blockquote>
-<p>}</p>
-</dd>
-</dl>
-<p>],
-“metadata”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3 (ipykernel)”,
-“language”: “python”,
-“name”: “python3”</p>
-</dd>
-</dl>
-<p>},
-“language_info”: {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
-“version”: 3</p>
-</dd>
-</dl>
-<p>},
-“file_extension”: “.py”,
-“mimetype”: “text/x-python”,
-“name”: “python”,
-“nbconvert_exporter”: “python”,
-“pygments_lexer”: “ipython3”,
-“version”: “3.8.11”</p>
-</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<p>},
-“nbformat”: 4,
-“nbformat_minor”: 4</p>
-</dd>
-</dl>
-<p>}</p>
+<section id="8.-Pulse-width-modulation">
+<h1>8. Pulse width modulation<a class="headerlink" href="#8.-Pulse-width-modulation" title="Permalink to this heading"></a></h1>
+<hr><p>Let’s say we want to provide a component with a constant voltage of, say, 2.5 volts. It would be convenient if we could just tell the Arduino Uno to deliver analog 2.5 volts out of a specified pin. This process, in which you send a digital number that results in an analog voltage coming out is called <a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">digital-to-analog conversion</a>, abbreviated as DAC. <a class="reference external" href="https://store.arduino.cc/usa/due">Arduino Due</a> and <a class="reference external" href="https://store.arduino.cc/usa/arduino-zero">Ardunio
+Zero</a> offer 12-bit and 10-bit DAC, respectively, but there are no built-in DAC capabilities in Arduino Uno. The Uno board can only write digital values. That is, it can only send values that are <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> (5 V) and <code class="docutils literal notranslate"><span class="pre">LOW</span></code> (0 V). To deliver voltages out of pins between zero and five volts, it uses <strong>pulse width modulation (PWM)</strong> as a replacement for DAC.</p>
+<section id="The-idea-behind-PWM">
+<h2>The idea behind PWM<a class="headerlink" href="#The-idea-behind-PWM" title="Permalink to this heading"></a></h2>
+<p>While we cannot deliver 2.5 volts at any given time using Arduino Uno, we can deliver an <em>average</em> of 2.5 volts over time. Think of a light switch. If you flip it on for a second, then off for a second, them back on for a second, etc., over the course of a minute, you would have, on average, a half-dimmed light.</p>
+<p>Now, say we turn digital pin 3 on (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, 5 V) for one millisecond. Then we turn it off (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>, 0 V) for one millisecond. We keep doing this, and, on average, we deliver 2.5 V.</p>
+<p>A signal given by PWM is characterized by three parameters.</p>
+<ol class="arabic simple">
+<li><p>The amplitude. For Arduino Uno, this is 5 Volts.</p></li>
+<li><p>The frequency. This is how rapidly the voltage oscillates.</p></li>
+<li><p>The duty ratio. This is the fraction of time in one period of the oscillation that the voltage is high.</p></li>
+</ol>
+<p>To see how these parameters affect the voltage levels over time, you can manipulate the interactive plot below. I fixed the amplitude to 5 V, and you can vary the frequency and duty ratio. I intentionally left the Python/JavaScript code to generate the plot in case you are interested in how to build these things using <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a>. Soon, we will be building interactive dashboards for controlling devices using Bokeh. (But don’t worry, you won’t have to hack and JavaScript;
+I used JavaScript so you could interact with the plot in the static HTML document.)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+
+<span class="n">tmax</span> <span class="o">=</span> <span class="mf">0.025</span>
+
+
+<span class="k">def</span> <span class="nf">pwm_signal</span><span class="p">(</span><span class="n">duty_ratio</span><span class="p">,</span> <span class="n">freq</span><span class="p">):</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">freq</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">duty_ratio</span> <span class="o">*</span> <span class="n">T</span>
+    <span class="n">n_periods</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">tmax</span> <span class="o">/</span> <span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">T</span><span class="p">])</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">T</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_periods</span><span class="p">)])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])]</span> <span class="o">*</span> <span class="n">n_periods</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pwm_signal</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">490</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ColumnDataSource</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">))</span>
+
+<span class="n">duty_ratio_slider</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;duty ratio&quot;</span>
+<span class="p">)</span>
+<span class="n">freq_slider</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">490</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;frequency (Hz)&quot;</span>
+<span class="p">)</span>
+
+<span class="n">js_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">// Exract data from sliders</span>
+<span class="s2">let dutyRatio = duty_ratio_slider.value;</span>
+<span class="s2">let freq = freq_slider.value;</span>
+<span class="s2">let tmax = 0.025;</span>
+
+<span class="s2">// Compute period, duty ratio in units of seconds and number of periods</span>
+<span class="s2">let T = 1.0 / freq;</span>
+<span class="s2">let d = dutyRatio * T;</span>
+<span class="s2">let nPeriods = Math.ceil(tmax / T)</span>
+
+<span class="s2">// Update the data in the plot</span>
+<span class="s2">let x = [];</span>
+<span class="s2">let y = []</span>
+<span class="s2">for (let i = 0; i &lt; nPeriods; i++) {</span>
+<span class="s2">    let iT = i * T;</span>
+<span class="s2">    x = x.concat([0 + iT, d + iT, d + iT, T + iT]);</span>
+<span class="s2">    y = y.concat([5, 5, 0, 0]);</span>
+<span class="s2">}</span>
+
+<span class="s2">source.data[&#39;x&#39;] = x;</span>
+<span class="s2">source.data[&#39;y&#39;] = y;</span>
+
+<span class="s2">source.change.emit();</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">callback</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">CustomJS</span><span class="p">(</span>
+    <span class="n">args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">duty_ratio_slider</span><span class="o">=</span><span class="n">duty_ratio_slider</span><span class="p">,</span> <span class="n">freq_slider</span><span class="o">=</span><span class="n">freq_slider</span>
+    <span class="p">),</span>
+    <span class="n">code</span><span class="o">=</span><span class="n">js_code</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">duty_ratio_slider</span><span class="o">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span class="n">freq_slider</span><span class="o">.</span><span class="n">js_on_change</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
+    <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+    <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;voltage(V)&quot;</span><span class="p">,</span>
+    <span class="n">frame_height</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
+    <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+    <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">],</span>
+    <span class="n">y_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">5.25</span><span class="p">],</span>
+    <span class="n">tools</span><span class="o">=</span><span class="s2">&quot;save&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">duty_ratio_slider</span><span class="p">,</span> <span class="n">freq_slider</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1002">Loading BokehJS ...</span>
+</div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  var force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  var JS_MIME_TYPE = 'application/javascript';
+  var HTML_MIME_TYPE = 'text/html';
+  var EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  var CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    var script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    var cell = handle.cell;
+
+    var id = cell.output_area._bokeh_element_id;
+    var server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      var cmd = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd, {
+        iopub: {
+          output: function(msg) {
+            var id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      var cmd = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    var output_area = handle.output_area;
+    var output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    var toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      var bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      var script_attrs = bk_div.children[0].attributes;
+      for (var i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      var toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      var props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    var events = require('base/js/events');
+    var OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  var NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    var el = document.getElementById("1002");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    const hashes = {"https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js": "HjagQp6T0/7bxYTAXbLotF1MLAGWmhkY5siA1Gc/pcEgvgRPtMsRn0gQtMwGKiw1", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js": "ZEPPTjL+mdyqgIq+/pl9KTwzji8Kow2NnI3zWY8+sFinWP/SYJ80BnfeJsa45iYj", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js": "exLqv2ACDRIaV7ZK1iL8aGzGYQvKVuT3U2CT7FsQREBxRah6JrkVCoFy0koY1YqV"};
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      if (url in hashes) {
+        element.crossOrigin = "anonymous";
+        element.integrity = "sha384-" + hashes[url];
+      }
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+
+  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js"];
+  var css_urls = [];
+
+
+  var inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+
+
+    }
+  ];
+
+  function run_inline_js() {
+
+    if (root.Bokeh !== undefined || force === true) {
+
+    for (var i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      var cell = $(document.getElementById("1002")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));
+</script></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div class="bk-root" id="3c472f9c-2b14-423b-94e2-6b199d806ff7" data-root-id="1032"></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="output_javascript"></div>
+<script type="text/javascript">
+var element = document.currentScript.previousSibling.previousSibling;
+(function(root) {
+  function embed_document(root) {
+
+  var docs_json = {"a414496b-b6a3-4c34-bfc9-df1c9daeb7ca":{"defs":[{"extends":null,"module":null,"name":"DataModel","overrides":[],"properties":[]}],"roots":{"references":[{"attributes":{"children":[{"id":"1004"},{"id":"1005"},{"id":"1007"}]},"id":"1032","type":"Column"},{"attributes":{"active_multi":null,"tools":[{"id":"1024"}]},"id":"1025","type":"Toolbar"},{"attributes":{},"id":"1024","type":"SaveTool"},{"attributes":{},"id":"1035","type":"AllLabels"},{"attributes":{"source":{"id":"1003"}},"id":"1031","type":"CDSView"},{"attributes":{},"id":"1037","type":"BasicTickFormatter"},{"attributes":{"end":0.99,"js_property_callbacks":{"change:value":[{"id":"1006"}]},"start":0.01,"step":0.01,"title":"duty ratio","value":0.5},"id":"1004","type":"Slider"},{"attributes":{"end":1000,"js_property_callbacks":{"change:value":[{"id":"1006"}]},"start":100,"title":"frequency (Hz)","value":490},"id":"1005","type":"Slider"},{"attributes":{"end":0.025},"id":"1008","type":"Range1d"},{"attributes":{},"id":"1034","type":"Title"},{"attributes":{"axis_label":"time (s)","formatter":{"id":"1037"},"major_label_policy":{"id":"1035"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"},{"attributes":{"data_source":{"id":"1003"},"glyph":{"id":"1028"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1029"},"view":{"id":"1031"}},"id":"1030","type":"GlyphRenderer"},{"attributes":{"below":[{"id":"1016"}],"center":[{"id":"1019"},{"id":"1023"}],"frame_height":150,"frame_width":500,"left":[{"id":"1020"}],"renderers":[{"id":"1030"}],"title":{"id":"1034"},"toolbar":{"id":"1025"},"x_range":{"id":"1008"},"x_scale":{"id":"1012"},"y_range":{"id":"1010"},"y_scale":{"id":"1014"}},"id":"1007","subtype":"Figure","type":"Plot"},{"attributes":{"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1028","type":"Line"},{"attributes":{"line_alpha":0.1,"line_color":"#1f77b4","line_width":2,"x":{"field":"x"},"y":{"field":"y"}},"id":"1029","type":"Line"},{"attributes":{},"id":"1012","type":"LinearScale"},{"attributes":{},"id":"1038","type":"AllLabels"},{"attributes":{},"id":"1040","type":"BasicTickFormatter"},{"attributes":{},"id":"1014","type":"LinearScale"},{"attributes":{"end":5.25,"start":-0.25},"id":"1010","type":"Range1d"},{"attributes":{"args":{"duty_ratio_slider":{"id":"1004"},"freq_slider":{"id":"1005"},"source":{"id":"1003"}},"code":"\n// Exract data from sliders\nlet dutyRatio = duty_ratio_slider.value;\nlet freq = freq_slider.value;\nlet tmax = 0.025;\n\n// Compute period, duty ratio in units of seconds and number of periods\nlet T = 1.0 / freq;\nlet d = dutyRatio * T;\nlet nPeriods = Math.ceil(tmax / T)\n\n// Update the data in the plot\nlet x = [];\nlet y = []\nfor (let i = 0; i < nPeriods; i++) {\n    let iT = i * T;\n    x = x.concat([0 + iT, d + iT, d + iT, T + iT]);\n    y = y.concat([5, 5, 0, 0]);\n}\n\nsource.data['x'] = x;\nsource.data['y'] = y;\n\nsource.change.emit();\n"},"id":"1006","type":"CustomJS"},{"attributes":{},"id":"1041","type":"UnionRenderers"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{},"id":"1042","type":"Selection"},{"attributes":{"axis":{"id":"1016"},"ticker":null},"id":"1019","type":"Grid"},{"attributes":{"data":{"x":{"__ndarray__":"AAAAAAAAAADInSXs5rdQP8idJezmt1A/yJ0l7Oa3YD/InSXs5rdgP6xsOGLaE2k/rGw4YtoTaT/InSXs5rdwP8idJezmt3A/OgUvp+DldD86BS+n4OV0P6xsOGLaE3k/rGw4YtoTeT8e1EEd1EF9Px7UQR3UQX0/yJ0l7Oa3gD/InSXs5reAP4FRqsnjzoI/gVGqyePOgj86BS+n4OWEPzoFL6fg5YQ/87izhN38hj/zuLOE3fyGP6xsOGLaE4k/rGw4YtoTiT9lIL0/1yqLP2UgvT/XKos/HtRBHdRBjT8e1EEd1EGNP9eHxvrQWI8/14fG+tBYjz/InSXs5reQP8idJezmt5A/pPfnWmXDkT+k9+daZcORP4FRqsnjzpI/gVGqyePOkj9eq2w4YtqTP16rbDhi2pM/OgUvp+DllD86BS+n4OWUPxZf8RVf8ZU/Fl/xFV/xlT/zuLOE3fyWP/O4s4Td/JY/0BJ281sImD/QEnbzWwiYP6xsOGLaE5k/rGw4YtoTmT+IxvrQWB+aP4jG+tBYH5o/ZSC9P9cqmz8=","dtype":"float64","order":"little","shape":[52]},"y":[5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0,5,5,0,0]},"selected":{"id":"1042"},"selection_policy":{"id":"1041"}},"id":"1003","type":"ColumnDataSource"},{"attributes":{"axis_label":"voltage(V)","formatter":{"id":"1040"},"major_label_policy":{"id":"1038"},"ticker":{"id":"1021"}},"id":"1020","type":"LinearAxis"},{"attributes":{"axis":{"id":"1020"},"dimension":1,"ticker":null},"id":"1023","type":"Grid"},{"attributes":{},"id":"1021","type":"BasicTicker"}],"root_ids":["1032"]},"title":"Bokeh Application","version":"2.3.0"}};
+  var render_items = [{"docid":"a414496b-b6a3-4c34-bfc9-df1c9daeb7ca","root_ids":["1032"],"roots":{"1032":"3c472f9c-2b14-423b-94e2-6b199d806ff7"}}];
+  root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
+
+  }
+  if (root.Bokeh !== undefined) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (root.Bokeh !== undefined) {
+        clearInterval(timer);
+        embed_document(root);
+      } else {
+        attempts++;
+        if (attempts > 100) {
+          clearInterval(timer);
+          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+        }
+      }
+    }, 10, root)
+  }
+})(window);
+</script></div>
+</div>
+</section>
+<section id="PWM-on-the-Arduino-Uno-with-analogWrite()">
+<h2>PWM on the Arduino Uno with analogWrite()<a class="headerlink" href="#PWM-on-the-Arduino-Uno-with-analogWrite()" title="Permalink to this heading"></a></h2>
+<p>Given that the Arduino Uno does not have DAC, why does it have a function <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>? The perhaps ill-named function actually invokes PWM from a digital pin. The <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather an <code class="docutils literal notranslate"><span class="pre">int</span></code>. Although this argument must be given as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a
+duty ratio of one. So, if you wanted a duty ratio of <span class="math notranslate nohighlight">\(d\)</span>, you can compute the number you want to pass to <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> as <span class="math notranslate nohighlight">\(255 d\)</span>. Here is an example of telling pin 3 to perform PWM with a duty ratio of approximately 0.5.</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">analogWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note that not all digital pins can do PWM. This is because PWM requires use of the various timers available on Arduino, and a maximum of six pins can be performing PWM at a time. Those that can do PWM are marked with a tilde next to them on the Arduino Uno. Because they use different timers, they have different frequencies.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pin</p></th>
+<th class="head"><p>Frequency (Hz)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>490</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>980</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>980</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>490</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>490</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>490</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that when PWM is invoked on a pin, its use of the time could affect other functions. Specifically, pins 3 and 11 use Timer2, which is also used for <code class="docutils literal notranslate"><span class="pre">tone()</span></code>. When <code class="docutils literal notranslate"><span class="pre">tone()</span></code> is being used, it may interfere with PWM on pins 3 and 11.</p>
+<hr></section>
+<section id="Follow-along-exercise-4:-PWM-demo">
+<h2>Follow-along exercise 4: PWM demo<a class="headerlink" href="#Follow-along-exercise-4:-PWM-demo" title="Permalink to this heading"></a></h2>
+<p>To demonstrate how the Arduino Uno does PWM in lieu of an <a class="reference external" href="https://en.wikipedia.org/wiki/Oscilloscope">oscilloscope</a>, you can watch the voltage sent out of a digital pin by reading its output via ADC. The set-up couldn’t be simpler. Connect digital pin 3 to analog input A0.</p>
+<div style="margin: auto; width: 300px;"><img alt="PWM demo setup" src="../../_images/pwm_demo_schem.svg" /></div><p>We will do PWM on pin 3 and then immediately read in the signal on pin A0. We will send the reading along the serial connection as fast as we can (which is 2,000,000 baud).</p>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">outPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">2000000</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">analogWrite</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">));</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To visualize the signal, you can either use serial-dashboard or the Serial Plotter of the Arduino IDE. In either case, be sure to set the baud rate to 2,000,000. If you do use serial-dashboard, note that you may fill up RAM as you watch the signal, since serial-dashboard aims to store whatever you record, while the Serial Plotter will dump values not displayed.</p>
+<p>Go ahead and upload this sketch and watch the plot to see the actual voltage signals coming out of pin 3.</p>
+<hr><p>Many devices, especially mechanical devices like motors, do not react as quickly as the rate at which the voltage switches on and off during PWM. This means that PWM can be an effective means to throttle power to a device.</p>
+<p>Even when some devices can react as fast as the PWM, when <em>perception</em> of the device is more important, the device would be perceived as having throttled voltage. This is the case for LEDs. By flipping the input voltage on and off via PWM, an LED can appear brighter or dimmer, depending on the duty ratio. Let’s put that idea to work.</p>
+<hr></section>
+<section id="Do-it-yourself-exercise-3:-Brightness-control-by-PWM">
+<h2>Do-it-yourself exercise 3: Brightness control by PWM<a class="headerlink" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM" title="Permalink to this heading"></a></h2>
+<p>Connect a red LED to a pin capable of PWM. Don’t forget to use a 220 Ω resistor so you do not fry your LED. Write a sketch that gradually brings the brightness of the LED up and down, up and down, up and down, ad infinitum.</p>
+<hr></section>
+<section id="Computing-environment">
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
+<span class="o">%</span><span class="k">watermark</span> -v -p numpy,bokeh,jupyterlab
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+CPython 3.8.8
+IPython 7.21.0
+
+numpy 1.19.2
+bokeh 2.3.0
+jupyterlab 3.0.11
+</pre></div></div>
+</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../07/adc_and_usart.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../09/asynchrony_and_blocking.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../07/adc_and_usart.html" class="btn btn-neutral float-left" title="7. ADC and USART" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../09/asynchrony_and_blocking.html" class="btn btn-neutral float-right" title="9. Asynchrony and blocking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 22, 2022.
+      <span class="lastupdated">Last updated on Sep 26, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fb0fe97d820> 
+   <jinja2.runtime.BlockReference object at 0x7ff5d48d1370> 
 
-<p>© 2020 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 
