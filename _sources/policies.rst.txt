@@ -3,7 +3,7 @@
 Meetings
 --------
 
-The class meets regularly on Tuesdays and Thursdays 1:00 pm-2:30 pm Pacific in 123/125/137 Kerckhoff. Unless you have extenuating circumstances, the meetings are mandatory. Most class meetings involve working on exercises and projects. Some meetings will involve live instruction, which is posted on the :ref:`Schedule` page.
+The class meets regularly on Tuesdays and Thursdays 10:30 am-noon Pacific in 127 Kerckhoff. Unless you have extenuating circumstances, the meetings are mandatory. Most class meetings involve working on exercises and projects. Some meetings will involve live instruction, which is posted on the :ref:`Schedule` page.
 
 
 Course structure
@@ -19,7 +19,7 @@ You can work at your own pace, but it is your responsibility to have your exerci
 Course communications
 ---------------------
 
-Please use `the course Ed page <https://edstem.org/us/courses/14669/>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
+Please use `the course Ed page <https://edstem.org/us/courses/25675/>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
 
 For private matters, such as extension requests, contact the course staff directly using email.
 
@@ -33,7 +33,7 @@ We will be using shared equipment and components in the lab. It is your responsi
 Submission of exercises and project write-ups
 ----------------------------------------------
 
-Each project write-up and exercise must be submitted as a ZIP file via email to `caltechbe189@gmail.com`. The files names are `lastname_firstname_faexercise_##.zip` for follow-along exercises and `lastname_firstname_diyexercise_##.zip` for do-it-yourself exercises, where `##` it the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_pulseox.zip` and `lastname_firstname_cv.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes. The subject line of the email is the same as the file name of the ZIP file, minus the `.zip`.
+Each project write-up and exercise must be submitted as a file upload to Canvas for the appropriate assignment. Exceptions are follow-along exercises that you demo in person to a member of the course staff, in which case a text submission indicating that you did so suffices. Please zip the file submissions with the following file naming convention. The files names are `lastname_firstname_faexercise_##.zip` for follow-along exercises and `lastname_firstname_diyexercise_##.zip` for do-it-yourself exercises, where `##` is the two-digit exercise number, .e.g., `06` or `14`. For the projects, the file names are `lastname_firstname_spectrophotometer.zip` and `lastname_firstname_pulseox.zip`. If you use bzip2 or gzip, you should use the appropriate suffixes.
 
 
 Exercises
@@ -55,10 +55,12 @@ In a thinking exercise, you do not need to build anything. They typically are th
 Follow-along exercises
 ^^^^^^^^^^^^^^^^^^^^^^
 
-In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. Unless otherwise noted, when you submit a follow-along exercise, the following must be included in the ZIP file.
+In a follow-along exercise, you follow instructions for setting up your board and the code. These are meant to provide an active reading experience as you read through the course materials. When you submit a follow-along exercise, the following must be included in the ZIP file.
 
 1. A photo or photos of your board/breadboard.
 2. A brief movie of your circuit functioning. (In lieu of a brief movie, you may show your circuit functioning to a member of the course staff and indicate that you did that in your submission.)
+
+If you demonstrate your circuit to a member of the course staff in class, you may instead simply make a text submission indicating that you demoed in person.
 
 
 Do-it-yourself exercises
@@ -66,7 +68,7 @@ Do-it-yourself exercises
 
 In a do-it-yourself exercise, you apply techniques covered in the course materials and in the follow-along exercises to make your own circuit. These exercises are meant to help you build the expertise you need to complete the projects. When you submit a do-it-yourself exercise, the following must be included in the ZIP file unless otherwise indicated in the exercise statement.
 
-1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include a schematic of your ciruit, and also a pictorial schematic if you think it is necessary and/or helpful. You can use `Fritzing <https://fritzing.org>`_ to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.
+1. A Jupyter notebook with a write-up of how you went about completing the exercise. This should include a schematic of your ciruit, and also a pictorial schematic if you think it is necessary and/or helpful. You can use `Fritzing <https://fritzing.org>`_ or other software to make these. You should also include code from any sketches you wrote in your notebook, in addition to including sketches in the ZIP file. This helps with grading. If you interact with your device through JupyterLab, that can also be included in the notebook.
 2. An HTML rendering of the Jupyter notebook.
 3. Any Arduino sketches you wrote.
 4. If you wrote any other code, for example to build a Bokeh app to control your device, include the .py files.
@@ -82,7 +84,7 @@ To include Arduino sketches in Jupyter notebooks, use the following syntax in a 
 	```
 
 
-IF syntax highlighting does not properly work, you can instead use C++ highlighting.
+If syntax highlighting does not properly work, you can instead use C++ highlighting.
 
 .. code::
 
@@ -94,14 +96,14 @@ IF syntax highlighting does not properly work, you can instead use C++ highlight
 Project write-ups
 -----------------
 
-You will complete two major design projects in the course. You will construct a pulse oximeter and a cyclic voltameter. Your goal is to develop a prototype to achieve the provided design specification. Each project has a description on the course website with some background information, overall design specification, and a set of details about the specification.
+You will complete two major design projects in the course. You will construct a spectrophotometer and a pulse oximeter. Your goal is to develop a prototype to achieve the provided design specification. Each project has a description on the course website with some background information, overall design specification, and a set of details about the specification.
 
 In designing your project, you also need to design and implement a user interface for controlling the device and acquiring data from it. You can use `Bokeh <https://bokeh.pydata.org/>`_ to do this.
 
 The project writeup must include the following in delineated sections, written in a Jupyter notebook.
 
 - **Section 1: Overview.** A one- or two-paragraph summary of the design objectives.
-- **Section 2: Design and design considerations.** Include circuit diagrams and a pictorial representation of the breadboard (which you can make with `Fritzing <https://fritzing.org>`_. You should also include a description and rationale behind design choices you made in executing the prototype per specification. These choices also include how you designed the user interface. Discuss potential limitations or trade offs for major design decisions.
+- **Section 2: Design and design considerations.** Include circuit diagrams and a pictorial representation of the breadboard (which you can make with `Fritzing <https://fritzing.org>`_ or other software). You should also include a description and rationale behind design choices you made in executing the prototype per specification. These choices also include how you designed the user interface. Discuss potential limitations or trade offs for major design decisions.
 - **Section 3: Instructions for use.** Instructions on how to use your device.
 - **Section 4: Demonstration and assessment.** A demonstration of the device's functionality and assessment of its performance. Metrics for performance should be clearly delineated and assessed.
 - **Section 5: Analysis of data.** Analysis of any relevant data you acquired from your device. This involves making plots and determining parameters of the biological system you are probing with your device.
@@ -123,10 +125,11 @@ Collaboration policy
 
 - You may discuss all of the course material and objectives, including the exercises and projects, with other students in the course. If you get useful help from another student, please be sure to cite them appropriately in your write-up.
 - You may use whatever internet resources you need. If you took substantial ideas from sources outside of the course materials, clearly cite them.
+- You may not reference completed work from students in previous editions of this course.
 
 
 Grading
 -------
 
-- 30% of your grade is determined from exercises and 65% of your grade is determined from your projects, with 30% of your grade coming from the pulse oximeter project and 35% from the cyclic voltameter project. The remaining 5% of your grade is determined but your lab technique and citizenship. You need to keep your workspace and the communal space tidy and organized.
-- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/2\ :superscript:`(ceil(number of days late))`\ . The exception is the pulse oximetry write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
+- 30% of your grade is determined from exercises and 65% of your grade is determined from your projects, with 30% of your grade coming from the spectrophotometer project and 35% from the pulse oximeter project. The remaining 5% of your grade is determined but your lab technique and citizenship. You need to keep your workspace and the communal space tidy and organized.
+- Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/1.1\ :superscript:`(ceil(number of days late))`\ . After seven days, the assignment will not be accepted. The exception is the pulse oximetry write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.
