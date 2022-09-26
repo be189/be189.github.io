@@ -9,7 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Course Ed Page <https://edstem.org/us/courses/25675/>`_ (used for course communications)
+- `Course Ed page <https://edstem.org/us/courses/25675/>`_ (used for course communications)
+
+- `Course Canvas page <https://caltech.instructure.com/courses/4758>`_ (used for assignment submission)
 
 - :ref:`References and resources<Software>`
 

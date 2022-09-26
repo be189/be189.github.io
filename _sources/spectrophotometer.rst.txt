@@ -250,12 +250,12 @@ You may also want to think about the following considerations when demonstrating
 
 
 Instructions for obtaining a curve for enzymatic catalysis
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The reaction we will monitor is starch-iodine complex ⟶ sugars + free iodine, catalyzed by amylase in your saliva. The starch-iodine complex absorbs near 600 nm and is the substrate in the Michaelis-Menten mechanism. We will monitor its concentration over time.
 
 Obtaining a saliva sample
-^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Do not eat, brush your teeth, or rinse your mouth for about 30 minutes.
 #. Take a sip of water, and try to secrete saliva for 2-5 min. You should collect the saliva in a small cup or other container.
@@ -263,7 +263,7 @@ Obtaining a saliva sample
 
 
 Measuring the growth curve
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because you want to capture as much of the reaction dynamics as possible, you will need to work quickly to get the reaction mixture assembled and into your spectrophotometer.
 
@@ -272,3 +272,7 @@ Because you want to capture as much of the reaction dynamics as possible, you wi
 #. Working quickly, pipette approximately 1 mL of starch-saliva solution into each cuvette. Pipette the mixture up and down a couple times to mix. Take measurements until the absorbance approaches zero, or until there is no more observable decrease in absorbance.
 
 
+Submission
+^^^^^^^^^^^
+
+Submit your write-up as a ZIP file `via Canvas <https://caltech.instructure.com/courses/4758/assignments/35383>`_.

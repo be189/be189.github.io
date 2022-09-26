@@ -4,16 +4,16 @@ Do-it-yourself exercises
 Do-it-yourself exercises are embedded in lessons. For convenience here are links to the respective exercises.
 
 
-- :ref:`Do-it-yourself exercise 1: Alien contact with audio`
-- :ref:`Do-it-yourself exercise 2: A proper Hello, world.`
-- :ref:`Do-it-yourself exercise 3: Brightness control by PWM`
-- :ref:`Do-it-yourself exercise 4: K.I.T.T. scanner bar`
-- :ref:`Do-it-yourself exercise 5: Asking for data with buttons`
-- :ref:`Do-it-yourself exercise 6: Etch-A-Sketch`
-- :ref:`Do-it-yourself exercise 7: Potentiometer app`
-- :ref:`Do-it-yourself exercise 8: DAC with PWM`
-- :ref:`Do-it-yourself exercise 9: Photoresistors with ADC`
-- :ref:`Do-it-yourself exercise 10: Demonstration of noninverting amplification`
+- :ref:`Do-it-yourself exercise 1: Alien contact with audio` (`submission <https://caltech.instructure.com/courses/4758/assignments/35370>`_)
+- :ref:`Do-it-yourself exercise 2: A proper Hello, world.` (`submission <https://caltech.instructure.com/courses/4758/assignments/35372>`_)
+- :ref:`Do-it-yourself exercise 3: Brightness control by PWM` (`submission <https://caltech.instructure.com/courses/4758/assignments/35373>`_)
+- :ref:`Do-it-yourself exercise 4: K.I.T.T. scanner bar` (`submission <https://caltech.instructure.com/courses/4758/assignments/35374>`_)
+- :ref:`Do-it-yourself exercise 5: Asking for data with buttons` (`submission <https://caltech.instructure.com/courses/4758/assignments/35375>`_)
+- :ref:`Do-it-yourself exercise 6: Etch-A-Sketch` (`submission <https://caltech.instructure.com/courses/4758/assignments/35376>`_)
+- :ref:`Do-it-yourself exercise 7: Potentiometer app` (`submission <https://caltech.instructure.com/courses/4758/assignments/35377>`_)
+- :ref:`Do-it-yourself exercise 8: DAC with PWM` (`submission <https://caltech.instructure.com/courses/4758/assignments/35378>`_)
+- :ref:`Do-it-yourself exercise 9: Photoresistors with ADC` (`submission <https://caltech.instructure.com/courses/4758/assignments/35379>`_)
+- :ref:`Do-it-yourself exercise 10: Demonstration of noninverting amplification` (`submission <https://caltech.instructure.com/courses/4758/assignments/35380>`_)
 - Do-it-yourself exercise 11: *omitted*
-- :ref:`Do-it-yourself exercise 12: Using the LF398N for sample-and-hold`
-- :ref:`Do-it-yourself exercise 13: A bandpass filter`
+- :ref:`Do-it-yourself exercise 12: Using the LF398N for sample-and-hold` (`submission <https://caltech.instructure.com/courses/4758/assignments/35381>`_)
+- :ref:`Do-it-yourself exercise 13: A bandpass filter` (`submission <https://caltech.instructure.com/courses/4758/assignments/35382>`_)

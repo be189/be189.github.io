@@ -280,4 +280,7 @@ You should also think about the following design considerations.
 5. If you use those components, should you filter and/or amplify your signals before or after the sample-and-hold?
 
 
+Submission
+^^^^^^^^^^^
 
+Submit your write-up as a ZIP file `via Canvas <https://caltech.instructure.com/courses/4758/assignments/35384>`_.
