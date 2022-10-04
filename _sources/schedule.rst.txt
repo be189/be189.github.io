@@ -55,10 +55,11 @@ Weekly activities
 In each lab session, which are Tuesdays and Thursdays, 10:30-noon, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
 
 - **Tu 09/27**: Welcome, safety, introduction to Arduino
-- **Th 09/29**: A tour through available components
-- **Tu 10/04**: A tour of Arduino Uno
+- **Th 09/29**: A tour through available components and Arduino Uno
 - **Tu 10/11**: Lecture on design approaches
-- **Tu 10/18**: Lecture on 3D printing by Anne Kil
+- **Th 10/13**: Lecture on 3D printing by Anne Kil
+- **Tu 10/18**: Training on 3D printing with Techlab (half the students)
+- **Th 10/20**: Training on 3D printing with Techlab (half the students)
 - **Tu 10/25**: Lecture on devices for democratization of science by Anne Kil
 - **Th 11/24**: Thanksgiving Day: no class
 - **Th 12/08**: Tear down and clean up
