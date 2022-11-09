@@ -70,6 +70,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Connecting-to-Arduino-and-opening-DAQ">Connecting to Arduino and opening DAQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Building-the-app">Building the app</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Thinking-exercise-5:-Safeguards">Thinking exercise 5: Safeguards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Running-an-app-in-its-own-tab">Running an app in its own tab</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-it-yourself-exercise-7:-Potentiometer-app">Do-it-yourself exercise 7: Potentiometer app</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Computing-environment">Computing environment</a></li>
 </ul>
@@ -1611,555 +1612,573 @@ xhr.send();
 <section id="Thinking-exercise-5:-Safeguards">
 <h2>Thinking exercise 5: Safeguards<a class="headerlink" href="#Thinking-exercise-5:-Safeguards" title="Permalink to this heading"></a></h2>
 <p>This app does not have much error checking. What kinds of features and checks would you add to this app to ensure that a careless user does not end up messing things up?</p>
-<hr><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;&quot;&quot;
-App to read in varying voltages from Arduino.
-
-To serve the app, run
-
-    bokeh serve --show potentiometer_app.py
-
-on the command line.
-&quot;&quot;&quot;
-
-import asyncio
-import re
-import sys
-import time
-
-import numpy as np
-import pandas as pd
-
-import serial
-import serial.tools.list_ports
-
-import bokeh.plotting
-import bokeh.io
-import bokeh.layouts
-import bokeh.driving
-
-
-def find_arduino(port=None):
-    &quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;
-    if port is None:
-        ports = serial.tools.list_ports.comports()
-        for p in ports:
-            if p.manufacturer is not None and &quot;Arduino&quot; in p.manufacturer:
-                port = p.device
-    return port
-
-
-def handshake_arduino(
-    arduino, sleep_time=1, print_handshake_message=False, handshake_code=0
-):
-    &quot;&quot;&quot;Make sure connection is established by sending
-    and receiving bytes.&quot;&quot;&quot;
-    # Close and reopen
-    arduino.close()
-    arduino.open()
-
-    # Chill out while everything gets set
-    time.sleep(sleep_time)
-
-    # Set a long timeout to complete handshake
-    timeout = arduino.timeout
-    arduino.timeout = 2
-
-    # Read and discard everything that may be in the input buffer
-    _ = arduino.read_all()
-
-    # Send request to Arduino
-    arduino.write(bytes([handshake_code]))
-
-    # Read in what Arduino sent
-    handshake_message = arduino.read_until()
-
-    # Send and receive request again
-    arduino.write(bytes([handshake_code]))
-    handshake_message = arduino.read_until()
-
-    # Print the handshake message, if desired
-    if print_handshake_message:
-        print(&quot;Handshake message: &quot; + handshake_message.decode())
-
-    # Reset the timeout
-    arduino.timeout = timeout
-
-
-def read_all(ser, read_buffer=b&quot;&quot;, **args):
-    &quot;&quot;&quot;Read all available bytes from the serial port
-    and append to the read buffer.
-
-    Parameters
-    ----------
-    ser : serial.Serial() instance
-        The device we are reading from.
-    read_buffer : bytes, default b&#39;&#39;
-        Previous read buffer that is appended to.
-
-    Returns
-    -------
-    output : bytes
-        Bytes object that contains read_buffer + read.
-
-    Notes
-    -----
-    .. `**args` appears, but is never used. This is for
-       compatibility with `read_all_newlines()` as a
-       drop-in replacement for this function.
-    &quot;&quot;&quot;
-    # Set timeout to None to make sure we read all bytes
-    previous_timeout = ser.timeout
-    ser.timeout = None
-
-    in_waiting = ser.in_waiting
-    read = ser.read(size=in_waiting)
-
-    # Reset to previous timeout
-    ser.timeout = previous_timeout
-
-    return read_buffer + read
-
-
-def read_all_newlines(ser, read_buffer=b&quot;&quot;, n_reads=4):
-    &quot;&quot;&quot;Read data in until encountering newlines.
-
-    Parameters
-    ----------
-    ser : serial.Serial() instance
-        The device we are reading from.
-    n_reads : int
-        The number of reads up to newlines
-    read_buffer : bytes, default b&#39;&#39;
-        Previous read buffer that is appended to.
-
-    Returns
-    -------
-    output : bytes
-        Bytes object that contains read_buffer + read.
-
-    Notes
-    -----
-    .. This is a drop-in replacement for read_all().
-    &quot;&quot;&quot;
-    raw = read_buffer
-    for _ in range(n_reads):
-        raw += ser.read_until()
-
-    return raw
-
-
-def parse_read(read):
-    &quot;&quot;&quot;Parse a read with time, voltage data
-
-    Parameters
-    ----------
-    read : byte string
-        Byte string with comma delimited time/voltage
-        measurements.
-
-    Returns
-    -------
-    time_ms : list of ints
-        Time points in milliseconds.
-    voltage : list of floats
-        Voltages in volts.
-    remaining_bytes : byte string
-        Remaining, unparsed bytes.
-    &quot;&quot;&quot;
-    time_ms = []
-    voltage = []
-
-    # Separate independent time/voltage measurements
-    pattern = re.compile(b&quot;\d+|,&quot;)
-    raw_list = [b&quot;&quot;.join(pattern.findall(raw)).decode() for raw in read.split(b&quot;\r\n&quot;)]
-
-    for raw in raw_list[:-1]:
-        try:
-            t, V = raw.split(&quot;,&quot;)
-            time_ms.append(int(t))
-            voltage.append(int(V) * 5 / 1023)
-        except:
-            pass
-
-    if len(raw_list) == 0:
-        return time_ms, voltage, b&quot;&quot;
-    else:
-        return time_ms, voltage, raw_list[-1].encode()
-
-
-def parse_raw(raw):
-    &quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;
-    raw = raw.decode()
-    if raw[-1] != &quot;\n&quot;:
-        raise ValueError(
-            &quot;Input must end with newline, otherwise message is incomplete.&quot;
-        )
-
-    t, V = raw.rstrip().split(&quot;,&quot;)
-
-    return int(t), int(V) * 5 / 1023
-
-
-def request_single_voltage(arduino):
-    &quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;
-    # Ask Arduino for data
-    arduino.write(bytes([VOLTAGE_REQUEST]))
-
-    # Read in the data
-    raw = arduino.read_until()
-
-    # Parse and return
-    return parse_raw(raw)
-
-
-def plot(mode):
-    &quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;
-    # Set up plot area
-    p = bokeh.plotting.figure(
-        frame_width=500,
-        frame_height=175,
-        x_axis_label=&quot;time (s)&quot;,
-        y_axis_label=&quot;voltage (V)&quot;,
-        title=&quot;streaming data&quot; if mode == &quot;stream&quot; else &quot;on-demand data&quot;,
-        y_range=[-0.2, 5.2],
-        toolbar_location=&quot;above&quot;,
-    )
-
-    # No range padding on x: signal spans whole plot
-    p.x_range.range_padding = 0
-
-    # We&#39;ll sue whitesmoke backgrounds
-    p.border_fill_color = &quot;whitesmoke&quot;
-
-    # Defined the data source
-    source = bokeh.models.ColumnDataSource(data=dict(t=[], V=[]))
-
-    # If we are in streaming mode, use a line, dots for on-demand
-    if mode == &quot;stream&quot;:
-        p.line(source=source, x=&quot;t&quot;, y=&quot;V&quot;)
-    else:
-        p.circle(source=source, x=&quot;t&quot;, y=&quot;V&quot;)
-
-    # Put a phantom circle so axis labels show before data arrive
-    phantom_source = bokeh.models.ColumnDataSource(data=dict(t=[0], V=[0]))
-    p.circle(source=phantom_source, x=&quot;t&quot;, y=&quot;V&quot;, visible=False)
-
-    return p, source, phantom_source
-
-
-def controls(mode):
-    if mode == &quot;stream&quot;:
-        acquire = bokeh.models.Toggle(label=&quot;stream&quot;, button_type=&quot;success&quot;, width=100)
-        save_notice = bokeh.models.Div(
-            text=&quot;&lt;p&gt;No streaming data saved.&lt;/p&gt;&quot;, width=165
-        )
-    else:
-        acquire = bokeh.models.Button(label=&quot;acquire&quot;, button_type=&quot;success&quot;, width=100)
-        save_notice = bokeh.models.Div(
-            text=&quot;&lt;p&gt;No on-demand data saved.&lt;/p&gt;&quot;, width=165
-        )
-
-    save = bokeh.models.Button(label=&quot;save&quot;, button_type=&quot;primary&quot;, width=100)
-    reset = bokeh.models.Button(label=&quot;reset&quot;, button_type=&quot;warning&quot;, width=100)
-    file_input = bokeh.models.TextInput(
-        title=&quot;file name&quot;, value=f&quot;{mode}.csv&quot;, width=165
-    )
-
-    return dict(
-        acquire=acquire,
-        reset=reset,
-        save=save,
-        file_input=file_input,
-        save_notice=save_notice,
-    )
-
-
-def layout(p, ctrls):
-    buttons = bokeh.layouts.row(
-        bokeh.models.Spacer(width=30),
-        ctrls[&quot;acquire&quot;],
-        bokeh.models.Spacer(width=295),
-        ctrls[&quot;reset&quot;],
-    )
-    left = bokeh.layouts.column(p, buttons, spacing=15)
-    right = bokeh.layouts.column(
-        bokeh.models.Spacer(height=50),
-        ctrls[&quot;file_input&quot;],
-        ctrls[&quot;save&quot;],
-        ctrls[&quot;save_notice&quot;],
-    )
-    return bokeh.layouts.row(
-        left, right, spacing=30, margin=(30, 30, 30, 30), background=&quot;whitesmoke&quot;,
-    )
-
-
-def acquire_callback(arduino, stream_data, source, phantom_source, rollover):
-    # Pull t and V values from stream or request from Arduino
-    if stream_data[&quot;mode&quot;] == &quot;stream&quot;:
-        t = stream_data[&quot;t&quot;][-1]
-        V = stream_data[&quot;V&quot;][-1]
-    else:
-        t, V = request_single_voltage(arduino)
-
-    # Add to on-demand data dictionary
-    on_demand_data[&quot;t&quot;].append(t)
-    on_demand_data[&quot;V&quot;].append(V)
-
-    # Send new data to plot
-    new_data = dict(t=[t / 1000], V=[V])
-    source.stream(new_data, rollover=rollover)
-
-    # Update the phantom source to keep the x_range on plot ok
-    phantom_source.data = new_data
-
-
-def stream_callback(arduino, stream_data, new):
-    if new:
-        stream_data[&quot;mode&quot;] = &quot;stream&quot;
-    else:
-        stream_data[&quot;mode&quot;] = &quot;on-demand&quot;
-        arduino.write(bytes([ON_REQUEST]))
-
-    arduino.reset_input_buffer()
-
-
-def reset_callback(mode, data, source, phantom_source, controls):
-    # Turn off the stream
-    if mode == &quot;stream&quot;:
-        controls[&quot;acquire&quot;].active = False
-
-    # Black out the data dictionaries
-    data[&quot;t&quot;] = []
-    data[&quot;V&quot;] = []
-
-    # Reset the sources
-    source.data = dict(t=[], V=[])
-    phantom_source.data = dict(t=[0], V=[0])
-
-
-def save_callback(mode, data, controls):
-    # Convert data to data frame and save
-    df = pd.DataFrame(data={&quot;time (ms)&quot;: data[&quot;t&quot;], &quot;voltage (V)&quot;: data[&quot;V&quot;]})
-    df.to_csv(controls[&quot;file_input&quot;].value, index=False)
-
-    # Update notice text
-    notice_text = &quot;&lt;p&gt;&quot; + (&quot;Streaming&quot; if mode == &quot;stream&quot; else &quot;On-demand&quot;)
-    notice_text += f&quot; data was last saved to {controls[&#39;file_input&#39;].value}.&lt;/p&gt;&quot;
-    controls[&quot;save_notice&quot;].text = notice_text
-
-
-def disable_controls(controls):
-    &quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;
-    for key in controls:
-        controls[key].disabled = True
-
-
-def shutdown_callback(
-    arduino, daq_task, stream_data, stream_controls, on_demand_controls
-):
-    # Disable controls
-    disable_controls(stream_controls)
-    disable_controls(on_demand_controls)
-
-    # Strop streaming
-    stream_data[&quot;mode&quot;] = &quot;on-demand&quot;
-    arduino.write(bytes([ON_REQUEST]))
-
-    # Stop DAQ async task
-    daq_task.cancel()
-
-    # Disconnect from Arduino
-    arduino.close()
-
-
-def stream_update(data, source, phantom_source, rollover):
-    # Update plot by streaming in data
-    new_data = {
-        &quot;t&quot;: np.array(data[&quot;t&quot;][data[&quot;prev_array_length&quot;] :]) / 1000,
-        &quot;V&quot;: data[&quot;V&quot;][data[&quot;prev_array_length&quot;] :],
-    }
-    source.stream(new_data, rollover)
-
-    # Adjust new phantom data point if new data arrived
-    if len(new_data[&quot;t&quot;] &gt; 0):
-        phantom_source.data = dict(t=[new_data[&quot;t&quot;][-1]], V=[new_data[&quot;V&quot;][-1]])
-    data[&quot;prev_array_length&quot;] = len(data[&quot;t&quot;])
-
-
-def potentiometer_app(
-    arduino, stream_data, on_demand_data, daq_task, rollover=400, stream_plot_delay=90,
-):
-    def _app(doc):
-        # Plots
-        p_stream, stream_source, stream_phantom_source = plot(&quot;stream&quot;)
-        p_on_demand, on_demand_source, on_demand_phantom_source = plot(&quot;on demand&quot;)
-
-        # Controls
-        stream_controls = controls(&quot;stream&quot;)
-        on_demand_controls = controls(&quot;on_demand&quot;)
-
-        # Shut down
-        shutdown_button = bokeh.models.Button(
-            label=&quot;shut down&quot;, button_type=&quot;danger&quot;, width=100
-        )
-
-        # Layouts
-        stream_layout = layout(p_stream, stream_controls)
-        on_demand_layout = layout(p_on_demand, on_demand_controls)
-
-        # Shut down layout
-        shutdown_layout = bokeh.layouts.row(
-            bokeh.models.Spacer(width=675), shutdown_button
-        )
-
-        app_layout = bokeh.layouts.column(
-            stream_layout, on_demand_layout, shutdown_layout
-        )
-
-        def _acquire_callback(event=None):
-            acquire_callback(
-                arduino,
-                stream_data,
-                on_demand_source,
-                on_demand_phantom_source,
-                rollover,
-            )
-
-        def _stream_callback(attr, old, new):
-            stream_callback(arduino, stream_data, new)
-
-        def _stream_reset_callback(event=None):
-            reset_callback(
-                &quot;stream&quot;,
-                stream_data,
-                stream_source,
-                stream_phantom_source,
-                stream_controls,
-            )
-
-        def _on_demand_reset_callback(event=None):
-            reset_callback(
-                &quot;on demand&quot;,
-                on_demand_data,
-                on_demand_source,
-                on_demand_phantom_source,
-                on_demand_controls,
-            )
-
-        def _stream_save_callback(event=None):
-            save_callback(&quot;stream&quot;, stream_data, stream_controls)
-
-        def _on_demand_save_callback(event=None):
-            save_callback(&quot;on demand&quot;, on_demand_data, on_demand_controls)
-
-        def _shutdown_callback(event=None):
-            shutdown_callback(
-                arduino, daq_task, stream_data, stream_controls, on_demand_controls
-            )
-
-        @bokeh.driving.linear()
-        def _stream_update(step):
-            stream_update(stream_data, stream_source, stream_phantom_source, rollover)
-
-            # Shut down server if Arduino disconnects (commented out in Jupyter notebook)
-            if not arduino.is_open:
-                sys.exit()
-
-        # Link callbacks
-        stream_controls[&quot;acquire&quot;].on_change(&quot;active&quot;, _stream_callback)
-        stream_controls[&quot;reset&quot;].on_click(_stream_reset_callback)
-        stream_controls[&quot;save&quot;].on_click(_stream_save_callback)
-        on_demand_controls[&quot;acquire&quot;].on_click(_acquire_callback)
-        on_demand_controls[&quot;reset&quot;].on_click(_on_demand_reset_callback)
-        on_demand_controls[&quot;save&quot;].on_click(_on_demand_save_callback)
-        shutdown_button.on_click(_shutdown_callback)
-
-        # Add the layout to the app
-        doc.add_root(app_layout)
-
-        # Add a periodic callback, monitor changes in stream data
-        pc = doc.add_periodic_callback(_stream_update, stream_plot_delay)
-
-    return _app
-
-
-# Set up connection
-HANDSHAKE = 0
-VOLTAGE_REQUEST = 1
-ON_REQUEST = 2
-STREAM = 3
-READ_DAQ_DELAY = 4
-
-port = find_arduino()
-arduino = serial.Serial(port, baudrate=115200)
-handshake_arduino(arduino)
-
-# Set up data dictionaries
-stream_data = dict(prev_array_length=0, t=[], V=[], mode=&quot;on demand&quot;)
-on_demand_data = dict(t=[], V=[])
-
-
-async def daq_stream_async(
-    arduino,
-    data,
-    delay=20,
-    n_trash_reads=5,
-    n_reads_per_chunk=4,
-    reader=read_all_newlines,
-):
-    &quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;
-    # Specify delay
-    arduino.write(bytes([READ_DAQ_DELAY]) + (str(delay) + &quot;x&quot;).encode())
-
-    # Current streaming state
-    stream_on = False
-
-    # Receive data
-    read_buffer = [b&quot;&quot;]
-    while True:
-        if data[&quot;mode&quot;] == &quot;stream&quot;:
-            # Turn on the stream if need be
-            if not stream_on:
-                arduino.write(bytes([STREAM]))
-
-                # Read and throw out first few reads
-                i = 0
-                while i &lt; n_trash_reads:
-                    _ = arduino.read_until()
-                    i += 1
-
-                stream_on = True
-
-            # Read in chunk of data
-            raw = reader(arduino, read_buffer=read_buffer[0], n_reads=n_reads_per_chunk)
-
-            # Parse it, passing if it is gibberish
-            try:
-                t, V, read_buffer[0] = parse_read(raw)
-
-                # Update data dictionary
-                data[&quot;t&quot;] += t
-                data[&quot;V&quot;] += V
-            except:
-                pass
-        else:
-            # Make sure stream is off
-            stream_on = False
-
-        # Sleep 80% of the time before we need to start reading chunks
-        await asyncio.sleep(0.8 * n_reads_per_chunk * delay / 1000)
-
-
-# Set up asynchronous DAQ task
-daq_task = asyncio.create_task(daq_stream_async(arduino, stream_data))
-
-# Build app
+<hr></section>
+<section id="Running-an-app-in-its-own-tab">
+<h2>Running an app in its own tab<a class="headerlink" href="#Running-an-app-in-its-own-tab" title="Permalink to this heading"></a></h2>
+<p>To serve up your app in its own tab in the browser, you need to include all of your Python code to build the app in a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. The key difference from a Jupyter notebook is that you need to build the app into the current document using, e.g., for the potentiometer app covered in this less,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Build app
 app = potentiometer_app(
     arduino, stream_data, on_demand_data, daq_task, rollover=400, stream_plot_delay=90
 )
 
 # Build it with curdoc
 app(bokeh.plotting.curdoc())
+</pre></div>
+</div>
+<p>Finally, to serve the app, you run</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>bokeh serve --show name_of_file_with_code_for_dashboard.py
+</pre></div>
+</div>
+<p>Below is an example <code class="docutils literal notranslate"><span class="pre">.py</span></code> file for the stand-alone version of the potentiometer app constructed in this notebook.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">App to read in varying voltages from Arduino.</span>
+
+<span class="sd">To serve the app, run</span>
+
+<span class="sd">    bokeh serve --show potentiometer_app.py</span>
+
+<span class="sd">on the command line.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+
+<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="kn">import</span> <span class="nn">bokeh.layouts</span>
+<span class="kn">import</span> <span class="nn">bokeh.driving</span>
+
+
+<span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="s2">&quot;Arduino&quot;</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">manufacturer</span><span class="p">:</span>
+                <span class="n">port</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">device</span>
+    <span class="k">return</span> <span class="n">port</span>
+
+
+<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
+<span class="sd">    and receiving bytes.&quot;&quot;&quot;</span>
+    <span class="c1"># Close and reopen</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+    <span class="c1"># Chill out while everything gets set</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep_time</span><span class="p">)</span>
+
+    <span class="c1"># Set a long timeout to complete handshake</span>
+    <span class="n">timeout</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="c1"># Read and discard everything that may be in the input buffer</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_all</span><span class="p">()</span>
+
+    <span class="c1"># Send request to Arduino</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+
+    <span class="c1"># Read in what Arduino sent</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Send and receive request again</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">handshake_code</span><span class="p">]))</span>
+    <span class="n">handshake_message</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Print the handshake message, if desired</span>
+    <span class="k">if</span> <span class="n">print_handshake_message</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Handshake message: &quot;</span> <span class="o">+</span> <span class="n">handshake_message</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+    <span class="c1"># Reset the timeout</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+
+
+<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
+<span class="sd">    and append to the read buffer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ser : serial.Serial() instance</span>
+<span class="sd">        The device we are reading from.</span>
+<span class="sd">    read_buffer : bytes, default b&#39;&#39;</span>
+<span class="sd">        Previous read buffer that is appended to.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : bytes</span>
+<span class="sd">        Bytes object that contains read_buffer + read.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. `**args` appears, but is never used. This is for</span>
+<span class="sd">       compatibility with `read_all_newlines()` as a</span>
+<span class="sd">       drop-in replacement for this function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Set timeout to None to make sure we read all bytes</span>
+    <span class="n">previous_timeout</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span>
+    <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">in_waiting</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">in_waiting</span>
+    <span class="n">read</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">in_waiting</span><span class="p">)</span>
+
+    <span class="c1"># Reset to previous timeout</span>
+    <span class="n">ser</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">previous_timeout</span>
+
+    <span class="k">return</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">read</span>
+
+
+<span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ser : serial.Serial() instance</span>
+<span class="sd">        The device we are reading from.</span>
+<span class="sd">    n_reads : int</span>
+<span class="sd">        The number of reads up to newlines</span>
+<span class="sd">    read_buffer : bytes, default b&#39;&#39;</span>
+<span class="sd">        Previous read buffer that is appended to.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : bytes</span>
+<span class="sd">        Bytes object that contains read_buffer + read.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    .. This is a drop-in replacement for read_all().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">read_buffer</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_reads</span><span class="p">):</span>
+        <span class="n">raw</span> <span class="o">+=</span> <span class="n">ser</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">raw</span>
+
+
+<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse a read with time, voltage data</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    read : byte string</span>
+<span class="sd">        Byte string with comma delimited time/voltage</span>
+<span class="sd">        measurements.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    time_ms : list of ints</span>
+<span class="sd">        Time points in milliseconds.</span>
+<span class="sd">    voltage : list of floats</span>
+<span class="sd">        Voltages in volts.</span>
+<span class="sd">    remaining_bytes : byte string</span>
+<span class="sd">        Remaining, unparsed bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Separate independent time/voltage measurements</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;\d+|,&quot;</span><span class="p">)</span>
+    <span class="n">raw_list</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">read</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">)]</span>
+
+    <span class="k">for</span> <span class="n">raw</span> <span class="ow">in</span> <span class="n">raw_list</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="n">time_ms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">voltage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Input must end with newline, otherwise message is incomplete.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span>
+
+
+<span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
+    <span class="c1"># Ask Arduino for data</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
+
+    <span class="c1"># Read in the data</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+
+    <span class="c1"># Parse and return</span>
+    <span class="k">return</span> <span class="n">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
+    <span class="c1"># Set up plot area</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
+        <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">frame_height</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
+        <span class="n">x_axis_label</span><span class="o">=</span><span class="s2">&quot;time (s)&quot;</span><span class="p">,</span>
+        <span class="n">y_axis_label</span><span class="o">=</span><span class="s2">&quot;voltage (V)&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;streaming data&quot;</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span> <span class="k">else</span> <span class="s2">&quot;on-demand data&quot;</span><span class="p">,</span>
+        <span class="n">y_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">],</span>
+        <span class="n">toolbar_location</span><span class="o">=</span><span class="s2">&quot;above&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># No range padding on x: signal spans whole plot</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">x_range</span><span class="o">.</span><span class="n">range_padding</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># We&#39;ll sue whitesmoke backgrounds</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">border_fill_color</span> <span class="o">=</span> <span class="s2">&quot;whitesmoke&quot;</span>
+
+    <span class="c1"># Defined the data source</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[],</span> <span class="n">V</span><span class="o">=</span><span class="p">[]))</span>
+
+    <span class="c1"># If we are in streaming mode, use a line, dots for on-demand</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Put a phantom circle so axis labels show before data arrive</span>
+    <span class="n">phantom_source</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">phantom_source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span>
+
+
+<span class="k">def</span> <span class="nf">controls</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
+        <span class="n">acquire</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Toggle</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">save_notice</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&lt;p&gt;No streaming data saved.&lt;/p&gt;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">165</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">acquire</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;acquire&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">save_notice</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&lt;p&gt;No on-demand data saved.&lt;/p&gt;&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">165</span>
+        <span class="p">)</span>
+
+    <span class="n">save</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;primary&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">reset</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;reset&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">file_input</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">TextInput</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;file name&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">165</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">acquire</span><span class="o">=</span><span class="n">acquire</span><span class="p">,</span>
+        <span class="n">reset</span><span class="o">=</span><span class="n">reset</span><span class="p">,</span>
+        <span class="n">save</span><span class="o">=</span><span class="n">save</span><span class="p">,</span>
+        <span class="n">file_input</span><span class="o">=</span><span class="n">file_input</span><span class="p">,</span>
+        <span class="n">save_notice</span><span class="o">=</span><span class="n">save_notice</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">layout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ctrls</span><span class="p">):</span>
+    <span class="n">buttons</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">row</span><span class="p">(</span>
+        <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
+        <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">],</span>
+        <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">295</span><span class="p">),</span>
+        <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;reset&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">buttons</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
+        <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+        <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;file_input&quot;</span><span class="p">],</span>
+        <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">],</span>
+        <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;save_notice&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">row</span><span class="p">(</span>
+        <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">background</span><span class="o">=</span><span class="s2">&quot;whitesmoke&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">acquire_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
+    <span class="c1"># Pull t and V values from stream or request from Arduino</span>
+    <span class="k">if</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+    <span class="c1"># Add to on-demand data dictionary</span>
+    <span class="n">on_demand_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">on_demand_data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+    <span class="c1"># Send new data to plot</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="n">t</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="n">V</span><span class="p">])</span>
+    <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="n">rollover</span><span class="p">)</span>
+
+    <span class="c1"># Update the phantom source to keep the x_range on plot ok</span>
+    <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">new_data</span>
+
+
+<span class="k">def</span> <span class="nf">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">new</span><span class="p">:</span>
+        <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;stream&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;on-demand&quot;</span>
+        <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">ON_REQUEST</span><span class="p">]))</span>
+
+    <span class="n">arduino</span><span class="o">.</span><span class="n">reset_input_buffer</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">reset_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+    <span class="c1"># Turn off the stream</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
+        <span class="n">controls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Black out the data dictionaries</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Reset the sources</span>
+    <span class="n">source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[],</span> <span class="n">V</span><span class="o">=</span><span class="p">[])</span>
+    <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">save_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+    <span class="c1"># Convert data to data frame and save</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time (ms)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="s2">&quot;voltage (V)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]})</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">controls</span><span class="p">[</span><span class="s2">&quot;file_input&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Update notice text</span>
+    <span class="n">notice_text</span> <span class="o">=</span> <span class="s2">&quot;&lt;p&gt;&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;Streaming&quot;</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span> <span class="k">else</span> <span class="s2">&quot;On-demand&quot;</span><span class="p">)</span>
+    <span class="n">notice_text</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; data was last saved to </span><span class="si">{</span><span class="n">controls</span><span class="p">[</span><span class="s1">&#39;file_input&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">.&lt;/p&gt;&quot;</span>
+    <span class="n">controls</span><span class="p">[</span><span class="s2">&quot;save_notice&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">notice_text</span>
+
+
+<span class="k">def</span> <span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">controls</span><span class="p">:</span>
+        <span class="n">controls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">shutdown_callback</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">,</span> <span class="n">on_demand_controls</span>
+<span class="p">):</span>
+    <span class="c1"># Disable controls</span>
+    <span class="n">disable_controls</span><span class="p">(</span><span class="n">stream_controls</span><span class="p">)</span>
+    <span class="n">disable_controls</span><span class="p">(</span><span class="n">on_demand_controls</span><span class="p">)</span>
+
+    <span class="c1"># Strop streaming</span>
+    <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;on-demand&quot;</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">ON_REQUEST</span><span class="p">]))</span>
+
+    <span class="c1"># Stop DAQ async task</span>
+    <span class="n">daq_task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+    <span class="c1"># Disconnect from Arduino</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
+    <span class="c1"># Update plot by streaming in data</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:],</span>
+    <span class="p">}</span>
+    <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
+
+    <span class="c1"># Adjust new phantom data point if new data arrived</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">potentiometer_app</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stream_plot_delay</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+        <span class="c1"># Plots</span>
+        <span class="n">p_stream</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">)</span>
+        <span class="n">p_on_demand</span><span class="p">,</span> <span class="n">on_demand_source</span><span class="p">,</span> <span class="n">on_demand_phantom_source</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="s2">&quot;on demand&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Controls</span>
+        <span class="n">stream_controls</span> <span class="o">=</span> <span class="n">controls</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">)</span>
+        <span class="n">on_demand_controls</span> <span class="o">=</span> <span class="n">controls</span><span class="p">(</span><span class="s2">&quot;on_demand&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Shut down</span>
+        <span class="n">shutdown_button</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;shut down&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;danger&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Layouts</span>
+        <span class="n">stream_layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">(</span><span class="n">p_stream</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">)</span>
+        <span class="n">on_demand_layout</span> <span class="o">=</span> <span class="n">layout</span><span class="p">(</span><span class="n">p_on_demand</span><span class="p">,</span> <span class="n">on_demand_controls</span><span class="p">)</span>
+
+        <span class="c1"># Shut down layout</span>
+        <span class="n">shutdown_layout</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">row</span><span class="p">(</span>
+            <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">675</span><span class="p">),</span> <span class="n">shutdown_button</span>
+        <span class="p">)</span>
+
+        <span class="n">app_layout</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
+            <span class="n">stream_layout</span><span class="p">,</span> <span class="n">on_demand_layout</span><span class="p">,</span> <span class="n">shutdown_layout</span>
+        <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_acquire_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">acquire_callback</span><span class="p">(</span>
+                <span class="n">arduino</span><span class="p">,</span>
+                <span class="n">stream_data</span><span class="p">,</span>
+                <span class="n">on_demand_source</span><span class="p">,</span>
+                <span class="n">on_demand_phantom_source</span><span class="p">,</span>
+                <span class="n">rollover</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_stream_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+            <span class="n">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_stream_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">reset_callback</span><span class="p">(</span>
+                <span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+                <span class="n">stream_data</span><span class="p">,</span>
+                <span class="n">stream_source</span><span class="p">,</span>
+                <span class="n">stream_phantom_source</span><span class="p">,</span>
+                <span class="n">stream_controls</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_on_demand_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">reset_callback</span><span class="p">(</span>
+                <span class="s2">&quot;on demand&quot;</span><span class="p">,</span>
+                <span class="n">on_demand_data</span><span class="p">,</span>
+                <span class="n">on_demand_source</span><span class="p">,</span>
+                <span class="n">on_demand_phantom_source</span><span class="p">,</span>
+                <span class="n">on_demand_controls</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_stream_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">save_callback</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_on_demand_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">save_callback</span><span class="p">(</span><span class="s2">&quot;on demand&quot;</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">on_demand_controls</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_shutdown_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="n">shutdown_callback</span><span class="p">(</span>
+                <span class="n">arduino</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">,</span> <span class="n">on_demand_controls</span>
+            <span class="p">)</span>
+
+        <span class="nd">@bokeh</span><span class="o">.</span><span class="n">driving</span><span class="o">.</span><span class="n">linear</span><span class="p">()</span>
+        <span class="k">def</span> <span class="nf">_stream_update</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
+            <span class="n">stream_update</span><span class="p">(</span><span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
+
+            <span class="c1"># Shut down server if Arduino disconnects (commented out in Jupyter notebook)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">arduino</span><span class="o">.</span><span class="n">is_open</span><span class="p">:</span>
+                <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+        <span class="c1"># Link callbacks</span>
+        <span class="n">stream_controls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_change</span><span class="p">(</span><span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">_stream_callback</span><span class="p">)</span>
+        <span class="n">stream_controls</span><span class="p">[</span><span class="s2">&quot;reset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">_stream_reset_callback</span><span class="p">)</span>
+        <span class="n">stream_controls</span><span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">_stream_save_callback</span><span class="p">)</span>
+        <span class="n">on_demand_controls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">_acquire_callback</span><span class="p">)</span>
+        <span class="n">on_demand_controls</span><span class="p">[</span><span class="s2">&quot;reset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">_on_demand_reset_callback</span><span class="p">)</span>
+        <span class="n">on_demand_controls</span><span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">_on_demand_save_callback</span><span class="p">)</span>
+        <span class="n">shutdown_button</span><span class="o">.</span><span class="n">on_click</span><span class="p">(</span><span class="n">_shutdown_callback</span><span class="p">)</span>
+
+        <span class="c1"># Add the layout to the app</span>
+        <span class="n">doc</span><span class="o">.</span><span class="n">add_root</span><span class="p">(</span><span class="n">app_layout</span><span class="p">)</span>
+
+        <span class="c1"># Add a periodic callback, monitor changes in stream data</span>
+        <span class="n">pc</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">add_periodic_callback</span><span class="p">(</span><span class="n">_stream_update</span><span class="p">,</span> <span class="n">stream_plot_delay</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_app</span>
+
+
+<span class="c1"># Set up connection</span>
+<span class="n">HANDSHAKE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">VOLTAGE_REQUEST</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ON_REQUEST</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">STREAM</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">READ_DAQ_DELAY</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">port</span> <span class="o">=</span> <span class="n">find_arduino</span><span class="p">()</span>
+<span class="n">arduino</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+<span class="n">handshake_arduino</span><span class="p">(</span><span class="n">arduino</span><span class="p">)</span>
+
+<span class="c1"># Set up data dictionaries</span>
+<span class="n">stream_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">prev_array_length</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="p">[],</span> <span class="n">V</span><span class="o">=</span><span class="p">[],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;on demand&quot;</span><span class="p">)</span>
+<span class="n">on_demand_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[],</span> <span class="n">V</span><span class="o">=</span><span class="p">[])</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
+    <span class="c1"># Specify delay</span>
+    <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">READ_DAQ_DELAY</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+
+    <span class="c1"># Current streaming state</span>
+    <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Receive data</span>
+    <span class="n">read_buffer</span> <span class="o">=</span> <span class="p">[</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
+            <span class="c1"># Turn on the stream if need be</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">stream_on</span><span class="p">:</span>
+                <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">STREAM</span><span class="p">]))</span>
+
+                <span class="c1"># Read and throw out first few reads</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_trash_reads</span><span class="p">:</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+                <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="c1"># Read in chunk of data</span>
+            <span class="n">raw</span> <span class="o">=</span> <span class="n">reader</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_reads</span><span class="o">=</span><span class="n">n_reads_per_chunk</span><span class="p">)</span>
+
+            <span class="c1"># Parse it, passing if it is gibberish</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">read_buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse_read</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
+
+                <span class="c1"># Update data dictionary</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">t</span>
+                <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">V</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Make sure stream is off</span>
+            <span class="n">stream_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Sleep 80% of the time before we need to start reading chunks</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.8</span> <span class="o">*</span> <span class="n">n_reads_per_chunk</span> <span class="o">*</span> <span class="n">delay</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+
+
+<span class="c1"># Set up asynchronous DAQ task</span>
+<span class="n">daq_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">daq_stream_async</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">))</span>
+
+<span class="c1"># Build app</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">potentiometer_app</span><span class="p">(</span>
+    <span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stream_plot_delay</span><span class="o">=</span><span class="mi">90</span>
+<span class="p">)</span>
+
+<span class="c1"># Build it with curdoc</span>
+<span class="n">app</span><span class="p">(</span><span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">curdoc</span><span class="p">())</span>
 </pre></div>
 </div>
 <hr></section>
@@ -2216,11 +2235,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 04, 2022.
+      <span class="lastupdated">Last updated on Nov 08, 2022.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fdc552a9f40> 
+   <jinja2.runtime.BlockReference object at 0x7fa1329e4280> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

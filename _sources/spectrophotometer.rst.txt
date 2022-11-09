@@ -186,8 +186,7 @@ If :math:`\mathrm{d}c_\mathrm{es} / \mathrm{d} t \approx 0`, then the rate of su
 .. math::
 
   \begin{align}
-  \frac{\mathrm{d} c_\mathrm{s}}{\mathrm{~d} t} \approx-\frac{\mathrm{d} c_{p}}{\mathrm{~d} t} \approx-v c_\mathrm{e}^{0} 
-  ,\frac{c_\mathrm{s} / K}{1+c_\mathrm{s} / K}
+  \frac{\mathrm{d} c_\mathrm{s}}{\mathrm{~d} t} \approx-\frac{\mathrm{d} c_{p}}{\mathrm{~d} t} \approx-v c_\mathrm{e}^{0} \,\frac{c_\mathrm{s} / K}{1+c_\mathrm{s} / K}
   \end{align}
 
 Inspection of this expression identifies two constants. The first is :math:`V_0 \equiv v\,c_\mathrm{e}^0`, commonly referred to as the **maximum velocity**, which is the fastest that the enzyme-catalyzed reaction can proceed. It makes sense that it is the product of the rate constant for conversion of enzyme-substrate complex to product, :math:`v`, and the total enzyme concentration :math:`c_\mathrm{e}^0`. The second parameter is the Michaelis constant :math:`K`.
