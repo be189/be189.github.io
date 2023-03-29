@@ -274,4 +274,4 @@ Because you want to capture as much of the reaction dynamics as possible, you wi
 Submission
 ^^^^^^^^^^^
 
-Submit your write-up as a ZIP file `via Canvas <https://caltech.instructure.com/courses/4758/assignments/35383>`_.
+Submit your write-up as a ZIP file `via Canvas <INSERT URL HERE>`_.

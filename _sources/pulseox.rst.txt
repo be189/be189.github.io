@@ -283,4 +283,4 @@ You should also think about the following design considerations.
 Submission
 ^^^^^^^^^^^
 
-Submit your write-up as a ZIP file `via Canvas <https://caltech.instructure.com/courses/4758/assignments/35384>`_.
+Submit your write-up as a ZIP file `via Canvas <INSERT URL HERE>`_.

@@ -35,12 +35,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #FEE0D2" >
-            <a href="../../index.html">
-            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -192,31 +196,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="5.-Programming-Arduino">
+  <section id="5.-Programming-Arduino">
 <h1>5. Programming Arduino<a class="headerlink" href="#5.-Programming-Arduino" title="Permalink to this heading"></a></h1>
 <hr><p>In this lesson, we will take a whirlwind tour through the syntax you need as you write sketches. This lesson is long, and I thought about breaking it up, but I think it will be helpful to have a single quick reference to go back to, in addition to the exceedingly useful <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>.</p>
 <p>When you finish this lesson, it is important to proceed without much delay to the next lesson, where you will put some of the aspects of Arduino programming learned here to use.</p>
@@ -516,8 +496,8 @@ y = 142: 10001110
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: Bitwise NOT. I call this operator a bit-flipper, since it flips the bits of a number, changing a 1 to a 0 and a 0 to a 1. <code class="docutils literal notranslate"><span class="pre">~x</span></code> gives <code class="docutils literal notranslate"><span class="pre">-78</span></code>. Wait…. WHAT!? It turns out that the <code class="docutils literal notranslate"><span class="pre">~</span></code> operator does not work on <code class="docutils literal notranslate"><span class="pre">byte</span></code>s, but on <code class="docutils literal notranslate"><span class="pre">int</span></code>s. The compiler will case the <code class="docutils literal notranslate"><span class="pre">byte</span></code> variable as an <code class="docutils literal notranslate"><span class="pre">int</span></code> in order to perform the <code class="docutils literal notranslate"><span class="pre">~</span></code> operation. Remember that an <code class="docutils literal notranslate"><span class="pre">int</span></code> is a <em>signed</em> integer, meaning that one of the bits is used to indicate the sign of the number. By convention, that is
 the first bit, the so-called <strong>highest bit</strong>. The variable <code class="docutils literal notranslate"><span class="pre">x</span></code> as an <code class="docutils literal notranslate"><span class="pre">int</span></code> has representation <code class="docutils literal notranslate"><span class="pre">0000000001001101</span></code>. The highest bit is the sign, which is zero in this case, indicating a positive number. Applying bitwise NOT gives <code class="docutils literal notranslate"><span class="pre">-78</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111110110010</span></code>. For any <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">~x</span></code> is equivalent go <code class="docutils literal notranslate"><span class="pre">-x</span> <span class="pre">-</span> <span class="pre">1</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>: Left bitshift. This operation slides the <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">0</span></code>s leftward a set number of steps, padding the right bits with zeros and discarding bits that get shifted off to the left. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">3</span></code> will shift the bits three places to the left and gives <code class="docutils literal notranslate"><span class="pre">616</span></code>. Wait….. WHAT AGAIN!? The result of a bitshift operation is an <code class="docutils literal notranslate"><span class="pre">int</span></code>. So, this bitshift results in <code class="docutils literal notranslate"><span class="pre">0000001001101000</span></code>, which has a decimal value of 616. Conversely, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">13</span></code> gives <code class="docutils literal notranslate"><span class="pre">-24576</span></code>, which has a binary representation
-of <code class="docutils literal notranslate"><span class="pre">1010000000000000</span></code>. Note that the second operand (in our case, we used <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">13</span></code>) must be less than or equal to 32.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>: Left bitshift. This operation slides the <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">0</span></code>s leftward a set number of steps, padding the right bits with zeros and discarding bits that get shifted off to the left. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">3</span></code> will shift the bits three places to the left and gives <code class="docutils literal notranslate"><span class="pre">616</span></code>. Wait….. WHAT AGAIN!? The result of a bitshift operation is an <code class="docutils literal notranslate"><span class="pre">int</span></code>. So, this bitshift results in <code class="docutils literal notranslate"><span class="pre">0000001001101000</span></code>, which has a decimal value of 616. Conversely, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;&lt;</span> <span class="pre">13</span></code> gives <code class="docutils literal notranslate"><span class="pre">-24576</span></code>, which has a binary
+representation of <code class="docutils literal notranslate"><span class="pre">1010000000000000</span></code>. Note that the second operand (in our case, we used <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">13</span></code>) must be less than or equal to 32.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>: Right bitshift. This operations slides <code class="docutils literal notranslate"><span class="pre">1</span></code>s and <code class="docutils literal notranslate"><span class="pre">0</span></code>s rightward a set number of steps, discarding bits that are shifted off to the right. <em>Be careful</em>, the bits that are padded to the left are whatever the highest bit is if you are using an <code class="docutils literal notranslate"><span class="pre">int</span></code>. That means that negative integers are padded with <code class="docutils literal notranslate"><span class="pre">1</span></code>s and positive integers are padded with <code class="docutils literal notranslate"><span class="pre">0</span></code>s. This method of padding is called <strong>sign extension</strong>. So, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;&gt;</span> <span class="pre">3</span></code> gives 9, which has a binary representation of
 <code class="docutils literal notranslate"><span class="pre">0000000001001</span></code>. Conversely, consider a right bitshift on <code class="docutils literal notranslate"><span class="pre">-77</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111110110011</span></code>. <code class="docutils literal notranslate"><span class="pre">-77</span> <span class="pre">&gt;&gt;</span> <span class="pre">3</span></code> gives <code class="docutils literal notranslate"><span class="pre">-10</span></code>, which has a binary representation of <code class="docutils literal notranslate"><span class="pre">1111111111110110</span></code>.</p></li>
 </ul>
@@ -732,11 +712,11 @@ of <code class="docutils literal notranslate"><span class="pre">1010000000000000
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 08, 2022.
+      <span class="lastupdated">Last updated on Mar 27, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fee045a7dc0> 
+   <jinja2.runtime.BlockReference object at 0x7fe18b856430> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

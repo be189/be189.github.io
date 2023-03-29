@@ -9,9 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Course Ed page <https://edstem.org/us/courses/25675/>`_ (used for course communications)
+- `Course Ed page <ADD URL HERE>`_ (used for course communications)
 
-- `Course gradescope page <https://www.gradescope.com/courses/451652>`_ (used for assignment submission)
+- `Course gradescope page <ADD URL HERE>`_ (used for assignment submission)
 
 - :ref:`References and resources<Software>`
 
@@ -22,12 +22,12 @@ People
 
 - Instructor
 
-   + `Justin Bois <http://bois.caltech.edu>`_ (``bois at caltech dot edu``)
+   + `Changhuei Yang <https://biophot.caltech.edu>`_ (``chyang at caltech dot edu``)
 
 - TAs
 
-   + Anne Kil (``annekil0530 at caltech dot edu``)
-   + Arkadev Roy (``arroy at caltech dot edu``)
+   + Mingchen Liu (``mcliu at caltech dot edu``)
+   + Max Huang (``yuxi at caltech dot edu``)
 
 
 .. toctree::
@@ -113,6 +113,7 @@ People
 Previous editions of the course
 ------------------------------- 
 
+- `Fall 2022 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2022_fall/>`_
 - `Spring 2022 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2022_spring/>`_
 - `Fall 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_fall/>`_
 - `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
