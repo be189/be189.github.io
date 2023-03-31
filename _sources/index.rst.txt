@@ -9,9 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Course Ed page <ADD URL HERE>`_ (used for course communications)
+- `Course Ed page <https://edstem.org/>`_ (used for course communications)
 
-- `Course gradescope page <ADD URL HERE>`_ (used for assignment submission)
+- `Course gradescope page <https://www.gradescope.com/courses/527053>`_ (used for assignment submission)
 
 - :ref:`References and resources<Software>`
 
