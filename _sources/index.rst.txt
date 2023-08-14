@@ -113,10 +113,10 @@ People
 Previous editions of the course
 ------------------------------- 
 
-- `Spring 2023 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2023_fall/>`_
+- `Spring 2023 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2023_spring/>`_
 - `Fall 2022 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2022_fall/>`_
 - `Spring 2022 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2022_spring/>`_
 - `Fall 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_fall/>`_
-- `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
 - `Spring 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_spring/>`_
+- `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
 
