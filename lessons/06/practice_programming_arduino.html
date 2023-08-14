@@ -169,57 +169,57 @@ starting at 2.</p>
 <p>Our task now is to use the same setup we had for our blink exercise to make the LED flash the prime numbers like the aliens did in the movie. We do not need to change the board configuration, only the code.</p>
 <p>The following Arduino code accomplishes the extraterrestrial communication.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set pin 6 as pin controlling LED</span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
 
 <span class="c1">// List of all primes up to and including 101</span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nPrimes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">primes</span><span class="p">[</span><span class="n">nPrimes</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="mi">61</span><span class="p">,</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="mi">73</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nPrimes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">primes</span><span class="p">[</span><span class="n">nPrimes</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span>
+<span class="w">  </span><span class="mi">29</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="mi">53</span><span class="p">,</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span>
+<span class="w">  </span><span class="mi">61</span><span class="p">,</span><span class="w"> </span><span class="mi">67</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="mi">73</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">,</span><span class="w"> </span><span class="mi">83</span><span class="p">,</span><span class="w"> </span><span class="mi">89</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span>
+<span class="p">};</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nf">flash</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nf">flash</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Flash the LED over one second.</span>
-<span class="cm">   */</span><span class="w"></span>
+<span class="cm">   */</span>
 
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nf">flashSequence</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nFlashes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nf">flashSequence</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">nFlashes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Flash the LED nFlashes times, with one second per flash.</span>
-<span class="cm">   */</span><span class="w"></span>
+<span class="cm">   */</span>
 
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nFlashes</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">flash</span><span class="p">(</span><span class="n">ledPin</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nFlashes</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">flash</span><span class="p">(</span><span class="n">ledPin</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// LED pin is output</span>
-<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Loop through each prime</span>
-<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nPrimes</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">nPrimes</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Flash prime number of times</span>
-<span class="w">    </span><span class="n">flashSequence</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="n">flashSequence</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="n">primes</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 
 <span class="w">    </span><span class="c1">// Wait two seconds until the next prime</span>
-<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nf">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="c1">// Wait 43 seconds until transmitting again, just like in the movie</span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">43000</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">43000</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Everything in this sketch could be constructed from the notes in <a class="reference internal" href="../05/programming_arduino.html"><span class="doc">Lesson 5</span></a>. Please carefully read it and make sure you understand it. Then, upload it to the Arduino Uno, and send your LED signals just like the aliens!</p>
@@ -249,38 +249,38 @@ starting at 2.</p>
 <li><p>A pause equal to seven dot durations is used between words.</p></li>
 </ol>
 <p>The following aligned arrays give characters and their corresponding Morse code representations.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">String</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ,.&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">String</span><span class="w"> </span><span class="n">characters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ,.&quot;</span><span class="p">);</span>
 
-<span class="kr">const</span><span class="w"> </span><span class="kr">String</span><span class="w"> </span><span class="n">codes</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-...&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-.-.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-..&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;..-.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;--.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;....&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;..&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.---&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-.-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.-..&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;--&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;---&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.--.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;--.-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.-.&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;...&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;..-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;...-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.--&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-..-&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;-.--&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;--..&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;--..--&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;.-.-.-&quot;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">String</span><span class="w"> </span><span class="n">codes</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;.-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-.-.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-..&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;..-.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;--.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;....&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;..&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.---&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-.-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.-..&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;--&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;---&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.--.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;--.-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.-.&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;..-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;...-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.--&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-..-&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;-.--&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;--..&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;--..--&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;.-.-.-&quot;</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>This exercise is a bit more challenging, and I suspect you will want to refer to the Aduino language reference as you go through, in particular looking up which useful methods are available for <code class="docutils literal notranslate"><span class="pre">String</span></code> instances.</p>
@@ -300,11 +300,11 @@ starting at 2.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 31, 2023.
+      <span class="lastupdated">Last updated on Aug 13, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fe59b5d15b0> 
+   <jinja2.runtime.BlockReference object at 0x15f3e9f50> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

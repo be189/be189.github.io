@@ -186,44 +186,44 @@ the transmitted bit is zero.</p>
 <h3>Using the Wire library<a class="headerlink" href="#Using-the-Wire-library" title="Permalink to this heading"></a></h3>
 <p>In order to conveniently communicate using I2C, we will use the <a class="reference external" href="https://www.arduino.cc/en/Reference/Wire">Wire library</a>. In order to use it, or any other library, it needs to be <strong>include</strong>d in your sketch. The syntax for including an installed library is <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">include</span> <span class="pre">&lt;Wire.h&gt;</span></code>, where you can substitute whatever library you are using for <code class="docutils literal notranslate"><span class="pre">Wire.h</span></code>. It is easiest to see how the library is used by example. Load the following sketch onto Arduino.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Wire is library to talk with I2C</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
 
 <span class="c1">//This is the I2C Address of the MCP4725, by default (A0 pulled to GND).</span>
 <span class="c1">//For devices with A0 pulled HIGH, use 0x63</span>
 <span class="cp">#define MCP4725_ADDR 0x62</span>
 
-<span class="kr">const</span><span class="w"> </span><span class="kr">float</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">sampleDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
-<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">float</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">sampleDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nf">write12BitI2C</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nf">write12BitI2C</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="cm">/*</span>
 <span class="cm">   * Write a 12-bit integer out to I2C.</span>
-<span class="cm">   */</span><span class="w"></span>
-<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">beginTransmission</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span><span class="w"></span>
+<span class="cm">   */</span>
+<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">beginTransmission</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span>
 <span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="mi">64</span><span class="p">);</span><span class="w">            </span><span class="c1">// cmd to update the DAC</span>
 <span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">        </span><span class="c1">// the 8 most significant bits...</span>
 <span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">write</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"> </span><span class="c1">// the 4 least significant bits...</span>
-<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">endTransmission</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">endTransmission</span><span class="p">();</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">Wire</span><span class="p">.</span><span class="nf">begin</span><span class="p">();</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">sampleDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="p">)(</span><span class="mi">4095</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">sampleDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">int</span><span class="p">)(</span><span class="mi">4095</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">write12BitI2C</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">write12BitI2C</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>We <code class="docutils literal notranslate"><span class="pre">#include</span></code> the library at the top. In the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function, we call <code class="docutils literal notranslate"><span class="pre">Wire.begin()</span></code> to open communication via I2C. When we transmit data to the MCP4725, we need to know its <strong>address</strong>. If the A0 pin of the MCP4725 (completely different from the A0 pin on the Arduino Uno) is connected to ground (or not connected), the address is <code class="docutils literal notranslate"><span class="pre">0x62</span></code>, which is hexidecimal for 98. In the A0 pin is connected to a high voltage, then the address is <code class="docutils literal notranslate"><span class="pre">0x63</span></code>. This enables you to have two DACs controlled
@@ -240,34 +240,34 @@ worry; soon you won’t need to think about it.)</p>
 <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">Libraries...</span></code>. The Libary Manager window will pop up. You can type <code class="docutils literal notranslate"><span class="pre">MCP4725</span></code> in the search window, and you will have the option to install the Adafruit MCP4725 library. Go ahead and do this. While you are at it, find the Adafruit ADS1X15 library, which we will use in a future lesson.</p>
 <p>Now that the library is installed, you can include it as we did with the built-in Wire library. The sketch below accomplishes the same result as the sketch above, but uses the convenient features of the Adafruit MCP4725 library.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Adafruit provides a convenient library!</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span>
 
 <span class="c1">//This is the I2C Address of the MCP4725, by default (A0 pulled to GND).</span>
 <span class="c1">//For devices with A0 pulled HIGH, use 0x63</span>
 <span class="cp">#define MCP4725_ADDR 0x62</span>
 
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">sampleDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"></span>
-<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">sampleDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="c1">// Instantiate the convenient class</span>
-<span class="n">Adafruit_MCP4725</span><span class="w"> </span><span class="n">dac</span><span class="p">;</span><span class="w"></span>
+<span class="n">Adafruit_MCP4725</span><span class="w"> </span><span class="n">dac</span><span class="p">;</span>
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">dac</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">dac</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="n">MCP4725_ADDR</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">sampleDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kr">uint16_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">uint16_t</span><span class="p">)(</span><span class="mi">4095</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">currTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currTime</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">sampleDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">uint16_t</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kr">uint16_t</span><span class="p">)(</span><span class="mi">4095</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">freq</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">dac</span><span class="p">.</span><span class="n">setVoltage</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kr">false</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">dac</span><span class="p">.</span><span class="n">setVoltage</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kr">false</span><span class="p">);</span>
 
-<span class="w">    </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">lastSampleTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currTime</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The sketch warrants some comments. The library defines a useful <code class="docutils literal notranslate"><span class="pre">Adafruit_MCP4725</span></code> class. This class has convenient <code class="docutils literal notranslate"><span class="pre">begin()</span></code> and <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> functions. The <code class="docutils literal notranslate"><span class="pre">begin()</span></code> function is called in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function to open communication. The address is given here, and is stored in the instance of the class, so you do not need to use the address in the <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. The <code class="docutils literal notranslate"><span class="pre">setVoltage()</span></code> function sends an integer to the MCP4725 for conversion to an analog voltage. The function expects the
@@ -288,11 +288,11 @@ integer to be of type <code class="docutils literal notranslate"><span class="pr
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 31, 2023.
+      <span class="lastupdated">Last updated on Aug 13, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fe5886df640> 
+   <jinja2.runtime.BlockReference object at 0x15f187090> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

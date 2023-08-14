@@ -622,7 +622,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <h2>PWM on the Arduino Uno with analogWrite()<a class="headerlink" href="#PWM-on-the-Arduino-Uno-with-analogWrite()" title="Permalink to this heading"></a></h2>
 <p>Given that the Arduino Uno does not have DAC, why does it have a function <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>? The perhaps ill-named function actually invokes PWM from a digital pin. The <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather an <code class="docutils literal notranslate"><span class="pre">int</span></code>. Although this argument must be given as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a
 duty ratio of one. So, if you wanted a duty ratio of <span class="math notranslate nohighlight">\(d\)</span>, you can compute the number you want to pass to <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> as <span class="math notranslate nohighlight">\(255 d\)</span>. Here is an example of telling pin 3 to perform PWM with a duty ratio of approximately 0.5.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">analogWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">analogWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Note that not all digital pins can do PWM. This is because PWM requires use of the various timers available on Arduino, and a maximum of six pins can be performing PWM at a time. Those that can do PWM are marked with a tilde next to them on the Arduino Uno. Because they use different timers, they have different frequencies.</p>
@@ -659,19 +659,19 @@ duty ratio of one. So, if you wanted a duty ratio of <span class="math notransla
 <h2>Follow-along exercise 4: PWM demo<a class="headerlink" href="#Follow-along-exercise-4:-PWM-demo" title="Permalink to this heading"></a></h2>
 <p>To demonstrate how the Arduino Uno does PWM in lieu of an <a class="reference external" href="https://en.wikipedia.org/wiki/Oscilloscope">oscilloscope</a>, you can watch the voltage sent out of a digital pin by reading its output via ADC. The set-up couldn’t be simpler. Connect digital pin 3 to analog input A0.</p>
 <div style="margin: auto; width: 300px;"><img alt="PWM demo setup" src="../../_images/pwm_demo_schem.svg" /></div><p>We will do PWM on pin 3 and then immediately read in the signal on pin A0. We will send the reading along the serial connection as fast as we can (which is 2,000,000 baud).</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">outPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">outPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
 
-<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">2000000</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">analogWrite</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">2000000</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">analogWrite</span><span class="p">(</span><span class="n">outPin</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span>
+<span class="p">}</span>
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">));</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="nf">analogRead</span><span class="p">(</span><span class="n">sensorPin</span><span class="p">));</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>To visualize the signal, you can either use serial-dashboard or the Serial Plotter of the Arduino IDE. In either case, be sure to set the baud rate to 2,000,000. If you do use serial-dashboard, note that you may fill up RAM as you watch the signal, since serial-dashboard aims to store whatever you record, while the Serial Plotter will dump values not displayed.</p>
@@ -722,11 +722,11 @@ jupyterlab 3.0.11
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 31, 2023.
+      <span class="lastupdated">Last updated on Aug 13, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fe5aa2405e0> 
+   <jinja2.runtime.BlockReference object at 0x15f56bcd0> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

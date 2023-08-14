@@ -512,7 +512,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
@@ -524,7 +524,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
 <span class="sd">    and receiving bytes.&quot;&quot;&quot;</span>
     <span class="c1"># Close and reopen</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -559,7 +559,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 
 
 <span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
 <span class="sd">    Parameters</span>
@@ -594,7 +594,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 
 
 <span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -622,7 +622,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 
 
 <span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -664,7 +664,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 
 
 <span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -677,7 +677,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 
 
 <span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
     <span class="c1"># Ask Arduino for data</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
 
@@ -691,92 +691,92 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <p>The schematic we will use is shown below.</p>
 <div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem3.svg" /></div><p>The sketch is</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span><span class="w"></span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">VOLTAGE_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">STREAM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">READ_DAQ_DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">VOLTAGE_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">STREAM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">READ_DAQ_DELAY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 
 <span class="c1">// Initially, only send data upon request</span>
-<span class="kr">int</span><span class="w"> </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="p">;</span><span class="w"></span>
+<span class="kr">int</span><span class="w"> </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="p">;</span>
 
 <span class="c1">// Default time between data acquisition is 100 ms</span>
-<span class="kr">int</span><span class="w"> </span><span class="n">daqDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
+<span class="kr">int</span><span class="w"> </span><span class="n">daqDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
 <span class="c1">// String to store input of DAQ delay</span>
-<span class="kr">String</span><span class="w"> </span><span class="n">daqDelayStr</span><span class="p">;</span><span class="w"></span>
+<span class="kr">String</span><span class="w"> </span><span class="n">daqDelayStr</span><span class="p">;</span>
 
 
 <span class="c1">// Keep track of last data acquistion for delays</span>
-<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 
-<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="nf">printVoltage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="nf">printVoltage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Read value from analog pin</span>
-<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">voltagePin</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kr">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">analogRead</span><span class="p">(</span><span class="n">voltagePin</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// Get the time point</span>
-<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeMilliseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="kr">unsigned</span><span class="w"> </span><span class="kr">long</span><span class="w"> </span><span class="n">timeMilliseconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">millis</span><span class="p">();</span>
 
 <span class="w">  </span><span class="c1">// Write the result</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kr">String</span><span class="w"> </span><span class="n">outstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">timeMilliseconds</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">));</span><span class="w"></span>
-<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">outstr</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kr">String</span><span class="w"> </span><span class="n">outstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="kr">String</span><span class="p">(</span><span class="n">timeMilliseconds</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">String</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">DEC</span><span class="p">));</span>
+<span class="w">    </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="n">outstr</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="c1">// Return time of acquisition</span>
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">timeMilliseconds</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">timeMilliseconds</span><span class="p">;</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Initialize serial communication</span>
-<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// If we&#39;re streaming</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">daqMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">STREAM</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">daqDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">daqMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">STREAM</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">daqDelay</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 
 <span class="w">  </span><span class="c1">// Check if data has been sent to Arduino and respond accordingly</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="nf">available</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// Read in request</span>
-<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">inByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="kr">int</span><span class="w"> </span><span class="n">inByte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">read</span><span class="p">();</span>
 
 <span class="w">    </span><span class="c1">// If data is requested, fetch it and write it, or handshake</span>
-<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">VOLTAGE_REQUEST</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">ON_REQUEST</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">STREAM</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STREAM</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">READ_DAQ_DELAY</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">switch</span><span class="p">(</span><span class="n">inByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">VOLTAGE_REQUEST</span><span class="p">:</span>
+<span class="w">        </span><span class="n">timeOfLastDAQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">printVoltage</span><span class="p">();</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ON_REQUEST</span><span class="p">:</span>
+<span class="w">        </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ON_REQUEST</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">STREAM</span><span class="p">:</span>
+<span class="w">        </span><span class="n">daqMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STREAM</span><span class="p">;</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">READ_DAQ_DELAY</span><span class="p">:</span>
 <span class="w">        </span><span class="c1">// Read in delay, knowing it is appended with an x</span>
-<span class="w">        </span><span class="n">daqDelayStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">readStringUntil</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">daqDelayStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">readStringUntil</span><span class="p">(</span><span class="sc">&#39;x&#39;</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// Convert to int and store</span>
-<span class="w">        </span><span class="n">daqDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">daqDelayStr</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">daqDelay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">daqDelayStr</span><span class="p">.</span><span class="n">toInt</span><span class="p">();</span>
 
-<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nl">HANDSHAKE</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">          </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">HANDSHAKE</span><span class="p">:</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nf">Serial</span><span class="p">.</span><span class="n">availableForWrite</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nf">Serial</span><span class="p">.</span><span class="nf">println</span><span class="p">(</span><span class="s">&quot;Message received.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <section id="Python-based-dashboarding">
@@ -850,7 +850,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
     <span class="c1"># Specify delay</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">READ_DAQ_DELAY</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 
@@ -910,7 +910,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
     <span class="c1"># Set up plot area</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
         <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
@@ -1152,7 +1152,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">controls</span><span class="p">:</span>
         <span class="n">controls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -1385,7 +1385,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
@@ -1397,7 +1397,7 @@ app(bokeh.plotting.curdoc())
 <span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
 <span class="sd">    and receiving bytes.&quot;&quot;&quot;</span>
     <span class="c1"># Close and reopen</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -1432,7 +1432,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
 <span class="sd">    Parameters</span>
@@ -1467,7 +1467,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1495,7 +1495,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse a read with time, voltage data</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a read with time, voltage data</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1534,7 +1534,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -1547,7 +1547,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
     <span class="c1"># Ask Arduino for data</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
 
@@ -1559,7 +1559,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
     <span class="c1"># Set up plot area</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
         <span class="n">frame_width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
@@ -1695,7 +1695,7 @@ app(bokeh.plotting.curdoc())
 
 
 <span class="k">def</span> <span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">controls</span><span class="p">:</span>
         <span class="n">controls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -1853,7 +1853,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
     <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
     <span class="c1"># Specify delay</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">READ_DAQ_DELAY</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
 
@@ -1962,11 +1962,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 31, 2023.
+      <span class="lastupdated">Last updated on Aug 13, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fe5aa38cc40> 
+   <jinja2.runtime.BlockReference object at 0x114244690> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

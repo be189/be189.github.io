@@ -262,11 +262,11 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 <h2>Arduino sketches<a class="headerlink" href="#Arduino-sketches" title="Permalink to this heading"></a></h2>
 <p>Finally, before launching into the blink exercise, we need to discuss Arduino sketches generally. Arduino sketches are written in C++. If you know C or C++, the syntax will be familiar to you. If not, we will discuss syntax and concepts along the way as we work through the lessons.</p>
 <p>Every Arduino sketch minimally has two functions, <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. Upon upload of your sketch (or upon pressing the reset button on the board), the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function is run once. Then, the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is run. When it finishes running, it runs again. And again and again and again. It keeps running over and over again until you upload a new sketch, press the reset button, or disconnect the Arduino. So, a minimal Arduino program is as follows.</p>
-<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>It literally does nothing.</p>
@@ -293,24 +293,24 @@ like <code class="docutils literal notranslate"><span class="pre">COM4</span></c
 <h3>Coding your sketch<a class="headerlink" href="#Coding-your-sketch" title="Permalink to this heading"></a></h3>
 <p>Fire up the Arduino IDE, and enter this code as your sketch.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Identify which pin controls the LED</span>
-<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
+<span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Set the pin controlling the LED to output</span>
-<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
 
 
-<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="kr">void</span><span class="w"> </span><span class="nb">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="c1">// Turn the LED on, and then wait a quarter second</span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">HIGH</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// Turn the LED off, and then wait a quarter second</span>
-<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span><span class="w"> </span><span class="kr">LOW</span><span class="p">);</span>
+<span class="w">  </span><span class="nf">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>I will now describe what this code does, step by step.</p>
@@ -319,7 +319,7 @@ like <code class="docutils literal notranslate"><span class="pre">COM4</span></c
 <span class="cm">  all the stuff in here,</span>
 <span class="cm">  even with multiple lines,</span>
 <span class="cm">  is ignored.</span>
-<span class="cm">*/</span><span class="w"></span>
+<span class="cm">*/</span>
 </pre></div>
 </div>
 <p>We start by declaring a global variable <code class="docutils literal notranslate"><span class="pre">ledPin</span></code> to be 6. We have connected the LED up to pin 6, so we need to make sure Arduino knows this. In front of the declaration, we have the keyword <code class="docutils literal notranslate"><span class="pre">int</span></code>. This designates <code class="docutils literal notranslate"><span class="pre">ledPin</span></code> to be of integer <strong>type</strong>. <em>Any variable in an Arduino sketch needs to have its type declared.</em> We also have the keyword <code class="docutils literal notranslate"><span class="pre">const</span></code>, specifying that this variable is a constant. This is not necessary, but is good practice for a variable whose value will never change in
@@ -370,11 +370,11 @@ will help with debugging.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 31, 2023.
+      <span class="lastupdated">Last updated on Aug 13, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x7fe58863f700> 
+   <jinja2.runtime.BlockReference object at 0x114665c50> 
 
 <p>© 2022 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
