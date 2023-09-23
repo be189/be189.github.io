@@ -1,0 +1,42 @@
+name: be189
+channels:
+  - default
+dependencies:
+  - python>=3.11
+  - black
+  - bokeh>=3.2.0
+  - click
+  - colorcet
+  - hypothesis
+  - ipython
+  - ipywidgets>=7.0.2
+  - jinja2
+  - jsonschema>=3.0
+  - jupyter
+  - line_profiler
+  - matplotlib
+  - mypy
+  - netcdf4
+  - numba
+  - numpy
+  - pandas
+  - pip
+  - pyserial
+  - pytest
+  - scipy
+  - seaborn
+  - sympy
+  - toolz
+  - tqdm
+  - traitlets
+  - xarray
+  - pip:
+    - blackcellmagic
+    - iqplot
+    - jupyter_bokeh
+    - jupyter-cache
+    - jupyterlab-spellchecker
+    - jupyterlab
+    - multiprocess
+    - serial-dashboard
+    - watermark

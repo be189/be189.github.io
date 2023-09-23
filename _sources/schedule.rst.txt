@@ -11,6 +11,7 @@ All meetings are in B127 Kerckhoff.
 - TA office hours
 
   + Mark Lengedre: TBD
+  + Steven Lin: TBD
 
 Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. 
 
@@ -21,7 +22,7 @@ Tuesday and Thursday lab meetings are required, unless arrangements have been ma
 Due dates
 --------------
 
-The due dates below may change. They will not be moved to an earlier date, but may be moved later. All times are Pacific.
+The due dates below may change. They will not be moved to an earlier date, but may be moved later. We may also add some follow-along and do-it-yourself exercises. All times are Pacific.
 
 .. role:: strike
     :class: strike
@@ -56,7 +57,6 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-noon, you will be w
 - **Tu 09/26**: Welcome, safety, introduction to Arduino
 - **Th 09/28**: A tour through available components and Arduino Uno
 - **Tu 10/10**: Lecture on design approaches
-- **Th 10/13**: Lecture on 3D printing by Anne Kil
 - **Tu 10/17**: Training on 3D printing with Techlab (half the students)
 - **Th 10/19**: Training on 3D printing with Techlab (half the students)
 - **Th 11/23**: Thanksgiving Day: no class

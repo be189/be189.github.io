@@ -27,6 +27,7 @@ People
 - TAs
 
    + Mark Legendre (``mlegendr at caltech dot edu``)
+   + Steven Lin (``slin at caltech dot edu``)
 
 
 
