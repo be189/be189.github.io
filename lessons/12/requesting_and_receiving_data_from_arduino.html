@@ -902,9 +902,9 @@ array([27, 28, 24, 25, 25, 23, 24, 29, 29, 27, 30, 26, 26, 24, 26, 28, 29,
 <p>This is not the 20 ms we wanted, and the time between acquisitions jumps around a lot. In future lessons, we will cover how to get better streaming data from Arduino. For now, you will code up a dashboard for a more commonly used mode of data-upon-request, where you hit a button and get data back.</p>
 <hr><section id="Do-it-yourself-exercise-5:-Asking-for-data-with-buttons">
 <h2>Do-it-yourself exercise 5: Asking for data with buttons<a class="headerlink" href="#Do-it-yourself-exercise-5:-Asking-for-data-with-buttons" title="Permalink to this heading"></a></h2>
-<p>Using the same setup as we have so far in this lesson, make a small dashboard with two buttons. One of them blanks out lists <code class="docutils literal notranslate"><span class="pre">time_ms</span></code> and <code class="docutils literal notranslate"><span class="pre">voltage</span></code>, while the other one asks for a time, voltage pair from Arduino and appends them to the lists. You can embed them in the notebook with either Panel or base Bokeh. Since you would presumably be using the data right away, leave them in the notebook and not as a stand along Bokeh app.</p>
+<p>Using the same setup as we have so far in this lesson, make a small dashboard with two buttons. One of them blanks out lists <code class="docutils literal notranslate"><span class="pre">time_ms</span></code> and <code class="docutils literal notranslate"><span class="pre">voltage</span></code>, while the other one asks for a time, voltage pair from Arduino and appends them to the lists. You can embed them in the notebook with either Bokeh. Since you would presumably be using the data right away, leave them in the notebook and not as a stand along Bokeh app.</p>
 <p>Use your button to ask for ten or more data points while messing around with the potentiometer knob and then make a plot of the result.</p>
-<p><em>Hint</em>: Check out <a class="reference external" href="https://panel.holoviz.org/reference/index.html">Panel’s Reference Gallery</a>. A Button is different that a Toggle. If you use a button, there is no <code class="docutils literal notranslate"><span class="pre">on_change</span></code> method, but rather an <code class="docutils literal notranslate"><span class="pre">on_click</span></code> method.</p>
+<p><em>Hint</em>: Check out <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html">Bokeh’s set of widgets</a>. A Button is different that a Toggle. If you use a button, there is no <code class="docutils literal notranslate"><span class="pre">on_change</span></code> method, but rather an <code class="docutils literal notranslate"><span class="pre">on_click</span></code> method.</p>
 <p><em>Another hint</em>: Say I have two widgets, <code class="docutils literal notranslate"><span class="pre">widget_1</span></code> and <code class="docutils literal notranslate"><span class="pre">widget_2</span></code>. To lay them out, you can use, e.g., <code class="docutils literal notranslate"><span class="pre">pn.Row(widget_1,</span> <span class="pre">pn.Spacer(width=15),</span> <span class="pre">widget_2)</span></code>.</p>
 <hr><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
@@ -954,11 +954,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 27, 2023.
+      <span class="lastupdated">Last updated on Oct 10, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x118601510> 
+   <jinja2.runtime.BlockReference object at 0x13d037310> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

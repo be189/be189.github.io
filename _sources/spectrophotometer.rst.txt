@@ -238,7 +238,7 @@ Here are some things to consider in your design and the operation of your instru
 #. There are two types of ≈600 nm emitting LEDs in the lab, `one with 10 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_, and `one with 1 candela luminosity <https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y>`_. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.
 #. It is important to block stray light. Think about how to accomplish that.
 #. Think about ways of dealing with noise and amplification, if necessary.
-#. You may wish to use a photodiode instead of a photoresistor to measuring light intensite. Indeed, many modern spectrophotometers use photodiodes. If you do that, bear in mind that a photodiode has a nice linear relationship between intensity of light and *current* through the photodiode. To convert the current to a voltage that you can measure with Arduino, you will need a transimpedance amplifier.
+#. You may wish to use a photodiode instead of a photoresistor to measuring light intensity. Indeed, many modern spectrophotometers use photodiodes. If you do that, bear in mind that a photodiode has a nice linear relationship between intensity of light and *current* through the photodiode. To convert the current to a voltage that you can measure with Arduino, you will need a transimpedance amplifier.
 #. In stand-alone mode, the user will use physical pushbuttons or toggles to control the instrument. You may want to read about `debouncing <https://www.arduino.cc/en/Tutorial/BuiltInExamples/Debounce>`_.
 
 
