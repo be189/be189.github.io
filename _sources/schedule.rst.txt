@@ -56,8 +56,7 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-noon, you will be w
 - **Tu 09/26**: Welcome, safety, introduction to Arduino
 - **Th 09/28**: A tour through available components and Arduino Uno
 - **Tu 10/10**: Lecture on design approaches
-- **Tu 10/17**: Training on 3D printing with Techlab (half the students)
-- **Th 10/19**: Training on 3D printing with Techlab (half the students)
+- **Tu 10/17**: Training on 3D printing with Techlab
 - **Th 11/02**: Spectrophotometer demo day
 - **Th 11/23**: Thanksgiving Day: no class
 - **Th 11/30**: Pulse oximetry demo day

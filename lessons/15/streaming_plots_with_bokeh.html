@@ -87,6 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../28/photodiodes_and_tias.html">28. Photodiodes, phototransistors, and transimpedance amplifiers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -147,7 +148,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/15/streaming_plots_with_bokeh" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/15/streaming_plots_with_bokeh.ipynb" download> Download notebook</a>
         
       
     
@@ -959,7 +960,7 @@ For time series data, like we’re plotting here, this results in a “scroll”
                 <span class="c1"># Update plot by streaming in data</span>
                 <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span>
                     <span class="p">{</span>
-                        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time_ms&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;prev_array_length&#39;</span><span class="p">]:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
+                        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time_ms&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;prev_array_length&#39;</span><span class="p">]:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">),</span>
                         <span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;voltage&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;prev_array_length&#39;</span><span class="p">]:],</span>
                     <span class="p">},</span>
                     <span class="n">rollover</span><span class="p">,</span>
@@ -1128,11 +1129,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 10, 2023.
+      <span class="lastupdated">Last updated on Oct 12, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x13ce7f950> 
+   <jinja2.runtime.BlockReference object at 0x113c28f10> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

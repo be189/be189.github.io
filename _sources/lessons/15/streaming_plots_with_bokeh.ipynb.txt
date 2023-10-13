@@ -882,7 +882,7 @@
     "                # Update plot by streaming in data\n",
     "                source.stream(\n",
     "                    {\n",
-    "                        \"t\": np.array(data['time_ms'][data['prev_array_length']:]) / 1000,\n",
+    "                        \"t\": list(np.array(data['time_ms'][data['prev_array_length']:]) / 1000),\n",
     "                        \"V\": data['voltage'][data['prev_array_length']:],\n",
     "                    },\n",
     "                    rollover,\n",

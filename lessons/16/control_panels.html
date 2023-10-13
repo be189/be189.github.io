@@ -91,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../25/sample_and_hold.html">25. Sample-and-hold circuits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../26/active_filters.html">26. Active filters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../27/digital_filters.html">27. Digital filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../28/photodiodes_and_tias.html">28. Photodiodes, phototransistors, and transimpedance amplifiers</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Exercises</span></p>
 <ul>
@@ -151,7 +152,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/16/control_panels" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/16/control_panels.ipynb" download> Download notebook</a>
         
       
     
@@ -1184,7 +1185,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
     <span class="c1"># Update plot by streaming in data</span>
     <span class="n">new_data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">),</span>
         <span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:],</span>
     <span class="p">}</span>
     <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
@@ -1721,7 +1722,7 @@ app(bokeh.plotting.curdoc())
 <span class="k">def</span> <span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
     <span class="c1"># Update plot by streaming in data</span>
     <span class="n">new_data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">),</span>
         <span class="s2">&quot;V&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:],</span>
     <span class="p">}</span>
     <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
@@ -1962,11 +1963,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 10, 2023.
+      <span class="lastupdated">Last updated on Oct 12, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x13cb8ab90> 
+   <jinja2.runtime.BlockReference object at 0x113b83050> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
