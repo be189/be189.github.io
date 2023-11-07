@@ -105,7 +105,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#instructions-for-obtaining-a-curve-for-enzymatic-catalysis">Instructions for obtaining a curve for enzymatic catalysis</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#obtaining-a-saliva-sample">Obtaining a saliva sample</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#measuring-the-growth-curve">Measuring the growth curve</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#measuring-the-chemical-kinetics">Measuring the chemical kinetics</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#submission">Submission</a></li>
@@ -678,7 +678,7 @@ F(t) = 1 - \mathrm{e}^{-\beta t}.
 I = I_0 \mathrm{e}^{-\epsilon l c},
 \end{aligned}\]</div>
 <p>where the wavelength-dependent parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> that contains the constants of proportionality is referred to as the molar attenuation coefficient. This equation is known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Beer–Lambert_law">Beer-Lambert Law</a>.</p>
-<p>The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, <span class="math notranslate nohighlight">\(T = I/I_0\)</span>, and the reported quantity is called the <strong>optical density</strong>, <span class="math notranslate nohighlight">\(\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}\)</span>. The general rule of thumb is that the accurate OD readings lie in the range of <span class="math notranslate nohighlight">\(0.01 &lt; \mathrm{OD} &lt; 1\)</span>. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.</p>
+<p>The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, <span class="math notranslate nohighlight">\(T = I/I_0\)</span>, and the reported quantity is called the <strong>optical density</strong>, <span class="math notranslate nohighlight">\(\mathrm{OD} = -\log_{10} T = \epsilon l c \cdot \log_{10} \mathrm{e}\)</span>. The general rule of thumb is that the accurate OD readings lie in the range of <span class="math notranslate nohighlight">\(0.01 &lt; \mathrm{OD} &lt; 1\)</span>. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.</p>
 <p>As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is <span class="math notranslate nohighlight">\(\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{blank}\)</span>.</p>
 </section>
 <section id="basics-of-spectrophotometry-in-enzyme-kinetics-assays">
@@ -787,11 +787,10 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 <p>You must demonstrate use of the instrument by acquiring a measurement of the concentration of starch-iodine complex (or something proportional to it) and performing a curve fit. You must minimally ascertain the time constant given by the ratio <span class="math notranslate nohighlight">\(V_0/K\)</span>, but you may try to obtain individual values for <span class="math notranslate nohighlight">\(V_0\)</span> and <span class="math notranslate nohighlight">\(K\)</span> if you wish. This will require careful calibration of your spectrophotometer to obtain the molar attenuation coefficient for the starch-iodine complex.</p>
 <section id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h3>
-<p>You must include documentation that we will send along to the freshmen in the spring term. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:</p>
+<p>You must include documentation for your device. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:</p>
 <ol class="arabic simple">
-<li><p>Instructions to build the device.</p></li>
-<li><p>Instructions for operating the instrument.</p></li>
 <li><p>Instructions for calibrating the instrument.</p></li>
+<li><p>Instructions for operating the instrument.</p></li>
 </ol>
 </section>
 <section id="suggestions">
@@ -822,8 +821,8 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 <li><p>Filter the saliva through a coffee filter to obtain a clear saliva solution.</p></li>
 </ol>
 </section>
-<section id="measuring-the-growth-curve">
-<h3>Measuring the growth curve<a class="headerlink" href="#measuring-the-growth-curve" title="Permalink to this heading"></a></h3>
+<section id="measuring-the-chemical-kinetics">
+<h3>Measuring the chemical kinetics<a class="headerlink" href="#measuring-the-chemical-kinetics" title="Permalink to this heading"></a></h3>
 <p>Because you want to capture as much of the reaction dynamics as possible, you will need to work quickly to get the reaction mixture assembled and into your spectrophotometer.</p>
 <ol class="arabic simple">
 <li><p>Using a pipette, dispense a small amount of the provided iodine solution into an empty cuvette. You will not need much; around 20-50 µL should be sufficient. You may need to experiment with the amount, adjusting so the absorbance readings fall into the accurate range below A ≈ 1.</p></li>
@@ -834,7 +833,7 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </section>
 <section id="submission">
 <h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading"></a></h2>
-<p>Submit your write-up as a ZIP file <a class="reference external" href="INSERTURLHERE">via Canvas</a>.</p>
+<p>Submit your write-up as a ZIP file <a class="reference external" href="https://caltech.instructure.com/courses/6277/assignments/47616">via Canvas</a>.</p>
 </section>
 </section>
 
@@ -850,11 +849,11 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 12, 2023.
+      <span class="lastupdated">Last updated on Nov 07, 2023.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x13ad50e10> 
+   <jinja2.runtime.BlockReference object at 0x16203d810> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

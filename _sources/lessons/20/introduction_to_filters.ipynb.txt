@@ -61,7 +61,7 @@
     "Thus,\n",
     "\n",
     "\\begin{align}\n",
-    "I(t) = \\mathrm{Re}[j\\omega\\,V_0\\,\\mathrm{e}^{j\\omega t}] = \\mathrm{Re}\\left[-\\frac{1}{j/\\omega C}\\,V_0\\,\\mathrm{e}^{j\\omega t}\\right].\n",
+    "I(t) = \\mathrm{Re}[j\\omega C\\,V_0\\,\\mathrm{e}^{j\\omega t}] = \\mathrm{Re}\\left[-\\frac{1}{j/\\omega C}\\,V_0\\,\\mathrm{e}^{j\\omega t}\\right].\n",
     "\\end{align}\n",
     "\n",
     "Here, the impedance is $Z = -j/\\omega C$, which is purely imaginary, and therefore purely reactive. It is important to note that the impedance is *frequency dependent*. This is a key feature in filter design. \n",

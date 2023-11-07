@@ -58,7 +58,7 @@ The time it takes to traverse the sample is proportional to the length of the cu
 
 where the wavelength-dependent parameter :math:`\epsilon` that contains the constants of proportionality is referred to as the molar attenuation coefficient. This equation is known as the `Beer-Lambert Law <https://en.wikipedia.org/wiki/Beer–Lambert_law>`_.
 
-The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, :math:`T = I/I_0`, and the reported quantity is called the **optical density**, :math:`\mathrm{OD} = -\log_{10} T = \epsilon l c / \log_{10} \mathrm{e}`. The general rule of thumb is that the accurate OD readings lie in the range of :math:`0.01 < \mathrm{OD} < 1`. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
+The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, :math:`T = I/I_0`, and the reported quantity is called the **optical density**, :math:`\mathrm{OD} = -\log_{10} T = \epsilon l c \cdot \log_{10} \mathrm{e}`. The general rule of thumb is that the accurate OD readings lie in the range of :math:`0.01 < \mathrm{OD} < 1`. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
 
 As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is :math:`\mathrm{OD} = \mathrm{OD}_\mathrm{measured} - \mathrm{OD}_\mathrm{blank}`.
 
@@ -223,11 +223,10 @@ You must demonstrate use of the instrument by acquiring a measurement of the con
 Documentation
 ~~~~~~~~~~~~~
 
-You must include documentation that we will send along to the freshmen in the spring term. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:
+You must include documentation for your device. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:
 
-1. Instructions to build the device.
+1. Instructions for calibrating the instrument.
 2. Instructions for operating the instrument.
-3. Instructions for calibrating the instrument.
 
 
 Suggestions
@@ -261,8 +260,8 @@ Obtaining a saliva sample
 #. Filter the saliva through a coffee filter to obtain a clear saliva solution.
 
 
-Measuring the growth curve
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Measuring the chemical kinetics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because you want to capture as much of the reaction dynamics as possible, you will need to work quickly to get the reaction mixture assembled and into your spectrophotometer.
 
@@ -274,4 +273,4 @@ Because you want to capture as much of the reaction dynamics as possible, you wi
 Submission
 ^^^^^^^^^^^
 
-Submit your write-up as a ZIP file `via Canvas <INSERT URL HERE>`_.
+Submit your write-up as a ZIP file `via Canvas <https://caltech.instructure.com/courses/6277/assignments/47616>`_.
