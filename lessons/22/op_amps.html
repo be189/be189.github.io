@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>22. Operational amplifiers &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -186,7 +188,8 @@ The output will "rail" (go to the max or min voltage) unless the difference betw
 <section id="A-non-inverting-amplifier">
 <h2>A non-inverting amplifier<a class="headerlink" href="#A-non-inverting-amplifier" title="Permalink to this heading"></a></h2>
 <p>Consider the circuit below in which we connect an op-amp with feedback to a voltage divider.</p>
-<div style="margin:auto; width: 250px;"><img alt="Non-inverting amplifier circuit" src="../../_images/noninverting_amp.svg" /></div><p>Note that we have labeled a point <span class="math notranslate nohighlight">\(a\)</span> in the circuit as a reference for our analysis. The symbol for an op-amp is a triangle with two inputs and a single output. The op-amp amplifies the difference between the input labeled with a “+” (referred to as the noninverting input) and that labeled with a “–” (referred to as the inverting input). Pay close attention when looking at a schematic; the inverting input can be on top or bottom. In some schematics, the power supplies (<span class="math notranslate nohighlight">\(V_+\)</span> and
+<div style="margin:auto; width: 250px;"><p><img alt="Non-inverting amplifier circuit" src="../../_images/noninverting_amp.svg" /></p>
+</div><p>Note that we have labeled a point <span class="math notranslate nohighlight">\(a\)</span> in the circuit as a reference for our analysis. The symbol for an op-amp is a triangle with two inputs and a single output. The op-amp amplifies the difference between the input labeled with a “+” (referred to as the noninverting input) and that labeled with a “–” (referred to as the inverting input). Pay close attention when looking at a schematic; the inverting input can be on top or bottom. In some schematics, the power supplies (<span class="math notranslate nohighlight">\(V_+\)</span> and
 <span class="math notranslate nohighlight">\(V_-\)</span>) for the op-amp are also included, given as vertical connections on the slanted sides of the triangle. In many schematics, including this one, we do not explicitly show those and note that they are in fact there.</p>
 <p>Thinking intuitively about the circuit, imagine <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> goes up. Remembering rule 3 above, if <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> goes up, the output will be adjusted so that <span class="math notranslate nohighlight">\(V_\mathrm{a}\)</span> also goes up in order to drive the difference between the inputs to the op-amp to be close to zero. In order to get <span class="math notranslate nohighlight">\(V_a\)</span> to go up, <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> must also go up. Similarly, if <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> goes down, so too does <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span>.</p>
 <p>To figure out how much <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> goes up, we need to find the value of <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> that will give <span class="math notranslate nohighlight">\(V_\mathrm{a} = V_\mathrm{in}\)</span>. Remembering what we have already worked out for a voltage divider, we have</p>
@@ -234,18 +237,21 @@ V_\mathrm{out} = (1 + R_1/R_2)V_\mathrm{in}.
 <section id="A-unit-gain-amplifier">
 <h2>A unit gain amplifier<a class="headerlink" href="#A-unit-gain-amplifier" title="Permalink to this heading"></a></h2>
 <p>Consider the following circuit.</p>
-<div style="margin:auto; width: 250px;"><img alt="Unit gain amplifier" src="../../_images/unit_gain_amp.svg" /></div><p>This looks kind of funny. We take the output of the op-amp and put it right back in the inverting input without using a resister of capacitor. What is this doing? It makes more sense if we compare this circuit to the non-inverting amplifier. We see that our circuit is actually a non-inverting amplifier with <span class="math notranslate nohighlight">\(R_1 \approx 0\)</span> and <span class="math notranslate nohighlight">\(R_2 \approx \infty\)</span>. Thus, we have <span class="math notranslate nohighlight">\(V_\mathrm{out} \approx V_\mathrm{in}\)</span>. The result is a unit-gain amplifier; the input signal is multiplied by unity.</p>
+<div style="margin:auto; width: 250px;"><p><img alt="Unit gain amplifier" src="../../_images/unit_gain_amp.svg" /></p>
+</div><p>This looks kind of funny. We take the output of the op-amp and put it right back in the inverting input without using a resister of capacitor. What is this doing? It makes more sense if we compare this circuit to the non-inverting amplifier. We see that our circuit is actually a non-inverting amplifier with <span class="math notranslate nohighlight">\(R_1 \approx 0\)</span> and <span class="math notranslate nohighlight">\(R_2 \approx \infty\)</span>. Thus, we have <span class="math notranslate nohighlight">\(V_\mathrm{out} \approx V_\mathrm{in}\)</span>. The result is a unit-gain amplifier; the input signal is multiplied by unity.</p>
 <p>This circuit is an example of an <strong>emitter follower</strong> (sometimes just called a <strong>follower</strong>), so named because the output is emitted, following an input. Importantly, the output has very low impedance, much lower than typical input impedance. As a result, the output is isolated from the input due to the large impedance difference. Unit gain amplifiers are quite useful to stabilize input signals prior to measuring them.</p>
 <hr></section>
 <section id="Thinking-exercise-7:-Another-amplifier">
 <h2>Thinking exercise 7: Another amplifier<a class="headerlink" href="#Thinking-exercise-7:-Another-amplifier" title="Permalink to this heading"></a></h2>
 <p>What is the relationship between <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span> and <span class="math notranslate nohighlight">\(V_\mathrm{out}\)</span> in the circuit below?</p>
-<div style="margin:auto; width: 300px;"><img alt="Inverting amplifier circuit" src="../../_images/inverting_amp.svg" /></div><p>The circuit in this exercise is <em>very</em> important. Be sure you read the answer to this thinking exercise at the end of this lesson.</p>
+<div style="margin:auto; width: 300px;"><p><img alt="Inverting amplifier circuit" src="../../_images/inverting_amp.svg" /></p>
+</div><p>The circuit in this exercise is <em>very</em> important. Be sure you read the answer to this thinking exercise at the end of this lesson.</p>
 <hr></section>
 <section id="Dual-op-amps">
 <h2>Dual op-amps<a class="headerlink" href="#Dual-op-amps" title="Permalink to this heading"></a></h2>
 <p>We have <a class="reference external" href="https://www.digikey.com/en/products/detail/texas-instruments/LF412CP/378419">LF412CP dual op-amps</a>. A dual op-amp has two op-amps in the same integrated circuit. The pinout for this component is shown below.</p>
-<div style="margin:auto; width: 200px;"><img alt="LF412CP pinout" src="../../_images/LF412CP_pinout.svg" /></div><p>Note that both of the op-amps share the same power source (Vcc+ and Vcc–).</p>
+<div style="margin:auto; width: 200px;"><p><img alt="LF412CP pinout" src="../../_images/LF412CP_pinout.svg" /></p>
+</div><p>Note that both of the op-amps share the same power source (Vcc+ and Vcc–).</p>
 <p>When using this component, it is important to note the small circular indentation on the top. This is used to orient you so you know which pin is which.</p>
 <p>The component is laid out as a <a class="reference external" href="https://en.wikipedia.org/wiki/Dual_in-line_package">dual inline package</a> (DIP). The groove in the middle of your solderless breadboard is there for DIP support. You should mount the component across the groove. When you do so, none of the pins of the component are connected to <em>each other</em>, and you then can connect the pins to the necessary components of the circuit.</p>
 <hr></section>
@@ -256,7 +262,8 @@ V_\mathrm{out} = (1 + R_1/R_2)V_\mathrm{in}.
 <li><p>Power the dual op-amp with your <strong>5 V PowerBRICK</strong>.</p></li>
 <li><p>Do not connect the outputs of the op-amps to A0 and A2 right now. Do that after you upload your sketch.</p></li>
 </ol>
-<div style="margin:auto; width:500px;"><img alt="dual op-amp circuit" src="../../_images/op_amp_schem.svg" /></div><p>Write an Arduino sketch to use the MCP4725 DAC to send one volt as input to the first op-amp and to send the outputs of the first and second op-amp to pins A0 and A2, respectively. Prior to plugging in pins A0 and A2 and uploading the sketch, what values to you think they will read?</p>
+<div style="margin:auto; width:500px;"><p><img alt="dual op-amp circuit" src="../../_images/op_amp_schem.svg" /></p>
+</div><p>Write an Arduino sketch to use the MCP4725 DAC to send one volt as input to the first op-amp and to send the outputs of the first and second op-amp to pins A0 and A2, respectively. Prior to plugging in pins A0 and A2 and uploading the sketch, what values to you think they will read?</p>
 <p>Now plug in A0 and A2, upload the sketch, and see what values pins A0 and A2 read using the Serial Monitor. <em>Hint</em>: You may want to put a delay between opening the serial connection and reading and writing the results to make sure everything is ready to go for serial communication.</p>
 <hr><p><strong>Answer to inverting op-amp thinking exercise</strong></p>
 <p>We will use the simple rules of op-amps. First, the voltage difference is close to zero, giving <span class="math notranslate nohighlight">\(V_a \approx V_b\)</span>. But, <span class="math notranslate nohighlight">\(V_b = 0\)</span> because is ground. So, <span class="math notranslate nohighlight">\(V_a = 0\)</span>. Another rule of op-amps is that the input current is close to zero. Using Kirckhoff’s current law, the input current is the sum of the two currents coming in to node (a). The input current due to the input voltage is, by Ohm’s law, <span class="math notranslate nohighlight">\(V_\mathrm{in} / R_1\)</span>. The input current from the feedback is
@@ -284,11 +291,11 @@ V_\mathrm{out} = -\frac{R_2}{R_1}\,V_\mathrm{in}.
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x116edff50> 
+   <jinja2.runtime.BlockReference object at 0x2801e2a50> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

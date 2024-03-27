@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>28. Photodiodes, phototransistors, and transimpedance amplifiers &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -163,7 +165,7 @@
 <h1>28. Photodiodes, phototransistors, and transimpedance amplifiers<a class="headerlink" href="#28.-Photodiodes,-phototransistors,-and-transimpedance-amplifiers" title="Permalink to this heading"></a></h1>
 <hr><p>In <a class="reference internal" href="../21/photoresistors_and_adc.html"><span class="doc">lesson 21</span></a>, we learned about photoresistors in which the resistance is dependent on the intensity of incident light. <a class="reference external" href="https://en.wikipedia.org/wiki/Photodiode">Photodiodes</a>, on the other hand generate current upon being exposed to light (in contrast to an LED, which emits light when current flows through it).</p>
 <p>Photodiodes come in many packages; the type we have in the lab is shown below.</p>
-<div style="margin:auto; width: 150px;"><img alt="photodiode_VTP9812FH" src="../../_images/photodiode_VTP9812FH.jpg" />
+<div style="margin:auto; width: 150px;"><p><img alt="photodiode_VTP9812FH" src="../../_images/photodiode_VTP9812FH.jpg" /></p>
 </div><p>In this package, light impingent on the top leads to current flow.</p>
 <section id="Benefits-of-using-photodiodes-for-optical-detection">
 <h2>Benefits of using photodiodes for optical detection<a class="headerlink" href="#Benefits-of-using-photodiodes-for-optical-detection" title="Permalink to this heading"></a></h2>
@@ -183,17 +185,21 @@
 <h2>Transimpedance amplifiers<a class="headerlink" href="#Transimpedance-amplifiers" title="Permalink to this heading"></a></h2>
 <p>We can only measure potential differences, not currents, so we need to convert the current flowing through a photodiode or phototransistor into a voltage. The simplest way to make this conversion is simply to put a resistor between the photodiode and ground and measure the voltage, knowing that <span class="math notranslate nohighlight">\(V = I R\)</span>. This is problematic because the resistor, by design, provides impedance to the input current. If the current source has poor compliance (meaning that the current is strongly effected by
 the output voltage), then the voltage across the resistor will affect the current, and an accurate current measurement is not possible. So, we see a conversion of current to voltage that has small impedence in the output. This is accomplished using an op-amp configured as a <strong>transimpedance amplifier</strong>, shown below.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance_amplifier" src="../../_images/transimpedance_amplifier.svg" /></div><p>Here, the current source could be a photodiode, phototransistor, or any other current course. In what follows, we will use photodiode, with its symbol looking like that of an LED, except with light arrows coming in.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode" src="../../_images/transimpedance_photodiode.svg" /></div><p>Again recalling the rules of op-amps, the voltage at both inputs is the same, and since the noninverting input is connected to group, both input voltages are zero relative to ground. Furthermore, the current flowing through the op-amp is close to zero so that the current flows through the resistor. The potential across the resistor is <span class="math notranslate nohighlight">\(V_\mathrm{ground} - V_\mathrm{out} = -V_\mathrm{out}\)</span>. So, the output voltage is proportional to the current, <span class="math notranslate nohighlight">\(V_\mathrm{out} = -I R\)</span>. The name
+<div style="margin:auto; width: 300px;"><p><img alt="transimpedance_amplifier" src="../../_images/transimpedance_amplifier.svg" /></p>
+</div><p>Here, the current source could be a photodiode, phototransistor, or any other current course. In what follows, we will use photodiode, with its symbol looking like that of an LED, except with light arrows coming in.</p>
+<div style="margin:auto; width: 300px;"><p><img alt="transimpedance amplifier with photodiode" src="../../_images/transimpedance_photodiode.svg" /></p>
+</div><p>Again recalling the rules of op-amps, the voltage at both inputs is the same, and since the noninverting input is connected to group, both input voltages are zero relative to ground. Furthermore, the current flowing through the op-amp is close to zero so that the current flows through the resistor. The potential across the resistor is <span class="math notranslate nohighlight">\(V_\mathrm{ground} - V_\mathrm{out} = -V_\mathrm{out}\)</span>. So, the output voltage is proportional to the current, <span class="math notranslate nohighlight">\(V_\mathrm{out} = -I R\)</span>. The name
 “transimpedance amplifier” comes from this fact; the “gain” of the amplifier has units of resistance (impedance). These are also sometimes called <strong>transresistance amplifiers</strong> or <strong>current-to-voltage converter</strong>.</p>
 </section>
 <section id="Dealing-with-capacitance-in-the-photodiode">
 <h2>Dealing with capacitance in the photodiode<a class="headerlink" href="#Dealing-with-capacitance-in-the-photodiode" title="Permalink to this heading"></a></h2>
 <p>The above transimpedance amplifier can give rise to oscillations. This is because the photodiode has some small, but nonzero, capacitance. Combined with the resistor, this gives a low pass filter. The filter gives a 90° phase shift at high frequencies. The op-amp also has a lagging phase shift, which, when added to that of the low-pass filter, gives a total phase shift of 180°. The result is positive feedback, which can give rise to oscillations. To remedy this, a we add a small capacitor in
 parallel with the resistor, as shown below. This serves to damp out the oscillations.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode and stabilizing capacitor" src="../../_images/transimpendance_photodiode_stabilized.svg" /></div><p>Another option is to introduce a <em>reverse bias</em>, where a positive voltage is set up across the photodiode, as shown below. This results in an additive offset to the current through the photodiode. The advantage is that the capacitance of the photodiode is reduced (for physical reasons related to how diodes function) and results in a faster response time. The disadvantage is that this usually results in more noise and makes measuring low-intensity light more difficult. Oscillations are possible,
+<div style="margin:auto; width: 300px;"><p><img alt="transimpedance amplifier with photodiode and stabilizing capacitor" src="../../_images/transimpendance_photodiode_stabilized.svg" /></p>
+</div><p>Another option is to introduce a <em>reverse bias</em>, where a positive voltage is set up across the photodiode, as shown below. This results in an additive offset to the current through the photodiode. The advantage is that the capacitance of the photodiode is reduced (for physical reasons related to how diodes function) and results in a faster response time. The disadvantage is that this usually results in more noise and makes measuring low-intensity light more difficult. Oscillations are possible,
 so it is advisable to consider adding a capacitor across the resistor.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode and reverse bias" src="../../_images/transimpedance_photodiode_reverse_bias.svg" /></div></section>
+<div style="margin:auto; width: 300px;"><p><img alt="transimpedance amplifier with photodiode and reverse bias" src="../../_images/transimpedance_photodiode_reverse_bias.svg" /></p>
+</div></section>
 </section>
 
 
@@ -208,11 +214,11 @@ so it is advisable to consider adding a capacitor across the resistor.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x161e59c50> 
+   <jinja2.runtime.BlockReference object at 0x2803ef750> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

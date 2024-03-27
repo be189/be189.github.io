@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pulse oximetry &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -185,7 +187,7 @@
 \text{SpO}_2 = \frac{C_\mathrm{O_2Hb}}{C_\mathrm{O_2Hb} + C_\mathrm{Hb}}.
 \end{align}\]</div>
 <p>To measure SpO₂, we consider absorption at a second wavelength in addition to the IR used to measure the pulse. Below, I show the absoprtion spectra for O₂Hb and Hb. Between about 600 and 800 nm, Hb has a higher extinction coefficient than O₂Hb. If we monitor transmission of light at this second wavelength, in addition to the 940 nM we are already using to detect the pulse, we can determine SpO₂. In particular, there is a big gap between the extinction coefficient of O₂Hb and Hb in the red region, around 660 nm, and the gap is the opposite as in the IR, where O₂Hb has a lower extinction coefficient.</p>
-<div style="height:600px;"><script src="bokeh-content-a020d983f8944d8d990638614da3c331-pulseox.js" id="a7bb9536-1d62-4500-8dcc-727459e0af8f"></script></div><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
+<div style="height:600px;"><script src="bokeh-content-151ce5bb404e4ce4ab685d5f1ab5ea45-pulseox.js" id="d8890dc0-aa98-46ec-a122-3c95ba03ce45"></script></div><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \frac{I}{I_0} = \mathrm{e}^{-\epsilon c d},
@@ -358,11 +360,11 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x161e6a650> 
+   <jinja2.runtime.BlockReference object at 0x2803c22d0> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

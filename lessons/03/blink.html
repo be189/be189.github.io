@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. Hello, world. (a.k.a. Blink) &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -200,7 +202,7 @@ Hello, world.
 <section id="LEDs">
 <h3>LEDs<a class="headerlink" href="#LEDs" title="Permalink to this heading"></a></h3>
 <p>We have many red <strong>light-emitting diodes (LEDs)</strong>. An <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">LED</a> is a component that permits current to flow through it in one direction and emits light when it does. Here is a picture of one with a clear cover, though colored covers are common.</p>
-<div style="margin: auto; width: 500px;"><img alt="led" src="../../_images/led.png" />
+<div style="margin: auto; width: 500px;"><p><img alt="led" src="../../_images/led.png" /></p>
 </div><p>Because of the directionality of the diode, it is important that the LED is properly oriented. LEDs typically have one long lead and one shorter lead. The long lead is the <strong>anode</strong>, which you connect to the higher voltage, and the shorter lead is the <strong>cathode</strong>, which you connect to the lower voltage (ground). In drawings of LEDs, the long lead is typically shown as a bent wire.</p>
 <p>You should also control how much current goes through an LED so you do not destroy it. LEDs are rated with a maximum <strong>forward current</strong>, which is the maximum continuous current an LED can safely pass. For many LEDs, including the ones we use, the forward current is 25 mA. They also have a <strong>forward voltage</strong>, which is the voltage drop across the LED. For the LEDs we use, the forward voltage is about 1.8 V. The maximum voltage that Arduino can provide is 5 V, so if you are powering your LED with
 Arduino, you will hit the forward current with a resistance of about 130 Ω by Ohm’s law. As such, if you use 220 Ω resistors with the LEDs, they should not burn out.</p>
@@ -209,7 +211,7 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 <h3>Resistors<a class="headerlink" href="#Resistors" title="Permalink to this heading"></a></h3>
 <p>Resistors contain insulating material that restricts the flow of electrons through them. Different resistors can have different composition, which will lead to different degrees of effectiveness in restricting current, or <strong>resistance</strong>, which is measured in ohms (Ω).</p>
 <p>Resistors are color-coded for their resistance. The color-coding works in either four-, five-, or six-band codes. The resistors we use are either four- or five-band. Here is a picture of several four-band resistors (Evan Amos, public domain).</p>
-<div style="margin: auto; width: 350px;"><img alt="resistors" src="../../_images/resistors.jpg" />
+<div style="margin: auto; width: 350px;"><p><img alt="resistors" src="../../_images/resistors.jpg" /></p>
 </div><p>It can be hard to determine the direction in which to read the bands. In many resistors, the outer band that is closest to its respective lead is the first. In some four-band resistors, there is a larger gap between the third and fourth band. Finally, if there is a gold or silver band, it must be the last band.</p>
 <p>Each color corresponds to a number, as follows.</p>
 <ol class="arabic simple" start="0">
@@ -243,7 +245,7 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 </ol>
 <p>The 220 Ω resistor in the four-band example would have rings of red-red-black-black-gold.</p>
 <p>For reference, below is a diagram of resistor color codes (Adim kassn, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0 licensed</a>). To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
-<div style="margin: auto; width: 400px"><img alt="Color code chart for resistors" src="../../_images/resistor_color_code.png" />
+<div style="margin: auto; width: 400px"><p><img alt="Color code chart for resistors" src="../../_images/resistor_color_code.png" /></p>
 </div><hr></section>
 <section id="Thinking-exercise-1:-Resistor-values">
 <h3>Thinking exercise 1: Resistor values<a class="headerlink" href="#Thinking-exercise-1:-Resistor-values" title="Permalink to this heading"></a></h3>
@@ -281,7 +283,8 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 <section id="Wiring-it-up">
 <h3>Wiring it up<a class="headerlink" href="#Wiring-it-up" title="Permalink to this heading"></a></h3>
 <p>The drawing below shows how to construct the physical device for the blink exercise.</p>
-<div style="margin: auto; width: 600px;"><img alt="blink_bb" src="../../_images/blink_bb.svg" /></div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
+<div style="margin: auto; width: 600px;"><p><img alt="blink_bb" src="../../_images/blink_bb.svg" /></p>
+</div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
 <p>In this circuit, digital pin 6 provides voltage driving current through the resistor, then through the LED, and finally to ground. In our Arduino sketch, we will change the output of digital pin 6 from high to low and back to high again to blink the LED.</p>
 </section>
 <section id="Connecting-the-Arduino-Uno-to-your-computer">
@@ -371,11 +374,11 @@ will help with debugging.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x117056250> 
+   <jinja2.runtime.BlockReference object at 0x12e56e990> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

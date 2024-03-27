@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>18. Using a liquid crystal display &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -170,7 +172,7 @@
 <h2>The LDC<a class="headerlink" href="#The-LDC" title="Permalink to this heading"></a></h2>
 <p>The LCD we have in lab can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 chip</a>, which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use.</p>
 <p>Here are photos of the front and back of your LCD.</p>
-<div style="margin: auto; width: 400px;"><img alt="LCD photo" src="../../_images/lcd_photo.jpg" />
+<div style="margin: auto; width: 400px;"><p><img alt="LCD photo" src="../../_images/lcd_photo.jpg" /></p>
 </div><p>On the front (top photo) are 16 pins. In looking at the pinout on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Wikipedia page</a>, you can see that many pins need to be connected to digital pins on the Arduino Uno in order to operate the LCD. Conveniently, though, the LCD we have contains a “backpack”, shown on the bottom of the two photos above. The backpack enables powering the LCD and connecting it to Aruino using I2C, which uses just two pins (SDA and SCL). Also on the
 backpack is a potentiometer, which you can tune using a small Phillips head screwdriver. The potentiometer adjusts the brightness of the display.</p>
 <p>So, fortunately, we can use I2C to update the display of the LCD and we do not need to use many pins to do so.</p>
@@ -182,7 +184,8 @@ backpack is a potentiometer, which you can tune using a small Phillips head scre
 <section id="Follow-along-exercise-13:-Using-an-LCD-display">
 <h2>Follow-along exercise 13: Using an LCD display<a class="headerlink" href="#Follow-along-exercise-13:-Using-an-LCD-display" title="Permalink to this heading"></a></h2>
 <p>Set up the circuit below. You will add a potentiometer and the LCD to your setup from the last lesson. You may be able to leave your DAC setup as is, but you might need to move things around to keep wires tidy.</p>
-<div style="margin: auto; width: 400px;"><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" /></div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
+<div style="margin: auto; width: 400px;"><p><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" /></p>
+</div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
 <section id="Characters-for-the-LCD">
 <h3>Characters for the LCD<a class="headerlink" href="#Characters-for-the-LCD" title="Permalink to this heading"></a></h3>
 <p>The LCD can display a set of characters</p>
@@ -377,11 +380,11 @@ communication at 400k baud.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x161ab1ad0> 
+   <jinja2.runtime.BlockReference object at 0x12e6b6f90> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

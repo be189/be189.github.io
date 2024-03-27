@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>26. Active filters &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -477,7 +479,8 @@ if (force === true) {
 <section id="Motivation-for-active-filters">
 <h2>Motivation for active filters<a class="headerlink" href="#Motivation-for-active-filters" title="Permalink to this heading"></a></h2>
 <p>As we have already seen, the structure of a simple RC filter is the same as a voltage divider, as shown below.</p>
-<div style="margin: auto; width: 200px"><img alt="Generic voltage divider 2" src="../../_images/generic_voltage_divider1.svg" /></div><p>For a low-pass filter, Z₁ is a resistor (say, with resistance <span class="math notranslate nohighlight">\(R\)</span>) and Z₂ is a capacitor (say, with capacitance <span class="math notranslate nohighlight">\(C\)</span>). In a high-pass filter, the Z₁ is a capacitor and Z₂ is a resistor.</p>
+<div style="margin: auto; width: 200px"><p><img alt="Generic voltage divider 2" src="../../_images/generic_voltage_divider1.svg" /></p>
+</div><p>For a low-pass filter, Z₁ is a resistor (say, with resistance <span class="math notranslate nohighlight">\(R\)</span>) and Z₂ is a capacitor (say, with capacitance <span class="math notranslate nohighlight">\(C\)</span>). In a high-pass filter, the Z₁ is a capacitor and Z₂ is a resistor.</p>
 <p>Consider for a moment a low-pass RC filter. We previously worked out that</p>
 <p><span class="math">\begin{align}
 \left|V_\mathrm{out}\right| = \frac{1}{\sqrt{1 + \omega^2R^2C^2}}\,\left|V_\mathrm{in}\right|.
@@ -557,7 +560,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <section id="Sallen-Key-filters">
 <h2>Sallen-Key filters<a class="headerlink" href="#Sallen-Key-filters" title="Permalink to this heading"></a></h2>
 <p>We will consider one of the simplest active filters, the <strong>Sallen-Key filter</strong>. It is a simple special case of <strong>voltage-controlled voltage-source</strong> (VCVS) filters. The topology of the Sallen-Key filter is shown below.</p>
-<div style="margin: auto; width: 500px"><img alt="Sallen-key topology" src="../../_images/sallen-key.svg" /></div><p>For a high-pass filter, Z₁ and Z₂ are capacitors and Z₃ and Z₄ are resistors. For a low-pass filter, Z₁ and Z₂ are resistors and Z₃ and Z₄ are capacitors. The topology looks like cascaded RC filters, except with feedback.</p>
+<div style="margin: auto; width: 500px"><p><img alt="Sallen-key topology" src="../../_images/sallen-key.svg" /></p>
+</div><p>For a high-pass filter, Z₁ and Z₂ are capacitors and Z₃ and Z₄ are resistors. For a low-pass filter, Z₁ and Z₂ are resistors and Z₃ and Z₄ are capacitors. The topology looks like cascaded RC filters, except with feedback.</p>
 <p>Taking as an example a low-pass filter, we an take <span class="math notranslate nohighlight">\(R_1 = R_2 = R\)</span> and <span class="math notranslate nohighlight">\(C_3 = C_4 = C\)</span>, and derive that the response is</p>
 <p><span class="math">\begin{align}
 \frac{\left|V_\mathrm{out}\right|}{\left|V_\mathrm{in}\right|} = \frac{1}{1 + \omega^2R^2C^2}.
@@ -622,7 +626,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <section id="VCVS-filters">
 <h2>VCVS filters<a class="headerlink" href="#VCVS-filters" title="Permalink to this heading"></a></h2>
 <p>Though the Sallen-Key filter has better roll-off, the knee, however, is still dull. This can be fixed by using the op-amp to amplify the output signal, as is done in VCVS filters, the topology of which is shown below.</p>
-<div style="margin: auto; width: 500px"><img alt="VCVS topology" src="../../_images/VCVS.png" />
+<div style="margin: auto; width: 500px"><p><img alt="VCVS topology" src="../../_images/VCVS.png" /></p>
 </div><p>Within the VCVS topology many filters can be designed with sharp knees, strong roll-off, and flat pass bands. However, filter design requires careful thought, and things can go wrong, including introduction of <a class="reference external" href="https://en.wikipedia.org/wiki/Ripple_(electrical)#Frequency-domain_ripple">ripple</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Resonance">resonance</a>. I would recommend reading chapter 6 of Horowitz and Hill to learn more.</p>
 <p>For the purposes of the projects in this class, you should be able to get good signals using a Sallen-Key filter, perhaps with some amplification after the filtering. (In looking at the above diagram, it is clear that the Sallen-Key filter is a VCVS filter with <span class="math notranslate nohighlight">\(R_1 = 0\)</span> and infinite <span class="math notranslate nohighlight">\(R_2\)</span>.</p>
 </section>
@@ -630,7 +634,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <h2>Follow-along exercise 17: Sallen-Key filters<a class="headerlink" href="#Follow-along-exercise-17:-Sallen-Key-filters" title="Permalink to this heading"></a></h2>
 <p>In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise that also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.</p>
 <p>Build the circuit below. The resistances are marked, and the capacitors should have capacitance <span class="math notranslate nohighlight">\(C_1 = C_2 = 2.2\)</span> µF and <span class="math notranslate nohighlight">\(C_3 = C_4 = 0.22\)</span> µF. Note that the part of the circuit featuring resistors R₁ and R₂ and capacitors C₁ and C₂ constitutes a high-pass filter, and the part of the circuit featuring R₃, R₄, C₃, and C₄ constitutes a low-pass filter.</p>
-<div style="margin: auto; width=600px;"><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" /></div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
+<div style="margin: auto; width=600px;"><p><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" /></p>
+</div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
 <p><span class="math">\begin{align}
 \frac{\left|V_\mathrm{out}\right|}{\left|V_\mathrm{in}\right|} = \frac{1}{1 + \omega^{-2}R^{-2}C^{-2}}.
 \end{align}</span></p>
@@ -801,11 +806,11 @@ bandpass filter.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x161cf49d0> 
+   <jinja2.runtime.BlockReference object at 0x280246790> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

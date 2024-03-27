@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>13. Streaming data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -555,7 +557,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>In many applications, we want to push a button and then have Arduino respond by sending us some data. This is the case when you build your spectrophotometer. You will put in the cuvette, press a button, and then get the measurement. The timing of the measurement, certainly down to the millisecond, is not important. In that case, ask-and-receive, like we did in the last lesson, works fine.</p>
 <p>In other applications, though, we want a steady stream of data, and we want it at well-defined time intervals. In this case, the variation in time between samples that we saw in the ask-and-receive style of the last lesson can be problematic. If our time interval between samples is long, say hundreds of millseconds or more, then it is not really a problem, but even with 20 ms between samples, we already saw that we can be pretty far off.</p>
 <p>A better option is to have Arduino do all the timing and then automatically send data to your computer over serial communication. That is, data <strong>streams</strong> from the board and is constantly collected by the Python interpreter. In this lesson, we will learn how to collect streaming data from Arduino. We will use the same setup as the previous lesson, shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></div><hr></section>
+<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></p>
+</div><hr></section>
 <section id="Follow-along-exercise-10:-Streaming-data">
 <h2>Follow-along exercise 10: Streaming data<a class="headerlink" href="#Follow-along-exercise-10:-Streaming-data" title="Permalink to this heading"></a></h2>
 <p>Our sketch is more involved this time, since we are going to have richer communications with Arduino. We want to turn streaming on and off. A convenient way to do this while still preserving access to the on-demand way of receiving data we set up in the previous lessons, is to have two data acquisition (DAQ) modes, on-request and stream. Streaming mode has another parameter, which is the delay between acquisitions. So, we need to allow for the user to input the delay (in milliseconds).</p>
@@ -980,11 +983,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x160a74650> 
+   <jinja2.runtime.BlockReference object at 0x16ea1d690> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

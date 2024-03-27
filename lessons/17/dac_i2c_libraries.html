@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>17. Libraries, DAC, and I2C &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -174,7 +176,8 @@ that it can output only one analog voltage.</p>
 <section id="Wiring-up-the-DAC">
 <h3>Wiring up the DAC<a class="headerlink" href="#Wiring-up-the-DAC" title="Permalink to this heading"></a></h3>
 <p>Wire up the DAC/LED according to the schematic below.</p>
-<div style="margin: auto; width: 400px;"><img alt="dac_led_schem" src="../../_images/dac_led_schem.svg" /></div><p>A few things to take note of in the schematic:</p>
+<div style="margin: auto; width: 400px;"><p><img alt="dac_led_schem" src="../../_images/dac_led_schem.svg" /></p>
+</div><p>A few things to take note of in the schematic:</p>
 <ol class="arabic simple">
 <li><p>When lines in the schematic cross, they are <em>not</em> connected unless a dot (a node) is present at the crossing.</p></li>
 <li><p>You can use pins A4 and A5 or pins SDA and SCL, respectively. The respective pins go to the same place on the microcontroller. I always use the SDA and SCL pins just to remind myself that I am using them for I2C.</p></li>
@@ -289,11 +292,11 @@ integer to be of type <code class="docutils literal notranslate"><span class="pr
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x161a1e550> 
+   <jinja2.runtime.BlockReference object at 0x16edd4810> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

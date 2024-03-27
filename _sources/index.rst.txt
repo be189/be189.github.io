@@ -9,9 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Course Ed page <https://edstem.org/us/courses/42568/>`_ (used for course communications)
+- `Course Ed page <https://edstem.org/us/courses/57668/>`_ (used for course communications)
 
-- `Course gradescope page <https://www.gradescope.com/courses/570947>`_ (used for assignment submission)
+- `Course gradescope page <https://www.gradescope.com/courses/758704>`_ (used for assignment submission)
 
 - :ref:`References and resources<Software>`
 
@@ -22,12 +22,12 @@ People
 
 - Instructor
 
-   + `Justin Bois <https://bois.caltech.edu/>`_ (``bois at caltech dot edu``)
+   + `Changhuei Yang <https://bois.caltech.edu/>`_ (``chyang at caltech dot edu``)
 
 - TAs
 
-   + Mark Legendre (``mlegendr at caltech dot edu``)
-   + Steven Lin (``slin at caltech dot edu``)
+   + Zhenyu Dong (``zdong at caltech dot edu``)
+   + Max Huang (``yuxi at caltech dot edu``)
 
 
 

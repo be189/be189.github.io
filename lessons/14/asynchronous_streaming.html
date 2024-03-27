@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>14. Asynchronously receiving data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -510,7 +512,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <hr><p>In this lesson, you will learn how to use Python’s built-in asynchronous capabilities to constantly receive data from Arduino without blocking so that you can use the Python interpreter to do other tasks.</p>
 <section id="Setup">
 <h2>Setup<a class="headerlink" href="#Setup" title="Permalink to this heading"></a></h2>
-<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference external" href="#Why-do-we-need-asynchrony?">click here</a>.</p>
+<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference internal" href="#Why-do-we-need-asynchrony?"><span class="std std-ref">click here</span></a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -564,7 +566,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></p>
+</div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -888,7 +891,7 @@ will happen after one second.</p>
 </pre></div></div>
 </div>
 <p>We get back a coroutine. To run it, we need a running <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>. An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you
-to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference external" href="#Running-without-an-existing-event-loop">later in this lesson</a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
+to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference internal" href="#Running-without-an-existing-event-loop"><span class="std std-ref">later in this lesson</span></a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
 <p>To run the coroutine, you can create a task using <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code>. Note that “calling” a coroutine like a function returns a coroutine, so the argument you pass into <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code> is how you would call the coroutine, including all arguments and keyword arguments. Upon creation, the coroutine is run.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -1344,11 +1347,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x116ef1690> 
+   <jinja2.runtime.BlockReference object at 0x16ee0cc10> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

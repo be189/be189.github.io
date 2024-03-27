@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>21. Photoresistors, trimming, and ADC &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -165,8 +167,8 @@
 <h2>Photoresistors<a class="headerlink" href="#Photoresistors" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Optoelectronics">Optoelectronic devices</a> are devices that can detect and control light. Our primary interest is detection, since we will be building a spectrophotometer. There are many optoelectronic detectors, including photodiodes, phototransistors, and <a class="reference external" href="https://en.wikipedia.org/wiki/Photoresistor">photoresistors</a>. A photoresistor (pictured below) is a resistor whose resistance is dependent on the intensity of light incident on its surface. The more light,
 the lower the resistance.</p>
-<div style="width: 300px; margin: auto;"><img alt="photoresistor" src="../../_images/photoresistor.jpg" />
-<p><em>Image by Nevit Dilman,</em><a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC-BY-SA 3.0 licened</a><em>.</em></p>
+<div style="width: 300px; margin: auto;"><p><img alt="photoresistor" src="../../_images/photoresistor.jpg" /></p>
+<p><em>Image by Nevit Dilman,</em> <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC-BY-SA 3.0 licened</a><em>.</em></p>
 </div><p>By measuring the voltage across a photoresistor, we can get a measure of the intensity of incident light. In the exercise below, you will measure exactly that.</p>
 </section>
 <section id="Trimming-resistances">
@@ -174,7 +176,7 @@ the lower the resistance.</p>
 <p>In the exercise below, you will likely set up voltage dividers. It helps to have good control over the resistances in the dividers. You have access to many different resistors, but what if you want to obtain a resistance you do not have? You can use a couple simple principles to do that.</p>
 <ol class="arabic simple">
 <li><p>Resistances in series result in resistance <span class="math notranslate nohighlight">\(R = R_1 + R_2 + R_3 + \cdots\)</span>.</p></li>
-<li><p>Resistance in parallel result in resistance <span class="math notranslate nohighlight">\(R = \left(R_1^{-1} + R_2^{-1} + R_3^{-1} + \cdots\right)^{-1}\)</span>.</p></li>
+<li><p>Resistance in parallel result in resistance <span class="math notranslate nohighlight">\(R = \left(R_1^{-1} + R_2^{-1}  + R_3^{-1} + \cdots\right)^{-1}\)</span>.</p></li>
 </ol>
 <p>Point (2) means that resistors in parallel always have a lower resistance than the largest individual resistor.</p>
 <p>Say you have an available resistor just below the value you want. You can trim the resistance <strong>up</strong> by adding small resistor or resistors <strong>in series</strong> to make up the difference.</p>
@@ -208,11 +210,11 @@ ADC, possibly the ADS1115.)</p></li>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Nov 07, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x161aadf10> 
+   <jinja2.runtime.BlockReference object at 0x11ea63a50> 
 
 <p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
