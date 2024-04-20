@@ -39,22 +39,23 @@ To determine the density (concentration) of microbes in liquid media, we load a 
 Most spectrophotometers use a prism to allow measurement of transmitted light at multiple wavelengths. The best wavelength of light to measure microbial growth, i.e., that which has strong scattering, is about 600 nm. For your design, you will not include a prism, since we do not need measurements at multiple wavelengths (and we are taking a minimalist approach). Rather, you will use an LED that emits light near 600 nm. (It is a very fortunate coincidence that the wavelength of light absorbed by the starch-iodine complexes we will use in our enzyme kinetics assay is very close to 600 nm, so you are coincidentally building a dual-purpose spectrophotometer.)
 
 Cells, having a different index of refraction as the surrounding medium, randomly reflect and scatter light out of the incident light path. The passage of a photon through a medium full of cells without getting scattered can be readily understood through the math.
-To set up the problem, let us consider a medium with area \(A\) and thickness \(x\). Suppose the number concentration of cells is \(n\) and each cell has a scattering cross-section of \(\sigma\). Let's now cut the medium into slices of thickness \(\delta_x\). Now let us consider one of these slices. The number of cells \(N\) in the slice is given by:
+
+To set up the problem, let us consider a medium with area :math:`A` and thickness :math:`x`. Suppose the number concentration of cells is :math:`n` and each cell has a scattering cross-section of :math:`\sigma`. Let's now cut the medium into slices of thickness :math:`\delta_x`. Now let us consider one of these slices. The number of cells :math:`N` in the slice is given by:
 
 .. math::
    N = nA\delta_x \quad (1)
 
-This means that the cells will put up a total area of \(nA\delta_x \sigma\) for scattering. If a photon passes through this area sum, it will be scattered. If a photon passes through the rest of the area \(A\), it will not be scattered. As such, we can express the probability that the photon is scattered by the slice as:
+This means that the cells will put up a total area of :math:`nA\delta_x \sigma` for scattering. If a photon passes through this area sum, it will be scattered. If a photon passes through the rest of the area :math:`A`, it will not be scattered. As such, we can express the probability that the photon is scattered by the slice as:
 
 .. math::
    P_{\delta x}(\text{scattered}) = \frac{nA\delta_x \sigma}{A} = n\sigma \delta_x \quad (2)
 
-The probability that the photon is not scattered is given by the following. We simply perform a reverse Fourier series simplification to arrive at the exponential form. (When \(\delta_x\) is vanishingly small, the approximation increases in accuracy.)
+The probability that the photon is not scattered is given by the following. We simply perform a reverse Fourier series simplification to arrive at the exponential form. (When :math:`\delta_x` is vanishingly small, the approximation increases in accuracy.)
 
 .. math::
    P_{\delta x}(\text{not scattered}) = 1 - n\sigma \delta_x = e^{-n\sigma \delta_x} \quad (3)
 
-The probability that a photon is not scattered going through a series of these slices is basically given by multiplying this probability by itself over and over again. To calculate the probability of a photon going through unscathed through the entire medium of thickness \(x\), the product should have a total of \(\frac{x}{\delta_x}\) terms. This gives us:
+The probability that a photon is not scattered going through a series of these slices is basically given by multiplying this probability by itself over and over again. To calculate the probability of a photon going through unscathed through the entire medium of thickness :math:`x`, the product should have a total of :math:`\frac{x}{\delta_x}` terms. This gives us:
 
 .. math::
    P_{x}(\text{not scattered}) = (e^{-n\sigma \delta_x})^{\frac{x}{\delta_x}} = e^{-n\sigma x} \quad (4)
@@ -64,11 +65,12 @@ We can now derive the transmission intensity through the medium by noting that t
 .. math::
    I = I_0 e^{-n\sigma x} \quad (5)
 
-Thus, if the light entering the sample had intensity \(I_0\), that leaving has intensity \(I_0 e^{-n\sigma x}\). This equation is known as the `Beer-Lambert Law <https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law>`_.
+Thus, if the light entering the sample had intensity :math:`I_0`, that leaving has intensity :math:`I_0 e^{-n\sigma x}`. This equation is known as the `Beer-Lambert Law <https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law>`_.
 
-The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, \(T=I/I_0\), and the reported quantity is called the optical density, \(\text{OD}=-\log_{10} T = n\sigma x \cdot \log_{10} e\). The general rule of thumb is that the accurate OD readings lie in the range of \(0.01 < \text{OD} < 1\). Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
+The transmission efficiency of the sample is the ratio of the light intensity leaving the sample to that impinging on the sample, :math:`T=I/I_0`, and the reported quantity is called the optical density, :math:`\text{OD} = -\log_{10} T = n\sigma x \cdot \log_{10} e`. The general rule of thumb is that the accurate OD readings lie in the range of :math:`0.01 < \text{OD} < 1`. Serial dilutions of a sample may be necessary to bring the OD into this range. For microbial growth, the OD is often referred to as the OD600, since it is a measure of the optical density of light at 600 nm.
 
-As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is \(\text{OD} = \text{OD}_\text{measured} - \text{OD}_\text{blank}\).
+As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is :math:`\text{OD} = \text{OD}_\text{measured} - \text{OD}_\text{blank}`.
+
 
 
 
