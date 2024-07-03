@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spectrophotometer &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/clipboard.min.js"></script>
-        <script src="_static/copybutton.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -176,13 +176,13 @@
            <div itemprop="articleBody">
              
   <section id="spectrophotometer">
-<h1>Spectrophotometer<a class="headerlink" href="#spectrophotometer" title="Permalink to this heading"></a></h1>
+<h1>Spectrophotometer<a class="headerlink" href="#spectrophotometer" title="Link to this heading"></a></h1>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading"></a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading"></a></h2>
 <p>Spectrophotometers have been, and continue to be, the workhorses of molecular and cell biology. The basic idea is simple. A beam of light is shone through a sample and the intensity of the light coming out of the other side of the sample is measured. The applications are numerous, but two have been particularly prominent in biology. First, the concentration of unicellular organisms can be ascertained. Due to their size, each cell of a microbe scatter light of specific wavelengths (about 600 nanometers for <em>E. coli</em>). As a result, less transmitted light is detected from samples with higher concentration of microbes. Second, some molecular species absorb light at a given wavelength due to their electronic structure. A sample of higher concentration will have lower detected intensity. Measurements of concentrations of cells and molecules over time enables study of the kinetics, e.g., of microbial growth and rate of chemical reactions.</p>
 <p>Your task in this project is to construct a spectrophotometer. Though it would certainly be fun to apply the device to bacterial growth curves, such curves take a long time to acquire (since you have to wait for the bugs to grow!). Instead, we will perform an assay of the kinetics of an enzyme catalyzed reaction. Optical assays have long been the workhorses of kinetics assays. As a classic example, Leonor Michaelis and Maud Menten studied the hydrolysis of sucrose into fructose and glucose by the enzyme invertase. Sucrose rotates plane polarized light to the right, while glucose and fructose rotate it to the left. Michaelis and Menten could therefore make measurements of the rotation of polarized light to determine the relative concentrations of the sugars in their reaction mixture and could thus work out the kinetcs of the enzyme-catalyzed hydrolysis. You will instead measure the rate at which the enzyme amylase catalyzed the breakdown of starch into sugars.</p>
 <section id="basics-of-spectrophotometry-in-microbiology">
-<h3>Basics of spectrophotometry in microbiology<a class="headerlink" href="#basics-of-spectrophotometry-in-microbiology" title="Permalink to this heading"></a></h3>
+<h3>Basics of spectrophotometry in microbiology<a class="headerlink" href="#basics-of-spectrophotometry-in-microbiology" title="Link to this heading"></a></h3>
 <p>We will introduce the concepts behind spectrophotometry as applied to measurement of transmitted light through microbial solutions, since this is a “classic” application of spectrophotometry in biology. In fact, the molecular revolution of biology which transformed the way we think about the living world was largely pushed forward by spectroscopic measurements of microbes.</p>
 <p>The block diagram of a typical spectrophotometer is shown below.</p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -689,12 +689,12 @@
 <p>As a final note, it is important to measure a blank sample as well. The media itself can scatter light, and you need to correct for this. To do this, measure the OD of a cuvette containing only media. Then, your adjusted OD is <span class="math notranslate nohighlight">\(\text{OD} = \text{OD}_\text{measured} - \text{OD}_\text{blank}\)</span>.</p>
 </section>
 <section id="basics-of-spectrophotometry-in-enzyme-kinetics-assays">
-<h3>Basics of spectrophotometry in enzyme kinetics assays<a class="headerlink" href="#basics-of-spectrophotometry-in-enzyme-kinetics-assays" title="Permalink to this heading"></a></h3>
+<h3>Basics of spectrophotometry in enzyme kinetics assays<a class="headerlink" href="#basics-of-spectrophotometry-in-enzyme-kinetics-assays" title="Link to this heading"></a></h3>
 <p>We can use optical methods to measure the concentration of a given chemical species, known as <a class="reference external" href="https://en.wikipedia.org/wiki/Absorption_spectroscopy">absorption spectroscopy</a>. When a photon of an wavelength whose energy matches that of an electronic transition of a molecule of interest impinges upon the molecule, the electronic transition is made and the photon is <strong>absorbed</strong>. These photons do not make it through the sample.</p>
 <p>The reasoning with which we derived the Beer-Lambert Law for scattering is exactly the same as for scattering by microbes. The only difference is that the photons that fail to pass through the sample are absorbed rather than scattered. The reported quantity has exactly the same form as the optical density above, but is referred to as <strong>absorbance</strong>, <span class="math notranslate nohighlight">\(A = -\log_{10} T = n\sigma x \cdot \log_{10} e\)</span>.</p>
 </section>
 <section id="basics-of-microbial-growth">
-<h3>Basics of microbial growth<a class="headerlink" href="#basics-of-microbial-growth" title="Permalink to this heading"></a></h3>
+<h3>Basics of microbial growth<a class="headerlink" href="#basics-of-microbial-growth" title="Link to this heading"></a></h3>
 <p>Because microbial growth is such an important application of spectroscopy, we give a brief description of how the <strong>growth rate</strong> of a microbe under given conditions can be obtained by spectroscopic measurement. Obtaining a growth curve is not required for your project, but you should be able to use your spectrophotometer to obtain one.</p>
 <p>Say we have a collection of cells in media that is in ideal conditions for growth. They are expressing all of the necessary genes for growth in the media and are consuming media and doing the “stuff of life” at a constant rate. Now say we pluck out one of these cells, the daughter of a very recent cell division, and immediately put it in fresh media. It will grow and divide, and we will have two cells after a division time <span class="math notranslate nohighlight">\(t_\mathrm{div}\)</span>. Those two cells will grow and divide, and after time <span class="math notranslate nohighlight">\(2 t_\mathrm{div}\)</span>, we will have four cells. After a time <span class="math notranslate nohighlight">\(3t_\mathrm{div}\)</span> we will have eight cells, and so on. So, the <em>rate</em> at which new cells are produced is proportional to the number of cells in solution, or</p>
 <div class="math notranslate nohighlight">
@@ -717,7 +717,7 @@ N(t) = N_0\,\mathrm{e}^{kt}.
 </ol>
 </section>
 <section id="basics-of-enzyme-kinetics">
-<h3>Basics of enzyme kinetics<a class="headerlink" href="#basics-of-enzyme-kinetics" title="Permalink to this heading"></a></h3>
+<h3>Basics of enzyme kinetics<a class="headerlink" href="#basics-of-enzyme-kinetics" title="Link to this heading"></a></h3>
 <p><em>This section was written in collaboration with Victoria Chen.</em></p>
 <p>The <strong>Michaelis-Menten model</strong> is commonly and effectively used to model enzyme kinetics. It models enzyme kinetics as a set of chemical reactions between an enzyme, E, and a substrate, S, to give product P.</p>
 <div class="math notranslate nohighlight">
@@ -783,7 +783,7 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </section>
 </section>
 <section id="specification">
-<h2>Specification<a class="headerlink" href="#specification" title="Permalink to this heading"></a></h2>
+<h2>Specification<a class="headerlink" href="#specification" title="Link to this heading"></a></h2>
 <p>For this project, you are to build a spectrophotometer and obtain an example curve from an optically monitored enzyme catalyzed reaction. The spectrophotometer must have the following characteristics.</p>
 <ol class="arabic simple">
 <li><p>It must be built from the components we have in lab, plus any household items you may wish to use. (These household items should be common and/or low cost.) You may also 3D print objects if you like.</p></li>
@@ -793,7 +793,7 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </ol>
 <p>You must demonstrate use of the instrument by acquiring a measurement of the concentration of starch-iodine complex (or something proportional to it) and performing a curve fit. You must minimally ascertain the time constant given by the ratio <span class="math notranslate nohighlight">\(V_0/K\)</span>, but you may try to obtain individual values for <span class="math notranslate nohighlight">\(V_0\)</span> and <span class="math notranslate nohighlight">\(K\)</span> if you wish. This will require careful calibration of your spectrophotometer to obtain the molar attenuation coefficient for the starch-iodine complex.</p>
 <section id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h3>
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
 <p>You must include documentation for your device. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:</p>
 <ol class="arabic simple">
 <li><p>Instructions for calibrating the instrument.</p></li>
@@ -801,7 +801,7 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </ol>
 </section>
 <section id="suggestions">
-<h3>Suggestions<a class="headerlink" href="#suggestions" title="Permalink to this heading"></a></h3>
+<h3>Suggestions<a class="headerlink" href="#suggestions" title="Link to this heading"></a></h3>
 <p>Here are some things to consider in your design and the operation of your instrument.</p>
 <ol class="arabic simple">
 <li><p>There are two types of ≈600 nm emitting LEDs in the lab, <a class="reference external" href="https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y">one with 10 candela luminosity</a>, and <a class="reference external" href="https://www.amazon.com/dp/B017TRAQV4/ref=cm_sw_r_cp_api_i_k7rtFbYENK61Y">one with 1 candela luminosity</a>. You can try either in your design. For both LEDs, the light is primarily forward directed, coming from the top of the LED.</p></li>
@@ -818,10 +818,10 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </section>
 </section>
 <section id="instructions-for-obtaining-a-curve-for-enzymatic-catalysis">
-<h2>Instructions for obtaining a curve for enzymatic catalysis<a class="headerlink" href="#instructions-for-obtaining-a-curve-for-enzymatic-catalysis" title="Permalink to this heading"></a></h2>
+<h2>Instructions for obtaining a curve for enzymatic catalysis<a class="headerlink" href="#instructions-for-obtaining-a-curve-for-enzymatic-catalysis" title="Link to this heading"></a></h2>
 <p>The reaction we will monitor is starch-iodine complex ⟶ sugars + free iodine, catalyzed by amylase in your saliva. The starch-iodine complex absorbs near 600 nm and is the substrate in the Michaelis-Menten mechanism. We will monitor its concentration over time.</p>
 <section id="obtaining-a-saliva-sample">
-<h3>Obtaining a saliva sample<a class="headerlink" href="#obtaining-a-saliva-sample" title="Permalink to this heading"></a></h3>
+<h3>Obtaining a saliva sample<a class="headerlink" href="#obtaining-a-saliva-sample" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Do not eat, brush your teeth, or rinse your mouth for about 30 minutes.</p></li>
 <li><p>Take a sip of water, and try to secrete saliva for 2-5 min. You should collect the saliva in a small cup or other container.</p></li>
@@ -829,7 +829,7 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </ol>
 </section>
 <section id="measuring-the-chemical-kinetics">
-<h3>Measuring the chemical kinetics<a class="headerlink" href="#measuring-the-chemical-kinetics" title="Permalink to this heading"></a></h3>
+<h3>Measuring the chemical kinetics<a class="headerlink" href="#measuring-the-chemical-kinetics" title="Link to this heading"></a></h3>
 <p>Because you want to capture as much of the reaction dynamics as possible, you will need to work quickly to get the reaction mixture assembled and into your spectrophotometer.</p>
 <ol class="arabic simple">
 <li><p>Using a pipette, dispense a small amount of the provided iodine solution into an empty cuvette. You will not need much; around 20-50 µL should be sufficient. You may need to experiment with the amount, adjusting so the absorbance readings fall into the accurate range below A ≈ 1.</p></li>
@@ -839,7 +839,7 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 </section>
 </section>
 <section id="submission">
-<h2>Submission<a class="headerlink" href="#submission" title="Permalink to this heading"></a></h2>
+<h2>Submission<a class="headerlink" href="#submission" title="Link to this heading"></a></h2>
 <p>Submit your write-up as a ZIP file <a class="reference external" href="https://caltech.instructure.com/courses/6277/assignments/47616">via Canvas</a>.</p>
 </section>
 </section>
@@ -856,13 +856,13 @@ c_\mathrm{s}(t) = K\,W_0\left(\frac{c_\mathrm{s}^0}{K}\,\mathrm{e}^{(c_\mathrm{s
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131e8c7f0> 
+   <jinja2.runtime.BlockReference object at 0x11b824610> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

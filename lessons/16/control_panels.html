@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>16. Control panels &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -154,7 +154,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/16/control_panels.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/16/control_panels" download> Download notebook</a>
         
       
     
@@ -167,7 +167,7 @@
            <div itemprop="articleBody">
              
   <section id="16.-Control-panels">
-<h1>16. Control panels<a class="headerlink" href="#16.-Control-panels" title="Permalink to this heading"></a></h1>
+<h1>16. Control panels<a class="headerlink" href="#16.-Control-panels" title="Link to this heading"></a></h1>
 <hr><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -509,7 +509,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <hr><p>We have seen how to create buttons for controlling data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a <em>control panel</em> for a device. When building a device, it is important to have intuitive controls and displays to get the most out of your device. Not only does this speed up your work, it also enables other researchers to easily use your device.</p>
 <p>You are of course thoughtful about the physical design of any device you make. There’s no option; it won’t work if you don’t build it well. At the same time, you should also be thoughtful about how you <em>interface</em> with the device. This is often overlooked. I view it as similar to software that has a bad, poorly documented API. No one, not even future you, will know how to operate your device unless you are careful about its interface and documentation.</p>
-<p>We will again use the setup of the last few lessons with the same utility functions. You can again skip ahead to the <a class="reference internal" href="#Python-based-dashboarding"><span class="std std-ref">next section</span></a> after running the code cells below.</p>
+<p>We will again use the setup of the last few lessons with the same utility functions. You can again skip ahead to the <a class="reference external" href="#Python-based-dashboarding">next section</a> after running the code cells below.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -693,8 +693,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem3.svg" /></p>
-</div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem3.svg" /></div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -784,16 +783,16 @@ var element = document.currentScript.previousSibling.previousSibling;
 </pre></div>
 </div>
 <section id="Python-based-dashboarding">
-<h2>Python-based dashboarding<a class="headerlink" href="#Python-based-dashboarding" title="Permalink to this heading"></a></h2>
+<h2>Python-based dashboarding<a class="headerlink" href="#Python-based-dashboarding" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://panel.holoviz.org">Panel</a> is an excellent package for building dashboards. You have used it to make toggle button controls in <a class="reference internal" href="../11/control_with_buttons.html"><span class="doc">Lesson 11</span></a>. You can use it to conveniently make apps for non-streaming data. And you will be able to use it for streaming applications in <a class="reference external" href="https://discourse.holoviz.org/t/streaming-data-with-bokeh-and-panel-periodic-callbacks/1022">the next release</a>. Unfortunately, as of September 2020, that release is not out yet, so
 we will proceed building dashboards with base Bokeh, which is what Panel uses under the hood to build its apps.</p>
 <p>Do not despair, though, base Bokeh is still pretty accessible for these kinds of applications.</p>
 <p>In the following sections, we will build a dashboard for controlling our little potentiometer device in a Jupyter notebook. As a follow-along exercise, you will make a stand-along app that you can have in the browser for controlling the device.</p>
 </section>
 <section id="Sketching-a-dashboard">
-<h2>Sketching a dashboard<a class="headerlink" href="#Sketching-a-dashboard" title="Permalink to this heading"></a></h2>
+<h2>Sketching a dashboard<a class="headerlink" href="#Sketching-a-dashboard" title="Link to this heading"></a></h2>
 <p>I find it is always helpful to first sketch how I would like my dashboard to look. The first version I came up with is this:</p>
-<div style="margin: auto; width: 500px;"><p><img alt="Dashboard sketch v. 1" src="../../_images/dashboard_sketch_1.png" /></p>
+<div style="margin: auto; width: 500px;"><img alt="Dashboard sketch v. 1" src="../../_images/dashboard_sketch_1.png" />
 </div><p>The idea is that I have a tabbed plot (which is possible in Bokeh). The user chooses either to be in streaming mode or to be in on-demand mode by selecting the tab. Streaming starts by pressing the start button (it is “Acquire” in on-demand mode), and stops by pressing the stop button. Streaming is allowed to begin again by again pressing start. To save the data, the user can enter a file name and click the save button.</p>
 <p>I built this app, and then realized some problems with it.</p>
 <ol class="arabic simple">
@@ -802,7 +801,7 @@ we will proceed building dashboards with base Bokeh, which is what Panel uses un
 <li><p>If data are streaming and the user switches to on-demand mode, the user cannot see the streaming data anymore.</p></li>
 </ol>
 <p>I scrapped this design and moved on to another.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="Dashboard sketch v. 2" src="../../_images/dashboard_sketch_2.png" /></p>
+<div style="margin: auto; width: 500px;"><img alt="Dashboard sketch v. 2" src="../../_images/dashboard_sketch_2.png" />
 </div><p>This version alleviates the problems mentioned above. The “stream” button on the stream box of the app is a toggle button, meaning that once pressed, it stays on until pressed again. Thus, one button controls whether streaming is on or off.</p>
 <p>I also added reset buttons to both. Clicking the reset button clears the data (and stops streaming if streaming is still active) allowing fresh data to be collected.</p>
 <p>After considering this design, I decided I wanted to add two more features.</p>
@@ -811,11 +810,11 @@ we will proceed building dashboards with base Bokeh, which is what Panel uses un
 <li><p>An option to shut down the app. In the shutdown procedure, the asynchronous data acquisition is halted and Arduino is disconnected. In the stand-alone app (that is, outside of a Jupyter notebook), the server is also shut down.</p></li>
 </ol>
 <p>The final design I sketched is show below.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="Dashboard sketch v. 3" src="../../_images/dashboard_sketch_3.png" /></p>
+<div style="margin: auto; width: 500px;"><img alt="Dashboard sketch v. 3" src="../../_images/dashboard_sketch_3.png" />
 </div><p>In a moment, we’ll build the components of the app: the buttons, the text inputs, the plots. First, though, we need to connect to Arduino and set up the data acquisition.</p>
 </section>
 <section id="Connecting-to-Arduino-and-opening-DAQ">
-<h2>Connecting to Arduino and opening DAQ<a class="headerlink" href="#Connecting-to-Arduino-and-opening-DAQ" title="Permalink to this heading"></a></h2>
+<h2>Connecting to Arduino and opening DAQ<a class="headerlink" href="#Connecting-to-Arduino-and-opening-DAQ" title="Link to this heading"></a></h2>
 <p>First, we’ll open connection to Arduino in the same way we have been in the past several lessons.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -905,7 +904,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 </div>
 </section>
 <section id="Building-the-app">
-<h2>Building the app<a class="headerlink" href="#Building-the-app" title="Permalink to this heading"></a></h2>
+<h2>Building the app<a class="headerlink" href="#Building-the-app" title="Link to this heading"></a></h2>
 <p>The completed app needs to be contained in a single function that Bokeh can use to create the app. To practice modular programming, we will write functions to build the parts of the app one by one. These functions can then be used within the function defining the app.</p>
 <p>We’ll start by defining the plots. When we build the plot, as before, we have to be sure to specify a <code class="docutils literal notranslate"><span class="pre">ColumnDataSource</span></code>.</p>
 <p>We also need to play a little trick. With no glyphs on a plot, Bokeh does not know how to set the axes. So, we need to provide “phantom” data to the plot. We specify a phantom data source that give coordinates for a single glyph, an invisible circle.</p>
@@ -1341,11 +1340,11 @@ xhr.send();
 </div>
 <hr></section>
 <section id="Thinking-exercise-5:-Safeguards">
-<h2>Thinking exercise 5: Safeguards<a class="headerlink" href="#Thinking-exercise-5:-Safeguards" title="Permalink to this heading"></a></h2>
+<h2>Thinking exercise 5: Safeguards<a class="headerlink" href="#Thinking-exercise-5:-Safeguards" title="Link to this heading"></a></h2>
 <p>This app does not have much error checking. What kinds of features and checks would you add to this app to ensure that a careless user does not end up messing things up?</p>
 <hr></section>
 <section id="Running-an-app-in-its-own-tab">
-<h2>Running an app in its own tab<a class="headerlink" href="#Running-an-app-in-its-own-tab" title="Permalink to this heading"></a></h2>
+<h2>Running an app in its own tab<a class="headerlink" href="#Running-an-app-in-its-own-tab" title="Link to this heading"></a></h2>
 <p>To serve up your app in its own tab in the browser, you need to include all of your Python code to build the app in a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file. The key difference from a Jupyter notebook is that you need to build the app into the current document using, e.g., for the potentiometer app covered in this less,</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Build app
 app = potentiometer_app(
@@ -1914,7 +1913,7 @@ app(bokeh.plotting.curdoc())
 </div>
 <hr></section>
 <section id="Do-it-yourself-exercise-7:-Potentiometer-app">
-<h2>Do-it-yourself exercise 7: Potentiometer app<a class="headerlink" href="#Do-it-yourself-exercise-7:-Potentiometer-app" title="Permalink to this heading"></a></h2>
+<h2>Do-it-yourself exercise 7: Potentiometer app<a class="headerlink" href="#Do-it-yourself-exercise-7:-Potentiometer-app" title="Link to this heading"></a></h2>
 <p>Update the app to allow for user input of sampling rates. Be sure to think about what the upper and lower bounds of sampling rates should be. You might also want to think about how you want the user to input the sampling rates. Do you want a text box? A <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html#radiobuttongroup">set of discrete choices</a>? A <a class="reference external" href="https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html#slider">slider</a>?</p>
 <hr><p><strong>Answer to safeguards exercise</strong></p>
 <p>Here are some things I came up with to check for.</p>
@@ -1926,7 +1925,7 @@ app(bokeh.plotting.curdoc())
 </ol>
 </section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1966,13 +1965,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x13224d6f0> 
+   <jinja2.runtime.BlockReference object at 0x11b828c90> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

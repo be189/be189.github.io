@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>27. Digital filters &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -146,7 +146,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/27/digital_filters.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/27/digital_filters" download> Download notebook</a>
         
       
     
@@ -159,11 +159,11 @@
            <div itemprop="articleBody">
              
   <section id="27.-Digital-filters">
-<h1>27. Digital filters<a class="headerlink" href="#27.-Digital-filters" title="Permalink to this heading"></a></h1>
+<h1>27. Digital filters<a class="headerlink" href="#27.-Digital-filters" title="Link to this heading"></a></h1>
 <hr><p>Sometimes it is necessary to also apply <strong>digital signal processing</strong> techniques to your data. These are calculations typically done with your computer. These are often applied after some number of data points from your time series data have been acquired and you wish to compute some properties of the signal. You will use one such technique, peak-finding, in your pulse oximetry project.</p>
 <p><strong>Digital filtering</strong> is a type of digital signal processing that is used to achieve similar filtering results that we have thus far built using analog filtering using resistors, capacitors, and op-amps to filter out high or low frequencies that are not of interest to us.</p>
 <hr><section id="Thinking-exercise-9:-Death-of-the-sampling-theorem?">
-<h2>Thinking exercise 9: Death of the sampling theorem?<a class="headerlink" href="#Thinking-exercise-9:-Death-of-the-sampling-theorem?" title="Permalink to this heading"></a></h2>
+<h2>Thinking exercise 9: Death of the sampling theorem?<a class="headerlink" href="#Thinking-exercise-9:-Death-of-the-sampling-theorem?" title="Link to this heading"></a></h2>
 <p>Read <a class="reference external" href="https://markusmeister.com/2018/03/20/death-of-the-sampling-theorem/">this blog post by Markus Meister</a>. Trust me. It’s worth it.</p>
 <hr><p>If you are having trouble getting clean signals of time series data, you can do digital filtering after the fact. You should try to optimize your analog filtering before sampling, though, as discussed in the above blog post.</p>
 </section>
@@ -181,13 +181,13 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x132408e50> 
+   <jinja2.runtime.BlockReference object at 0x11bad4310> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

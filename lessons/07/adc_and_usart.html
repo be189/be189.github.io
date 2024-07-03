@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>7. ADC and USART &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -158,7 +158,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/07/adc_and_usart.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/07/adc_and_usart" download> Download notebook</a>
         
       
     
@@ -171,10 +171,10 @@
            <div itemprop="articleBody">
              
   <section id="7.-ADC-and-USART">
-<h1>7. ADC and USART<a class="headerlink" href="#7.-ADC-and-USART" title="Permalink to this heading"></a></h1>
+<h1>7. ADC and USART<a class="headerlink" href="#7.-ADC-and-USART" title="Link to this heading"></a></h1>
 <hr><p>You have already seen that you can use Arduino to control physical devices. In your projects, and indeed for most of the biodevices I can dream of, you will have a <strong>sensor</strong> that measures something in the physical world. In this lesson, you will learn how to convert an analog signal from a sensor into a digital value that your computer can understand. You will also learn how to transfer measurements from sensors to your computer over USB using a serial protocol.</p>
 <section id="ADC-on-Arduino">
-<h2>ADC on Arduino<a class="headerlink" href="#ADC-on-Arduino" title="Permalink to this heading"></a></h2>
+<h2>ADC on Arduino<a class="headerlink" href="#ADC-on-Arduino" title="Link to this heading"></a></h2>
 <p>A sensor converts an external signal to an analog voltage. This voltage needs to be converted to a digital value by <a class="reference external" href="https://en.wikipedia.org/wiki/Analog-to-digital_converter">analog to digital conversion</a> (ADC). The ATmega328 microcontroller has a built-in 10-bit ADC. That means that an analog voltage value gets converted to a 10-bit unsigned integer. Voltages in Arduino range from 0 to 5V, so there is a mapping between the input voltage and the value given by the ADC. If <em>v</em> is the analog
 input voltage in units of Volts, then the ADC will give an integer between 0 and 1023 according to</p>
 <p><span class="math">\begin{align}
@@ -188,13 +188,13 @@ input voltage in units of Volts, then the ADC will give an integer between 0 and
 <p>If you use a 12-bit ADC, the divisor is 4095, and it is 65535 for a 16-bit ADC.</p>
 </section>
 <section id="Serial-communication">
-<h2>Serial communication<a class="headerlink" href="#Serial-communication" title="Permalink to this heading"></a></h2>
+<h2>Serial communication<a class="headerlink" href="#Serial-communication" title="Link to this heading"></a></h2>
 <p>When you upload a sketch from your computer onto Arduino, you do so over USB. You can see the TX and RX LEDs flashing when you do this. Data is being sent back and forth over the USB cable. This is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Serial_communication">serial communication</a>. In serial communication, data is sent single-file, bit-by-bit. All of Arduino’s communication protocols (I2C, SPI, 1-wire, and USART) are serial. We will discuss and use I2C in a forthcoming lesson; here we focus
 on USART.</p>
 <p>Arduino uses USART (universal synchronous/asynchronous receiver/transmitter) to package data in bits that may be communicated serially. The USB interface chip on board the Arduino Uno does the calculations necessary to send and receive bits via USB.</p>
 </section>
 <section id="Sending-data-over-USB">
-<h2>Sending data over USB<a class="headerlink" href="#Sending-data-over-USB" title="Permalink to this heading"></a></h2>
+<h2>Sending data over USB<a class="headerlink" href="#Sending-data-over-USB" title="Link to this heading"></a></h2>
 <p>The Serial library is included in the core Arduino libraries and is included in <a class="reference external" href="https://www.arduino.cc/reference/en/language/functions/communication/serial/">the language reference</a>. Many functions are available in the library, and we will focus here on sending data to your computer.</p>
 <p>Whenever you use serial communication with your computer, you need to open the connection. This is typically done in the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function. The syntax is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">Serial</span><span class="p">.</span><span class="nf">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
@@ -254,7 +254,7 @@ ensuring you get a full record. If you are using Python to read in the data from
 <p>Note, though, that for our purposes, we have at best a 12-bit ADC (you have a 12-bit external ADC; the built-in ADC, as we mentioned, is 10-bit), meaning we maximally transmit four digit numbers. One four digit number is 40 total bits if transmitted as strings, and 20 bits if transmitted in binary.</p>
 <p>Getting binary transmission right is tricky, and using binary encodings is harder to debug. The speed improvement is roughly a factor of two for our purposes. Unless we <em>need</em> the speed of a binary transmission, using strings is preferred, and this is mostly what we encourage in this course.</p>
 <hr><section id="Thinking-exercise-2:-USB-speed-limits">
-<h3>Thinking exercise 2: USB speed limits<a class="headerlink" href="#Thinking-exercise-2:-USB-speed-limits" title="Permalink to this heading"></a></h3>
+<h3>Thinking exercise 2: USB speed limits<a class="headerlink" href="#Thinking-exercise-2:-USB-speed-limits" title="Link to this heading"></a></h3>
 <p>In some experiments in neurophysiology, measurements are made every 40 µs to capture the shape of the action potentials.</p>
 <p><strong>a)</strong> Assuming voltages can be measured and converted rapidly enough, what baud rate would be necessary to transmit the data over USB to your computer to store them? Can Arduino accomplish this?</p>
 <p><strong>b)</strong> Look up the read/write speed of hard drives. Are the hard drives fast enough to store the data?</p>
@@ -263,13 +263,11 @@ ensuring you get a full record. If you are using Python to read in the data from
 <hr></section>
 </section>
 <section id="Follow-along-exercise-3:-Serial-data-and-the-serial-monitor">
-<h2>Follow-along exercise 3: Serial data and the serial monitor<a class="headerlink" href="#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 3: Serial data and the serial monitor<a class="headerlink" href="#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor" title="Link to this heading"></a></h2>
 <p>To practice sending and receiving serial data, we will make a simple circuit in which we vary voltage using a <a class="reference external" href="https://en.wikipedia.org/wiki/Potentiometer">potentiometer</a>. Most of the potentiometers we use are blue squares with three leads and a knob. By connecting the two outside leads to a voltage source and ground, the voltage read from the center lead can range from zero to the input voltage as you turn the knob.</p>
 <p>Write up the circuit shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></p>
-</div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="image1" src="../../_images/03-serial_bb.svg" /></p>
-</div><p>Now, we can code up Arduino to communicate with your computer.</p>
+<div style="margin: auto; width: 300px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
+<div style="margin: auto; width: 500px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_bb.svg" /></div><p>Now, we can code up Arduino to communicate with your computer.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
@@ -309,12 +307,12 @@ ensuring you get a full record. If you are using Python to read in the data from
 </ol>
 <p>Once you upload your code, you will see the TX LED flashing at 10 Hz. It flashes every time data is being transmitted over USB from Arduino. (The RX LED flashes when data is transmitted <em>to</em> Arduino.) This means data is being transmitted!</p>
 <section id="The-Serial-Monitor-of-the-Arduino-IDE">
-<h3>The Serial Monitor of the Arduino IDE<a class="headerlink" href="#The-Serial-Monitor-of-the-Arduino-IDE" title="Permalink to this heading"></a></h3>
+<h3>The Serial Monitor of the Arduino IDE<a class="headerlink" href="#The-Serial-Monitor-of-the-Arduino-IDE" title="Link to this heading"></a></h3>
 <p>In a moment, we will monitor data coming from Ardiuno using Python-based tools. They allow for rich interfacing with the board, and you will build your own custom interfaces. For a simple, more primtive interface, you can use the built-in serial monitor of the Arduino IDE. To activate it, use your mouse to click <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Monitor</span></code>. The Serial Monitor window will open and you will see the voltages you are writing out. The numbers will change as you turn the potentiometer. At the
 bottom of the Serial Monitor window is a dropdown menu to select supported baud rates. Make sure it is set to 115200 baud, the same as in the Arduino sketch.</p>
 </section>
 <section id="The-Serial-Plotter-of-the-Arduino-IDE">
-<h3>The Serial Plotter of the Arduino IDE<a class="headerlink" href="#The-Serial-Plotter-of-the-Arduino-IDE" title="Permalink to this heading"></a></h3>
+<h3>The Serial Plotter of the Arduino IDE<a class="headerlink" href="#The-Serial-Plotter-of-the-Arduino-IDE" title="Link to this heading"></a></h3>
 <p>While the Serial Monitor is open, none of Arduino’s other menu options are available. This is because the Serial Monitor is tying up the USB connection to the board. Close the Serial Monitor.</p>
 <p>Now, use your mouse to click <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Serial</span> <span class="pre">Plotter</span></code>. In the new window, you will see a live-update of the data coming out of the Arduino. If you wait long enough, you will see that it will start to scroll.</p>
 <p>If you want to show multiple variables on the plotter at a time, you need to print out the numbers with spaces or commas separating them. For example, if you also want to print a sine wave, you can use the following Arduino code.</p>
@@ -356,7 +354,7 @@ bottom of the Serial Monitor window is a dropdown menu to select supported baud 
 <p>Note that in this code, we use the <code class="docutils literal notranslate"><span class="pre">sin()</span></code> function. This is included in the Arduino core libraries, along with other simple mathematical functions like <code class="docutils literal notranslate"><span class="pre">sqrt()</span></code>, <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, <code class="docutils literal notranslate"><span class="pre">cos()</span></code>, and <code class="docutils literal notranslate"><span class="pre">pow()</span></code>. The <code class="docutils literal notranslate"><span class="pre">pow()</span></code> function is use to raise a number to a power.</p>
 </section>
 <section id="The-serial-dashboard-package">
-<h3>The serial-dashboard package<a class="headerlink" href="#The-serial-dashboard-package" title="Permalink to this heading"></a></h3>
+<h3>The serial-dashboard package<a class="headerlink" href="#The-serial-dashboard-package" title="Link to this heading"></a></h3>
 <p>I wrote a Python package, <a class="reference external" href="https://serial-dashboard.github.io">serial-dashboard</a>, to provide a browser-based dashboard as a replacement for the Serial Plotter and Serial Monitor of the Arduino IDE. It includes extra utilities, such as plotting of a time axis (as opposed to strictly sample number), ability to save data transferred over serial, and ability to start and stop streams. It is substantially more feature rich than the tools of the Arduino IDE and should be of use when prototyping to
 quickly access data I/O of your devices.</p>
 <p>You can read the documentation of how to use serial-dashboard <a class="reference external" href="https://serial-dashboard.github.io">here</a>. Importantly, to launch it (after it has been installed, of course), you can enter <code class="docutils literal notranslate"><span class="pre">serialdashboard</span></code> on the command line.</p>
@@ -386,13 +384,13 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131f1a2c0> 
+   <jinja2.runtime.BlockReference object at 0x11b6d3210> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

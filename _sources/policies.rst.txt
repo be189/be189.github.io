@@ -19,7 +19,7 @@ You can work at your own pace, but it is your responsibility to have your exerci
 Course communications
 ---------------------
 
-Please use `the course Ed page <https://edstem.org/us/courses/42568/>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
+Please use `the course Ed page <INSERT URL HERE>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
 
 For private matters, such as extension requests, contact the course staff directly using email.
 
@@ -131,5 +131,5 @@ Collaboration policy
 Grading
 -------
 
-- 30% of your grade is determined from exercises and 65% of your grade is determined from your projects, with 30% of your grade coming from the spectrophotometer project and 35% from the pulse oximeter project. The remaining 5% of your grade is determined but your lab technique, attendence, citizenship, and tidiness of the workspace. You need to keep your workspace and the communal space tidy and organized and clean up at the end of the quarter.
+- 30% of your grade is determined from exercises and 65% of your grade is determined from your projects, with 30% of your grade coming from the spectrophotometer project and 35% from the pulse oximeter project. The remaining 5% of your grade is determined but your lab technique and citizenship. You need to keep your workspace and the communal space tidy and organized.
 - Each assignment has a defined due date and time. For assignments submitted after this time, you will receive a score of (your score)/1.1\ :superscript:`(ceil(number of days late))`\ . After seven days, the assignment will not be accepted. The exception is the pulse oximetry write-up, which will not be accepted late because it is due at the end of the term. Extensions may be granted for good reason upon request from the course instructor.

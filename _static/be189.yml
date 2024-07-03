@@ -4,14 +4,14 @@ channels:
 dependencies:
   - python>=3.11
   - black
-  - bokeh>=3.2.0
+  - bokeh>=3.4.0
   - click
   - colorcet
   - hypothesis
   - ipython
-  - ipywidgets>=7.0.2
+  - ipywidgets
   - jinja2
-  - jsonschema>=3.0
+  - jsonschema
   - jupyter
   - line_profiler
   - matplotlib

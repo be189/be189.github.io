@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10. Serial communication with Python &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -158,7 +158,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/10/control_of_arduino_with_python.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/10/control_of_arduino_with_python" download> Download notebook</a>
         
       
     
@@ -171,7 +171,7 @@
            <div itemprop="articleBody">
              
   <section id="10.-Serial-communication-with-Python">
-<h1>10. Serial communication with Python<a class="headerlink" href="#10.-Serial-communication-with-Python" title="Permalink to this heading"></a></h1>
+<h1>10. Serial communication with Python<a class="headerlink" href="#10.-Serial-communication-with-Python" title="Link to this heading"></a></h1>
 <hr><div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -187,12 +187,10 @@
 <p>In the next several lessons, we will learn how to control Arduino using Python-based tools. Ultimately, we will build browser-based control panels for the devices you build. For now, we will learn how to send an instruction to Arduino from Python and have it respond.</p>
 <p>We will start by building a circuit with tactile control. That is, you control the circuit with a physical toggle and a physical pushbutton. Then we will move to electronic control from your browser.</p>
 <hr><section id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
-<h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Link to this heading"></a></h2>
 <p>There is no sketch required for this exercise. Wire up the circuit shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></p>
-</div><p>For convenience, here is a pictorial schematic.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="image1" src="../../_images/external_and_mechanical_led_bb.svg" /></p>
-</div><p>Note that the three-pin toggle switches we have do not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons we have in lab.</p>
+<div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></div><p>For convenience, here is a pictorial schematic.</p>
+<div style="margin: auto; width: 500px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_bb.svg" /></div><p>Note that the three-pin toggle switches we have do not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons we have in lab.</p>
 <p>For now, you can ignore LED2 (the one toward the top of the pictorial schematic). That is the LED we will control with buttons in the browser. LED1 (the one toward the right of the pictorial schematic) is under tactile control.</p>
 <p>Start with the toggle in the middle (upright position). The LED should be off. Now, depress the pushbutton. You will see that the LED comes on. When you release the button, it turns off.</p>
 <p>Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
@@ -200,10 +198,10 @@
 <hr><p>You have now controlled the on-off behavior of an LED with a toggle and a pushbutton. We will proceed to control those using Python-based control. Our objective is to turn the LED on and off using a virtual button in your browser. We will use a Jupyter notebook, so launch a fresh Jupyter notebook.</p>
 <hr></section>
 <section id="Follow-along-exercise-7:-Electronic-control-of-an-LED">
-<h2>Follow-along exercise 7: Electronic control of an LED<a class="headerlink" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 7: Electronic control of an LED<a class="headerlink" href="#Follow-along-exercise-7:-Electronic-control-of-an-LED" title="Link to this heading"></a></h2>
 <p>In this rather long follow-along exercise, we will introduce you to control of Arduino using Python. We will extensively use <a class="reference external" href="https://pyserial.readthedocs.io/">PySerial</a>. This is the most commonly used package for communicating with devices over USB. Note that in this lesson, and in all subsequent lessons, all of the imports are at the top of the notebook.</p>
 <section id="Finding-the-port">
-<h3>Finding the port<a class="headerlink" href="#Finding-the-port" title="Permalink to this heading"></a></h3>
+<h3>Finding the port<a class="headerlink" href="#Finding-the-port" title="Link to this heading"></a></h3>
 <p>With your Arduino plugged into your computer via a USB connection, you first need to find out which port it is. The names of the ports will differ based on your operating system and when you plugged it in (your OS may assign the ports different names). You can get a list of ports using the <code class="docutils literal notranslate"><span class="pre">serial.tools.list_ports.comports()</span></code> function.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -318,7 +316,7 @@
 </div>
 </section>
 <section id="Arduino-sketch">
-<h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Permalink to this heading"></a></h3>
+<h3>Arduino sketch<a class="headerlink" href="#Arduino-sketch" title="Link to this heading"></a></h3>
 <p>Now, we can write a sketch to allow Arduino to communicate with Python. Our strategy is to use PySerial to set a byte to Arduino. Depending on which byte was received, Arduino will take appropriate action. For the present device, there are three possible bytes we will send. We will send a byte instructing Arduino to turn the LED on, a byte to turn the LED off, and also a byte for <strong>handshaking</strong>. When first connecting with Arduino, it is prudent to send a byte and receive a byte to make sure
 everything is working ok; this is called handshaking. In my sketches, I always have <code class="docutils literal notranslate"><span class="pre">0</span></code> be a handshaking byte, and I have Arduino respond with a string, <code class="docutils literal notranslate"><span class="pre">&quot;Message</span> <span class="pre">received.&quot;</span></code>.</p>
 <p>Here is the code for the sketch, which I describe in more detail below.</p>
@@ -382,13 +380,13 @@ everything is working ok; this is called handshaking. In my sketches, I always h
 </div>
 </div>
 <section id="Thinking-exercise-4:-if-vs.-while">
-<h4>Thinking exercise 4: if vs. while<a class="headerlink" href="#Thinking-exercise-4:-if-vs.-while" title="Permalink to this heading"></a></h4>
+<h4>Thinking exercise 4: if vs. while<a class="headerlink" href="#Thinking-exercise-4:-if-vs.-while" title="Link to this heading"></a></h4>
 <p>As a quick aside, think about this: I used <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>. Could I have used <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(Serial.available()</span> <span class="pre">&gt;</span> <span class="pre">0)</span></code>? What is the difference?</p>
 <p><em>The answer to this thinking exercise is at the bottom of this lesson.</em></p>
 </section>
 </section>
 <section id="Opening-a-connection">
-<h3>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Permalink to this heading"></a></h3>
+<h3>Opening a connection<a class="headerlink" href="#Opening-a-connection" title="Link to this heading"></a></h3>
 <p>When opening a connection with Python, you cannot have the Serial Monitor nor Serial Plotter of the Arduino IDE open, since they will keep the port busy and Python cannot communicate with Arduino.</p>
 <p>To open a connection to the device, we instantiate a <code class="docutils literal notranslate"><span class="pre">serial.Serial</span></code> instance. When a port is first opened, there is some handshaking between the device and the computer that needs to happen. To be safe, I always close the port and reopen it to get an open port, and then wait one second using <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> before I send or receive data from it. I then send and receive data packets. The first input/output from Arduino Uno board is nonsense (unique to that board, I think). I then send and
 receive a handshake message again to make sure everything is working properly.</p>
@@ -482,7 +480,7 @@ Handshake message: Message received.
 </div>
 </section>
 <section id="Turning-on-the-LED">
-<h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Permalink to this heading"></a></h3>
+<h3>Turning on the LED<a class="headerlink" href="#Turning-on-the-LED" title="Link to this heading"></a></h3>
 <p>To turn on the red LED, we need to send code <code class="docutils literal notranslate"><span class="pre">2</span></code> as <code class="docutils literal notranslate"><span class="pre">bytes</span></code> to the Arduino. Let’s open up a port to Arduino and send a signal to turn on the red LED.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -518,7 +516,7 @@ Handshake message: Message received.
 </section>
 </section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -556,13 +554,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x1320d30a0> 
+   <jinja2.runtime.BlockReference object at 0x11b61f2d0> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

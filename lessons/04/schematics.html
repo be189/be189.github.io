@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4. Schematics &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -147,7 +147,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/04/schematics.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/04/schematics" download> Download notebook</a>
         
       
     
@@ -160,18 +160,16 @@
            <div itemprop="articleBody">
              
   <section id="4.-Schematics">
-<h1>4. Schematics<a class="headerlink" href="#4.-Schematics" title="Permalink to this heading"></a></h1>
+<h1>4. Schematics<a class="headerlink" href="#4.-Schematics" title="Link to this heading"></a></h1>
 <hr><p>In the previous lesson, I showed a drawing of the circuit as it would appear physically in front of us. It looked like this:</p>
-<div style="margin: auto; width: 600px;"><p><img alt="blink_bb_2" src="../../_images/blink_bb1.svg" /></p>
-</div><p>While this is a useful representation, it can quickly get cluttered when there are many components. It is also quite difficult to draw by hand. Instead, most electrical circuits are drawn as <strong>schematics</strong>. They are more abstract than the <strong>pictorial representation</strong> above and are easier to create.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="blink_schem" src="../../_images/blink_schem.svg" /></p>
-</div><p>The resistor is now represented by a zig-zag line (I call them “<a class="reference external" href="https://www.1843magazine.com/sites/default/files/styles/il_manual_crop_16_9/public/Charlie-Brown-Good-Grief-HEADER_0.png">Charlie Brown shirts</a>”) with a label giving its resistance. The LED is also represented by its own symbol, and the Arduino is also represented abstractly, with the pin locations no longer matching where they physically appear on the board.</p>
+<div style="margin: auto; width: 600px;"><img alt="blink_bb_2" src="../../_images/blink_bb1.svg" /></div><p>While this is a useful representation, it can quickly get cluttered when there are many components. It is also quite difficult to draw by hand. Instead, most electrical circuits are drawn as <strong>schematics</strong>. They are more abstract than the <strong>pictorial representation</strong> above and are easier to create.</p>
+<div style="margin: auto; width: 300px;"><img alt="blink_schem" src="../../_images/blink_schem.svg" /></div><p>The resistor is now represented by a zig-zag line (I call them “<a class="reference external" href="https://www.1843magazine.com/sites/default/files/styles/il_manual_crop_16_9/public/Charlie-Brown-Good-Grief-HEADER_0.png">Charlie Brown shirts</a>”) with a label giving its resistance. The LED is also represented by its own symbol, and the Arduino is also represented abstractly, with the pin locations no longer matching where they physically appear on the board.</p>
 <section id="Learning-how-to-read-schematics">
-<h2>Learning how to read schematics<a class="headerlink" href="#Learning-how-to-read-schematics" title="Permalink to this heading"></a></h2>
+<h2>Learning how to read schematics<a class="headerlink" href="#Learning-how-to-read-schematics" title="Link to this heading"></a></h2>
 <p>I could write a long lesson about reading schematics, but I don’t think it would be any better than <a class="reference external" href="https://learn.sparkfun.com/tutorials/how-to-read-a-schematic/all">this very nice tutorial from SparkFun</a>. Please read it carefully.</p>
 </section>
 <section id="Drawing-schematics">
-<h2>Drawing schematics<a class="headerlink" href="#Drawing-schematics" title="Permalink to this heading"></a></h2>
+<h2>Drawing schematics<a class="headerlink" href="#Drawing-schematics" title="Link to this heading"></a></h2>
 <p>There are many computer programs available for drawing schematics. You will need to do so in some of your exercises and definitely in your projects. I think it is also useful to show pictorial representations as well. To draw both of these, <a class="reference external" href="https://fritzing.org/">Fritzing</a> is a valuable and widely used tool. It is possible to get it for free, but if you have the means, I could encourage you to make the suggested donation (€8). Fritzing is fairly self-explanatory and easy to use.</p>
 </section>
 </section>
@@ -188,13 +186,13 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131ecd630> 
+   <jinja2.runtime.BlockReference object at 0x11b6b50d0> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>8. Pulse width modulation &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,7 +151,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/08/pulse_width_modulation.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/08/pulse_width_modulation" download> Download notebook</a>
         
       
     
@@ -164,11 +164,11 @@
            <div itemprop="articleBody">
              
   <section id="8.-Pulse-width-modulation">
-<h1>8. Pulse width modulation<a class="headerlink" href="#8.-Pulse-width-modulation" title="Permalink to this heading"></a></h1>
+<h1>8. Pulse width modulation<a class="headerlink" href="#8.-Pulse-width-modulation" title="Link to this heading"></a></h1>
 <hr><p>Let’s say we want to provide a component with a constant voltage of, say, 2.5 volts. It would be convenient if we could just tell the Arduino Uno to deliver analog 2.5 volts out of a specified pin. This process, in which you send a digital number that results in an analog voltage coming out is called <a class="reference external" href="https://en.wikipedia.org/wiki/Digital-to-analog_converter">digital-to-analog conversion</a>, abbreviated as DAC. <a class="reference external" href="https://store.arduino.cc/usa/due">Arduino Due</a> and <a class="reference external" href="https://store.arduino.cc/usa/arduino-zero">Ardunio
 Zero</a> offer 12-bit and 10-bit DAC, respectively, but there are no built-in DAC capabilities in Arduino Uno. The Uno board can only write digital values. That is, it can only send values that are <code class="docutils literal notranslate"><span class="pre">HIGH</span></code> (5 V) and <code class="docutils literal notranslate"><span class="pre">LOW</span></code> (0 V). To deliver voltages out of pins between zero and five volts, it uses <strong>pulse width modulation (PWM)</strong> as a replacement for DAC.</p>
 <section id="The-idea-behind-PWM">
-<h2>The idea behind PWM<a class="headerlink" href="#The-idea-behind-PWM" title="Permalink to this heading"></a></h2>
+<h2>The idea behind PWM<a class="headerlink" href="#The-idea-behind-PWM" title="Link to this heading"></a></h2>
 <p>While we cannot deliver 2.5 volts at any given time using Arduino Uno, we can deliver an <em>average</em> of 2.5 volts over time. Think of a light switch. If you flip it on for a second, then off for a second, them back on for a second, etc., over the course of a minute, you would have, on average, a half-dimmed light.</p>
 <p>Now, say we turn digital pin 3 on (<code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, 5 V) for one millisecond. Then we turn it off (<code class="docutils literal notranslate"><span class="pre">LOW</span></code>, 0 V) for one millisecond. We keep doing this, and, on average, we deliver 2.5 V.</p>
 <p>A signal given by PWM is characterized by three parameters.</p>
@@ -622,7 +622,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="PWM-on-the-Arduino-Uno-with-analogWrite()">
-<h2>PWM on the Arduino Uno with analogWrite()<a class="headerlink" href="#PWM-on-the-Arduino-Uno-with-analogWrite()" title="Permalink to this heading"></a></h2>
+<h2>PWM on the Arduino Uno with analogWrite()<a class="headerlink" href="#PWM-on-the-Arduino-Uno-with-analogWrite()" title="Link to this heading"></a></h2>
 <p>Given that the Arduino Uno does not have DAC, why does it have a function <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code>? The perhaps ill-named function actually invokes PWM from a digital pin. The <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> function takes two arguments: the pin you are using for PWM and the duty ratio. The duty ratio is not given as a fraction, but rather an <code class="docutils literal notranslate"><span class="pre">int</span></code>. Although this argument must be given as an <code class="docutils literal notranslate"><span class="pre">int</span></code>, its minimum value is zero, corresponding to a duty ratio of zero, and its maximum value is 255, corresponding to a
 duty ratio of one. So, if you wanted a duty ratio of <span class="math notranslate nohighlight">\(d\)</span>, you can compute the number you want to pass to <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> as <span class="math notranslate nohighlight">\(255 d\)</span>. Here is an example of telling pin 3 to perform PWM with a duty ratio of approximately 0.5.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="nf">analogWrite</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">127</span><span class="p">);</span>
@@ -659,10 +659,9 @@ duty ratio of one. So, if you wanted a duty ratio of <span class="math notransla
 <p>Note that when PWM is invoked on a pin, its use of the time could affect other functions. Specifically, pins 3 and 11 use Timer2, which is also used for <code class="docutils literal notranslate"><span class="pre">tone()</span></code>. When <code class="docutils literal notranslate"><span class="pre">tone()</span></code> is being used, it may interfere with PWM on pins 3 and 11.</p>
 <hr></section>
 <section id="Follow-along-exercise-4:-PWM-demo">
-<h2>Follow-along exercise 4: PWM demo<a class="headerlink" href="#Follow-along-exercise-4:-PWM-demo" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 4: PWM demo<a class="headerlink" href="#Follow-along-exercise-4:-PWM-demo" title="Link to this heading"></a></h2>
 <p>To demonstrate how the Arduino Uno does PWM in lieu of an <a class="reference external" href="https://en.wikipedia.org/wiki/Oscilloscope">oscilloscope</a>, you can watch the voltage sent out of a digital pin by reading its output via ADC. The set-up couldn’t be simpler. Connect digital pin 3 to analog input A0.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="PWM demo setup" src="../../_images/pwm_demo_schem.svg" /></p>
-</div><p>We will do PWM on pin 3 and then immediately read in the signal on pin A0. We will send the reading along the serial connection as fast as we can (which is 2,000,000 baud).</p>
+<div style="margin: auto; width: 300px;"><img alt="PWM demo setup" src="../../_images/pwm_demo_schem.svg" /></div><p>We will do PWM on pin 3 and then immediately read in the signal on pin A0. We will send the reading along the serial connection as fast as we can (which is 2,000,000 baud).</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">outPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 
@@ -684,11 +683,11 @@ duty ratio of one. So, if you wanted a duty ratio of <span class="math notransla
 <p>Even when some devices can react as fast as the PWM, when <em>perception</em> of the device is more important, the device would be perceived as having throttled voltage. This is the case for LEDs. By flipping the input voltage on and off via PWM, an LED can appear brighter or dimmer, depending on the duty ratio. Let’s put that idea to work.</p>
 <hr></section>
 <section id="Do-it-yourself-exercise-3:-Brightness-control-by-PWM">
-<h2>Do-it-yourself exercise 3: Brightness control by PWM<a class="headerlink" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM" title="Permalink to this heading"></a></h2>
+<h2>Do-it-yourself exercise 3: Brightness control by PWM<a class="headerlink" href="#Do-it-yourself-exercise-3:-Brightness-control-by-PWM" title="Link to this heading"></a></h2>
 <p>Connect a red LED to a pin capable of PWM. Don’t forget to use a 220 Ω resistor so you do not fry your LED. Write a sketch that gradually brings the brightness of the LED up and down, up and down, up and down, ad infinitum.</p>
 <hr></section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -726,13 +725,13 @@ jupyterlab 3.0.11
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131e9e1d0> 
+   <jinja2.runtime.BlockReference object at 0x11b623a10> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

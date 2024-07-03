@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>15. Streaming plots with Bokeh &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -150,7 +150,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/15/streaming_plots_with_bokeh.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/15/streaming_plots_with_bokeh" download> Download notebook</a>
         
       
     
@@ -163,7 +163,7 @@
            <div itemprop="articleBody">
              
   <section id="15.-Streaming-plots-with-Bokeh">
-<h1>15. Streaming plots with Bokeh<a class="headerlink" href="#15.-Streaming-plots-with-Bokeh" title="Permalink to this heading"></a></h1>
+<h1>15. Streaming plots with Bokeh<a class="headerlink" href="#15.-Streaming-plots-with-Bokeh" title="Link to this heading"></a></h1>
 <hr><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -501,7 +501,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 }(window));
 </script></div>
 </div>
-<hr><p>The setup for this lesson is the same as the previous one. We also have an ever-growing list of utility functions. If you want to skip to the section after the setup, execute the code cell below that contains the utility function and then <a class="reference internal" href="#Bokeh-apps"><span class="std std-ref">click here</span></a>.</p>
+<hr><p>The setup for this lesson is the same as the previous one. We also have an ever-growing list of utility functions. If you want to skip to the section after the setup, execute the code cell below that contains the utility function and then <a class="reference external" href="#Bokeh-apps">click here</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -710,8 +710,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem2.svg" /></p>
-</div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem2.svg" /></div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -801,7 +800,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </pre></div>
 </div>
 <section id="Bokeh-apps">
-<h2>Bokeh apps<a class="headerlink" href="#Bokeh-apps" title="Permalink to this heading"></a></h2>
+<h2>Bokeh apps<a class="headerlink" href="#Bokeh-apps" title="Link to this heading"></a></h2>
 <p><em>Though this section is not a follow-along exercise, you should run it on your machine so you can see the dynamics.</em></p>
 <p>Thus far, we have used Bokeh to make zoom-able, pan-able, save-able JavaScript-based plots of data. We also used it to make widgets that we could use to control Arduino. But <a class="reference external" href="http://bokeh.pydata.org/">Bokeh</a> allows much more interactivity. We can update plots based on results of calculation by the Python interpreter. In our case, we want to update a plot of voltages coming off of the Arduino board in real time.</p>
 <p>As an example of how a Bokeh app can be used to update a plot I build one below to dynamically plot a random walk. The walk will proceed with a dot doing the walk and the trail behind it represented as a line. To build a Bokeh app, we need to write a function that controls the app. The function for the random walker is shown below with an explanation following immediately.</p>
@@ -880,7 +879,7 @@ xhr.send();
 </div>
 </section>
 <section id="Follow-along-exercise-11:-Plotting-streaming-data">
-<h2>Follow-along exercise 11: Plotting streaming data<a class="headerlink" href="#Follow-along-exercise-11:-Plotting-streaming-data" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 11: Plotting streaming data<a class="headerlink" href="#Follow-along-exercise-11:-Plotting-streaming-data" title="Link to this heading"></a></h2>
 <p>We will expand on the work we did in the last lesson to acquire data asynchronously and push the data to a Bokeh plot for updating. To start with, as usual, we need to shake hands with Arduino.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -1087,12 +1086,12 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <hr></section>
 <section id="Do-it-yourself-exercise-6:-Etch-A-Sketch">
-<h2>Do-it-yourself exercise 6: Etch-A-Sketch<a class="headerlink" href="#Do-it-yourself-exercise-6:-Etch-A-Sketch" title="Permalink to this heading"></a></h2>
+<h2>Do-it-yourself exercise 6: Etch-A-Sketch<a class="headerlink" href="#Do-it-yourself-exercise-6:-Etch-A-Sketch" title="Link to this heading"></a></h2>
 <p>An <a class="reference external" href="https://en.wikipedia.org/wiki/Etch_A_Sketch">Etch-A-Sketch</a> is a classic toy wherein a child (or adult!) turns knobs to draw lines. To get an idea of how it works, check out <a class="reference external" href="https://www.youtube.com/watch?v=q4CTyWwQrMo">this video</a>.</p>
 <p>In this exercise, make an Etch-A-Sketch by using two potentiometers as the “knobs”. The voltages measured from analog inputs are then sent to Python and interpreted as positions in an x-y plane. You should have a Bokeh plot that gets updated as the knobs are turned.</p>
 <hr></section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -1132,13 +1131,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x132251420> 
+   <jinja2.runtime.BlockReference object at 0x11b60f990> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

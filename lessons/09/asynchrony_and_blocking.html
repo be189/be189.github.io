@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>9. Asynchrony and blocking &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,7 +151,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/09/asynchrony_and_blocking.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/09/asynchrony_and_blocking" download> Download notebook</a>
         
       
     
@@ -164,11 +164,11 @@
            <div itemprop="articleBody">
              
   <section id="9.-Asynchrony-and-blocking">
-<h1>9. Asynchrony and blocking<a class="headerlink" href="#9.-Asynchrony-and-blocking" title="Permalink to this heading"></a></h1>
+<h1>9. Asynchrony and blocking<a class="headerlink" href="#9.-Asynchrony-and-blocking" title="Link to this heading"></a></h1>
 <hr><p>Thus far, we have used the <code class="docutils literal notranslate"><span class="pre">delay()</span></code> function to handle the timing of events, such as turning an LED on or off or writing data via a serial connection. The problem with using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is that it works by <strong>blocking</strong>. This means that while <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is running the microprocessor cannot do any other tasks. In the previous exercise, we waited 100 milliseconds before sending data. During that time, the ATmega328 could have performed about 2 million instructions. That is a lot of wasted
 computational resources to enable blocking! (The chip in your computer is more than 1000 times faster, so blocking on your computer wastes even more resources. We will address asynchrony on the Python side in later lessons.)</p>
 <section id="Asynchrony">
-<h2>Asynchrony<a class="headerlink" href="#Asynchrony" title="Permalink to this heading"></a></h2>
+<h2>Asynchrony<a class="headerlink" href="#Asynchrony" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)">Asynchrony</a> is an important concept in the design of biodevices. It is best explained by example.</p>
 <p>Say you make a device that acquires data from a sensor and sends those data to your computer via USB. Meanwhile, your device should listen for a signal coming from the computer that will ask it to stop sending data. Say you wrote a function that listens to the USB channel for a signal from the computer. Upon receipt of the signal, it stops sending data over USB. The problem is that if you run the listener function and it is blocking, your device cannot do any other operations, including
 processing and sending the sensor data.</p>
@@ -177,27 +177,26 @@ processing and sending the sensor data.</p>
 <p>A function that can run asynchronous returns so that the program can proceed and then completes its tasks when possible.</p>
 </section>
 <section id="Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous">
-<h2>Serial.print(), Serial.println(), and Serial.write() are asynchronous<a class="headerlink" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous" title="Permalink to this heading"></a></h2>
+<h2>Serial.print(), Serial.println(), and Serial.write() are asynchronous<a class="headerlink" href="#Serial.print(),-Serial.println(),-and-Serial.write()-are-asynchronous" title="Link to this heading"></a></h2>
 <p>Writing data over USB is asynchronous. In most cases, <code class="docutils literal notranslate"><span class="pre">Serial.print()</span></code>, <code class="docutils literal notranslate"><span class="pre">Serial.println()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Serial.write()</span></code> will almost immediately return and the microcontroller will continue to the next lines of your sketch. Meanwhile, the data is sent over USB while the microcontroller is busy with other tasks. These functions do this by putting the bytes that need to be transfered into an <strong>output buffer</strong>, which is then processed by the USB interface chip and sent to your computer.</p>
 <p>The exception to this behavior is when the output buffer is full. In this case, the microcontroller has no place to dump the bytes that need to be written, so it has to wait (and block) until the buffer is free.</p>
 <hr></section>
 <section id="Thinking-exercise-3:-Other-asynchronous-functions">
-<h2>Thinking exercise 3: Other asynchronous functions<a class="headerlink" href="#Thinking-exercise-3:-Other-asynchronous-functions" title="Permalink to this heading"></a></h2>
+<h2>Thinking exercise 3: Other asynchronous functions<a class="headerlink" href="#Thinking-exercise-3:-Other-asynchronous-functions" title="Link to this heading"></a></h2>
 <p>Think back to some previous exercises.</p>
 <p><strong>a)</strong> Does <code class="docutils literal notranslate"><span class="pre">tone()</span></code> operate asynchronously?</p>
 <p><strong>b)</strong> Does <code class="docutils literal notranslate"><span class="pre">analogWrite()</span></code> operate asynchronously?</p>
 <p>The answer to this exercise is at the bottom of this lesson.</p>
 <hr></section>
 <section id="Avoiding-delay()">
-<h2>Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code><a class="headerlink" href="#Avoiding-delay()" title="Permalink to this heading"></a></h2>
+<h2>Avoiding <code class="docutils literal notranslate"><span class="pre">delay()</span></code><a class="headerlink" href="#Avoiding-delay()" title="Link to this heading"></a></h2>
 <p>As a rule of thumb, you should avoid using <code class="docutils literal notranslate"><span class="pre">delay()</span></code> because it is blocking. The function is really convenient when you are just learning or debugging with occasional serial output, but should not really be used beyond that.</p>
 <p>How do we go about avoiding delay? Again, this is best learned by example.</p>
 <hr></section>
 <section id="Follow-along-exercise-5:-Serial-output-without-delay">
-<h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Link to this heading"></a></h2>
 <p>Consider the same setup you had for <a class="reference internal" href="../07/adc_and_usart.html"><span class="doc">the follow-along exercise on serial communication</span></a>, the schematic of which is shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" /></p>
-</div><p>We wish to write voltage values via USB, but without using the blocking function <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function returns this time in milliseconds. The number returned by <code class="docutils literal notranslate"><span class="pre">millis()</span></code> is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, so it is important to declare any variable storing its output as such. Similarly, the function <code class="docutils literal notranslate"><span class="pre">micros()</span></code> returns the amount of time since the last reset in units of microseconds. Note,
+<div style="margin: auto; width: 300px;"><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" /></div><p>We wish to write voltage values via USB, but without using the blocking function <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function returns this time in milliseconds. The number returned by <code class="docutils literal notranslate"><span class="pre">millis()</span></code> is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, so it is important to declare any variable storing its output as such. Similarly, the function <code class="docutils literal notranslate"><span class="pre">micros()</span></code> returns the amount of time since the last reset in units of microseconds. Note,
 though, that because the Arduino Uno board operates at about 16 MHz, the resolution of <code class="docutils literal notranslate"><span class="pre">micros()</span></code> is four µs.</p>
 <p>So, we use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function to capture when we last sent data. We then use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function again to get the current time. When the difference between the current time and the last time we sent data is at least as large as the time we want between sending data, we then go ahead and send the data. We also set the last time that data was sent to the current time, and then continue. This is implemented in the code below.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
@@ -245,7 +244,7 @@ though, that because the Arduino Uno board operates at about 16 MHz, the resolut
 <p>Go ahead and run the code, checking the Serial Monitor, to make sure it runs ok.</p>
 <hr></section>
 <section id="Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar">
-<h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Permalink to this heading"></a></h2>
+<h2>Do-it-yourself exercise 4: K.I.T.T. scanner bar<a class="headerlink" href="#Do-it-yourself-exercise-4:-K.I.T.T.-scanner-bar" title="Link to this heading"></a></h2>
 <p>Now that you have some experience coding Arduino and putting elements together on bread boards, you are ready to try exercises that are a bit more involved.</p>
 <p>In the hit 1982 television show <a class="reference external" href="https://en.wikipedia.org/wiki/Knight_Rider_(1982_TV_series)">Knight Rider</a>, the main character Michael Knight (played by the incomparable David Hasselhoff) drives the most awesome car ever, a modified Trans-Am called K.I.T.T., pronounced “kit.” If you watch <a class="reference external" href="https://www.youtube.com/watch?v=oNyXYPhnUIs">the show’s opening credits</a>, you can see that an oscillating scanner bar on the front of the car features heavily in its awesomeness. You can see a close-up
 of the scanner bar <a class="reference external" href="https://www.youtube.com/watch?v=WxE2xWZNfOc">here</a>. Note that this scanner bar is from later in the series and features eight lights, while the one in the original pilot and opening credits features six.</p>
@@ -268,13 +267,13 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131e8c1c0> 
+   <jinja2.runtime.BlockReference object at 0x11b7a0b50> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

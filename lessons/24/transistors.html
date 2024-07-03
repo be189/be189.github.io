@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>24. Transistors &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -148,7 +148,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/24/transistors.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/24/transistors" download> Download notebook</a>
         
       
     
@@ -161,10 +161,10 @@
            <div itemprop="articleBody">
              
   <section id="24.-Transistors">
-<h1>24. Transistors<a class="headerlink" href="#24.-Transistors" title="Permalink to this heading"></a></h1>
+<h1>24. Transistors<a class="headerlink" href="#24.-Transistors" title="Link to this heading"></a></h1>
 <hr><p><strong>Transistors</strong> are key components of almost any modern circuit. They have myriad applications, and are included in pretty much all of the integrated circuits you have already been introduced to, including analog-to-digital converters, digital-to-analog converters, and op-amps. Horowitz and Hill go so far as to say that “The transistor is the essential component of every electronic circuit.” In this lesson, we will explore using transistors as switches.</p>
 <section id="Basic-concepts-behind-transistors">
-<h2>Basic concepts behind transistors<a class="headerlink" href="#Basic-concepts-behind-transistors" title="Permalink to this heading"></a></h2>
+<h2>Basic concepts behind transistors<a class="headerlink" href="#Basic-concepts-behind-transistors" title="Link to this heading"></a></h2>
 <p>We will not go into the details of the (Nobel Prize-winning) physics behind how transistors work, but will treat them from a practical perspective. Transistors are three-terminal components. They come predominantly in two varieties, <strong>bipolar junction transistors</strong> (BJTs) and <strong>field effect transistors</strong> (FETs). These two varieties of transistor vary in their mode of construction and in other meaningful ways in their operation that we will not spend much time on. FETs are dominant in electronics
 these days, including in the integrated circuits mentioned above, but BJTs are still widely used. Importantly, both varieties have the same two salient features.</p>
 <ol class="arabic simple">
@@ -175,11 +175,11 @@ these days, including in the integrated circuits mentioned above, but BJTs are s
 <p>The details of how transistors work is very interesting and worth delving into if you have the time. You can start with the Wikipedia pages for <a class="reference external" href="https://en.wikipedia.org/wiki/Bipolar_junction_transistor">BJTs</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Field-effect_transistor">FETs</a>.</p>
 </section>
 <section id="Bipolar-junction-transistors-as-switches">
-<h2>Bipolar junction transistors as switches<a class="headerlink" href="#Bipolar-junction-transistors-as-switches" title="Permalink to this heading"></a></h2>
+<h2>Bipolar junction transistors as switches<a class="headerlink" href="#Bipolar-junction-transistors-as-switches" title="Link to this heading"></a></h2>
 <p>We only have a few FETs, but we do have both varieties of BJTs, <em>npn</em> and <em>pnp</em>. The difference in ordering of the constitutive layers of the transistors results in reversed polarities. Here, “<em>n</em>” means that the semiconductor is doped in such a way that there are an abundance of free electrons. Current flow in <em>n</em>-type material consists predominantly of electrons moving in response to the voltage difference across the material. Conversely, “<em>p</em>” means that the semiconductor is doped in such a
 way that there are an abundance of free “holes.” You can think of the “holes” as a deficit of electrons. Current flow in <em>n</em>-type material consists predominantly of “holes” moving in response to the voltage difference across the material.</p>
 <p>Below is the schematic symbol for BJTs (though they are sometimes drawn with a circle around them).</p>
-<div style="margin:auto; width: 250px;"><p><img alt="BJT symbols" src="../../_images/bjt_symbols.jpg" /></p>
+<div style="margin:auto; width: 250px;"><img alt="BJT symbols" src="../../_images/bjt_symbols.jpg" />
 </div><p>The labels C, B, and E refer to collector, base, and emitter, respectively. In this exercise, we will use <em>npn</em> BJTs. They are labeled 2N3904. Do not confuse them with the <em>pnp</em> BJTs.</p>
 <p>For an <em>npn</em>, the current flows from collector through emitter; the collector must be more positive than the emitter. (The opposite is true for a <em>pnp</em>.) The current flowing through the collector is approximately <span class="math notranslate nohighlight">\(I_C = \beta I_B\)</span>, where <span class="math notranslate nohighlight">\(\beta\)</span> is the gain, typically around 100. (This is an approximation of a result from the Ebers-Moll model.) Note, though, that because the collector must be more positive than the emitter, the transistor reaches <strong>saturation</strong> above a given input
 current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
@@ -195,13 +195,12 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 <p>To explore transistors as switches, complete the following follow-along exercise.</p>
 <hr></section>
 <section id="Follow-along-exercise-15:-BJTs-as-switches">
-<h2>Follow-along exercise 15: BJTs as switches<a class="headerlink" href="#Follow-along-exercise-15:-BJTs-as-switches" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 15: BJTs as switches<a class="headerlink" href="#Follow-along-exercise-15:-BJTs-as-switches" title="Link to this heading"></a></h2>
 <p>The leads of the BJTs we have are as in the sketch below.</p>
-<div style="margin:auto; width: 100px;"><p><img alt="BJT drawing" src="../../_images/bjt_drawing.png" /></p>
+<div style="margin:auto; width: 100px;"><img alt="BJT drawing" src="../../_images/bjt_drawing.png" />
 </div><p>So, with the flat surface of the package facing you, the left lead is the emitter, the center is the base, and the right is the collector.</p>
 <p>With this in mind, build the circuit below.</p>
-<div style="margin:auto; width: 500px;"><p><img alt="BJT as switch circuit" src="../../_images/transistor_as_switch_schem.svg" /></p>
-</div><p>In this circuit, the DAC sends an input voltage across an LED and then across the transistor, the input coming into the collector. The emitter is grounded, which serves to ground the circuit, including the LED. The base of the transistor is controlled by digital output from the Arduino Uno. We are using a 10 kΩ resistor on this input, giving a current of about 500 nA, which is plenty for the transistor to be operating at saturation.</p>
+<div style="margin:auto; width: 500px;"><img alt="BJT as switch circuit" src="../../_images/transistor_as_switch_schem.svg" /></div><p>In this circuit, the DAC sends an input voltage across an LED and then across the transistor, the input coming into the collector. The emitter is grounded, which serves to ground the circuit, including the LED. The base of the transistor is controlled by digital output from the Arduino Uno. We are using a 10 kΩ resistor on this input, giving a current of about 500 nA, which is plenty for the transistor to be operating at saturation.</p>
 <p>You will oscillate the voltage across the transistors using the sketch below.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_MCP4725.h&gt;</span>
 
@@ -302,13 +301,13 @@ current <span class="math notranslate nohighlight">\(I_B\)</span>.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x1320460b0> 
+   <jinja2.runtime.BlockReference object at 0x109f30850> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

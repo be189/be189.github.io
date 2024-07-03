@@ -7,11 +7,11 @@ Schedule overview
 
 All meetings are in B127 Kerckhoff.
 
-- Lab: Tuesdays and Thursdays, 2:30-4:00 pm Pacific time
+- Lab: Tuesdays and Thursdays, 10:30am–noon Pacific time
 - TA office hours
 
-  + Zhenyu Dong: Wednesday, 4-5 pm
-  + Max Huang: Friday, 3–4 pm
+  + TA 1: TBA
+  + TA 2: TBA
 
 Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. 
 
@@ -22,30 +22,28 @@ Tuesday and Thursday lab meetings are required, unless arrangements have been ma
 Due dates
 --------------
 
-The due dates below may change. They will not be moved to an earlier date, but may be moved later. We may also add some follow-along and do-it-yourself exercises. All times are Pacific.
+The due dates below may change. They will not be moved to an earlier date, but may be moved later. All times are Pacific.
 
 .. role:: strike
     :class: strike
 
-- :ref:`Follow-along exercises` 1–7, due 11:59 pm, April 9
-- :ref:`Do-it-yourself exercises` 1–4, due 11:59 pm, April 9
+- :ref:`Follow-along exercises` 1–7, due 11:59 pm PST, October 10
+- :ref:`Do-it-yourself exercises` 1–4, due 11:59 pm PST, October 10
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 8–13, due 11:59 pm, April 16
-- :ref:`Do-it-yourself exercises` 5–7, due 11:59 pm, April 16
+- :ref:`Follow-along exercises` 8–13, due 11:59 pm PST, October 17
+- :ref:`Do-it-yourself exercises` 5–7, due 11:59 pm PST, October 17
 .. dummy comment
-- :ref:`Follow-along exercises` 14–17, due 11:59 pm, April 23
-- :ref:`Do-it-yourself exercises` 8–13, due 11:59 pm, April 23
+- :ref:`Follow-along exercises` 14–17, due 11:59 pm PST, October 24
+- :ref:`Do-it-yourself exercises` 8–13, due 11:59 pm PST, October 24
 .. dummy comment
-- :ref:`Spectrophotometer` demo board design: due in class, May 2
-- :ref:`Spectrophotometer` calibration period: May 2 - May 9
-- :ref:`Spectrophotometer` final demo: due in class, May 9
+- :ref:`Spectrophotometer` demo: due 11:59 pm PST, November 7
 .. dummy comment
-- :ref:`Spectrophotometer` write-up: due 11:59 pm, May 14
+- :ref:`Spectrophotometer` write-up: due 11:59 pm PST, November 12
 .. dummy comment
-- :ref:`Pulse oximetry` demo board design: due in class, May 23
-- :ref:`Pulse oximetry` final demo: due in class, May 30
+.. - :ref:`Follow-along exercises` 18 and 19: due 11:59 pm PST, May 25
+- :ref:`Pulse oximetry` demo: due 11:59 pm PST, December 5
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 11:59 pm, June 4
+- :ref:`Pulse oximetry` write-up: due 11:59 pm PST, December 10
 
 
 ----
@@ -54,11 +52,12 @@ The due dates below may change. They will not be moved to an earlier date, but m
 Weekly activities
 -----------------
 
-In each lab session, which are Tuesdays and Thursdays, 2:30-4:00, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
+In each lab session, which are Tuesdays and Thursdays, 10:30-noon, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
 
-- **Tu 04/02**: Welcome, safety, introduction to Arduino
-- **Tu 04/23 & 04/25**: Training on 3D printing with Techlab
-- **Th 05/09**: Spectrophotometer demo day
-- **Th 05/30**: Pulse oximetry demo day
-- **Th 06/05**: Tear down and clean up
+- **Tu 09/30**: Welcome, safety, introduction to Arduino
+- **TBA**: Training on 3D printing with Techlab
+- **Th 11/07**: Spectrophotometer demo day
+- **Th 11/28**: Thanksgiving Day, no class
+- **Th 12/05**: Pulse oximetry demo day
+- **Th 12/12**: Tear down and clean up
 

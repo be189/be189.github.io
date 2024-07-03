@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>14. Asynchronously receiving data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -160,7 +160,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/14/asynchronous_streaming.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/14/asynchronous_streaming" download> Download notebook</a>
         
       
     
@@ -173,7 +173,7 @@
            <div itemprop="articleBody">
              
   <section id="14.-Asynchronously-receiving-data-from-Arduino">
-<h1>14. Asynchronously receiving data from Arduino<a class="headerlink" href="#14.-Asynchronously-receiving-data-from-Arduino" title="Permalink to this heading"></a></h1>
+<h1>14. Asynchronously receiving data from Arduino<a class="headerlink" href="#14.-Asynchronously-receiving-data-from-Arduino" title="Link to this heading"></a></h1>
 <hr><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -511,8 +511,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <hr><p>In this lesson, you will learn how to use Python’s built-in asynchronous capabilities to constantly receive data from Arduino without blocking so that you can use the Python interpreter to do other tasks.</p>
 <section id="Setup">
-<h2>Setup<a class="headerlink" href="#Setup" title="Permalink to this heading"></a></h2>
-<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference internal" href="#Why-do-we-need-asynchrony?"><span class="std std-ref">click here</span></a>.</p>
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
+<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference external" href="#Why-do-we-need-asynchrony?">click here</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -566,8 +566,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></p>
-</div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -658,7 +657,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="Why-do-we-need-asynchrony?">
-<h2>Why do we need asynchrony?<a class="headerlink" href="#Why-do-we-need-asynchrony?" title="Permalink to this heading"></a></h2>
+<h2>Why do we need asynchrony?<a class="headerlink" href="#Why-do-we-need-asynchrony?" title="Link to this heading"></a></h2>
 <p>In the previous lesson, when we were streaming in data, we had a structure like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_data</span><span class="p">:</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">arduino</span><span class="o">.</span><span class="n">read_until</span><span class="p">()</span>
@@ -677,11 +676,11 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>In order to do these things, you want the data acquisition to happen asynchronously. You want the interpreter to occasionally read and parse data, but be free to do whatever else you want it to do when it is not reading and parsing data.</p>
 </section>
 <section id="Reading-data-in-chunks">
-<h2>Reading data in chunks<a class="headerlink" href="#Reading-data-in-chunks" title="Permalink to this heading"></a></h2>
+<h2>Reading data in chunks<a class="headerlink" href="#Reading-data-in-chunks" title="Link to this heading"></a></h2>
 <p>As a first step toward asynchrony, we will write a function to read data in <strong>chunks</strong>. Instead of constantly monitoring the data coming in over the serial connection, we would rather occasionally check the serial connection to see if there are any data in the input buffer. If there is, we read in whatever is in the input buffer to clear it, go off and process that, and then wait a while before checking again. During that waiting time, you can have the interpreter do other tasks.</p>
 <p><strong>Warning</strong>: Don’t wait too long to read, though! You do not want to overrun the USB input buffer size on your computer. Arduino’s output buffer is 64 bytes, and computers can have default input buffer sizes as low as 64 bytes as well. (I think most computers these days have input buffer sizes around 1024 bytes, but it does vary from machine to machine.)</p>
 <section id="Chunk-reading-for-non-corrupted-data">
-<h3>Chunk reading for non-corrupted data<a class="headerlink" href="#Chunk-reading-for-non-corrupted-data" title="Permalink to this heading"></a></h3>
+<h3>Chunk reading for non-corrupted data<a class="headerlink" href="#Chunk-reading-for-non-corrupted-data" title="Link to this heading"></a></h3>
 <p>The function below reads in all of the data that is in the input buffer and returns the data as a byte string. We should specify a short timeout so that reading will stop before the buffer starts filling up again.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -778,7 +777,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="Chunk-reading-with-corrupted-data">
-<h3>Chunk reading with corrupted data<a class="headerlink" href="#Chunk-reading-with-corrupted-data" title="Permalink to this heading"></a></h3>
+<h3>Chunk reading with corrupted data<a class="headerlink" href="#Chunk-reading-with-corrupted-data" title="Link to this heading"></a></h3>
 <p>We discovered that on Windows machines, reads made with pySerial can sometimes result in corrupted bytes. This makes the read-in string unusable, and in many cases un-parsable because the resulting bytes do not correspond to any characters in ASCII. I am not sure exactly why this happens, but I suspect it is due to the read of a given byte being incomplete, with the read being interrupted before the stop bit. To counteract this, we can instead read chunks that <em>must</em> terminate in a newline using
 <code class="docutils literal notranslate"><span class="pre">read_until()</span></code>. This blocks all other processes until the complete newline byte is read. This also ensures that all bytes preceding the newline are read in their entirety as well.</p>
 <div class="nbinput nblast docutils container">
@@ -817,7 +816,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </section>
 </section>
 <section id="asyncio">
-<h2>asyncio<a class="headerlink" href="#asyncio" title="Permalink to this heading"></a></h2>
+<h2>asyncio<a class="headerlink" href="#asyncio" title="Link to this heading"></a></h2>
 <p><em>While this section is not formally a follow-along exercise, I highly recommend running the code in this notebook because you will note delays as the code runs that will help you understand how ``asyncio`` is working.</em></p>
 <p>Python has handy built-in asynchronous capabilities using the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8.</p>
 <p>I will give a brief overview of how it works here, but you would be well-served to <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">read the documentation</a>, most importantly the <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html">coroutines and tasks section</a>.</p>
@@ -891,7 +890,7 @@ will happen after one second.</p>
 </pre></div></div>
 </div>
 <p>We get back a coroutine. To run it, we need a running <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>. An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you
-to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference internal" href="#Running-without-an-existing-event-loop"><span class="std std-ref">later in this lesson</span></a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
+to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference external" href="#Running-without-an-existing-event-loop">later in this lesson</a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
 <p>To run the coroutine, you can create a task using <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code>. Note that “calling” a coroutine like a function returns a coroutine, so the argument you pass into <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code> is how you would call the coroutine, including all arguments and keyword arguments. Upon creation, the coroutine is run.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -1041,7 +1040,7 @@ world.
 </div>
 <p>Note that the result is the return values from the two coroutines as a list.</p>
 <section id="Canceling-a-task">
-<h3>Canceling a task<a class="headerlink" href="#Canceling-a-task" title="Permalink to this heading"></a></h3>
+<h3>Canceling a task<a class="headerlink" href="#Canceling-a-task" title="Link to this heading"></a></h3>
 <p>Once a task is created, it may be interrupted and canceled using the <code class="docutils literal notranslate"><span class="pre">cancel()</span></code> method of the task. For example, we can cancel the English greeting before the second word comes out.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
@@ -1109,7 +1108,7 @@ Hello,
 </div>
 </section>
 <section id="Running-without-an-existing-event-loop">
-<h3>Running without an existing event loop<a class="headerlink" href="#Running-without-an-existing-event-loop" title="Permalink to this heading"></a></h3>
+<h3>Running without an existing event loop<a class="headerlink" href="#Running-without-an-existing-event-loop" title="Link to this heading"></a></h3>
 <p>If you do not have a running event loop on your thread, which will typically be the case if you are running outside of JupyterLab, you need to start an event loop. Fortunately, <code class="docutils literal notranslate"><span class="pre">asynchio</span></code> provides a convenient way to start (and automatically terminate upon completion of all coroutines) with its <code class="docutils literal notranslate"><span class="pre">asyncio.run()</span></code> function. To use it, define a coroutine that awaits all of the tasks you want to run and then pass that coroutine as an argument to <code class="docutils literal notranslate"><span class="pre">asyncio.run()</span></code>. For example, to run the English
 and Spanish greetings concurrently, do the following.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -1125,7 +1124,7 @@ and Spanish greetings concurrently, do the following.</p>
 </section>
 </section>
 <section id="Receiving-data-asynchronously">
-<h2>Receiving data asynchronously<a class="headerlink" href="#Receiving-data-asynchronously" title="Permalink to this heading"></a></h2>
+<h2>Receiving data asynchronously<a class="headerlink" href="#Receiving-data-asynchronously" title="Link to this heading"></a></h2>
 <p>Now that we understand how asynchrony works in Python, let’s receive some data! We’ll of course start by shaking hands with Arduino.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
@@ -1307,7 +1306,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -1347,13 +1346,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x13224fca0> 
+   <jinja2.runtime.BlockReference object at 0x11b875850> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

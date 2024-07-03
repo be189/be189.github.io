@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>17. Libraries, DAC, and I2C &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,7 +151,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/17/dac_i2c_libraries.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/17/dac_i2c_libraries" download> Download notebook</a>
         
       
     
@@ -164,20 +164,19 @@
            <div itemprop="articleBody">
              
   <section id="17.-Libraries,-DAC,-and-I2C">
-<h1>17. Libraries, DAC, and I2C<a class="headerlink" href="#17.-Libraries,-DAC,-and-I2C" title="Permalink to this heading"></a></h1>
+<h1>17. Libraries, DAC, and I2C<a class="headerlink" href="#17.-Libraries,-DAC,-and-I2C" title="Link to this heading"></a></h1>
 <hr><p>We already mentioned that the Arduino Uno board has built-in analog-to-digital conversion (ADC). A voltage between zero and five volts is converted to an integer between zero and 1023. But it does not have digital-to-analog conversion (DAC). DAC is useful in many applications for biodevices. As an example consider measurement of a <a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_voltammetry">cyclic voltammogram</a>. In these assays, you need to supply a varying voltage and then measure a current. The
 voltage supply cannot be delivered with pulse-width modulation; it must be analog. For this purpose, DAC is necessary.</p>
 <p>To deliver an analog voltage, you need a DAC that is separate from the Arduino Uno. We have an <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC breakout board from Adafruit</a>. The breakout board communicates with Arduino using I2C communication. In order to use the communication, you need to use the Wire library. <strong>Libraries</strong> contain extra bits of code that can be very useful for specific tasks. Many libraries, including Wire, are included in the Arduino IDE.</p>
 <p>This lesson covers three topics that are not necessarily related: DAC, I2C, and libraries. However, to properly execute DAC, you need to learn about latter two. You will learn about these three topics by working through a follow-along exercise.</p>
 <hr><section id="Follow-along-exercise-12:-DAC-with-MCP4725">
-<h2>Follow-along exercise 12: DAC with MCP4725<a class="headerlink" href="#Follow-along-exercise-12:-DAC-with-MCP4725" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 12: DAC with MCP4725<a class="headerlink" href="#Follow-along-exercise-12:-DAC-with-MCP4725" title="Link to this heading"></a></h2>
 <p>To demonstrate digital-to-analog conversion, we will vary the brightness of an LED without using pulse width modulation. Instead, we will deliver an LED an analog voltage that varies sinusoidally. We will use the MCP4725 DAC. This is a 12-bit, single-channel DAC. This means that it takes a 12-bit integer and converts it to a voltage referenced against the input and ground voltage (in this case, zero to five volts). So, the range of integer inputs is zero to 4095. It is single-channel, meaning
 that it can output only one analog voltage.</p>
 <section id="Wiring-up-the-DAC">
-<h3>Wiring up the DAC<a class="headerlink" href="#Wiring-up-the-DAC" title="Permalink to this heading"></a></h3>
+<h3>Wiring up the DAC<a class="headerlink" href="#Wiring-up-the-DAC" title="Link to this heading"></a></h3>
 <p>Wire up the DAC/LED according to the schematic below.</p>
-<div style="margin: auto; width: 400px;"><p><img alt="dac_led_schem" src="../../_images/dac_led_schem.svg" /></p>
-</div><p>A few things to take note of in the schematic:</p>
+<div style="margin: auto; width: 400px;"><img alt="dac_led_schem" src="../../_images/dac_led_schem.svg" /></div><p>A few things to take note of in the schematic:</p>
 <ol class="arabic simple">
 <li><p>When lines in the schematic cross, they are <em>not</em> connected unless a dot (a node) is present at the crossing.</p></li>
 <li><p>You can use pins A4 and A5 or pins SDA and SCL, respectively. The respective pins go to the same place on the microcontroller. I always use the SDA and SCL pins just to remind myself that I am using them for I2C.</p></li>
@@ -187,7 +186,7 @@ that it can output only one analog voltage.</p>
 the transmitted bit is zero.</p>
 </section>
 <section id="Using-the-Wire-library">
-<h3>Using the Wire library<a class="headerlink" href="#Using-the-Wire-library" title="Permalink to this heading"></a></h3>
+<h3>Using the Wire library<a class="headerlink" href="#Using-the-Wire-library" title="Link to this heading"></a></h3>
 <p>In order to conveniently communicate using I2C, we will use the <a class="reference external" href="https://www.arduino.cc/en/Reference/Wire">Wire library</a>. In order to use it, or any other library, it needs to be <strong>include</strong>d in your sketch. The syntax for including an installed library is <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">include</span> <span class="pre">&lt;Wire.h&gt;</span></code>, where you can substitute whatever library you are using for <code class="docutils literal notranslate"><span class="pre">Wire.h</span></code>. It is easiest to see how the library is used by example. Load the following sketch onto Arduino.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Wire is library to talk with I2C</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
@@ -239,7 +238,7 @@ worry; soon you won’t need to think about it.)</p>
 <hr></section>
 </section>
 <section id="Using-an-external-library">
-<h2>Using an external library<a class="headerlink" href="#Using-an-external-library" title="Permalink to this heading"></a></h2>
+<h2>Using an external library<a class="headerlink" href="#Using-an-external-library" title="Link to this heading"></a></h2>
 <p>Libraries are there to make things easier for you. In the above example, we had to do some bit-twiddling to get our number sent across to the DAC. It would be nice if we had a library that took care of that for us. It turns out there is one! The library is made by Adafruit to go along with the breakout board. It is called <code class="docutils literal notranslate"><span class="pre">Adafruit_MCP4725</span></code>. The Arduino IDE is aware of many third-party libraries, and you can install them into the IDE. To install this library, within the Arduino IDE, click on
 <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Manage</span> <span class="pre">Libraries...</span></code>. The Libary Manager window will pop up. You can type <code class="docutils literal notranslate"><span class="pre">MCP4725</span></code> in the search window, and you will have the option to install the Adafruit MCP4725 library. Go ahead and do this. While you are at it, find the Adafruit ADS1X15 library, which we will use in a future lesson.</p>
 <p>Now that the library is installed, you can include it as we did with the built-in Wire library. The sketch below accomplishes the same result as the sketch above, but uses the convenient features of the Adafruit MCP4725 library.</p>
@@ -292,13 +291,13 @@ integer to be of type <code class="docutils literal notranslate"><span class="pr
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131fbba60> 
+   <jinja2.runtime.BlockReference object at 0x11b8f5010> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

@@ -13,4 +13,3 @@ Thinking exercises are embedded in lessons. For convenience here are links to th
 - :ref:`Thinking exercise 7: Another amplifier`
 - :ref:`Thinking exercise 8: Sallen-Key response`
 - :ref:`Thinking exercise 9: Death of the sampling theorem?`
-- :ref:`Thinking exercise 10: Differential amplifier transfer function`

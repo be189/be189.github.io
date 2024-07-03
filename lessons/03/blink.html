@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3. Hello, world. (a.k.a. Blink) &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -163,7 +163,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/03/blink.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/03/blink" download> Download notebook</a>
         
       
     
@@ -176,7 +176,7 @@
            <div itemprop="articleBody">
              
   <section id="3.-Hello,-world.-(a.k.a.-Blink)">
-<h1>3. Hello, world. (a.k.a. Blink)<a class="headerlink" href="#3.-Hello,-world.-(a.k.a.-Blink)" title="Permalink to this heading"></a></h1>
+<h1>3. Hello, world. (a.k.a. Blink)<a class="headerlink" href="#3.-Hello,-world.-(a.k.a.-Blink)" title="Link to this heading"></a></h1>
 <hr><p>When you learn a new programming language, your first program is “Hello, world,” in which you make your computer print that global greeting to the screen.</p>
 <p>In this class, we assume that you have a background in Python programming, so you know how to write the Hello, world program in Python.</p>
 <div class="nbinput docutils container">
@@ -197,21 +197,21 @@ Hello, world.
 </div>
 <p>We will now start exploring the Arduino IDE by writing the “Hello, world” of programmable electronics, <strong>blink</strong>.</p>
 <section id="Hardware-for-your-first-exercise">
-<h2>Hardware for your first exercise<a class="headerlink" href="#Hardware-for-your-first-exercise" title="Permalink to this heading"></a></h2>
+<h2>Hardware for your first exercise<a class="headerlink" href="#Hardware-for-your-first-exercise" title="Link to this heading"></a></h2>
 <p>We will first discuss the three additional hardware components you need.</p>
 <section id="LEDs">
-<h3>LEDs<a class="headerlink" href="#LEDs" title="Permalink to this heading"></a></h3>
+<h3>LEDs<a class="headerlink" href="#LEDs" title="Link to this heading"></a></h3>
 <p>We have many red <strong>light-emitting diodes (LEDs)</strong>. An <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">LED</a> is a component that permits current to flow through it in one direction and emits light when it does. Here is a picture of one with a clear cover, though colored covers are common.</p>
-<div style="margin: auto; width: 500px;"><p><img alt="led" src="../../_images/led.png" /></p>
+<div style="margin: auto; width: 500px;"><img alt="led" src="../../_images/led.png" />
 </div><p>Because of the directionality of the diode, it is important that the LED is properly oriented. LEDs typically have one long lead and one shorter lead. The long lead is the <strong>anode</strong>, which you connect to the higher voltage, and the shorter lead is the <strong>cathode</strong>, which you connect to the lower voltage (ground). In drawings of LEDs, the long lead is typically shown as a bent wire.</p>
 <p>You should also control how much current goes through an LED so you do not destroy it. LEDs are rated with a maximum <strong>forward current</strong>, which is the maximum continuous current an LED can safely pass. For many LEDs, including the ones we use, the forward current is 25 mA. They also have a <strong>forward voltage</strong>, which is the voltage drop across the LED. For the LEDs we use, the forward voltage is about 1.8 V. The maximum voltage that Arduino can provide is 5 V, so if you are powering your LED with
 Arduino, you will hit the forward current with a resistance of about 130 Ω by Ohm’s law. As such, if you use 220 Ω resistors with the LEDs, they should not burn out.</p>
 </section>
 <section id="Resistors">
-<h3>Resistors<a class="headerlink" href="#Resistors" title="Permalink to this heading"></a></h3>
+<h3>Resistors<a class="headerlink" href="#Resistors" title="Link to this heading"></a></h3>
 <p>Resistors contain insulating material that restricts the flow of electrons through them. Different resistors can have different composition, which will lead to different degrees of effectiveness in restricting current, or <strong>resistance</strong>, which is measured in ohms (Ω).</p>
 <p>Resistors are color-coded for their resistance. The color-coding works in either four-, five-, or six-band codes. The resistors we use are either four- or five-band. Here is a picture of several four-band resistors (Evan Amos, public domain).</p>
-<div style="margin: auto; width: 350px;"><p><img alt="resistors" src="../../_images/resistors.jpg" /></p>
+<div style="margin: auto; width: 350px;"><img alt="resistors" src="../../_images/resistors.jpg" />
 </div><p>It can be hard to determine the direction in which to read the bands. In many resistors, the outer band that is closest to its respective lead is the first. In some four-band resistors, there is a larger gap between the third and fourth band. Finally, if there is a gold or silver band, it must be the last band.</p>
 <p>Each color corresponds to a number, as follows.</p>
 <ol class="arabic simple" start="0">
@@ -245,10 +245,10 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 </ol>
 <p>The 220 Ω resistor in the four-band example would have rings of red-red-black-black-gold.</p>
 <p>For reference, below is a diagram of resistor color codes (Adim kassn, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0 licensed</a>). To learn more about the color coding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Electronic_color_code#Resistors">the Wikipedia page</a>. For a handy color chart and resistance calculator, check out <a class="reference external" href="https://www.digikey.com/en/resources/conversion-calculators/conversion-calculator-resistor-color-code-4-band">Digi-Key’s utility</a>.</p>
-<div style="margin: auto; width: 400px"><p><img alt="Color code chart for resistors" src="../../_images/resistor_color_code.png" /></p>
+<div style="margin: auto; width: 400px"><img alt="Color code chart for resistors" src="../../_images/resistor_color_code.png" />
 </div><hr></section>
 <section id="Thinking-exercise-1:-Resistor-values">
-<h3>Thinking exercise 1: Resistor values<a class="headerlink" href="#Thinking-exercise-1:-Resistor-values" title="Permalink to this heading"></a></h3>
+<h3>Thinking exercise 1: Resistor values<a class="headerlink" href="#Thinking-exercise-1:-Resistor-values" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>What four-band color pattern would I have for a 1±0.05 MΩ resistor? How about five-band?</p></li>
 <li><p>I have a resistor with band colors yellow-purple-red-gold. What is its resistance?</p></li>
@@ -257,12 +257,12 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 <p>The answers are at the end of this lesson.</p>
 <hr></section>
 <section id="Jumper-wires">
-<h3>Jumper wires<a class="headerlink" href="#Jumper-wires" title="Permalink to this heading"></a></h3>
+<h3>Jumper wires<a class="headerlink" href="#Jumper-wires" title="Link to this heading"></a></h3>
 <p>Jumper wires, also called jump wires, are plastic-coated wires that are used to connect components beyond the connections already present in the solderless breadboard. Jumper wires have different ends. The vast majority of jumper wires end in bare wires. Some specialized jumper wires have plastic ends that force the wire to rise orthogonally from where it is plugged in. Some of these special-ended jumper wires have male ends (exposed wire), or female ends (port for inserting wire).</p>
 </section>
 </section>
 <section id="Arduino-sketches">
-<h2>Arduino sketches<a class="headerlink" href="#Arduino-sketches" title="Permalink to this heading"></a></h2>
+<h2>Arduino sketches<a class="headerlink" href="#Arduino-sketches" title="Link to this heading"></a></h2>
 <p>Finally, before launching into the blink exercise, we need to discuss Arduino sketches generally. Arduino sketches are written in C++. If you know C or C++, the syntax will be familiar to you. If not, we will discuss syntax and concepts along the way as we work through the lessons.</p>
 <p>Every Arduino sketch minimally has two functions, <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">loop()</span></code>. Upon upload of your sketch (or upon pressing the reset button on the board), the <code class="docutils literal notranslate"><span class="pre">setup()</span></code> function is run once. Then, the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is run. When it finishes running, it runs again. And again and again and again. It keeps running over and over again until you upload a new sketch, press the reset button, or disconnect the Arduino. So, a minimal Arduino program is as follows.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">void</span><span class="w"> </span><span class="nb">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -278,23 +278,22 @@ Arduino, you will hit the forward current with a resistance of about 130 Ω by O
 <p>Outside of <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">loop()</span></code>, you can define other functions and global variables and constants.</p>
 <hr></section>
 <section id="Follow-along-exercise-1:-Blink">
-<h2>Follow-along exercise 1: Blink<a class="headerlink" href="#Follow-along-exercise-1:-Blink" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 1: Blink<a class="headerlink" href="#Follow-along-exercise-1:-Blink" title="Link to this heading"></a></h2>
 <p>With Arduino, we program a physical device. So, instead of printing something to the screen of your computer, you are going to make a physical device <em>do</em> something. For our first program, we will make an LED blink.</p>
 <section id="Wiring-it-up">
-<h3>Wiring it up<a class="headerlink" href="#Wiring-it-up" title="Permalink to this heading"></a></h3>
+<h3>Wiring it up<a class="headerlink" href="#Wiring-it-up" title="Link to this heading"></a></h3>
 <p>The drawing below shows how to construct the physical device for the blink exercise.</p>
-<div style="margin: auto; width: 600px;"><p><img alt="blink_bb" src="../../_images/blink_bb.svg" /></p>
-</div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
+<div style="margin: auto; width: 600px;"><img alt="blink_bb" src="../../_images/blink_bb.svg" /></div><p>In drawings like these, jumper wires are shown as lines (in this case, blue) connecting terminals on the Arduino and on the solderless breadboard. It is not important that you match the exact terminals on the breadboard, but you should get the connections right. Importantly, make sure that the anode (the long lead) of the LED is connected via the 220 Ω resistor to digital pin 6 of the Arduino.</p>
 <p>In this circuit, digital pin 6 provides voltage driving current through the resistor, then through the LED, and finally to ground. In our Arduino sketch, we will change the output of digital pin 6 from high to low and back to high again to blink the LED.</p>
 </section>
 <section id="Connecting-the-Arduino-Uno-to-your-computer">
-<h3>Connecting the Arduino Uno to your computer<a class="headerlink" href="#Connecting-the-Arduino-Uno-to-your-computer" title="Permalink to this heading"></a></h3>
+<h3>Connecting the Arduino Uno to your computer<a class="headerlink" href="#Connecting-the-Arduino-Uno-to-your-computer" title="Link to this heading"></a></h3>
 <p>To connect the Arduino Uno to your computer, use the USB A/B cable. Once connected, you will see the ON built-in LED on the Arduino Uno light up. This indicates that the board has power.</p>
 <p>You should now launch the Arduino IDE. You need to make sure the IDE and compiler know for which board you are compiling, so select the board by navigating the menus: <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Boards</span></code> → <code class="docutils literal notranslate"><span class="pre">Arduino</span> <span class="pre">Uno</span></code>. (There may be sub-menus after <code class="docutils literal notranslate"><span class="pre">Boards</span></code>.) Next, you need to make sure your computer knows which port to use. Select <code class="docutils literal notranslate"><span class="pre">Tools</span></code> → <code class="docutils literal notranslate"><span class="pre">Ports</span></code>, and then the port to which Arduino is connected. On macOS, this may be something like <code class="docutils literal notranslate"><span class="pre">dev/cu.usbmodem/146301</span></code>. On Windows, this may be something
 like <code class="docutils literal notranslate"><span class="pre">COM4</span></code>.</p>
 </section>
 <section id="Coding-your-sketch">
-<h3>Coding your sketch<a class="headerlink" href="#Coding-your-sketch" title="Permalink to this heading"></a></h3>
+<h3>Coding your sketch<a class="headerlink" href="#Coding-your-sketch" title="Link to this heading"></a></h3>
 <p>Fire up the Arduino IDE, and enter this code as your sketch.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Identify which pin controls the LED</span>
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">ledPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
@@ -338,17 +337,17 @@ thereby turning it on.</p>
 <p>When the <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function ends, it starts again. So, after waiting 250 ms, the loop function gets called again and the LED is turned on again.</p>
 </section>
 <section id="Aside:-The-Arduino-core-libraries">
-<h3>Aside: The Arduino core libraries<a class="headerlink" href="#Aside:-The-Arduino-core-libraries" title="Permalink to this heading"></a></h3>
+<h3>Aside: The Arduino core libraries<a class="headerlink" href="#Aside:-The-Arduino-core-libraries" title="Link to this heading"></a></h3>
 <p>We used <code class="docutils literal notranslate"><span class="pre">pinMode()</span></code>, <code class="docutils literal notranslate"><span class="pre">delay()</span></code>, <code class="docutils literal notranslate"><span class="pre">digitalWrite()</span></code>, <code class="docutils literal notranslate"><span class="pre">INPUT</span></code>, <code class="docutils literal notranslate"><span class="pre">OUTPUT</span></code>, <code class="docutils literal notranslate"><span class="pre">HIGH</span></code>, and <code class="docutils literal notranslate"><span class="pre">LOW</span></code> in the above program. These were not defined anywhere in the sketch. This is because they are included in the <a class="reference external" href="https://github.com/arduino/ArduinoCore-avr/tree/master/cores/arduino">Arduino core libraries</a>, which are included by default in any Arduino sketch. The functions included in the core libraries are included in the <a class="reference external" href="https://www.arduino.cc/reference/">Arduino language reference</a>. (Do
 you see a trend here? This is an exceptionally useful website!)</p>
 </section>
 <section id="Saving-the-sketch">
-<h3>Saving the sketch<a class="headerlink" href="#Saving-the-sketch" title="Permalink to this heading"></a></h3>
+<h3>Saving the sketch<a class="headerlink" href="#Saving-the-sketch" title="Link to this heading"></a></h3>
 <p>After you have completed your code, you need to save the sketch. We will name our sketch <code class="docutils literal notranslate"><span class="pre">blink</span></code>. When you save an Arduino sketch it must be in a folder having the same name as your sketch. The Arduino IDE will automatically create this folder when you select <code class="docutils literal notranslate"><span class="pre">Save</span></code> from the <code class="docutils literal notranslate"><span class="pre">File</span></code> menu. Within the folder is a text file with the suffix <code class="docutils literal notranslate"><span class="pre">.ino</span></code> that contains the code of your sketch. In this case, the file is called <code class="docutils literal notranslate"><span class="pre">blink.ino</span></code>. You can have other files in the folder, including other
 <code class="docutils literal notranslate"><span class="pre">.ino</span></code> files, files with C++ code, and header (<code class="docutils literal notranslate"><span class="pre">.h</span></code>) files. This is a bit more advanced than what we will encounter in this class, so you do not need to worry too much about that extra files in the sketch folder.</p>
 </section>
 <section id="Uploading-the-sketch-and-blinking!">
-<h3>Uploading the sketch and blinking!<a class="headerlink" href="#Uploading-the-sketch-and-blinking!" title="Permalink to this heading"></a></h3>
+<h3>Uploading the sketch and blinking!<a class="headerlink" href="#Uploading-the-sketch-and-blinking!" title="Link to this heading"></a></h3>
 <p>Now that you have saved your sketch on your computer, you can upload it. To compile the sketch to make sure everything is ok, you can click the check mark icon on the top left of the Arduino IDE window. To (re)compile and upload your sketch, click on the right arrow icon next to the check mark icon. The black window at the bottom of the Arduino IDE window will show you messages from the compiler. If you see red text, you know something when wrong. Be sure to carefully read any messages; they
 will help with debugging.</p>
 <p>After clicking the arrow, if everything went according to plan, the sketch will be compiled and uploaded to the Arduino Uno, and the light will start blinking!</p>
@@ -374,13 +373,13 @@ will help with debugging.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131e25d20> 
+   <jinja2.runtime.BlockReference object at 0x11b543410> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

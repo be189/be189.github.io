@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>13. Streaming data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -153,7 +153,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/13/streaming_data_from_arduino.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/13/streaming_data_from_arduino" download> Download notebook</a>
         
       
     
@@ -166,7 +166,7 @@
            <div itemprop="articleBody">
              
   <section id="13.-Streaming-data-from-Arduino">
-<h1>13. Streaming data from Arduino<a class="headerlink" href="#13.-Streaming-data-from-Arduino" title="Permalink to this heading"></a></h1>
+<h1>13. Streaming data from Arduino<a class="headerlink" href="#13.-Streaming-data-from-Arduino" title="Link to this heading"></a></h1>
 <hr><div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -553,14 +553,13 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <section id="Problems-with-on-demand-data">
-<h2>Problems with on-demand data<a class="headerlink" href="#Problems-with-on-demand-data" title="Permalink to this heading"></a></h2>
+<h2>Problems with on-demand data<a class="headerlink" href="#Problems-with-on-demand-data" title="Link to this heading"></a></h2>
 <p>In many applications, we want to push a button and then have Arduino respond by sending us some data. This is the case when you build your spectrophotometer. You will put in the cuvette, press a button, and then get the measurement. The timing of the measurement, certainly down to the millisecond, is not important. In that case, ask-and-receive, like we did in the last lesson, works fine.</p>
 <p>In other applications, though, we want a steady stream of data, and we want it at well-defined time intervals. In this case, the variation in time between samples that we saw in the ask-and-receive style of the last lesson can be problematic. If our time interval between samples is long, say hundreds of millseconds or more, then it is not really a problem, but even with 20 ms between samples, we already saw that we can be pretty far off.</p>
 <p>A better option is to have Arduino do all the timing and then automatically send data to your computer over serial communication. That is, data <strong>streams</strong> from the board and is constantly collected by the Python interpreter. In this lesson, we will learn how to collect streaming data from Arduino. We will use the same setup as the previous lesson, shown below.</p>
-<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></p>
-</div><hr></section>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></div><hr></section>
 <section id="Follow-along-exercise-10:-Streaming-data">
-<h2>Follow-along exercise 10: Streaming data<a class="headerlink" href="#Follow-along-exercise-10:-Streaming-data" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 10: Streaming data<a class="headerlink" href="#Follow-along-exercise-10:-Streaming-data" title="Link to this heading"></a></h2>
 <p>Our sketch is more involved this time, since we are going to have richer communications with Arduino. We want to turn streaming on and off. A convenient way to do this while still preserving access to the on-demand way of receiving data we set up in the previous lessons, is to have two data acquisition (DAQ) modes, on-request and stream. Streaming mode has another parameter, which is the delay between acquisitions. So, we need to allow for the user to input the delay (in milliseconds).</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
@@ -673,7 +672,7 @@ to Arduino.</p></li>
 </div>
 </div>
 <section id="Setting-up-Python-to-receive-data">
-<h3>Setting up Python to receive data<a class="headerlink" href="#Setting-up-Python-to-receive-data" title="Permalink to this heading"></a></h3>
+<h3>Setting up Python to receive data<a class="headerlink" href="#Setting-up-Python-to-receive-data" title="Link to this heading"></a></h3>
 <p>We now need to write some code on the Python side to enable streaming. As usual, the first step is to connect to Arduino with a serial connection. We will open it and leave it open to enable convenient streaming, which is also important to do when we stream in data asynchronously.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -834,7 +833,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <hr></section>
 </section>
 <section id="Comparison-of-timing">
-<h2>Comparison of timing<a class="headerlink" href="#Comparison-of-timing" title="Permalink to this heading"></a></h2>
+<h2>Comparison of timing<a class="headerlink" href="#Comparison-of-timing" title="Link to this heading"></a></h2>
 <p>We saw that when we acquired data on request using a call to <code class="docutils literal notranslate"><span class="pre">time.sleep()</span></code> to wait for the request, we got ill-timed data. Let’s generate those data again, and compare to the timing we got by streaming data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -943,7 +942,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -983,13 +982,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131f12ec0> 
+   <jinja2.runtime.BlockReference object at 0x11b5f4a50> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

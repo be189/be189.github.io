@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>1. Prototyping electronic devices &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
 
   
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -146,7 +146,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/01/prototyping_electronic_devices.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/01/prototyping_electronic_devices" download> Download notebook</a>
         
       
     
@@ -159,7 +159,7 @@
            <div itemprop="articleBody">
              
   <section id="1.-Prototyping-electronic-devices">
-<h1>1. Prototyping electronic devices<a class="headerlink" href="#1.-Prototyping-electronic-devices" title="Permalink to this heading"></a></h1>
+<h1>1. Prototyping electronic devices<a class="headerlink" href="#1.-Prototyping-electronic-devices" title="Link to this heading"></a></h1>
 <hr><p>The title of this course is <em>Design and Construction of Biodevices</em>. True to that spirit, we will be designing constructing a spectrophotometer and a pulse oximeter—two biodevices that you could easily buy, and not even for very much money. So why are we constructing them? There are two main goals.</p>
 <ol class="arabic simple">
 <li><p>You may have a novel idea for an experiment in which you need to make a measurement that has never been made before. Or maybe you want to measure something in a new way. In either case, there may not be an available instrument to perform that measurement, and you’ll have to build your own. This course teaches you the skills needed to build your own instruments having you build instruments with well-established functions.</p></li>
@@ -168,7 +168,7 @@ practices.</p></li>
 </ol>
 <p>Before building your devices, you will learn about the tools we will use for prototyping our devices. You will do a set of exercises to solidify your understanding.</p>
 <section id="A-prototyping-platform-for-electronics">
-<h2>A prototyping platform for electronics<a class="headerlink" href="#A-prototyping-platform-for-electronics" title="Permalink to this heading"></a></h2>
+<h2>A prototyping platform for electronics<a class="headerlink" href="#A-prototyping-platform-for-electronics" title="Link to this heading"></a></h2>
 <p>For our prototyping, we will use</p>
 <ol class="arabic simple">
 <li><p>Commonly available electronic components such as resistors, capacitors, LEDs, op amps, etc,</p></li>
@@ -179,7 +179,7 @@ practices.</p></li>
 <p>When a device is fully constructed, the electronics are efficiently and permanently packaged into a small space, often using <a class="reference external" href="https://en.wikipedia.org/wiki/Printed_circuit_board">printed circuit board assemblies</a>. When <em>designing</em> a device, the engineer needs space to tinker and make adjustments. In days of yore, engineers would hammer nails into flat wooden boards and would then connect the nails with wire to connect components. These pieces of wood were often breadboards, flat pieces of
 wood for kneading or serving bread. Prototyping in this way, while easier than trying to build a finished electronic product in each iteration, is slow, as you can imagine.</p>
 <p>Fifty or so years ago (1971 to be exact), engineers began using solderless breadboards, an example of which is pictured below (photo by Evan Amos, public domain).</p>
-<div style="width: 600px; margin: auto;"><p><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" /></p>
+<div style="width: 600px; margin: auto;"><img alt="solderless breadboard" src="../../_images/solderless_breadboard.jpg" />
 </div><p>Engineers can stick the leads of electronic components into the little holes to rapidly connect circuitry. (We will discuss the structure of the solderless breadboards in the next lesson.) This greatly accelerated the prototyping process.</p>
 <p>The past few decades have seen even more innovations that enabled further improvement in prototyping speed and efficiencies: the collective ability to shift many design implementations to software.</p>
 <p>As a simple example of how this can speed prototyping, consider the “blink” example you will soon construct in a follow-along exercise. The goal is to design a circuit that has a <a class="reference external" href="https://en.wikipedia.org/wiki/Light-emitting_diode">light emitting diode</a> (LED) that blinks twice per second. You could build an <a class="reference external" href="https://en.wikipedia.org/wiki/Multivibrator">astable multivibrator</a>, which requires several resistors, capacitors, and transistors. The frequency of the blinking LED would be set by
@@ -202,13 +202,13 @@ physical control panel.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131dbc580> 
+   <jinja2.runtime.BlockReference object at 0x11b57b210> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>0. Getting set up &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
       <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
@@ -16,13 +16,13 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/clipboard.min.js"></script>
-        <script src="../../_static/copybutton.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=f281be69"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -160,7 +160,7 @@
     
         
         
-            <a href="https://raw.githubusercontent.com/be189/be189.github.io/main/lessons/00/configuring_your_computer.ipynb" download> Download notebook</a>
+            <a href="https://raw.githubusercontent.com/be189/be189.github.io/master/lessons/00/configuring_your_computer" download> Download notebook</a>
         
       
     
@@ -173,18 +173,18 @@
            <div itemprop="articleBody">
              
   <section id="0.-Getting-set-up">
-<h1>0. Getting set up<a class="headerlink" href="#0.-Getting-set-up" title="Permalink to this heading"></a></h1>
+<h1>0. Getting set up<a class="headerlink" href="#0.-Getting-set-up" title="Link to this heading"></a></h1>
 <hr/><p>In this lesson, you will set up your computer for programming your Arduino board and controlling it with Python-based tools. You will also use Jupyter notebooks for preparing your write-ups.</p>
 <p>In this class, we will use Anaconda, with its associated package manager, <code class="docutils literal notranslate"><span class="pre">conda</span></code>. It has become the de facto package manager/distribution for scientific use. To use it, and also to serve up Bokeh apps to control your devices, you should have access to a Terminal program on your computer and have basic skills for using the command line. If you want to learn more about the command line, you can check out <a class="reference external" href="http://justinbois.github.io/bootcamp/2023/lessons/l02_basic_command_line_skills.html">this
 lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which you can used. You can use the same, but it is probably better to use a suitable terminal program on your OS.)</p>
 <section id="The-Arduino-IDE">
-<h2>The Arduino IDE<a class="headerlink" href="#The-Arduino-IDE" title="Permalink to this heading"></a></h2>
+<h2>The Arduino IDE<a class="headerlink" href="#The-Arduino-IDE" title="Link to this heading"></a></h2>
 <p>You will use the Arduino interactive development environment (Arduino IDE) to write and compile code for Arduino and upload it to your board. To install it, follow the instructions on the <a class="reference external" href="https://www.arduino.cc/en/Guide">Getting Started with Arduino page</a>. You will be given a choice of using an online IDE or the desktop IDE. I recommend the desktop IDE. You can download and install the most recent stable version of the desktop IDE <a class="reference external" href="https://www.arduino.cc/en/Main/Software#download">here</a>.</p>
 <p>Once you have downloaded the IDE, follow the <a class="reference external" href="https://www.arduino.cc/en/Guide">IDE installation instructions</a> for your operating system.</p>
 <p>You should then have a functioning Arduino IDE on your machine.</p>
 <hr></section>
 <section id="Follow-along-exercise-0:-Testing-Arduino">
-<h2>Follow-along exercise 0: Testing Arduino<a class="headerlink" href="#Follow-along-exercise-0:-Testing-Arduino" title="Permalink to this heading"></a></h2>
+<h2>Follow-along exercise 0: Testing Arduino<a class="headerlink" href="#Follow-along-exercise-0:-Testing-Arduino" title="Link to this heading"></a></h2>
 <p>This is one of the follow-along exercises for which you are not required to submit anything. This is a test to make sure your Arduino works properly.</p>
 <ol class="arabic simple">
 <li><p>Connect your Arduino to your computer using the USB male A-male B cable. Wait a few seconds and then press and release the <code class="docutils literal notranslate"><span class="pre">RESET</span></code> button on the Arduino.</p></li>
@@ -220,19 +220,18 @@ lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which yo
 <p>You will come to understand what this does in coming lessons, but for now, we just need to check whether your connection to Arduino is working and whether the board is functioning.</p>
 <p>You will need to save this sketch. You can choose whatever file name you want, but it should be descriptive. I also recommend setting up a folder on your machine where you save your materials for this class. The suffix for Arduino sketches is <code class="docutils literal notranslate"><span class="pre">.ino</span></code>.</p>
 <p>You will watch your Arduino board to make sure everything is functioning properly. In particular, pay attention to the built-in LEDs, highlighted on the board drawing below. (There is another built-in LED, labeled <code class="docutils literal notranslate"><span class="pre">ON</span></code>, which is illuminated when the board has power.)</p>
-<div style="width: 500px; margin: auto;"><p><img alt="Arduino board with LEDs highlighted" src="../../_images/arduino_board_leds_highlighted.svg" /></p>
-</div><p>After you have saved the file, you need to compile and upload the code (referred to as a “sketch”) to Arduino. You can do this by clicking on the rightward-pointing arrow at the top of the Arduino IDE window. You will get some messages at the bottom of the Arduino IDE window telling you about the success of the compilation-and-upload process and the storage footprint of your sketch. You will also see the <code class="docutils literal notranslate"><span class="pre">TX</span></code> and <code class="docutils literal notranslate"><span class="pre">RX</span></code> lights flash as the sketch is being uploaded.</p>
+<div style="width: 500px; margin: auto;"><img alt="Arduino board with LEDs highlighted" src="../../_images/arduino_board_leds_highlighted.svg" /></div><p>After you have saved the file, you need to compile and upload the code (referred to as a “sketch”) to Arduino. You can do this by clicking on the rightward-pointing arrow at the top of the Arduino IDE window. You will get some messages at the bottom of the Arduino IDE window telling you about the success of the compilation-and-upload process and the storage footprint of your sketch. You will also see the <code class="docutils literal notranslate"><span class="pre">TX</span></code> and <code class="docutils literal notranslate"><span class="pre">RX</span></code> lights flash as the sketch is being uploaded.</p>
 <p>Once the sketch has been uploaded, you will see the LED labeled <code class="docutils literal notranslate"><span class="pre">L</span></code> flash at a rate of twice per second. If you see this, it means you have successfully uploaded your sketch and your Arduino board is successfully executing it!</p>
 <hr></section>
 <section id="Installing-node.js">
-<h2>Installing node.js<a class="headerlink" href="#Installing-node.js" title="Permalink to this heading"></a></h2>
+<h2>Installing node.js<a class="headerlink" href="#Installing-node.js" title="Link to this heading"></a></h2>
 <p>node.js is a platform that enables you to run JavaScript outside of the browser. We will not use it directly, but it needs to be installed for some of the more sophisticated JupyterLab functionality. Install node.js by following the instructions <a class="reference external" href="https://nodejs.dev">here</a>.</p>
 </section>
 <section id="Installation-of-Python-distribution">
-<h2>Installation of Python distribution<a class="headerlink" href="#Installation-of-Python-distribution" title="Permalink to this heading"></a></h2>
+<h2>Installation of Python distribution<a class="headerlink" href="#Installation-of-Python-distribution" title="Link to this heading"></a></h2>
 <p>We now proceed to install a Python distribution for your machine.</p>
 <section id="macOS-users:-Install-Command-Line-Tools">
-<h3>macOS users: Install Command Line Tools<a class="headerlink" href="#macOS-users:-Install-Command-Line-Tools" title="Permalink to this heading"></a></h3>
+<h3>macOS users: Install Command Line Tools<a class="headerlink" href="#macOS-users:-Install-Command-Line-Tools" title="Link to this heading"></a></h3>
 <p>If you are using macOS, you should install Command Line Tools. This is a set of utilities, such as compilers and (most importantly for this bootcamp) Git. You could install it along with the very bloated software XCode, but we will not do that to save on the ≈35 GB of disk space that XCode will consume.</p>
 <p>To install Command Line Tools, open the Terminal application. It is typically in the /Applications/Utilities folder. Otherwise, hit ⌘-space bar and type terminal in the search box, and select the Terminal Application. Once you have a prompt in the Terminal application, type</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xcode-select --install
@@ -241,12 +240,12 @@ lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which yo
 <p>and hit enter. You will be prompted for the installation, and you should go ahead with it. It may take several minutes for the installation to complete.</p>
 </section>
 <section id="Windows-users:-Install-Chrome-or-Firefox">
-<h3>Windows users: Install Chrome or Firefox<a class="headerlink" href="#Windows-users:-Install-Chrome-or-Firefox" title="Permalink to this heading"></a></h3>
+<h3>Windows users: Install Chrome or Firefox<a class="headerlink" href="#Windows-users:-Install-Chrome-or-Firefox" title="Link to this heading"></a></h3>
 <p>We will be using <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">JupyterLab</a> in class. It is browser-based, and Chrome, Firefox, and Safari are supported. Microsoft Edge is <strong>not</strong>. Therefore, if you are a Windows user, you need to be sure you have either Chrome or Firefox installed.</p>
 </section>
 </section>
 <section id="Downloading-and-installing-Anaconda">
-<h2>Downloading and installing Anaconda<a class="headerlink" href="#Downloading-and-installing-Anaconda" title="Permalink to this heading"></a></h2>
+<h2>Downloading and installing Anaconda<a class="headerlink" href="#Downloading-and-installing-Anaconda" title="Link to this heading"></a></h2>
 <p>If you have not already, download and install Anaconda. To do so,</p>
 <ol class="arabic simple">
 <li><p>Go to the <a class="reference external" href="https://www.anaconda.com/download">Anaconda’s download page</a> and click the Download button.</p></li>
@@ -254,7 +253,7 @@ lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which yo
 </ol>
 </section>
 <section id="Setting-up-a-conda-environment">
-<h2>Setting up a conda environment<a class="headerlink" href="#Setting-up-a-conda-environment" title="Permalink to this heading"></a></h2>
+<h2>Setting up a conda environment<a class="headerlink" href="#Setting-up-a-conda-environment" title="Link to this heading"></a></h2>
 <p>To set up the conda environment for this class, first, download the YML specification for the environment:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://raw.githubusercontent.com/be189/be189.github.io/main/_static/be189.yml">Download be189.yml</a></p>
@@ -269,7 +268,7 @@ lesson</a>. (In that lesson, JupyterLab’s built-in terminal was used, which yo
 </div>
 <p>on the command line. Be sure you launch JupyterLab from the same shell in which you activated the environment.</p>
 <section id="Checking-your-Python-distribution">
-<h3>Checking your Python distribution<a class="headerlink" href="#Checking-your-Python-distribution" title="Permalink to this heading"></a></h3>
+<h3>Checking your Python distribution<a class="headerlink" href="#Checking-your-Python-distribution" title="Link to this heading"></a></h3>
 <p>We’ll now run a quick test to make sure things are working properly. We will make a quick plot that requires some of the scientific packages you just installed.</p>
 <p>Launch JupyterLab, preferably from the command line. using</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>jupyter lab
@@ -652,7 +651,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 </section>
 </section>
 <section id="Computing-environment">
-<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Permalink to this heading"></a></h2>
+<h2>Computing environment<a class="headerlink" href="#Computing-environment" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -692,13 +691,13 @@ jupyterlab: 4.0.5
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Apr 20, 2024.
+      <span class="lastupdated">Last updated on Jul 03, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x131dbde10> 
+   <jinja2.runtime.BlockReference object at 0x11b57a2d0> 
 
-<p>© 2023 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

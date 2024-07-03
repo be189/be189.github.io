@@ -23,6 +23,7 @@ Online resources
 
 Free instructional materials for electronic prototyping abound. You can often do well by simply Googling what you are trying to find out.
 
+- Changhuei Yang has posted `instructional videos specific to this class <https://www.youtube.com/watch?v=JtXy9x0z5Gw&list=PLjVjmNrERDiHZYWKrxnbaY3p0RcgQ7xDe&pp=iAQB>`_.
 - Arduino provides useful `tutorials <https://www.arduino.cc/en/Tutorial/>`_ on their website. 
 - The `Arduino language reference <https://www.arduino.cc/reference/>`_ is an invaluable resource to quickly look up the APIs for various functions.
 - The `Arduino forums <https://forum.arduino.cc>`_ abound with tutorials, tips, and traps.
