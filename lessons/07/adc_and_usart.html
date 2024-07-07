@@ -266,8 +266,10 @@ ensuring you get a full record. If you are using Python to read in the data from
 <h2>Follow-along exercise 3: Serial data and the serial monitor<a class="headerlink" href="#Follow-along-exercise-3:-Serial-data-and-the-serial-monitor" title="Link to this heading"></a></h2>
 <p>To practice sending and receiving serial data, we will make a simple circuit in which we vary voltage using a <a class="reference external" href="https://en.wikipedia.org/wiki/Potentiometer">potentiometer</a>. Most of the potentiometers we use are blue squares with three leads and a knob. By connecting the two outside leads to a voltage source and ground, the voltage read from the center lead can range from zero to the input voltage as you turn the knob.</p>
 <p>Write up the circuit shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
-<div style="margin: auto; width: 500px;"><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_bb.svg" /></div><p>Now, we can code up Arduino to communicate with your computer.</p>
+<div style="margin: auto; width: 300px;"><p><img alt="Serial data and monitor exercise schematic" src="../../_images/03-serial_schem.svg" /></p>
+</div><p>We will soon stop showing pictorial schematics, but for now, we will still show it.</p>
+<div style="margin: auto; width: 500px;"><p><img alt="image1" src="../../_images/03-serial_bb.svg" /></p>
+</div><p>Now, we can code up Arduino to communicate with your computer.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="c1">// Which pin we will read from</span>
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">sensorPin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
@@ -384,11 +386,11 @@ we do a reading for an hour, we will get to 10-digit numbers for the time stamps
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Jul 06, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b6d3210> 
+   <jinja2.runtime.BlockReference object at 0x127b694d0> 
 
 <p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

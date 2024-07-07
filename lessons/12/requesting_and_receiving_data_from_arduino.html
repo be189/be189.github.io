@@ -496,7 +496,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <hr><p>In the previous lessons, we learned how to send a signal to Arduino from Python to ask it to do something, in that case to turn on an LED. Now, we will ask Arduino to send data back. We will store the data in RAM (or we could write it to disk) for later use.</p>
 <p>We will read in a voltage that we control with a potentiometer. The idea is that we send a request from Python to Arduino, and then it reads the voltage and sends it back, with all communication over USB. You should work in your own Jupyter notebook for this.</p>
 <p>To begin, wire up the following schematic.</p>
-<div style="margin: auto; width: 300px;"><img alt="Requesting and receiving data from arduino schematic" src="../../_images/requesting_and_receiving_data_from_arduino_schem.svg" /></div><p>Upload the following sketch.</p>
+<div style="margin: auto; width: 300px;"><p><img alt="Requesting and receiving data from arduino schematic" src="../../_images/requesting_and_receiving_data_from_arduino_schem.svg" /></p>
+</div><p>Upload the following sketch.</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -957,11 +958,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Jul 06, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b6c41d0> 
+   <jinja2.runtime.BlockReference object at 0x127c67850> 
 
 <p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

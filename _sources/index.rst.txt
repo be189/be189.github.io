@@ -1,4 +1,4 @@
-BE/EE/MedE 189 a: Design and Construction of Biodevices
+BE/EE/MedE 189a: Design and Construction of Biodevices
 ===============================================================
 
 Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a pulse oximeter and a cyclic voltameter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
@@ -22,7 +22,7 @@ People
 
 - Instructor
 
-   + `Richard Murray <https://murray.cds.caltech.edu/>`_ (``murray at cds dot caltech dot edu``)
+   + `Richard Murray <https://murray.cds.caltech.edu/>`_
 
 - TAs
 
