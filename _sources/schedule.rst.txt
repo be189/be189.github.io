@@ -54,10 +54,12 @@ Weekly activities
 In each lab session, which are Tuesdays and Thursdays, 10:30-12, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
 
 - **1 Oct (Tue)**: Welcome, safety, introduction to Arduino
-- **3 Oct (Thu)**: A tour through available components and Arduino Uno
-- **15 Oct (Tue)**: Lecture on design approaches
-- **22 Oct (Tue)**: Training on 3D printing with Techlab (TBD)
+- **8-29 Oct**: Training on 3D printing with Techlab (on your own)
+- **15 Oct**: Lecture on CAD for 3D printing (optional)
+- **22 Oct**: Lecture on EE basics (optional)
+- **29 Oct**: Spectrophotometer project introduction
 - **7 Nov (Thu)**: Spectrophotometer demo day
+- **12 Nov **: Pulse oximetry project introduction
 - **28 Nov (Thu)**: Thanksgiving Day: no class
 - **5 Dec (Thu)**: Pulse oximetry demo day
 - **12 Dec (Thu)**: Tear down and clean up
