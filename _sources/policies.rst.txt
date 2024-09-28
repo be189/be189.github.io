@@ -29,6 +29,7 @@ Equipment
 
 We will be using shared equipment and components in the lab. It is your responsibility to keep everything in good shape and to keep the lab neat.
 
+.. _Homework submission:
 
 Submission of exercises and project write-ups
 ----------------------------------------------

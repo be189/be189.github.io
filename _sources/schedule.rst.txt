@@ -55,11 +55,11 @@ In each lab session, which are Tuesdays and Thursdays, 10:30-12, you will be wor
 
 - **1 Oct (Tue)**: Welcome, safety, introduction to Arduino
 - **8-29 Oct**: Training on 3D printing with Techlab (on your own)
-- **15 Oct**: Lecture on CAD for 3D printing (optional)
-- **22 Oct**: Lecture on EE basics (optional)
-- **29 Oct**: Spectrophotometer project introduction
+- **15 Oct (Tue)**: Lecture on CAD for 3D printing (optional)
+- **22 Oct (Tue)**: Lecture on EE basics (optional)
+- **29 Oct (Tue)**: Spectrophotometer project introduction
 - **7 Nov (Thu)**: Spectrophotometer demo day
-- **12 Nov **: Pulse oximetry project introduction
+- **12 Nov (Tue)**: Pulse oximetry project introduction
 - **28 Nov (Thu)**: Thanksgiving Day: no class
 - **5 Dec (Thu)**: Pulse oximetry demo day
 - **12 Dec (Thu)**: Tear down and clean up
