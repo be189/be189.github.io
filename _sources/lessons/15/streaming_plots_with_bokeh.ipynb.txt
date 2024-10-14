@@ -707,7 +707,7 @@
     "    source_line = bokeh.models.ColumnDataSource({\"x\": [0], \"y\": [0]})\n",
     "    source_dot = bokeh.models.ColumnDataSource({\"x\": [0], \"y\": [0]})\n",
     "    line = p.line(source=source_line, x=\"x\", y=\"y\")\n",
-    "    dot = p.circle(source=source_dot, x=\"x\", y=\"y\", color=\"tomato\", size=7)\n",
+    "    dot = p.scatter(source=source_dot, x=\"x\", y=\"y\", color=\"tomato\", size=7)\n",
     "\n",
     "    @bokeh.driving.linear()\n",
     "    def update(step):\n",
