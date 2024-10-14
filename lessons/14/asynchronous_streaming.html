@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
   <!--[if lt IE 9]>
@@ -819,7 +819,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <section id="asyncio">
 <h2>asyncio<a class="headerlink" href="#asyncio" title="Link to this heading"></a></h2>
 <p><em>While this section is not formally a follow-along exercise, I highly recommend running the code in this notebook because you will note delays as the code runs that will help you understand how ``asyncio`` is working.</em></p>
-<p>Python has handy built-in asynchronous capabilities using the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8.</p>
+<p>Python has handy built-in asynchronous capabilities using the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8 or above.</p>
 <p>I will give a brief overview of how it works here, but you would be well-served to <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">read the documentation</a>, most importantly the <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html">coroutines and tasks section</a>.</p>
 <p>At the center of asyncio’s high-level functionality are <strong>awaitables</strong>. An awaitable is a process that the interpreter can suspend such that it is not blocking. A very important awaitable is <code class="docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code>, which is one we will put to use.</p>
 <p>Aside from sleeping, the awaitables we will use are <strong>coroutines</strong> and <strong>tasks</strong>. You can think of a coroutine as a function that you can start and stop and start again. A task runs a coroutine. As usual, this is best seen by example.</p>
@@ -1347,11 +1347,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 27, 2024.
+      <span class="lastupdated">Last updated on Oct 13, 2024.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x156f88510> 
+   <jinja2.runtime.BlockReference object at 0x1249d5910> 
 
 <p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

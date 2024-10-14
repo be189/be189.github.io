@@ -726,7 +726,7 @@
     "\n",
     "*While this section is not formally a follow-along exercise, I highly recommend running the code in this notebook because you will note delays as the code runs that will help you understand how `asyncio` is working.*\n",
     "\n",
-    "Python has handy built-in asynchronous capabilities using the `asyncio` module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8.\n",
+    "Python has handy built-in asynchronous capabilities using the `asyncio` module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8 or above.\n",
     "\n",
     "I will give a brief overview of how it works here, but you would be well-served to [read the documentation](https://docs.python.org/3/library/asyncio.html), most importantly the [coroutines and tasks section](https://docs.python.org/3/library/asyncio-task.html).\n",
     "\n",
