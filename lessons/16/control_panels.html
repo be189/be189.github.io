@@ -1732,7 +1732,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
 
     <span class="c1"># Adjust new phantom data point if new data arrived</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span>
 
@@ -1971,7 +1971,7 @@ jupyterlab 2.2.6
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x14c9de510> 
+   <jinja2.runtime.BlockReference object at 0x111898610> 
 
 <p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
