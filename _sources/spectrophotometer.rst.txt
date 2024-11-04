@@ -234,7 +234,7 @@ You must demonstrate use of the instrument by acquiring a measurement of the con
 Documentation
 ~~~~~~~~~~~~~
 
-You must include documentation for your device. The documentation can be written in Jupyter notebook(s) (which can also be rendered as HTML) or as PDFs. It must contain:
+You must include documentation for your device. The documentation can be written in Jupyter notebook(s) (which should also be rendered as HTML).  It must contain:
 
 1. Instructions for calibrating the instrument.
 2. Instructions for operating the instrument.
@@ -267,8 +267,8 @@ Obtaining a saliva sample
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Do not eat, brush your teeth, or rinse your mouth for about 30 minutes.
-#. Take a sip of water, and try to secrete saliva for 2-5 min. You should collect the saliva in a small cup or other container.
-#. Filter the saliva through a coffee filter to obtain a clear saliva solution.
+#. Collect a small amount of saliva in a cup (like a COVID test).
+#. Optional: If you like, you can filter the saliva through a coffee filter to obtain a clear saliva solution.  In this case, you may want to take a sip of water and try to secrete saliva for a longer period.
 
 
 Measuring the chemical kinetics
@@ -276,12 +276,12 @@ Measuring the chemical kinetics
 
 Because you want to capture as much of the reaction dynamics as possible, you will need to work quickly to get the reaction mixture assembled and into your spectrophotometer.
 
-#. Using a pipette, dispense a small amount of the provided iodine solution into an empty cuvette. You will not need much; around 20-50 µL should be sufficient. You may need to experiment with the amount, adjusting so the absorbance readings fall into the accurate range below A ≈ 1.
-#. In a separate container, add 2 mL of the provided starch solution. Then add a small amount of the filtered saliva. You should use a volume that goes up to the first gradation in the provided Beral pipettes. This is about 30 µL. Quickly mix the solution by pipetting up-and-down several times.
-#. Working quickly, pipette approximately 1 mL of starch-saliva solution into each cuvette. Pipette the mixture up and down a couple times to mix. Take measurements until the absorbance approaches zero, or until there is no more observable decrease in absorbance.
+#. The TAs will provide a starch-iodine solution that has an initial absorption of A = 1.  
+#. In a separate container, add 2 mL of the provided starch solution. Then add a small amount of the saliva. You should use a volume of saliva that goes up to the first gradation in the provided Beral pipettes. This is about 30 µL. Quickly mix the solution by pipetting up-and-down several times.
+#. Working quickly, pipette approximately 1 mL of starch-saliva solution into a cuvette. Pipette the mixture up and down a couple times to mix. Take measurements until the absorbance approaches zero, or until there is no more observable decrease in absorbance.
 
 
 Submission
 ^^^^^^^^^^^
 
-Submit your write-up as a ZIP file `via Canvas <https://caltech.instructure.com/courses/6277/assignments/47616>`_.
+Submit your write-up as a ZIP file via Gradescope.
