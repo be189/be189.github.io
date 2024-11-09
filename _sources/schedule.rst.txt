@@ -42,7 +42,7 @@ The due dates below may change. They will not be moved to an earlier date, but m
 .. dummy comment
 - :ref:`Pulse oximetry` demo: due 11:55 am, 5 Dec (Thu, in class)
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 11:59 pm, 10 Dec (Tue)
+- :ref:`Pulse oximetry` write-up: due 11:59 pm, 11 Dec (Wed)
 
 ----
 
