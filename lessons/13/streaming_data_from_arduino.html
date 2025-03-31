@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>13. Streaming data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -109,11 +109,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -171,16 +172,16 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial.tools.list_ports</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.io</span>
 <span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -504,7 +505,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
@@ -514,7 +515,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="k">return</span> <span class="n">port</span>
 
 
-<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
@@ -557,7 +558,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>In many applications, we want to push a button and then have Arduino respond by sending us some data. This is the case when you build your spectrophotometer. You will put in the cuvette, press a button, and then get the measurement. The timing of the measurement, certainly down to the millisecond, is not important. In that case, ask-and-receive, like we did in the last lesson, works fine.</p>
 <p>In other applications, though, we want a steady stream of data, and we want it at well-defined time intervals. In this case, the variation in time between samples that we saw in the ask-and-receive style of the last lesson can be problematic. If our time interval between samples is long, say hundreds of millseconds or more, then it is not really a problem, but even with 20 ms between samples, we already saw that we can be pretty far off.</p>
 <p>A better option is to have Arduino do all the timing and then automatically send data to your computer over serial communication. That is, data <strong>streams</strong> from the board and is constantly collected by the Python interpreter. In this lesson, we will learn how to collect streaming data from Arduino. We will use the same setup as the previous lesson, shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></div><hr></section>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" />
+</div><hr></section>
 <section id="Follow-along-exercise-10:-Streaming-data">
 <h2>Follow-along exercise 10: Streaming data<a class="headerlink" href="#Follow-along-exercise-10:-Streaming-data" title="Link to this heading"></a></h2>
 <p>Our sketch is more involved this time, since we are going to have richer communications with Arduino. We want to turn streaming on and off. A convenient way to do this while still preserving access to the on-demand way of receiving data we set up in the previous lessons, is to have two data acquisition (DAQ) modes, on-request and stream. Streaming mode has another parameter, which is the delay between acquisitions. So, we need to allow for the user to input the delay (in milliseconds).</p>
@@ -698,7 +700,7 @@ Handshake message: Message received.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
@@ -726,7 +728,7 @@ Handshake message: Message received.
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">daq_stream</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">n_data</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">daq_stream</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">n_data</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain `n_data` data points from an Arduino stream</span>
 <span class="sd">    with a delay of `delay` milliseconds between each.&quot;&quot;&quot;</span>
     <span class="c1"># Specify delay</span>
@@ -842,7 +844,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_ms</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">voltage</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
     <span class="c1"># Ask Arduino for data</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
@@ -883,8 +885,8 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="n">frame_height</span><span class="o">=</span><span class="mi">175</span><span class="p">,</span>
     <span class="n">frame_width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">dt_stream</span><span class="p">,</span> <span class="n">counts_stream</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;stream&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">dt_on_demand</span><span class="p">,</span> <span class="n">counts_on_demand</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;on demand&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dt_stream</span><span class="p">,</span> <span class="n">counts_stream</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;stream&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dt_on_demand</span><span class="p">,</span> <span class="n">counts_on_demand</span><span class="p">,</span> <span class="n">legend_label</span><span class="o">=</span><span class="s1">&#39;on demand&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
 
 <span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
@@ -982,13 +984,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b5f4a50> 
+   <jinja2.runtime.BlockReference object at 0x16ec38b30> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

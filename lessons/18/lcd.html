@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>18. Using a liquid crystal display &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
@@ -18,7 +18,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -73,7 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../16/control_panels.html">16. Control panels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../17/dac_i2c_libraries.html">17. Libraries, DAC, and I2C</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">18. Using a liquid crystal display</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#The-LDC">The LDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#The-LCD">The LCD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Running-multiple-devices-on-the-I2C-bus">Running multiple devices on the I2C bus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Follow-along-exercise-13:-Using-an-LCD-display">Follow-along exercise 13: Using an LCD display</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Characters-for-the-LCD">Characters for the LCD</a></li>
@@ -109,11 +109,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -168,8 +169,8 @@
   <section id="18.-Using-a-liquid-crystal-display">
 <h1>18. Using a liquid crystal display<a class="headerlink" href="#18.-Using-a-liquid-crystal-display" title="Link to this heading"></a></h1>
 <hr><p>While using a computer to control and display results from a device is very powerful, it does result in the device being tethered to a computer in order to function. You may wish to have a stand-alone device. For such applications, portable <strong>liquid crystal displays</strong> (LCDs) are quite useful.</p>
-<section id="The-LDC">
-<h2>The LDC<a class="headerlink" href="#The-LDC" title="Link to this heading"></a></h2>
+<section id="The-LCD">
+<h2>The LCD<a class="headerlink" href="#The-LCD" title="Link to this heading"></a></h2>
 <p>The LCD we have in lab can display 32 characters. Each character is represented in a block of pixels that is eight pixels tall and five pixels wide. The LCD display is based on the <a class="reference external" href="https://en.wikipedia.org/wiki/Hitachi_HD44780_LCD_controller">Hitachi HD44780 chip</a>, which is very popular for small, low-cost, text-based LCDs. Fortunately, they are so popular that Arduino has built-in libraries for driving them, and we will put those to use.</p>
 <p>Here are photos of the front and back of your LCD.</p>
 <div style="margin: auto; width: 400px;"><img alt="LCD photo" src="../../_images/lcd_photo.jpg" />
@@ -179,15 +180,16 @@ backpack is a potentiometer, which you can tune using a small Phillips head scre
 </section>
 <section id="Running-multiple-devices-on-the-I2C-bus">
 <h2>Running multiple devices on the I2C bus<a class="headerlink" href="#Running-multiple-devices-on-the-I2C-bus" title="Link to this heading"></a></h2>
-<p>You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will the MCP4725 DAC device connected. We will also connet the LCD. We will work through the rest of this lesson as a follow-along exercise.</p>
+<p>You can use I2C to control multiple peripheral devices. You simply need to supply the address of each. From the last lesson, you currently have a DAC set up for control over I2C. To demonstrate that we can control multiple devices, we will leave the MCP4725 DAC device connected. We will also connet the LCD. We will work through the rest of this lesson as a follow-along exercise.</p>
 <hr></section>
 <section id="Follow-along-exercise-13:-Using-an-LCD-display">
 <h2>Follow-along exercise 13: Using an LCD display<a class="headerlink" href="#Follow-along-exercise-13:-Using-an-LCD-display" title="Link to this heading"></a></h2>
 <p>Set up the circuit below. You will add a potentiometer and the LCD to your setup from the last lesson. You may be able to leave your DAC setup as is, but you might need to move things around to keep wires tidy.</p>
-<div style="margin: auto; width: 400px;"><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" /></div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
+<div style="margin: auto; width: 400px;"><img alt="DAC with LCD" src="../../_images/13-dac_with_lcd_potentiometer_schem.svg" />
+</div><p>Our goal with this circuit is to have the flashing LED with the DAC running just as it did before. Separately we have a potentiometer that will adjust an input voltage to one of the analog input pins. The LCD will display the voltage, both in text and graphically. The reason we have these two essentially independent circuits at once is to demonstrate how to drive multiple devices using I2C.</p>
 <section id="Characters-for-the-LCD">
 <h3>Characters for the LCD<a class="headerlink" href="#Characters-for-the-LCD" title="Link to this heading"></a></h3>
-<p>The LCD can display a set of characters</p>
+<p>The character set of the controller includes ASCII characters, Japanese Kana characters, and some symbols. You can also program up to 8 custom characters by specifying the individual pixel pattern for the character.</p>
 </section>
 <section id="Driving-the-LCD">
 <h3>Driving the LCD<a class="headerlink" href="#Driving-the-LCD" title="Link to this heading"></a></h3>
@@ -379,13 +381,13 @@ communication at 400k baud.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b94b4d0> 
+   <jinja2.runtime.BlockReference object at 0x16ee11250> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

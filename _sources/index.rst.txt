@@ -1,4 +1,4 @@
-BE/EE/MedE 189 a: Design and Construction of Biodevices
+BE/EE/MedE 189a: Design and Construction of Biodevices
 ===============================================================
 
 Novel measurements often require novel instruments. In this course, you will learn how to build your own instruments using an `Arduino platform <https://www.arduino.cc>`_. You will first learn basic principles of prototyping electronic instruments and will ultimately build, construct, test, and use a pulse oximeter and a cyclic voltameter. While these are not "new" instruments, the skills developed here will transfer to design and construction of your own biodevices in the future.
@@ -9,9 +9,9 @@ Students are responsible for reading the :ref:`course policies<Policies>`.
 Useful links
 -------------
 
-- `Course Ed page <INSERT LINK TO ED PAGE HERE>`_ (used for course communications)
+- `Course Ed page <https://edstem.org/us/courses/68261/discussion/>`_ (used for course communications)
 
-- `Course gradescope page <INSERT LINK TO GRADESCOPE PAGE HERE>`_ (used for assignment submission)
+- `Course gradescope page <https://www.gradescope.com/courses/819406>`_ (used for assignment submission)
 
 - :ref:`References and resources<Software>`
 
@@ -22,12 +22,12 @@ People
 
 - Instructor
 
-   + `Richard Murray <https://murray.cds.caltech.edu/>`_ (``murray at cds dot caltech dot edu``)
+   + `Changhuei Yang <https://biophot.caltech.edu>`_
 
 - TAs
 
-   + TA 1 (``ta1_email_address at caltech dot edu``)
-   + TA 2 (``ta2_email_address at caltech dot edu``)
+   + Max Huang
+   + Steven Lin
 
 
 
@@ -114,6 +114,7 @@ People
 Previous editions of the course
 ------------------------------- 
 
+- `Fall 2024 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2024_fall/>`_
 - `Spring 2024 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2024_spring/>`_
 - `Fall 2023 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2023_fall/>`_
 - `Spring 2023 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2023_spring/>`_
@@ -122,4 +123,3 @@ Previous editions of the course
 - `Fall 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_fall/>`_
 - `Fall 2020 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2020_fall/>`_
 - `Spring 2021 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2021_spring/>`_
-

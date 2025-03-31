@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>28. Photodiodes, phototransistors, and transimpedance amplifiers &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
@@ -18,7 +18,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -105,11 +105,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -185,17 +186,21 @@
 <h2>Transimpedance amplifiers<a class="headerlink" href="#Transimpedance-amplifiers" title="Link to this heading"></a></h2>
 <p>We can only measure potential differences, not currents, so we need to convert the current flowing through a photodiode or phototransistor into a voltage. The simplest way to make this conversion is simply to put a resistor between the photodiode and ground and measure the voltage, knowing that <span class="math notranslate nohighlight">\(V = I R\)</span>. This is problematic because the resistor, by design, provides impedance to the input current. If the current source has poor compliance (meaning that the current is strongly effected by
 the output voltage), then the voltage across the resistor will affect the current, and an accurate current measurement is not possible. So, we need a conversion of current to voltage that has small impedence in the output. This is accomplished using an op-amp configured as a <strong>transimpedance amplifier</strong>, shown below.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance_amplifier" src="../../_images/transimpedance_amplifier.svg" /></div><p>Here, the current source could be a photodiode, phototransistor, or any other current course. In what follows, we will use photodiode, with its symbol looking like that of an LED, except with light arrows coming in.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode" src="../../_images/transimpedance_photodiode.svg" /></div><p>Again recalling the rules of op-amps, the voltage at both inputs is the same, and since the noninverting input is connected to ground, both input voltages are zero relative to ground. Furthermore, the current flowing through the op-amp is close to zero so that the current flows through the resistor. The potential across the resistor is <span class="math notranslate nohighlight">\(V_\mathrm{ground} - V_\mathrm{out} = -V_\mathrm{out}\)</span>. So, the output voltage is proportional to the current, <span class="math notranslate nohighlight">\(V_\mathrm{out} = -I R\)</span>. The name
+<div style="margin:auto; width: 300px;"><img alt="transimpedance_amplifier" src="../../_images/transimpedance_amplifier.svg" />
+</div><p>Here, the current source could be a photodiode, phototransistor, or any other current course. In what follows, we will use photodiode, with its symbol looking like that of an LED, except with light arrows coming in.</p>
+<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode" src="../../_images/transimpedance_photodiode.svg" />
+</div><p>Again recalling the rules of op-amps, the voltage at both inputs is the same, and since the noninverting input is connected to ground, both input voltages are zero relative to ground. Furthermore, the current flowing through the op-amp is close to zero so that the current flows through the resistor. The potential across the resistor is <span class="math notranslate nohighlight">\(V_\mathrm{ground} - V_\mathrm{out} = -V_\mathrm{out}\)</span>. So, the output voltage is proportional to the current, <span class="math notranslate nohighlight">\(V_\mathrm{out} = -I R\)</span>. The name
 “transimpedance amplifier” comes from this fact; the “gain” of the amplifier has units of resistance (impedance). These are also sometimes called <strong>transresistance amplifiers</strong> or <strong>current-to-voltage converters</strong>.</p>
 </section>
 <section id="Dealing-with-capacitance-in-the-photodiode">
 <h2>Dealing with capacitance in the photodiode<a class="headerlink" href="#Dealing-with-capacitance-in-the-photodiode" title="Link to this heading"></a></h2>
 <p>The above transimpedance amplifier can give rise to oscillations. This is because the photodiode has some small, but nonzero, capacitance. Combined with the resistor, this gives a low pass filter. The filter gives a 90° phase shift at high frequencies. The op-amp also has a lagging phase shift, which, when added to that of the low-pass filter, gives a total phase shift of 180°. The result is positive feedback, which can give rise to oscillations. To remedy this, a we add a small capacitor in
 parallel with the resistor, as shown below. This serves to damp out the oscillations.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode and stabilizing capacitor" src="../../_images/transimpendance_photodiode_stabilized.svg" /></div><p>Another option is to introduce a <em>reverse bias</em>, where a positive voltage is set up across the photodiode, as shown below. This results in an additive offset to the current through the photodiode. The advantage is that the capacitance of the photodiode is reduced (for physical reasons related to how diodes function) and results in a faster response time. The disadvantage is that this usually results in more noise and makes measuring low-intensity light more difficult. Oscillations are possible,
+<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode and stabilizing capacitor" src="../../_images/transimpendance_photodiode_stabilized.svg" />
+</div><p>Another option is to introduce a <em>reverse bias</em>, where a positive voltage is set up across the photodiode, as shown below. This results in an additive offset to the current through the photodiode. The advantage is that the capacitance of the photodiode is reduced (for physical reasons related to how diodes function) and results in a faster response time. The disadvantage is that this usually results in more noise and makes measuring low-intensity light more difficult. Oscillations are possible,
 so it is advisable to consider adding a capacitor across the resistor.</p>
-<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode and reverse bias" src="../../_images/transimpedance_photodiode_reverse_bias.svg" /></div></section>
+<div style="margin:auto; width: 300px;"><img alt="transimpedance amplifier with photodiode and reverse bias" src="../../_images/transimpedance_photodiode_reverse_bias.svg" />
+</div></section>
 </section>
 
 
@@ -210,13 +215,13 @@ so it is advisable to consider adding a capacitor across the resistor.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x10a9cb950> 
+   <jinja2.runtime.BlockReference object at 0x16ec3f170> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>23. Op-amps as mathematical operators &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
@@ -18,7 +18,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -106,11 +106,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -177,7 +178,8 @@
 <p>When designing circuits, we often want to add voltages. A common example is when we use a high pass filter applied to a signal and the DC signal is attenuated to close to zero so that the filtered signal dips into negative voltages. If we have a detector that can only read nonnegative voltages (such as the built-in ADC of Arduino Uno), we will not be able to read our filtered signal. So, we may wish to add an offset voltage to the filtered signal to bring it above zero (e.g., if the <em>variation</em>
 of the signal is what we are interested in).</p>
 <p>The circuit below is a <strong>non-inverting summing amplifier</strong>. With the example of adding voltages for use with a detector that can only read nonnegative voltages in mind, <span class="math notranslate nohighlight">\(V_1\)</span> may be high pass-filtered signal and <span class="math notranslate nohighlight">\(V_2\)</span> may be an offset voltage we wish to add to it.</p>
-<div style="margin:auto; width: 300px;"><img alt="Noninverting summing amplifier circuit" src="../../_images/noninverting_summer.svg" /></div><p>The idea is the same as the non-inverting amplifier described in the previous lesson. Here, we simply bring in two (or more) input signals into the noninverting input of the op-amp. By <a class="reference external" href="https://en.wikipedia.org/wiki/Millman%27s_theorem">Millman’s theorem</a>, the input voltage is</p>
+<div style="margin:auto; width: 300px;"><img alt="Noninverting summing amplifier circuit" src="../../_images/noninverting_summer.svg" />
+</div><p>The idea is the same as the non-inverting amplifier described in the previous lesson. Here, we simply bring in two (or more) input signals into the noninverting input of the op-amp. By <a class="reference external" href="https://en.wikipedia.org/wiki/Millman%27s_theorem">Millman’s theorem</a>, the input voltage is</p>
 <p><span class="math">\begin{align}
 V_\mathrm{in} = \frac{V_1/R_1 + V_2/R_2}{R_1^{-1} + R_2^{-1}}.
 \end{align}</span></p>
@@ -190,7 +192,8 @@ V_\mathrm{out} = \left(1 + \frac{R_3}{R_4}\right)\frac{V_1/R_1 + V_2/R_2}{R_1^{-
 <section id="Differential-amplifiers">
 <h2>Differential amplifiers<a class="headerlink" href="#Differential-amplifiers" title="Link to this heading"></a></h2>
 <p>When making measurements with scientific instruments, we often want to compare two voltages. For example, we may wish to compare the potential across one electrode to that of a reference electrode. We therefore want to subtract one voltage from another. This is accomplished using a <strong>differential amplifier</strong>. The schematic below shows such an amplifier.</p>
-<div style="margin:auto; width: 300px;"><img alt="differential amplifier circuit" src="../../_images/differential_amplifier.svg" /></div><p>The output voltage is related to the input voltage by</p>
+<div style="margin:auto; width: 300px;"><img alt="differential amplifier circuit" src="../../_images/differential_amplifier.svg" />
+</div><p>The output voltage is related to the input voltage by</p>
 <p><span class="math">\begin{align}
 V_\mathrm{out} = \frac{R_3}{R_1}\,V_1 - \frac{R_4}{R_2  + R_4}\left(1 + \frac{R_3}{R_1}\right)V_2.
 \end{align}</span></p>
@@ -207,7 +210,8 @@ V_\mathrm{out} = \frac{R_3}{R_1}\left(V_1 - V_2\right).
 <section id="Integration-amplifier">
 <h2>Integration amplifier<a class="headerlink" href="#Integration-amplifier" title="Link to this heading"></a></h2>
 <p>So far, we have seen that op-amps can add and subtract voltages. They can also serve to integrate and differentiate time-varying input voltage. First, we consider an integrating amplifier, shown in the schematic below.</p>
-<div style="margin:auto; width: 300px;"><img alt="integrating amplifier circuit" src="../../_images/integrating_amplifier.svg" /></div><p>Because the positive input is connected to ground, the input voltage is zero. It is therefore also zero at the negative input by the op-amp rule that the input voltages are equal. Therefore, the potential difference across the capacitor is <span class="math notranslate nohighlight">\(-V_\mathrm{out}\)</span>. We know that the potential difference across a capacitor is <span class="math notranslate nohighlight">\(Q/C\)</span>, where <span class="math notranslate nohighlight">\(Q\)</span> is the accumulated charge. So, we have</p>
+<div style="margin:auto; width: 300px;"><img alt="integrating amplifier circuit" src="../../_images/integrating_amplifier.svg" />
+</div><p>Because the positive input is connected to ground, the input voltage is zero. It is therefore also zero at the negative input by the op-amp rule that the input voltages are equal. Therefore, the potential difference across the capacitor is <span class="math notranslate nohighlight">\(-V_\mathrm{out}\)</span>. We know that the potential difference across a capacitor is <span class="math notranslate nohighlight">\(Q/C\)</span>, where <span class="math notranslate nohighlight">\(Q\)</span> is the accumulated charge. So, we have</p>
 <p><span class="math">\begin{align}
 V_\mathrm{out} = -\frac{Q}{C}.
 \end{align}</span></p>
@@ -236,7 +240,8 @@ V_\mathrm{out} = -\frac{1}{RC}\int_0^t\mathrm{d}t\,V_\mathrm{in}.
 <section id="Differentiating-amplifier">
 <h2>Differentiating amplifier<a class="headerlink" href="#Differentiating-amplifier" title="Link to this heading"></a></h2>
 <p>Like the integration amplifier integrates a time-varying voltage over time, a <strong>differentiator operator</strong> (not to be confuse with the differential amplifier) gives the derivative. This is accomplished by swapping the resistor and capacitor of the integration amplifier, as shown below.</p>
-<div style="margin:auto; width: 300px;"><img alt="differentiating amplifier circuit" src="../../_images/differentiating_amplifier.svg" /></div><p>Demonstrating that this circuit serves to differentiate the input signal follows along similar arguments as for the integration amplifier. The potential difference across the resistor in this case is <span class="math notranslate nohighlight">\(-V_\mathrm{out}\)</span>. The potential difference across the capacitor is <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>, since the voltage at the negative input of the op-amp is zero because that at the negative input is zero. Therefore, the charge accumulated in the capacitor is <span class="math notranslate nohighlight">\(Q = C V_\mathrm{in}\)</span>. The current
+<div style="margin:auto; width: 300px;"><img alt="differentiating amplifier circuit" src="../../_images/differentiating_amplifier.svg" />
+</div><p>Demonstrating that this circuit serves to differentiate the input signal follows along similar arguments as for the integration amplifier. The potential difference across the resistor in this case is <span class="math notranslate nohighlight">\(-V_\mathrm{out}\)</span>. The potential difference across the capacitor is <span class="math notranslate nohighlight">\(V_\mathrm{in}\)</span>, since the voltage at the negative input of the op-amp is zero because that at the negative input is zero. Therefore, the charge accumulated in the capacitor is <span class="math notranslate nohighlight">\(Q = C V_\mathrm{in}\)</span>. The current
 flowing through the resistor is the rate of discharge of the capacitor (since essentially no current flows through the op-amp), so that</p>
 <p><span class="math">\begin{align}
 I = \frac{\mathrm{d}Q}{\mathrm{d}t} = \frac{\mathrm{d}C V_\mathrm{in}}{\mathrm{d}t} = -\frac{V_\mathrm{out}}{R}.
@@ -279,13 +284,13 @@ V_\mathrm{out} = \frac{R_3}{R_1}\,V_1 - \frac{R_4}{R_2  + R_4}\left(1 + \frac{R_
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b9d9ad0> 
+   <jinja2.runtime.BlockReference object at 0x16edba990> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

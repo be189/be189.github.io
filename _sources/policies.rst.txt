@@ -19,7 +19,7 @@ You can work at your own pace, but it is your responsibility to have your exerci
 Course communications
 ---------------------
 
-Please use `the course Ed page <INSERT URL HERE>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
+Please use `the course Ed page <http://edstem.org>`_ for all communication related to course material. All course announcements will be made using Ed, so please set your alerts appropriately. While the course staff will address student questions, we strongly encourage students to answer and to engage in discussions on the Ed page.
 
 For private matters, such as extension requests, contact the course staff directly using email.
 
@@ -29,6 +29,7 @@ Equipment
 
 We will be using shared equipment and components in the lab. It is your responsibility to keep everything in good shape and to keep the lab neat.
 
+.. _Homework submission:
 
 Submission of exercises and project write-ups
 ----------------------------------------------

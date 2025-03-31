@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>14. Asynchronously receiving data from Arduino &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -116,11 +116,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -178,19 +179,19 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial.tools.list_ports</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span>
-<span class="kn">import</span> <span class="nn">bokeh.driving</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.driving</span>
 <span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -512,12 +513,12 @@ var element = document.currentScript.previousSibling.previousSibling;
 <hr><p>In this lesson, you will learn how to use Python’s built-in asynchronous capabilities to constantly receive data from Arduino without blocking so that you can use the Python interpreter to do other tasks.</p>
 <section id="Setup">
 <h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
-<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference external" href="#Why-do-we-need-asynchrony?">click here</a>.</p>
+<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference internal" href="#Why-do-we-need-asynchrony?"><span class="std std-ref">click here</span></a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
@@ -527,7 +528,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="k">return</span> <span class="n">port</span>
 
 
-<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
@@ -566,7 +567,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" /></div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem1.svg" />
+</div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -686,7 +688,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
@@ -732,7 +734,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a read with time, voltage data</span>
 
 <span class="sd">    Parameters</span>
@@ -784,7 +786,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
 
 <span class="sd">    Parameters</span>
@@ -818,7 +820,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <section id="asyncio">
 <h2>asyncio<a class="headerlink" href="#asyncio" title="Link to this heading"></a></h2>
 <p><em>While this section is not formally a follow-along exercise, I highly recommend running the code in this notebook because you will note delays as the code runs that will help you understand how ``asyncio`` is working.</em></p>
-<p>Python has handy built-in asynchronous capabilities using the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8.</p>
+<p>Python has handy built-in asynchronous capabilities using the <code class="docutils literal notranslate"><span class="pre">asyncio</span></code> module from the standard library. It was introduced recently, in Python 3.5, and has had changes and deprecations since. The version in Python 3.8 has nice high-level functionality and has a stable API, so it is important that you are using Python 3.8 or above.</p>
 <p>I will give a brief overview of how it works here, but you would be well-served to <a class="reference external" href="https://docs.python.org/3/library/asyncio.html">read the documentation</a>, most importantly the <a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html">coroutines and tasks section</a>.</p>
 <p>At the center of asyncio’s high-level functionality are <strong>awaitables</strong>. An awaitable is a process that the interpreter can suspend such that it is not blocking. A very important awaitable is <code class="docutils literal notranslate"><span class="pre">asyncio.sleep()</span></code>, which is one we will put to use.</p>
 <p>Aside from sleeping, the awaitables we will use are <strong>coroutines</strong> and <strong>tasks</strong>. You can think of a coroutine as a function that you can start and stop and start again. A task runs a coroutine. As usual, this is best seen by example.</p>
@@ -827,7 +829,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">english</span><span class="p">(</span><span class="n">exclaim</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">english</span><span class="p">(</span><span class="n">exclaim</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;!&quot;</span> <span class="k">if</span> <span class="n">exclaim</span> <span class="k">else</span> <span class="s2">&quot;.&quot;</span><span class="p">))</span>
@@ -860,7 +862,7 @@ world!
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">english_async</span><span class="p">(</span><span class="n">exclaim</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">english_async</span><span class="p">(</span><span class="n">exclaim</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;world&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;!&quot;</span> <span class="k">if</span> <span class="n">exclaim</span> <span class="k">else</span> <span class="s2">&quot;.&quot;</span><span class="p">))</span>
@@ -890,7 +892,7 @@ will happen after one second.</p>
 </pre></div></div>
 </div>
 <p>We get back a coroutine. To run it, we need a running <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>. An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you
-to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference external" href="#Running-without-an-existing-event-loop">later in this lesson</a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
+to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference internal" href="#Running-without-an-existing-event-loop"><span class="std std-ref">later in this lesson</span></a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
 <p>To run the coroutine, you can create a task using <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code>. Note that “calling” a coroutine like a function returns a coroutine, so the argument you pass into <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code> is how you would call the coroutine, including all arguments and keyword arguments. Upon creation, the coroutine is run.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -950,7 +952,7 @@ True
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">spanish_async</span><span class="p">(</span><span class="n">exclaim</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">spanish_async</span><span class="p">(</span><span class="n">exclaim</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">((</span><span class="s2">&quot;  ¡&quot;</span> <span class="k">if</span> <span class="n">exclaim</span> <span class="k">else</span> <span class="s2">&quot;  &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;Hola, &quot;</span><span class="p">)</span>
     <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  mundo&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;!&quot;</span> <span class="k">if</span> <span class="n">exclaim</span> <span class="k">else</span> <span class="s2">&quot;.&quot;</span><span class="p">))</span>
@@ -1111,7 +1113,7 @@ Hello,
 <h3>Running without an existing event loop<a class="headerlink" href="#Running-without-an-existing-event-loop" title="Link to this heading"></a></h3>
 <p>If you do not have a running event loop on your thread, which will typically be the case if you are running outside of JupyterLab, you need to start an event loop. Fortunately, <code class="docutils literal notranslate"><span class="pre">asynchio</span></code> provides a convenient way to start (and automatically terminate upon completion of all coroutines) with its <code class="docutils literal notranslate"><span class="pre">asyncio.run()</span></code> function. To use it, define a coroutine that awaits all of the tasks you want to run and then pass that coroutine as an argument to <code class="docutils literal notranslate"><span class="pre">asyncio.run()</span></code>. For example, to run the English
 and Spanish greetings concurrently, do the following.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">gathered</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">english_async</span><span class="p">(),</span> <span class="n">spanish_async</span><span class="p">())</span>
     <span class="k">await</span> <span class="n">gathered</span>
 
@@ -1170,7 +1172,7 @@ Handshake message: Message received.
 <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">time_ms</span><span class="o">=</span><span class="p">[],</span> <span class="n">voltage</span><span class="o">=</span><span class="p">[])</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">daq_stream_async</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span>
     <span class="n">data</span><span class="p">,</span>
     <span class="n">n_data</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
@@ -1346,13 +1348,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b875850> 
+   <jinja2.runtime.BlockReference object at 0x16edbaa80> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

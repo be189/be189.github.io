@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10. Serial communication with Python &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -114,11 +114,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -176,10 +177,10 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial.tools.list_ports</span>
 </pre></div>
 </div>
 </div>
@@ -189,8 +190,10 @@
 <hr><section id="Follow-along-exercise-6:-Tactile-control-of-an-LED">
 <h2>Follow-along exercise 6: Tactile control of an LED<a class="headerlink" href="#Follow-along-exercise-6:-Tactile-control-of-an-LED" title="Link to this heading"></a></h2>
 <p>There is no sketch required for this exercise. Wire up the circuit shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" /></div><p>For convenience, here is a pictorial schematic.</p>
-<div style="margin: auto; width: 500px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_bb.svg" /></div><p>Note that the three-pin toggle switches we have do not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons we have in lab.</p>
+<div style="margin: auto; width: 300px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_schem.svg" />
+</div><p>For convenience, here is a pictorial schematic.</p>
+<div style="margin: auto; width: 500px;"><img alt="PWM LED schematic" src="../../_images/external_and_mechanical_led_bb.svg" />
+</div><p>Note that the three-pin toggle switches we have do not look like the one shown in the schematic, but rather <a class="reference external" href="https://www.digikey.com/product-detail/en/nidec-copal-electronics/ATE1E-2M3-10-Z/563-1159-ND/1792020">this</a> is the part. The pushbutton in the schematic is one of the two-lead pushbuttons we have in lab.</p>
 <p>For now, you can ignore LED2 (the one toward the top of the pictorial schematic). That is the LED we will control with buttons in the browser. LED1 (the one toward the right of the pictorial schematic) is under tactile control.</p>
 <p>Start with the toggle in the middle (upright position). The LED should be off. Now, depress the pushbutton. You will see that the LED comes on. When you release the button, it turns off.</p>
 <p>Next, switch the toggle to turn on the LED. Then switch the toggle to turn off the LED. Note the key operational difference between a toggle and a pushbutton. The state of a toggle (on or off) is preserved, whereas the state of a pushbutton is ephemeral. The LED is on only if the pushbutton is depressed.</p>
@@ -284,7 +287,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
@@ -398,7 +401,7 @@ receive a handshake message again to make sure everything is working properly.</
 <span class="n">arduino</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
@@ -554,13 +557,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b61f2d0> 
+   <jinja2.runtime.BlockReference object at 0x16eb8a630> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

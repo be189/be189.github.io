@@ -1,5 +1,17 @@
 .. _Resources:
 
+Tutorials
+---------
+
+These pages have some tutorial information that you might find useful
+for the class.
+
+.. toctree::
+   :maxdepth: 1
+
+   intro_cad_3d_printing.rst
+
+
 Software
 --------
 

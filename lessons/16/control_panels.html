@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>16. Control panels &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -110,11 +110,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -172,21 +173,21 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial.tools.list_ports</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span>
-<span class="kn">import</span> <span class="nn">bokeh.layouts</span>
-<span class="kn">import</span> <span class="nn">bokeh.driving</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.layouts</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.driving</span>
 <span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
 
 <span class="n">notebook_url</span> <span class="o">=</span> <span class="s2">&quot;localhost:8888&quot;</span>
@@ -509,12 +510,12 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 <hr><p>We have seen how to create buttons for controlling data acquisition, how to asynchronously acquire streaming data, and how to have automatically updating plots. Taken together, you now have the tools to build a <em>control panel</em> for a device. When building a device, it is important to have intuitive controls and displays to get the most out of your device. Not only does this speed up your work, it also enables other researchers to easily use your device.</p>
 <p>You are of course thoughtful about the physical design of any device you make. There’s no option; it won’t work if you don’t build it well. At the same time, you should also be thoughtful about how you <em>interface</em> with the device. This is often overlooked. I view it as similar to software that has a bad, poorly documented API. No one, not even future you, will know how to operate your device unless you are careful about its interface and documentation.</p>
-<p>We will again use the setup of the last few lessons with the same utility functions. You can again skip ahead to the <a class="reference external" href="#Python-based-dashboarding">next section</a> after running the code cells below.</p>
+<p>We will again use the setup of the last few lessons with the same utility functions. You can again skip ahead to the <a class="reference internal" href="#Python-based-dashboarding"><span class="std std-ref">next section</span></a> after running the code cells below.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
@@ -524,7 +525,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="k">return</span> <span class="n">port</span>
 
 
-<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
@@ -561,7 +562,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
 
 
-<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
@@ -596,7 +597,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="k">return</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">read</span>
 
 
-<span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
 
 <span class="sd">    Parameters</span>
@@ -624,7 +625,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="k">return</span> <span class="n">raw</span>
 
 
-<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a read with time, volage data</span>
 
 <span class="sd">    Parameters</span>
@@ -666,7 +667,7 @@ var element = document.currentScript.previousSibling.previousSibling;
         <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
@@ -679,7 +680,7 @@ var element = document.currentScript.previousSibling.previousSibling;
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span>
 
 
-<span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
     <span class="c1"># Ask Arduino for data</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
@@ -693,7 +694,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 </div>
 </div>
 <p>The schematic we will use is shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem3.svg" /></div><p>The sketch is</p>
+<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem3.svg" />
+</div><p>The sketch is</p>
 <div class="highlight-arduino notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">voltagePin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A0</span><span class="p">;</span>
 
 <span class="kr">const</span><span class="w"> </span><span class="kr">int</span><span class="w"> </span><span class="n">HANDSHAKE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -850,7 +852,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">daq_stream_async</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_trash_reads</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_reads_per_chunk</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">reader</span><span class="o">=</span><span class="n">read_all_newlines</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Obtain streaming data&quot;&quot;&quot;</span>
@@ -912,7 +914,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
     <span class="c1"># Set up plot area</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
@@ -938,11 +940,11 @@ of the data currently on the streaming plot. We need to keep that reference so w
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;stream&#39;</span><span class="p">:</span>
         <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
 
     <span class="c1"># Put a phantom circle so axis labels show before data arrive</span>
     <span class="n">phantom_source</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">phantom_source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">phantom_source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span>
 </pre></div>
@@ -955,7 +957,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">controls</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">controls</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">acquire</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Toggle</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
         <span class="n">save_notice</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span>
@@ -993,7 +995,7 @@ of the data currently on the streaming plot. We need to keep that reference so w
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">layout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ctrls</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">layout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ctrls</span><span class="p">):</span>
     <span class="n">buttons</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">row</span><span class="p">(</span>
         <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
         <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">],</span>
@@ -1074,7 +1076,7 @@ update of the plot. Only the new data are added; the plot is not re-rendered.</p
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">acquire_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">acquire_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
     <span class="c1"># Pull t and V values from stream or request from Arduino</span>
     <span class="k">if</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1101,7 +1103,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">new</span><span class="p">:</span>
         <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;stream&quot;</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1117,7 +1119,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reset_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
     <span class="c1"># Turn off the stream</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">controls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1137,7 +1139,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
     <span class="c1"># Convert data to data frame and save</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time (ms)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="s2">&quot;voltage (V)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]})</span>
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">controls</span><span class="p">[</span><span class="s2">&quot;file_input&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1154,13 +1156,13 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">controls</span><span class="p">:</span>
         <span class="n">controls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
 
 
-<span class="k">def</span> <span class="nf">shutdown_callback</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">shutdown_callback</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">,</span> <span class="n">on_demand_controls</span>
 <span class="p">):</span>
     <span class="c1"># Disable controls</span>
@@ -1184,7 +1186,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
     <span class="c1"># Update plot by streaming in data</span>
     <span class="n">new_data</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">),</span>
@@ -1210,10 +1212,10 @@ while we were trying to tell it what to do, we should clear the input buffer on 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">potentiometer_app</span><span class="p">(</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">potentiometer_app</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stream_plot_delay</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="k">def</span> <span class="nf">_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
         <span class="c1"># Plots</span>
         <span class="n">p_stream</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">)</span>
         <span class="n">p_on_demand</span><span class="p">,</span> <span class="n">on_demand_source</span><span class="p">,</span> <span class="n">on_demand_phantom_source</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="s2">&quot;on demand&quot;</span><span class="p">)</span>
@@ -1240,7 +1242,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
             <span class="n">stream_layout</span><span class="p">,</span> <span class="n">on_demand_layout</span><span class="p">,</span> <span class="n">shutdown_layout</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_acquire_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_acquire_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">acquire_callback</span><span class="p">(</span>
                 <span class="n">arduino</span><span class="p">,</span>
                 <span class="n">stream_data</span><span class="p">,</span>
@@ -1249,10 +1251,10 @@ while we were trying to tell it what to do, we should clear the input buffer on 
                 <span class="n">rollover</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_stream_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
             <span class="n">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_stream_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">reset_callback</span><span class="p">(</span>
                 <span class="s2">&quot;stream&quot;</span><span class="p">,</span>
                 <span class="n">stream_data</span><span class="p">,</span>
@@ -1261,7 +1263,7 @@ while we were trying to tell it what to do, we should clear the input buffer on 
                 <span class="n">stream_controls</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_on_demand_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_on_demand_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">reset_callback</span><span class="p">(</span>
                 <span class="s2">&quot;on demand&quot;</span><span class="p">,</span>
                 <span class="n">on_demand_data</span><span class="p">,</span>
@@ -1270,19 +1272,19 @@ while we were trying to tell it what to do, we should clear the input buffer on 
                 <span class="n">on_demand_controls</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_stream_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">save_callback</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_on_demand_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_on_demand_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">save_callback</span><span class="p">(</span><span class="s2">&quot;on demand&quot;</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">on_demand_controls</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_shutdown_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_shutdown_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">shutdown_callback</span><span class="p">(</span>
                 <span class="n">arduino</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">,</span> <span class="n">on_demand_controls</span>
             <span class="p">)</span>
 
         <span class="nd">@bokeh</span><span class="o">.</span><span class="n">driving</span><span class="o">.</span><span class="n">linear</span><span class="p">()</span>
-        <span class="k">def</span> <span class="nf">_stream_update</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_update</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
             <span class="n">stream_update</span><span class="p">(</span><span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
 
             <span class="c1"># Shut down server if Arduino disconnects (commented out in Jupyter notebook)</span>
@@ -1370,24 +1372,24 @@ app(bokeh.plotting.curdoc())
 <span class="sd">on the command line.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">serial</span>
-<span class="kn">import</span> <span class="nn">serial.tools.list_ports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial.tools.list_ports</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span>
-<span class="kn">import</span> <span class="nn">bokeh.layouts</span>
-<span class="kn">import</span> <span class="nn">bokeh.driving</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.layouts</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.driving</span>
 
 
-<span class="k">def</span> <span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_arduino</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the name of the port that is connected to Arduino.&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">ports</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">list_ports</span><span class="o">.</span><span class="n">comports</span><span class="p">()</span>
@@ -1397,7 +1399,7 @@ app(bokeh.plotting.curdoc())
     <span class="k">return</span> <span class="n">port</span>
 
 
-<span class="k">def</span> <span class="nf">handshake_arduino</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handshake_arduino</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">sleep_time</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">print_handshake_message</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handshake_code</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Make sure connection is established by sending</span>
@@ -1434,7 +1436,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">arduino</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
 
 
-<span class="k">def</span> <span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_all</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read all available bytes from the serial port</span>
 <span class="sd">    and append to the read buffer.</span>
 
@@ -1469,7 +1471,7 @@ app(bokeh.plotting.curdoc())
     <span class="k">return</span> <span class="n">read_buffer</span> <span class="o">+</span> <span class="n">read</span>
 
 
-<span class="k">def</span> <span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_all_newlines</span><span class="p">(</span><span class="n">ser</span><span class="p">,</span> <span class="n">read_buffer</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">n_reads</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read data in until encountering newlines.</span>
 
 <span class="sd">    Parameters</span>
@@ -1497,7 +1499,7 @@ app(bokeh.plotting.curdoc())
     <span class="k">return</span> <span class="n">raw</span>
 
 
-<span class="k">def</span> <span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_read</span><span class="p">(</span><span class="n">read</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a read with time, voltage data</span>
 
 <span class="sd">    Parameters</span>
@@ -1536,7 +1538,7 @@ app(bokeh.plotting.curdoc())
         <span class="k">return</span> <span class="n">time_ms</span><span class="p">,</span> <span class="n">voltage</span><span class="p">,</span> <span class="n">raw_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse bytes output from Arduino.&quot;&quot;&quot;</span>
     <span class="n">raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
     <span class="k">if</span> <span class="n">raw</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">:</span>
@@ -1549,7 +1551,7 @@ app(bokeh.plotting.curdoc())
     <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">1023</span>
 
 
-<span class="k">def</span> <span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">request_single_voltage</span><span class="p">(</span><span class="n">arduino</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ask Arduino for a single data point&quot;&quot;&quot;</span>
     <span class="c1"># Ask Arduino for data</span>
     <span class="n">arduino</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="n">VOLTAGE_REQUEST</span><span class="p">]))</span>
@@ -1561,7 +1563,7 @@ app(bokeh.plotting.curdoc())
     <span class="k">return</span> <span class="n">parse_raw</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Build a plot of voltage vs time data&quot;&quot;&quot;</span>
     <span class="c1"># Set up plot area</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span>
@@ -1587,16 +1589,16 @@ app(bokeh.plotting.curdoc())
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">p</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">)</span>
 
     <span class="c1"># Put a phantom circle so axis labels show before data arrive</span>
     <span class="n">phantom_source</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ColumnDataSource</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">phantom_source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">phantom_source</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;V&quot;</span><span class="p">,</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">p</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span>
 
 
-<span class="k">def</span> <span class="nf">controls</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">controls</span><span class="p">(</span><span class="n">mode</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">acquire</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Toggle</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span> <span class="n">button_type</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
         <span class="n">save_notice</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span>
@@ -1623,7 +1625,7 @@ app(bokeh.plotting.curdoc())
     <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">layout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ctrls</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">layout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ctrls</span><span class="p">):</span>
     <span class="n">buttons</span> <span class="o">=</span> <span class="n">bokeh</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">row</span><span class="p">(</span>
         <span class="n">bokeh</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">30</span><span class="p">),</span>
         <span class="n">ctrls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">],</span>
@@ -1642,7 +1644,7 @@ app(bokeh.plotting.curdoc())
     <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">acquire_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">acquire_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
     <span class="c1"># Pull t and V values from stream or request from Arduino</span>
     <span class="k">if</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -1662,7 +1664,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">new_data</span>
 
 
-<span class="k">def</span> <span class="nf">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">new</span><span class="p">:</span>
         <span class="n">stream_data</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;stream&quot;</span>
     <span class="k">else</span><span class="p">:</span>
@@ -1672,7 +1674,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">arduino</span><span class="o">.</span><span class="n">reset_input_buffer</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">reset_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">reset_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
     <span class="c1"># Turn off the stream</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;stream&quot;</span><span class="p">:</span>
         <span class="n">controls</span><span class="p">[</span><span class="s2">&quot;acquire&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1686,7 +1688,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">save_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_callback</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">controls</span><span class="p">):</span>
     <span class="c1"># Convert data to data frame and save</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;time (ms)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">],</span> <span class="s2">&quot;voltage (V)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">]})</span>
     <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">controls</span><span class="p">[</span><span class="s2">&quot;file_input&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1697,13 +1699,13 @@ app(bokeh.plotting.curdoc())
     <span class="n">controls</span><span class="p">[</span><span class="s2">&quot;save_notice&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">notice_text</span>
 
 
-<span class="k">def</span> <span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">disable_controls</span><span class="p">(</span><span class="n">controls</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Disable all controls.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">controls</span><span class="p">:</span>
         <span class="n">controls</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
 
 
-<span class="k">def</span> <span class="nf">shutdown_callback</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">shutdown_callback</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">,</span> <span class="n">on_demand_controls</span>
 <span class="p">):</span>
     <span class="c1"># Disable controls</span>
@@ -1721,7 +1723,7 @@ app(bokeh.plotting.curdoc())
     <span class="n">arduino</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stream_update</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">):</span>
     <span class="c1"># Update plot by streaming in data</span>
     <span class="n">new_data</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="p">:])</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">),</span>
@@ -1730,15 +1732,15 @@ app(bokeh.plotting.curdoc())
     <span class="n">source</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
 
     <span class="c1"># Adjust new phantom data point if new data arrived</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">phantom_source</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">V</span><span class="o">=</span><span class="p">[</span><span class="n">new_data</span><span class="p">[</span><span class="s2">&quot;V&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;prev_array_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;t&quot;</span><span class="p">])</span>
 
 
-<span class="k">def</span> <span class="nf">potentiometer_app</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">potentiometer_app</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">rollover</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">stream_plot_delay</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="k">def</span> <span class="nf">_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_app</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
         <span class="c1"># Plots</span>
         <span class="n">p_stream</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">)</span>
         <span class="n">p_on_demand</span><span class="p">,</span> <span class="n">on_demand_source</span><span class="p">,</span> <span class="n">on_demand_phantom_source</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="s2">&quot;on demand&quot;</span><span class="p">)</span>
@@ -1765,7 +1767,7 @@ app(bokeh.plotting.curdoc())
             <span class="n">stream_layout</span><span class="p">,</span> <span class="n">on_demand_layout</span><span class="p">,</span> <span class="n">shutdown_layout</span>
         <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_acquire_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_acquire_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">acquire_callback</span><span class="p">(</span>
                 <span class="n">arduino</span><span class="p">,</span>
                 <span class="n">stream_data</span><span class="p">,</span>
@@ -1774,10 +1776,10 @@ app(bokeh.plotting.curdoc())
                 <span class="n">rollover</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_stream_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_callback</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">):</span>
             <span class="n">stream_callback</span><span class="p">(</span><span class="n">arduino</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_stream_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">reset_callback</span><span class="p">(</span>
                 <span class="s2">&quot;stream&quot;</span><span class="p">,</span>
                 <span class="n">stream_data</span><span class="p">,</span>
@@ -1786,7 +1788,7 @@ app(bokeh.plotting.curdoc())
                 <span class="n">stream_controls</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_on_demand_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_on_demand_reset_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">reset_callback</span><span class="p">(</span>
                 <span class="s2">&quot;on demand&quot;</span><span class="p">,</span>
                 <span class="n">on_demand_data</span><span class="p">,</span>
@@ -1795,19 +1797,19 @@ app(bokeh.plotting.curdoc())
                 <span class="n">on_demand_controls</span><span class="p">,</span>
             <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_stream_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">save_callback</span><span class="p">(</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_on_demand_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_on_demand_save_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">save_callback</span><span class="p">(</span><span class="s2">&quot;on demand&quot;</span><span class="p">,</span> <span class="n">on_demand_data</span><span class="p">,</span> <span class="n">on_demand_controls</span><span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">_shutdown_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_shutdown_callback</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
             <span class="n">shutdown_callback</span><span class="p">(</span>
                 <span class="n">arduino</span><span class="p">,</span> <span class="n">daq_task</span><span class="p">,</span> <span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_controls</span><span class="p">,</span> <span class="n">on_demand_controls</span>
             <span class="p">)</span>
 
         <span class="nd">@bokeh</span><span class="o">.</span><span class="n">driving</span><span class="o">.</span><span class="n">linear</span><span class="p">()</span>
-        <span class="k">def</span> <span class="nf">_stream_update</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_stream_update</span><span class="p">(</span><span class="n">step</span><span class="p">):</span>
             <span class="n">stream_update</span><span class="p">(</span><span class="n">stream_data</span><span class="p">,</span> <span class="n">stream_source</span><span class="p">,</span> <span class="n">stream_phantom_source</span><span class="p">,</span> <span class="n">rollover</span><span class="p">)</span>
 
             <span class="c1"># Shut down server if Arduino disconnects (commented out in Jupyter notebook)</span>
@@ -1848,7 +1850,7 @@ app(bokeh.plotting.curdoc())
 <span class="n">on_demand_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="p">[],</span> <span class="n">V</span><span class="o">=</span><span class="p">[])</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">daq_stream_async</span><span class="p">(</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">daq_stream_async</span><span class="p">(</span>
     <span class="n">arduino</span><span class="p">,</span>
     <span class="n">data</span><span class="p">,</span>
     <span class="n">delay</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -1965,13 +1967,13 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b828c90> 
+   <jinja2.runtime.BlockReference object at 0x16edaf290> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

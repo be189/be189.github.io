@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>26. Active filters &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../../_static/copybutton.js?v=f281be69"></script>
@@ -108,11 +108,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -170,11 +171,11 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="kn">import</span> <span class="nn">bokeh.plotting</span>
-<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.plotting</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">bokeh.io</span>
 <span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -479,7 +480,8 @@ if (force === true) {
 <section id="Motivation-for-active-filters">
 <h2>Motivation for active filters<a class="headerlink" href="#Motivation-for-active-filters" title="Link to this heading"></a></h2>
 <p>As we have already seen, the structure of a simple RC filter is the same as a voltage divider, as shown below.</p>
-<div style="margin: auto; width: 200px"><img alt="Generic voltage divider 2" src="../../_images/generic_voltage_divider1.svg" /></div><p>For a low-pass filter, Z₁ is a resistor (say, with resistance <span class="math notranslate nohighlight">\(R\)</span>) and Z₂ is a capacitor (say, with capacitance <span class="math notranslate nohighlight">\(C\)</span>). In a high-pass filter, the Z₁ is a capacitor and Z₂ is a resistor.</p>
+<div style="margin: auto; width: 200px"><img alt="Generic voltage divider 2" src="../../_images/generic_voltage_divider1.svg" />
+</div><p>For a low-pass filter, Z₁ is a resistor (say, with resistance <span class="math notranslate nohighlight">\(R\)</span>) and Z₂ is a capacitor (say, with capacitance <span class="math notranslate nohighlight">\(C\)</span>). In a high-pass filter, the Z₁ is a capacitor and Z₂ is a resistor.</p>
 <p>Consider for a moment a low-pass RC filter. We previously worked out that</p>
 <p><span class="math">\begin{align}
 \left|V_\mathrm{out}\right| = \frac{1}{\sqrt{1 + \omega^2R^2C^2}}\,\left|V_\mathrm{in}\right|.
@@ -559,7 +561,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <section id="Sallen-Key-filters">
 <h2>Sallen-Key filters<a class="headerlink" href="#Sallen-Key-filters" title="Link to this heading"></a></h2>
 <p>We will consider one of the simplest active filters, the <strong>Sallen-Key filter</strong>. It is a simple special case of <strong>voltage-controlled voltage-source</strong> (VCVS) filters. The topology of the Sallen-Key filter is shown below.</p>
-<div style="margin: auto; width: 500px"><img alt="Sallen-key topology" src="../../_images/sallen-key.svg" /></div><p>For a high-pass filter, Z₁ and Z₂ are capacitors and Z₃ and Z₄ are resistors. For a low-pass filter, Z₁ and Z₂ are resistors and Z₃ and Z₄ are capacitors. The topology looks like cascaded RC filters, except with feedback.</p>
+<div style="margin: auto; width: 500px"><img alt="Sallen-key topology" src="../../_images/sallen-key.svg" />
+</div><p>For a high-pass filter, Z₁ and Z₂ are capacitors and Z₃ and Z₄ are resistors. For a low-pass filter, Z₁ and Z₂ are resistors and Z₃ and Z₄ are capacitors. The topology looks like cascaded RC filters, except with feedback.</p>
 <p>Taking as an example a low-pass filter, we an take <span class="math notranslate nohighlight">\(R_1 = R_2 = R\)</span> and <span class="math notranslate nohighlight">\(C_3 = C_4 = C\)</span>, and derive that the response is</p>
 <p><span class="math">\begin{align}
 \frac{\left|V_\mathrm{out}\right|}{\left|V_\mathrm{in}\right|} = \frac{1}{1 + \omega^2R^2C^2}.
@@ -632,7 +635,8 @@ var element = document.currentScript.previousSibling.previousSibling;
 <h2>Follow-along exercise 17: Sallen-Key filters<a class="headerlink" href="#Follow-along-exercise-17:-Sallen-Key-filters" title="Link to this heading"></a></h2>
 <p>In this exercise, you will build two Sallen-Key filters, a high-pass one and a low-pass one. To see how they work, you will send a sinusoidal signal that is tainted with high-frequency noise that also has slow drift. The high-pass filter will eliminate the drift and the low-pass filter will eliminate the high-frequency noise.</p>
 <p>Build the circuit below. The resistances are marked, and the capacitors should have capacitance <span class="math notranslate nohighlight">\(C_1 = C_2 = 2.2\)</span> µF and <span class="math notranslate nohighlight">\(C_3 = C_4 = 0.22\)</span> µF. Note that the part of the circuit featuring resistors R₁ and R₂ and capacitors C₁ and C₂ constitutes a high-pass filter, and the part of the circuit featuring R₃, R₄, C₃, and C₄ constitutes a low-pass filter.</p>
-<div style="margin: auto; width=600px;"><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" /></div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
+<div style="margin: auto; width=600px;"><img alt="Sallen-Key high and low pass filters" src="../../_images/sallen_key_exercise_schem.svg" />
+</div><p>Based on the resistor and capacitor values, we can plot the respective response curves for the respective filters. If you like, you can derive that the response curve for the high-pass filter is</p>
 <p><span class="math">\begin{align}
 \frac{\left|V_\mathrm{out}\right|}{\left|V_\mathrm{in}\right|} = \frac{1}{1 + \omega^{-2}R^{-2}C^{-2}}.
 \end{align}</span></p>
@@ -803,13 +807,13 @@ bandpass filter.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11b621350> 
+   <jinja2.runtime.BlockReference object at 0x16ed80110> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

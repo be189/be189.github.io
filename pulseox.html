@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pulse oximetry &mdash; BE/EE/MedE 189 a  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b25f5b7c" />
@@ -18,7 +18,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="_static/copybutton.js?v=f281be69"></script>
@@ -113,11 +113,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html">Schedule overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schedule.html#due-dates">Due dates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="schedule.html#weekly-activities">Weekly activities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schedule.html#other-dates">Other Dates</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html#software">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#books">Books</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html#online-resources">Online resources</a></li>
 </ul>
@@ -187,7 +188,7 @@
 \text{SpO}_2 = \frac{C_\mathrm{O_2Hb}}{C_\mathrm{O_2Hb} + C_\mathrm{Hb}}.
 \end{align}\]</div>
 <p>To measure SpO₂, we consider absorption at a second wavelength in addition to the IR used to measure the pulse. Below, I show the absoprtion spectra for O₂Hb and Hb. Between about 600 and 800 nm, Hb has a higher extinction coefficient than O₂Hb. If we monitor transmission of light at this second wavelength, in addition to the 940 nM we are already using to detect the pulse, we can determine SpO₂. In particular, there is a big gap between the extinction coefficient of O₂Hb and Hb in the red region, around 660 nm, and the gap is the opposite as in the IR, where O₂Hb has a lower extinction coefficient.</p>
-<div style="height:600px;"><script src="bokeh-content-cd057a51926f4ff087abb39de5e553e9-pulseox.js" id="b68c614d-7d2e-47d9-b61f-2698e5580e50"></script></div><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
+<div style="height:600px;"><script src="bokeh-content-42fc15b2617a47b78cd6bb43a3e8bbe1-pulseox.js" id="ab675c6f-68cf-45c5-b64e-49a176a5cf46"></script></div><p>Obtaining SpO₂ by monitoring transmission at 660 nm and 940 nm requires a bit of theory. To start, recall the Beer-Lambert Law.</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \frac{I}{I_0} = \mathrm{e}^{-\epsilon c d},
@@ -274,9 +275,11 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 <section id="suggestions">
 <h3>Suggestions<a class="headerlink" href="#suggestions" title="Link to this heading"></a></h3>
 <p>The Nellcor™ OxiMax-compatible sensor probe clips on to your finger as shown in the photo below.</p>
-<a class="reference internal image-reference" href="_images/sensor_probe.jpg"><img alt="Sensor probe" src="_images/sensor_probe.jpg" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="_images/sensor_probe.jpg"><img alt="Sensor probe" src="_images/sensor_probe.jpg" style="width: 300px;" />
+</a>
 <p>It features a red LED (660 nm) and an IR LED (900 nm) on the fingernail side and a photodiode for detecting transmitted light on the other side of the clip. The sensor probe has a male <a class="reference external" href="https://en.wikipedia.org/wiki/D-subminiature">DE-9</a> connector. (You will see this referred to as a DB-9 in many places, but this is technically incorrect nomenclature.) The pins in a DE-9 connector are numbered as in the image below.</p>
-<a class="reference internal image-reference" href="_images/de-9_pin_numbers.png"><img alt="DE-9 pinout" src="_images/de-9_pin_numbers.png" style="width: 200px;" /></a>
+<a class="reference internal image-reference" href="_images/de-9_pin_numbers.png"><img alt="DE-9 pinout" src="_images/de-9_pin_numbers.png" style="width: 200px;" />
+</a>
 <p>You should not directly used this geometry, though. Rather, you should plug the the connector on the sensor probe into the DE-9 female socket to terminal spring block adapter. This adapter allows you to plug jump wires into it, thereby connecting to the pins of the sensor probe. The ports on the block adapter are conveniently labeled with the pin numbers.</p>
 <p>The pinout for the sensor probe is</p>
 <table class="docutils align-default">
@@ -316,11 +319,13 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 </tbody>
 </table>
 <p>The LEDs are connected to pins 2 and 3 as shown below.</p>
-<a class="reference internal image-reference" href="_images/pulseox_sensor.png"><img alt="Pulse ox sensor LED setup" src="_images/pulseox_sensor.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/pulseox_sensor.png"><img alt="Pulse ox sensor LED setup" src="_images/pulseox_sensor.png" style="width: 400px;" />
+</a>
 <p>Note the polarity of the LEDs. Say you connected sensor probe pin 3 to 5 V (via a resistor of course) and pin 2 to ground. This would turn on the red LED. The IR LED would not turn on because it has the wrong polarity. Conversely, if you connected pin 2 to 5 V and pin 3 to ground, the IR LED would turn on, but the red LED would not turn on. Alternatively, you could leave pin 2 connected to ground and alternate between +5 V and –5 V supplied to pin 3 to switch between the red and IR LED being on, respectively.</p>
 <p><strong>IMPORTANT!</strong> Note that there are no resistors built-in to the sensor probe. You need to make sure you have a 220 Ω resistor connected to the voltage source you are using for the sensor probe LEDs! If you do not, <strong>you could destroy the sensor probe</strong>.</p>
 <p>When connecting the photodiode, it is also important to connect it to a resistor. You can use the connection below.</p>
-<a class="reference internal image-reference" href="_images/photodiode.svg"><img alt="Photodiode" src="_images/photodiode.svg" width="200" /></a>
+<a class="reference internal image-reference" href="_images/photodiode.svg"><img alt="Photodiode" src="_images/photodiode.svg" style="width: 200px;" />
+</a>
 <p>You should also connect the shield to ground.</p>
 <p>Because there is a single photodetector, you cannot simultaneously acquire a signal at the red and IR wavelengths. You therefore need to do the following.</p>
 <ol class="arabic simple">
@@ -344,7 +349,7 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 </section>
 <section id="submission">
 <h2>Submission<a class="headerlink" href="#submission" title="Link to this heading"></a></h2>
-<p>Submit your write-up as a ZIP file <a class="reference external" href="INSERTURLHERE">via Canvas</a>.</p>
+<p>Submit your write-up as a ZIP file via Gradescope.</p>
 </section>
 </section>
 
@@ -360,13 +365,13 @@ R \approx \frac{\left. \mathrm{AC}_1 \middle/ \mathrm{DC}_1\right.}{\left. \math
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jul 03, 2024.
+      <span class="lastupdated">Last updated on Mar 31, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x11bb0efd0> 
+   <jinja2.runtime.BlockReference object at 0x16ee19760> 
 
-<p>© 2020–2024 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
+<p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
 <p>This document was prepared at <a rel="caltech" href="http://www.caltech.edu">Caltech</a> with financial support from the <a rel="rosen" href="http://rosen.caltech.edu">Donna and Benjamin M. Rosen Bioengineering Center</a>.</p>
 

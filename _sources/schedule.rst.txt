@@ -3,15 +3,14 @@
 Schedule overview
 -----------------
 
-*The schedule information on this page is subject to change.*
+See the `course homepage <https://murray.cds.caltech.edu/BE/EE/MedE_189a,_Fall_2024>`_ for the detailed course schedule. 
 
 All meetings are in B127 Kerckhoff.
 
-- Lab: Tuesdays and Thursdays, 10:30am–noon Pacific time
+- Lab: Tuesdays and Thursdays, 2:30–4 pm
 - TA office hours
+  + Discuss on first day of class
 
-  + TA 1: TBA
-  + TA 2: TBA
 
 Tuesday and Thursday lab meetings are required, unless arrangements have been made in advance with the instructor. 
 
@@ -22,42 +21,36 @@ Tuesday and Thursday lab meetings are required, unless arrangements have been ma
 Due dates
 --------------
 
-The due dates below may change. They will not be moved to an earlier date, but may be moved later. All times are Pacific.
+The due dates below may change. They will not be moved to an earlier date, but may be moved later. We may also add some follow-along and do-it-yourself exercises. All times are Pacific.
 
 .. role:: strike
     :class: strike
 
-- :ref:`Follow-along exercises` 1–7, due 11:59 pm PST, October 10
-- :ref:`Do-it-yourself exercises` 1–4, due 11:59 pm PST, October 10
+- :ref:`Follow-along exercises` 1–7, due 11:59 pm, 10 Apr (Thu)
+- :ref:`Do-it-yourself exercises` 1–4, due 11:59 pm, 10 Apr (Thu)
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 8–13, due 11:59 pm PST, October 17
-- :ref:`Do-it-yourself exercises` 5–7, due 11:59 pm PST, October 17
+- :ref:`Follow-along exercises` 8–13, due 11:59 pm, 17 Apr (Thu)
+- :ref:`Do-it-yourself exercises` 5–7, due 11:59 pm, 17 Apr (Thu)
 .. dummy comment
-- :ref:`Follow-along exercises` 14–17, due 11:59 pm PST, October 24
-- :ref:`Do-it-yourself exercises` 8–13, due 11:59 pm PST, October 24
+- :ref:`Follow-along exercises` 14–17, due 11:59 pm, 24 Apr (Thu)
+- :ref:`Do-it-yourself exercises` 8–13, due 11:59 pm, 24 Apr (Thu)
 .. dummy comment
-- :ref:`Spectrophotometer` demo: due 11:59 pm PST, November 7
+- :ref:`Spectrophotometer` demo: due 4:00 pm, 8 May (Thu, in class)
 .. dummy comment
-- :ref:`Spectrophotometer` write-up: due 11:59 pm PST, November 12
+- :ref:`Spectrophotometer` write-up: due 2:30 am, 13 May (Tues before class)
 .. dummy comment
-.. - :ref:`Follow-along exercises` 18 and 19: due 11:59 pm PST, May 25
-- :ref:`Pulse oximetry` demo: due 11:59 pm PST, December 5
+- :ref:`Pulse oximetry` demo: due 4:00 pm, 29 May (Thu, in class)
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 11:59 pm PST, December 10
-
+- :ref:`Pulse oximetry` write-up: due 11:59 pm, 3 June (Tues)
 
 ----
 
 
-Weekly activities
+Other Dates
 -----------------
 
-In each lab session, which are Tuesdays and Thursdays, 10:30-noon, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
+In each lab session, which are Tuesdays and Thursdays, 2:30-4:00pm, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
 
-- **Tu 09/30**: Welcome, safety, introduction to Arduino
-- **TBA**: Training on 3D printing with Techlab
-- **Th 11/07**: Spectrophotometer demo day
-- **Th 11/28**: Thanksgiving Day, no class
-- **Th 12/05**: Pulse oximetry demo day
-- **Th 12/12**: Tear down and clean up
-
+- **1 Apr (Tue)**: Welcome, safety, introduction to Arduino
+- **8-29 Apr**: Training on 3D printing with Techlab (on your own)
+- **12 Jun (Thu)**: Tear down and clean up
