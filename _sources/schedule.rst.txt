@@ -26,31 +26,38 @@ The due dates below may change. They will not be moved to an earlier date, but m
 .. role:: strike
     :class: strike
 
-- :ref:`Follow-along exercises` 1–7, due 11:59 pm, 10 Apr (Thu)
-- :ref:`Do-it-yourself exercises` 1–4, due 11:59 pm, 10 Apr (Thu)
+- :ref:`Follow-along exercises` 1–7, due 11:59 pm, 9 Oct (Thu)
+- :ref:`Do-it-yourself exercises` 1–4, due 11:59 pm, 9 Oct (Thu)
 .. Random comment for spacing
-- :ref:`Follow-along exercises` 8–13, due 11:59 pm, 17 Apr (Thu)
-- :ref:`Do-it-yourself exercises` 5–7, due 11:59 pm, 17 Apr (Thu)
+- :ref:`Follow-along exercises` 8–13, due 11:59 pm, 16 Oct (Thu)
+- :ref:`Do-it-yourself exercises` 5–7, due 11:59 pm, 16 Oct (Thu)
 .. dummy comment
-- :ref:`Follow-along exercises` 14–17, due 11:59 pm, 24 Apr (Thu)
-- :ref:`Do-it-yourself exercises` 8–13, due 11:59 pm, 24 Apr (Thu)
+- :ref:`Follow-along exercises` 14–17, due 11:59 pm, 23 Oct (Thu)
+- :ref:`Do-it-yourself exercises` 8–13, due 11:59 pm, 23 Oct (Thu)
 .. dummy comment
-- :ref:`Spectrophotometer` demo: due 4:00 pm, 8 May (Thu, in class)
+- :ref:`Spectrophotometer` demo: due 11:55 am, 6 Nov (Thu, in class)
 .. dummy comment
-- :ref:`Spectrophotometer` write-up: due 2:30 am, 13 May (Tues before class)
+- :ref:`Spectrophotometer` write-up: due 11:59 pm, 10 Nov (Mon)
 .. dummy comment
-- :ref:`Pulse oximetry` demo: due 4:00 pm, 29 May (Thu, in class)
+- :ref:`Pulse oximetry` demo: due 11:55 am, 4 Dec (Thu, in class)
 .. dummy comment
-- :ref:`Pulse oximetry` write-up: due 11:59 pm, 3 June (Tues)
+- :ref:`Pulse oximetry` write-up: due 11:59 pm, 10 Dec (Wed)
 
 ----
 
 
-Other Dates
+Weekly activities
 -----------------
 
-In each lab session, which are Tuesdays and Thursdays, 2:30-4:00pm, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
+In each lab session, which are Tuesdays and Thursdays, 10:30-12, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
 
-- **1 Apr (Tue)**: Welcome, safety, introduction to Arduino
-- **8-29 Apr**: Training on 3D printing with Techlab (on your own)
-- **12 Jun (Thu)**: Tear down and clean up
+- **29 Sept (Tue)**: Welcome, safety, introduction to Arduino
+- **7-28 Oct**: Training on 3D printing with Techlab (on your own)
+- **14 Oct (Tue)**: Lecture on CAD for 3D printing (optional)
+- **21 Oct (Tue)**: Lecture on EE basics (optional)
+- **28 Oct (Tue)**: Spectrophotometer project introduction
+- **6 Nov (Thu)**: Spectrophotometer demo day
+- **11 Nov (Tue)**: Pulse oximetry project introduction
+- **27 Nov (Thu)**: Thanksgiving Day: no class
+- **4 Dec (Thu)**: Pulse oximetry demo day
+- **11 Dec (Thu)**: Tear down and clean up

@@ -37,6 +37,7 @@ Components
 32. `Nellcor™ DS100A SpO₂ sensor probe <https://amazon.com/gp/product/B089CVPXGS/>`_
 33. `DE-9 female socket to terminal spring block adapter <https://www.adafruit.com/product/4510>`_
 34. Photodiode `VTP9812FH <https://www.digikey.com/en/products/detail/excelitas-technologies/VTP9812FH/5885875>`_, 580 nm, spectral range 400-700 nm
+35. BE189 shield.  
 
 
 .. 35. `Metrohm DropSens DRP-110-U75 screen-printed carbon electrode <https://www.dropsens.com/en/pdfs_productos/new_brochures/110-11l-c110-c11l.pdf>`_
