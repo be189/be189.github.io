@@ -3,11 +3,11 @@
 Schedule overview
 -----------------
 
-See the `course homepage <https://murray.cds.caltech.edu/BE/EE/MedE_189a,_Fall_2024>`_ for the detailed course schedule. 
+..  See the `course homepage <https://murray.cds.caltech.edu/BE/EE/MedE_189a,_Fall_2024>`_ for the detailed course schedule. 
 
 All meetings are in B127 Kerckhoff.
 
-- Lab: Tuesdays and Thursdays, 2:30–4 pm
+- Lab: Tuesdays and Thursdays, 10:30–11:55 am
 - TA office hours
   + Discuss on first day of class
 
