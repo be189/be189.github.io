@@ -49,7 +49,7 @@ The due dates below may change. They will not be moved to an earlier date, but m
 Weekly activities
 -----------------
 
-In each lab session, which are Tuesdays and Thursdays, 10:30-12, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
+In each lab session, which are Tuesdays and Thursdays, 10:30-11:55 am, you will be working on your exercises or projects. Dates with special activities are shown below with schedule changes possible and possibly more to be announced as the term progresses.
 
 - **29 Sept (Tue)**: Welcome, safety, introduction to Arduino
 - **7-28 Oct**: Training on 3D printing with Techlab (on your own)
