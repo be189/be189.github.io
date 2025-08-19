@@ -10,13 +10,12 @@ Why the shield?
 Block Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will introduce the concepts behind spectrophotometry as applied to measurement of transmitted light through microbial solutions, since this is a "classic" application of spectrophotometry in biology. In fact, the molecular revolution of biology which transformed the way we think about the living world was largely pushed forward by spectroscopic measurements of microbes.
+Block diagram of the shield..
 
-The block diagram of a typical spectrophotometer is shown below.
+.. image:: Shield_Features.png 
+    :width: 300
+    :alt: BE189 Shield  
 
-.. raw:: html
-    :file: spectrophotometer_schematic.svg
 
-*Image by Yassine Mrabet*, `CC-BY-4.0 License <https://creativecommons.org/licenses/by-sa/4.0/>`_.
 
 
