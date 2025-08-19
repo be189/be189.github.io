@@ -12,7 +12,7 @@ Block Diagram
 
 Block diagram of the shield..
 
-.. image:: Shield_Features.png 
+.. image:: /Users/damonsru/Documents/Scripts/BE189_site/be189/2025_fall/content/Shield_Features.png 
     :width: 300
     :alt: BE189 Shield  
 
