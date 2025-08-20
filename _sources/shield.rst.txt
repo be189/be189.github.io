@@ -3,14 +3,19 @@ Shield
 
 Background
 ^^^^^^^^^^
+Wiring hygiene can be challenge when working with a solderless breadboard and the numerous power supplies bricks, i2C devices, 
+and sensors used in the final prrojects.  To eliviate some of these challenges, BE189 alumni Ethan Labelson and your lowly instructor
+have designed a board (the BE189 Shield) that interface directly with your Uno R3.  The shield can be diffuclt to remove from the Uno R3
+once installed, ask you instructor or the TAs for assistance.
 
-Why the shield?
-
-
-Block Diagram
+Shield Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Block diagram of the shield..
+The shield is shown in the figure below.  It contains the following features:
+- +/-5 V DC outputs 
+- Pass thrus for all Uno R3 I/O 
+- A stemma connector adding i2C boards (DACs, ADCs, etc)
+- A DB 9 connector for interfacing to the Nellcor SpO₂ sensor.
+- An optional USB-C connector to use for DC power input.  
 
 .. image:: Shield_Features.png 
     :width: 300
