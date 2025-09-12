@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="350.94813pt" height="249.82804pt" viewBox="0 0 350.94813 249.82804">
+<g enable-background="new">
+<clipPath id="cp0">
+<path transform="matrix(1,0,0,-1,-690.0488,676.2822)" d="M 0 0 L 1920 0 L 1920 1080 L 0 1080 Z "/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(1,0,0,-1,-690.0488,676.2822)" d="M 0 0 L 1920 0 L 1920 1080 L 0 1080 Z " fill="#ffffff"/>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,-1,-690.0488,676.2822)" d="M 923.923 632.9977 C 925.8757 631.0451 925.8757 627.8793 923.923 625.9267 C 921.9704 623.974 918.8046 623.974 916.852 625.9267 C 914.8994 627.8793 914.8994 631.0451 916.852 632.9977 C 918.8046 634.9503 921.9704 634.9503 923.923 632.9977 Z M 923.923 632.9977 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,44.33008,48.820009)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 62.50431 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,161.83435,47.820009)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 64.5043 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(0,-1,1,0,230.33869,112.32434)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 62.50431 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(0,-1,1,0,231.3963,228.04694)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 62.50431 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,234.33869,47.820009)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 63.50431 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,216.13159,227.04703)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 30.41416 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,220.18915,234.96454)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 20.41418 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,226.18915,242.88214)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 0 L 10.41419 0 "/>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 3.8300782 56.128114)" font-size="24" font-family="ConcourseT3"><tspan y="0" x="0">V</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 -0 1 3.8300782 56.128114)" font-size="16" font-family="ConcourseT3"><tspan y="2.063965" x="14.64 18.32">in</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 312.3432 56.128114)" font-size="24" font-family="ConcourseT3"><tspan y="0" x="0">V</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 -0 1 312.3432 56.128114)" font-size="16" font-family="ConcourseT3"><tspan y="2.063965" x="14.64 22.48 30.16">out</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 124.39435 19.128113)" font-size="24" font-family="ConcourseT3"><tspan y="0" x="0">R</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 -0 1 124.39435 19.128113)" font-size="16" font-family="ConcourseT3"><tspan y="2.063965" x="13.68">1</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+</g>
+<g id="Layer-1" data-name="P">
+<text xml:space="preserve" transform="matrix(1 0 -0 1 258.7912 148.24164)" font-size="24" font-family="ConcourseT3"><tspan y="0" x="0">R</tspan></text>
+<text xml:space="preserve" transform="matrix(1 0 -0 1 258.7912 148.24164)" font-size="16" font-family="ConcourseT3"><tspan y="2.063965" x="13.68">2</tspan></text>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(1,0,0,1,107.02399,35.86133)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 13.8818 L 5.890625 .2307594 L 13.1291 24.88738 L 22.8791 0 L 32.39993 25.22396 L 41.64212 .6890927 L 48.28014 26.4375 L 54.89733 11.61719 "/>
+</g>
+<g id="Layer-1" data-name="P">
+<path transform="matrix(0,-1,1,0,218.0022,166.62451)" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#000000" d="M 0 13.8818 L 5.890625 .2307594 L 13.1291 24.88738 L 22.8791 0 L 32.39993 25.22396 L 41.64212 .6890927 L 48.28014 26.4375 L 54.89733 11.61719 "/>
+</g>
+</g>
+</g>
+</svg>

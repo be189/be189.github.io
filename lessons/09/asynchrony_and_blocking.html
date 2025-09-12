@@ -193,7 +193,7 @@ processing and sending the sensor data.</p>
 <section id="Follow-along-exercise-5:-Serial-output-without-delay">
 <h2>Follow-along exercise 5: Serial output without delay<a class="headerlink" href="#Follow-along-exercise-5:-Serial-output-without-delay" title="Link to this heading"></a></h2>
 <p>Consider the same setup you had for <a class="reference internal" href="../07/adc_and_usart.html"><span class="doc">the follow-along exercise on serial communication</span></a>, the schematic of which is shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" />
+<div style="margin: auto; width: 300px;"><p><img alt="potentiometer schematic" src="../../_images/05-serial_without_delay_schem.svg" /></p>
 </div><p>We wish to write voltage values via USB, but without using the blocking function <code class="docutils literal notranslate"><span class="pre">delay()</span></code>. To do this, we manually keep track of the amount of time that has passed sine the last reset. The <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function returns this time in milliseconds. The number returned by <code class="docutils literal notranslate"><span class="pre">millis()</span></code> is an <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span></code>, so it is important to declare any variable storing its output as such. Similarly, the function <code class="docutils literal notranslate"><span class="pre">micros()</span></code> returns the amount of time since the last reset in units of microseconds. Note,
 though, that because the Arduino Uno board operates at about 16 MHz, the resolution of <code class="docutils literal notranslate"><span class="pre">micros()</span></code> is four µs.</p>
 <p>So, we use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function to capture when we last sent data. We then use the <code class="docutils literal notranslate"><span class="pre">millis()</span></code> function again to get the current time. When the difference between the current time and the last time we sent data is at least as large as the time we want between sending data, we then go ahead and send the data. We also set the last time that data was sent to the current time, and then continue. This is implemented in the code below.</p>
@@ -265,11 +265,11 @@ of the scanner bar <a class="reference external" href="https://www.youtube.com/w
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 23, 2025.
+      <span class="lastupdated">Last updated on Sep 12, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x13017e6d0> 
+   <jinja2.runtime.BlockReference object at 0x111acfee0> 
 
 <p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

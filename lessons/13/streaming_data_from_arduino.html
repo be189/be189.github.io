@@ -11,7 +11,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
@@ -554,7 +554,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <p>In many applications, we want to push a button and then have Arduino respond by sending us some data. This is the case when you build your spectrophotometer. You will put in the cuvette, press a button, and then get the measurement. The timing of the measurement, certainly down to the millisecond, is not important. In that case, ask-and-receive, like we did in the last lesson, works fine.</p>
 <p>In other applications, though, we want a steady stream of data, and we want it at well-defined time intervals. In this case, the variation in time between samples that we saw in the ask-and-receive style of the last lesson can be problematic. If our time interval between samples is long, say hundreds of millseconds or more, then it is not really a problem, but even with 20 ms between samples, we already saw that we can be pretty far off.</p>
 <p>A better option is to have Arduino do all the timing and then automatically send data to your computer over serial communication. That is, data <strong>streams</strong> from the board and is constantly collected by the Python interpreter. In this lesson, we will learn how to collect streaming data from Arduino. We will use the same setup as the previous lesson, shown below.</p>
-<div style="margin: auto; width: 300px;"><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" />
+<div style="margin: auto; width: 300px;"><p><img alt="Arduino data transfer schematic" src="../../_images/arduino_data_transfer_schem.svg" /></p>
 </div><hr></section>
 <section id="Follow-along-exercise-10:-Streaming-data">
 <h2>Follow-along exercise 10: Streaming data<a class="headerlink" href="#Follow-along-exercise-10:-Streaming-data" title="Link to this heading"></a></h2>
@@ -980,11 +980,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 23, 2025.
+      <span class="lastupdated">Last updated on Sep 12, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x1307b4ad0> 
+   <jinja2.runtime.BlockReference object at 0x1407ed940> 
 
 <p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

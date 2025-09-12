@@ -1,18 +1,15 @@
-Shield
+BE 189 shield
 -----------------
 
 Background
 ^^^^^^^^^^
-Wiring hygiene can be challenge when working with a solderless breadboard and the numerous power supplies bricks, i2C devices, 
-and sensors used in the final prrojects.  To eliviate some of these challenges, BE189 alumni Ethan Labelson and your lowly instructor
-have designed a board (the BE189 Shield) that interface directly with your Uno R3.  The shield can be diffuclt to remove from the Uno R3
-once installed, ask you instructor or the TAs for assistance.
+Wiring hygiene can be challenge when working with a solderless breadboard and the numerous power supply bricks, i2C devices, and sensors used in the final projects. To alleviate some of these challenges, BE189 alumni Ethan Labelson and your lowly instructor have designed a board (the BE189 Shield) that interface directly with your Uno R3. The shield can be difficult to remove from the Uno R3 once installed, ask you instructor or the TAs for assistance.
 
 Shield Overview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The shield is shown in the figure below.  It contains the following features:
+The shield is shown in the figure below. It contains the following features:
 
-- +/-5 V DC outputs 
+- ±5 V DC outputs 
 
 - Pass thrus for all Uno R3 I/O 
 
@@ -22,10 +19,7 @@ The shield is shown in the figure below.  It contains the following features:
 
 - An optional USB-C connector to use for DC power input.  
 
-
-.. raw:: html
-    :file: spectrophotometer_schematic.svg 
-
-
-
+.. image:: Shield_Features.png
+   :width: 600px
+   :alt: Features of the BE/EE/MedE 189 shield
 

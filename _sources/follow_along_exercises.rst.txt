@@ -22,5 +22,6 @@ Follow-along exercises are embedded in lessons. For convenience here are links t
 - :ref:`Follow-along exercise 15: BJTs as switches`
 - :ref:`Follow-along exercise 16: Building a sample-and-hold circuit`
 - :ref:`Follow-along exercise 17: Sallen-Key filters`
+
 .. - Follow-along exercise 18: Demonstration of transimpedance amplification
 .. - Follow-along exercise 19: Building an instrumentation amplifier

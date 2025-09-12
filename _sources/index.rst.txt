@@ -114,6 +114,7 @@ People
 Previous editions of the course
 ------------------------------- 
 
+- `Spring 2025 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2025_spring/>`_
 - `Fall 2024 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2024_fall/>`_
 - `Spring 2024 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2024_spring/>`_
 - `Fall 2023 <http://be189.caltech.edu.s3-website-us-west-2.amazonaws.com/2023_fall/>`_

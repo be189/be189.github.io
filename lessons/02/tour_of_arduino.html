@@ -180,7 +180,7 @@
 <section id="Setting-up-your-Arduino-and-breadboard">
 <h2>Setting up your Arduino and breadboard<a class="headerlink" href="#Setting-up-your-Arduino-and-breadboard" title="Link to this heading"></a></h2>
 <p>Take out one of your long solderless breadboards; the long ones have 64 terminal strips (rows of holes). Also remove your Arduino Uno from the box. If it has a plastic holder included in the box, you can leave that in the box; you will not need it for this course. Finally, remove your RAB holder from its packaging. At the completion of this section, you should have something that looks like this:</p>
-<div style="width: 600px; margin: auto;"><img alt="Arduino and breadboard in holder" src="../../_images/arduino_and_breadboard.jpg" />
+<div style="width: 600px; margin: auto;"><p><img alt="Arduino and breadboard in holder" src="../../_images/arduino_and_breadboard.jpg" /></p>
 </div><ol class="arabic simple">
 <li><p>Peel the nonstick coating off of the back of the solderless breadboard.</p></li>
 <li><p>Stick the breadboard into its place in the holder. By convention, I like to have the positive (red) bus strip nearest to the Arduino Uno, but it does not matter.</p></li>
@@ -197,19 +197,19 @@ terminals on the strip are then connected to the voltage source. Similarly, if y
 connections. You will notice a gap (called a <strong>ravine</strong>) that separates rows <code class="docutils literal notranslate"><span class="pre">a</span></code> though <code class="docutils literal notranslate"><span class="pre">e</span></code> from rows <code class="docutils literal notranslate"><span class="pre">f</span></code> through <code class="docutils literal notranslate"><span class="pre">j</span></code>. (The ravine is just the right width so that an integrated circuit chip (IC) can fit perfectly over the ravine. You will learn more about this in a later lesson.) So, if we view letters as indexing columns and numbers as indexing rows, then the first five terminals in a row are connected, and the last five terminals in a row are connected. There are no other connections
 within the terminal strip.</p>
 <p>Note that some breadboards have a gap in the connections of the bus strips. An example is shown below.</p>
-<div style="width: 600px; margin: auto;"><img alt="Breadboard with gap in the bus strips" src="../../_images/breadboard_with_gaps.jpg" />
+<div style="width: 600px; margin: auto;"><p><img alt="Breadboard with gap in the bus strips" src="../../_images/breadboard_with_gaps.jpg" /></p>
 </div><p>The breadboards should now have a gap in the bus strip, but gapped bus strips are rather common, so you should always check.</p>
 <p>To better understand the connections in a solderless breadboard, we can look at the breadboard with the backing removed, shown at right below (image from a <a class="reference external" href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Sparkfun tutorial</a> by M-SHORT and JOEL_E_B, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0 licensed</a>).</p>
-<div style="width: 600px; margin: auto;"><img alt="peeled back breadboard" src="../../_images/solderless_breadboard_inside.jpg" />
+<div style="width: 600px; margin: auto;"><p><img alt="peeled back breadboard" src="../../_images/solderless_breadboard_inside.jpg" /></p>
 </div><p>The bus strips are labeled with red arrows. Now, let’s take a look at the strip of clips that make up the terminals. Pictured below is a single strip from connected terminals (image also from the same <a class="reference external" href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/anatomy-of-a-breadboard">Sparkfun tutorial</a> by M-SHORT and JOEL_E_B, <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0 licensed</a>). You can see from the springy pincher-like design that the breadboard is well suited for
 repeat insertion and removal of components.</p>
-<div style="width: 300px; margin: auto;"><img alt="strip from solderless breadboard with clips" src="../../_images/strip_clips.jpg" />
+<div style="width: 300px; margin: auto;"><p><img alt="strip from solderless breadboard with clips" src="../../_images/strip_clips.jpg" /></p>
 </div></section>
 <section id="A-tour-of-the-Arduino-Uno">
 <h2>A tour of the Arduino Uno<a class="headerlink" href="#A-tour-of-the-Arduino-Uno" title="Link to this heading"></a></h2>
 <p>We continue our tour of the essential pieces of our prototypes with the Arduino Uno. Throughout the course, we will probably refer to the board simply as “Arduino” for short, not to be confused with the <a class="reference external" href="https://www.arduino.cc/en/main/software">Arduino IDE</a>. The board you will use is an <a class="reference external" href="https://store.arduino.cc/usa/arduino-uno-rev3">Arduino Uno (Revision 3)</a>. A labeled schematic of the board is shown below, and you should refer to it as well as your physical Arduino Uno in the following
 discussion.</p>
-<div style="width: 600px; margin: auto;"><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" />
+<div style="width: 600px; margin: auto;"><p><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" /></p>
 </div><p>In looking at the schematic, you will notice that not all of the components on the Arduino appear. Nonetheless, all of the important ones that you need to know about to do your projects are shown. The built-in LEDs and pins are labeled on the Arduino Uno itself and on the schematic, and I will discuss those in a moment.</p>
 <section id="Components-of-the-Arduino-Uno">
 <h3>Components of the Arduino Uno<a class="headerlink" href="#Components-of-the-Arduino-Uno" title="Link to this heading"></a></h3>
@@ -269,7 +269,7 @@ equivalent to digital pin 13.</p>
 <section id="Pins-on-the-Arduino-Uno-(Rev3)">
 <h3>Pins on the Arduino Uno (Rev3)<a class="headerlink" href="#Pins-on-the-Arduino-Uno-(Rev3)" title="Link to this heading"></a></h3>
 <p>The pins on an Arduino Uno each have specific features, and I will describe them here. It is worth looking at <a class="reference external" href="https://content.arduino.cc/assets/Pinout-UNOrev3_latest.pdf">the detailed pinout diagram</a>, reproduced below, as well. Since the schematic is far up the page at this point, I reproduce it here for ease of reference while describing the pins on the Arduino Uno.</p>
-<div style="width: 600px; margin: auto;"><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" />
+<div style="width: 600px; margin: auto;"><p><img alt="Labeled Arduino" src="../../_images/labeled_arduino.svg" /></p>
 </div><p>Not counting the unconnected pin, Arduino has 31 pins, plus two sets of SPI communication. Some of the pins are redundant, going to exactly the same pin on the ATmega328 microcontroller. Some pins have multiple functions. Some pins may not be used at the same time for different purposes. All these may begin to look intimidating now, but don’t worry, we will start simple and work from there.</p>
 <p>Because I would like this lesson to serve as a useful reference, I will include descriptions of some pins that use terms that may still be unfamiliar. In particular, I will refer to some functions in the <a class="reference external" href="https://github.com/arduino/ArduinoCore-avr/blob/master/cores/arduino/Arduino.h">Arduino library</a>,</p>
 <section id="Power-pins">
@@ -329,7 +329,7 @@ function in your sketches. Digital pins marked with a tilde (<code class="docuti
 <h3>I2C communication<a class="headerlink" href="#I2C-communication" title="Link to this heading"></a></h3>
 <p>Inter-integrated circuit (I2C), sometimes referred to as “two-wire interface,” communication is accessible via the <strong>serial data line (SDA)</strong> and <strong>serial clock line (SCL)</strong> pins. To communicate data over I2C, the voltage on the SCL switches between high and low values in regular intervals timed by the clock. The SDA also switches at the same frequency. A voltage comparison is made on each cycle, and if the SDA voltage is low relative to that of the SCL, the bit is a zero, and is one otherwise,
 as shown in the sketch below.</p>
-<div style="width: 700px; margin: auto;"><img alt="I2C communication schematic" src="../../_images/I2C_communication_schematic.svg" />
+<div style="width: 700px; margin: auto;"><p><img alt="I2C communication schematic" src="../../_images/I2C_communication_schematic.svg" /></p>
 </div><p>Many external devices use I2C for their communication, including the <a class="reference external" href="https://www.adafruit.com/product/935">MCP4725 DAC</a> we will use on a breakout board.</p>
 <p>On the Arduino Uno, the <strong>SDA</strong> and <strong>SCL</strong> pins are used for I2C communication. The maximum speed of I2C communication is about 400 kbaud, though by default the speed is 100 kbaud. The SDA and SLC pins are functionally equivalent to the A4 and A5 pins, respectively.</p>
 </section>
@@ -345,7 +345,7 @@ as shown in the sketch below.</p>
 <section id="Arduino-pinout">
 <h3>Arduino pinout<a class="headerlink" href="#Arduino-pinout" title="Link to this heading"></a></h3>
 <p>The Arduino pinout is shown below. If your broswer does not support embedded PDFs, you will not see it below, but you can see the document <a class="reference external" href="https://content.arduino.cc/assets/Pinout-UNOrev3_latest.pdf">here</a>. It is copyright Arduino, licensed under a CC-BY-4.0 license.</p>
-<div style="width: 800px; margin: auto;"><img alt="Arduino Uno pinout" src="../../_images/arduino_pinout.pdf" />
+<div style="width: 800px; margin: auto;"><p><img alt="Arduino Uno pinout" src="../../_images/arduino_pinout.pdf" /></p>
 </div></section>
 </section>
 </section>
@@ -362,11 +362,11 @@ as shown in the sketch below.</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 23, 2025.
+      <span class="lastupdated">Last updated on Sep 12, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x115929400> 
+   <jinja2.runtime.BlockReference object at 0x120fb8fa0> 
 
 <p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 

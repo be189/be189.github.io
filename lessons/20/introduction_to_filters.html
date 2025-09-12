@@ -201,7 +201,7 @@ angular frequency.</p>
 <section id="A-generalized-voltage-divider">
 <h2>A generalized voltage divider<a class="headerlink" href="#A-generalized-voltage-divider" title="Link to this heading"></a></h2>
 <p>In the previous lesson, we learned about voltage dividers. Consider the same circuit as a voltage divider, but instead of resistance R₁ and R₂, we have generic impedances Z₁ and Z₂.</p>
-<div style="width: 300px; margin: auto;"><img alt="generic voltage divider" src="../../_images/generic_voltage_divider.svg" />
+<div style="width: 300px; margin: auto;"><p><img alt="generic voltage divider" src="../../_images/generic_voltage_divider.svg" /></p>
 </div><p>The expression for the voltage divider generalizes,</p>
 <p><span class="math">\begin{align}
 \frac{V_\mathrm{out}}{V_\mathrm{in}} = \frac{Z_2}{Z_1 + Z_2}.
@@ -229,7 +229,7 @@ resistor is a <strong>high-pass filter</strong>. High frequency changes in volta
 <h2>Do-it-yourself exercise 8: DAC with PWM<a class="headerlink" href="#Do-it-yourself-exercise-8:-DAC-with-PWM" title="Link to this heading"></a></h2>
 <p>In previous lessons, we have used the MCP4725 breakout board to perform digital-to-analog conversion. This enables us to have an analog voltage available. Now, you will try to get an analog voltage by filtering a pulse-width-modulated signal. You will compare these signals to a signal you get from the MCP4725.</p>
 <p>Wire up this circuit:</p>
-<div style="width: 600px; margin: auto;"><img alt="analog signal from PWM circuit" src="../../_images/analog_from_pwm_schem.svg" />
+<div style="width: 600px; margin: auto;"><p><img alt="analog signal from PWM circuit" src="../../_images/analog_from_pwm_schem.svg" /></p>
 </div><p>Write an Arduino sketch that does the following.</p>
 <ul class="simple">
 <li><p>Uses I2C to send a sinusoidal voltage with amplitude 5 V and frequency of 1 Hz to the MCP4725 DAC. The converted voltage is read in on pin A0.</p></li>
@@ -264,11 +264,11 @@ V_\mathrm{out} = \frac{-j/\omega C}{R - j/\omega C}\, V_\mathrm{in} = -\frac{1}{
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 23, 2025.
+      <span class="lastupdated">Last updated on Sep 12, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x304a09e10> 
+   <jinja2.runtime.BlockReference object at 0x140896040> 
 
 <p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
