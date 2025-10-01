@@ -11,17 +11,19 @@
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=b25f5b7c" />
-      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
       <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../../_static/copybutton.js?v=f281be69"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -509,7 +511,7 @@ var element = document.currentScript.previousSibling.previousSibling;
 <hr><p>In this lesson, you will learn how to use Python’s built-in asynchronous capabilities to constantly receive data from Arduino without blocking so that you can use the Python interpreter to do other tasks.</p>
 <section id="Setup">
 <h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
-<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference internal" href="#Why-do-we-need-asynchrony?"><span class="std std-ref">click here</span></a>.</p>
+<p>The setup for this lesson is the same as the previous one. If you want to skip to the section after the setup, execute the code cell below that contains the utility functions and then <a class="reference external" href="#Why-do-we-need-asynchrony?">click here</a>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -888,7 +890,7 @@ will happen after one second.</p>
 </pre></div></div>
 </div>
 <p>We get back a coroutine. To run it, we need a running <a class="reference external" href="https://en.wikipedia.org/wiki/Event_loop">event loop</a>. An event loop enables asynchronous computing by listening for requests to do something, and then dispatching resources to do the requested calculation. Each thread (which you can think of for our purposes as one core of your CPU) can have either zero or one event loops. If you are running a Jupyter notebook, there is an active event loop; that is how JupyterLab runs, waiting for you
-to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference internal" href="#Running-without-an-existing-event-loop"><span class="std std-ref">later in this lesson</span></a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
+to execute a cell. If you are not in a Jupyter notebook, you probably do not have an event loop running, so you need to start one. We will discuss how to start and run an event loop outside of JupyterLab <a class="reference external" href="#Running-without-an-existing-event-loop">later in this lesson</a>. For now, we will assume you have a running event loop, as you do in a Jupyter notebook.</p>
 <p>To run the coroutine, you can create a task using <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code>. Note that “calling” a coroutine like a function returns a coroutine, so the argument you pass into <code class="docutils literal notranslate"><span class="pre">asyncio.create_task()</span></code> is how you would call the coroutine, including all arguments and keyword arguments. Upon creation, the coroutine is run.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -1344,11 +1346,11 @@ jupyterlab 2.2.6
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Sep 12, 2025.
+      <span class="lastupdated">Last updated on Oct 01, 2025.
       </span></p>
   </div>
 
-   <jinja2.runtime.BlockReference object at 0x116ed4440> 
+   <jinja2.runtime.BlockReference object at 0x7695e9e0f0e0> 
 
 <p>© 2020–2025 Justin Bois. With the exception of pasted graphics, where the source is noted, this work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution License CC-BY 4.0</a>. All code contained herein is licensed under an <a rel="license" href="https://opensource.org/licenses/MIT">MIT license</a>.</p>
 
