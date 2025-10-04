@@ -28,6 +28,7 @@ People
 
    + Zhenyu Dong
    + Tianyi Zhu
+   + Ruth Berkun
 
 
 
