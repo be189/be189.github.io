@@ -1,0 +1,118 @@
+Introduction to CAD & 3D Printing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Computer Aided Design (CAD)
+...........................
+
+Many professionals use CAD in a wide variety of industries, from
+product design/engineering to architecture. Many tools and softwares
+exist to help us CAD, most of which cost money to use. Here are a few
+free tools by Autodesk you can use to start designing your own CAD
+models. Autodesk offers `educational
+licenses <https://www.autodesk.com/education/students>`_ to students,
+and that allows you to use most of their products for free as long as
+you are in school.
+
+* `TinkerCAD (browser only) <https://www.tinkercad.com/dashboard>`_
+* `Autodesk Fusion (Click 'Fusion' from this page, choose either
+  browser or download)
+  <https://www.autodesk.com/education/gateway?sorting=featured&filters=individual>`_
+* `AutoCAD (Separate download links for Windows, Mac, and browser on
+  the page)
+  <https://www.autodesk.com/education/gateway?sorting=featured&filters=individual>`_
+* Additionally, `Solidworks <http://www.solidworks.com/>`_, which
+  you've probably heard of, is available through the Caltech Software
+  Store
+
+Out of the three tools, TinkerCAD is the easiest and fastest way to
+get started with CAD, as the design features are not as comprehensive
+as the other two and there are many pre-made models in TinkerCAD that
+you can use for your own designs. There are many free YouTube
+tutorials for all tools. For TinkerCAD, `this short video
+<https://youtu.be/ZvDkf1CEpMY?si=GHH23F2LZCZl2PKb>`_ covers all of the
+features you need to know and will be sufficient for making custom
+parts for the class. But if you start feeling like TinkerCAD is too
+restrictive, it may be time for you to move to Fusion or AutoCAD!
+
+Printing your model
+...................
+
+Once you have a 3D model you're satisfied with, the next step is to
+export the model so you can 3D-print it. For `FDM printers
+<https://en.wikipedia.org/wiki/Fused_filament_fabrication>`_, the
+model needs to be sliced into very thin horizontal slices so that the
+printer can print each layer at a time, from bottom up. There are
+tools called "slicers" that will read a 3D model, slice it into
+layers, and translate that into a language called "g-code" that
+printers can read.
+
+First, you'll want to export your 3D model into either an .stl or .obj
+file. You'll need to know in advance what printer you will work
+with. At TechLab (first floor of Caltech Hall), they have CraftUnique
+Craftbot Plus printers.
+
+Next, we bring the .stl or .obj file into a slicer software like these:
+
+* `Ultimaker Cura <https://ultimaker.com/en/products/cura-software>`_
+* `Slic3r <http://slic3r.org/>`_
+* `Simplify3D <https://www.simplify3d.com/>`_ which is paid but is
+  available for use at TechLab
+
+When you use a slicer, you will need to state what printer you will
+use. You may be able to find presets for the printer, or set up a
+custom profile for the printer. For Ultimaker Cura, watch `this video
+<https://www.youtube.com/watch?v=wDdiCBENvNk>`_ to set up a custom
+profile for the TechLab CraftBot printers.
+
+Almost all FDM printers will have these parameters, which will most
+likely be included in the printer profile:
+
+* Bed temperature: the printer bed is usually heated (so don't touch
+  it with your hands, obviously) to make sure your print doesn't move
+  around as the printer nozzle moves over it to deposit more
+  material. If your bed temperature is too low, the print won't adhere
+  to the bed very easily and you can end up with a
+  spaghetti-monster-looking blob instead of your print, or get bad
+  warping on your prints. If your bed temperature is too high, then
+  you can end up with an elephant's foot, which refers to when your
+  lower print layers spread outwards.
+* Nozzle/Extruder temperature: the nozzle (a.k.a extruder) is made of
+  metal that can heat up to temperatures that can melt the print
+  material. Needless to say, nozzle temperature depends on the
+  material you're printing with. For PLA, it's 180-220 celsius, and
+  for ABS, it's 240-290 celsius. You can adjust the nozzle temperature
+  within a narrow range around the optimal temperature for a material,
+  as higher temperatures usually give a glossy finish and lower
+  temperatures a more matte finish to your prints. Printing outside
+  the optimal temperature range can lead to print quality issues.
+* Nozzle size: the most standard size for nozzles is 0.4 mm. Smaller
+  nozzles are better for fine details, while larger nozzles can
+  deposit more material at once, which makes printing faster. Some
+  materials, like carbon or metals, will need larger nozzles than
+  plastics like PLA and ABS.
+
+Load your model into the slicer. You can rotate or translate the model
+to wherever on the print bed. You can even print multiple models at
+the same time. There are a few parameters you can tweak on the
+slicer. Some of them are:
+
+* Dimensions of the model: will your model fit on the printer bed?
+* Supports: for any part of your model that is floating (not attached
+  to the printer bed) there will need to be supports from the printer
+  bed to that part of your model (essentially extra plastic that will
+  hold up your model). Supports add material and time to your print,
+  so make sure you design your model with minimal floating structures,
+  and orient your model such that most of your model is laying on the
+  print bed to minimize the need for supports.
+* Infill: how solid do you want your prints to be? A good place to
+  start is 20%, meaning that inside the walls of your model, the
+  object will be 20% full with material.
+
+Save the .gcode output to a USB drive, and you're ready to print!
+
+Additionally, `here
+<https://docs.google.com/presentation/d/1YtghUtWGrDnGXsgqEz7MHP5CNR6LIolNv6KVBIprHwI/edit?usp=sharing>`_
+are slides I put together a couple of years ago for 3D
+printing. Please feel free to take a look!
+
+(contributed by Anne Kil, October 2024)
